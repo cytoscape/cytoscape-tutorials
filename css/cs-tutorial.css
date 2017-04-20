@@ -95,7 +95,8 @@ body {
 .reveal ul {
   display: inline-block;
   text-align: left;
-  margin: 0 0 0 1em; }
+  margin: 0 0 0 1em;
+  }
 
 .reveal ol {
   list-style-type: decimal; }
@@ -211,6 +212,11 @@ body {
   line-height: 1.2em;
   vertical-align: top; }
 
+/** Added by KH*/
+.reveal highlight {
+  color: coral;
+  font-weight: 500;
+}
 .reveal small * {
   vertical-align: top; }
 
@@ -239,7 +245,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #222;
+  border: 1px solid #838383; /*Changed from 4px to 1px, from black to grey by KH*/
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal section img.plain {

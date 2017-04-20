@@ -28,7 +28,7 @@
 				<section>
                     
                 <h2>Basic Expression Analysis Tutorial</h2>
-                    <p>Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.</p>
+                    <p><highlight>Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.</highlight></p>
 
                         
                     <p>This tutorial presents a scenario of how expression and network data can be combined to tell a biological story and includes these concepts:</p>
@@ -41,51 +41,54 @@
                 
                 </section>
                                     
-                <section data-markdown>
-                ## Loading Network
-                - Start Cytoscape and load the network galFiltered.sif via **File → Import → Network->File....**
-                - By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes. The default layout may be changed in under **Layout → Settings**.
-                - Cytoscape should now look similar to this:
-                    
-                ![1400px-GalFilteredLoaded3.png](../../assets/images/1400px-GalFilteredLoaded3.png)         
-
+                <section>
+                <h3>Loading Network</h3>
+                <ul>
+                <li>Start Cytoscape and load the network galFiltered.sif via <b>File → Import → Network → File....</b></li>
+                <li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes. The default layout may be changed in under <b>Layout → Settings</b>.</li>
+                <li>Cytoscape should now look similar to this:</li>
+                </ul>   
+                        
+                <img plain src="../../assets/images/1200px-GalFilteredLoaded3.png">
                 </section>
                 
                     
                 <section>
                 <h2>Loading Expression Data</h2>
-                <p><smaller>The data you are working with is from yeast, and the genes Gal1, Gal4, and Gal80 are all yeast transcription factors. Your expression experiments all involve some perturbation of these transcription factor genes. 
+                <p>The data you are working with is from yeast, and the genes Gal1, Gal4, and Gal80 are all yeast transcription factors. Your expression experiments all involve some perturbation of these transcription factor genes. 
                     
-                <br><br>Gal1, Gal4, and Gal80 are also represented in your interaction network, where they are labeled according to yeast locus tags: Gal1 corresponds to YBR020W, Gal4 to YPL248C, and Gal80 to YML051W.</smaller></p>
+                <br><br>Gal1, Gal4, and Gal80 are also represented in your interaction network, where they are labeled according to yeast locus tags: Gal1 corresponds to YBR020W, Gal4 to YPL248C, and Gal80 to YML051W.</p>
                     
                 </section>
                 
                 <section>
-                <p>Using a text editor, open the file galExpData.csv to view the first few lines:</p> 
+                <smaller>
+                <ul>
+                <li>Using a text editor, open the file galExpData.csv to view the first few lines:</li> 
                 
                 <pre>GENE,COMMON,gal1RGexp,gal4RGexp,gal80Rexp,gal1RGsig,gal4RGsig,gal80Rsig
 YHR051W,COX6,-0.034,0.111,-0.304,3.75720e-01,1.56240e-02,7.91340e-06
 YHR124W,NDT80,-0.090,0.007,-0.348,2.71460e-01,9.64330e-01,3.44760e-01
 YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
                     
-                <p>Note the following information about the file:</p>
-                <smaller>
-                <ol>
-                <li>The first line consists of labels.</li>
-                <li>All columns are separated by a single comma character.</li>
-                <li>The first column contains node names, and must match the names of the nodes in your network exactly!</li>
-                <li>The second column contains common locus names. This column is optional, and the data is not currently used by Cytoscape, but including this column makes the format consistent with the output of many microarray analysis packages, and makes the file easier to read.</li>
-                <li>The remaining columns contain experimental data, two columns per experiment (one column represents the expression measurement and the second represents the significance value for that measurement), and one line per node. In this case, there are three expression results per node. </li>   
-                </ol>
-                    </smaller>
+                Note the following information about the file:<br><br>
+                    <ul>
+                    <li>The first line consists of column labels.</li>
+                    <li>All columns are separated by a single comma character.</li>
+                    <li>The first column contains node names, and <b>must match the names of the nodes in your network exactly</b>!</li>
+                    <li>The second column contains common locus names. This column is optional, and the data is not currently used by Cytoscape, but including this column makes the format consistent with the output of many microarray analysis packages, and makes the file easier to read.</li>
+                    <li>The remaining columns contain experimental data, two columns per experiment (one column for the expression measurement and the second for the significance value for that measurement), and one line per node. In this case, there are three expression results per node.</li>   
+                    </ul>
+                </ul>
+                </smaller>
 
                 </section>
                 
                 <section data-markdown>
-                    - Under the **File** menu, select **Import → Table → File....**
+                    - In the **File** menu, select **Import → Table → File....**
                     - Select the file galExpData.csv.
-                    - The default settings are usually correct, although you may need to change the Key column to indicate which column will be used to match with the network key column.
-                    - Click the **OK** button to import the data.
+                    - The default settings are usually correct, although you may need to change the "Key" column to indicate which column will be used to match with the network key column.
+                    - Click **OK** to import the data.
                 
                     ![600px-LoadGalExp3.png](../../assets/images/600px-LoadGalExp3.png)
                 </section>
@@ -100,9 +103,9 @@ YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
                     ![600px-Galbrowse3.png](../../assets/images/600px-Galbrowse3.png)
                 </section>
                 
-                <section data-markdown>
-                    ## Visualizing Expression Data
-                    Probably the most common use of expression data in Cytoscape is to set the visual attributes of the nodes in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will walk through the steps for doing this.
+                <section>
+                    <h3>Visualizing Expression Data</h3>
+                    <p>Probably the most common use of expression data in Cytoscape is to set the visual attributes of the nodes in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will walk through the steps for doing this.</p>
                 </section>
                 
                 <section data-markdown>
@@ -119,7 +122,7 @@ YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
                 <section data-markdown>
                     ### Color the nodes
                     Define the node color of this visual style:
-
+                    
                     - Click on the middle square (**Map.**) next to the **Fill Color** row in the **Styles** panel.
                     - Click the **-- select value --** cell in the **Column** section.
                     - This will produce a drop-down menu of available column names. Select "gal80Rexp".
@@ -128,6 +131,7 @@ YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
                     - This action will produce a basic black to white color gradient.
                     - Click on the color gradient to change the colors. This will pop-up a gradient editing dialog.
                     - We're going to build a basic blue-white-yellow gradient for our expression values.
+                        
                 </section>
                 
                 <section data-markdown>
