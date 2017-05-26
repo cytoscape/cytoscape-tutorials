@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="../../css/reveal.css">
 		<!--<link rel="stylesheet" href="../../css/theme/white.css"> -->
-        <link rel="stylesheet" href="../../css/cs-tutorial.css">
+        <link rel="stylesheet" href="../../css/theme/cytoscape-tutorial.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="../../lib/css/zenburn.css">
@@ -48,8 +48,7 @@
                 <li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes. The default layout may be changed in under <b>Layout → Settings</b>.</li>
                 <li>Cytoscape should now look similar to this:</li>
                 </ul>   
-                        
-                <img plain src="../../assets/images/1200px-GalFilteredLoaded3.png">
+                <img plain src="../../assets/images/1200px-GalFilteredLoaded3.png" style="width:60%">
                 </section>
                 
                     
@@ -62,7 +61,6 @@
                 </section>
                 
                 <section>
-                <smaller>
                 <ul>
                 <li>Using a text editor, open the file galExpData.csv to view the first few lines:</li> 
                 
@@ -80,7 +78,6 @@ YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
                     <li>The remaining columns contain experimental data, two columns per experiment (one column for the expression measurement and the second for the significance value for that measurement), and one line per node. In this case, there are three expression results per node.</li>   
                     </ul>
                 </ul>
-                </smaller>
 
                 </section>
                 
@@ -93,15 +90,13 @@ YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
                     ![600px-LoadGalExp3.png](../../assets/images/600px-LoadGalExp3.png)
                 </section>
                 
-                <section data-markdown>
-                    Now we will use the **Node Table** to browse through the expression data, as follows:
-
-                    - Select a node on the Cytoscape canvas by clicking on it.
-                    - In the **Node Table**, You can limit the columns shown by going to the **Show Columns** button ![Title](../../assets/images/Select3.png), and select the attributes gal1RGexp, gal4RGexp, and gal80Rexp by clicking on the checkbox.
-                    - Under the **Node Table**, you should see your node listed with their expression values, as shown.
-
-                    ![600px-Galbrowse3.png](../../assets/images/600px-Galbrowse3.png)
-                </section>
+		<section data-markdown>
+		Now we will use the **Node Table** to browse through the expression data, as follows:
+		- Select a node on the Cytoscape canvas by clicking on it.
+		- In the **Node Table**, You can limit the columns shown by going to the **Show Columns** button, and select the attributes gal1RGexp, gal4RGexp, and gal80Rexp by clicking on the checkbox.
+		- Under the **Node Table**, you should see your node listed with their expression values, as shown.
+		![600px-Galbrowse3.png](../../assets/images/600px-Galbrowse3.png)<!-- .element style="height: 150px;" -->
+		</section>
                 
                 <section>
                     <h3>Visualizing Expression Data</h3>
