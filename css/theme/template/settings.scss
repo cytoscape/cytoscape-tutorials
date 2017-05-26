@@ -28,9 +28,15 @@ $heading2Size: 2.11em;
 $heading3Size: 1.55em;
 $heading4Size: 1.00em;
 
+// Other
+$pTextAlign: center;
+
 // Links and actions
 $linkColor: #13DAEC;
 $linkColorHover: lighten( $linkColor, 20% );
+
+// Images
+$imgBorder: 4px;
 
 // Text selection
 $selectionBackgroundColor: #FF5E99;
