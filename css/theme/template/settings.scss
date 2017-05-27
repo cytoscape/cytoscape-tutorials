@@ -21,7 +21,17 @@ $headingLetterSpacing: normal;
 $headingTextTransform: uppercase;
 $headingTextShadow: none;
 $headingFontWeight: normal;
+
+$heading1Margin: $headingMargin; 
+$heading1Font: $headingFont; 
+$heading1Color: $headingColor;
+$heading1LineHeight: $headingLineHeight;
+$heading1LetterSpacing: $headingLetterSpacing;
+$heading1TextTransform: $headingTextTransform;
 $heading1TextShadow: $headingTextShadow;
+$heading1FontWeight: $headingFontWeight;
+$heading1Padding: 0;
+$heading1BackgroundColor: $backgroundColor;
 
 $heading1Size: 3.77em;
 $heading2Size: 2.11em;

@@ -10,6 +10,17 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: #f2824a;
   font-weight: 500; }
 
+.footer {
+  position: absolute;
+  left: 2em;
+  bottom: 1em; }
+
+.footer version {
+  vertical-align: 0.95em;
+  font-size: 19px;
+  color: #888;
+  margin-left: 0.1em; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -41,7 +52,6 @@ body {
 /*********************************************
  * HEADERS
  *********************************************/
-.reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4,
@@ -61,16 +71,26 @@ body {
   font-size: 2.5em; }
 
 .reveal h2 {
-  font-size: 1.6em; }
+  font-size: 2.2em; }
 
 .reveal h3 {
-  font-size: 1.3em; }
+  font-size: 1.9em; }
 
 .reveal h4 {
-  font-size: 1em; }
+  font-size: 1.6em; }
 
 .reveal h1 {
-  text-shadow: none; }
+  margin: 0 0 20px 0;
+  padding: 15px 0 5px 0;
+  color: #fff;
+  background-color: #555;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #000;
+  word-wrap: break-word; }
 
 /*********************************************
  * OTHER

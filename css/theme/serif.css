@@ -38,7 +38,6 @@ body {
 /*********************************************
  * HEADERS
  *********************************************/
-.reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4,
@@ -67,7 +66,17 @@ body {
   font-size: 1em; }
 
 .reveal h1 {
-  text-shadow: none; }
+  margin: 0 0 20px 0;
+  padding: 0;
+  color: #eee;
+  background-color: #2b2b2b;
+  font-family: "League Gothic", Impact, sans-serif;
+  font-weight: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: none;
+  word-wrap: break-word; }
 
 /*********************************************
  * OTHER
