@@ -29,7 +29,7 @@
 			</div>
 			<div class="slides">
 
-				<section>
+				<section id="name" class="finding-networks">
 				<h1>Finding Networks</h1>
 				<p><highlight>Optional highlighted intro</highlight></p>
 
@@ -202,6 +202,15 @@
 		<script src="../../js/reveal.js"></script>
 
 		<script>
+			// Add sections to any document that imports me
+			var me = document.currentScript.ownerDocument;
+			var myname = me.getElementById('name').getAttribute("class");
+			var sections = me.querySelectorAll('section');
+                        for (var i=0; i<contents.length; i++){
+                        	document.getElementById(myname).appendChild(document.importNode(sections[i], true));
+                        }
+
+
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
