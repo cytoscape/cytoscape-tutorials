@@ -66,20 +66,23 @@
 			</div>
 		</div>
 
+                <script>
+                        // Insert sections from imported modules
+                        var links = document.querySelectorAll('link[rel=import]');
+                        for (var j=0; j<links.length; j++){
+                                var elemid = links[j].getAttribute("id");
+                                //TODO: grab version from each import and update footer
+                                var contents = links[j].import.querySelectorAll('section');
+                                for (var i=0; i<contents.length; i++){
+                                        document.getElementById(elemid).appendChild(document.importNode(contents[i], true));
+                                }
+                        }
+		</script>
+
 		<script src="../../lib/js/head.min.js"></script>
 		<script src="../../js/reveal.js"></script>
 
 		<script>
-			// Insert sections from imported modules
-			var links = document.querySelectorAll('link[rel=import]');
-			for (var j=0; j<links.length; j++){
-				var elemid = links[j].getAttribute("id");
-				//TODO: grab version from each import and update footer
-				var contents = links[j].import.querySelectorAll('section');
-				for (var i=0; i<contents.length; i++){
-					document.getElementById(elemid).appendChild(document.importNode(contents[i], true));
-				}
-			}
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
