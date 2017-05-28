@@ -29,7 +29,7 @@
 		<div class="reveal">
 			<div class="footer">
 				<img plain src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-				<version>9</version>
+				<version>10</version>
 				<!-- Version numbers are also provided for each imported module -->
 			</div>
 			<div class="slides"> 
@@ -75,7 +75,7 @@
                                         var elemid = links[j].getAttribute("id");
                                         var contents = links[j].import.querySelectorAll('section');
                                         for (var i=0; i<contents.length; i++){
-                                                document.querySelector('section[id='+modid+']').appendChild(document.importNode(contents[i], true));
+                                                document.querySelector('section[id='+elemid+']').appendChild(document.importNode(contents[i], true));
                                         }
                                 }			
 
