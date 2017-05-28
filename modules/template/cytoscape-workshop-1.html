@@ -29,8 +29,8 @@
 		<div class="reveal">
 			<div class="footer">
 				<img plain src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-				<version></version>
-				<!-- Version numbers are contained in each module -->
+				<version>3.5.1</version>
+				<!-- Version numbers are also provided for each imported module -->
 			</div>
 			<div class="slides"> 
 				<section>
@@ -74,6 +74,7 @@
 			var links = document.querySelectorAll('link[rel=import]');
 			for (var j=0; j<links.length; j++){
 				var elemid = links[j].getAttribute("id");
+				//TODO: grab version from each import and update footer
 				var contents = links[j].import.querySelectorAll('section');
 				for (var i=0; i<contents.length; i++){
 					document.getElementById(elemid).appendChild(document.importNode(contents[i], true));
