@@ -179,7 +179,7 @@ body {
 	margin: $blockMargin auto;
 
 	text-align: left;
-	font-size: 0.55em;
+	font-size: $mainFontSize;
 	font-family: monospace;
 	line-height: 1.2em;
 
@@ -203,16 +203,26 @@ body {
 	margin: auto;
 	border-collapse: collapse;
 	border-spacing: 0;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2)
+}
+
+.reveal table tr {
+	background: #fff;
+}
+.reveal table tr:nth-of-type(even) {
+    	background: #e9e9e9;
 }
 
 .reveal table th {
 	font-weight: bold;
+	background: $tableHeaderBackgroundColor;
+	color: $tableHeaderTextColor;
 }
 
 .reveal table th,
 .reveal table td {
 	text-align: left;
-	padding: 0.2em 0.5em 0.2em 0.5em;
+	padding: 0.4em 1.0em;
 	border-bottom: 1px solid;
 }
 
@@ -280,7 +290,6 @@ body {
  *********************************************/
 
 .reveal section img {
-	margin: 15px 0px;
 	background: rgba(255,255,255,0.12);
 	border: $imgBorder solid $mainColor;
 

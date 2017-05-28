@@ -39,7 +39,7 @@ $headingColor: #222;
 $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingTextShadow: none;
 $headingLetterSpacing: normal;
-$headingTextTransform: uppercase;
+$headingTextTransform: none;
 $headingFontWeight: 600;
 
 $heading1Size: 2.5em;
@@ -50,6 +50,10 @@ $heading4Size: 1.6em;
 // others
 $pTextAlign: left;
 $imgBorder: 1px;
+
+// tables
+$tableHeaderTextColor: #fff;
+$tableHeaderBackgroundColor: #2980b9;
 
 // Additional CSS
 section.has-dark-background {
@@ -74,6 +78,11 @@ section.has-dark-background {
   font-size: 19px;
   color: #888;
   margin-left: 0.1em;
+}
+
+.column {
+  width:45%;
+  float:left;
 }
 
 // Theme template ------------------------------
