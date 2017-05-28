@@ -206,7 +206,7 @@
 			var me = document.currentScript.ownerDocument;
 			var myname = me.getElementById('name').getAttribute("class");
 			var sections = me.querySelectorAll('section');
-                        for (var i=0; i<contents.length; i++){
+                        for (var i=0; i<sections.length; i++){
                         	document.getElementById(myname).appendChild(document.importNode(sections[i], true));
                         }
 
