@@ -28,7 +28,7 @@
 		<div class="reveal">
 			<div class="footer">
 				<img plain src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-				<version>15</version>
+				<version>16</version>
 				<!-- Version numbers are also provided for each imported module -->
 			</div>
 			<div class="slides"> 
@@ -69,24 +69,24 @@
 		<script src="../../js/reveal.js"></script>
 
 		<script>
-//			var imports = document.querySelectorAll('section');
-//			for (var j=0; j<imports.length; j++){
-//				var impid = imports[j].getAttribute('id');
-//				if (impid) {
-//					var link = document.querySelector('link[id='+impid+']');
-//					var contents = link.import.querySelectorAll('section');
-//					for (var i=0; i<contents.length; i++){
-//						document.querySelector('section[id='+impid+']').appendChild(document.importNode(contents[i], true));
-//					}
-//				}
-//			}			
+			var imports = document.querySelectorAll('section');
+			for (var j=0; j<imports.length; j++){
+				var impid = imports[j].getAttribute('id');
+				if (impid) {
+					var link = document.querySelector('link[id='+impid+']');
+					var contents = link.import.querySelectorAll('section');
+					for (var i=0; i<contents.length; i++){
+						document.querySelector('section[id='+impid+']').appendChild(document.importNode(contents[i], true));
+					}
+				}
+			}			
 
-						var modid = "finding-networks";
-						var link = document.querySelector('link[id='+modid+']');
-						var contents = link.import.querySelectorAll('section');
-						for (var i=0; i<contents.length; i++){
-							document.querySelector('section[id='+modid+']').appendChild(document.importNode(contents[i], true));
-						}
+//						var modid = "finding-networks";
+//						var link = document.querySelector('link[id='+modid+']');
+//						var contents = link.import.querySelectorAll('section');
+//						for (var i=0; i<contents.length; i++){
+//							document.querySelector('section[id='+modid+']').appendChild(document.importNode(contents[i], true));
+//						}
 		</script>
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
