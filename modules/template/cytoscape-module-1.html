@@ -24,7 +24,7 @@
 	<body>
 		<div class="reveal">
 			<div class="footer">
-				<img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+				<img src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
 				<version>3.5.1</version>
 			</div>
 			<div class="slides">
@@ -59,8 +59,18 @@
 				</section>
 
 				<section>
-				<h3>Basic Image</h3>
-				<img style="width:65%;" src="../../assets/images/1200px-GalFilteredLoaded3.png">
+				<h3>Basic Image Options</h3>
+				box-shadow (default), plain, custom border and hyperlink
+				<img style="width:30%;" src="../../assets/images/1200px-GalFilteredLoaded3.png">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<img class="plain" style="width:30%;" src="../../assets/images/1200px-GalFilteredLoaded3.png">
+				<br /><br />
+				<img class="plain" style="width:30%;border:red solid 2px;" src="../../assets/images/1200px-GalFilteredLoaded3.png">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="../../assets/images/1200px-GalFilteredLoaded3.png">
+					<img style="width:30%;" src="../../assets/images/1200px-GalFilteredLoaded3.png">
+				</a>
+				                                
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
 				</aside>
@@ -124,7 +134,7 @@
 
 				<section>
 				<h3>Floated Image</h3>
-				<img style="float:right; width:15%;" src="../../assets/images/1200px-GalFilteredLoaded3.png">
+				<img class="plain" style="float:right; width:15%;" src="../../assets/images/1200px-GalFilteredLoaded3.png">
 				<ul style="display:block;">
 					<li>Start Cytoscape and load the network galFiltered.sif via a long series of menu options staring with File and then on and one. Ignore this rant, just testing with longer text here.</li>
 					<li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes. The default layout may be changed in under <b>Layout → Settings</b>.</li>
@@ -145,8 +155,7 @@
 					- In the **File** menu, select **Import → Table → File....**
 					- Select the file galExpData.csv.<!-- .element: class="fragment" -->
 					- The default settings are usually correct, although you may need to change the "Key" column to indicate which column will be used to match with the network key column.<!-- .element: class="fragment" -->
-
-					![Import Dialog](../../assets/images/LoadGalExp3.png)<!-- .element style="width: 600px; display:block; margin:auto;" --><!-- .element: class="fragment" -->
+					![Import Dialog](../../assets/images/LoadGalExp3.png)<!-- .element style="width: 450px; display:block; margin:auto;" --><!-- .element: class="fragment" -->
 
 					Note: Add speaker notes here...
 				</script>
@@ -155,12 +164,12 @@
 				<section data-markdown data-notes="^Note:">
 				<script type="text/template">
 					### Markdown Inline Button Image
-					Now you should see expression values listed in new columns in the **Node Table**:
+					Now you should see expression values in new columns in the **Node Table**:
 					![Table Panel with Data](../../assets/images/Galbrowse3.png)
 
 					The **Table Panel** in general includes the following features:
 					- Select a node in the network and the table will update to show only the corresponding row.
-					- You can limit the columns shown by click on the **Show Columns** button ![button](../../assets/images/Select3.png)<!-- .element style="height:20px; margin:0px;" --> and selecting column names.
+					- You can limit the columns shown by click on the ![button](../../assets/images/Select3.png)<!-- .element style="height:20px; margin:0px;box-shadow:none;border:0px;" --> button and selecting column names.
 
 					Note: Add speaker notes here...
 				</script>

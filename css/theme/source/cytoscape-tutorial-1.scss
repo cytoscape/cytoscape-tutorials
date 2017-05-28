@@ -18,7 +18,7 @@
 $backgroundColor: #fff;
 
 $mainColor: #222;
-$mainFontSize: 20px;
+$mainFontSize: 28px;
 $mainFont: 'Source Sans Pro', Helvetica, sans-serif;
 
 $linkColor: #2a76dd;
@@ -29,8 +29,7 @@ $selectionBackgroundColor: lighten( $linkColor, 25% );
 $heading1Color: #fff;
 $heading1Font: 'Source Sans Pro', Helvetica, sans-serif;
 $heading1TextShadow: 2px 2px #000;
-$heading1LetterSpacing: normal;
-$heading1TextTransform: uppercase;
+$heading1TextTransform: none;
 $heading1FontWeight: 600;
 $heading1BackgroundColor: #555;
 $heading1Padding: 15px 0 5px 0;
@@ -38,18 +37,21 @@ $heading1Padding: 15px 0 5px 0;
 $headingColor: #222;
 $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingTextShadow: none;
-$headingLetterSpacing: normal;
 $headingTextTransform: none;
 $headingFontWeight: 600;
 
-$heading1Size: 2.5em;
+$heading1Size: 2.2em;
 $heading2Size: 2.2em;
 $heading3Size: 1.9em;
 $heading4Size: 1.6em;
 
+// ribbons
+$ribbonSize: 2.2em;
+$ribbonTextTransform: none;
+
 // others
 $pTextAlign: left;
-$imgBorder: 1px;
+$imgBorder: 0px;
 
 // tables
 $tableHeaderTextColor: #fff;
@@ -63,8 +65,8 @@ section.has-dark-background {
 }
 
 .reveal highlight {
-  color: #f2824a;
-  font-weight: 500;
+  color: #F7941E;
+  font-weight: bold;
 }
 
 .footer {
