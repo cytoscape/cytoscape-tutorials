@@ -11,8 +11,8 @@
 
 		<!-- Set IDs for each imported module -->
 		<link id="finding-networks" rel="import" href="../finding-networks/index.html">
-<!--		<link id="loading-omics-data" rel="import" href="../loading-omics-data/index.html">		
--->
+		<link id="loading-omics-data" rel="import" href="../loading-omics-data/index.html">		
+
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="../../lib/css/zenburn.css">
 
@@ -29,7 +29,7 @@
 		<div class="reveal">
 			<div class="footer">
 				<img plain src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-				<version>1</version>
+				<version>2</version>
 				<!-- Version numbers are also provided for each imported module -->
 			</div>
 			<div class="slides"> 
@@ -66,19 +66,6 @@
 			</div>
 		</div>
 
-                <script>
-                        // Insert sections from imported modules
-                        var links = document.querySelectorAll('link[rel=import]');
-                        for (var j=0; j<links.length; j++){
-                                var elemid = links[j].getAttribute("id");
-                                //TODO: grab version from each import and update footer
-                                var contents = links[j].import.querySelectorAll('section');
-                                for (var i=0; i<contents.length; i++){
-                                        document.getElementById(elemid).appendChild(document.importNode(contents[i], true));
-                                }
-                        }
-		</script>
-
 		<script src="../../lib/js/head.min.js"></script>
 		<script src="../../js/reveal.js"></script>
 
@@ -107,6 +94,18 @@
 				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 				});
+			</script>
+			<script>
+				// Insert sections from imported modules
+				var links = document.querySelectorAll('link[rel=import]');
+				for (var j=0; j<links.length; j++){
+					var elemid = links[j].getAttribute("id");
+					//TODO: grab version from each import and update footer
+					var contents = links[j].import.querySelectorAll('section');
+					for (var i=0; i<contents.length; i++){
+						document.getElementById(elemid).appendChild(document.importNode(contents[i], true));
+					}
+				}
 			</script>
 		</body>
 	</html>
