@@ -71,9 +71,14 @@ body {
         background-color:$ribbonBackgroundColor5
 }
 
-
 .reveal a:hover ribbon {
 	box-shadow: $ribbonBoxShadowHover;
+}
+
+.reveal a.inactive {
+	opacity: 0.25;
+	pointer-events: none;
+	cursor: default;
 }
 
 /*********************************************

@@ -25,23 +25,24 @@
 		<div class="reveal">
 			<div class="footer">
 				<img src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-				<version>3.5.1</version>
+				<version>?.?.?</version>
 				<!-- Version numbers are also independently set for each module -->
 			</div>
 			<div class="slides"> 
 				<!-- Customizable title slide -->
 				<section>
 				<img class="plain" src="../../assets/images/Cytoscape.png" style="height:100%;margin-bottom:30px;">
-				<h2>Advanced Topic: <highlight>Automation</highlight></h2>
+				<h2>Add Workshop Title: <highlight>Add Subtitle</highlight></h2>
 				<br /><br />
-				<h4>University of Toronto</h4>
-				<h5> 29 June 2017</h5>
+				<h4>Add Location</h4>
+				<h5> Add Date </h5>
 
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
 				</aside>
 				</section>
 
+				<!-- General introduction to the goals of the workshop -->
 				<section>
 				<h1>Goals and Motivations</h1>
 				<highlight>By the end of this workshop you should be able to:</highlight>
@@ -49,8 +50,8 @@
 					<li>Know when and how to use Cytoscape</li>
 					<li>Identify relevant types and sources of networks</li>
 					<li>Command programmatic control over Cytoscape </li>
-                                        <li>Integrate Cytoscape into your bioinformatics pipelines </li>
-                                        <li>Publish, share and export networks online </li>
+					<li>Integrate Cytoscape into your bioinformatics pipelines </li>
+					<li>Publish, share and export networks online </li>
 				</ul>
 
 				<aside class="notes" data-markdown>
@@ -58,23 +59,102 @@
 				</aside>
 				</section>				
 
-				<!-- Define upto 5 Ribbons per slide to link to module -->
+				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
 				<section>
 				<a href="#" class="navigate-next"><ribbon>Introductions and Concepts</ribbon></a>
-				<a href="../finding-networks/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
-				<a href="#/2" target="_blank"><ribbon>Network Visualization Overview</ribbon></a>
-				<a href="#/2" target="_blank"><ribbon>Network Analysis Overview</ribbon></a>
-				<a href="#/2" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+				<a href="../finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
+				<a href="../network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
+				<a href="../network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
+				<a href="../workshop-basic-data-visualization/index.html" target="_blank"><ribbon>Hands-on Tutorial</ribbon></a>
 
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
 				</aside>
 				</section>
 
+				<!-- Example introduction slide -->
 				<section>
-				<h1>Introductions and Concepts</h1>
-				
+				<h1>Introductions</h1>
+				<div class="column">
+					<highlight>John "Scooter" Morris, UCSF</highlight>
+					<ul>
+						<li>Adjunct Assistant Prof, Pharmaceutical Chemistry</li>
+						<li>Executive Director RBVI</li>
+						<li>Cytoscape team since 2006</li>
+						<li>Author of over a dozen Cytoscape apps</li>
+					</ul>
+				</div>
+				<div class="column">
+					<highlight>Alex Pico, Gladstone Inst.</highlight>
+					<ul>
+						<li>Associate Director, Bioinformatics</li>
+						<li>Executive Director NRNB</li>
+						<li>Cytoscape team since 2006</li>
+						<li>Author of half a dozen Cytoscape apps</li>
+					</ul> 
+				</div>
 				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Don't forget to survey who your audience is! -->
+				<section>
+				<h1>Introductions</h1>
+				<img class="plain fragment fade-right" style="float:left; height:270px; margin:55px 0  0 0;" src="../../assets/images/introduction-distro.png">
+				<p><highlight>What about you?</highlight></p>
+				<ul  style="display:block;margin-left:200px">
+					<li>Clinicians</li>
+					<li>Bench Biologists</li>
+					<li>Bioinformaticians</li>
+					<li>Computer Scientists</li>
+					<li>Chemists</li>
+					<li>Mathematicians</li>
+					<li>Other</li>
+				</ul>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Links to modules within the Introduction & Concepts section -->
+				<section>
+                                <a href="../intro-network-biology/index.html" target="_blank"><ribbon>Intro to Network Biology</ribbon></a>
+                                <a href="../intro-cytoscape/index.html" target="_blank"><ribbon>Intro to Cytoscape</ribbon></a>
+				<aside class="notes" data-markdown>
+                                Add speaker notes here...
+                                </aside>
+				</section>
+                                
+				<!-- Back to the overall agenda to link to next module, etc... -->
+				<!-- Optionally mark completed ribbons with class="inactive" -->
+                                <section>
+                                <a href="#" class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+                                <a href="../finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
+                                <a href="../network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
+                                <a href="../network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
+                                <a href="../workshop-basic-data-visualization/index.html" target="_blank"><ribbon>Hands-on Tutorial</ribbon></a>
+
+                                <aside class="notes" data-markdown>
+                                Add speaker notes here...
+                                </aside>
+                                </section>
+
+				<!-- Wrap up with helpful links -->
+                                <section>
+                                <h1>Thank You!</h1>
+                                <highlight>Here are additional resources you may find useful:</highlight>
+                                <ul>
+                                        <li><a href="http://manual.cytoscape.org" target="_blank">manual.cytoscape.org</a></li>
+					<li><a href="http://tutorials.cytoscape.org" target="_blank">tutorials.cytoscape.org</a></li>
+					<li><a href="http://apps.cytoscape.org" target="_blank">apps.cytoscape.org</a></li>
+					<li><a href="http://cytoscape-publications.tumblr.com/" target="_blank">cytoscape-publications.tumblr.com/</a></li>
+                                        <li><a href="https://groups.google.com/forum/#!forum/cytoscape-helpdesk" target="_blank">cytoscape-helpdesk@googlegroups.com</a></li>
+                                        <li><a href="https://groups.google.com/forum/#!forum/cytoscape-app-dev" target="_blank">cytoscape-app-dev@googlegroups.com</a></li>
+					<li><a href="http://nrnb.org/training.html" target="_blank">nrnb.org/training.html</a></li>
+                                </ul>
+
+                                <aside class="notes" data-markdown>
                                 Add speaker notes here...
                                 </aside>
                                 </section>
