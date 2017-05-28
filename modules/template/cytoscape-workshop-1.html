@@ -69,7 +69,7 @@
 
 		<script>
 			var modid = "finding-networks";
-			var link = document.querySelector('link[id='+ modid + ']');
+			var link = document.querySelector('link[rel=import]');
 			var contents = link.import.querySelectorAll('section');
 			for (var i=0; i<contents.length; i++){
 				document.getElementById(modid).appendChild(document.importNode(contents[i], true));
