@@ -64,7 +64,7 @@
 
 		<script>
 			var link = document.querySelector('link[rel=import]');
-			var content = link.import.querySelector('#import');
+			var content = link.import.querySelectorAll('section');
 			document.getElementById("insert").appendChild(document.importNode(content, true));
 
 			// More info https://github.com/hakimel/reveal.js#configuration
