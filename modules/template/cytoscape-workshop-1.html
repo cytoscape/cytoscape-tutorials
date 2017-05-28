@@ -28,7 +28,7 @@
 		<div class="reveal">
 			<div class="footer">
 				<img plain src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-				<version>7</version>
+				<version>8</version>
 				<!-- Version numbers are also provided for each imported module -->
 			</div>
 			<div class="slides"> 
@@ -69,10 +69,10 @@
 
 		<script>
 			var modid = "finding-networks";
-			var link = document.querySelector('link[rel=import]');
+			var link = document.querySelector('link[id='+modid+']');
 			var contents = link.import.querySelectorAll('section');
 			for (var i=0; i<contents.length; i++){
-				document.getElementById(modid).appendChild(document.importNode(contents[i], true));
+				document.querySelector('section[id='+modid+']').appendChild(document.importNode(contents[i], true));
 			}
 		</script>
 		<script>
