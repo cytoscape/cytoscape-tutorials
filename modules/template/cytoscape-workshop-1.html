@@ -9,10 +9,6 @@
 		<link rel="stylesheet" href="../../css/reveal.css">
 		<link rel="stylesheet" href="../../css/theme/cytoscape-tutorial-1.css">
 
-		<!-- Set IDs for each imported module -->
-		<link id="finding-networks" rel="import" href="../finding-networks/index.html">
-                <link id="loading-omics-data" rel="import" href="../loading-omics-data/index.html">		
-
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="../../lib/css/zenburn.css">
 
@@ -60,8 +56,12 @@
 				</section>
 
 				<!-- Define sections for each imported module, using same set of IDs -->
-				<section id="finding-networks"></section>
-				<section id="loading-omics-data"></section>
+				<section>
+				<a href="../finding-networks/index.html" target="_blank"><h1>Finding Networks</h1></a>
+				</section>
+				<section>
+				<a href="../loading-omics-data/index.html" target="_blank"><h1>Loading Omics Data</h1></a>
+				</section>
 
 			</div>
 		</div>
@@ -69,26 +69,6 @@
 		<script src="../../lib/js/head.min.js"></script>
 		<script src="../../js/reveal.js"></script>
 
-		<script>
-			var imports = document.querySelectorAll('section');
-			for (var j=0; j<imports.length; j++){
-				var impid = imports[j].getAttribute('id');
-				if (impid) {
-					var link = document.querySelector('link[id='+impid+']');
-					var contents = link.import.querySelectorAll('section');
-					for (var i=0; i<contents.length; i++){
-						document.querySelector('section[id='+impid+']').appendChild(document.importNode(contents[i], true));
-					}
-				}
-			}			
-
-//						var modid = "finding-networks";
-//						var link = document.querySelector('link[id='+modid+']');
-//						var contents = link.import.querySelectorAll('section');
-//						for (var i=0; i<contents.length; i++){
-//							document.querySelector('section[id='+modid+']').appendChild(document.importNode(contents[i], true));
-//						}
-		</script>
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
