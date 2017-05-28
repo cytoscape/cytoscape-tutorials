@@ -29,7 +29,7 @@
 		<div class="reveal">
 			<div class="footer">
 				<img plain src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-				<version>4</version>
+				<version>5</version>
 				<!-- Version numbers are also provided for each imported module -->
 			</div>
 			<div class="slides"> 
@@ -60,8 +60,8 @@
 				</section>
 
 				<!-- Define sections for each imported module, using same set of IDs -->
-				<section id="finding-networks"></section>
-				<section id="loading-omics-data"></section>
+				<section id="finding-networks">Loading...</section>
+				<section id="loading-omics-data">Loading...</section>
 
 			</div>
 		</div>
@@ -69,6 +69,22 @@
 		<script src="../../lib/js/head.min.js"></script>
 		<script src="../../js/reveal.js"></script>
 
+		<script>
+			var modid = "finding-networks";
+			var link = document.querySelector('link[id='+ modid + ']');
+			var contents = link.import.querySelectorAll('section');
+			for (var i=0; i<contents.length; i++){
+				document.getElementById(modid).appendChild(document.importNode(contents[i], true));
+			}
+		</script>
+		<script>
+                        var modid = "loading-omics-data";
+                        var link = document.querySelector('link[id='+ modid + ']');
+                        var contents = link.import.querySelectorAll('section');
+                        for (var i=0; i<contents.length; i++){
+                                document.getElementById(modid).appendChild(document.importNode(contents[i], true));
+                        }
+		</script>
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
