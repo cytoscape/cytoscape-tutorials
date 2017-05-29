@@ -98,20 +98,47 @@
 				</aside>
 				</section>
 
+				<section>
+				<h1>Introductions</h1>
+				<div class="column">
+					<highlight>Barry Demchak, UCSD</highlight>
+					<ul>
+						<li>Project Manager, Ideker lab</li>
+						<li>Chief Architect for Cytoscape</li>
+						<li>Cytoscape team since 2012</li>
+						<li>Author of Cytoscape apps and CyREST</li>
+					</ul>
+				</div>
+				<div class="column">
+					<highlight>Adam Treister, Gladstone Inst.</highlight>
+					<ul>
+						<li>Senior Software Dev, Pico lab</li>
+						<li>Cytoscape core developer</li>
+						<li>Cytoscape team since 2016</li>
+						<li>Author of Cytoscape apps and CyREST tutorial</li>
+					</ul>
+				</div>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
 				<!-- Don't forget to survey who your audience is! -->
 				<section>
 				<h1>Introductions</h1>
-				<img class="plain fragment fade-right" style="float:left; height:270px; margin:55px 0  0 0;" src="../../assets/images/introduction-distro.png">
-				<p><highlight>What about you?</highlight></p>
-				<ul  style="display:block;margin-left:200px">
-					<li>Clinicians</li>
-					<li>Bench Biologists</li>
-					<li>Bioinformaticians</li>
-					<li>Computer Scientists</li>
-					<li>Chemists</li>
-					<li>Mathematicians</li>
-					<li>Other</li>
-				</ul>
+				<div style="margin-left:200px;">
+					<img class="plain fragment fade-right" style="float:left; height:260px; margin:65px 0  0 0;" src="../../assets/images/introduction-distro.png">
+					<p><highlight>What about you?</highlight></p>
+					<ul  style="display:block;margin-left:200px">
+						<li>Clinicians</li>
+						<li>Bench Biologists</li>
+						<li>Bioinformaticians</li>
+						<li>Computer Scientists</li>
+						<li>Chemists</li>
+						<li>Mathematicians</li>
+						<li>Other</li>
+					</ul>
+				</div>
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
 				</aside>
@@ -119,41 +146,100 @@
 
 				<!-- Links to modules within the Introduction & Concepts section -->
 				<section>
-                                <a href="../intro-network-biology/index.html" target="_blank"><ribbon>Intro to Network Biology</ribbon></a>
-                                <a href="../intro-cytoscape/index.html" target="_blank"><ribbon>Intro to Cytoscape</ribbon></a>
+				<a href="../intro-network-biology/index.html" target="_blank"><ribbon>Intro to Network Biology</ribbon></a>
+				<a href="../intro-cytoscape/index.html" target="_blank"><ribbon>Intro to Cytoscape</ribbon></a>
 				<a href="#" class="navigate-next"><ribbon>Automation Use Case</ribbon></a>
 				</section>
 
-                                <!-- Back to the overall agenda to link to next module, etc... -->
-                                <!-- Optionally mark completed ribbons with class="inactive" -->
-                                <section>
-                                <a href="#" class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
-                                <a href="../finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
-                                <a href="../network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
-                                <a href="../network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
-                                <a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+				<!-- Introduce the dataset and biological question -->
+				<section>
+				<h1>Automation Use Case</h1>
+				<ul>
+					<highlight style="margin-left:-50px;">Biological Question</highlight>
+					<li>Which genes correlate with a good/bad prognosis in ovarian cancer?</li>
+					<li>How do they interact as proteins?</li>
+					<li>What functions and pathways are they involved in?</li>
+					<highlight style="margin-left:-50px;">Dataset</highlight>
+					<li>192 genes with significant prognosis modeling scores</li>
+					<highlight style="margin-left:-50px;">Approach</highlight>	
+					<li>Starting with data in R, connect to Cytoscape using CyREST</li>
+					<li>Construct networks in Cytoscape from R</li>
+					<li>Integrate data from R with networks</li>
+					<li>Perform clustering and data overlays</li>
+					<li>Export images and sessions for online sharing</li>
+				</ul>					
+				<small>TCGA, <em>Nature</em> 2011, Supp.6F</small>
+				<aside class="notes" data-markdown>
+				Notes from supplemental methods: _Using a training dataset of gene expression profiles from 215 stage II‐IV ovarian tumors from the TCGA (batches 9, 11‐15), a prognostic gene signature for overall survival was defined (genes with univariate Cox P < 0.01), comprised of 108 genes correlated with poor (worse) prognosis and 85 genes correlated with good (better) prognosis._
+				</aside>
+				</section>
 
-                                <aside class="notes" data-markdown>
-                                Add speaker notes here...
-                                </aside>
-                                </section>
+				<!-- Back to the overall agenda to link to next module, etc... -->
+				<!-- Optionally mark completed ribbons with class="inactive" -->
+				<section>
+				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+				<a href="../finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
+				<a href="../network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
+				<a href="../network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
+				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
 
-                                <!-- Wrap up with helpful links -->
-                                <section>
-                                <h1>Thank You!</h1>                                <highlight>Here are additional resources you may find useful:</highlight>
-                                <ul>
-                                        <li><a href="http://manual.cytoscape.org" target="_blank">manual.cytoscape.org</a></li>
-                                        <li><a href="http://tutorials.cytoscape.org" target="_blank">tutorials.cytoscape.org</a></li>
-                                        <li><a href="http://apps.cytoscape.org" target="_blank">apps.cytoscape.org</a></li>                                        <li><a href="http://cytoscape-publications.tumblr.com/" target="_blank">cytoscape-publications.tumblr.com/</a></li>
-                                        <li><a href="https://groups.google.com/forum/#!forum/cytoscape-helpdesk" target="_blank">cytoscape-helpdesk@googlegroups.com</a></li>
-                                        <li><a href="https://groups.google.com/forum/#!forum/cytoscape-app-dev" target="_blank">cytoscape-app-dev@googlegroups.com</a></li>
-                                        <li><a href="http://nrnb.org/training.html" target="_blank">nrnb.org/training.html</a></li>
-                                </ul>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
 
-                                <aside class="notes" data-markdown>
-                                Add speaker notes here...
-                                </aside>
-                                </section>
+				<section>
+				<a class="inactive" href="#"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive" href="../finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
+				<a href="../network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
+				<a href="../network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
+				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<section>
+				<a class="inactive" href="#"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive" href="../finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
+				<a class="inactive" href="../network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
+				<a href="../network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
+				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<section>
+				<a class="inactive" href="#"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive" href="../finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
+				<a class="inactive" href="../network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
+				<a class="inactive" href="../network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
+				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Wrap up with helpful links -->
+				<section>
+				<h1>Thank You!</h1>                                <highlight>Here are additional resources you may find useful:</highlight>
+				<ul>
+					<li><a href="http://manual.cytoscape.org" target="_blank">manual.cytoscape.org</a></li>
+					<li><a href="http://tutorials.cytoscape.org" target="_blank">tutorials.cytoscape.org</a></li>
+					<li><a href="http://apps.cytoscape.org" target="_blank">apps.cytoscape.org</a></li>                                        <li><a href="http://cytoscape-publications.tumblr.com/" target="_blank">cytoscape-publications.tumblr.com/</a></li>
+					<li><a href="https://groups.google.com/forum/#!forum/cytoscape-helpdesk" target="_blank">cytoscape-helpdesk@googlegroups.com</a></li>
+					<li><a href="https://groups.google.com/forum/#!forum/cytoscape-app-dev" target="_blank">cytoscape-app-dev@googlegroups.com</a></li>
+					<li><a href="http://nrnb.org/training.html" target="_blank">nrnb.org/training.html</a></li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
 
 			</div>
 		</div>
