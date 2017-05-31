@@ -159,7 +159,6 @@ body {
 	display: inline-block;
 
 	text-align: left;
-	margin: 1em;
 }
 
 .reveal ol {
@@ -184,6 +183,7 @@ body {
 .reveal ol ul {
 	display: block;
 	margin-left: 40px;
+	font-size: 90%;
 }
 
 .reveal dt {

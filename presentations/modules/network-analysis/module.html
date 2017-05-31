@@ -1,0 +1,345 @@
+<section>
+	<h1>Analytical Approaches</h1>
+	<img style="float:right" width="30%" src="modules/network-analysis/network-organization.png">
+	<div style="width: 60%">
+	<p>The levels of ogranization of complex networks:</p>
+	<ul>
+		<li>Node <b>degree</b> provides information about single nodes</li>
+		<li>Three or more nodes represent a motif</li>
+		<li>Larger groups of nodes are called modules or communities</li>
+		<li>Hierarchy describes how the various structural elements are combined</li>
+	</ul>
+	</div>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<div style="font-size: 80%; width: 45%; padding-right: 5%" class="column">
+		<p style="margin-top: 0px"><b>Network topology statistics</b> such as node degree, 
+		degree distribution, centralitiy, clustering coefficient, 
+		shortest paths, and robustness of the network to the random 
+		removal of single nodes are important network characteristics.<p>
+		<p class="fragment"><b>Modularity</b> refers to the identification of sub-networks 
+		of interconnected nodes that might represent molecules physically 
+		or functionally linked that work coordinately to achieve a specific function.</p>
+	</div>
+	<div style="font-size: 80%; padding-left: 5%" >
+		<p class="fragment"><b>Motif analysis</b> is the identification of small network patterns 
+		that are over-represented when compared with a randomized version of the 
+		same network. Regulatory elements are often composed of such motifs.</p>
+		<p class="fragment"><b>Network alignment and comparison</b> tools can identify similarities 
+		between networks and have been used to study evolutionary relationships 
+		between protein networks of organisms. </p>
+	</div>
+	<aside>
+	</aside>
+</section>
+
+<section style="display: none">
+	<h1>Analytical Approaches</h1>
+	<ul>
+		<li>Concepts
+		<ul>
+			<li>Graph/Network correspondence</li>
+			<li>Node/Vertex correspondence</li>
+			<li>Edge directedness
+				<ul><li>Usually a network property</li></ul></li>
+			<li class="fragment" data-fragment-index=2">Multigraph
+				<ul><li>Allow multiple edges between nodes</li></ul></li>
+			<li class="fragment" data-fragment-index="4">Hypergraph
+				<ul><li>Allow edges to connect more than 2 nodes</li></ul></li>
+		</ul></li>
+	</ul>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="1">
+		<img src="modules/network-analysis/simple-network-1.png" class="fragment fade-out" data-fragment-index="2"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="3">
+		<img src="modules/network-analysis/multigraph.png" width="1380px" class="fragment fade-out" data-fragment-index="4"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="5">
+		<img src="modules/network-analysis/hypergraph.png"/>
+	</div>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<ul>
+		<li>Network measures
+		<ul>
+			<li>Shortest path length
+			<ul>
+				<li>Shortest traversal distance between two nodes</li>
+				<li>Can be weighted if edges have weights or hops if not</li>
+			</ul></li>
+			<li class="fragment" data-fragment-index="8">Node degree
+			<ul>
+				<li>Indegree: # of edges for which this node is a target</li>
+				<li>Outdegree: # of edges for which this node is a source</li>
+				<li>Degree (undirected): # of edges incident to this node</li>
+			</ul></li>
+			<li class="fragment" data-fragment-index="8">Hub
+			<ul>
+				<li>node with an exceptionally high degree</li>
+			</ul></li>
+		</li>
+	</ul>
+	<div class="fragment fade-in" data-fragment-index="1" style="position: absolute; top: 200px; left: 100px">
+		<img src="modules/network-analysis/shortest-path-1.png" width="1010px" class="fragment fade-out" data-fragment-index="2">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="2" style="position: absolute; top: 200px; left: 100px">
+		<img src="modules/network-analysis/shortest-path-2.png" class="fragment fade-out" data-fragment-index="3">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="3" style="position: absolute; top: 200px; left: 100px">
+		<img src="modules/network-analysis/shortest-path-3.png" class="fragment fade-out" data-fragment-index="4">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="4" style="position: absolute; top: 200px; left: 100px">
+		<img src="modules/network-analysis/shortest-path-4.png" class="fragment fade-out" data-fragment-index="5">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="5" style="position: absolute; top: 200px; left: 100px">
+		<img src="modules/network-analysis/shortest-path-5.png" class="fragment fade-out" data-fragment-index="6">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="6" style="position: absolute; top: 200px; left: 100px">
+		<img src="modules/network-analysis/shortest-path-6.png" class="fragment fade-out" data-fragment-index="7">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="7" style="position: absolute; top: 200px; left: 100px">
+		<img src="modules/network-analysis/shortest-path-7.png" class="fragment fade-out" data-fragment-index="8">
+	</div>
+
+	<div class="fragment fade-in" data-fragment-index="9" style="position: absolute; top: 150px; left: 350px">
+		<img src="modules/network-analysis/adhD.png" class="fragment fade-out" data-fragment-index="10">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="10" style="position: absolute; top: 150px; left: 300px">
+		<img src="modules/network-analysis/adhD-degree-1.png" height="632px" class="fragment fade-out" data-fragment-index="11">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="11" style="position: absolute; top: 150px; left: 300px">
+		<img src="modules/network-analysis/adhD-degree-2.png" height="632px" class="fragment fade-out" data-fragment-index="12">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="12" style="position: absolute; top: 100px; left: 200px">
+		<img src="modules/network-analysis/adhD-degree-3.png" class="fragment fade-out" data-fragment-index="13">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="13" style="position: absolute; top: 100px; left: 200px">
+		<img src="modules/network-analysis/adhD-degree-4.png">
+	</div>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<ul>
+		<li>Network measures
+		<ul>
+			<li><b>Diameter</b>: the largest distance between two nodes</li>
+			<li><b>Radius</b>: the minimum of the maximum path between any two nodes</li>
+			<li><b>Characteristic path length</b>: average shortest pagh length</li>
+			<li><b>Density</b>: extent to which a network is fully connected</li>
+			<li><b>Heterogeneity</b>: tendency of the network to contain hub nodes</li>
+			<li><b>Connected components</b>: number of disconnected groups of nodes</li>
+		</ul></li>
+	</ul>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<ul>
+		<li>Network measures
+		<ul>
+			<li>Clustering coefficient
+			<ul>
+				<li>Measures how close the neighbors of a node are to being a clique (fully connected)</li>
+				<li style="font-size: 120%">
+				<!--		2*(# of edges connecting a node's neighbors)/((the node's degree)*(the nodes's degree - 1))-->
+					<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+					 <mrow>
+					 <msub>
+					 <mi>C</mi>
+					 <mn>node</mn>
+					 </msub>
+					 <mo>=</mo>
+					  <mfrac>
+					    <mrow>
+							  <mi>2</mi>
+								<mi>(# of edges connecting a node's neighbors)</mi>
+							</mrow>
+							<mrow>
+								<mi>(the node's degree)</mi>
+								<mi>(the node's degree - 1)</mi>
+							</mrow>
+						</mfrac>
+					</mrow>
+				</math>
+				</li>
+			</ul></li>
+		</ul></li>
+	</ul>
+	<div class="fragment fade-in" data-fragment-index="1" style="position: absolute; top: 100px; left: 100px">
+		<img src="modules/network-analysis/cluster-coefficient-1.png">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="2" style="position: absolute; top: 100px; left: 100px">
+		<img src="modules/network-analysis/cluster-coefficient-2.png">
+	</div>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<ul>
+		<li>Centrality - measures of node importance
+		<ul>
+			<li>Degree centrality (find hubs)
+				<ul><li style="font-size: 120%">
+					<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+					 <mrow>
+					 <msub>
+					 <mi>C</mi>
+					 <mn>D</mn>
+					 </msub>
+					 <mi>(node)</mi>
+					 <mo>=</mo>
+					 	<mfrac>
+						<mrow>Degree of this node</mrow>
+						<mrow>(# of nodes – 1)</mrow>
+						</mfrac>
+					</mrow>
+				</math></li></ul></li>
+			<li>Betweenness centrality (bottleneck)
+				<ul><li style="font-size: 120%">
+					<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+					 <mrow>
+					 <msub>
+					 <mi>C</mi>
+					 <mn>B</mn>
+					 </msub>
+					 <mi>(node)</mi>
+					 <mo>=</mo>
+					 	<mfrac>
+						<mrow>The average number of shortest paths that go through this node</mrow>
+						<mrow>(# of pairs)</mrow>
+						</mfrac>
+					</mrow>
+					</math></li></ul></li>
+			<li>Closeness centrality
+				<ul><li style="font-size: 120%">
+					<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+					 <mrow>
+					 <mi>C</mi>
+					 <mi>(node)</mi>
+					 <mo>=</mo>
+					 	<mfrac>
+						<mrow>Sum of all shortest paths between this node and all other nodes</mrow>
+						<mrow>(# of nodes - 1)</mrow>
+						</mfrac>
+					</mrow>
+					</math></li></ul></li>
+		</ul></li>
+	</ul>
+	<div style="position: absolute; top: 50px; left: 0px" class="fragment fade-in" data-fragment-index="1">
+		<img src="modules/network-analysis/simple-network-1.png" width="80%"/>
+	</div>
+	<div style="position: absolute; top: 650px; left: 100px" class="fragment fade-in" data-fragment-index="1">
+		<img src="modules/network-analysis/network-analyzer-results.png" width="1000px"/>
+	</div>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<ul>
+		<li>Scale-free networks
+		<ul>
+			<li>Degree distribution follows a power law:<br/>
+				<span style="margin-left:1em;"><i>P(k) ~ k<sup>-y</sup></i>, where y is a constant</span>
+			</li>
+			<li>Distinct "hubs" (essential proteins?)</li>
+			<li>Resilient to perturbation</li>
+			<li>Biological (and social) networks tend to be scale-free</li>
+		</ul></li>
+	</ul>
+	<div class="fragment fade-in" data-fragment-index="1" style="position: absolute; top: 100px; left: 500px">
+		<img src="modules/network-analysis/scale-free-1.png">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="1" style="position: absolute; top: 100px; left: 10px; width: 40%">
+		<img src="modules/network-analysis/scale-free-2.png">
+	</div>
+	<div class="fragment fade-in" data-fragment-index="1" style="position: absolute; top: 450px; left: 30px; width: 35%">
+		<img src="modules/network-analysis/scale-free-3.png">
+	</div>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<img style="float: right" src="modules/network-analysis/small-world.png">
+	<div style="width:80%">
+	<ul>
+		<li>Small-world networks
+		<ul>
+			<li>any two arbitrary nodes are connected by a small number of intermediate edges</li>
+			<li>the network has an average shortest path length much smaller than the number of nodes in the network (Watts, Nature, 1998).</li>
+			<li>Interaction networks have been shown to be small-world networks (Barabási, Nature Reviews in Genetics, 2004)</li>
+		</ul> </li>
+	</ul>
+	</div>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<ul>
+		<li>Other techniques
+			<ul>
+				<li>Guilt-by association
+					<ul>
+						<li>Combine weak signals to get a stronger one</li>
+					</ul>
+				</li>
+				<li>Over-representation analysis
+					<ul>
+						<li>Also called enrichment analysis</li>
+						<li>Statistical technique to determine if a set of terms are over-represented (enriched) in a network (or subnetwork)</li>
+					</ul>
+				</li>
+				<li>Clustering
+					<ul>
+						<li>Also called unsupervised classification</li>
+						<li>Variety of techniques for group nodes based on attributes or connectivity</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<aside>
+	</aside>
+</section>
+
+<section>
+	<h1>Analytical Approaches</h1>
+	<ul>
+		<li>Other techniques
+			<ul>
+				<li>Motif finding</li>
+				<li>Finding subnetworks of interest</li>
+			</ul>
+		</li>
+	</ul>
+	<aside>
+	</aside>
+</section>
+
+<!--
+<section>
+	<h1>Analytical Approaches</h1>
+	<aside>
+	</aside>
+</section>
+-->

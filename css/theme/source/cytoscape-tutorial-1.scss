@@ -18,7 +18,7 @@
 $backgroundColor: #fff;
 
 $mainColor: #222;
-$mainFontSize: 36px;
+$mainFontSize: 30pt;
 $mainFont: 'Source Sans Pro', Helvetica, sans-serif;
 
 $linkColor: #2a76dd;
@@ -32,7 +32,7 @@ $heading1TextShadow: 2px 2px #000;
 $heading1TextTransform: none;
 $heading1FontWeight: 600;
 $heading1BackgroundColor: #555;
-$heading1Padding: 15px 0 5px 0;
+$heading1Padding: 5px 0 5px 0;
 
 $headingColor: #222;
 $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
@@ -40,13 +40,13 @@ $headingTextShadow: none;
 $headingTextTransform: none;
 $headingFontWeight: 600;
 
-$heading1Size: 2.2em;
-$heading2Size: 2.2em;
-$heading3Size: 1.9em;
-$heading4Size: 1.6em;
+$heading1Size: 1.8em;
+$heading2Size: 1.8em;
+$heading3Size: 1.6em;
+$heading4Size: 1.4em;
 
 // ribbons
-$ribbonSize: 2.2em;
+$ribbonSize: 1.8em;
 $ribbonTextTransform: none;
 
 // others
@@ -90,28 +90,4 @@ section.has-dark-background {
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
-
-// Include any overrides of the theme CSS below
-
-// Override theme's agressive spacing of ul top and bottom margins
-.reveal ol,
-.reveal dl,
-.reveal ul {
-  display: inline-block;
-  text-align: left;
-  margin-left: 1em; 
-	margin-right: 1em;
-	margin-top: 0px;
-	margin-bottom: 0px; 
-}
-
-// Scale the font size as we indent
-.reveal ul ul,
-.reveal ul ol,
-.reveal ol ol,
-.reveal ol ul {
-  display: block;
-  margin-left: 40px; 
-	font-size: 80%; 
-}
 
