@@ -144,8 +144,7 @@ body {
 .reveal dl,
 .reveal ul {
   display: inline-block;
-  text-align: left;
-  margin: 1em; }
+  text-align: left; }
 
 .reveal ol {
   list-style-type: decimal; }
@@ -164,7 +163,8 @@ body {
 .reveal ol ol,
 .reveal ol ul {
   display: block;
-  margin-left: 40px; }
+  margin-left: 40px;
+  font-size: 90%; }
 
 .reveal dt {
   font-weight: bold; }
