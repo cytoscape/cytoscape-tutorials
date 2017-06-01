@@ -1,0 +1,94 @@
+<section data-markdown>
+Markdown does not appear to be supported by external.js
+<script type="text/template">
+	### Filter Interactions
+	Your network contains a combination of protein-protein (pp) and protein-DNA (pd) interactions. Here, we shall filter out the protein-protein interactions to focus on the protein-DNA interactions.
+
+	- Click the **Select** tab in the **Control** panel.
+	- Click the + icon Plus icon.png and select **Column Filter**.
+	- Select the drop-down list and choose **Edge: interaction**.
+	- This action will create a text search box entry in the filter.
+	- Type the letters "pp" into the text search box. This indicates that we're searching for all edge interaction attributes that match the string "pp".
+	- For reasonably sized networks, the filter will automatically be applied. For larger networks, you may need to click the **Apply** button at the bottom of the **Select** panel.
+</script>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+	- You should now see many edges in the network selected (i.e., colored red).
+	- Since we're only interested in the protein-DNA edges, we can delete the protein-protein edges we've just selected.
+	- Select the menu **Edit → Delete Selected Nodes and Edge**. You should now see many unconnected nodes in the network.
+	- Select the menu **Layout → Cytoscape Layouts → Prefuse Force-Directed Layout** to clean up the network visualization.
+	- The largest component of the final filtered and cleaned up network should look like this:
+
+	![1600px-Final_network3.png](../assets/images/1600px-Final_network3.png)
+</script>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+	### Observe the Network
+	*Notice that three bright green (highly induced) nodes are in the same region of the graph. Zoom into the graph to see more details.*
+
+	- Notice that there are two nodes that interact with all three green nodes: GAL4 (YPL248C) and GAL11 (YOL051W).
+	- Select these two nodes and their immediate neighbors by selecting the menu **Select → Nodes → First Neighbors of Selected Nodes → Undirected**.
+	- It is sometimes useful to create a new network from selected nodes. Do this by selecting the menu **File → New → Network → From Selected Nodes, All Edges**.
+</script>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+	- With some layout and zooming, this new network should appear similar to the one shown:
+
+	![1600px-Final_subnetwork3.png](../assets/images/1600px-Final_subnetwork3.png)
+</script>
+
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+	### Exploring Nodes
+	- Right click on the node GAL4.
+	- Select the menu **External Links → Sequences and Proteins → Entrez Gene**.
+	- This action will pop-up a browser window and search the Entrez Gene database for the term "YPL248C", the id of the node.
+	- In the results in the browser the first entry should be labeled GAL4. Click on this entry.
+	- The description of GAL4 tells us that it is repressed by GAL80.
+</script>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+	- Our data show precisely this:
+	- Both nodes (GAL4 and GAL11) show fairly small changes in expression, and neither change is statistically significant: they are rendered as light-colored circles. These slight changes in expression suggest that the critical change affecting the black nodes might be somewhere else in the network, and not either of these nodes.
+	- GAL4 interacts with GAL80 (YML051W), which shows a significant level of repression: it is depicted as a red square.
+	- Note that while GAL80 shows evidence of significant repression, most nodes interacting with GAL4 show significant levels of induction: they are rendered as green squares.
+	- GAL11 is a general transcription co-factor with many interactions.
+</script>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+	- Putting all of this together, we see that the transcriptional activation activity of Gal4 is repressed by Gal80. So, repression of Gal80 increases the transcriptional activation activity of Gal4. Even though the expression of Gal4 itself did not change much, the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed. This explains why there is so much up-regulation in the vicinity of Gal4.
+</script>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>

@@ -1,0 +1,65 @@
+<section>
+<h3>Loading Expression Data</h3>
+<p>The data you are working with is from yeast, and the genes Gal1, Gal4, and Gal80 are all yeast transcription factors. Your expression experiments all involve some perturbation of these transcription factor genes.
+
+<br /><br />Gal1, Gal4, and Gal80 are also represented in your interaction network, where they are labeled according to yeast locus tags: Gal1 corresponds to YBR020W, Gal4 to YPL248C, and Gal80 to YML051W.</p>
+
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section>
+<ul>
+	<li>Using a text editor, open the file galExpData.csv to view the first few lines:</li>
+
+	<pre>GENE,COMMON,gal1RGexp,gal4RGexp,gal80Rexp,gal1RGsig,gal4RGsig,gal80Rsig
+YHR051W,COX6,-0.034,0.111,-0.304,3.75720e-01,1.56240e-02,7.91340e-06
+YHR124W,NDT80,-0.090,0.007,-0.348,2.71460e-01,9.64330e-01,3.44760e-01
+YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
+
+	Note the following information about the file:<br /><br />
+	<ul>
+		<li>The first line consists of column labels.</li>
+		<li>All columns are separated by a single comma character.</li>
+		<li>The first column contains node names, and <b>must match the names of the nodes in your network exactly</b>!</li>
+		<li>The second column contains common locus names. This column is optional, and the data is not currently used by Cytoscape, but including this column makes the format consistent with the output of many microarray analysis packages, and makes the file easier to read.</li>
+		<li>The remaining columns contain experimental data, two columns per experiment (one column for the expression measurement and the second for the significance value for that measurement), and one line per node. In this case, there are three expression results per node.</li>
+	</ul>
+</ul>
+
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+<section data-markdown>
+Markdown does not appear to be supported by external.js
+<script type="text/template">
+	- In the **File** menu, select **Import → Table → File....**
+	- Select the file galExpData.csv.
+	- The default settings are usually correct, although you may need to change the "Key" column to indicate which column will be used to match with the network key column.
+	- Click **OK** to import the data.
+
+	![600px-LoadGalExp3.png](modules/loading-omics-data/600px-LoadGalExp3.png)
+</script>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+	Now you should see expression values listed in new columns in the **Node Table**:
+	![600px-Galbrowse3.png](modules/loading-omics-data/Galbrowse3.png)<!-- .element style="width: 900px;" -->
+
+	The **Table Panel** in general includes the following features:
+	- Select a node in the network and the table will update to show only the corresponding row.
+	- You can limit the columns shown by click on the **Show Columns** button ![button](modules/loading-omics-data/Select3.png)<!-- .element style="height: 20px;margin: 0px;" --> and selecting column names.
+</script>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section>
+
