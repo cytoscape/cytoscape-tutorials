@@ -1,0 +1,93 @@
+/**
+ * Cytoscape tutorial 1 theme based off of 'white' theme for reveal.js.
+ *
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$mainFontSize: 20pt;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+// headers
+$heading1Color: #fff;
+$heading1Font: 'Source Sans Pro', Helvetica, sans-serif;
+$heading1TextShadow: 2px 2px #000;
+$heading1TextTransform: none;
+$heading1FontWeight: 600;
+$heading1BackgroundColor: #555;
+$heading1Padding: 5px 0 5px 0;
+
+$headingColor: #222;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+
+$heading1Size: 1.8em;
+$heading2Size: 1.8em;
+$heading3Size: 1.6em;
+$heading4Size: 1.4em;
+
+// ribbons
+$ribbonSize: 1.8em;
+$ribbonTextTransform: none;
+
+// others
+$pTextAlign: left;
+$imgBorder: 0px;
+
+// tables
+$tableHeaderTextColor: #fff;
+$tableHeaderBackgroundColor: #2980b9;
+
+// Additional CSS
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+.reveal highlight {
+  color: #F7941E;
+  font-weight: bold;
+}
+
+.footer {
+  position: absolute;
+  left: 2em;
+  bottom: 1em;
+}
+
+.footer version {
+  vertical-align: 0.95em;
+  font-size: 19px;
+  color: #888;
+  margin-left: 0.1em;
+}
+
+.column {
+  width:45%;
+  float:left;
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
