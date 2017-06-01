@@ -6,7 +6,6 @@ Check out the [current list of training materials](https://cytoscape.github.io/c
 
 ```
 |--presentations/
-|  |
 |  |--advanced-automation.html
 |  |--(other presentations)
 |  |--modules/
