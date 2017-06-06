@@ -18,11 +18,30 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
   - [Editing the Cytoscape theme](#editing-cytoscape-theme)
   - [Editing the base theme](#editing-base-theme)	
 
-## Examples
-- [List of current training materials](https://cytoscape.github.io/cytoscape-tutorials/modules/contents/index.html)
-- [Available templates](https://cytoscape.github.io/cytoscape-tutorials/modules/contents/#/templates)
-
 ## Presenting
+Browse the available training materials already prepared:
+* [workshops](https://cytoscape.github.io/cytoscape-tutorials/modules/contents/#/workshops) -- Specific programs compiled for target audiences
+* [protocols](https://cytoscape.github.io/cytoscape-tutorials/modules/contents/#/protocols) -- General tutorials targeting common workflows or protocols
+* [modules](https://cytoscape.github.io/cytoscape-tutorials/modules/contents/#/modules) -- Concise material focused on specific tasks
+
+#### Navigating
+Use arrow keys, "space" or the on-screen arrows (lower right) to navigate the slides. Take note of modules that are organized vertically within a presentation.
+
+![Overview](assets/images/overview.png)
+
+#### Online
+You can access training materials at any time via a web browser. All content is tested in the latest versions of Firefox and Chrome. Simply navigate to the corresponding url, e.g., 
+
+```
+https://cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation.html#/
+```
+
+#### Offline.
+You can also generate a PDF version of any workshop or protocol and save it as a local file to share or present offline. Note that animated slides do not display as separate slides in PDF form, but rather as single slides in their final form. However, protocols  should be composed in such a way to display properly in PDF. Simply append ```?print-pdf``` to the end of the url for any protocol or protocol module, e.g.,
+
+```
+https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/index.html?print-pdf#/
+```
 
 ## Sharing
 
