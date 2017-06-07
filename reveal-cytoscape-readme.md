@@ -78,12 +78,21 @@ Each level will have named html files or ```index.html``` files, which are the f
 ```
 
 ## Style
+We have developed [custom themes for Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/css/theme). These stylesheets provide settings and features tailored for our content, making it easier to put together (and reuse) training materials in this repo. Review how to use these customizations below...
 
 ### Version
+To help develop training material that is accurate and current, we developed a custom footer and variable to specify the version of Cytoscape that the content pertains to. You can update the version tag in the named html or index.html files within the footer div:
+```
+<version>3.5.1</version>
+```
 
 ### Headings
+We have customized heading tags for the Cytoscape tutorial styles:
+* ```<h1>``` = Large font with background color and white text, to match Ribbon styles
+* ```<h2>``` and others = Black font, no background.
 
 ### Ribbons
+* ```<ribbon>``` = These are ideal for making interactive Agenda or Outline slides. Ribbons 
 
 ### Text
 
