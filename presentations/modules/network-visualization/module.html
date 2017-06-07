@@ -82,7 +82,8 @@ Add speaker notes here...
 </section>
 
 <section>
-	<img class="plain" src="modules/network-visualization/data-mapping-1.png" width="100%" height="100%"/>
+	<img class="plain" src="modules/network-visualization/data-mapping-1.png" width="100%" height="100%"
+														  data-autoslide="2000"/>
 	<img class="plain fragment fade-in" src="modules/network-visualization/data-mapping-2.png" 
 														  data-autoslide="2000"
 	                            style="position:absolute; top: 20px; left: 30px;"/>
@@ -110,7 +111,6 @@ Add speaker notes here...
 														  data-autoslide="50"
 														  style="position:absolute; top: 20px; left: 30px;"/>
 	<img class="plain fragment fade-in" src="modules/network-visualization/node-border.png" 
-														  data-autoslide="2500"
 								              width="25%" 
 	                            style="position:absolute; top: 20px; left: 30px;"/>
 
@@ -145,27 +145,57 @@ Add speaker notes here...
 						<li>Simple
 							<ul>
 								<li>Grid</li>
-								<li>Partitions</li>
 							</ul>
 						</li>
-						<li>Hierarchical
+						<li class="fragment" data-fragment-index="2">Hierarchical
 							<ul>
 								<li>layout data as a tree or hierarchy</li>
 								<li>Works best when there are no loops</li>
 							</ul>
 						</li>
-						<li>Circular (Radial)
+						<li class="fragment" data-fragment-index="4">Circular (Radial)
 							<ul>
 								<li>arrange nodes around a circle</li>
-								<li>could use node attributes to govern position
+								<li class="fragment" data-fragment-index="6">could use node attributes to govern position
 									<ul><li>e.g. degree sorted</li></ul></li>
 							</ul>
 						</li>
+						<li class="fragment" data-fragment-index="9">Partitions</li>
 					</ul>
 				</li>
 			</ul>
 		</li>
 	</ul>
+	<span class="fragment fade-in" data-fragment-index="1">
+		<img class="fragment fade-out" data-fragment-index="2" 
+																 src="modules/network-visualization/layout-grid.png"
+		                             style="position:absolute;top:100px;left:20px"/	>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="3">
+		<img class="fragment fade-out" data-fragment-index="4" 
+																 src="modules/network-visualization/layout-hierarchical-1.png"
+		                             style="position:absolute;top:100px;left:20px"/	>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="5">
+		<img class="fragment fade-out" data-fragment-index="6" 
+																 src="modules/network-visualization/layout-circle-1.png"
+		                             style="position:absolute;top:100px;left:20px"/	>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="7">
+		<img class="fragment fade-out" data-fragment-index="8" 
+																 src="modules/network-visualization/layout-circle-2.png"
+		                             style="position:absolute;top:100px;left:20px"/	>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="8">
+		<img class="fragment fade-out" data-fragment-index="9" 
+																 src="modules/network-visualization/layout-circle-3.png"
+		                             style="position:absolute;top:100px;left:20px"/	>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="10">
+		<img class="fragment fade-out" data-fragment-index="11" 
+																 src="modules/network-visualization/layout-partition.png"
+		                             style="position:absolute;top:100px;left:20px"/	>
+	</span>
 
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
@@ -184,20 +214,30 @@ Add speaker notes here...
 							<li>may be weighted or unweighted</li>
 						</ul>
 					</li>
-					<li>Combining layouts
+					<li class="fragment" data-fragment-index="2">Combining layouts
 						<ul>
 							<li>Use a general layout (force directed) for the entire graph, 
 								but use hierarchical or radial to focus on a particular portion</li>
 						</ul>
 					</li>
-					<li>Multi-layer layouts
+					<li class="fragment" data-fragment-index="4">Multi-layer layouts
 						<ul><li>Partition graph, layout each partition then layout partitions</li></ul>
 					</li>
-					<li>Many, many others</li>
+					<li class="fragment" data-fragment-index="5">Many, many others</li>
 				</ul>
 			</li>
 		</ul>
 	</ul>
+	<span class="fragment fade-in" data-fragment-index="1">
+		<img class="fragment fade-out" data-fragment-index="2" 
+																 src="modules/network-visualization/layout-force-directed.png"
+		                             style="position:absolute;top:100px;left:20px"/	>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="3">
+		<img class="fragment fade-out" data-fragment-index="4" 
+																 src="modules/network-visualization/layout-combined.png"
+		                             style="position:absolute;top:100px;left:20px"/	>
+	</span>
 
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
@@ -230,6 +270,11 @@ Add speaker notes here...
 			</ul>
 		</li>
 	</ul>
+	<div class="fragment" style="position: absolute; top: 0px; left: 0px">
+		<video width="100%" height="100%" controls loop>
+			<source src="modules/network-visualization/ClusterAnimation2.mov" type="video/mp4"/>
+		</video>
+	</div>
 
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
