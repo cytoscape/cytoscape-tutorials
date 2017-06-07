@@ -1,3 +1,237 @@
 <section>
 	<h1>Network Visualization</h1>
+	<ul>
+					<li>Data Mapping</li>
+					<li>Layouts</li>
+					<li>Animation</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Depiction</h1>
+	<ul>
+		<li>Various ways to depict biological networks:
+			<ul>
+				<li>Node-Link (graph) representation</li>
+				<li class="fragment" data-fragment-index="2">Partitioned Node-Link representation</li>
+				<li class="fragment" data-fragment-index="4">Matrix representation
+					<ul>
+						<li>Can be useful for very dense networks</li>
+						<li>Can also map information into cells of matrix
+							<ul><li>e.g. degree, color scale (heat map)</li></ul>
+						</li>
+					</ul></li>
+				<li class="fragment" data-fragment-index="6">Hierarchical reduction to 1D</li>
+				<li class="fragment" data-fragment-index="8">Orthogonal 1D representation of nodes/edges</li>
+			</ul>
+		</li>
+	</ul>
+	<span class="fragment fade-in" data-fragment-index="1">
+		<img class="fragment fade-out" data-fragment-index="2" 
+																 src="modules/network-visualization/node-link.png"
+		                             style="position:absolute;top:100px;left:150px"/	>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="3">
+		<img class="fragment fade-out" data-fragment-index="4" 
+																 src="modules/network-visualization/partitioned-node-link.png"
+		                             style="position:absolute;top:100px;left:150px"/>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="5">
+		<img class="fragment fade-out" data-fragment-index="6" 
+																 src="modules/network-visualization/matrix.png"
+		                             style="position:absolute;top:100px;left:300px"/>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="7">
+		<img class="fragment fade-out" data-fragment-index="8" 
+																 src="modules/network-visualization/hierarchical-1d.png"
+		                             style="position:absolute;top:100px;left:300px"/>
+	</span>
+	<span class="fragment fade-in" data-fragment-index="9">
+		<img src="modules/network-visualization/biofabric.png"
+		     style="position:absolute;top:100px;left:250px"/>
+	</span>
+
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section>
+	<h1>Data Mapping</h1>
+	<ul>
+		<li>Mapping of data values associated with graph elements onto graph visuals</li>
+			<li>Visual attributes
+				<ul>
+					<li>Node fill color, border color, border width, size, shape, opacity, label</li>
+					<li>Edge type, color, width, ending type, ending size, ending color</li>
+				</ul>
+			</li>
+			<li>Mapping types
+				<ul>
+					<li>Passthrough (labels)</li>
+					<li>Continuous (numeric values)</li>
+					<li>Discrete (categories)</li>
+				</ul>
+			</li>
+	</ul>
+
+
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<img class="plain" src="modules/network-visualization/data-mapping-1.png" width="100%" height="100%"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/data-mapping-2.png" 
+														  data-autoslide="2000"
+	                            style="position:absolute; top: 20px; left: 30px;"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/data-mapping-3.png" 
+														  data-autoslide="2000"
+	                            style="position:absolute; top: 20px; left: 30px;"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/data-mapping-4.png" 
+														  data-autoslide="2000"
+	                            style="position:absolute; top: 20px; left: 30px;"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/data-mapping-5.png" 
+														  data-autoslide="50"
+	                            style="position:absolute; top: 20px; left: 30px;"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/node-size.png" 
+														  data-autoslide="2500"
+								              width="25%" 
+	                            style="position:absolute; top: 20px; left: 30px;"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/data-mapping-6.png" 
+														  data-autoslide="50"
+	                            style="position:absolute; top: 20px; left: 30px;"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/node-fill.png" 
+														  data-autoslide="2500"
+								              width="25%" 
+	                            style="position:absolute; top: 20px; left: 30px;"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/data-mapping-7.png" 
+														  data-autoslide="50"
+														  style="position:absolute; top: 20px; left: 30px;"/>
+	<img class="plain fragment fade-in" src="modules/network-visualization/node-border.png" 
+														  data-autoslide="2500"
+								              width="25%" 
+	                            style="position:absolute; top: 20px; left: 30px;"/>
+
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<h1>Data Mapping</h1>
+	<ul>
+		<li>Avoid cluttering your visualization with too much data
+			<ul>
+				<li>Highlight meaningful differences</li>
+				<li>Avoid confusing the viewer</li>
+				<li>Consider creating multiple network images</li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<h1>Layouts</h1>
+	<ul>
+		<li>Layouts determine the location of nodes and (sometimes) the paths of edges
+			<ul>
+				<li>Types:
+					<ul>
+						<li>Simple
+							<ul>
+								<li>Grid</li>
+								<li>Partitions</li>
+							</ul>
+						</li>
+						<li>Hierarchical
+							<ul>
+								<li>layout data as a tree or hierarchy</li>
+								<li>Works best when there are no loops</li>
+							</ul>
+						</li>
+						<li>Circular (Radial)
+							<ul>
+								<li>arrange nodes around a circle</li>
+								<li>could use node attributes to govern position
+									<ul><li>e.g. degree sorted</li></ul></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<h1>Layouts</h1>
+	<ul>
+		<ul>
+			<li>Types:
+				<ul>
+					<li>Force-Directed
+						<ul>
+							<li>simulate edges as springs</li>
+							<li>may be weighted or unweighted</li>
+						</ul>
+					</li>
+					<li>Combining layouts
+						<ul>
+							<li>Use a general layout (force directed) for the entire graph, 
+								but use hierarchical or radial to focus on a particular portion</li>
+						</ul>
+					</li>
+					<li>Multi-layer layouts
+						<ul><li>Partition graph, layout each partition then layout partitions</li></ul>
+					</li>
+					<li>Many, many others</li>
+				</ul>
+			</li>
+		</ul>
+	</ul>
+
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<h1>Layouts</h1>
+	<ul>
+		<li>Use layouts to convey the relationships between the nodes.</li>
+
+		<li style="margin-top: 3em;">Layout algorithms may need to be “tuned” to fit your network.</li>
+
+		<li style="margin-top: 3em;">There is not one correct layout. Try different things.</li>
+	</ul>
+
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<h1>Animation</h1>
+	<ul>
+		<li>Animation is useful to show changes in a network:
+			<ul>
+				<li>Over a time series</li>
+				<li>Over different conditions</li>
+				<li>Between species</li>
+			</ul>
+		</li>
+	</ul>
+
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
 </section>
