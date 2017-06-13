@@ -62,9 +62,9 @@
 				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
 				<section>
 				<a href="#" class="navigate-next"><ribbon>Introductions and Concepts</ribbon></a>
-				<a href="modules/finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
-				<a href="modules/network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
-				<a href="modules/network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
+				<a href="#/finding-network-data"><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-visualization" ><ribbon>Network Visualization</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis</ribbon></a>
 				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
 
 				<aside class="notes" data-markdown>
@@ -147,84 +147,54 @@
 				</section>
 
 				<!-- Links to modules within the Introduction & Concepts section -->
-				<section data-external="modules/intro-network-biology/module.html"></section>
-				<section data-external="modules/intro-cytoscape/module.html"></section>
-				<section data-external="modules/finding-network-data/module.html"></section>
-				<section data-external="modules/network-visualization/module.html"></section>
-				<section data-external="modules/network-analysis/module.html"></section>
-				<!--section>
-				<a href="../../modules/intro-network-biology/index.html" target="_blank"><ribbon>Intro to Network Biology</ribbon></a>
-				<a href="../../modules/intro-cytoscape/index.html" target="_blank"><ribbon>Intro to Cytoscape</ribbon></a>
-				<a href="#useCase"><ribbon>Automation Use Case</ribbon></a>
-				</section-->
+				<section id="intro-network-biology" data-external="modules/intro-network-biology/module.html"></section>
+				<section id="intro-cytoscape" data-external="modules/intro-cytoscape/module.html"></section>
+				<section id="finding-network-data" data-external="modules/finding-network-data/module.html"></section>
 
+				<!-- Overview update slide -->
+				<section>
+				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive" ><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-visualization" ><ribbon>Network Visualization</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis</ribbon></a>
+				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Links to modules within the Introduction & Concepts section -->
+				<section id="network-visualization" data-external="modules/network-visualization/module.html"></section>
+				<section id="network-analysis" data-external="modules/network-analysis/module.html"></section>
 
 				<!-- Introduce the dataset and biological question -->
-				<section id="#useCase">
+				<section id="use-case">
 				<h1>Automation Use Case</h1>
 				<ul>
 					<highlight style="margin-left:-50px;">Biological Question</highlight>
-					<li>Which genes correlate with a good/bad prognosis in ovarian cancer?</li>
-					<li>How do they interact as proteins?</li>
-					<li>What functions and pathways are they involved in?</li>
+					<li>What molecular changes occur in breast and ovarian tumors?
+					<li>Do they interact with each other and with other cancer genes?</li>
+					<li>Is there a common subnetwork affected in both cancers?</li>
 					<highlight style="margin-left:-50px;">Dataset</highlight>
-					<li>192 genes with significant prognosis modeling scores</li>
+					<li>Gene expression and mutation data from TCGA</li>
 					<highlight style="margin-left:-50px;">Approach</highlight>	
-					<li>Starting with data in R, connect to Cytoscape using CyREST</li>
-					<li>Construct networks in Cytoscape from R</li>
-					<li>Integrate data from R with networks</li>
-					<li>Perform clustering and data overlays</li>
-					<li>Export images and sessions for online sharing</li>
+					<li>Starting in R, connect to Cytoscape using CyREST</li>
+					<li>Construct disease networks in Cytoscape from R</li>
+					<li>Integrate TCGA data in R with networks</li>
+					<li>Perform data overlays and network analysis</li>
+					<li>Export images and sessions for sharing and publication</li>
 				</ul>					
-				<small>TCGA, <em>Nature</em> 2011, Supp.6F</small>
+				<small style="margin-top:20px">TCGA (2011) <em>Nature</em>. & TCGA (2012) <em>Nature</em>.</small>
 				<aside class="notes" data-markdown>
 				Notes from supplemental methods: _Using a training dataset of gene expression profiles from 215 stage II‐IV ovarian tumors from the TCGA (batches 9, 11‐15), a prognostic gene signature for overall survival was defined (genes with univariate Cox P < 0.01), comprised of 108 genes correlated with poor (worse) prognosis and 85 genes correlated with good (better) prognosis._
 				</aside>
 				</section>
 
-				<!-- Back to the overall agenda to link to next module, etc... -->
-				<!-- Optionally mark completed ribbons with class="inactive" -->
 				<section>
 				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
-				<a href="modules/finding-network-data/index.html" target="_blank"><ribbon>Finding Network Data</ribbon></a>
-				<a href="modules/network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
-				<a href="modules/network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
-				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
-
-				<aside class="notes" data-markdown>
-				Add speaker notes here...
-				</aside>
-				</section>
-
-				<section>
-				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
-				<a class="inactive" target="_blank"><ribbon>Finding Network Data</ribbon></a>
-				<a href="modules/network-visualization/index.html" target="_blank"><ribbon>Network Visualization</ribbon></a>
-				<a href="modules/network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
-				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
-
-				<aside class="notes" data-markdown>
-				Add speaker notes here...
-				</aside>
-				</section>
-
-				<section>
-				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
-				<a class="inactive" target="_blank"><ribbon>Finding Network Data</ribbon></a>
-				<a class="inactive" target="_blank"><ribbon>Network Visualization</ribbon></a>
-				<a href="modules/network-analysis/index.html" target="_blank"><ribbon>Network Analysis</ribbon></a>
-				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
-
-				<aside class="notes" data-markdown>
-				Add speaker notes here...
-				</aside>
-				</section>
-
-				<section>
-				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
-				<a class="inactive" target="_blank"><ribbon>Finding Network Data</ribbon></a>
-				<a class="inactive" target="_blank"><ribbon>Network Visualization</ribbon></a>
-				<a class="inactive" target="_blank"><ribbon>Network Analysis</ribbon></a>
+				<a class="inactive" ><ribbon>Finding Network Data</ribbon></a>
+				<a class="inactive" ><ribbon>Network Visualization</ribbon></a>
+				<a class="inactive" ><ribbon>Network Analysis</ribbon></a>
 				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/tutorial" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
 
 				<aside class="notes" data-markdown>
@@ -242,6 +212,7 @@
 					<li><a href="https://groups.google.com/forum/#!forum/cytoscape-helpdesk" target="_blank">cytoscape-helpdesk@googlegroups.com</a></li>
 					<li><a href="https://groups.google.com/forum/#!forum/cytoscape-app-dev" target="_blank">cytoscape-app-dev@googlegroups.com</a></li>
 					<li><a href="http://nrnb.org/training.html" target="_blank">nrnb.org/training.html</a></li>
+					<li><a href="https://www.surveymonkey.com/r/cytoscape" target="_blank"><blink>surveymonkey.com/r/cytoscape</blink></a></li>	
 				</ul>
 
 				<aside class="notes" data-markdown>
