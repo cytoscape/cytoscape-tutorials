@@ -42,7 +42,7 @@ You can access training materials at any time via a web browser. All content is 
 https://cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation.html
 ```
 
-#### Offline.
+#### Offline
 You can also generate a PDF version of any presentation or protocol and save it as a local file to share or present offline. Note that animated slides do not display as separate slides in PDF form, but rather as single slides in their final form. However, protocols  should be composed in such a way to display properly in PDF. Simply append ```?print-pdf``` to the end of the url for any protocol or protocol module, e.g.,
 
 ```
