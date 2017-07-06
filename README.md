@@ -99,7 +99,7 @@ Say you are putting together a presentation for class or workshop, but the exist
 2. **Composing a presentation module**
 Say you want to present a topic in detail, but it is not covered by any of the existing modules here. Well, you can make your own modules that can then be used (and reused) in multiple compositions (see Strategy 1). If possible, try to make the module focused on a single topic. Make more than one module, if necessary. And try to make the slides generic enough so that the module can be reused by other presenters, e.g., avoid content that is particular to only one audience, venue or setting.  
 
-   See a [presentation module template](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html) and [code]{https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/modules/template-a) to see how to build a module and how sample slides are formatted. The Style section below will cover most of the aspects of reveal you'll need to know to build a set of slides. 
+   See a [presentation module template](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html) and [code](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/modules/template-a) to see how to build a module and how sample slides are formatted. Note how the ```moduled.html``` file is simply a set of ```<section>``` tags; while the ```index.html``` is generic wrapper you can copy/paste to make your sections work as a reveal.js presentation. The Style section below will cover most of the aspects of reveal you'll need to know to build a set of slides. 
 
 ## Style
 We have developed [custom themes for Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/css/theme). These stylesheets provide settings and features tailored for our content, making it easier to put together (and reuse) training materials in this repo. Review how to use these customizations below...
@@ -112,8 +112,10 @@ To help develop training material that is accurate and current, we developed a c
 
 ### Headings
 We have customized heading tags for the Cytoscape tutorial styles:
-* ```<h1>``` = Large font with background color and white text, to match Ribbon styles
-* ```<h2>``` and others = Black font, no background.
+
+![Headers](assets/images/headers.png)
+
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html)***
 
 ### Ribbons
 * ```<ribbon>``` = These are ideal for making interactive Agenda or Outline slides. Ribbons...
