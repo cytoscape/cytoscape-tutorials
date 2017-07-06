@@ -88,6 +88,19 @@ Each level will have named html files or ```index.html``` files, which are the f
 <section data-external="modules/intro-cytoscape/module.html"></section>
 ```
 
+#### Strategies
+1. **Composing a presentation from existing modules**  
+Say you are putting together a presentation for class or workshop, but the existing presentations here aren't exactly right. You want a bit of customization, but you don't want to start over from scratch.  Well, with this strategy you can reuse any of the modules here and pull them together in any order you like, while also adding custom slides before, after or between modules (though not *within* a given module). 
+
+   See the [presentation template](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html) and [code](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/template.html) to see how simple it is to reference existing modules, like so ```<section data-external="modules/template-a/module.html"></section>```.
+   
+   You can insert as many modules as you'd like and in any order. Furthermore, you can add slides using the ```section``` tag before or after modules in order to customize, e.g., with a title slide. This strategy works for protocols in the same way.
+   
+2. **Composing a presentation module**
+Say you want to present a topic in detail, but it is not covered by any of the existing modules here. Well, you can make your own modules that can then be used (and reused) in multiple compositions (see Strategy 1). If possible, try to make the module focused on a single topic. Make more than one module, if necessary. And try to make the slides generic enough so that the module can be reused by other presenters, e.g., avoid content that is particular to only one audience, venue or setting.  
+
+   See a [presentation module template](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html) and [code]{https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/modules/template-a) to see how to build a module and how sample slides are formatted. The Style section below will cover most of the aspects of reveal you'll need to know to build a set of slides. 
+
 ## Style
 We have developed [custom themes for Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/css/theme). These stylesheets provide settings and features tailored for our content, making it easier to put together (and reuse) training materials in this repo. Review how to use these customizations below...
 
