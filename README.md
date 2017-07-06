@@ -48,7 +48,11 @@ You can also generate a PDF version of any presentation or protocol and save it 
 ```
 https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/index.html?print-pdf#/
 ```
-Then choose File>Print... and set the orientation to ```landscape``` and Save to PDF. Verify that the page breaks are correct throughout the presentation. For longer presentations, you may need to generate the PDF using an alternative approach, see [Decktape and PhantomJS](https://github.com/astefanutti/decktape).
+Then choose File>Print... and set the orientation to ```landscape``` and Save to PDF. Verify that the page breaks are correct throughout the presentation. For longer presentations, you may need to generate the PDF using an alternative approach, see [Decktape and PhantomJS](https://github.com/astefanutti/decktape). Example usage:
+
+```
+./phantomjs decktape.js automatic https://cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation.html#/ advanced-automation.pdf
+```
 
 ## Sharing
 Please feel free to use, share, copy or adapt any of the training materials you find here. They are all implicitly published under the CC0 waiver for maximum resuse potential.
