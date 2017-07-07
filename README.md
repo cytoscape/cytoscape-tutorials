@@ -15,7 +15,7 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
   - [Headings](#headings)
   - [Slide Links](#slide_links)
   - [Ribbons](#ribbons)
-  - [Text](#text)
+  - [Highlight](#highlight)
   - [Animation](#animation)
   - [Lists](#lists)
   - [Columns](#columns)
@@ -146,19 +146,37 @@ These are ideal for making interactive Agenda or Outline slides. They have a sim
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html#/ribbons)***
 
-### Text
+### Highlight
+Use the ```<highlight>``` tag to highlight text with the Cytoscape-orange color
 
-### Animation
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/highlight)***
+
+### Code
+Reveal used [highlightjs](https://highlightjs.org/) to format code snippets. 
+
+```
+<pre><code data-trim>
+if (files != null) {
+   for (int i=0; i < files.length; i++) {
+       String filename = files[i];
+   }
+}
+</code></pre>
+```
+
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/code)***
 
 ### Lists
+Typical usage of ```<ul>``` for unordered lists and ```<ol>``` for ordered lists is supported with ```<li>``` tagging each list item.
+
+### Images
+
+
+### Animation
 
 ### Columns
 
 ### Tables
-
-### Images
-
-### Code
 
 ### Editing Cytoscape Theme
 
