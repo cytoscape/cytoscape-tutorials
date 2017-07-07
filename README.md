@@ -13,6 +13,7 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
 - [Cytoscape Custom Style](#style)
   - [Version](#version)
   - [Headings](#headings)
+  - [Slide Links](#slide_links)
   - [Ribbons](#ribbons)
   - [Text](#text)
   - [Animation](#animation)
@@ -115,10 +116,33 @@ We have customized heading tags for the Cytoscape tutorial styles:
 
 ![Headers](assets/images/headers.png)
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html)***
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/headers)***
+
+### Slide Links
+There are many ways to link to slides *within* your presentation. Here are a few of the most useful ones...
+
+```
+<a href="#/2/3">Link to slide by position (e.g., second slide over, third slide down)</a>
+<a href="#/my-fav-slide">Link slide by name (e.g., section id="my-fav-slide")</a>
+<a href="#" class="navigate-next">Link to next slide</a>
+```
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html#/links)***
 
 ### Ribbons
-* ```<ribbon>``` = These are ideal for making interactive Agenda or Outline slides. Ribbons...
+These are ideal for making interactive Agenda or Outline slides. They have a similar style as <h1> headers, but are designed to work together with slide links (or external links) and have the nifty behavior of automatically stacking and coloring themselves when you list more than one.
+
+```
+<a href="#/"><ribbon>Title Slide</ribbon></a>
+<a href="#/3"><ribbon>Template Module A</ribbon></a>
+<a href="#/headers"><ribbon>List of Headers</ribbon></a>
+<a href="#" class="navigate-next"><ribbon>How Links Work</ribbon></a>
+<a class="inactive"><ribbon>Inactive Ribbon Style</ribbon></a>
+```
+![Ribbons](assets/images/ribbons.png)
+
+*Pro tip: if you indicate ```class="inactive"``` then you can gray-out a ribbon and disable its link. This is useful for mid-presentation review of the agenda, i.e., to remind the audience know what's been covered already and where you are at in the presentation.*
+
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html#/ribbons)***
 
 ### Text
 
