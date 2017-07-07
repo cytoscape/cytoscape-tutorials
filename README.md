@@ -188,8 +188,41 @@ Use the ```<small>``` tag to format citations at the bottom of slides
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/list-image-cit)***
 
 ### Animation
+The ```fragment``` class can be added to any html elements (e.g., paragraphs, images, list items) to set them up for animation, i.e., step-wise display. If you want to animate more than one element at the same time, simply wrap them in a div and add ```class="fragment"``` to it. You can also specify the type of animation per fragment...
+
+```
+<p class="fragment grow">grow</p>
+<p class="fragment shrink">shrink</p>
+<p class="fragment fade-out">fade-out</p>
+<p class="fragment fade-up">fade-up (also down, left and right!)</p>
+<p class="fragment current-visible">visible only once</p>
+<p class="fragment highlight-current-blue">blue only once</p>
+<p class="fragment highlight-red">highlight-red</p>
+<p class="fragment highlight-green">highlight-green</p>
+<p class="fragment highlight-blue">highlight-blue</p>
+```
+
+If you want an element to fade-out after fading-in, you can combine fragments like so...
+
+```
+<span class="fragment fade-in">
+		<span class="fragment fade-out">I'll fade in, then out</span>
+</span>
+ ```
+And for more precise control over the order and combination of animated fragments, you can explicity specify an index number...
+
+```
+<p class="fragment" data-fragment-index="3">Appears last</p>
+<p class="fragment" data-fragment-index="1">Appears first</p>
+<p class="fragment" data-fragment-index="2">Appears second</p>
+ ```
+
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/frag-list)***
 
 ### Columns
+The Cytoscape stylesheet includes a custom ```column``` class which can be applied to two divs to automatically get a two-column layout for your slide content.
+
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/two-columns)***
 
 ### Tables
 
