@@ -16,12 +16,13 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
   - [Slide Links](#slide_links)
   - [Ribbons](#ribbons)
   - [Highlight](#highlight)
-  - [Animation](#animation)
+  - [Code](#code)
   - [Lists](#lists)
+  - [Images](#images)
+  - [Citations](#citations)
+  - [Animation](#animation)
   - [Columns](#columns)
   - [Tables](#tables)
-  - [Images](#images)
-  - [Code](#code)
   - [Editing the Cytoscape theme](#editing-cytoscape-theme)
   - [Editing the base theme](#editing-base-theme)	
 
@@ -170,7 +171,20 @@ if (files != null) {
 Typical usage of ```<ul>``` for unordered lists and ```<ol>``` for ordered lists is supported with ```<li>``` tagging each list item.
 
 ### Images
+Images are automatically scaled, centered and given a drop shadow border. Common customizations can be made with ```style``` settings, such as width...
 
+```
+<img style="width:60%;" src="modules/intro-network-biology/network-example.jpg">
+```
+
+You can also float the image to the left (or right) side by appedning ```"float:left"``` to the style.
+
+*Pro tip: If you have local copies of the images you want to include, upload them into the same directory as the html file, but include the path in ```src``` relative to the presentation (or protocol) directory, like in the example above. The index.html wrapper includes a base href="../.." so that the paths will work for both modules and presentations. If these images are likely to be used by multiple modules or presentations, you can also upload them to the top level ```assets/images``` dir, in which case the relative path in ```src``` should be "../assets/images".*
+
+### Citations
+Use the ```<small>``` tag to format citations at the bottom of slides
+
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/highlight)***
 
 ### Animation
 
