@@ -110,6 +110,7 @@ To help develop training material that is accurate and current, we developed a c
 ```
 <version>3.5.1</version>
 ```
+![Version](assets/images/version.png)
 
 ### Headings
 We have customized heading tags for the Cytoscape tutorial styles:
@@ -129,7 +130,7 @@ There are many ways to link to slides *within* your presentation. Here are a few
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html#/links)***
 
 ### Ribbons
-These are ideal for making interactive Agenda or Outline slides. They have a similar style as <h1> headers, but are designed to work together with slide links (or external links) and have the nifty behavior of automatically stacking and coloring themselves when you list more than one.
+These are ideal for making interactive Agenda or Outline slides. They have a similar style as h1 headers, but are designed to work together with slide links (or external links) and have the nifty behavior of automatically stacking and coloring themselves when you list more than one.
 
 ```
 <a href="#/"><ribbon>Title Slide</ribbon></a>
@@ -138,6 +139,7 @@ These are ideal for making interactive Agenda or Outline slides. They have a sim
 <a href="#" class="navigate-next"><ribbon>How Links Work</ribbon></a>
 <a class="inactive"><ribbon>Inactive Ribbon Style</ribbon></a>
 ```
+
 ![Ribbons](assets/images/ribbons.png)
 
 *Pro tip: if you indicate ```class="inactive"``` then you can gray-out a ribbon and disable its link. This is useful for mid-presentation review of the agenda, i.e., to remind the audience know what's been covered already and where you are at in the presentation.*
