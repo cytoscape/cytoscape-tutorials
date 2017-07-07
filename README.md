@@ -234,6 +234,11 @@ The Cytoscape stylesheet includes a custom ```column``` class which can be appli
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/two-columns)***
 
 ### Tables
+The default table style includes a distinct header and background shading on alternating rows. Using ```table```, ```th```, ```tr``` and ```td``` as you normally would, results in a styled table like this...
+
+<img src="assets/images/table.png" width="400px" />
+
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/table)***
 
 ### Editing Cytoscape Theme
 
