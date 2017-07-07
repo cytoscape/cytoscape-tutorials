@@ -220,7 +220,16 @@ And for more precise control over the order and combination of animated fragment
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/frag-list)***
 
 ### Columns
-The Cytoscape stylesheet includes a custom ```column``` class which can be applied to two divs to automatically get a two-column layout for your slide content.
+The Cytoscape stylesheet includes a custom ```column``` class which can be applied to two consecutive divs to automatically get a two-column layout for your slide content.
+
+```
+<div class="column">
+	...contents for left column...
+</div>
+<div class="column">
+	...contents for right column...
+</div>
+```
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/two-columns)***
 
