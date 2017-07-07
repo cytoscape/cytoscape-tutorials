@@ -141,7 +141,7 @@ These are ideal for making interactive Agenda or Outline slides. They have a sim
 <a class="inactive"><ribbon>Inactive Ribbon Style</ribbon></a>
 ```
 
-[![Ribbons](assets/images/ribbons.png)](#null)
+<img src="assets/images/ribbons.png" width="600px" />
 
 *Pro tip: if you indicate ```class="inactive"``` then you can gray-out a ribbon and disable its link. This is useful for mid-presentation review of the agenda, i.e., to remind the audience know what's been covered already and where you are at in the presentation.*
 
@@ -176,7 +176,7 @@ Images are automatically scaled, centered and given a drop shadow border. Common
 ```
 <img style="width:60%;" src="modules/intro-network-biology/network-example.jpg">
 ```
-![Image example](assets/images/image-example.png)
+<img src="assets/images/image-example.png" width="600px" />
 
 You can also float the image to the left (or right) side by appedning ```"float:left"``` to the style.
 
