@@ -34,7 +34,7 @@ Browse the available training materials already prepared:
 #### Navigating
 Use arrow keys, "space" or the on-screen arrows (lower right) to navigate the slides. Take note of modules that are organized ___vertically___ within a presentation.
 
-![Overview](assets/images/overview.png)
+[![Overview](assets/images/overview.png)](#navigating)
 
 #### Online
 You can access training materials at any time via a web browser. All content is tested in the latest versions of Firefox and Chrome. Simply navigate to the corresponding url, e.g., 
@@ -110,12 +110,12 @@ To help develop training material that is accurate and current, we developed a c
 ```
 <version>3.5.1</version>
 ```
-![Version](assets/images/version.png)
+[![Version](assets/images/version.png)](#version)
 
 ### Headings
 We have customized heading tags for the Cytoscape tutorial styles:
 
-![Headers](assets/images/headers.png)
+[![Headers](assets/images/headers.png)](#headers)
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/headers)***
 
@@ -140,7 +140,7 @@ These are ideal for making interactive Agenda or Outline slides. They have a sim
 <a class="inactive"><ribbon>Inactive Ribbon Style</ribbon></a>
 ```
 
-[![Ribbons](assets/images/ribbons.png)]()
+[![Ribbons](assets/images/ribbons.png)](#ribbons)
 
 *Pro tip: if you indicate ```class="inactive"``` then you can gray-out a ribbon and disable its link. This is useful for mid-presentation review of the agenda, i.e., to remind the audience know what's been covered already and where you are at in the presentation.*
 
