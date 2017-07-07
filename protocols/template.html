@@ -28,10 +28,25 @@
 				<version>3.5.1</version>
 			</div>
 			<div class="slides">
-			<!-- this is just a shell to import the sections file -->
-			<section data-external="modules/template-a/module.html"></section>
-                        <section data-external="modules/template-b/module.html"></section>
+                                <!-- Add custom slides and references to modules here -->
+                                <!-- This is a title slide -->
+                                <section id='title'>
+                                <h1>Title of Your Protocol</h1>
+                                <br /><br />
+                                <h4>Basic Network Analysis with <highlight>Cytoscape</highlight></h4>
+                                <aside class="notes" data-markdown>
+                                Check that the audience has the latest version of Cytoscape installed! 
+                                </aside>
+                                </section>
 
+                                <!-- And this is how you pull in existing modules -->
+                                <section data-external="modules/template-a/module.html"></section>
+                                <section data-external="modules/template-b/module.html"></section>
+
+                                <!-- This is where you'd insert a custom conclusion slide -->
+                                <section>
+                                <h3>Any Questions?<h3>
+                                </section>
 			</div>
 		</div>
 
