@@ -28,9 +28,39 @@
 				<version>3.5.1</version>
 			</div>
 			<div class="slides">
-			<!-- this is just a shell to import the sections file -->
-			<section data-external="modules/template-a/module.html"></section>
-			<section data-external="modules/template-b/module.html"></section>
+				<!-- Add custom slides and references to modules here -->
+				<!-- This is a title slide -->
+				<section id='title'>
+				<h1>Title of Your Presentation</h1>
+				<br /><br />
+				<h4>Cool Conference - <highlight>Svalbard</highlight></h4>
+				<h5> 21 July 2035</h5>
+
+				<aside class="notes" data-markdown>
+				Don't forget to thank those who invited you!
+				</aside>
+				</section>
+				<!-- These are example Ribbons for agendas and outlines -->
+				<section id='ribbons'>
+				<a href="#/"><ribbon>Title Slide</ribbon></a>
+				<a href="#/3"><ribbon>Template Module A</ribbon></a>
+				<a href="#/headers"><ribbon>List of Headers</ribbon></a>
+				<a href="#" class="navigate-next"><ribbon>How Links Work</ribbon></a>
+				<a class="inactive"><ribbon>Inactive Ribbon Style</ribbon></a>
+				</section>
+				<!-- These are example links to slide within your presentation -->
+				<section id='links'>
+				<h3>This is how slide links work</h3> 
+				<ul>
+					<li>Link to <a href="#" class="navigate-next">next slide</a></li>
+					<li>Link to slide <a href="#/headers">by name</a> (e.g., section id="headers")</li>
+					<li>Link to slide <a href="#/3/2">by position</a> (e.g., third slide over, second slide down)</li>
+				</ul>
+				</section>
+
+				<!-- And this is how you pull in existing modules -->
+				<section data-external="modules/template-a/module.html"></section>
+				<section data-external="modules/template-b/module.html"></section>
 
 			</div>
 		</div>
