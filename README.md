@@ -176,6 +176,7 @@ Images are automatically scaled, centered and given a drop shadow border. Common
 ```
 <img style="width:60%;" src="modules/intro-network-biology/network-example.jpg">
 ```
+![Image example](assets/images/image-example.png)
 
 You can also float the image to the left (or right) side by appedning ```"float:left"``` to the style.
 
@@ -184,7 +185,7 @@ You can also float the image to the left (or right) side by appedning ```"float:
 ### Citations
 Use the ```<small>``` tag to format citations at the bottom of slides
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/highlight)***
+***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/list-image-cit)***
 
 ### Animation
 
