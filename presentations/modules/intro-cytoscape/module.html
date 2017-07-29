@@ -106,63 +106,74 @@ Add speaker notes here...
 </section>
 
 <section>
-<h1>Loading Data</h1>
+<h1>Loading Network Data</h1>
 <ul style="margin-bottom: 0px">
 	<li>Cytoscape can import network data from:
-		<ul style="margin-top: 0px; margin-bottom: 0px">
+		<ul>
 			<li>Files (or URLs)
-				<ul style="margin-top: 0px; margin-bottom: 0px">
+				<ul> 
 					<li><b>Excel, TSV, CSV</b></li>
-					<li><b>eXtensible Graph Markup and Modelling Language: XGMML</b></li>
-					<li><b>Systems Biology Markup Language (SBML)</b></li>
+					<li><b>XGMML</b>: eXtensible Graph Markup and Modelling Language</li>
+					<li><b>SBML</b>: Systems Biology Markup Language</li>
 					<li><b>BioPAX</b></li>
 					<li><b>PSI-MI</b></li>
-					<li>Simple Interaction Format: SIF</li>
-					<li>Graph Markup Language: GML </li>
+					<li><b>SIF</b>: Simple Interaction Format</li>
+					<li><b>GML</b>: Graph Markup Language</li>
 					<li>... and others depending on loaded Apps</li>
 				</ul>
 			</li>
 		</ul>
 	</li>
 </ul>
-<p style="font-size: 60%">* <b>Bold:</b> loads table data also</p>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
 <section>
-<h1>Loading Data</h1>
+<h1>Loading Network Data</h1>
 <ul style="margin-bottom: 0px">
 	<li>Cytoscape can import network data from:
-		<ul style="margin-top: 0px; margin-bottom: 0px">
+		<ul> 
 			<li>Public repositories:
-				<ul style="margin-top: 0px; margin-bottom: 0px">
+				<ul>
 					<li><b>EBI/PSICQUIC</b></li>
 					<li><b>STRING</b> (via the stringApp)</li>
-					<li><b>Reactome</b> (via the ReactomeFI App)</li>
-					<li><b>Wikipathways</b> (via the Wikipathways App)</li>
-					<li><b>Pathway Commons</b> (via the CyPath2 App)</li>
+					<li><b>Reactome</b> (via the ReactomeFI app)</li>
+					<li><b>WikiPathways</b> (via the WikiPathways app)</li>
+					<li><b>Pathway Commons</b> (via the CyPath2 app)</li>
+					<li><b>NDEx</b> (via the NDEx app)</li>
+				</ul>
+			</li>
+			<li>Automation:
+			        <ul>
+					<li><b>Command line scripts</b></li>
+					<li><b>CyREST via R, Python, etc</b></li>
 				</ul>
 			</li>
 		</ul>
 	</li>
 </ul>
-<p style="font-size: 60%">* <b>Bold:</b> loads table data also</p>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
 <section>
-<h1>Loading Data</h1>
+<h1>Loading Table Data</h1>
 <ul>
 	<li>Cytoscape can load tables from:
 		<ul>
 			<li>Files (or URLs)
 				<ul>
-					<li>Excel, TSV, CSV</li>
+					<li><b>Excel, TSV, CSV</b></li>
 				</ul></li>
+                        <li>Automation:
+                                <ul>
+                                        <li><b>Command line scripts</b></li>
+                                        <li><b>CyREST via R, Python, etc</b></li>
+                                </ul>
+                        </li>
 		</ul>
 	</li>
 </ul>
@@ -172,12 +183,12 @@ Add speaker notes here...
 </section>
 
 <section>
-<h1>Loading Data</h1>
+<h1>Saving and Exporting</h1>
 <ul>
 	<li>Sessions save everything as <highlight>.cys</highlight> files: </br>
 	<span style="font-size: 90%">Networks, Tables, Styles, Screen sizes, etc.</span></li>
 	<li style="margin-top: 30px">Export networks in different formats:  </br>
-	<span style="font-size: 90%">SIF, GML, XGMML, BioPAX, PSI-MI 1 &amp; 2.5</span></li>
+	<span style="font-size: 90%">SIF, GML, XGMML, BioPAX, JSON</span></li>
 	<li style="margin-top: 30px">Export tables as CSV files </li>
 	<li style="margin-top: 30px">Publication quality graphics in several formats:</br>
 	<span style="font-size: 90%">PDF, SVG, PNG, and JPEG</span></li>
