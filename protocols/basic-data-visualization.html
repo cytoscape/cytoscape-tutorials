@@ -60,8 +60,8 @@
 
                 <script>
                         Reveal.addEventListener( 'ready', function() {
-			if(window.navigator.userAgent.includes('CyBrowser')){
-				document.querySelector(".cybrowser").style.display = "block";
+			if(!window.navigator.userAgent.includes('CyBrowser')){
+				document.querySelector(".cybrowser").style.display = "none";
 			}
                 });
                 </script>  
