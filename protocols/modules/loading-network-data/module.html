@@ -4,8 +4,10 @@
 	<li>Start Cytoscape and load the network galFiltered.sif via <b>File → Import → Network → File....</b></li>
     <div class="cybrowser">
         <a href='cycmd:network load url url="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"'>Click to load the network</a> 
+        <input type="button" onclick="cybrowser.executeCyCommand('network load url url="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"');" value="Load network"/>
+
     </div>
-	<li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes. The default layout may be changed in under <b>Layout → Settings</b>.</li>
+	<li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes. The default layout may be changed under <b>Layout → Settings</b>.</li>
 	<li>Cytoscape should now look similar to this:</li>
 </ul>
 <img plain src="modules/loading-network-data/1200px-GalFilteredLoaded3.png" style="width:60%">
