@@ -6,167 +6,156 @@ Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-Markdown does not appear to be supported by external.js
-<script type="text/template">
-	### Label the Nodes
-	- Open the **Styles** by selecting its tab in the "Control Panel" (the leftmost panel).
-	- Use the "Common" name attribute to give the nodes useful names.
-	- Zoom in on the network so that node labels are visible.
-	- Click the second column of the "Label" row in the **Styles** panel. This should produce a drop-down panel with **Column** and **Mapping Type**.
-	- Change the "Column" to **COMMON** by clicking on the field to the right of the **Column** label. This should bring up a list of columns. Select **COMMON**.
-	- Verify that the node labels on the network have changed to their common names.
-	- By default, the **Mapping Type** is **Passthrough Mapping**, which is what we want to use. Other options are **Discrete Mapping** and **Continuous Mapping**.
-</script>
+<section>
+	<h2>Label the Nodes</h2>
+    <ul>
+	<li>Open the <b>Styles</b> interface by selecting its tab in the <b>Control Panel</b> (the leftmost panel).</li>
+	<li>Use the "Common" name attribute to give the nodes useful names.</li>
+	<li>Zoom in on the network so that node labels are visible.</li>
+	<li>Click the second column of the "Label" row in the <b>Styles</b> panel. This should produce a drop-down panel with <b>Column</b> and <b>Mapping Type</b>.</li>
+	<li>Change the "Column" to <b>COMMON</b> by clicking on the field to the right of the <b>Column</b> label. This should bring up a list of columns. Select <b>COMMON</b>.</li>
+	<li>Verify that the node labels on the network have changed to their common names.</li>
+	<li>By default, the <b>Mapping Type</b> is <b>Passthrough Mapping</b>, which is what we want to use. Other options are <b>Discrete Mapping</b> and <b>Continuous Mapping</b>.</li>
+        </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	### Color the nodes
-	Define the node color of this visual style:
-	- Click on the middle square (**Map.**) next to the **Fill Color** row in the **Styles** panel.
-	- Click the **-- select value --** cell in the **Column** section.
-	- This will produce a drop-down menu of available column names. Select "gal80Rexp".
-	- Click the **-- select value--** cell in the **Mapping Type** section.
-	- This will produce a drop-down menu of available mapping types. Select **Continuous Mapping**.
-	- This action will produce a basic black to white color gradient.
-	- Click on the color gradient to change the colors. This will pop-up a gradient editing dialog.
-	- We're going to build a basic blue-white-yellow gradient for our expression values.
-</script>
+<section>
+	<h2>Color the nodes</h2>
+	<p>Define the node color of this visual style:</p>
+    <ul>
+	<li>Click on the middle square (<b>Map.</b>) next to the <b>Fill Color</b> row in the <b>Styles</b> panel.</li>
+	<li>Click the <b>-- select value --</b> cell in the <b>Column</b> section.</li>
+	<li>This will produce a drop-down menu of available column names. Select "gal80Rexp".</li>
+	<li>Click the <b>-- select value--</b> cell in the <b>Mapping Type</b> section.</li>
+	<li>This will produce a drop-down menu of available mapping types. Select <b>Continuous Mapping</b>.</li>
+	<li>This action will produce a basic black to white color gradient.</li>
+	<li>Click on the color gradient to change the colors. This will pop-up a gradient editing dialog.</li>
+	<li>We're going to build a basic blue-white-yellow gradient for our expression values.</li>
+    </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	- Drag the left-most, black inverted triangle handle along the top of the gradient. Drag it to an value of approx. -1.2. Double-click on the handle and set a color in the blue range.
-	- Drag the white inverted triangle handle to approx 0.5. You can type the value in the **Handle Position** section to be more precise.
-	- Add a new handle by clicking **Add**, and drag that handle to 2.5. Set the color to yellow.
-	- Finally, set the **Maximum Color** by double-clicking on the white, left-pointing triangle. Set it to green.
-	- You can also change the color of each handle by double-clicking or using the **Node Fill Color** selector button in the **Handle Settings** section.
-	- This should produce a Blue-White-Yellow Color gradient like the image below, with min and max extremes colored black and green, respectively.
-	- Click **OK** to save the gradient adjustment dialog and verify that the nodes in the network reflect the new coloring scheme.
-</script>
+<section>
+    <ul>
+	<li>Drag the left-most, black inverted triangle handle along the top of the gradient. Drag it to an value of approx. -1.2. Double-click on the handle and set a color in the blue range.</li>
+	<li>Drag the white inverted triangle handle to approx 0.5. You can type the value in the <b>Handle Position</b> section to be more precise.</li>
+	<li>Add a new handle by clicking <b>Add</b>, and drag that handle to 2.5. Set the color to yellow.</li>
+	<li>Finally, set the <b>Maximum Color</b> by double-clicking on the white, left-pointing triangle. Set it to green.</li>
+	<li>You can also change the color of each handle by double-clicking or using the <b>Node Fill Color</b> selector button in the <b>Handle Settings</b> section.</li>
+	<li>This should produce a Blue-White-Yellow Color gradient like the image below, with min and max extremes colored black and green, respectively.</li>
+	<li>Click <b>OK</b> to save the gradient adjustment dialog and verify that the nodes in the network reflect the new coloring scheme.</li>
+    </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	![500px-Node_color_gradient3_v2.png](modules/mapping-data/500px-Node_color_gradient3_v2.png)
-</script>
+<section>
+    <img plain src="modules/mapping-data/500px-Node_color_gradient3_v2.png" style="width:60%">
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	### Set the Default Node Color
-	Note that the default node color of pale blue falls within this spectrum. A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.
-
-	- Click the **Def.** (leftmost) square next to **Fill Color** and choose a dark gray color.
-	- Zoom out on the network view to verify that a few nodes have been colored gray.
-</script>
+<section>
+	<h2>Set the Default Node Color</h2>
+	<p>Note that the default node color of pale blue falls within this spectrum. A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.</p>
+    <ul>
+	<li>Click the <b>Def.</b> (leftmost) square next to <b>Fill Color</b> and choose a dark gray color.</li>
+	<li>Zoom out on the network view to verify that a few nodes have been colored gray.</li>
+    </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	### Set the Node Shape
-	We imported both expression measurement values and significance values for those measurements. We can use the significance values to change the shape of the nodes so that measurements we have confidence in appear as squares while potentially bad measurements appear as circles.
-
-	- Click the **Map**. cell next to the **Shape** row in the **Style** panel.
-	- Click the **-- select value --** cell next to **Column**.
-	- This will produce a drop-down menu of available column names. Select "gal80Rsig".
-	- Click the **-- select value --** cell next to **Mapping Type**.
-	- This will produce a drop-down menu of available mapping types. Select **Continuous Mapping**.
-	- This will create an empty icon in the **Current Mapping** row of the **Shape** section. Click on this icon.
-	- This action will pop-up a continuous shape selection dialog.
-</script>
+<section>
+	<h2>Set the Node Shape</h2>
+	<p>We imported both expression measurement values and significance values for those measurements. We can use the significance values to change the shape of the nodes so that measurements we have confidence in appear as squares while potentially bad measurements appear as circles.</p>
+    <ul>
+	<li>Click the <b>Map</b>. cell next to the <b>Shape</b> row in the <b>Style</b> panel.</li>
+	<li>Click the <b>-- select value --</b> cell next to <b>Column</b>.</li>
+	<li>This will produce a drop-down menu of available column names. Select "gal80Rsig".</li>
+	<li>Click the <b>-- select value --</b> cell next to <b>Mapping Type</b>.</li>
+	<li>This will produce a drop-down menu of available mapping types. Select <b>Continuous Mapping</b>.</li>
+	<li>This will create an empty icon in the <b>Current Mapping</b> row of the <b>Shape</b> section. Click on this icon.</li>
+	<li>This action will pop-up a continuous shape selection dialog.</li>
+    </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	![Node_shape_editor3.png](modules/mapping-data/Node_shape_editor3.png)
-</script>
+<section>
+    <img plain src="modules/mapping-data/Node_shape_editor3.png" style="width:60%">
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	- Click the **Add** button.
-	- This action will split the range of values with a slider down the middle with a node shape icon to either side of the slider.
-	- Double-click on the left node icon (a circle).
-	- This will pop-up a node shape selection dialog.
-	- Choose the **Rectangle** shape and click the **Apply** button.
-	- The continuous shape selection dialog should now show both a square and a circle node shape icon.
-	- Click on the black triangle and move the slider to the left, to slightly lower that 0.05, our threshold for significance.
-	- Close the continuous shape selection dialog and verify that some nodes have a square shape and some nodes have a circular shape.
-</script>
+<section>
+    <ul>
+	<li>Click the <b>Add</b> button.</li>
+	<li>This action will split the range of values with a slider down the middle with a node shape icon to either side of the slider.</li>
+	<li>Double-click on the left node icon (a circle).</li>
+	<li>This will pop-up a node shape selection dialog.</li>
+	<li>Choose the <b>Rectangle</b> shape and click the <b>Apply</b> button.</li>
+	<li>The continuous shape selection dialog should now show both a square and a circle node shape icon.</li>
+	<li>Click on the black triangle and move the slider to the left, to slightly lower that 0.05, our threshold for significance.</li>
+	<li>Close the continuous shape selection dialog and verify that some nodes have a square shape and some nodes have a circular shape.</li>
+        </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	The network should now look like this:
+<section>
+	<p>The network should now look like this:</p>
+    <img plain src="modules/mapping-data/1600px-Galfiltered-visualization3.png" style="width:60%">
 
-	![1600px-Galfiltered-visualization3.png](modules/mapping-data/1600px-Galfiltered-visualization3.png)
-</script>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	### Fun with Charts
-	In addition to coloring the nodes, Cytoscape also provides the ability to draw charts and graphs on each node. For example, suppose we wanted to display a bar chart showing all of the expression values on each of our nodes?
-
-	- To reset things a little, remove the mapping for **Fill Color** by doing a Right-Click over the **Fill Color** row and selecting **Edit → Remove Mappings from Selected Visual Properties**.
-	- Now change the default value to a lighter shade of grey so we can see our chart.
-	- Near the top of the panel, select **Properties** and choose **Paint → Custom Paint 1 → Image/Chart 1**. This will add a new row in our list of **Node Visual Properties** called **Image/Chart 1**.
-</script>
+<section>
+	<h2>Fun with Charts</h2>
+	<p>In addition to coloring the nodes, Cytoscape also provides the ability to draw charts and graphs on each node. For example, suppose we wanted to display a bar chart showing all of the expression values on each of our nodes?</p>
+    <ul>
+	<li>To reset things a little, remove the mapping for <b>Fill Color</b> by doing a Right-Click over the <b>Fill Color</b> row and selecting <b>Edit → Remove Mappings from Selected Visual Properties</b>.</li>
+	<li>Now change the default value to a lighter shade of grey so we can see our chart.</li>
+	<li>Near the top of the panel, select <b>Properties</b> and choose <b>Paint → Custom Paint 1 → Image/Chart 1</b>. This will add a new row in our list of <b>Node Visual Properties</b> called <b>Image/Chart 1</b>.</li>
+        </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	- Select the **Def.** (leftmost) cell in the **Image/Chart 1** row to bring up the **Graphics** dialog.
-	- Select the **Charts** tab.
-	- Move the three columns containing the expression data (gal1RGexp, gal4RGexp, gal80Rexp) from **Available Columns:** to **Selected Columns:** by selecting the rows and clicking the right arrow. This indicates that we're going to use the data from these three columns to create our chart.
-	- Now select **Heat Strips** for the type of bar chart.
+<section>
+    <ul>
+	<li>Select the <b>Def.</b> (leftmost) cell in the <b>Image/Chart 1</b> row to bring up the <b>Graphics</b> dialog.</li>
+	<li>Select the <b>Charts</b> tab.</li>
+	<li>Move the three columns containing the expression data (gal1RGexp, gal4RGexp, gal80Rexp) from <b>Available Columns:</b> to <b>Selected Columns:</b> by selecting the rows and clicking the right arrow. This indicates that we're going to use the data from these three columns to create our chart.</li>
+	<li>Now select <b>Heat Strips</b> for the type of bar chart.</li>
+        </ul>
+    <img plain src="modules/mapping-data/600px-ChartDialog.png" style="width:60%">
 
-	![600px-ChartDialog.png](../assets/images/600px-ChartDialog.png)
-</script>
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
-<section data-markdown>
-<script type="text/template">
-	- Click on **Options** if you want to add labels to the graphs, change the default coloring, etc.
-	- Click **Apply** to see the resulting charts.
-
-	![1599px-GalWithCharts.png](../assets/images/1599px-GalWithCharts.png)
-</script>
+<section>
+    <ul>
+	<li>Click on <b>Options</b> if you want to add labels to the graphs, change the default coloring, etc.</li>
+	- Click <b>Apply</b> to see the resulting charts.
+        </ul>
+    <img plain src="modules/mapping-data/1599px-GalWithCharts.png" style="width:60%">
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
