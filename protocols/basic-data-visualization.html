@@ -61,7 +61,10 @@
                 <script>
                         Reveal.addEventListener( 'ready', function() {
 			if(!window.navigator.userAgent.includes('CyBrowser')){
-				document.querySelector(".cybrowser").style.display = "none";
+				var divs = document.getElementsByClassName("cybrowser")
+				for (var i=0;i<divs.length;i++){
+					divs[i].style.display = "none";
+				}
 			}
                 });
                 </script>  
