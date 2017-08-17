@@ -23,7 +23,7 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
   - [Animation](#animation)
   - [Columns](#columns)
   - [Tables](#tables)
-  - [Integration with CyBrowser and CyCommands](#cybrowser)
+  - [Integration with CyBrowser and CyCommands](#integration-with-cybrowser-and-cycommands)
   - [Editing the Cytoscape theme](#editing-cytoscape-theme)
   - [Editing the base theme](#editing-base-theme)	
 
@@ -242,7 +242,7 @@ The default table style includes a distinct header and background shading on alt
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/table)***
 
 ### Integration with CyBrowser and CyCommands
-CyBrowser allows for viewing any html page in Cytoscape. Together with CyCommands, this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network could be included. 
+CyBrowser allows for viewing any html page in Cytoscape. Together with [CyCommands](http://apps.cytoscape.org/apps/commandtool), this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network could be included. 
 
 Since these tutorials can be viewed in any web browser, and not just CyBrowser, some code is necessary to hide automation in all browsers other than CyBrowser. This is accomplished by enclosing the button code in a div, which in turn is controlled by javascript to hide it if the html is opened outside of CyBrowser. 
 
