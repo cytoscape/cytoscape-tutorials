@@ -23,6 +23,7 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
   - [Animation](#animation)
   - [Columns](#columns)
   - [Tables](#tables)
+  - [Integration with CyBrowser and CyCommands](#cybrowser)
   - [Editing the Cytoscape theme](#editing-cytoscape-theme)
   - [Editing the base theme](#editing-base-theme)	
 
@@ -239,6 +240,38 @@ The default table style includes a distinct header and background shading on alt
 <img src="assets/images/table.png" width="400px" />
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/table)***
+
+### Integration with CyBrowser and CyCommands
+CyBrowser allows for viewing any html page in Cytoscape. Together with CyCommands, this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network could be included. 
+
+Since these tutorials can be viewed in any web browser, and not just CyBrowser, some code is necessary to hide automation in all browsers other than CyBrowser. This is accomplished by enclosing the button code in a div, which in turn is controlled by javascript to hide it if the html is opened outside of CyBrowser. 
+
+To include a button, add a div of vlass "cybrowser". The example below adds a button that imports a specific network (galFiltered.sif), using the "network load url" CyCommand:
+    
+```
+<pre><code data-trim>
+<div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
+    </div>
+</code></pre>
+```
+
+To hide the "cybrowser" div, and thus the button, outside of CyBrowser, the following javascript should be added to the parent index file. For example, if the automation code was added to a module.hml file, the javascript should be added to the '''body''' of the index.html file that includes that moduel.
+
+```
+<pre><code data-trim>
+<script>
+                        Reveal.addEventListener( 'ready', function() {
+			if(!window.navigator.userAgent.includes('CyBrowser')){
+				var divs = document.getElementsByClassName("cybrowser")
+				for (var i=0;i<divs.length;i++){
+					divs[i].style.display = "none";
+				}
+			}
+                });
+                </script>
+</code></pre>
+```
 
 ### Editing Cytoscape Theme
 
