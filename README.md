@@ -242,11 +242,11 @@ The default table style includes a distinct header and background shading on alt
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/table)***
 
 ### Integration with CyBrowser and CyCommands
-CyBrowser allows for viewing any html page in Cytoscape. Together with [CyCommands](http://apps.cytoscape.org/apps/commandtool), this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network could be included. 
+CyBrowser allows for viewing any html page in Cytoscape. Together with [CyCommands](http://apps.cytoscape.org/apps/commandtool), this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network can be included. 
 
-Since these tutorials can be viewed in any web browser, and not just CyBrowser, some code is necessary to hide automation in all browsers other than CyBrowser. This is accomplished by enclosing the button code in a div, which in turn is controlled by javascript to hide it if the html is opened outside of CyBrowser. 
+Since these tutorials can be viewed in any web browser, and not just CyBrowser, but with a combination of javascript and css we can hide automation in all browsers other than CyBrowser. This is accomplished by enclosing the button code in a div, which in turn is controlled by javascript to hide it if the html is opened outside of CyBrowser. 
 
-To include a button, add a div of vlass "cybrowser". The example below adds a button that imports a specific network (galFiltered.sif), using the "network load url" CyCommand:
+To include a button, add a div of class "cybrowser". The example below adds a button that imports a specific network (galFiltered.sif), using the "network load url" CyCommand:
     
 ```
 <pre><code data-trim>
@@ -256,7 +256,7 @@ To include a button, add a div of vlass "cybrowser". The example below adds a bu
 </code></pre>
 ```
 
-To hide the "cybrowser" div, and thus the button, outside of CyBrowser, the following javascript should be added to the parent index file. For example, if the automation code was added to a module.hml file, the javascript should be added to the '''body''' of the index.html file that includes that moduel.
+To hide the "cybrowser" div, and thus the button, outside of CyBrowser, the following javascript should be added to the parent index file. For example, if the automation code was added to a module.hml file, the javascript should be added to the '''body''' of the index.html file that includes that module.
 
 ```
 <pre><code data-trim>
