@@ -11,12 +11,14 @@
     <p>We’ll actually do this in two parts.</p>
     <ul>
     <li><highlight>Create the network.</highlight> Start by downloading <i>GBM-TP.all.tsv</i>, then open the file to create a network using <b>File → Import → Network → File</b>. This should bring up the <b>Import Network From Table</b> dialog.  Select <b>Select None</b> to disable all columns. Then click only on the <b>GeneName</b> column and set this column as the <b>Source Node</b> column (green circle). Then click <b>OK</b>. You’ll see a warning about no edges, but that’s OK. This will create a grid of 1500 unconnected nodes, where each node represents a gene.</li>
+    <!--
     <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.sif');" value="Load network"/>
     </div>
+    -->
     <li><highlight>Add data to our nodes.</highlight> To add the rest of the data to our nodes, open the file again, but now use <b>File → Import → Table → File</b>. This will bring up the <b>Import Columns From Table</b> dialog. It turns out that all of the defaults are correct for just importing the data, so click on <b>OK</b>. This will import all of the data in the spreadsheet and associate each row with the corresponding node. You should be able to see this in the <b>Table Panel</b>.</li>
     <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.tsv');" value="Load data"/> <!-- not complete -->
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('session open url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.cys');" value="Load data"/> <!-- not complete -->
     </div>
     </ul>
 </section>
@@ -46,6 +48,9 @@
     <p>Let’s cluster all of the data to see if there are any significant patterns that have been averaged out by looking at all samples in the aggregate. <b>clusterMaker2</b> is a Cytoscape app that provides a number of clustering algorithms including hierarchical and k-means.</p>
     <ul>
     <li><highlight>Perform hierarchical clustering.</highlight> In Cytoscape, select <b>Apps → clusterMaker → Hierarchical cluster</b>. This will bring the settings for hierarchical clustering. Select all of the samples (TCGA-*) in the <b>Node attributes for cluster</b> list. The checkboxes <b>Cluster attributes as well as nodes</b>, <b>Ignore nodes/edges with no data</b>, and <b>Show TreeView when complete</b> should all be checked. Then click <b>OK</b>. The resulting TreeView should look like the figure on the next slide.</li>
+    <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select ');" value="Select significantly overexpressed nodes"/> <!-- just feed in the node list here as a shortcut? -->
+    </div>
     </ul>
 </section>
 
