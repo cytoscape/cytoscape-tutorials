@@ -18,7 +18,7 @@
     -->
     <li><highlight>Add data to our nodes.</highlight> To add the rest of the data to our nodes, open the file again, but now use <b>File → Import → Table → File</b>. This will bring up the <b>Import Columns From Table</b> dialog. It turns out that all of the defaults are correct for just importing the data, so click on <b>OK</b>. This will import all of the data in the spreadsheet and associate each row with the corresponding node. You should be able to see this in the <b>Table Panel</b>.</li>
     <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('session open url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.cys');" value="Load data"/> <!-- not complete -->
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('session open url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.cys');" value="Load data"/> 
     </div>
     </ul>
 </section>
@@ -27,13 +27,13 @@
     <h3>4. Find significant expression changes</h3>
     <p>We’ll use the <b>Select</b> tab in the <b>Control Panel</b> to find the significant overall expression changes.</p>  
     <ul>
-    <li>Open the <b>Select</b> tab and click on the + button to add a new condition. In this case we’re going to add a Column Filter. Select the "Mean log2FC" column and set the values to be between -5 and -1. This will select all genes that are significantly underexpressed on average, across all samples (only one gene should be selected).</li>
+    <li>Open the <b>Select</b> tab and click on the + button to add a new condition. In this case we’re going to add a <b>Column Filter</b>. Select the "Mean log2FC" column and set the values to be between -5 and -1. This will select all genes that are significantly underexpressed on average, across all samples (only one gene should be selected).</li>
     <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select ');" value="Select significantly underexpressed nodes"/> <!-- just feed in the node list here as a shortcut? -->
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=RPS4Y1');" value="Select significantly underexpressed nodes"/> <!-- can this be done in any other way? -->
     </div>
     <li>Repeat the same process as above, but set the values to be between 1 and 5. You’ll also need to change the type of match (at the top of the panel) to <b>Match any (OR)</b>.</li>
-    <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select ');" value="Select significantly overexpressed nodes"/> <!-- just feed in the node list here as a shortcut? -->
+       <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=RPS4Y1');" value="Select significantly changed nodes"/> <!-- just feed in the node list here as a shortcut? -->
     </div>
     <img plain src="modules/functional-enrichment/select-tab.png" style="width:25%">
     </ul>
@@ -49,7 +49,7 @@
     <ul>
     <li><highlight>Perform hierarchical clustering.</highlight> In Cytoscape, select <b>Apps → clusterMaker → Hierarchical cluster</b>. This will bring the settings for hierarchical clustering. Select all of the samples (TCGA-*) in the <b>Node attributes for cluster</b> list. The checkboxes <b>Cluster attributes as well as nodes</b>, <b>Ignore nodes/edges with no data</b>, and <b>Show TreeView when complete</b> should all be checked. Then click <b>OK</b>. The resulting TreeView should look like the figure on the next slide.</li>
     <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select ');" value="Select significantly overexpressed nodes"/> <!-- just feed in the node list here as a shortcut? -->
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('cluster hierarchical clusterAttributes=true ignoreMissing=true nodeAttributeList=TCGA-* showUI=true');" value="Perform hierarchical clustering"/> 
     </div>
     </ul>
 </section>
@@ -64,6 +64,9 @@
 <section>
     <ul>
     <li><highlight>Perform k-means clustering.</highlight> In Cytoscape, select <b>Apps → clusterMaker → K-Means cluster</b>. In the resulting settings dialog, set the number of cluster to 4, which is the number of known subtypes of glioblastoma, as with the hierarchical cluster, select all of the samples (TCGA-*), check <b>Cluster attributes as well as nodes</b> and <b>Show HeatMap when complete</b>. This will result in a heat map similar to the one in the figure on the next slide. </li>
+       <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('cluster kmeans clusterAttributes=true kNumber=4 nodeAttributeList=TCGA-* showUI=true');" value="Perform k-means clustering"/> 
+    </div>
     </ul>
     </section>
 
@@ -76,11 +79,19 @@
 
 <section>
     <h3>6. Find significant expression changes in Cluster 1</h3>
+    <p>We are going to repeat step 4 with "Cluster 1 Mean log2FC" as the column. This represents the mean expression across the samples in cluster 1 (the leftmost cluster in the previous figure).</p>
     <ul>
-    <li>Repeat step 4 above with <b>Cluster 1 Mean log2FC</b> as the column. This represents the mean expression across the samples in cluster 1 (the leftmost cluster in the previous figure). The result should contain 171 nodes.</li>
+    <li>Open the <b>Select</b> tab and setup two <b>Column Filters</b> for the "Cluster 1 Mean log2FC" column, one for up and one for down. Select the "Cluster 1 Mean log2FC" column and set the values to be between -5 and -1, then add a second filter (be sure to specify OR at the top) and set the values between 1 and 5.</li>
+    <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=RPS4Y1');" value="Select significantly underexpressed nodes"/> <!-- can this be done in any other way? -->
+    </div>
     </ul>
+    <p>This should result in a selection of 171 nodes.</p>
     <br />
     <br />
+    
+</section>
+<section>
     <h3>7. Download the PPI from STRING</h3>
     <ul>
     <li>From the above selection filter, we’ve identified 171 nodes that show an average <b>Log2FC greater than 1 or less than -1</b>, and selected those nodes. Now, we can create a network that includes all of those nodes by loading the protein-protein interaction data from STRING. Note that only the selected nodes are shown in the <b>Table Panel</b>.</li>
