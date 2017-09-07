@@ -49,7 +49,7 @@
     <ul>
     <li><highlight>Perform hierarchical clustering.</highlight> In Cytoscape, select <b>Apps → clusterMaker → Hierarchical cluster</b>. This will bring the settings for hierarchical clustering. Select all of the samples (TCGA-*) in the <b>Node attributes for cluster</b> list. The checkboxes <b>Cluster attributes as well as nodes</b>, <b>Ignore nodes/edges with no data</b>, and <b>Show TreeView when complete</b> should all be checked. Then click <b>OK</b>. The resulting TreeView should look like the figure on the next slide.</li>
     <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('cluster hierarchical clusterAttributes=true ignoreMissing=true nodeAttributeList=TCGA-* showUI=true');" value="Perform hierarchical clustering"/> 
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('cluster hierarchical clusterAttributes=true ignoreMissing=true nodeAttributeList=TCGA-* showUI=true');" value="Perform hierarchical clustering"/> <!-- results don't open -->
     </div>
     </ul>
 </section>
@@ -65,7 +65,7 @@
     <ul>
     <li><highlight>Perform k-means clustering.</highlight> In Cytoscape, select <b>Apps → clusterMaker → K-Means cluster</b>. In the resulting settings dialog, set the number of cluster to 4, which is the number of known subtypes of glioblastoma, as with the hierarchical cluster, select all of the samples (TCGA-*), check <b>Cluster attributes as well as nodes</b> and <b>Show HeatMap when complete</b>. This will result in a heat map similar to the one in the figure on the next slide. </li>
        <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('cluster kmeans clusterAttributes=true kNumber=4 nodeAttributeList=TCGA-* showUI=true');" value="Perform k-means clustering"/> 
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('cluster kmeans clusterAttributes=true kNumber=4 nodeAttributeList=TCGA-* showUI=true');" value="Perform k-means clustering"/> <!-- results don't open -->
     </div>
     </ul>
     </section>
@@ -100,6 +100,9 @@
     <li><highlight>Select gene names from <b>Table Panel</b>.</highlight> Select everything in the <b>name</b> column by clicking into the first cell and then dragging down until you get to the bottom. Then, do a copy (<b>Control-C</b> or <b>Apple-C</b>).</li>
     <li><highlight>Paste gene names into STRING network search.</highlight> In the <b>Network</b> tab of the <b>Control Panel</b> at the top should be a text field with an icon at the left. Click on that icon and select "STRING protein query". (If you don’t see any STRING options, the stringApp hasn’t been loaded.) Then click into the text field and paste the list of genes.</li>
     <li><highlight>Set STRING search parameters.</highlight> Next to the text field is a menu with a list of options. Change the <b>Confidence (score) cutoff</b> to 0.8 and the <b>Maximum additional interactors</b> to 30. This will get only high quality results (80% confidence) and add 30 extra proteins to the network.</li>
+    <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('string protein query cutoff=0.8 limit=30 query=WASF3 UBD TTYH1 TSPAN7 TRIM9 TREM1 TPBG TOX3 TNFAIP8 TMSL8 TIMP4 THBS1 TF TDO2 TCEAL2 TAGLN3 STMN4 STMN2 STEAP1 SRPX2 SOX11 SNCAIP SNAP25 SLPI SLC6A1 SDC3 SCN3A SCG3 S100B S100A9 S100A4 RTN1 RPS4Y1 LPPR1 REEP1 RASSF2 RARRES1 PTGS2 POSTN PMAIP1 PLP1 PLEKHB1 PLAUR PLAU PLA2G2A PKIA PID1 PHLPP PCSK1N PCOLCE PAQR6 OMG NUDT11 NTRK2 NOL4 NNMT NKX2-2 NES NDRG4 NDP NCAN NCALD NAP1L3 MXRA5 MMP7 MLC1 MFAP2 MAPT MAP2 LUM LTBP2 LSAMP LRRTM2 LRRN3 LPHN3 LOXL1 LOX LOC57228 LMO3 LIF KIF5C KIF1B KIF1A TLR4 KCNJ16 KCND2 KAL1 ITM2A IL8 IL6 IGFBP6 IER3 ID4 HP GRIA2 GPRC5A GATM GAP43 GABRB1 GABBR1 FXYD6 FHL2 FCGR2B FAM70A FAM5C FAM5B FAM131B FAM107A FABP7 F13A1 ELAVL4 EDNRB DPP6 DLL3 DCX DCLK1 CYP1B1 CXCL9 CXCL2 CTSC CTNND2 CTNNA2 CSTA CSPG5 CRYAB CRMP1 CRIP1 COL6A3 COL6A2 COL5A1 COL3A1 COL1A2 COL1A1 COL15A1 COBL CLASP2 CKB CHRNA9 CDO1 CDH10 CD55 CCL20 C6ORF134 C14ORF132 BIRC3 BEX1 BCHE BCAN BBOX1 BAI3 B3GAT1 ATP6V1G2 ATP1B2 ATP1A2 ASTN1 ASS1 ASPN ASCL1 ARC AQP9 AQP4 AQP1 APOD APBA2 ALDOC AIM1 AHNAK2 AGXT2L1 AGT ABCC3 ABAT species=Homo sapiens');" value="Run STRING"/> <!-- query doesn't return any results -->
+    </div>
     </ul>
 </section>
 
@@ -115,13 +118,18 @@
     <p>In this step, we’ll change the style of the network to highlight the differentially expressed genes.</p>
     <ul>
         <li><highlight>Re-import expression data.</highlight> First, we need to re-import the expression data for the new network created by the stringApp. Similar to the initial import, start by doing <b>File → Import → Table → File</b>. Again, select the <i>GBM-TP-all.tsv</i> file. However, now we need to use a different network column to match our names. Change the <b>Key Column for Network:</b> from <b>share name</b> to <b>query term</b>. STRING uses Ensembl identifiers, but retains the original query term so we can match data against. Now select <b>OK</b>.</li>
+        <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url');" value="Import data"/> <!-- incomplete. not sure how to deal with extremely long input due to many columns -->
+        </div>
         <li><highlight>Disable structure image.</highlight> STRING provides some nice images of the 3D structure of the proteins, but we need to disable those to be able to see our expression values clearly. Disable the images by going to <b>Apps → STRING → Don’t show structure images</b>.</li>
+        <!-- no command for this -->
     </ul>
 </section>
 
 <section>
     <ul>
-        <li><highlight>Create color gradient for expression data.</highlight> To show the expression data, to go the <b>Style </b>tab of the <b>Control Panel</b> and click on the middle square <b>(Map.)</b> of the three <b>Fill Color</b> controls. Set the Column to "Cluster 1 Mean log2FC" and set the <b>Mapping Type</b> to "Continuous Mapping". This will create a gray to white gradient. Double-click on the gradient to show the <b>Continuous Mapping Editor</b>. We’re going to use a Red/Blue color gradient, with blue representing underexpressed genes and red representing overexpressed genes. To start, click on the left-most triangle and set the color to Blue. This represents the values that are all less than the min. Repeat for the next triangle over. Now, set the two rightmost triangles to red.  Finally, since we don’t really want intermediate nodes to be purple, add an additional triangle by clicking on the Add button. Drag the new triangle to 0.0 and now click <b>OK</b>. The completed dialog should look like this:</li>
+        <li><highlight>Create color gradient for expression data.</highlight> To show the expression data, go the <b>Style </b>tab of the <b>Control Panel</b> and click on the middle square <b>(Map.)</b> of the three <b>Fill Color</b> controls. Set the Column to "Cluster 1 Mean log2FC" and set the <b>Mapping Type</b> to "Continuous Mapping". This will create a gray to white gradient. Double-click on the gradient to show the <b>Continuous Mapping Editor</b>. We’re going to use a Red/Blue color gradient, with blue representing underexpressed genes and red representing overexpressed genes. To start, click on the left-most triangle and set the color to Blue. This represents the values that are all less than the min. Repeat for the next triangle over. Now, set the two rightmost triangles to red.  Finally, since we don’t really want intermediate nodes to be purple, add an additional triangle by clicking on the Add button. Drag the new triangle to 0.0 and now click <b>OK</b>. The completed dialog should look like this:</li>
+        <!-- no command for this -->
     </ul>
         <img plain src="modules/functional-enrichment/continous-mapper.png">
 </section>
@@ -132,13 +140,15 @@
     <ul>
         <li><highlight>Lock node width and height.</highlight> By default, the <b>stringApp</b> provides separate values for Node Width and Node Height. In our case, we just want to lock them to be the same so we only have to modify the Node Size. The <b>Lock node width and height</b> is a checkbox at the bottom of the <b>Node</b> tab in the <b>Style</b> tab of the <b>Control Panel</b>. Make sure that it’s checked.</li>
         <li><highlight>Set the default node size.</highlight> Click on the leftmost (Def.) box next to <b>Size</b>. Set the default size to "45.0".</li>
+        <!-- no command for this -->
     </ul>
 </section>
 
 <section>
     <ul>
-    <li><highlight>Map mutation to node size.</highlight> Click on the middle (Map.) box next to <b>Size</b>. Choose "Cluster 1 Mutations" for the <b>Column</b> and "Continuous Mapping" for the <b>Mapping Type</b>. Then double-click on the ramp that appears to bring up the <b>Continuous Mapping Editor</b>. Click on the leftmost triangle and set the <b>Node Size</b> to "45". Then click on the right-most triangle and set the <b>Node Size</b> to "90". Then check <b>OK</b>.</li>
-        </ul>
+        <li><highlight>Map mutation to node size.</highlight> Click on the middle (Map.) box next to <b>Size</b>. Choose "Cluster 1 Mutations" for the <b>Column</b> and "Continuous Mapping" for the <b>Mapping Type</b>. Then double-click on the ramp that appears to bring up the <b>Continuous Mapping Editor</b>. Click on the leftmost triangle and set the <b>Node Size</b> to "45". Then click on the right-most triangle and set the <b>Node Size</b> to "90". Then check <b>OK</b>.</li>
+    <!-- no command for this -->
+    </ul>
     <img plain src="modules/functional-enrichment/node-size-continous-mapper.png" style="width:60%">
 </section>
 
@@ -149,8 +159,8 @@
 </section>
 <section>
     <p>At this point in our workflow, we have some options:</p>
-        <p>One typical path might be to find all of the overexpressing genes, use the Diffusion app to perform heat diffusion through the network to grow the selection and then perform functional enrichment analysis on that set of genes and then repeat for underexpressing genes (see step 10).</p>
-        <p>Another approach is suggested by the topology of the network, which strongly suggests groupings in the interactions. We can use clustering based on the network topology and to perform functional enrichment on each cluster (see step 12). We’ll take each of those in turn.</p>
+    <p>One typical path might be to find all of the overexpressing genes, use the Diffusion app to perform heat diffusion through the network to grow the selection and then perform functional enrichment analysis on that set of genes and then repeat for underexpressing genes (see step 10).</p>
+    <p>Another approach is suggested by the topology of the network, which strongly suggests groupings in the interactions. We can use clustering based on the network topology and to perform functional enrichment on each cluster (see step 12). We’ll take each of those in turn.</p>
 </section>
 
 <section>
@@ -170,7 +180,7 @@
 </section>
 <section>
     <h3>11.	Perform enrichment analysis on the diffused subnetworks.</h3>
-      <p>There are many tools available in Cytoscape to perform functional enrichment. For simplicity we’re going to use the built-in functional enrichment available from the stringApp. The description below walks through calculating function enrichment of the overexpressed subnetwork, but the same approach will work for the underexpressed network.</p>
+    <p>There are many tools available in Cytoscape to perform functional enrichment. For simplicity we’re going to use the built-in functional enrichment available from the stringApp. The description below walks through calculating function enrichment of the overexpressed subnetwork, but the same approach will work for the underexpressed network.</p>
     <ul>
         <li><highlight>Set network as a STRING network.</highlight> In order to retrieve the function enrichment scores the stringApp needs to be told that this is a STRING network. A menu item is available for that purpose: <b>Apps → STRING → Set as STRING network.</b></li>
         <li><highlight>Retrieve functional enrichment of a component.</highlight> In the subnetwork, there are two connected components of any size. Select all of the nodes in the largest one and retrieve the functional enrichment through the <b>Apps → STRING → Retrieve functional enrichment</b>. This will bring up a new Table Panel tab for “STRING Enrichment”. There is a pull-down menu that switches the ontology or pathway displayed. In the case of the largest component, we see that there is a significant overexpression of genes involved in the GO Biological Processes: extracellular matrix organization, collagen catabolic process, and other development processes; they are also associated with the KEGG pathways Protein digestion and absorption and ECM-receptor interaction.</li>
