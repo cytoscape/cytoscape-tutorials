@@ -83,13 +83,10 @@
     <ul>
     <li>Open the <b>Select</b> tab and setup two <b>Column Filters</b> for the "Cluster 1 Mean log2FC" column, one for up and one for down. Select the "Cluster 1 Mean log2FC" column and set the values to be between -5 and -1, then add a second filter (be sure to specify OR at the top) and set the values between 1 and 5.</li>
     <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=RPS4Y1');" value="Select significantly underexpressed nodes"/> <!-- can this be done in any other way? -->
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=');" value="Select significantly underexpressed nodes"/> <!-- can this be done in any other way? Would require a long list of nodes in this case -->
     </div>
     </ul>
     <p>This should result in a selection of 171 nodes.</p>
-    <br />
-    <br />
-    
 </section>
 <section>
     <h3>7. Download the PPI from STRING</h3>
@@ -117,7 +114,7 @@
     <h3>8. Style the network to show differential expression.</h3>
     <p>In this step, we’ll change the style of the network to highlight the differentially expressed genes.</p>
     <ul>
-        <li><highlight>Re-import expression data.</highlight> First, we need to re-import the expression data for the new network created by the stringApp. Similar to the initial import, start by doing <b>File → Import → Table → File</b>. Again, select the <i>GBM-TP.all.tsv</i>  file. However, now we need to use a different network column to match our names. Change the <b>Key Column for Network:</b> from <b>share name</b> to <b>query term</b>. STRING uses Ensembl identifiers, but retains the original query term so we can match data against. Now select <b>OK</b>.</li>
+        <li><highlight>Re-import expression data.</highlight> First, we need to re-import the expression data for the new network created by the stringApp. Similar to the initial import, start by doing <b>File → Import → Table → File</b>. Again, select the <i>GBM-TP-all.tsv</i> file. However, now we need to use a different network column to match our names. Change the <b>Key Column for Network:</b> from <b>share name</b> to <b>query term</b>. STRING uses Ensembl identifiers, but retains the original query term so we can match data against. Now select <b>OK</b>.</li>
         <li><highlight>Disable structure image.</highlight> STRING provides some nice images of the 3D structure of the proteins, but we need to disable those to be able to see our expression values clearly. Disable the images by going to <b>Apps → STRING → Don’t show structure images</b>.</li>
     </ul>
 </section>
