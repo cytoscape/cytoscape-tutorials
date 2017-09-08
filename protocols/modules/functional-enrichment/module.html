@@ -129,7 +129,7 @@
 <section>
     <ul>
         <li><highlight>Create color gradient for expression data.</highlight> To show the expression data, go the <b>Style </b>tab of the <b>Control Panel</b> and click on the middle square <b>(Map.)</b> of the three <b>Fill Color</b> controls. Set the Column to "Cluster 1 Mean log2FC" and set the <b>Mapping Type</b> to "Continuous Mapping". This will create a gray to white gradient. Double-click on the gradient to show the <b>Continuous Mapping Editor</b>. We’re going to use a Red/Blue color gradient, with blue representing underexpressed genes and red representing overexpressed genes. To start, click on the left-most triangle and set the color to Blue. This represents the values that are all less than the min. Repeat for the next triangle over. Now, set the two rightmost triangles to red.  Finally, since we don’t really want intermediate nodes to be purple, add an additional triangle by clicking on the Add button. Drag the new triangle to 0.0 and now click <b>OK</b>. The completed dialog should look like this:</li>
-        <!-- no command for this -->
+        <!-- no command for this. could use "vizmap apply" with a prebaked style -->
     </ul>
         <img plain src="modules/functional-enrichment/continous-mapper.png">
 </section>
@@ -140,14 +140,14 @@
     <ul>
         <li><highlight>Lock node width and height.</highlight> By default, the <b>stringApp</b> provides separate values for Node Width and Node Height. In our case, we just want to lock them to be the same so we only have to modify the Node Size. The <b>Lock node width and height</b> is a checkbox at the bottom of the <b>Node</b> tab in the <b>Style</b> tab of the <b>Control Panel</b>. Make sure that it’s checked.</li>
         <li><highlight>Set the default node size.</highlight> Click on the leftmost (Def.) box next to <b>Size</b>. Set the default size to "45.0".</li>
-        <!-- no command for this -->
+        <!-- no command for this. could use "vizmap apply" with a prebaked style -->
     </ul>
 </section>
 
 <section>
     <ul>
         <li><highlight>Map mutation to node size.</highlight> Click on the middle (Map.) box next to <b>Size</b>. Choose "Cluster 1 Mutations" for the <b>Column</b> and "Continuous Mapping" for the <b>Mapping Type</b>. Then double-click on the ramp that appears to bring up the <b>Continuous Mapping Editor</b>. Click on the leftmost triangle and set the <b>Node Size</b> to "45". Then click on the right-most triangle and set the <b>Node Size</b> to "90". Then check <b>OK</b>.</li>
-    <!-- no command for this -->
+    <!-- no command for this. could use "vizmap apply" with a prebaked style -->
     </ul>
     <img plain src="modules/functional-enrichment/node-size-continous-mapper.png" style="width:60%">
 </section>
@@ -168,13 +168,25 @@
     <p>When we created the STRING network, we added nodes to make sure that well connected nodes that might be silent (i.e. not exhibit changes in expression) could be included. Well connected genes might play a significant role in the biology even if their expression doesn’t change due to changes in the expression of their interaction partners. The Diffusion app supports the ability to find those genes by simulating the diffusion of heat through network connections.</p>
     <ul>
         <li><highlight>Create subnetwork of the main connected component.</highlight> Select all of the nodes and edges in the main connected component by holding mouse button 1 down and sweeping over the nodes. Alternatively, you could select a single node and then repeatedly hitting <b>Control-6</b> (or <b>⌘6</b> on the Mac) to continually select the first neighbors of selected nodes until all of the nodes in the connected component are selected. Once the entire component is selected, create a new network by doing <b>File → New → Network → From selected nodes, all edges</b>.</li>
+        <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create');" value="Create subnetwork"/> <!-- incomplete. idea is to supply list of nodes in the main connected component -->
+        </div>
         <li><highlight>Select overexpressed genes.</highlight> Go back to the <b>Select</b> tab and disable (click on the X) the filter for underexpressed genes, then click <b>Apply</b>.</li>
+        <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select');" value="Select overexpressed genes"/> <!-- incomplete. idea is to supply necessary list of overexpressed nodes -->
+        </div>
     </ul>
 </section>
 <section>
     <ul>
         <li><highlight>Diffuse the selection.</highlight> In the diffusion app we can diffuse either based on the heat (column value) or just based on the selection. We’re going to diffuse based on our expression values, so select <b>Tools → Diffuse → Selected Nodes with Options</b> and in the dialog select "Cluster 1 Mean log2FC" as the <b>Heat Column</b> and set a short time of 0.001 seconds. Then click <b>OK</b>.</li>
-        <li><highlight>Create subnetwork.</highlight> Change the Node Rank to about 40 and create a subnetwork by selecting <b>File → New → Network → From selected nodes, all edges</b>. Once the network is created, execute an unweighted Prefuse Force Directed Layout (<b>Layout → Prefuse Force Directed Layout → (none)</b>).</li>
+        <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('diffusion diffuse_advanced heatColumnName=Cluster 1 Mean log2FC time=0.001');" value="Diffuse the selection"/> <!-- incomplete. -->
+        </div>
+        <li><highlight>Create subnetwork.</highlight> Change the <b>Node Rank</b> to about 40 and create a subnetwork by selecting <b>File → New → Network → From selected nodes, all edges</b>. Once the network is created, execute an unweighted Prefuse Force Directed Layout (<b>Layout → Prefuse Force Directed Layout → (none)</b>).</li>
+        <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed');" value="Diffuse the selection"/> <!-- untested -->
+        </div>
         <li><highlight>Repeat for underexpressed genes.</highlight> For underexpressed genes, repeat step c. above except choose all genes with a "Cluster 1 Mean log2FC" less than -1 and in the diffusion app set the time to 0.01 seconds. Unfortunately the Diffusion Output assumes positive diffusion values, so to select the diffused nodes of interest, you’ll need to go to the Table Panel and sort the diffusion_output_heat column, select the negative values less than -0.5, right-click on the column and select <b>Select nodes from selected rows</b>. Then you can create the subnetwork.</li>
     </ul>
 </section>
