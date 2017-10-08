@@ -67,6 +67,8 @@ If you have a suggestion to make regarding the content and don't have the time o
 
 If you are going to edit a tutorial and are not already familiar with Reveal.js, you will want to [start with the reveal.js docs](reveal-readme.md) to learn how to setup your development environment and the basics of building content.  Once you are familiar with reveal, you will want to review the common elements and custom styles available in our repo for Cytoscape tutorials (see Style below). Also refer to [our templates](https://cytoscape.github.io/cytoscape-tutorials/contents/#/templates) with example slides and style usage.
 
+In order to preview your local changes, you can simply open the HTML files in your browser, e.g., using the ```open``` command line function. Alternatively, for a live preview that updates in real-time, you can run ```npm start``` from the top directory. For npm functionality, you will need to install node.js (https://nodejs.org) and run ```npm install``` the first time (see [full setup](https://github.com/hakimel/reveal.js/blob/master/README.md#full-setup)).
+
 #### Organization
 The first thing to notice about our repo is the organization. From the top level, you will find ```presentations``` and ```protocols```. These leverage different CSS styles and different sets of ```modules```. 
 ```
@@ -256,7 +258,7 @@ To include a button, add a div of class "cybrowser". The example below adds a bu
 </code></pre>
 ```
 
-To hide the "cybrowser" div, and thus the button, outside of CyBrowser, the following javascript should be added to the parent index file. For example, if the automation code was added to a module.hml file, the javascript should be added to the '''body''' of the index.html file that includes that module.
+To hide the "cybrowser" div, and thus the button, outside of CyBrowser, the following javascript should be added to the parent index file. For example, if the automation code was added to a module.hml file, the javascript should be added to the **body** of the index.html file that includes that module.
 
 ```
 <pre><code data-trim>
@@ -274,5 +276,21 @@ To hide the "cybrowser" div, and thus the button, outside of CyBrowser, the foll
 ```
 
 ### Editing Cytoscape Theme
+We have two customized stylesheets for presentations and protocols (.css). Please do *not* edit the CSS files directly. If you want to make changes to the stylesheets or make your own, you will need to work with source and template files (.scss) and then rebuild the CSS files using grunt.
+
+```
+|--css/theme/
+|  |--cytoscape-presentation-1.css
+|  |--cytoscape-protocol-1.css
+|  |--source/
+|     |--cytoscape-presentation-1.scss
+|     |--cytoscape-protocol-1.scss
+|  |--template
+|     |--theme.scss
+|     |--settings.scss
+|     |--mixins.scss
+```
+
+
 
 ### Editing Base Theme
