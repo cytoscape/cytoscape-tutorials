@@ -65,6 +65,12 @@ body {
 .reveal a:nth-of-type(5) ribbon {
   background-color: #e7298a; }
 
+.reveal a:nth-of-type(6) ribbon {
+  background-color: #66A61E; }
+
+.reveal a:nth-of-type(7) ribbon {
+  background-color: #E6AB02; }
+
 .reveal a:hover ribbon {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); }
 

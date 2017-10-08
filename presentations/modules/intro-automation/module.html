@@ -1,0 +1,59 @@
+                                <section id="use-case">
+                                <h1>Automation Use Case</h1>
+                                <ul>
+                                        <highlight style="margin-left:-50px;">Biological Question</highlight>
+                                        <li>What molecular changes occur in breast and ovarian tumors?
+                                        <li>Do they interact with each other and with other cancer genes?</li>
+                                        <li>Are there key subnetworks affected in these cancers?</li>
+                                        <highlight style="margin-left:-50px;">Dataset</highlight>
+                                        <li>Gene expression and mutation data from TCGA</li>
+                                        <highlight style="margin-left:-50px;">Approach</highlight>
+                                        <li>Starting in R, connect to Cytoscape using CyREST</li>
+                                        <li>Construct disease networks in Cytoscape from R</li>
+                                        <li>Integrate TCGA data in R with networks</li>
+                                        <li>Perform data overlays and network analysis</li>
+                                        <li>Export images and sessions for sharing and publication</li>
+                                </ul>
+                                <small style="margin-top:20px">TCGA (2011) <em>Nature</em>. & TCGA (2012) <em>Nature</em>.</small>
+                                <aside class="notes" data-markdown>
+                                Notes from supplemental methods: _Using a training dataset of gene expression profiles from 215 stage II‐IV ovarian tumor
+s from the TCGA (batches 9, 11‐15), a prognostic gene signature for overall survival was defined (genes with univariate Cox P < 0.01), comprised of 108 g
+enes correlated with poor (worse) prognosis and 85 genes correlated with good (better) prognosis._
+                                </aside>
+                                </section>
+                                <section >
+                                <div style="position: absolute; top: -70px; left: 200px">
+                                    Brief History of Cytoscape Automation
+                                </div>
+        <div style="position: absolute; top: 0px; left: 50px">
+                <img src="CytoscapeAutomation_1.png"  class="fragment fade-out" data-fragment-index="1"/>
+        </div>
+        <div style="position: absolute; top: 0px; left: 50px" class="fragment fade-in" data-fragment-index="1">
+                <img src="CytoscapeAutomation_2.png" class="fragment fade-out" data-fragment-index="2"/>
+        </div>
+        <div style="position: absolute; top: 0px; left: 50px" class="fragment fade-in" data-fragment-index="2">
+                <img src="CytoscapeAutomation_3.png"/>
+        </div>
+                             </section>
+                                <section>
+                                <h1>When to Automate</h1>
+                                <highlight>Why run a script when I could just use Cytoscape directly?</highlight><br/><br/>
+                                <ul><li>For things you want to do multiple times, e.g., loops</li>
+                                        <li>For things you want to repeat in the future</li>
+                                        <li>For things you want to share with colleagues or publish</li>
+                                        <li>For things you are already working on in R or Python, etc</li></ul>
+                                        </section>
+                                <section>
+                                <h1>Tutorial Materials</h1>
+                                <a href="https://github.com/cytoscape/cytoscape-automation">github.com/cytoscape/cytoscape-automation</a><br /><br />
+                                <ul><li>OPTION 1: If you are familiar with git, then clone our repo:  <pre>git clone git@github.com:cytoscape/cytoscape-a
+utomation.git</pre></li><br/>
+                                <li>OPTION 2: Or you can download this file and unzip it: <a href="https://github.com/cytoscape/cytoscape-automation/arch
+ive/master.zip">github.com/cytoscape/cytoscape-automation/archive/master.zip</a></li></ul>
+				</section>
+				<section>
+				<h1>Tutorial Materials</h1>
+                                <p>Next, open RStudio and start a new project (<b>File</b>><b>New Project…</b>). Choose <b>Existing Directory</b> and navigate to <i>cytoscape-automation/for-scripters/R</i>.</p><br/>
+				<p>Then, open <b>advanced-cancer-networks-and-data.Rmd</b> and work through the tutorial steps.</p>
+                                </section>
+

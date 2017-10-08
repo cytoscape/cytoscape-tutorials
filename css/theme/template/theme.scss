@@ -70,6 +70,13 @@ body {
 .reveal a:nth-of-type(5) ribbon {
         background-color:$ribbonBackgroundColor5
 }
+.reveal a:nth-of-type(6) ribbon {
+        background-color:$ribbonBackgroundColor6
+}
+.reveal a:nth-of-type(7) ribbon {
+        background-color:$ribbonBackgroundColor7
+}
+
 
 .reveal a:hover ribbon {
 	box-shadow: $ribbonBoxShadowHover;
