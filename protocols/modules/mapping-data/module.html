@@ -14,7 +14,7 @@ Add speaker notes here...
 	<li>Click the second column of the "Label" row in the <b>Styles</b> panel. This should produce a drop-down panel with <b>Column</b> and <b>Mapping Type</b>.</li>
 	<li>Change the "Column" to <b>COMMON</b> by clicking on the field to the right of the <b>Column</b> label. This should bring up a list of columns. Select <b>COMMON</b>.</li>
         <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('node set properties network=current nodeList=selected propertyList=Label valueList=COMMON');" value="Set node labels"/> <!-- Doesnt work -->
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('node set properties network=current  propertyList=Label valueList=COMMON');" value="Set node labels"/> <!-- Doesnt work -->
     </div>
 	<li>Verify that the node labels on the network have changed to their common names.</li>
 	<li>By default, the <b>Mapping Type</b> is <b>Passthrough Mapping</b>, which is what we want to use. Other options are <b>Discrete Mapping</b> and <b>Continuous Mapping</b>.</li>
@@ -30,10 +30,10 @@ Add speaker notes here...
     <ul>
 	<li>Click on the middle square (<b>Map.</b>) next to the <b>Fill Color</b> row in the <b>Styles</b> panel.</li>
 	<li>Click the <b>-- select value --</b> cell in the <b>Column</b> section.</li>
-	<li>This will produce a drop-down menu of available column names. Select "gal80Rexp".</li>
+	<li>In the drop-down menu of available column names, select "gal80Rexp".</li>
 	<li>Click the <b>-- select value--</b> cell in the <b>Mapping Type</b> section.</li>
-	<li>This will produce a drop-down menu of available mapping types. Select <b>Continuous Mapping</b>.</li>
-	<li>This action will produce a basic black to white color gradient.</li>
+	<li>In the drop-down menu of available mapping types, select <b>Continuous Mapping</b>.</li>
+	<li>This action will produce a gradient ranging from blue to red.</li>
 	<li>Click on the color gradient to change the colors. This will pop-up a gradient editing dialog.</li>
 	<li>We're going to build a basic blue-white-yellow gradient for our expression values.</li>
     </ul>
@@ -78,13 +78,13 @@ Add speaker notes here...
 
 <section>
 	<h2>Set the Node Shape</h2>
-	<p>We imported both expression measurement values and significance values for those measurements. We can use the significance values to change the shape of the nodes so that measurements we have confidence in appear as squares while potentially bad measurements appear as circles.</p>
+	<p>We imported both expression measurement values and corresponding significance values. We can use the significance values to change the shape of the nodes so that measurements we have confidence in appear as squares while potentially bad measurements appear as circles.</p>
     <ul>
 	<li>Click the <b>Map</b>. cell next to the <b>Shape</b> row in the <b>Style</b> panel.</li>
 	<li>Click the <b>-- select value --</b> cell next to <b>Column</b>.</li>
-	<li>This will produce a drop-down menu of available column names. Select "gal80Rsig".</li>
+	<li>In the drop-down menu of available column names, select "gal80Rsig".</li>
 	<li>Click the <b>-- select value --</b> cell next to <b>Mapping Type</b>.</li>
-	<li>This will produce a drop-down menu of available mapping types. Select <b>Continuous Mapping</b>.</li>
+	<li>In the drop-down menu of available mapping types, select <b>Continuous Mapping</b>.</li>
 	<li>This will create an empty icon in the <b>Current Mapping</b> row of the <b>Shape</b> section. Click on this icon.</li>
 	<li>This action will pop-up a continuous shape selection dialog.</li>
     </ul>
@@ -94,23 +94,15 @@ Add speaker notes here...
 </section>
 
 <section>
-    <img plain src="modules/mapping-data/Node_shape_editor3.png" style="width:60%">
-<aside class="notes" data-markdown>
-Add speaker notes here...
-</aside>
-</section>
-
-<section>
     <ul>
 	<li>Click the <b>Add</b> button.</li>
-	<li>This action will split the range of values with a slider down the middle with a node shape icon to either side of the slider.</li>
-	<li>Double-click on the left node icon (a circle).</li>
+	<li>This splits the range of values with a slider down the middle with a node shape icon to either side.</li>
 	<li>This will pop-up a node shape selection dialog.</li>
-	<li>Choose the <b>Rectangle</b> shape and click the <b>Apply</b> button.</li>
-	<li>The continuous shape selection dialog should now show both a square and a circle node shape icon.</li>
-	<li>Click on the black triangle and move the slider to the left, to slightly lower that 0.05, our threshold for significance.</li>
-	<li>Close the continuous shape selection dialog and verify that some nodes have a square shape and some nodes have a circular shape.</li>
+	<li>In the node shape selection dialog, choose the <b>Rectangle</b> shape and click the <b>Apply</b> button.</li>
+	<li>Click the black triangle and move the slider to the left, to slightly lower that 0.05, our threshold for significance.</li>
+	<li>Close the continuous shape selection dialog and verify that some nodes now have a square shape.</li>
         </ul>
+        <img plain src="modules/mapping-data/Node_shape_editor3.png" style="width:50%">
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>

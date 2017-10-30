@@ -1,6 +1,6 @@
 <section>
 <h3>Loading Expression Data</h3>
-<p>The data you are working with is from yeast, and the genes <b>Gal1</b>, <b>Gal4</b>, and <b>Gal80</b> are all yeast transcription factors. Your expression experiments all involve some perturbation of these transcription factor genes.
+<p>The data you are working with is from yeast, the genes <b>Gal1</b>, <b>Gal4</b>, and <b>Gal80</b> are all yeast transcription factors. Your expression experiments all involve some perturbation of these transcription factor genes.
 
 <br /><br />Gal1, Gal4, and Gal80 are also represented in your interaction network, where they are labeled according to yeast locus tags: <b>Gal1 corresponds to YBR020W, Gal4 to YPL248C, and Gal80 to YML051W</b>.</p>
 
@@ -23,8 +23,8 @@ YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
 		<li>The first line consists of column labels.</li>
 		<li>All columns are separated by a single comma character.</li>
 		<li>The first column contains node names, and <b>must match the names of the nodes in your network exactly</b>!</li>
-		<li>The second column contains common locus names. This column is optional, and the data is not currently used by Cytoscape, but including this column makes the format consistent with the output of many microarray analysis packages, and makes the file easier to read.</li>
-		<li>The remaining columns contain experimental data, two columns per experiment (one column for the expression measurement and a second for the significance value for that measurement), and one line per node. In this case, there are three expression results per node.</li>
+		<li>The second column contains common locus names. This column is optional, the data is not used by Cytoscape, but including this column makes the format consistent with the output of many analysis packages, and makes the file easier to read.</li>
+		<li>The remaining columns contain experimental data, two columns per experiment (one for expression measurement and a second for corresponding significance value), and one line per node. In this case, there are three expression results per node.</li>
 	</ul>
 </ul>
 
@@ -52,13 +52,13 @@ Add speaker notes here...
 	<p>Now you should see expression values listed in new columns in the <b>Node Table</b>:</p>
 	<img plain src="modules/loading-omics-data/Galbrowse3.png" style="width:900px">
 
-	<p>The <b>Table Panel</b> in general includes the following features:
+	<p>The <b>Table Panel</b> has the following features:
     <ul>
 	<li>Select a node in the network and the table will update to show only the corresponding row.</li>
         <div class="cybrowser">
             <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=YKL012W');" value="Select node"/>
         </div>
-	<li>You can limit the columns shown by clicking on the <b>Show Columns</b> button <img plain src="modules/loading-omics-data/Select3.png" style="height:20px"> and selecting column names.</li>
+	<li>You can limit the columns shown by clicking on the <b>Show Columns</b> button <img plain src="modules/loading-omics-data/Select3.png" style="height:20px"> and selecting columns.</li>
     </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
