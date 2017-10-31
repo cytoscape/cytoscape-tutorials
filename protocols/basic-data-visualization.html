@@ -97,19 +97,19 @@
                 <section>
                 <p>Let's take a look at what the data looks like in a text editor:</p>
             
-                <pre>GENE,COMMON,gal1RGexp,gal4RGexp,gal80Rexp,gal1RGsig,gal4RGsig,gal80Rsig
+                <p>GENE,COMMON,gal1RGexp,gal4RGexp,gal80Rexp,gal1RGsig,gal4RGsig,gal80Rsig
                 YHR051W,COX6,-0.034,0.111,-0.304,3.75720e-01,1.56240e-02,7.91340e-06
                 YHR124W,NDT80,-0.090,0.007,-0.348,2.71460e-01,9.64330e-01,3.44760e-01
-                YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</pre>
+                YKL181W,PRS1,-0.167,-0.233,0.112,6.27120e-03,7.89400e-04,1.44060e-01</p>
 
                 <p>Note the following information about the file:</p>
                 <ul>
-                        <li>The first line consists of column labels.</li>
-                        <li>All columns are separated by a single comma character.</li>
-                        <li>The first column contains node names, and <b>must match the names of the nodes in your network exactly</b>!</li>
-                        <li>The second column contains common locus names.</li>
-                        <li>The remaining columns contain experimental data, two columns per experiment (one for expression measurement and a second for corresponding significance value), and one line per node. In this case, there are three expression results per node.</li>
-                    </ul>
+                    <li>The first line consists of column labels.</li>
+                    <li>All columns are separated by a single comma character.</li>
+                    <li>The first column contains node names, and <b>must match the names of the nodes in your network exactly</b>!</li>
+                    <li>The second column contains common locus names.</li>
+                    <li>The remaining columns contain experimental data, two columns per experiment (one for expression measurement and a second for corresponding significance value), and one line per node. In this case, there are three expression results per node.</li>
+                </ul>
 
                 <aside class="notes" data-markdown>
                 Add speaker notes here...
@@ -118,19 +118,15 @@
                 
                 <section>
                 <ul>
+                
                 <li>Load the <i>galExpData.csv</i>.</li>
                 <div class="cybrowser">
                 <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galExpData.csv');" value="Load data"/> <!-- Doesnt work -->
                 </div>
-                <li>You should see expression values listed in columns in the <b>Node Table</b>:</li>
-                </ul>
-                <img plain src="modules/loading-omics-data/Galbrowse3.png" style="width:900px">
-                <p>The <b>Table Panel</b> has the following features:</p>
-                    <ul>
-                    <li>Select a node in the network and the table will update to show only the corresponding row.</li>
-                        <div class="cybrowser">
-                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=YKL012W');" value="Select node"/>
-                        </div>
+                <li>You should see expression values listed in columns in the <b>Node Table</b>:</li><br />
+                
+                <img plain src="modules/loading-omics-data/Galbrowse3.png" style="width:80%"><br /><br />
+                <li>You can select a node in the network and the table will update to show only the corresponding row.</li>
                     </ul>
                     
                     <p>To learn more about <b>Importing data</b>, see the <a href="http://manual.cytoscape.org/en/stable/Node_and_Edge_Column_Data.html#import-data-table-files">Cytoscape Manual</a>.</p>
@@ -170,7 +166,7 @@
                     <ul>
                     <li>Assign the "gal80Rexp" measurement as <b>Fill Color</b>.</li>
                     <div class="cybrowser">
-                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Set gal80Rexp as Fill Color"/> <!-- Doesn't work -->
+                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Set Node Fill Color"/> <!-- Doesn't work -->
                     </div>
                     <li>This creates a continous mapping of the values in the "gal80Rexp" column of the <b>Node Table</b> with default values ranging from blue to red, with white around zero.</li>
                     </ul>
@@ -186,6 +182,9 @@
                     <p>The default node color of pale blue falls within the default spectrum. A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value.</p>
                     <ul>
                     <li>Let's set the default <b>Node Fill Color</b> to dark gray.</li>
+                    <div class="cybrowser">
+                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Set Default Node Fill Color"/> <!-- Doesn't work -->
+                    </div>
                     <li>Zoom out on the network view to verify that a few nodes have been colored gray.</li>
                     </ul>
                     
@@ -219,21 +218,22 @@
                 </aside>
                 </section>
 
+                <!-- Commenting out since buttons on these two slides don't work
                 <section>
                     <h2>Fun with Charts</h2>
                     <p>In addition to coloring the nodes, Cytoscape also provides the ability to draw charts and graphs on each node. For example, suppose we wanted to display a bar chart showing all of the expression values on each of our nodes?</p>
                     <ul>
                     <li>To reset things a little, remove the mapping for <b>Fill Color</b>.</li>
                     <div class="cybrowser">
-                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Remove Fill Color Mapping"/> <!-- Doesn't work -->
+                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Remove Fill Color Mapping"/> 
                     </div>
                     <li>Now let's change the default value to a lighter shade of grey so we can see our chart.</li>
                     <div class="cybrowser">
-                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Change default Node Color"/> <!-- Doesn't work -->
+                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Change default Node Color"/> <
                     </div>
                     <li>Now, let's add heat strips to the nodes with data from the three columns containing the expression data (gal1RGexp, gal4RGexp, gal80Rexp).</li>
                     <div class="cybrowser">
-                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Add heat strip charts"/> <!-- Doesn't work -->
+                        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('vizmap load file file=');" value="Add heat strip charts"/> 
                     </div>
                     </ul>
                 <aside class="notes" data-markdown>
@@ -251,7 +251,7 @@
                 Add speaker notes here...
                 </aside>
                 </section>
-                
+                -->
                 <section>
                 <h3>Filter Interactions</h3>
                 <p>Your network contains a combination of protein-protein (pp) and protein-DNA (pd) interactions. Next, we will filter out the protein-protein interactions to focus on the protein-DNA interactions.</p>
