@@ -42,7 +42,7 @@
 					<li>Assessing expression data in the context of a biological network.</li>
 				</ul>
                     
-                <p>The tutorial is designed as a demo, with interactive buttons for each task.</p>
+                <p>The tutorial is designed to run as a demo in the CyBrowser app, with interactive buttons for each task.</p>
 				</section>
                 
                 <section>
@@ -76,8 +76,7 @@
                     <li>The network should now look like this:</li>
                     </ul>
                 <img plain src="yFilesOrganic.png" style="width:50%">
-                    
-                <p>To learn more about <b>Creating and Importing Networks</b>, see the <a href="http://manual.cytoscape.org/en/stable/Creating_Networks.html">Cytoscape Manual</a>.</p>
+    
                                           
                 <aside class="notes" data-markdown>
                 Add speaker notes here...
@@ -140,13 +139,6 @@
                 Add speaker notes here...
                 </aside>
                 </section>
-                
-                <section>
-                <p>To-Do: Add a section on selecting first neighbors here.</p>
-                    <aside class="notes" data-markdown>
-                Add speaker notes here...
-                </aside>
-                </section>
 
                 <section>
                 <h3>Visualizing Expression Data</h3>
@@ -183,8 +175,6 @@
                     <li>This creates a continous mapping of the values in the "gal80Rexp" column of the <b>Node Table</b> with default values ranging from blue to red, with white around zero.</li>
                     </ul>
                     
-                    <p>To-Do: Add image of resulting network with gradient.</p>
-                    
                 <aside class="notes" data-markdown>
                 Add speaker notes here...
                 </aside>
@@ -220,7 +210,7 @@
 
                 <section>
                     <p>The network should now look like this:</p>
-                    <img plain src="modules/mapping-data/1600px-Galfiltered-visualization3.png" style="width:60%">
+                    <img plain src="Galfiltered-visualization3.png" style="width:60%">
                     
                     <p>To learn more about <b>Styles</b>, see our <a href="https://cytoscape.github.io/cytoscape-tutorials/contents/index.html#/protocols">Styles Tutorial</a>.</p>
 
@@ -252,7 +242,7 @@
                 </section>
 
                 <section>
-                    <p>Zooming in a but, the nodes in the network should now look like this: <br /></p>
+                    <p>Zooming in a bit, the nodes in the network should now look like this: <br /></p>
                 <img plain src="modules/mapping-data/1599px-GalWithCharts.png" style="width:60%">
                     
                 <p>To learn more about <b>Charts and other Custom Graphics</b>, see the <a href="http://manual.cytoscape.org/en/stable/Styles.html#images-charts-and-gradients">Cytoscape Manual</a>.</p>
@@ -294,7 +284,7 @@
                 <li>The largest component of the final filtered and cleaned up network should look like this:</li>
                 </ul>
                 <br />
-                <img plain src="modules/selecting-subnetworks/1600px-Final_network3.png" style="width:60%">
+                <img plain src="Final_network3.png" style="width:60%">
                 <aside class="notes" data-markdown>
                 Add speaker notes here...
                 </aside>
@@ -302,18 +292,21 @@
 
                 <section>
                 <h3>Observe the Network</h3>
-                <p>Notice that three bright green (highly induced) nodes are in the same region of the graph. Zoom into the graph to see more details.</p>
+                <p>Notice that three dark red (highly induced) nodes are in the same region of the graph.</p>
                 <ul>
-                <li>Notice that there are two nodes that interact with all three green nodes: GAL4 (YPL248C) and GAL11 (YOL051W).</li>
-                <li>Select these two nodes and their immediate neighbors by selecting the menu <b>Select → Nodes → First Neighbors of Selected Nodes → Undirected</b>.</li> 
+                <li>Notice that there are two nodes that interact with all three red nodes: GAL4 (YPL248C) and GAL11 (YOL051W).</li>
+                <li>Let's select these two nodes and their immediate neighbors.</li> 
                     <div class="cybrowser">
                             <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=YPL248C,YOL051W');" value="Select nodes"/>
                         </div>
+                    <div class="cybrowser">
+                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=selected network=current');" value="Select first neighbors"/>
+                        </div>
 
-                <li>It is sometimes useful to create a new network from selected nodes. Do this by selecting the menu <b>File → New → Network → From Selected Nodes, All Edges</b>.</li>
+                <li>It is sometimes useful to create a new network from selected nodes.</li>
 
                     <div class="cybrowser">
-                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create nodeList=YPL248C,YOL051W source=galFiltered.sif');" value="Create new network"/>
+                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create network create excludeEdges=false networkName=subnetwork nodeList=selected source=current');" value="Create new network"/>
                         </div>
 
                 </ul>
@@ -324,13 +317,13 @@
 
                 <section>
                 <p>With some layout and zooming, this new network should appear similar to the one shown:</p>
-                <img plain src="modules/selecting-subnetworks/1600px-Final_subnetwork3.png" style="width:60%">
+                <img plain src="Final_subnetwork3.png" style="width:60%">
 
                 <aside class="notes" data-markdown>
                 Add speaker notes here...
                 </aside>
                 </section>
-
+<!--
                 <section>
                 <h3>Exploring Nodes</h3>
                 <ul>
@@ -384,7 +377,7 @@
                                     </ul></li>
                 </ul>
                 </section>
-
+-->
 			</div>
 		</div>
 
