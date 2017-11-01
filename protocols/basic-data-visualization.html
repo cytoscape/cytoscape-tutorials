@@ -83,6 +83,16 @@
                 </aside>
                 </section>
                 
+                <section>
+                <p>In this demo file, the  following node attributes have been mapped to visual style properties:</p>
+                    <ul>
+                        <li>The "gal80exp" expression values are used for <b>Node Fill Color</b>.</li>
+                        <li>The <b>Default Node Color</b>, for nodes with no data mapping, is dark grey.</li>
+                        <li>Nodes with expression values that are significant are rendered as rectangles, others are ovals.</li>
+                        <li>The common name for each gene is used as the <b>Node Label</b>.</li>
+                    </ul>
+                </section>
+                
                 <!--
                 <section>
                 <p>Let's take a look at what the data looks like in a text editor:</p>
@@ -127,7 +137,9 @@
                 <aside class="notes" data-markdown>
                 Add speaker notes here...
                 </aside>
-                </section>          
+                </section>
+                
+                
                 
                 <!-- content moved up 
                 <section>
@@ -208,9 +220,9 @@
                 <section>
                     <ul>
                         <li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes.</li>
-                        <li>Let's change the layout to Compound Spring Embedder (CoSE) Layout.</li>
+                        <li>Let's change the layout to Circular Layout.</li>
                     <div class="cybrowser">
-                    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout cose');" value="Apply CoSE Layout"/>
+                    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout circular');" value="Apply Circular Layout"/>
                     </div>
                     
                     </ul>
@@ -225,7 +237,7 @@
             
                 <section>
                     <p>The network should now look like this:</p>
-                    <img plain src="Galfiltered-Edge-Weighted.png" style="width:60%">
+                    <img plain src="CircularLayout.png" style="width:60%">
                     
                     <p>To learn more about <b>Styles</b>, see our <a href="https://cytoscape.github.io/cytoscape-tutorials/contents/index.html#/protocols">Styles Tutorial</a>.</p>
 
@@ -270,13 +282,16 @@
                 -->
                 <section>
                 <h3>Filter Interactions</h3>
-                <p>Your network contains a combination of protein-protein (pp) and protein-DNA (pd) interactions. Next, we will filter out the protein-protein interactions to focus on the protein-DNA interactions.</p>
                 <ul>
+                <li>Your network contains a combination of protein-protein (pp) and protein-DNA (pd) interactions. Next, we will filter out the protein-protein interactions to focus on the protein-DNA interactions.</li>
+                
                 <li>First, let's select all protein-protein interactions.</li>
                 <div class="cybrowser">
                         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select edgeList=interaction:pp');" value="Select p-p interactions"/>
                     </div>
+                <li>You should now see many edges in the network selected (i.e., colored red).</li>
                 </ul>
+                
                 <aside class="notes" data-markdown>
                 Add speaker notes here...
                 </aside>
@@ -284,7 +299,7 @@
 
                 <section>
                 <ul>
-                <li>You should now see many edges in the network selected (i.e., colored red).</li>
+                
                 <li>Since we're only interested in the protein-DNA edges, we can delete the protein-protein edges we've just selected.</li>
                 <div class="cybrowser">
                         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network delete edgeList=selected');" value="Delete p-p interactions"/>
@@ -307,22 +322,29 @@
 
                 <section>
                 <h3>Observe the Network</h3>
-                <p>Notice that three dark red (highly induced) nodes are in the same region of the graph.</p>
                 <ul>
+                <li>Notice that three dark red (highly induced) nodes are in the same region of the graph.</li>
                 <li>Notice that there are two nodes that interact with all three red nodes: GAL4 (YPL248C) and GAL11 (YOL051W).</li>
-                <li>Let's select these two nodes and their immediate neighbors.</li> 
+                <li>Let's select these two nodes and their immediate neighbors.</li>
                     <div class="cybrowser">
-                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=YPL248C,YOL051W');" value="Select nodes"/>
+                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=YPL248C');" value="Select YPL248C"/>
                         </div>
                     <div class="cybrowser">
-                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=selected network=current');" value="Select first neighbors"/>
+                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=YOL051W');" value="Select YOL051W"/>
+                        </div>
+                    <div class="cybrowser">
+                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any network=current');" value="Select first neighbors"/><br />
                         </div>
 
                 <li>It is sometimes useful to create a new network from selected nodes.</li>
 
                     <div class="cybrowser">
-                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create network create excludeEdges=false networkName=subnetwork nodeList=selected source=current');" value="Create new network"/>
+                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create  excludeEdges=false networkName=subnetwork nodeList=selected source=current');" value="Create new network"/>
                         </div>
+                    
+                    <div class="cybrowser">
+                            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view fit content');" value="Fit content"/>
+                        </div> 
 
                 </ul>
                 <aside class="notes" data-markdown>
@@ -337,6 +359,16 @@
                 <aside class="notes" data-markdown>
                 Add speaker notes here...
                 </aside>
+                </section>
+                
+                <section>
+                    
+                <p>Digging into the biology of this network, it turns out that GAL4 is repressed by GAL80. Both nodes (GAL4 and GAL11) show fairly small changes in expression, and neither change is statistically significant: they are rendered as light-colored circles. These slight changes in expression suggest that the critical change affecting the red nodes might be somewhere else in the network, and not either of these nodes.
+                GAL4 interacts with GAL80 (YML051W), which shows a significant level of repression: it is depicted as a blue rectangle.
+                <p>Note that while GAL80 shows evidence of significant repression, most nodes interacting with GAL4 show significant levels of induction: they are rendered as red rectangles.
+                GAL11 is a general transcription co-factor with many interactions.</p>
+                    <p>Putting all of this together, we see that the transcriptional activation activity of Gal4 is repressed by Gal80. So, repression of Gal80 increases the transcriptional activation activity of Gal4. Even though the expression of Gal4 itself did not change much, the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed. This explains why there is so much up-regulation in the vicinity of Gal4.</p>
+                
                 </section>
 <!--
                 <section>
