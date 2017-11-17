@@ -1,0 +1,324 @@
+<section>
+	<h1>Sources of PPI Data</h1>
+	<ul>
+		<li>Experimental Techniques
+			<ul>
+				<li>High Throughput</li>
+				<li>Low Throughput</li>
+			</ul>
+		</li>
+		<li>Computational Techniques</li>
+		<li>Public Repositories</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>High throughput
+			<ul>
+				<li>Yeast 2 hybrid</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment fade-in" data-fragment-index="1">
+		<img src="modules/data-sources/Y2H-1.png" 
+		     style="position: absolute; top: 0px; left: 250px; height: 169px" />
+	</div>
+	<div class="fragment fade-in" data-fragment-index="2">
+		<img src="modules/data-sources/Y2H-2.png" 
+		     style="position: absolute; top: 169px; left: 250px; height: 172px" />
+	</div>
+	<div class="fragment fade-in" data-fragment-index="3">
+		<img src="modules/data-sources/Y2H-3.png" 
+		     style="position: absolute; top: 341px; left: 250px; height: 186px" />
+	</div>
+	<div class="fragment fade-in" data-fragment-index="4">
+		<img src="modules/data-sources/Y2H-4.png" 
+		     style="position: absolute; top: 527px; left: 250px; height: 213px" />
+	</div>
+	<aside class="notes">
+	Overview of two-hybrid assay, checking for interactions between two proteins, called here Bait and Prey.   
+	<dl>
+		<dd><b>A.</b> The Gal4 transcription factor gene produces a two-domain protein (BindingDomain: BD and ActivatingDomain:AD) essential for transcription of the reporter gene (LacZ).</dd>
+		<dd><b>B,C.</b> Two fusion proteins are prepared: Gal4BD+Bait and Gal4AD+Prey. Neither of them are usually sufficient to initiate transcription (of the reporter gene) alone.</dd>
+		<dd><b>D.</b> When both fusion proteins are produced and the Bait part of the first fusion protein interacts with the Prey part of the second, transcription of the reporter gene occurs. </dd>
+	</dl>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>High throughput
+			<ul>
+				<li>Yeast 2 hybrid
+					<ul>
+						<li>Pros:
+							<ul>
+								<li>Relatively low-tech</li>
+								<li>Scalable</li>
+							</ul>
+						</li>
+						<li>Cons:
+							<ul>
+								<li>High false positive and false negative rate</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>High throughput
+			<ul>
+				<li>Yeast 2 hybrid</li>
+				<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment fade-in" data-fragment-index="1" style="height:800px">
+		<img src="modules/data-sources/APMS.png" 
+		     style="position: absolute; top: 0px; left: 250px; height: 800px" />
+	</div>
+	<aside class="notes" data-markdown>
+1. Create fusion protein (bait) with your tag
+2. Lyse cell and mix with IgG beads
+3. Wash
+4. Cleave with TEV protease
+5. Bind to Calmodulin Beads
+6. Wash
+7. Remove beads & send to Mass Spec
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>High throughput
+			<ul>
+				<li>Yeast 2 hybrid</li>
+				<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)
+					<ul>
+						<li>Pros:
+							<ul>
+								<li>Quantitative results <i>in vivo</i></li>
+							</ul>
+						</li>
+						<li>Cons:
+							<ul>
+								<li>Tag can obscure binding</li>
+								<li>Protease can cleave  protein</li>
+								<li>Not good for transient interactions</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>High throughput
+			<ul>
+				<li>Yeast 2 hybrid</li>
+				<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li>
+				<li>Protein-fragment complementation assays</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment fade-in" data-fragment-index="1" style="height:650px">
+		<img src="modules/data-sources/PFCA.png" 
+		     style="position: absolute; top: 150px; left: 50px; height: 650px" /> </div> <aside class="notes" data-markdown> </aside> </section> <section> <h1>Experimental Techniques</h1> <ul> <li>High throughput <ul> <li>Yeast 2 hybrid</li> <li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li> <li>Protein-fragment complementation assays</li> <li>Phage display</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment fade-in" data-fragment-index="1" style="height:800px">
+		<img src="modules/data-sources/PhageDisplay.png" 
+		     style="position: absolute; top: 0px; left: 50px; height: 800px" />
+	</div>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>High throughput
+			<ul>
+				<li>Yeast 2 hybrid</li>
+				<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li>
+				<li>Protein-fragment complementation assays</li>
+				<li>Phage display</li>
+				<li>Protein microarrays</li>
+				<li>Chemical crosslinking</li>
+			</ul>
+		</li>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<!--h1>Experimental Techniques</h1-->
+	<div class="fade-in" style="height:800px">
+		<img src="modules/data-sources/JensenBork.png" 
+		     style="position: absolute; top: 0px; left: 200px; height: 800px" />
+	</div>
+	<p style="position: absolute; top: 800px; font-size: 60%; left: 800px">Jensen &amp; Bork, <i>Science</i>, 2008</p>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>High throughput
+			<ul>
+				<li>Genetic interactions
+					<ul>
+						<li>Measures functional linkage between genes</li>
+						<li>Orthogonal to physical interaction techniques</li>
+						<li>Two approaches
+							<ul>
+								<li>SGA (Synthetic genetic array)</li>
+								<li>E-MAP (Epistatic MiniArray Profile)</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<div style="height:800px">
+		<img class="fragment fade-in" src="modules/data-sources/GI-1.png" 
+		     style="position: absolute; top: 150px; left: 200px; height: 200px" />
+		<img class="fragment fade-in" src="modules/data-sources/GI-2.png" 
+		     style="position: absolute; top: 150px; left: 800px; height: 200px" />
+		<img class="fragment fade-in" src="modules/data-sources/GI-3.png" 
+		     style="position: absolute; top: 400px; left: 450px; height: 200px" />
+		<img class="plain fragment fade-in" src="modules/data-sources/GI-4.png" 
+		     style="position: absolute; top: 700px; left: 225px;" />
+	</div>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<div style="height:800px">
+		<img class="plain fragment fade-in" src="modules/data-sources/GI-5.png" 
+		     style="position: absolute; top: 150px; left: 200px; width: 700px" />
+		<img class="plain fragment fade-in" src="modules/data-sources/GI-6.png" 
+		     style="position: absolute; top: 300px; left: 200px; width: 700px" />
+		<img class="plain fragment fade-in" src="modules/data-sources/GI-7.png" 
+		     style="position: absolute; top: 550px; left: 200px; width: 700px" />
+	</div>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>Genetic Interactions (E-MAP)
+			<ul>
+				<li>High throughput</li>
+				<li>Quantitative</li>
+				<li>Can provide corroboration to PPI data</li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<li>Low throughput
+			<ul>
+				<li>Xray crystallography</li>
+				<li>NMR</li>
+				<li>SAXS</li>
+				<li>ELISA Binding Assays</li>
+				<li>Co-IP</li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Computational Techniques</h1>
+	<ul>
+		<li>Text mining
+			<ul>
+				<li>Search literature for references to protein-protein interactions</li>
+			</ul>
+		</li>
+		<li>Orthology
+			<ul>
+				<li>Predicts interaction based orthologous pairs in another species</li>
+			</ul>
+		</li>
+		<li>Domain pairs
+			<ul>
+				<li>Predicts interaction based on domains interacting in other proteins</li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Public Repositories</h1>
+	<ul>
+		<li>Pathway data
+			<ul>
+				<li><a href="http://www.wikipathways.org/">WikiPathways</a></li>
+				<li><a href="http://www.reactome.org/">Reactome</a></li>
+				<li><a href="http://www.biocyc.org/">BioCyc</a></li>
+				<li><a href="http://www.kegg.jp/">KEGG</a></li>
+				<li><a href="http://www.pathwaycommons.org/">Pathway Commons</a></li>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
+
+<section>
+	<h1>Public Repositories</h1>
+	<ul>
+		<li>PPI Data
+			<ul>
+				<li><a href="http://www.pathwaycommons.org/">Pathway Commons</a></li>
+				<li><a href="http://thebiogrid.org/">BioGRID</a></li>
+				<li><a href="http://www.ebi.ac.uk/intact/">IntAct</a></li>
+				<li>Model organisms databases (e.g. <a href="http://www.yeastgenome.org">SGD</a>)</li>
+				<li><a href="http://string-db.org">STRING</a></li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
