@@ -7,26 +7,47 @@
 </section>
 
 <section>
-<h3>3. Load TCGA data</h3>
-    <p>We’ll actually do this in two parts.</p>
-    <ul>
-    <li><highlight>Create the network.</highlight> Start by downloading <i>GBM-TP.all.tsv</i>, then open the file to create a network using <b>File → Import → Network → File</b>. This should bring up the <b>Import Network From Table</b> dialog.  Select <b>Select None</b> to disable all columns. Then click only on the <b>GeneName</b> column and set this column as the <b>Source Node</b> column (green circle). Then click <b>OK</b>. You’ll see a warning about no edges, but that’s OK. This will create a grid of 1500 unconnected nodes, where each node represents a gene.</li>
+	<h3>3. Load TCGA data</h3>
+   <p>We’ll actually do this in two parts.</p>
+   <ul>
+		<highlight style="margin-left: -25px">1. Create the network.</highlight>
+    <li>Download
+			<a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.tsv">GBM-TP.all.tsv</a>.</li> 
+		<li>Import the file to create a network using <b>File → Import → Network → File</b>.  <br/>This will bring up the <b>Import Network From Table</b> dialog.</li>
+		<ul>
+			<li>Select <b>Select None</b> to disable all columns.</li>
+			<li>Click only on the <b>GeneName</b> column and set this column as the <b>Source Node</b> column (green circle).</li>
+			<li>Click <b>OK</b>.
+				(You’ll see a warning about no edges, but that’s OK. This will create a grid of 1500 unconnected nodes, where each node represents a gene.)</li>
+		</ul>
     <!--
     <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.sif');" value="Load network"/>
     </div>
     -->
-    <li><highlight>Add data to our nodes.</highlight> To add the rest of the data to our nodes, open the file again, but now use <b>File → Import → Table → File</b>. This will bring up the <b>Import Columns From Table</b> dialog. It turns out that all of the defaults are correct for just importing the data, so click on <b>OK</b>. This will import all of the data in the spreadsheet and associate each row with the corresponding node. You should be able to see this in the <b>Table Panel</b>.</li>
-    <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('session open url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.cys');" value="Load data"/> 
-    </div>
+	</ul>
+</section>
+
+<section>
+	<ul>
+		<highlight style="margin-left: -25px">2. Add data to our nodes.</highlight>
+			<li>Open the file again, but now use <b>File → Import → Table → File</b>.
+				<br/>This will bring up the <b>Import Columns From Table</b> dialog.</li>
+			<ul>
+				<li>It turns out that all of the defaults are correct for just importing the data, so click on <b>OK</b>.</li>
+				<li>This will import all of the data in the spreadsheet and associate each row with the corresponding node.</li>
+				<li>You should be able to see this in the <b>Table Panel</b>.</li>
+		    <div class="cybrowser">
+ 		       <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('session open url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.cys');" value="Load data"/> 
+ 		   </div>
     </ul>
 </section>
 
 <section>
-    <h3>4. Find significant expression changes</h3>
-    <p>We’ll use the <b>Select</b> tab in the <b>Control Panel</b> to find the significant overall expression changes.</p>  
+	<h3>4. Find significant expression changes</h3>
+	<p>We’ll use the <b>Select</b> tab in the <b>Control Panel</b> to find the significant overall expression changes.</p>  
     <ul>
+    <img plain src="modules/functional-enrichment/select-tab.png" style="width:25%; float:right">
     <li>Open the <b>Select</b> tab and click on the + button to add a new condition. In this case we’re going to add a <b>Column Filter</b>. Select the "Mean log2FC" column and set the values to be between -5 and -1. This will select all genes that are significantly underexpressed on average, across all samples (only one gene should be selected).</li>
     <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=RPS4Y1');" value="Select significantly underexpressed nodes"/> <!-- can this be done in any other way? -->
@@ -35,7 +56,6 @@
        <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=RPS4Y1');" value="Select significantly changed nodes"/> <!-- just feed in the node list here as a shortcut? -->
     </div>
-    <img plain src="modules/functional-enrichment/select-tab.png" style="width:25%">
     </ul>
 </section>
 
@@ -71,9 +91,9 @@
     </section>
 
 <section>
+    <img plain src="modules/functional-enrichment/k-means.png" style="width:60%; float:right">
     <p>Note that there are four distinct vertical bands (your results might vary in the ordering in either the vertical or horizontal dimensions). In fact, the firehose analyses identified the same four groupings of patients. In the spreadsheet loaded originally, we’ve calculated the mean Log2(fold change) for each of the four subtypes.</p>
     
-    <img plain src="modules/functional-enrichment/k-means.png" style="width:60%">
 
 </section>
 
@@ -108,9 +128,9 @@
 
 <section>
     <ul>
+    <img plain src="modules/functional-enrichment/string-network.png" style="width:50%; float:right; margin-left: 10px">
     <li><highlight>Create the network.</highlight> Click on the search icon (magnifying glass) to load the network. The network should appear similar to the figure below.</li>
     </ul>
-    <img plain src="modules/functional-enrichment/string-network.png" style="width:60%">
 </section>
 
 <section>
@@ -128,10 +148,10 @@
 
 <section>
     <ul>
+        <img src="modules/functional-enrichment/continous-mapper.png" style="float:right">
         <li><highlight>Create color gradient for expression data.</highlight> To show the expression data, go the <b>Style </b>tab of the <b>Control Panel</b> and click on the middle square <b>(Map.)</b> of the three <b>Fill Color</b> controls. Set the Column to "Cluster 1 Mean log2FC" and set the <b>Mapping Type</b> to "Continuous Mapping". This will create a gray to white gradient. Double-click on the gradient to show the <b>Continuous Mapping Editor</b>. We’re going to use a Red/Blue color gradient, with blue representing underexpressed genes and red representing overexpressed genes. To start, click on the left-most triangle and set the color to Blue. This represents the values that are all less than the min. Repeat for the next triangle over. Now, set the two rightmost triangles to red.  Finally, since we don’t really want intermediate nodes to be purple, add an additional triangle by clicking on the Add button. Drag the new triangle to 0.0 and now click <b>OK</b>. The completed dialog should look like this:</li>
         <!-- no command for this. could use "vizmap apply" with a prebaked style -->
     </ul>
-        <img plain src="modules/functional-enrichment/continous-mapper.png">
 </section>
 
 <section>
@@ -165,7 +185,10 @@
 
 <section>
     <h3>10. Smooth the network using Diffusion.</h3> 
-    <p>When we created the STRING network, we added nodes to make sure that well connected nodes that might be silent (i.e. not exhibit changes in expression) could be included. Well connected genes might play a significant role in the biology even if their expression doesn’t change due to changes in the expression of their interaction partners. The Diffusion app supports the ability to find those genes by simulating the diffusion of heat through network connections.</p>
+    <p style="font-size:90%">When we created the STRING network, we added nodes to make sure that well connected nodes that might be silent (i.e. not exhibit changes in expression) could be included. Well connected genes might play a significant role in the biology even if their expression doesn’t change due to changes in the expression of their interaction partners. The Diffusion app supports the ability to find those genes by simulating the diffusion of heat through network connections.</p>
+</section>
+
+<section>
     <ul>
         <li><highlight>Create subnetwork of the main connected component.</highlight> Select all of the nodes and edges in the main connected component by holding mouse button 1 down and sweeping over the nodes. Alternatively, you could select a single node and then repeatedly hitting <b>Control-6</b> (or <b>⌘6</b> on the Mac) to continually select the first neighbors of selected nodes until all of the nodes in the connected component are selected. Once the entire component is selected, create a new network by doing <b>File → New → Network → From selected nodes, all edges</b>.</li>
         <div class="cybrowser">
@@ -175,10 +198,11 @@
         <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select');" value="Select overexpressed genes"/> <!-- incomplete. idea is to supply necessary list of overexpressed nodes -->
         </div>
-    </ul>
+		</ul>
 </section>
+
 <section>
-    <ul>
+	<ul>
         <li><highlight>Diffuse the selection.</highlight> In the diffusion app we can diffuse either based on the heat (column value) or just based on the selection. We’re going to diffuse based on our expression values, so select <b>Tools → Diffuse → Selected Nodes with Options</b> and in the dialog select "Cluster 1 Mean log2FC" as the <b>Heat Column</b> and set a short time of 0.001 seconds. Then click <b>OK</b>.</li>
         <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('diffusion diffuse_advanced heatColumnName=Cluster 1 Mean log2FC time=0.001');" value="Diffuse the selection"/> <!-- incomplete. -->
@@ -187,23 +211,32 @@
         <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed');" value="Diffuse the selection"/> <!-- untested -->
         </div>
+	</ul>
+</section>
+
+<section>
+	<ul>
         <li><highlight>Repeat for underexpressed genes.</highlight> For underexpressed genes, repeat step c. above except choose all genes with a "Cluster 1 Mean log2FC" less than -1 and in the diffusion app set the time to 0.01 seconds. Unfortunately the Diffusion Output assumes positive diffusion values, so to select the diffused nodes of interest, you’ll need to go to the Table Panel and sort the diffusion_output_heat column, select the negative values less than -0.5, right-click on the column and select <b>Select nodes from selected rows</b>. Then you can create the subnetwork.</li>
     </ul>
 </section>
 <section>
     <h3>11.	Perform enrichment analysis on the diffused subnetworks.</h3>
-    <p>There are many tools available in Cytoscape to perform functional enrichment. For simplicity we’re going to use the built-in functional enrichment available from the stringApp. The description below walks through calculating function enrichment of the overexpressed subnetwork, but the same approach will work for the underexpressed network.</p>
+    <p style="font-size:90%">There are many tools available in Cytoscape to perform functional enrichment. For simplicity we’re going to use the built-in functional enrichment available from the stringApp. The description below walks through calculating function enrichment of the overexpressed subnetwork, but the same approach will work for the underexpressed network.</p>
+
+</section>
+
+<section>
     <ul>
         <li><highlight>Set network as a STRING network.</highlight> In order to retrieve the function enrichment scores the stringApp needs to be told that this is a STRING network. A menu item is available for that purpose: <b>Apps → STRING → Set as STRING network.</b></li>
         <li><highlight>Retrieve functional enrichment of a component.</highlight> In the subnetwork, there are two connected components of any size. Select all of the nodes in the largest one and retrieve the functional enrichment through the <b>Apps → STRING → Retrieve functional enrichment</b>. This will bring up a new Table Panel tab for “STRING Enrichment”. There is a pull-down menu that switches the ontology or pathway displayed. In the case of the largest component, we see that there is a significant overexpression of genes involved in the GO Biological Processes: extracellular matrix organization, collagen catabolic process, and other development processes; they are also associated with the KEGG pathways Protein digestion and absorption and ECM-receptor interaction.</li>
-        <li>Repeat for other components.</li>
+				<li><highlight>Repeat for other components.</highlight></li>
     </ul>
 </section>
 <section>
     <h3>12. Topologically cluster the network.</h3> 
-    <p>Looking at the protein-protein interaction network (figure below), we see that there appear to be strong connections between groups of nodes (see discussion in 9 above). One approach to explore the functional interactions of the network is to use a topological clustering algorithm to partition the network based on the interactions. The clusterMaker2 app provides a set of topological (network) cluster algorithms.  One commonly used one is MCL {PMID: 22144159}, which performs a Markov-based flow simulation to determine clusters.</p>
+    <img plain src="modules/functional-enrichment/string-network.png" style="width:50%; float:right; margin-left: 10px">
+    <p>Looking at the protein-protein interaction network (left), we see that there appear to be strong connections between groups of nodes (see discussion in 9 above). One approach to explore the functional interactions of the network is to use a topological clustering algorithm to partition the network based on the interactions. The clusterMaker2 app provides a set of topological (network) cluster algorithms.  One commonly used one is MCL, which performs a Markov-based flow simulation to determine clusters.</p>
     
-    <img plain src="modules/functional-enrichment/topological-cluster.png" style="width:60%">
     
 </section>
 <section>
@@ -212,11 +245,16 @@
     </ul>
 </section>
 <section>
-    <h3>13.	Determine functional enrichment of the clusters.</h3> The results of the clustering should look something like Figure 45 (?), which is a close-up of the largest components. Of particular interest are the largest 4 components, which we’ll perform functional enrichment.  
-    <ul>
+    <h3>13.	Determine functional enrichment of the clusters.</h3> 
+    <img plain src="modules/functional-enrichment/topological-cluster.png" style="width:60%; float:right; margin-left:5px">
+		<p>The results of the clustering should look something like the figure on the right, which is a close-up of the largest components. Of particular interest are the largest 4 components, which we’ll perform functional enrichment.</p> 
+</section>
+
+<section>
+    <ul style="font-size: 90%">
         <li><highlight>Set network as a STRING network.</highlight> The first step is to inform the stringApp that this is a STRING-derived network. A menu item is available for that purpose: <b>Apps → STRING → Set as STRING network</b>.</li>
-        <li>Retrieve functional enrichment of a component. In the subnetwork, there are four connected components of any size. Select all of the nodes in the second largest one (the one with a number of overexpressed genes and the bulk of the mutations) and retrieve the functional enrichment through the <b>Apps → STRING → Retrieve functional enrichment</b>. This will bring up a new Table Panel tab for <b>STRING Enrichment</b>. There is a pull-down menu that switches the ontology or pathway displayed. Looking at the results we see that there is a significant overexpression of genes involved in the GO Biological Processes: extracellular matrix organization, collagen catabolic process, and other development processes; they are also associated with the KEGG pathways Protein digestion and absorption and ECM-receptor interaction.</li>
-        <li>Repeat for other components.</li>
+				<li><highlight>Retrieve functional enrichment of a component.</highlight> In the subnetwork, there are four connected components of any size. Select all of the nodes in the second largest one (the one with a number of overexpressed genes and the bulk of the mutations) and retrieve the functional enrichment through the <b>Apps → STRING → Retrieve functional enrichment</b>. This will bring up a new Table Panel tab for <b>STRING Enrichment</b>. There is a pull-down menu that switches the ontology or pathway displayed. Looking at the results we see that there is a significant overexpression of genes involved in the GO Biological Processes: extracellular matrix organization, collagen catabolic process, and other development processes; they are also associated with the KEGG pathways Protein digestion and absorption and ECM-receptor interaction.</li>
+				<li><highlight>Repeat for other components.</highlight></li>
     </ul>
 </section>
 

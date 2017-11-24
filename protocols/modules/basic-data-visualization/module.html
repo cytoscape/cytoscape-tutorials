@@ -1,0 +1,280 @@
+<section>
+	<h3>Loading Network</h3>
+		<div class="cybrowser">
+			<ul>
+				<div style="width:40%;float:right; margin-left: 10px">
+					<img src="BasicDataVizDemoLoaded.png">
+				</div>
+				<li>Start Cytoscape and load the demo session.</li>
+
+				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('session open url=http://opentutorials.cgl.ucsf.edu/images/e/e2/BasicDataVizDemo.cys');" value="Load session"/>
+				<li>When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, we can use the <b>Fit Content</b> function.</li>
+				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view fit content');" value="Fit content"/>
+									
+				<li>You should now see the network on the right.</li>
+			</ul>
+		</div>
+		<div class="not-cybrowser">
+			<ul>
+				<div style="width:40%;float:right; margin-left: 10px">
+					<img src="BasicDataVizDemoLoaded.png">
+				</div>
+				<li>Start Cytoscape and download the <a href="http://opentutorials.cgl.ucsf.edu/images/e/e2/BasicDataVizDemo.cys">demo session.</a></li>
+				<li>Open the demo session using <highlight>File&rarr;Open...</highlight></li>
+				<li>When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, 
+					we can use the <highlight>View&rarr;Fit Content</highlight> function.</li>
+				<li>You should now see the network on the right.</li>
+			</ul>
+		</div>
+		<aside class="notes" data-markdown>
+		Add speaker notes here...
+		</aside>
+	</section>
+
+	<section>
+		<h3>Visualizing Expression Data on Networks</h3>
+		<p>Probably the most common use of expression data in Cytoscape is to set the visual properties of the nodes in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will show an example of doing this.</p>
+		<p>The data used in this example is from yeast, and the genes <b>Gal1</b>, <b>Gal4</b>, and <b>Gal80</b> are all yeast transcription factors. The experiments all involve some perturbation of these transcription factor genes.
+
+		<br /><br />Gal1, Gal4, and Gal80 are also represented in the interaction network, where they are labeled according to yeast locus tags: <b>Gal1 corresponds to YBR020W, Gal4 to YPL248C, and Gal80 to YML051W</b>.</p>
+
+		<aside class="notes" data-markdown>
+Add speaker notes here...
+		</aside>
+	</section>
+
+	<section>
+		<p>In this demo file, the  following node attributes have been mapped to visual style properties:</p>
+		<ul>
+			<li>The "gal80exp" expression values are used for <b>Node Fill Color</b>.</li>
+			<li>The <b>Default Node Color</b>, for nodes with no data mapping, is dark grey.</li>
+			<li>Nodes with expression values that are significant are rendered as rectangles, others are ovals.</li>
+			<li>The common name for each gene is used as the <b>Node Label</b>.</li>
+		</ul>
+	</section>
+
+	<section>
+		<ul>
+			<li>The experimental data is visible in the Node Table:</li><br />
+
+			<img plain src="modules/loading-omics-data/Galbrowse3.png" style="width:80%"><br /><br />
+			<li>Selecting one or more nodes in the network will update the table to show only the corresponding row(s).</li>
+		</ul>
+		<p>To learn more about <b>Importing data</b>, see the <a href="http://manual.cytoscape.org/en/stable/Node_and_Edge_Column_Data.html#import-data-table-files">Cytoscape Manual</a>.</p>
+
+		<aside class="notes" data-markdown>
+		Add speaker notes here...
+		</aside>
+	</section>
+
+	<section>
+		<ul>
+			<li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes.</li>
+			<li>Let's change the layout to Circular Layout.</li>
+			<div class="cybrowser">
+				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout circular');" value="Apply Circular Layout"/>
+			</div>
+			<div class="not-cybrowser">
+				<ul>
+					<li><highlight>Layout&rarr;Circular Layout</highlight></li>
+				</ul>
+			</div>
+
+		</ul>
+<!--<img plain src="Galfiltered-Edge-Weighted.png" style="width:40%">-->
+		<p>Cytoscape supports many different layout algorithms, described in detail in the 
+		<a href="http://manual.cytoscape.org/en/stable/Navigation_and_Layout.html?highlight=layout#automatic-layout-algorithms">Cytoscape manual</a>. </p>
+
+		<aside class="notes" data-markdown>
+		Add speaker notes here...
+		</aside>
+	</section>
+
+	<section>
+		<div style="float:right; width: 50%">
+			<img plain src="CircularLayout.png">
+		</div>
+		<p>The network should now look like this:</p>
+
+		<p>To learn more about <b>Styles</b>, see our 
+		<a href="https://cytoscape.github.io/cytoscape-tutorials/contents/index.html#/protocols">Styles Tutorial</a>.</p>
+
+		<aside class="notes" data-markdown>
+		Add speaker notes here...
+		</aside>
+	</section>
+
+	<section>
+		<h3>Filter Interactions</h3>
+		<ul>
+			<li>Your network contains a combination of protein-protein (pp) and protein-DNA (pd) interactions. 
+				Next, we will filter out the protein-protein interactions to focus on the protein-DNA interactions.</li>
+
+			<li>First, let's select all protein-protein interactions.</li>
+			<div class="cybrowser">
+				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select edgeList=interaction:pp');" value="Select p-p interactions"/>
+			</div>
+			<div class="not-cybrowser">
+				<ul>
+					<li>Go to the <b>Select</b> tab in the Cytoscape Control Panel (the leftmost panel).</li>
+					<li>Click on the <highlight>+</highlight> and create a <b>Column Filter</b>.</li>
+					<li>Click on <b>Choose column...</b> and select <b>Edge: interaction</b></li>
+					<li>Now in the text field enter <hightlight>pp</highlight></li>
+					<p>This will select all of the edges with the protein-protein interactions.</p>
+				</ul>
+			</div>
+			<li>You should now see many edges in the network selected (i.e., colored red).</li>
+		</ul>
+
+		<aside class="notes" data-markdown>
+		Add speaker notes here...
+		</aside>
+	</section>
+
+	<section>
+		<ul>
+			<li>Since we're only interested in the protein-DNA edges, we can delete the protein-protein edges we've just selected.</li>
+		<div style="width:50%; float:right">
+			<img src="Final_network3.png">
+		</div>
+			<div class="cybrowser">
+				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network delete edgeList=selected');" value="Delete p-p interactions"/>
+			</div>
+			<div class="not-cybrowser">
+				<ul>
+					<li>To delete selected nodes or edges, you can just hit the DELETE key or use the menu <highlight>Edit&rarr;Delete Selected Nodes and Edges</highlight></li>
+				</ul>
+			</div>
+			<li>You should now see many unconnected nodes in the network.</li>
+			<li>Now, lets clean up the network by applying a layout.</li>
+
+			<div class="cybrowser">
+				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed');" value="Apply force-directed layout"/>
+			</div>
+			<div class="not-cybrowser">
+				<ul>
+					<li><highlight>Layout&rarr;Prefuse Force Directed Layout</highlight></li>
+				</ul>
+			</div>
+
+			<li>The largest component of the final filtered and cleaned up network should look like the network on the right.</li>
+		</ul>
+		<br />
+		<aside class="notes" data-markdown>
+		Add speaker notes here...
+		</aside>
+	</section>
+
+	<section>
+	<h3>Observe the Network</h3>
+	<ul>
+		<li>Notice that three dark red (highly induced) nodes are in the same region of the graph.</li>
+		<li>Notice that there are two nodes that interact with all three red nodes: GAL4 (YPL248C) and GAL11 (YOL051W).</li>
+		<li>Let's select these two nodes and their immediate neighbors.</li>
+		<div class="cybrowser">
+			<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=YPL248C');" value="Select YPL248C"/>
+			<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=YOL051W');" value="Select YOL051W"/>
+			<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any network=current');" value="Select first neighbors"/><br />
+		</div>
+		<div class="not-cybrowser">
+			<ul>
+				<li>First just select GAL4 (YPL248C) by clicking on it.</li>
+				<li>Now, extend the selection by holding down the shift key and clicking on GAL11 (YOL051W).</li>
+				<li>Finally, select their neighbors by control-6 (or &#8984;-6 on a Mac), or by the menu <highlight>Select&rarr;Nodes&rarr;First Neighbors of Selected Nodes&rarr;Undirected</highligh></li>
+			</ul>
+		</div>
+
+		<li>It is sometimes useful to create a new network from selected nodes.</li>
+		<div class="cybrowser">
+			<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create  excludeEdges=false networkName=subnetwork nodeList=selected source=current');" value="Create new network"/>
+			<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view fit content');" value="Fit content"/>
+		</div> 
+		<div class="not-cybrowser">
+			<ul>
+				<li><highlight>File&rarr;New&rarr;Network&rarr;Selected nodes, all edges</highlight>.</li>
+				<ul>
+					<li>(Even though we say all edges, only the
+					edges connecting the selected nodes will actually be used.)</li>
+				</ul>
+				<li>As before, we may need to do a <highlight>View&rarr;Fit Content</highlight>.</li>
+			</ul>
+		</div>
+
+	</ul>
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<p>With some layout and zooming, this new network should appear similar to the one shown:</p>
+	<img plain src="Final_subnetwork3.png" style="width:60%">
+
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+
+	<p>Digging into the biology of this network, it turns out that GAL4 is repressed by GAL80. Both nodes (GAL4 and GAL11) show fairly small changes in expression, and neither change is statistically significant: they are rendered as light-colored circles. These slight changes in expression suggest that the critical change affecting the red nodes might be somewhere else in the network, and not either of these nodes.
+	GAL4 interacts with GAL80 (YML051W), which shows a significant level of repression: it is depicted as a blue rectangle.
+	<p>Note that while GAL80 shows evidence of significant repression, most nodes interacting with GAL4 show significant levels of induction: they are rendered as red rectangles.
+	GAL11 is a general transcription co-factor with many interactions.</p>
+	<p>Putting all of this together, we see that the transcriptional activation activity of Gal4 is repressed by Gal80. So, repression of Gal80 increases the transcriptional activation activity of Gal4. Even though the expression of Gal4 itself did not change much, the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed. This explains why there is so much up-regulation in the vicinity of Gal4.</p>
+
+</section>
+
+<section>
+	<h3>Exploring Nodes</h3>
+	<ul>
+		<li>Right click on the node GAL4.</li>
+		<li>Select the menu <b>External Links → Sequences and Proteins → Entrez Gene</b>.</li>
+		<li>This action will pop-up a browser window and search the Entrez Gene database for the term "YPL248C", the id of the node.</li>
+		<li>In the results in the browser the first entry should be labeled GAL4. Click on this entry.</li>
+		<li>The description of GAL4 tells us that it is repressed by GAL80.</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<p>Our data show precisely this:</p>
+	<ul>
+		<li>Both nodes (GAL4 and GAL11) show fairly small changes in expression, and neither change is statistically significant: they are rendered as light-colored circles. These slight changes in expression suggest that the critical change affecting the black nodes might be somewhere else in the network, and not either of these nodes.</li>
+		<li>GAL4 interacts with GAL80 (YML051W), which shows a significant level of repression: it is depicted as a red square.</li>
+		<li>Note that while GAL80 shows evidence of significant repression, most nodes interacting with GAL4 show significant levels of induction: they are rendered as green squares.</li>
+		<li>GAL11 is a general transcription co-factor with many interactions.</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<p>Putting all of this together, we see that the transcriptional activation activity of Gal4 is repressed by Gal80. So, repression of Gal80 increases the transcriptional activation activity of Gal4. Even though the expression of Gal4 itself did not change much, the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed. This explains why there is so much up-regulation in the vicinity of Gal4.</p>
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section>
+	<h3>Saving Results</h3>
+	<p>Cytoscape provides a number of ways to save results and visualizations:</p>
+	<ul>
+		<li>As a session: <b>File&rarr;Save</b>, <b>File&rarr;Save As...</b></li>
+		<li>As an image: <a href="modules/saving-results/galFiltered.png"><b>File&rarr;Export as Image...</b></a></li>
+		<li>To the web: <a href="modules/saving-results/web_session/index.html"><b>File&rarr;Export as Web Page...</b></a></li>
+		<li>To a public repository: <b>File&rarr;Export&rarr;Network Collection to NDEx</b></li>
+		<li>As a graph format file: <b>File&rarr;Export&rarr;Network</b>. <br/>Formats:
+			<ul>
+				<li>CX JSON</li>
+				<li>Cytoscape.js JSON</li>
+				<li>GraphML</li>
+				<li>PSI-MI</li>
+				<li>XGMML</li>
+				<li>SIF</li>
+			</ul></li>
+		</ul>
+</section>
