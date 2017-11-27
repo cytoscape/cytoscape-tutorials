@@ -30,8 +30,9 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
 ## Presenting
 Browse the available training materials already prepared:
 * [presentations](https://cytoscape.github.io/cytoscape-tutorials/contents/#/presentations) -- Specific programs compiled for target audiences; designed for projector presentation to a group; typically composed of custom slides together with general modules (see below).
-* [protocols](https://cytoscape.github.io/cytoscape-tutorials/contents/#/protocols) -- General tutorials targeting common workflows or protocols; designed for display on individual monitors and interactivity via CyBrowser; typically composed of custom slides together with general modules (see below).
-* [modules](https://cytoscape.github.io/cytoscape-tutorials/contents/#/modules) -- Concise material focused on specific tasks; intended to be reused in multiple presentations or protocols (see above).
+* [modules](https://cytoscape.github.io/cytoscape-tutorials/contents/#/modules) -- Concise material focused on specific tasks; intended to be reused in
+ multiple presentations (see above).
+* [protocols](https://cytoscape.github.io/cytoscape-tutorials/contents/#/protocols) -- General tutorials targeting common workflows or protocols; designed for display on individual monitors and interactivity via CyBrowser; typically linked to individually or in a presentation.
 
 #### Navigating
 Use arrow keys, "space" or the on-screen arrows (lower right) to navigate the slides. Take note of modules that are organized ___vertically___ within a presentation.
@@ -79,8 +80,6 @@ The first thing to notice about our repo is the organization. From the top level
 |     |--intro-cytoscape/
 |     |--(other presentation modules)
 |--protocols/
-|  |--basic-data-visualization.html
-|  |--(other protocols)
 |  |--modules/
 |     |--loading-omics-data/
 |     |--(other protocol modules)
