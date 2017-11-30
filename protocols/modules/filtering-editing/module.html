@@ -1,0 +1,141 @@
+<section>
+	<h1>Filtering and Editing</h1>
+	<p>This tutorial will introduce you to some techniques for filtering and editing a network in Cytoscape:</p>
+    <ul>
+        <li>Apply filters to remove low-confidence edges.</li>
+        <li>Perform basic network edits.</li>
+    </ul>
+    
+    <p>For this tutorial, we will use a <a href="">published dataset</a>, which represents a portion of a human interaction data set published by Stelzl et al. Start by downloading the data to your computer.</p>
+
+</section>
+
+<section>
+<h1>Loading the session file</h1>
+    <ul>
+        <li>Launch Cytoscape.</li>
+        <li>Open the STELZ.cys session file <b>File → Open....</b>. The network should look like this:</li>
+    </ul>
+    <img plain src="modules/filtering-editing/stelz.png" style="width:70%"><br /><br />
+</section>
+
+<section>
+	<ul>
+        <li>In the <b>Node Table</b> tab of the <b>Table Panel</b>, notice the attribute named <b>Official HUGO Symbol</b>, which should be visible by default. If it is not, click on the <b>Show Columns</b> <img plain src="modules/filtering-editing/Showcolumn.png"> button and select the attribute.</li>
+        <li>Select some nodes on the Cytoscape canvas. You should now see their IDs (Entrez gene IDs, in this case), and their official HUGO gene names.</li>
+    </ul>
+</section>
+
+<section>
+<h1>Filtering the network</h1>
+    <p>The interactions in your network has evidence from varying sources: high-confidence yeast two-hybrid interactions(lacz4) and low-confidence yeast two-hybrid interactions(sd4), coAP and GST pull-down interactions, and supporting evidence of interaction reported in literature. Verify this by examining the edge types in the <b>Edge Table</b>. We will now use Cytoscape's filters to remove some lower-confidence edges.</p>
+    <ul>
+        <li>Click on the <b>Select</b> tab of the <b>Control Panel</b>.</li>
+        <li>Click on the drop-down to the right and select <b>Create New Filter</b>. Enter a name for your filter, for example "high-confidence".</li>
+        <li>Click the + (add) button and select <b>Column Filter</b>. In the <b>Choose column...</b> drop-down, select "Edge:interaction".</li>
+        <li>In the second drop-down, select "is not" and type "SD4" in the text box. This will select all interactions, except those with the lower-confidence SD4 evidence.</li>
+    </ul>
+</section>
+
+<section>
+<p>The filter will be automatically applied by default. At the bottom of the Select tab, you can see how many edges/nodes where selected. A set of 2230 edges have been selected in your network. Your network should now look like this:</p>
+
+    <img plain src="modules/filtering-editing/STELZ-high.png" style="width:60%"><br /><br />
+
+</section>
+
+<section>
+<ul>
+    <li>At this point, only the relevant edges are selected. To also select the connected nodes, go to <b>Select → Nodes → Nodes connected by selected edges.</b></li>
+    <li>Create a new network from the selection under <b>File → New → Network → From selected nodes, selected edges</b>.
+        Your Cytoscape window should now appear as shown:</li>
+</ul>
+        <img plain src="modules/filtering-editing/STELZ-new.png" style="width:60%"><br /><br />
+</section>
+
+<section>
+    <p>Compared to the network you started with, the network you have now has fewer edges, but all the edges are determined through by higher-confidence experimentation or by literature-based methods. For some types of analysis, this is a more appropriate set of edges.</p>
+
+    <p>Note that this will not filter out nodes that only have self-edges. But at this point, such nodes are easy to select with the mouse and delete.</p>
+</section>
+
+<section>
+<h1>Choosing nodes based on adjacent nodes</h1>
+    <p>It's often important to select a node based on properties of the nodes it connects to, not based on the properties of the node or an edge itself. For the sake of illustration, the STELZL data has a column tagging a node as "suspicious", as judged from analysis outside of Cytoscape. In this tutorial, we show how to identify "non-suspicious" genes connected to at least three "suspicious" nodes in three steps:</p>
+    <ul>
+        <li>Select all suspicious nodes and any nodes they connect to.</li>
+        <li>Remove any non-suspicious nodes that connect to fewer than three suspicious nodes.</li>
+        <li>Remove any suspicious nodes that connect only to other suspicious nodes.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Select suspicious nodes and all nodes they connect to</h2>
+    <ul>
+        <li>Go back to the original (unfiltered) network.</li>
+        <li>In the <b>Edit</b> menu, selecy <b>Remove Duplicated Edges</b> to eliminate multiple links between suspicious and non-suspicious nodes. Select your network (STELZL.sif) and check the <b>Ignore edge direction</b> box, then click <b>OK</b>. Then click <b>OK</b> to confirm the deletion.</li>
+        <li>In the <b>Select</b> tab of the <b>Control Panel</b>, click on the drop-down to the right and select <b>Create New Filter</b>. Enter a name for your filter, for example, "Suspicious nodes and neighbors".</li>
+        <li>Click the + (add) button and select <b>Column Filter</b>. In the <b>Choose column...</b> drop-down, select "Node:Suspicous".</li>
+        <li>In the second drop-down, select "true".</li>
+        <li>Select edges connecting suspicious nodes by choosing <b>Select → Edges → Select adjacent edges</b>.</li>
+        <li>Create a new network consisting of suspicious nodes and their (suspicious and non-suspicious) neighbors by selecting <b>File → New → From selected nodes, selected edges</b>.</li>
+    </ul>
+    
+</section>
+
+<section>
+    <h2>Remove sparse non-suspicious nodes</h2>
+    <p>We now have a network of suspicious nodes and their (suspicious and non-suspicious) neighbors. We will now create a new filter to remove all non-suspicious nodes that connect to fewer than three suspicious nodes:</p>
+    <ul>
+        <li>In the <b>Select</b> tab, create a new filter and name it "Eliminate sparse non-suspicious nodes".</li>
+        <li>Setup the filter as a <b>Degree Filter</b>. Set the range to between 0 and 2.</li>
+        <li>Add a <b>Column Filter</b> for "Node:Suspicious" and choose "false".</li>
+        <li>To remove the non-suspicious nodes that aren't sufficiently connected, select <b>Edit → Delete Selected Nodes and Edges...</b>.</li>
+    </ul>
+</section>
+
+<section>
+        <h2>Remove suspicious nodes not connected to non-suspicious nodes</h2>
+    <p>Finally, we will create a filter to remove the suspicious nodes that aren't connected to non-suspicious nodes:</p>
+    <ul>
+        <li>Create a new filter named "Eliminate superfluous suspicious nodes".</li>
+        <li>Setup a column filter for "Node:Suspicious" and choose "false".</li>
+        <li>Select edges connecting suspicious nodes by <b>Select → Edges → Select adjacent edges</b>.</li>
+        <li>Create a new network consisting of suspicious nodes and their (suspicious and non-suspicious) neighbors, select <b>File → New → From selected nodes, selected edges</b>.</li>
+    </ul>
+
+</section>
+
+<section>
+    <p>The new network has only non-suspicious nodes that connect to three or more suspicious nodes, and the non-suspicious nodes are highlighted:</p>
+
+    <img plain src="modules/filtering-editing/STELZ-final.png" style="width:70%"><br /><br />
+
+</section>
+
+<section>
+    
+    <p>Other tutorials deal with layouts and visual style, but as an example, the figure below shows suspicious nodes in red and non-suspicious nodes in blue -- note that each non-suspicious node connects to a minimum of 3 suspicious nodes and no other non-suspicious nodes, per our filters. (Hint: You can get the layout below by using the <b>Layout → yFiles Organic Layout</b>.)</p>
+
+        <img plain src="modules/filtering-editing/STELZ-styled.png" style="width:70%"><br /><br />
+
+</section>
+
+<section>
+    <h1>Editing</h1>
+    <p>At times, it can be very useful to modify a network slightly: to add or remove nodes or edges. For instance, if you have prior knowledge of some biological process, you might want to add some nodes for proteins that you know are involved in the process, but that don't appear in your data set. <br />All network editing functions are available in a right-click context menu in the Network View Window.</p>
+    <ul>
+        <li>To add a node, right-click anywhere in the <b>Network View Window</b> and select <b>Add → Node</b>.</li>
+        <li>Select the node with your mouse. In the <b>Node Table</b>, you should see a node with the shared name Node 1.</li>
+        <li>Give your new node a name by clicking on the entry in the <b>Node Table</b>, and entering a name under the column <b>Official HUGO Symbol</b>.</li>
+        <li>To add an edge to the node, right-click on the node and choose <b>Edit → Add Edge</b>. Drag the end of the newly created edge to another node in the network, and click to attach it.</li>
+    </ul>
+        <p>It is also possible to add nodes and interactions in a sif format.</p>
+    <ul>
+        <li>Locate the CPNE6 gene using the <b>Search</b> interface. Note the gene ID, 9362.</li>
+        <li>We are going to add a known interaction between CPNE6 and GRB7 (Entrez ID 2886). With the CPNE6 gene in focus (not selected), right-click anywhere in the <b>Network View Window</b> and select <b>Add → Edge (and possibly Nodes) using SIF....</b></li>
+        <li>In the <b>SIF Interpreter</b> dialog, enter "2886 interacts 9362" and click <b>OK</b>. You should see the new node with id 2886 connected to CPNE6.</li>
+    </ul>
+</section>
+
+
