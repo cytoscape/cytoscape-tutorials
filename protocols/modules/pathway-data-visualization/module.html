@@ -1,110 +1,122 @@
 <section id='title'>
-                                <h1>Visualizing Data on Pathways in Cytoscape</h1>
-                                <p>This tutorial presents a basic workflow for visualizing experimental data on pathways in Cytoscape, using the <a href="http://apps.cytoscape.org/apps/wikipathways">WikiPathways App</a> and the built-in <a href="http://apps.cytoscape.org/apps/idmapper">IdMapper functionality</a>.</p>
-                                <p><a href="https://www.wikipathways.org">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization.</p>
-                                <p>The data used in this tutorial is available <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">here</a>. The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values). </p>
-                                <p><highlight>You will need Cytoscape 3.6 with the latest WikiPathways App installed.</highlight></p>
-                                    
-                                <aside class="notes" data-markdown>
-                                Notes go here 
-                                </aside>
-                                </section>
-                                
-                                <section>
-                                <h2>Importing Pathways</h2>
-                                <ul>
-                                    <li>Launch Cytoscape.</li>
-                                    <li>In the <b>Control Panel Search Bar</b>, select "WikiPathways" in the drop-down, and type in "Statin".</li>
-                                    <li>A list of results will open, with results for all available species:</li>
-                                    
-                                </ul><br /><br />
-                                <img plain src="modules/pathway-data-visualization/WPApp-results.png" style="width:70%">
-                                <aside class="notes" data-markdown>
-                                Notes go here 
-                                </aside>
-                                </section>
-                                    
-                                <section>
-                                <ul>
-                                    <li>Select the human "Statin Pathway" and click <b>Import as Pathway</b>, or simply double-click the pathway in the list.</li>
-                                    <li>This will open the pathway in Cytoscape.</li>
-                                    <div class="cybrowser">
-                                    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('wikipathways import-as-pathway id=WP430');" value="Import pathway"/>
-                                    </div>
-                                </ul><br /><br />
-                                <img plain src="modules/pathway-data-visualization/Statin-pathway.png" style="width:60%">
-                                <aside class="notes" data-markdown>
-                                Notes go here 
-                                </aside>
-                                </section>
-                                    
-                                <section>
-                                <h2>Identifier Mapping</h2>
-                                <p>Nodes in pathways from WikiPathways are annotated with identifiers from common public databases, in the <b>XrefId</b> column in the <b>Node Table</b>. The Statin pathway is annotated with mostly Entrez Gene identifiers. Our experimental data is annotated with Ensembl identifiers, so we will map the Entrez ids on the pathway to Ensembl using the IdMapper.</p>
-                                <p></p>
-                                <ul>
-                                    <li>In the <b>Node Table</b>, right-click on the column header "XrefId" and select <b>Map column ...</b>.</li>
-                                    <li>This brings up the IdMapper interface. IdMapper guesses what the parameters are based on the pathway/network. In this case, we want to map from "Entrez Gene" to "Ensembl":</li><br />
-                                    <img plain src="modules/pathway-data-visualization/IdMapperInterface.png" style="width:40%"><br /><br />
-                                    <li>Setup the mapping and click <b>OK</b> to continue.</li>
-                                    <div class="cybrowser">
-                                    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('idmapper map column source_column=XrefId source_selection=&quot;Entrez Gene&quot; species=Human target_selection=Ensembl');" value="Map identifiers"/>
-                                    </div>
-                                </ul>
-                                <aside class="notes" data-markdown>
-                                Notes go here 
-                                </aside>
-                                </section>
-                                    
-                                <section>
-                                <p>After mapping the identifiers on the pathway, a new column labeled "Ensembl" should appear in the <b>Node Table</b>:</p>
-                                <img plain src="modules/pathway-data-visualization/Statin_mapped.png" style="width:60%">
-                                <p>We are now ready to import the data.</p>
-                                <aside class="notes" data-markdown>
-                                Notes go here 
-                                </aside>
-                                </section>
-                                
-                                <section>
-                                <h2>Data Import</h2>
-                                <p>Now that we have added Ensembl identifiers to the pathway, we can use this new column to map the experimental data.</p>
-                                <ul>
-                                <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">WPExpData.csv</a> file under <b>File</b> menu, select <b>Import → Table → File....</b></li>
-                                <li>Under <b>Where to Import Table Data</b>, select <b>To a Network Collection</b> and select the correct network collection in the second drop-down.</li>
-                                <li>In the <b>Key Column for Network</b> drop-down, select the new "Ensembl" column.</li>
-                                <li>In the <b>Preview</b> table, note that the "Gene ID" column is already selected as the key.</li>
-                                </ul>
-                                <aside class="notes" data-markdown>
-                                Notes go here 
-                                </aside>
-                                </section>
-                                    
-                                <section>
-                                <p>The data import interface should now look like this:</p>
-                                <img plain src="modules/pathway-data-visualization/WPDataImport.png" style="width:50%">
-                                <ul>
-                                <li>Click <b>OK</b> to import.</li>
-                                <li>Once import is complete, look for the newly imported data columns in the <b>Node Table</b> to confirm that it worked.</li>
-                                    
-                                </ul>
-                                <aside class="notes" data-markdown>
-                                Notes go here 
-                                </aside>
-                                </section>
-                                
-                                <section>
-                                <h2>Mapping Data to Visual Properties</h2>
-                                <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as <b>Node Fill Color</b>.</p>
-                                <ul>
-                                <li>In the <b>Style</b> tab of the <b>Control Panel</b>, click the <b>Map.</b> box for <b>Fill Color</b>.</li>
-                                <li>In the <b>Column</b>drop-down, select "hypercholesterolemia vs normal log2foldchange".</li>
-                                <li>In the <b>Mapping Type</b> drop-down, select <b>Continous Mapping</b>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
-                                    
-                                </ul><br /><br />
-                                <img plain src="modules/pathway-data-visualization/StatinData.png" style="width:50%">
-                                    
-                                <aside class="notes" data-markdown>
-                                Notes go here 
-                                </aside>
-                                </section>
+         <h1>Visualizing Data on Pathways in Cytoscape</h1>
+         <p>This tutorial presents a basic workflow for visualizing experimental data on pathways in Cytoscape, using the <a href="http://apps.cytoscape.org/apps/wikipathways">WikiPathways App</a> and the built-in <a href="http://apps.cytoscape.org/apps/idmapper">IdMapper functionality</a>.</p>
+         <p><a href="https://www.wikipathways.org">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization.</p>
+         <p>The data used in this tutorial is available <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">here</a>. The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values). </p>
+         <p><highlight>You will need Cytoscape 3.6 with the latest WikiPathways App installed.</highlight></p>
+         <div class="cybrowser">
+         <p>The tutorial is designed to run as a demo in the CyBrowser app, with interactive buttons for each task.</p>
+         </div>
+             
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+         </section>
+         
+         <section>
+         <h2>Importing Pathways</h2>
+         <ul>
+             <li>Launch Cytoscape.</li>
+             <li>In the <b>Control Panel Search Bar</b>, select "WikiPathways" in the drop-down, and type in "Statin".</li>
+             <li>A list of results will open, with results for all available species:</li>
+             
+         </ul><br /><br />
+         <img plain src="modules/pathway-data-visualization/WPApp-results.png" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+         </section>
+             
+         <section>
+         <div class="cybrowser">
+         <ul>
+             <li>Select the human "Statin Pathway" and click <b>Import as Pathway</b>, or simply double-click the pathway in the list.</li>
+             <li>This will open the pathway in Cytoscape.</li>
+             <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('wikipathways import-as-pathway id=WP430');" value="Import pathway"/>
+         </ul><br /><br />
+         <img plain src="modules/pathway-data-visualization/Statin-pathway.png" style="width:60%">
+         </div>
+         <div class="not-cybrowser">
+         <ul>
+             <li>Select the human "Statin Pathway" and click <b>Import as Pathway</b>, or simply double-click the pathway in the list.</li>
+             <li>This will open the pathway in Cytoscape.</li>
+         </ul><br /><br />
+         <img plain src="modules/pathway-data-visualization/Statin-pathway.png" style="width:60%">
+         </div>
+             
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+         </section>
+             
+         <section>
+        
+         <h2>Identifier Mapping</h2>
+         <p>Nodes in pathways from WikiPathways are annotated with identifiers from common public databases, in the <b>XrefId</b> column in the <b>Node Table</b>. The Statin pathway is annotated with mostly Entrez Gene identifiers. Our experimental data is annotated with Ensembl identifiers, so we will map the Entrez ids on the pathway to Ensembl using the IdMapper.</p>
+         <p></p>
+         <ul>
+             <li>In the <b>Node Table</b>, right-click on the column header "XrefId" and select <b>Map column ...</b>.</li>
+             <li>This brings up the IdMapper interface. IdMapper guesses what the parameters are based on the pathway/network. In this case, we want to map from "Entrez Gene" to "Ensembl":</li><br />
+             <img plain src="modules/pathway-data-visualization/IdMapperInterface.png" style="width:40%"><br /><br />
+             <li>Setup the mapping and click <b>OK</b> to continue.</li>
+             <div class="cybrowser">
+             <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('idmapper map column source_column=XrefId source_selection=&quot;Entrez Gene&quot; species=Human target_selection=Ensembl');" value="Map identifiers"/>
+             </div>
+         </ul>
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+         </section>
+             
+         <section>
+         <p>After mapping the identifiers on the pathway, a new column labeled "Ensembl" should appear in the <b>Node Table</b>:</p>
+         <img plain src="modules/pathway-data-visualization/Statin_mapped.png" style="width:60%">
+         <p>We are now ready to import the data.</p>
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+         </section>
+         
+         <section>
+         <h2>Data Import</h2>
+         <p>Now that we have added Ensembl identifiers to the pathway, we can use this new column to map the experimental data.</p>
+         <ul>
+         <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">WPExpData.csv</a> file under <b>File</b> menu, select <b>Import → Table → File....</b></li>
+         <li>Under <b>Where to Import Table Data</b>, select <b>To a Network Collection</b> and select the correct network collection in the second drop-down.</li>
+         <li>In the <b>Key Column for Network</b> drop-down, select the new "Ensembl" column.</li>
+         <li>In the <b>Preview</b> table, note that the "Gene ID" column is already selected as the key.</li>
+         </ul>
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+         </section>
+             
+         <section>
+         <p>The data import interface should now look like this:</p>
+         <img plain src="modules/pathway-data-visualization/WPDataImport.png" style="width:50%">
+         <ul>
+         <li>Click <b>OK</b> to import.</li>
+         <li>Once import is complete, look for the newly imported data columns in the <b>Node Table</b> to confirm that it worked.</li>
+             
+         </ul>
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+         </section>
+         
+         <section>
+         <h2>Mapping Data to Visual Properties</h2>
+         <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as <b>Node Fill Color</b>.</p>
+         <ul>
+         <li>In the <b>Style</b> tab of the <b>Control Panel</b>, click the <b>Map.</b> box for <b>Fill Color</b>.</li>
+         <li>In the <b>Column</b>drop-down, select "hypercholesterolemia vs normal log2foldchange".</li>
+         <li>In the <b>Mapping Type</b> drop-down, select <b>Continous Mapping</b>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
+             
+         </ul><br /><br />
+         <img plain src="modules/pathway-data-visualization/StatinData.png" style="width:50%">
+             
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+         </section>
 
