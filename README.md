@@ -59,7 +59,7 @@ Then choose File>Print... and set the orientation to ```landscape``` and Save to
 ```
 
 ## Sharing
-Please feel free to use, share, copy or adapt any of the training materials you find here. They are all implicitly published under the CC0 waiver for maximum resuse potential.
+Please feel free to use, share, copy or adapt any of the training materials you find here. They are all implicitly published under the CC0 waiver for maximum reuse potential.
 
 ## Building
 In order to adapt or compose your own tutorial, and you do not already have edit permissions for this repo, you can simply [fork the repo](https://github.com/cytoscape/cytoscape-tutorials). If your content is of general use, please submit a pull request and we'll be happy to acccept it.  
