@@ -1,0 +1,57 @@
+<section>
+<h1>Work with OSGi console</h1>
+<p>The OSGi console can be a useful tool when debugging or testing Cytoscape apps under development.</p>
+<h2>Starting the OSGi Console</h2>
+<p>To use the OSGi console, start Cytoscape using the command line. Open a terminal window and change directory to your Cytoscape installation. On MS Windows, type “cytoscape.bat”, on Mac or Linux, type “./cytoscape.sh”. After a while, Cytoscape will get started. On the terminal, a prompt that looks like the following will appear:</p>
+<pre><code>Cytoscape 3.0.1></code></pre>
+<p>This is your OSGi interactive shell.</p>
+</section>
+
+<section id='list-image-cit'>
+<h2>Useful OSGi Commands</h2>
+<p>Presented in the next set of slides are some commands you will find useful. You can also look at <a href="http://wiki.cytoscape.org/Cytoscape_3/Interactive_Shell">this page</a> for more information, or use the "help" command to see a full list.</p>
+<h2>List Bundles</h2>
+<p>The command “list” will list all the Cytoscape bundles and their states, “Active”, “Installed”.</p>
+<pre><code>Cytoscape 3.0.1> list</code></pre>
+</section>
+
+<section>
+<h2>Install a Bundle</h2>   
+<p>To install your app bundle, use the "install" command. If you use Maven, you can reference a bundle installed in your repository as follows:</p>
+<pre><code>Cytoscape 3.0.1> install mvn:org.cytoscape.sample/sample02 
+Bundle ID: 169</code></pre>
+<p>You can install a bundle from a file:</p>    
+<pre><code>Cytoscape 3.0.1> install file:/path/2/myApp.jar</code></pre>
+<p>After you issue this command, you will get your bundle ID if the command is executed successfully.</p>
+</section>
+
+<section>
+<h2>Start a Bundle</h2>   
+<p>To start a bundle, use the "start" command. To do this, you need the bundle number (use the "list" command mentioned above if you don't know it). Then issue the following command: (substitute your own bundle number for 169)</p>   
+<pre><code>Cytoscape 3.0.1> start 169</code></pre>   
+<p>Invoke the “list” command - the bundle should now show up as "Active" if it started successfully.</p>
+<pre><code>[ 169] [Active     ] [            ] [  200] sample02 (3.0.0.alpha8-SNAPSHOT)</code></pre>
+<p>You can then use the app within Cytoscape.</p>
+</section>
+
+<section>
+<h2>Stop a Loaded Bundle</h2>    
+<p>To stop a bundle that has been loaded, use the "stop" command with the bundle number as follows:</p>
+<pre><code>Cytoscape 3.0.1> stop 169</code></pre>    
+<p>If you invoke the “list” command, you will notice that your bundle is now in state “Installed” instead of "Active".</p>
+<pre><code>[ 169] [Installed  ] [            ] [  200] sample02 (3.0.0.alpha8-SNAPSHOT)</code></pre>
+</section>
+
+<section>
+<h2>Update a Bundle</h2>
+<p>To update a bundle that was previously installed, use the update command as follows:</p>
+<pre><code>Cytoscape 3.0.1> update 169</code></pre>
+<p>After you compile your app, you can use “update” to update your bundle. You may use this command a lot, when you are debugging your code.</p>      
+</section>
+
+<section>
+<h2>Uninstall a Bundle</h2>
+<p>To uninstall a bundle, use the uninstall command as follows:</p>
+<pre><code>Cytoscape 3.0.1> uninstall 169</code></pre>
+<p>This will completely remove your app from Cytoscape. You can verify it with the 'list' command.</p>
+</section>
