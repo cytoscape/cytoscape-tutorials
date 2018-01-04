@@ -21,7 +21,7 @@ Add speaker notes here...
 <h1>Loading the session file</h1>
     <ul>
         <li>Launch Cytoscape and download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/STELZL.cys">demo session</a>.</li>
-        <li>Open the demo session file <highlight>File&rarr;Open....</highlight>. The network should look like this:</li>
+        <li>Open the demo session file <b>File&rarr;Open....</b>. The network should look like this:</li>
     </ul>
     <img plain src="modules/filtering-editing/stelzl.png" style="width:60%"><br /><br />
 </div>
@@ -91,9 +91,9 @@ Add speaker notes here...
 </div>
 <div class="cybrowser">
 <ul>
-    <li>At this point, only the relevant edges are selected. To also select the connected nodes, go to <highlight>Select&rarr;Nodes&rarr;Nodes connected by selected edges.</highlight></li>
+    <li>At this point, only the relevant edges are selected. To also select the connected nodes, go to <b>Select&rarr;Nodes&rarr;Nodes connected by selected edges.</b></li>
     <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any');" value="Select neighboring nodes"/>
-    <li>Create a new network from the selection under <highlight>File&rarr;New&rarr;Network&rarr;From selected nodes, selected edges</highlight>.
+    <li>Create a new network from the selection under <b>File&rarr;New&rarr;Network&rarr;From selected nodes, selected edges</b>.
     <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create edgeList=selected nodeList=selected source=current');" value="Create new network"/>
     Your Cytoscape window should now appear as shown:</li>
 <img plain src="modules/filtering-editing/STELZL-new.png" style="width:60%"><br /><br />
@@ -215,8 +215,9 @@ Add speaker notes here...
     <p>Sometimes it can be very useful to modify a network slightly, to add or remove nodes or edges. For instance, if you have prior knowledge of some biological process, you might want to add some nodes for proteins that you know are involved in a particular process, but that don't appear in your data set. <br />All network editing functions are available in a right-click context menu in the <b>Network View Window</b>.</p>
     <ul>
         <li>To add a node, right-click anywhere in the <b>Network View Window</b> and select <b>Add → Node</b>.</li>
+        <li>Select the node and change its name to "GRB7" in the <b>Data Node Table</b>.</li>
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network add node name=GRB7');" value="Add node"/>
-        <li>The node will be created in the middle of the network. To find it, use the search interface to select it.</li>
+        <li>Note: The node created by the above button will be created in the middle of the network. To find it, use the search interface to search for "GRB7" to select it.</li>
         <li>To add an edge to the node, right-click on the node and choose <b>Edit → Add Edge</b>. Drag the end of the newly created edge to another node in the network, and click to attach it.</li>
     </ul>
         <p>It is also possible to add nodes and interactions in sif format.</p>
