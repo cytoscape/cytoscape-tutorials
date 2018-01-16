@@ -83,19 +83,20 @@ Add speaker notes here...
 	</section>
 
 	<section>
-		<ul>
-			<li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes.</li>
-			<li>Let's change the layout to Circular Layout.</li>
 			<div class="cybrowser">
+                <ul>
+                <li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes.</li>
+                <li>Let's change the layout to Circular Layout.</li>
 				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout circular');" value="Apply Circular Layout"/>
+                </ul>
 			</div>
 			<div class="not-cybrowser">
 				<ul>
-					<li><highlight>Layout&rarr;Circular Layout</highlight></li>
+                <li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes.</li>
+                <li>Let's change the layout to Circular Layout by selecting <highlight>Layout&rarr;Circular Layout</highlight>.</li>
 				</ul>
 			</div>
 
-		</ul>
 <!--<img plain src="Galfiltered-Edge-Weighted.png" style="width:40%">-->
 		<p>Cytoscape supports many different layout algorithms, described in detail in the 
 		<a href="http://manual.cytoscape.org/en/stable/Navigation_and_Layout.html?highlight=layout#automatic-layout-algorithms">Cytoscape manual</a>. </p>
@@ -132,10 +133,9 @@ Add speaker notes here...
 			<div class="not-cybrowser">
 				<ul>
 					<li>Go to the <b>Select</b> tab in the Cytoscape Control Panel (the leftmost panel).</li>
-					<li>Click on the <highlight>+</highlight> and create a <b>Column Filter</b>.</li>
+					<li>Click on the <b>+</b> and create a <b>Column Filter</b>.</li>
 					<li>Click on <b>Choose column...</b> and select <b>Edge: interaction</b></li>
-					<li>Now in the text field enter <hightlight>pp</highlight></li>
-					<p>This will select all of the edges with the protein-protein interactions.</p>
+					<li>Now in the text field enter <b>pp</b>. This will select all of the edges with the protein-protein interactions.</li>
 				</ul>
 			</div>
 			<li>You should now see many edges in the network selected (i.e., colored red).</li>
@@ -146,35 +146,27 @@ Add speaker notes here...
 		</aside>
 	</section>
 
-	<section>
-		<ul>
-			<li>Since we're only interested in the protein-DNA edges, we can delete the protein-protein edges we've just selected.</li>
-		<div style="width:50%; float:right">
-			<img src="Final_network3.png">
-		</div>
+	<section>					
 			<div class="cybrowser">
+                <ul>
+                <li>Since we're only interested in the protein-DNA edges, we can delete the protein-protein edges we've just selected.</li>
 				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network delete edgeList=selected');" value="Delete p-p interactions"/>
+                <li>You should now see many unconnected nodes in the network.</li>
+			    <li>Now, lets clean up the network by applying a layout.</li>
+                <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed');" value="Apply force-directed layout"/>
+                <li>The largest component of the final filtered and cleaned up network should look like this:</li>
+                </ul>
 			</div>
 			<div class="not-cybrowser">
 				<ul>
+                    <li>Since we're only interested in the protein-DNA edges, we can delete the protein-protein edges we've just selected.</li>
 					<li>To delete selected nodes or edges, you can just hit the DELETE key or use the menu <highlight>Edit&rarr;Delete Selected Nodes and Edges</highlight></li>
-				</ul>
-			</div>
-			<li>You should now see many unconnected nodes in the network.</li>
-			<li>Now, lets clean up the network by applying a layout.</li>
-
-			<div class="cybrowser">
-				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed');" value="Apply force-directed layout"/>
-			</div>
-			<div class="not-cybrowser">
-				<ul>
-					<li><highlight>Layout&rarr;Prefuse Force Directed Layout</highlight></li>
-				</ul>
-			</div>
-
-			<li>The largest component of the final filtered and cleaned up network should look like the network on the right.</li>
-		</ul>
-		<br />
+                    <li>You should now see many unconnected nodes in the network.</li>
+			         <li>Now, lets clean up the network by applying a force-directed layout under <highlight>Layout&rarr;Prefuse Force Directed Layout</highlight>.</li>
+			         <li>The largest component of the final filtered and cleaned up network should look like this:</li>
+                </ul>
+            </div>
+        <img src="Final_network3.png">
 		<aside class="notes" data-markdown>
 		Add speaker notes here...
 		</aside>
@@ -192,7 +184,7 @@ Add speaker notes here...
 		</div>
 		<div class="not-cybrowser">
 			<ul>
-				<li>First just select GAL4 (YPL248C) by clicking on it.</li>
+				<li>First select GAL4 (YPL248C) by clicking on it.</li>
 				<li>Now, extend the selection by holding down the shift key and clicking on GAL11 (YOL051W).</li>
 				<li>Finally, select their neighbors by control-6 (or &#8984;-6 on a Mac), or by the menu <highlight>Select&rarr;Nodes&rarr;First Neighbors of Selected Nodes&rarr;Undirected</highligh></li>
 			</ul>
@@ -205,7 +197,7 @@ Add speaker notes here...
 		</div> 
 		<div class="not-cybrowser">
 			<ul>
-				<li><highlight>File&rarr;New&rarr;Network&rarr;Selected nodes, all edges</highlight>.</li>
+				<li>Create a new network by selecting <highlight>File&rarr;New&rarr;Network&rarr;Selected nodes, all edges</highlight>.</li>
 				<ul>
 					<li>(Even though we say all edges, only the
 					edges connecting the selected nodes will actually be used.)</li>

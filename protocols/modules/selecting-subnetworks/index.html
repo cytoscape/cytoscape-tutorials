@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 	<head>
-                <!-- Set the base so we look like we're in the presentations directory -->
-                <base href="../..">
+        <!-- Set the base so we look like we're in the presentations directory -->
+        <base href="../../">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -30,6 +30,7 @@
 				<version>3.6.0</version>
 			</div>
 			<div class="slides">
+            <!-- this is just a shell to import the sections file -->
 				<section  data-external="modules/selecting-subnetworks/module.html"></section>
 
 
@@ -46,22 +47,50 @@
 
   ga('create', 'UA-155159-15', 'auto');
   ga('send', 'pageview');
-
 </script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>
+        
+
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 				{ src: '../plugin/markdown/marked.js' },
 				{ src: '../plugin/markdown/markdown.js' },
-                                { src: '../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
-                                { src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
-                                { src: '../plugin/notes/notes.js', async: true },
-                                { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                                { src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				{ src: '../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../plugin/notes/notes.js', async: true },
+				{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
 				]
 				});
 			</script>
