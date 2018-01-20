@@ -2,18 +2,18 @@
 	<h3>Loading Network</h3>
 		<div class="cybrowser">
 			<ul>
-				<li>Start Cytoscape and load the demo session.</li>
-				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('session open url=http://opentutorials.cgl.ucsf.edu/images/e/e2/BasicDataVizDemo.cys');" value="Load session"/>
+				<li>Start Cytoscape and load the demo network.</li>
+				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/BasicDataVizDemo.xgmml');" value="Load network"/>
 				<li>When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, we can use the <b>Fit Content</b> function.</li>
 				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view fit content');" value="Fit content"/>
 			</ul>
 		</div>
 		<div class="not-cybrowser">
 			<ul>
-				<li>Start Cytoscape and download the <a href="http://opentutorials.cgl.ucsf.edu/images/e/e2/BasicDataVizDemo.cys">demo session.</a></li>
-				<li>Open the demo session using <b>File&rarr;Open...</b></li>
+				<li>Start Cytoscape and download the <a href="http://nrnb.org/data/BasicDataVizDemo.cys">demo network.</a></li>
+				<li>Open the demo network using <highlight>File &rarr; Open...</highlight></li>
 				<li>When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, 
-					we can use the <b>View&rarr;Fit Content</b> function.</li>
+					we can use the <b>View &rarr; Fit Content</b> function.</li>
 			</ul>
 		</div>
 		<aside class="notes" data-markdown>
@@ -61,9 +61,9 @@
 			<div class="not-cybrowser">
 				<ul>
                     <li>Since we're only interested in the protein-DNA edges, we can delete the protein-protein edges we've just selected.</li>
-					<li>To delete selected nodes or edges, you can just hit the DELETE key or use the menu <b>Edit&rarr;Delete Selected Nodes and Edges</b></li>
+					<li>To delete selected nodes or edges, you can just hit the DELETE key or use the menu <b>Edit &rarr; Delete Selected Nodes and Edges</b></li>
                     <li>You should now see many unconnected nodes in the network.</li>
-			         <li>Now, lets clean up the network by applying a force-directed layout under <b>Layout&rarr;Prefuse Force Directed Layout</b>.</li>
+			         <li>Now, lets clean up the network by applying a force-directed layout under <b>Layout &rarr; Prefuse Force Directed Layout</b>.</li>
 			         <li>The largest component of the final filtered and cleaned up network should look like this:</li>
                 </ul>
             </div>
@@ -87,7 +87,7 @@
 			<ul>
 				<li>First select GAL4 (YPL248C) by clicking on it.</li>
 				<li>Now, extend the selection by holding down the shift key and clicking on GAL11 (YOL051W).</li>
-				<li>Finally, select their neighbors by control-6 (or &#8984;-6 on a Mac), or by the menu <b>Select&rarr;Nodes&rarr;First Neighbors of Selected Nodes&rarr;Undirected</b></li>
+				<li>Finally, select their neighbors by control-6 (or &#8984;-6 on a Mac), or by the menu <b>Select &rarr; Nodes &rarr; First Neighbors of Selected Nodes &rarr; Undirected</b></li>
 			</ul>
 		</div>
 
@@ -98,12 +98,12 @@
 		</div> 
 		<div class="not-cybrowser">
 			<ul>
-				<li>Create a new network by selecting <b>File&rarr;New&rarr;Network&rarr;Selected nodes, all edges</b>.</li>
+				<li>Create a new network by selecting <b>File &rarr; New &rarr; Network &rarr; Selected nodes, all edges</b>.</li>
 				<ul>
 					<li>(Even though we say all edges, only the
 					edges connecting the selected nodes will actually be used.)</li>
 				</ul>
-				<li>As before, we may need to do a <b>View&rarr;Fit Content</b>.</li>
+				<li>As before, we may need to do a <b>View &rarr; Fit Content</b>.</li>
 			</ul>
 		</div>
 

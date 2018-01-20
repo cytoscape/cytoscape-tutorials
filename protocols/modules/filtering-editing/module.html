@@ -20,8 +20,8 @@ Add speaker notes here...
 <div class="not-cybrowser">
 <h1>Loading the session file</h1>
     <ul>
-        <li>Launch Cytoscape and download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/STELZL.cys">demo session</a>.</li>
-        <li>Open the demo session file <b>File&rarr;Open....</b>. The network should look like this:</li>
+        <li>Launch Cytoscape and download the <a href="http://nrnb.org/data/STELZL.cys">demo session</a>.</li>
+        <li>Open the demo session file <b>File &rarr; Open....</b>. The network should look like this:</li>
     </ul>
     <img plain src="modules/filtering-editing/stelzl.png" style="width:60%"><br /><br />
 </div>
@@ -29,8 +29,8 @@ Add speaker notes here...
 <div class="cybrowser">
 <h1>Loading the session file</h1>
     <ul>
-        <li>Launch Cytoscape and load the demo session.</li>
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('session open url=http://opentutorials.cgl.ucsf.edu/images/2/23/STELZL.cys');" value="Load session"/>
+        <li>Launch Cytoscape and load the demo network.</li><br />
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network open url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/STELZL.xgmml');" value="Load network"/>
     </ul>
     <img plain src="modules/filtering-editing/stelzl.png" style="width:60%"><br /><br />
 </div>
@@ -82,8 +82,8 @@ Add speaker notes here...
 <section>
 <div class=not-cybrowser>   
 <ul>
-    <li>At this point, only the relevant edges are selected. To also select the connected nodes, go to <b>Select&rarr;Nodes&rarr;Nodes connected by selected edges.</b></li>
-    <li>Create a new network from the selection under <b>File&rarr;New&rarr;Network&rarr;From selected nodes, selected edges</b>.
+    <li>At this point, only the relevant edges are selected. To also select the connected nodes, go to <b>Select &rarr; Nodes &rarr; Nodes connected by selected edges.</b></li>
+    <li>Create a new network from the selection under <b>File &rarr; New &rarr; Network &rarr; From selected nodes, selected edges</b>.
     Your Cytoscape window should now appear as shown:</li>
 </ul>
 <img plain src="modules/filtering-editing/STELZL-new.png" style="width:60%"><br /><br />
@@ -91,9 +91,9 @@ Add speaker notes here...
 </div>
 <div class="cybrowser">
 <ul>
-    <li>At this point, only the relevant edges are selected. To also select the connected nodes, go to <b>Select&rarr;Nodes&rarr;Nodes connected by selected edges.</b></li>
+    <li>At this point, only the relevant edges are selected. To also select the connected nodes, go to <b>Select &rarr; Nodes &rarr; Nodes connected by selected edges.</b></li>
     <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any');" value="Select neighboring nodes"/>
-    <li>Create a new network from the selection under <b>File&rarr;New&rarr;Network&rarr;From selected nodes, selected edges</b>.
+    <li>Create a new network from the selection under <b>File &rarr; New &rarr; Network &rarr; From selected nodes, selected edges</b>.
     <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create edgeList=selected nodeList=selected source=current');" value="Create new network"/>
     Your Cytoscape window should now appear as shown:</li>
 <img plain src="modules/filtering-editing/STELZL-new.png" style="width:60%"><br /><br />
@@ -133,8 +133,8 @@ Add speaker notes here...
         <li>In the <b>Select</b> tab of the <b>Control Panel</b>, click on the drop-down to the right and select <b>Create New Filter</b>. Enter a name for your filter, for example "non-suspicious and neighbors".</li>
         <li>Click the + (add) button and select <b>Column Filter</b>. In the <b>Choose column...</b> drop-down, select "Node:Suspicous".</li>
         <li>In the second drop-down, select "false".</li>
-        <li>Select neighboring nodes by choosing <b>Select&rarr;Nodes&rarr;First Neighbors of Selected Nodes&rarr;Undirected</b>.</li>
-        <li>Create a new network consisting of non-suspicious nodes and their neighbors by selecting <b>File&rarr;New&rarr;From selected nodes, all edges</b>.</li>
+        <li>Select neighboring nodes by choosing <b>Select &rarr; Nodes &rarr; First Neighbors of Selected Nodes &rarr; Undirected</b>.</li>
+        <li>Create a new network consisting of non-suspicious nodes and their neighbors by selecting <b>File &rarr; New &rarr; From selected nodes, all edges</b>.</li>
     </ul>
 </div>
     
@@ -146,9 +146,9 @@ Add speaker notes here...
         <li>Click the + (add) button and select <b>Column Filter</b>. In the <b>Choose column...</b> drop-down, select "Node:Suspicous".</li>
         <li>In the second drop-down, select "false".</li>
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=suspicious:false');" value="Select non-suspicious and neighbors"/>
-        <li>Select neighboring nodes by choosing <b>Select&rarr;Nodes&rarr;First Neighbors of Selected Nodes&rarr;Undirected</b>.</li>
+        <li>Select neighboring nodes by choosing <b>Select &rarr; Nodes &rarr; First Neighbors of Selected Nodes &rarr; Undirected</b>.</li>
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any');" value="Select neighboring nodes"/>
-        <li>Create a new network consisting of non-suspicious nodes and their neighbors by selecting <b>File&rarr;New&rarr;From selected nodes, all edges</b>.</li>
+        <li>Create a new network consisting of non-suspicious nodes and their neighbors by selecting <b>File &rarr; New &rarr; From selected nodes, all edges</b>.</li>
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create nodeList=selected source=current');" value="Create new network"/>
     </ul>
 </div>
@@ -165,7 +165,7 @@ Add speaker notes here...
         <li>In the <b>Select</b> tab, create a new filter and name it "Eliminate sparse suspicious nodes".</li>
         <li>Add a <b>Column Filter</b> for "Node:Suspicious" and choose "true".</li>
         <li>Add a <b>Degree Filter</b>. Set the range to between 0 and 4.</li>
-        <li>To remove the selected nodes, select <b>Edit&rarr;Delete Selected Nodes and Edges...</b>.</li>
+        <li>To remove the selected nodes, select <b>Edit &rarr; Delete Selected Nodes and Edges...</b>.</li>
         <li>Finally, we need to remove any unconnected nodes that remain after the filters. Setup a <b>Degree Filter</b> with a range from 0 to 0. This selects all unconnected nodes. Delete the selected nodes.</li>
     </ul>
     <p>The new network has only non-suspicious nodes and suspicious nodes that connect to 5 or more nodes.</p>
@@ -179,7 +179,7 @@ Add speaker notes here...
         <li>Add a <b>Column Filter</b> for "Node:Suspicious" and choose "true".</li>
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=suspicious:true');" value="Select suspicious nodes"/>
         <li>Add a <b>Degree Filter</b>. Set the range to between 0 and 4.</li>
-        <li>To remove the selected nodes, select <b>Edit&rarr;Delete Selected Nodes and Edges...</b>.</li>
+        <li>To remove the selected nodes, select <b>Edit &rarr; Delete Selected Nodes and Edges...</b>.</li>
         <!-- To-Do: Add button for degree filter -->
         <!--<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network delete nodeList=selected');" value="Delete sparse nodes"/> -->
         <li>Finally, we need to remove any unconnected nodes that remain after the filters. Setup a <b>Degree Filter</b> with a range from 0 to 0. This selects all unconnected nodes. Delete the selected nodes.</li>
@@ -198,15 +198,15 @@ Add speaker notes here...
     <h1>Editing</h1>
     <p>Sometimes it can be very useful to modify a network slightly, to add or remove nodes or edges. For instance, if you have prior knowledge of some biological process, you might want to add some nodes for proteins that you know are involved in a particular process, but that don't appear in your data set. <br />All network editing functions are available in a right-click context menu in the <b>Network View Window</b>.</p>
     <ul>
-        <li>To add a node, right-click anywhere in the <b>Network View Window</b> and select <b>Add → Node</b>.</li>
+        <li>To add a node, right-click anywhere in the <b>Network View Window</b> and select <b>Add &rarr; Node</b>.</li>
         <li>Select the node with your mouse. In the <b>Node Table</b>, you should see a node with the shared name Node 1.</li>
         <li>Give your new node a name by clicking on the entry in the <b>Node Table</b>, and entering a name under the column <b>Official HUGO Symbol</b>.</li>
-        <li>To add an edge to the node, right-click on the node and choose <b>Edit → Add Edge</b>. Drag the end of the newly created edge to another node in the network, and click to attach it.</li>
+        <li>To add an edge to the node, right-click on the node and choose <b>Edit &rarr; Add Edge</b>. Drag the end of the newly created edge to another node in the network, and click to attach it.</li>
     </ul>
         <p>It is also possible to add nodes and interactions in sif format.</p>
     <ul>
         <li>Locate the CPNE6 gene using the <b>Search</b> interface. Note the gene ID; 9362.</li>
-        <li>We are going to add a known interaction between CPNE6 and GRB7 (Entrez ID 2886). With the CPNE6 gene in focus (not selected), right-click anywhere in the <b>Network View Window</b> and select <b>Add → Edge (and possibly Nodes) using SIF....</b></li>
+        <li>We are going to add a known interaction between CPNE6 and GRB7 (Entrez ID 2886). With the CPNE6 gene in focus (not selected), right-click anywhere in the <b>Network View Window</b> and select <b>Add &rarr; Edge (and possibly Nodes) using SIF....</b></li>
         <li>In the <b>SIF Interpreter</b> dialog, enter "2886 interacts 9362" and click <b>OK</b>. You should see the new node with id 2886 connected to CPNE6.</li>
     </ul>
 </div>
@@ -218,12 +218,12 @@ Add speaker notes here...
         <li>Select the node and change its name to "GRB7" in the <b>Data Node Table</b>.</li>
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network add node name=GRB7');" value="Add node"/>
         <li>Note: The node created by the above button will be created in the middle of the network. To find it, use the search interface to search for "GRB7" to select it.</li>
-        <li>To add an edge to the node, right-click on the node and choose <b>Edit → Add Edge</b>. Drag the end of the newly created edge to another node in the network, and click to attach it.</li>
+        <li>To add an edge to the node, right-click on the node and choose <b>Edit &rarr; Add Edge</b>. Drag the end of the newly created edge to another node in the network, and click to attach it.</li>
     </ul>
         <p>It is also possible to add nodes and interactions in sif format.</p>
     <ul>
         <li>Locate the CPNE6 gene using the <b>Search</b> interface. Note the gene ID; 9362.</li>
-        <li>We are going to add a known interaction between CPNE6 and GRB7 (Entrez ID 2886). With the CPNE6 gene in focus (not selected), right-click anywhere in the <b>Network View Window</b> and select <b>Add → Edge (and possibly Nodes) using SIF....</b></li>
+        <li>We are going to add a known interaction between CPNE6 and GRB7 (Entrez ID 2886). With the CPNE6 gene in focus (not selected), right-click anywhere in the <b>Network View Window</b> and select <b>Add &rarr; Edge (and possibly Nodes) using SIF....</b></li>
         <li>In the <b>SIF Interpreter</b> dialog, enter "2886 interacts 9362" and click <b>OK</b>. You should see the new node with id 2886 connected to CPNE6.</li>
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network add edge sourceName=GRB7 targetName=CPNE6');" value="Create new edge"/>
     </ul>
