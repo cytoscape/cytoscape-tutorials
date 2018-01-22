@@ -258,19 +258,25 @@ To include a button, add a div of class "cybrowser". The example below adds a bu
 ```
 
 To hide the "cybrowser" div, and thus the button, outside of CyBrowser, the following javascript should be added to the parent index file. For example, if the automation code was added to a module.hml file, the javascript should be added to the **body** of the index.html file that includes that module.
+Similarly, there is also a "not-cybrowser" div class that can be used to customize content for regular browser vieweing.
 
 ```
 <pre><code data-trim>
 <script>
-                        Reveal.addEventListener( 'ready', function() {
-			if(!window.navigator.userAgent.includes('CyBrowser')){
-				var divs = document.getElementsByClassName("cybrowser")
-				for (var i=0;i<divs.length;i++){
-					divs[i].style.display = "none";
-				}
-			}
-                });
-                </script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
 </code></pre>
 ```
 
