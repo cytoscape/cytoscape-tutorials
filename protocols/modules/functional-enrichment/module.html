@@ -32,11 +32,12 @@
 		<ul>
 			<li>Select <b>Select None</b> to disable all columns.</li>
 			<li>Click only on the <b>GeneName</b> column and set this column as the <b>Source Node</b> column (green circle).</li>
-			<li>Click <b>OK</b>.
-				(You’ll see a warning about no edges, but that’s OK.) This will create a grid of 1500 unconnected nodes, where each node represents a gene.</li>
+			<li>Click <b>OK</b>. You’ll see a warning about no edges, but that’s OK. This will create a grid of 1500 unconnected nodes, where each node represents a gene.</li>
+    </ul>
     <div class="cybrowser">
-    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network import url  url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-nodes.csv');" value="Import network"/></div>
-		</ul>
+    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network import url  url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-nodes.csv indexColumnSourceInteraction=1');" value="Import network"/></div>
+    <br />
+		
     
 		<highlight style="margin-left: -25px">2. Add data to our nodes.</highlight>
 			<li>Open the file again, but now use <b>File → Import → Table → File</b>.
@@ -46,9 +47,10 @@
 				<li>This will import all of the data in the spreadsheet and associate each row with the corresponding node.</li>
 				<li>You should be able to see this in the <b>Table Panel</b>.</li>
             </ul>
+    <div class="cybrowser">
+    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-all.tsv firstRowAsColumnNames=true TargetNetworkList=GBM-TP-nodes.csv keyColumnIndex=1 startLoadRow=2');" value="Load data"/>
+    </div>
     </ul>
-
-<!-- If we want separate content for CyBrowser instructions. Button doesn't work right now because load url from github doesn't work and file too big for NRNB.org and CGL.-->
 
 </section>
 
@@ -85,7 +87,6 @@
 
 <section>
     <p>Looking at the result, is seems like there are definite bands of expression data that look similar across a group of patients, but differ between groups. In fact, this reaffirms that there are known to be 4 different subtypes of glioblastoma. Let’s take that known data and see if we can subset the data into 4 subtypes.</p>
-    
     <img plain src="modules/functional-enrichment/hierarchical.png" style="width:60%">
 
 </section>
@@ -129,11 +130,6 @@
     <li><highlight>Select gene names from <b>Table Panel</b>.</highlight> Select everything in the <b>name</b> column by clicking into the first cell and then dragging down until you get to the bottom. Then, do a copy (<b>Control-C</b> or <b>Apple-C</b>).</li>
     <li><highlight>Paste gene names into STRING network search.</highlight> In the <b>Network</b> tab of the <b>Control Panel</b> at the top should be a text field with an icon at the left. Click on that icon and select <b>STRING protein query</b>. (If you don’t see any STRING options, the stringApp hasn’t been loaded.) Then click into the text field and paste the list of genes.</li>
     <li><highlight>Set STRING search parameters.</highlight> Next to the text field is a menu with a list of options. Change the <b>Confidence (score) cutoff</b> to 0.8 and the <b>Maximum additional interactors</b> to 30. This will get only high quality results (80% confidence) and add 30 extra proteins to the network.</li>
-    <!--
-    <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('string protein query cutoff=0.8 limit=30 query=&quot;ABAT,ABCC3,AGT,AGXT2L1,AHNAK2,AIM1,ALDOC,APBA2,APOD,AQP1,AQP4,AQP9,ARC,ASCL1,ASPN,ASS1,ASTN1,ATP1A2,ATP1B2,ATP6V1G2,B3GAT1,BAI3,BBOX1,BCAN,BCHE,BEX1,BIRC3,C14ORF132,C6ORF134,CCL20,CD55,CDH10,CDO1,CHRNA9,CKB,CLASP2,COBL,COL15A1,COL1A1,COL1A2,COL3A1,COL5A1,COL6A2,COL6A3,CRIP1,CRMP1,CRYAB,CSPG5,CSTA,CTNNA2,CTNND2,CTSC,CXCL2,CXCL9,CYP1B1,DCLK1,DCX,DLL3,DPP6,EDNRB,ELAVL4,F13A1,FABP7,FAM107A,FAM131B,FAM5B,FAM5C,FAM70A,FCGR2B,FHL2,FXYD6,GABBR1,GABRB1,GAP43,GATM,GPRC5A,GRIA2,HP,ID4,IER3,IGFBP6,IL6,IL8,ITM2A,KAL1,KCND2,KCNJ16,KIF1A,KIF1B,KIF5C,LIF,LMO3,LOC57228,LOX,LOXL1,LPHN3,LPPR1,LRRN3,LRRTM2,LSAMP,LTBP2,LUM,MAP2,MAPT,MFAP2,MLC1,MMP7,MXRA5,NAP1L3,NCALD,NCAN,NDP,NDRG4,NES,NKX2-2,NNMT,NOL4,NTRK2,NUDT11,OMG,PAQR6,PCOLCE,PCSK1N,PHLPP,PID1,PKIA,PLA2G2A,PLAU,PLAUR,PLEKHB1,PLP1,PMAIP1,POSTN,PTGS2,RARRES1,RASSF2,REEP1,RPS4Y1,RTN1,S100A4,S100A9,S100B,SCG3,SCN3A,SDC3,SLC6A1,SLPI,SNAP25,SNCAIP,SOX11,SRPX2,STEAP1,STMN2,STMN4,TAGLN3,TCEAL2,TDO2,TF,THBS1,TIMP4,TLR4,TMSL8,TNFAIP8,TOX3,TPBG,TREM1,TRIM9,TSPAN7,TTYH1,UBD,WASF3&quot; species=Homo sapiens');" value="Run STRING"/> query doesn't return any results 
-    
-    </div>-->
     </ul>
 </section>
 
@@ -142,6 +138,10 @@
     <img plain src="modules/functional-enrichment/string-network.png" style="width:50%; float:right; margin-left: 10px">
     <li><highlight>Create the network.</highlight> Click on the search icon (magnifying glass) to load the network. The network should appear similar to the figure below.</li>
     </ul>
+    <div class="cybrowser">
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('string protein query query=&quot;ABAT,ABCC3,AGT,AGXT2L1,AHNAK2,AIM1,ALDOC,APBA2,APOD,AQP1,AQP4,AQP9,ARC,ASCL1,ASPN,ASS1,ASTN1,ATP1A2,ATP1B2,ATP6V1G2,B3GAT1,BAI3,BBOX1,BCAN,BCHE,BEX1,BIRC3,C14ORF132,C6ORF134,CCL20,CD55,CDH10,CDO1,CHRNA9,CKB,CLASP2,COBL,COL15A1,COL1A1,COL1A2,COL3A1,COL5A1,COL6A2,COL6A3,CRIP1,CRMP1,CRYAB,CSPG5,CSTA,CTNNA2,CTNND2,CTSC,CXCL2,CXCL9,CYP1B1,DCLK1,DCX,DLL3,DPP6,EDNRB,ELAVL4,F13A1,FABP7,FAM107A,FAM131B,FAM5B,FAM5C,FAM70A,FCGR2B,FHL2,FXYD6,GABBR1,GABRB1,GAP43,GATM,GPRC5A,GRIA2,HP,ID4,IER3,IGFBP6,IL6,IL8,ITM2A,KAL1,KCND2,KCNJ16,KIF1A,KIF1B,KIF5C,LIF,LMO3,LOC57228,LOX,LOXL1,LPHN3,LPPR1,LRRN3,LRRTM2,LSAMP,LTBP2,LUM,MAP2,MAPT,MFAP2,MLC1,MMP7,MXRA5,NAP1L3,NCALD,NCAN,NDP,NDRG4,NES,NKX2-2,NNMT,NOL4,NTRK2,NUDT11,OMG,PAQR6,PCOLCE,PCSK1N,PHLPP,PID1,PKIA,PLA2G2A,PLAU,PLAUR,PLEKHB1,PLP1,PMAIP1,POSTN,PTGS2,RARRES1,RASSF2,REEP1,RPS4Y1,RTN1,S100A4,S100A9,S100B,SCG3,SCN3A,SDC3,SLC6A1,SLPI,SNAP25,SNCAIP,SOX11,SRPX2,STEAP1,STMN2,STMN4,TAGLN3,TCEAL2,TDO2,TF,THBS1,TIMP4,TLR4,TMSL8,TNFAIP8,TOX3,TPBG,TREM1,TRIM9,TSPAN7,TTYH1,UBD,WASF3&quot;');" value="Run STRING"/>
+    
+    </div>
 </section>
 
 <section>
