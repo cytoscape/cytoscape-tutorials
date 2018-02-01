@@ -48,7 +48,7 @@
 				<li>You should be able to see this in the <b>Table Panel</b>.</li>
             </ul>
     <div class="cybrowser">
-    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-all.tsv firstRowAsColumnNames=true TargetNetworkList=GBM-TP-nodes.csv keyColumnIndex=1 startLoadRow=2');" value="Load data"/>
+    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-all.tsv firstRowAsColumnNames=true TargetNetworkList=GBM-TP-nodes.csv keyColumnIndex=1');" value="Load data"/>
     </div>
     </ul>
 
@@ -150,8 +150,10 @@
     <ul>
         <li><highlight>Re-import expression data.</highlight> First, we need to re-import the expression data for the new network created by the stringApp. Similar to the initial import, start by doing <b>File → Import → Table → File</b>. Again, select the <i>GBM-TP-all.tsv</i> file. However, now we need to use a different network column to match our names. Change the <b>Key Column for Network:</b> from <b>share name</b> to <b>query term</b>. STRING uses Ensembl identifiers, but retains the original query term so we can match data against. Now select <b>OK</b>.</li>
         <div class="cybrowser">
-        <!--<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url');" value="Import data"/>  Redo as open cys file once STRING issue is resolved -->
+            
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-all.tsv firstRowAsColumnNames=true TargetNetworkList=&quot;String Network&quot; keyColumnIndex=1 startLoadRow=2');" value="Load data"/>
         </div>
+        
         <li><highlight>Disable structure image.</highlight> STRING provides some nice images of the 3D structure of the proteins, but we need to disable those to be able to see our expression values clearly. Disable the images by going to <b>Apps → STRING → Don’t show structure images</b>.</li>
     </ul>
 </section>

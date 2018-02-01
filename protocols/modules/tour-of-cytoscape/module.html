@@ -9,60 +9,45 @@
 <section>
 <h1>Networks</h1>
 <p>Cytoscape accepts network data in a variety of formats and from multiple sources, including many public interaction and network databases. The network pictured below is the <highlight>galFiltered</highlight> network included with your Cytoscape installation. </p>
-<div class="not-cybrowser">
 <div style="float:left; width:45%">  
 <img src="modules/tour-of-cytoscape/galFiltered.png"></div> 
-<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-network-data/#/">Loading Networks tutorial</a>.</p>
-</div>
 <div class="cybrowser">
-<div style="float:left; width:45%">
-<img plain src="modules/tour-of-cytoscape/galFiltered.png"></div>
 <ul>
     <li style="list-style-type:none"><input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/galFiltered.sif');" value="Load galFiltered network"/></li>
     <li style="list-style-type:none"><input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view fit content');" value="Fit content"/></li>
 </ul>
-<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-network-data/#/">Loading Networks tutorial</a>.</p></div>
+<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-network-data/#/">Loading Networks tutorial</a>.</p>
 </section>
 
 <section>
 <h1>Data</h1>
 <p>Cytoscape allows the user to add arbitrary node, edge and network information to Cytoscape as node/edge/network data columns. This could include annotation data for genes, protein-protein interaction confidence scores or transcriptomics data. </p><p>Data is visible in the <b>Table Panel</b> and can be imported under <highlight>File &rarr; Import Table</highlight>. Data files can be local or can be loaded from a URL or online database.</p>
-<div class="not-cybrowser">
-<img src="modules/tour-of-cytoscape/galFilteredDataPanel.png" style="width:60%">
-<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/#/">Loading Omics Data tutorial</a>.</p>
-</div>
+<div style="float:left; width:60%">  
+    <img src="modules/tour-of-cytoscape/galFilteredDataPanel.png"></div>
 <div class="cybrowser">
-<div style="float:left; width: 60%">
-<img src="modules/tour-of-cytoscape/galFilteredDataPanel.png"></div>
-<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=http://nrnb.org/data/galExpData.csv firstRowAsColumnNames=true TargetNetworkList=galFiltered.sif keyColumnIndex=1 startLoadRow=2');" value="Load galFiltered data"/>
+<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=http://nrnb.org/data/galExpData.csv firstRowAsColumnNames=true TargetNetworkList=galFiltered.sif keyColumnIndex=1 startLoadRow=2');" value="Load galFiltered data"/></div>
 <p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/#/">Loading Omics Data tutorial</a>.</p>   
-</div>
 </section>
 
 <section>
 <h1>Styles</h1>
 <p>One of Cytoscape’s strengths in network visualization is the ability to allow users to encode any table data (name, type, degree, weight, expression data, etc.) as a property (such as color, size of node, transparency, or font type) of the network. A set of these encoded or mapped table data sets is called a Style and is controlled in the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>.</p>
 <p>In the figure below, node shape and fill color have been changed from the default.</p>
-<div class="not-cybrowser">
-<img src="modules/tour-of-cytoscape/galFilteredStyle.png" style="width:60%">
-<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/mapping-data/#/">Mapping Data tutorial</a>.</p>
-</div>
-<div class="cybrowser">
 <div style="float:left; width:60%">
 <img src="modules/tour-of-cytoscape/galFilteredStyle.png"></div>
+<div class="cybrowser">
 <ul>
 <li style="list-style-type:none"><input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('node set properties nodeList=all propertyList=shape valueList=ellipse');" value="Change node shape"/></li>
 <li style="list-style-type:none"><input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('node set properties nodeList=all propertyList=&quot;fill color&quot; valueList=&quot;#00CCCC&quot;');" value="Change node color"/></li>
 </ul>
-<div style="float:left">
-    <p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/mapping-data/#/">Mapping Data tutorial</a>.</p></div>
 </div>
+<div style="float:left">
+<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/mapping-data/#/">Mapping Data tutorial</a>.</p></div>
 </section>
 
 <section>
 <h1>Layout</h1>
 <p>Networks in Cytoscape can be manually manipulated in terms of layout, but Cytoscape also supports a large collection of automatic layout algorithms. Layout algorithms are available under the <highlight>Layout</highlight> menu.</p>
-<div class="not-cybrowser">  
 <div class="column">
 <highlight>Circular Layout</highlight><br />
 <img src="modules/tour-of-cytoscape/circular.png">
@@ -71,48 +56,37 @@
 <highlight>Force Directed Layout</highlight><br />
 <img src="modules/tour-of-cytoscape/force-directed.png" style="width:74%">
 </div>
-</div>    
 <div class="cybrowser">
 <div class="column">
-<img src="modules/tour-of-cytoscape/circular.png">
 <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout circular network=galFiltered.sif');" value="Apply Circular Layout"/>
 </div>
 <div class="column">
-<img src="modules/tour-of-cytoscape/force-directed.png" style="width:74%">
 <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed network=galFiltered.sif');" value="Apply Force Directed Layout"/>
 <p></p>
 </div>
+</div>
 <div style="float:left">
-<p>For details, see <a href="http://manual.cytoscape.org/en/stable/Navigation_and_Layout.html#automatic-layout-algorithms">Layout Algorithms manual</a>.</p></div>
+<p>For details, see <a href="http://manual.cytoscape.org/en/stable/Navigation_and_Layout.html#automatic-layout-algorithms">Layout Algorithms manual</a>.</p>
 </div>
 </section>
 
 <section>
 <h1>Network manipulation</h1>
 <p>Networks can be filtered based on associated data or network properties, and individual nodes and their neighbors can be selected. New networks can easily be created from a selection of nodes and edges under <highlight>File &rarr; New &rarr; Network</highlight>. The <highlight>Network Search Bar</highlight> is used to search for individual nodes and edges. Filtering of nodes is done in the <highlight>Select</highlight> tab of the <highlight>Control Panel</highlight>.</p>
-<div class="not-cybrowser">
-<div class="column">
-    <p><highlight>Selected nodes</highlight></p>
-    <img src="modules/tour-of-cytoscape/galFilteredSelected.png"></div>
-<div class="column">
-    <p><highlight>New subnetwork</highlight></p>
-    <img src="modules/tour-of-cytoscape/galFilteredSub.png"></div>
-<div style="float:left">
-<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/filtering-editing/#/">Filtering and Editing tutorial</a>.</p></div>
-</div>
+<p>The figure below shows a selection of three nodes and their first neighbors, and the resulting network created from that selection.</p>
+<img src="modules/tour-of-cytoscape/galFilteredSelectedSubCombined.png" style="float:left; width:70%">
+<!--<img src="modules/tour-of-cytoscape/galFilteredSub.png" style="float:left; width:70%">-->
 <div class="cybrowser">
-<div style="float:left; width:60%">
-<img src="modules/tour-of-cytoscape/galFilteredSub.png"></div>
 <ul>
 <!--
 <li style="list-style-type:none"><input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed network=galFiltered.sif');" value="Apply Force Directed Layout"/></li> -->
-<li style="list-style-type:none"></li>
 <li style="list-style-type:none"><input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;YPL248C,YOL051W&quot;');" value="Select GAL4 and GAL11"/></li>
 <li style="list-style-type:none"><input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any network=current');" value="Select first neighbors"/></li>
 <li style="list-style-type:none"><input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create  excludeEdges=false networkName=subnetwork nodeList=selected source=current');" value="Create new network"/></li>
 </ul>
-<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/filtering-editing/#/">Filtering and Editing tutorial</a>.</p>
 </div>
+<div style="float:left">
+<p>For details, see <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/filtering-editing/#/">Filtering and Editing tutorial</a>.</p></div>
 </section>
 
 <!--
@@ -133,51 +107,29 @@
 <h1>Apps</h1>
 <p>Cytoscape’s capabilities are not fixed but can be expanded in a variety of ways with apps. The <a href="http://apps.cytoscape.org/">Cytoscape App Store</a> organizes over 300 apps in categories such as data integration, online data/network import, network analysis and visualization.</p>
 <p>The App Manager is available in Cytoscape under <highlight>Apps &rarr; App Manager....</highlight></p>
-<div class="not-cybrowser">
 <!-- Could add this content after loading of apps by command works
 <div class="column">
 <highlight>STRING TP53 network</highlight><br />
 <img src="modules/tour-of-cytoscape/STRING-TP53.png" style="width:60%">
 </div>-->
-    
-</div>
-<div class="cybrowser">
-<!-- Could add this content after loading of apps by command works
+<!--<div class="cybrowser">
+Could add this content after loading of apps by command works
 <div class="column">
 <highlight>STRING TP53 network</highlight><br />
 <img src="modules/tour-of-cytoscape/STRING-TP53.png" style="width:60%">
 <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('string protein query query=tp53');" value="Load STRING network for TP53"/>
-</div>-->
 </div>
+</div>-->
 <p>For details, see <a href="http://manual.cytoscape.org/en/stable/App_Manager.html">App Manager manual</a>.
 
 </section>
 
 <section>
 <h1>Export</h1>
-<div class="not-cybrowser">
-<p>Cytoscape provides a number of ways to save results and visualizations:</p>
-	<ul>
-		<li>As a session: <highlight>File&rarr;Save</highlight>, <highlight>File&rarr;Save As...</highlight></li>
-		<li>As an image: <highlight>File&rarr;Export as Image...</highlight></li>
-		<li>To the web: <highlight>File&rarr;Export as Web Page...</highlight></li>
-		<li>To a public repository: <highlight>File&rarr;Export&rarr;Network Collection to NDEx</highlight></li>
-		<li>As a graph format file: <highlight>File&rarr;Export&rarr;Network</highlight>.
-			<ul>
-				<li>CX JSON</li>
-				<li>Cytoscape.js JSON</li>
-				<li>GraphML</li>
-				<li>PSI-MI</li>
-				<li>XGMML</li>
-				<li>SIF</li>
-			</ul></li>
-		</ul>
-    </div>
-<div class="cybrowser">
 <p>Cytoscape provides a number of ways to save results and visualizations. Note that interactive butons on this page will export to the last export directory used in your Cytoscape installation.</p>
 	<ul>
 		<li>As a session: <highlight>File&rarr;Save</highlight>, <highlight>File&rarr;Save As...</highlight></li>
-		<li>As an image: <highlight>File&rarr;Export as Image...</highlight>   <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view export options=PNG');" value="Export PNG"/></li>
+		<li>As an image: <highlight>File&rarr;Export as Image...</highlight>  &nbsp; <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view export options=PNG');" value="Export PNG"/></li>
 		<li>To the web: <highlight>File&rarr;Export as Web Page...</highlight></li>
 		<li>To a public repository: <highlight>File&rarr;Export&rarr;Network Collection to NDEx</highlight></li>
 		<li>As a graph format file: <highlight>File&rarr;Export&rarr;Network</highlight>.
@@ -190,7 +142,6 @@
 				<li>SIF</li>
 			</ul></li>
 		</ul>
-</div>
 </section>
 
 <section>
