@@ -1,7 +1,6 @@
 <section>
     <h1>Functional Enrichment Analysis</h1>
-    <p><highlight>Cytoscape is an open source software platform for integrating, visualizing, and analyzing m
-        easurement data in the context of networks.</highlight></p>
+    <p><highlight>Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.</highlight></p>
 
     <p>This tutorial will take you through a functional enrichment workflow in Cytoscape. Key aspects covered
  in this tutorial are:</p>
@@ -25,7 +24,7 @@
 <section>
     <h3>3. Load TCGA data</h3>
     <ul>
-		<highlight style="margin-left: -25px">1. Create the network.</highlight>
+		<highlight>1. Create the network.</highlight>
         <li>Download
 			<a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.tsv">GBM-TP.all.tsv</a>.</li> 
 		<li>Import the file to create a network using <b>File → Import → Network → File</b>. <br/>This will bring up the <b>Import Network From Table</b> dialog.</li>
@@ -39,7 +38,7 @@
     <br />
 		
     
-		<highlight style="margin-left: -25px">2. Add data to our nodes.</highlight>
+		<highlight>2. Add data to our nodes.</highlight>
 			<li>Open the file again, but now use <b>File → Import → Table → File</b>.
 				<br/>This will bring up the <b>Import Columns From Table</b> dialog.</li>
 			<ul>
@@ -58,7 +57,7 @@
 	<h3>4. Find significant expression changes</h3>
 	<p>We’ll use the <b>Select</b> tab in the <b>Control Panel</b> to find the significant overall expression changes.</p>  
     <ul>
-    <img plain src="modules/functional-enrichment/select-tab.png" style="width:25%; float:right">
+    <img plain src="modules/functional-enrichment/select-tab.png" style="width:25%; float:right; margin-left: 10px">
     <li>Open the <b>Select</b> tab and click on the + button to add a new condition. In this case we’re going to add a <b>Column Filter</b>. Select the "Mean log2FC" column and set the values to be between -5 and -1. This will select all genes that are significantly underexpressed on average, across all samples (only one gene should be selected).</li>
     <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=RPS4Y1');" value="Select significantly underexpressed nodes"/> <!-- can this be done in any other way? -->
@@ -101,7 +100,7 @@
     </section>
 
 <section>
-    <img plain src="modules/functional-enrichment/k-means.png" style="width:60%; float:right">
+    <img plain src="modules/functional-enrichment/k-means.png" style="width:60%; float:right; margin-left: 10px">
     <p>Note that there are four distinct vertical bands (your results might vary in the ordering in either the vertical or horizontal dimensions). In fact, the firehose analyses identified the same four groupings of patients. In the spreadsheet loaded originally, we’ve calculated the mean Log2(fold change) for each of the four subtypes.</p>
     
 
@@ -171,7 +170,7 @@
     <ul>
         <li><highlight>Lock node width and height.</highlight> By default, the <b>stringApp</b> provides separate values for Node Width and Node Height. In our case, we just want to lock them to be the same so we only have to modify the Node Size. The <b>Lock node width and height</b> is a checkbox at the bottom of the <b>Node</b> tab in the <b>Style</b> tab of the <b>Control Panel</b>. Make sure that it’s checked.</li>
         <li><highlight>Set the default node size.</highlight> Click on the leftmost (Def.) box next to <b>Size</b>. Set the default size to "45.0".</li>
-        <!-- no command for this. could use "vizmpa load file" and "vizmap apply" with a prebaked style, but need to enable loading style from URL -->
+        <!-- no command for this. could use "vizmap load file" and "vizmap apply" with a prebaked style, but need to enable loading style from URL -->
     </ul>
 </section>
 
@@ -218,14 +217,14 @@
 	<ul>
         <li><highlight>Diffuse the selection.</highlight> In the diffusion app we can diffuse either based on the heat (column value) or just based on the selection. We’re going to diffuse based on our expression values, so select <b>Tools → Diffuse → Selected Nodes with Options</b> and in the dialog select "Cluster 1 Mean log2FC" as the <b>Heat Column</b> and set a short time of 0.001 seconds. Then click <b>OK</b>.</li>
         <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('diffusion diffuse heatColumnName=&quot;Cluster 1 Mean log2FC&quot; time=0.001');" value="Diffuse the selection"/>
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('diffusion diffuse_advanced heatColumnName=&quot;Cluster 1 Mean log2FC&quot; time=0.001');" value="Diffuse the selection"/>
         </div>
-        <li><highlight>Create subnetwork.</highlight> Change the <b>Node Rank</b> to about 40 and create a subnetwork by selecting <b>File → New → Network → From selected nodes, all edges</b>. Once the network is created, execute an unweighted Prefuse Force Directed Layout (<b>Layout → Prefuse Force Directed Layout → (none)</b>).</li>
+        <li><highlight>Create subnetwork.</highlight> Change the <b>Node Rank</b> to about 40 and create a subnetwork by selecting <b>File → New → Network → From selected nodes, all edges</b>. Once the network is created, execute an unweighted Prefuse Force Directed Layout (<b>Layout → Prefuse Force Directed Layout → All Nodes (none)</b>).</li>
         <div class="cybrowser">
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;9606.ENSP00000322909,9606.ENSP00000244709,9606.ENSP00000427279,9606.ENSP00000260227,9606.ENSP00000364694,9606.ENSP00000295550,9606.ENSP00000263464,9606.ENSP00000364140,9606.ENSP00000264474,9606.ENSP00000356438,9606.ENSP00000260356,9606.ENSP00000316333,9606.ENSP00000266718,9606.ENSP00000351671,9606.ENSP00000358765,9606.ENSP00000364252,9606.ENSP00000253004,9606.ENSP00000304408,9606.ENSP00000351497,9606.ENSP00000219919,9606.ENSP00000348170,9606.ENSP00000264870,9606.ENSP00000444788,9606.ENSP00000361850,9606.ENSP00000260630,9606.ENSP00000259874,9606.ENSP00000369071,9606.ENSP00000223061,9606.ENSP00000342082,9606.ENSP00000231004,9606.ENSP00000346294,9606.ENSP00000299964,9606.ENSP00000261978,9606.ENSP00000366249,9606.ENSP00000301464,9606.ENSP00000249075,9606.ENSP00000225964,9606.ENSP00000258743,9606.ENSP00000297268,9606.ENSP00000360882,9606.ENSP00000306512&quot;');" value="Set Node Rank to 40"/><!--this could be done directly with a command if Diffusion output was commandized -->    
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create excludeEdges=false networkName=&quot;Diffusion subnetwork 1&quot; nodeList=selected source=current');" value="Create subnetwork 1"/>
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed network=&quot;Diffusion subnetwork 1&quot;');" value="Apply force-directed layout"/>
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed');" value="Apply force-directed layout"/>
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed network=&quot;Diffusion subnetwork 1&quot; nodeList=all');" value="Apply force-directed layout"/>
+
         </div>      
 	</ul>
 </section>
@@ -234,13 +233,13 @@
 	<ul>
         <li><highlight>Repeat for underexpressed genes.</highlight> For underexpressed genes, repeat the previous steps above, except choose all genes with a "Cluster 1 Mean log2FC" less than -1 and in the diffusion app set the time to 0.01 seconds. Unfortunately the Diffusion Output assumes positive diffusion values, so to select the diffused nodes of interest, you’ll need to go to the Table Panel and sort the diffusion_output_heat column, select the negative values less than -0.5, right-click on the column and select <b>Select nodes from selected rows</b>. Then you can create the subnetwork.</li>
         <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;9606.ENSP00000362395,9606.ENSP00000254976,9606.ENSP00000252575,9606.ENSP00000349594,9606.ENSP00000298355,9606.ENSP00000263934,9606.ENSP00000322791,9606.ENSP00000287814,9606.ENSP00000333496,9606.ENSP00000377372,9606.ENSP00000264463,9606.ENSP00000337697,9606.ENSP00000226253,9606.ENSP00000340820,9606.ENSP00000363089,9606.ENSP00000227251,9606.ENSP00000422533,9606.ENSP00000321606,9606.ENSP00000354490,9606.ENSP00000266744,9606.ENSP00000220931,9606.ENSP00000356432,9606.ENSP00000299198,9606.ENSP00000418191,9606.ENSP00000335055,9606.ENSP00000277120,9606.ENSP00000264381,9606.ENSP00000366233,9606.ENSP00000307875,9606.ENSP00000263182,9606.ENSP00000283936,9606.ENSP00000291700,9606.ENSP00000261368,9606.ENSP00000355627,9606.ENSP00000357429,9606.ENSP00000305152,9606.ENSP00000453144,9606.ENSP00000307134,9606.ENSP00000429243,9606.ENSP00000310375,9606.ENSP00000372654,9606.ENSP00000311165,9606.ENSP00000366416,9606.ENSP00000393379,9606.ENSP00000262648,9606.ENSP00000302194,9606.ENSP00000312856,9606.ENSP00000247271,9606.ENSP00000250111,9606.ENSP00000331210,9606.ENSP00000349022,9606.ENSP00000273368,9606.ENSP00000264426,9606.ENSP00000267484,9606.ENSP00000344468,9606.ENSP00000250784,9606.ENSP00000367001,9606.ENSP00000353508,9606.ENSP00000367743,9606.ENSP00000345179,9606.ENSP00000367301,9606.ENSP00000283254,9606.ENSP00000366347,9606.ENSP00000255448,9606.ENSP00000385834,9606.ENSP00000336552,9606.ENSP00000367972,9606.ENSP00000373244,9606.ENSP00000260282,9606.ENSP00000357206&quot;');" value="Select underexpressed genes"/> 
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;9606.ENSP00000362395,9606.ENSP00000254976,9606.ENSP00000252575,9606.ENSP00000349594,9606.ENSP00000298355,9606.ENSP00000263934,9606.ENSP00000322791,9606.ENSP00000287814,9606.ENSP00000333496,9606.ENSP00000377372,9606.ENSP00000264463,9606.ENSP00000337697,9606.ENSP00000226253,9606.ENSP00000340820,9606.ENSP00000363089,9606.ENSP00000227251,9606.ENSP00000422533,9606.ENSP00000321606,9606.ENSP00000354490,9606.ENSP00000266744,9606.ENSP00000220931,9606.ENSP00000356432,9606.ENSP00000299198,9606.ENSP00000418191,9606.ENSP00000335055,9606.ENSP00000277120,9606.ENSP00000264381,9606.ENSP00000366233,9606.ENSP00000307875,9606.ENSP00000263182,9606.ENSP00000283936,9606.ENSP00000291700,9606.ENSP00000261368,9606.ENSP00000355627,9606.ENSP00000357429,9606.ENSP00000305152,9606.ENSP00000453144,9606.ENSP00000307134,9606.ENSP00000429243,9606.ENSP00000310375,9606.ENSP00000372654,9606.ENSP00000311165,9606.ENSP00000366416,9606.ENSP00000393379,9606.ENSP00000262648,9606.ENSP00000302194,9606.ENSP00000312856,9606.ENSP00000247271,9606.ENSP00000250111,9606.ENSP00000331210,9606.ENSP00000349022,9606.ENSP00000273368,9606.ENSP00000264426,9606.ENSP00000267484,9606.ENSP00000344468,9606.ENSP00000250784,9606.ENSP00000367001,9606.ENSP00000353508,9606.ENSP00000367743,9606.ENSP00000345179,9606.ENSP00000367301,9606.ENSP00000283254,9606.ENSP00000366347,9606.ENSP00000255448,9606.ENSP00000385834,9606.ENSP00000336552,9606.ENSP00000367972,9606.ENSP00000373244,9606.ENSP00000260282,9606.ENSP00000357206&quot; network=&quot;STRING subnetwork&quot;');" value="Select underexpressed genes"/> 
         </div>
         <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('diffusion diffuse heatColumnName=&quot;Cluster 1 Mean log2FC&quot; time=0.01');" value="Diffuse the selection"/>
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;9606.ENSP00000252575,9606.ENSP00000247271,9606.ENSP00000305152,9606.ENSP00000354490,9606.ENSP00000373244,9606.ENSP00000264426,9606.ENSP00000260282,9606.ENSP00000250784,9606.ENSP00000367001,9606.ENSP00000291700,9606.ENSP00000264381,9606.ENSP00000283254,9606.ENSP00000298355,9606.ENSP00000283936,9606.ENSP00000355627,9606.ENSP00000357429,9606.ENSP00000322791,9606.ENSP00000307134,9606.ENSP00000299198,9606.ENSP00000333496,9606.ENSP00000337697,9606.ENSP00000366347,9606.ENSP00000331210,9606.ENSP00000321606,9606.ENSP00000429243,9606.ENSP00000264463,9606.ENSP00000349594,9606.ENSP00000367743,9606.ENSP00000356432,9606.ENSP00000287814,9606.ENSP00000267484,9606.ENSP00000366416,9606.ENSP00000226253,9606.ENSP00000311165,9606.ENSP00000372654,9606.ENSP00000302194,9606.ENSP00000340820,9606.ENSP00000250111,9606.ENSP00000263182,9606.ENSP00000393379,9606.ENSP00000266744,9606.ENSP00000227251,9606.ENSP00000273368,9606.ENSP00000353508,9606.ENSP00000367972,9606.ENSP00000385834,9606.ENSP00000418191,9606.ENSP00000220931,9606.ENSP00000362395,9606.ENSP00000344468,9606.ENSP00000422533,9606.ENSP00000312856,9606.ENSP00000277120,9606.ENSP00000336552,9606.ENSP00000349022,9606.ENSP00000254976,9606.ENSP00000377372,9606.ENSP00000453144,9606.ENSP00000307875,9606.ENSP00000335055,9606.ENSP00000261368,9606.ENSP00000263934,9606.ENSP00000262648,9606.ENSP00000310375,9606.ENSP00000345179,9606.ENSP00000255448,9606.ENSP00000357206,9606.ENSP00000366233,9606.ENSP00000367301,9606.ENSP00000363089&quot;');" value="Select diffused nodes of interest"/>
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('diffusion diffuse_advanced heatColumnName=&quot;Cluster 1 Mean log2FC&quot; time=0.01');" value="Diffuse the selection"/>
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;9606.ENSP00000252575,9606.ENSP00000247271,9606.ENSP00000305152,9606.ENSP00000373244,9606.ENSP00000354490,9606.ENSP00000264426,9606.ENSP00000260282,9606.ENSP00000250784,9606.ENSP00000367001,9606.ENSP00000283254,9606.ENSP00000264381,9606.ENSP00000298355,9606.ENSP00000283936,9606.ENSP00000357429,9606.ENSP00000291700,9606.ENSP00000322791,9606.ENSP00000307134,9606.ENSP00000299198,9606.ENSP00000333496,9606.ENSP00000331210,9606.ENSP00000366347,9606.ENSP00000264463,9606.ENSP00000337697,9606.ENSP00000429243,9606.ENSP00000367743,9606.ENSP00000321606,9606.ENSP00000356432,9606.ENSP00000267484,9606.ENSP00000349594,9606.ENSP00000287814,9606.ENSP00000226253,9606.ENSP00000302194,9606.ENSP00000250111,9606.ENSP00000355627,9606.ENSP00000263182,9606.ENSP00000393379,9606.ENSP00000266744,9606.ENSP00000366416,9606.ENSP00000311165,9606.ENSP00000340820,9606.ENSP00000372654,9606.ENSP00000227251,9606.ENSP00000273368,9606.ENSP00000367972,9606.ENSP00000418191,9606.ENSP00000353508,9606.ENSP00000220931,9606.ENSP00000362395,9606.ENSP00000344468,9606.ENSP00000422533,9606.ENSP00000312856,9606.ENSP00000336552,9606.ENSP00000349022,9606.ENSP00000307875,9606.ENSP00000453144,9606.ENSP00000310375,9606.ENSP00000254976,9606.ENSP00000263934,9606.ENSP00000345179,9606.ENSP00000335055,9606.ENSP00000277120,9606.ENSP00000377372,9606.ENSP00000261368,9606.ENSP00000385834,9606.ENSP00000262648,9606.ENSP00000255448,9606.ENSP00000367301,9606.ENSP00000357206,9606.ENSP00000366233,9606.ENSP00000363089,9606.ENSP00000284981&quot;');" value="Select diffused nodes of interest"/>
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create excludeEdges=false networkName=&quot;Diffusion subnetwork 2&quot; nodeList=selected source=current');" value="Create subnetwork 2"/>
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed network=&quot;Diffusion subnetwork 2&quot;');" value="Apply force-directed layout"/> 
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed network=&quot;Diffusion subnetwork 2&quot; nodeList=all');" value="Apply force-directed layout"/> 
         </div>
     </ul>
 </section>
@@ -282,13 +281,13 @@
     <ul>
         <li><highlight>Cluster using MCL</highlight>. Make sure the network is connected, then go to <b>Apps → clusterMaker → MCL Cluster</b>. This will bring up the MCL settings dialog. There are a number of options, but most of these don’t require any changes for our uses. We’re going to treat the network as unweighted so we don’t need to provide any Array Sources. We do want to check the <b>Create new clustered network</b> however so we can visualize the results. Then click <b>OK</b>.</li>
         <!-- not sure this is the correct command <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('cluster mcl showUI=true network=STRING subnetwork');" value="Perform MCL clustering"/> 
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('cluster mcl showUI=true network=STRING network');" value="Perform MCL clustering"/> 
         </div>-->
     </ul>
 </section>
 <section>
     <h3>13.	Determine functional enrichment of the clusters.</h3> 
-    <img plain src="modules/functional-enrichment/topological-cluster.png" style="width:60%; float:right; margin-left:5px">
+    <img plain src="modules/functional-enrichment/topological-cluster.png" style="width:60%; float:right; margin-left: 10px">
 		<p>The results of the clustering should look something like the figure on the right, which is a close-up of the largest components. Of particular interest are the largest 4 components, which we’ll perform functional enrichment.</p> 
 </section>
 
