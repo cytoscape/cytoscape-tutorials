@@ -9,41 +9,47 @@
 <section>
 <h1>Retrieving Networks</h1>
 <p>Cytoscape accepts network data in a variety of formats and from multiple sources, including many public interaction and network databases. This tutorial uses data from the <a href="https://string-db.org/"><highlight>STRING database</highlight></a> representing genes associated with breast cancer (pictured below).</p>
-<div style="float:left; width:50%">  
+<div style="float:left; width:55%">  
 <img src="modules/tour-of-cytoscape/string-bc.png"></div> 
 <div class="cybrowser">
 <input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/STRING-BreastCancer.xgmml');" value="Load network"/><br />
 <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view fit content');" value="Fit content"/>
 </div>
+<div style="position:absolute;left:25em;bottom:1em;">
 <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-network-data/#/">Learn more about Loading Networks</a></b></p>
 <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/functional-enrichment/#/">Learn more about using STRING</a></b></p>
+</div>
 </section>
 
 <section>
 <h1>Selecting Hub Genes</h1>
 <p>Networks can be filtered, and nodes selected, based on associated data or network properties. The STRING database provides many node and edge attributes that we can use to explore the network. For example, we can use the "disease score" attribute to select the top 3 genes, and then select first neighbors of these, thereby using the network connectivity together with the data to direct discovery.</p>
 <p>The figure below shows a selection of top three nodes and their first neighbors.</p>
-<div style="float:left; width:50%">  
+<div style="float:left; width:55%">  
     <img src="modules/tour-of-cytoscape/select-nodes.png"></div>
 <div class="cybrowser">
 <input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;9606.ENSP00000261584,9606.ENSP00000324856,9606.ENSP00000265433&quot;');" value="Select top genes"/><br />
 <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any network=current');" value="Select first neighbors"/>
 </div>
-<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/filtering-editing/#/">Learn more about Filtering and Editing tutorial</a></b></p>
+<div style="position:absolute;left:25em;bottom:1em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/filtering-editing/#/">Learn more about Filtering and Editing</a></b></p>
+</div>
 </section>
 
 <section>
 <h1>Creating Subnetwork</h1>
 <p>New networks can easily be created in Cytoscape from a selection of nodes and edges. Now that we have the top genes and their neighbors selected, we can create a subnetwork of this more focused subset of the network.</p>
 <p>Once the network is created, we can apply a layout algorithm to help visualize the network. Networks in Cytoscape can be manually manipulated in terms of layout, but Cytoscape also supports a large collection of automatic layout algorithms. Layout algorithms are available under the <highlight>Layout</highlight> menu.</p>
-<div style="float:left; width:40%">  
+<div style="float:left; width:45%">  
     <img src="modules/tour-of-cytoscape/sub-layout.png"></div>
 <div class="cybrowser">
 <input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create excludeEdges=false networkName=subnetwork nodeList=selected source=current');" value="Create subnetwork"/><br />
 <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout kamada-kawai m_nodeDistanceRestLengthConstant=70 network=current');" value="Apply Layout"/>
     
 </div>
+<div style="position:absolute;left:25em;bottom:1em;">
 <p><b><a href="http://manual.cytoscape.org/en/stable/Navigation_and_Layout.html?highlight=force-directed">Learn more about Layouts</a></b></p>
+</div>
 </section>
 
 <section>
@@ -55,24 +61,26 @@
 <div class="cybrowser">
 <input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/bcr-expr.txt KeyColumnForMapping=&quot;display name&quot; caseSensitiveNetworkCollectionKeys=false caseSensitiveNetworkKeys=false firstRowAsColumnNames=true TargetNetworkList=subnetwork keyColumnIndex=1 startLoadRow=1');" value="Load expression data"/><br />
 <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/bcr-mut.txt KeyColumnForMapping=&quot;display name&quot; caseSensitiveNetworkCollectionKeys=false caseSensitiveNetworkKeys=false firstRowAsColumnNames=true TargetNetworkList=subnetwork keyColumnIndex=1 startLoadRow=1');" value="Load mutation data"/></div>
-<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/#/">Learn more about Loading Data</a></b></p>    
+<div style="position:absolute;left:25em;bottom:1em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/#/">Learn more about Loading Data</a></b></p>  
+</div>
 </section>
     
 <section>
 <h1>Styles</h1>
 <p>One of Cytoscape’s strengths in network visualization is the ability to allow users to encode any table data (name, type, degree, weight, expression data, etc.) as a property (such as color, size of node, transparency, or font type) of the network. A set of these encoded or mapped table data sets is called a Style.</p>
-<div class="fragment" style="float:left; width:40%">
+<div class="fragment" style="float:left; width:38%">
 <img src="modules/tour-of-cytoscape/style-expr.png">
 <div class="cybrowser">
 <input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/STRING-BreastCancer_expr.xgmml');" value="Load expression style"/>
 </div>
 </div>
-<div class="fragment" style="float:right; width:40%">
+<div class="fragment" style="float:right; width:38%">
 <img src="modules/tour-of-cytoscape/style-expr-mut.png">
 <div class="cybrowser">
 <input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/STRING-BreastCancer_expr_mut.xgmml');" value="Load expression/mutation style"/>
 </div></div>
-<div style="float:left">
+<div style="position:absolute;left:17em;bottom:0em;">
 <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/mapping-data/#/">Learn more about Styles</a></b></p> </div>
 </section>
 
