@@ -7,6 +7,10 @@
          <div class="cybrowser">
          <p>The tutorial is designed to run as a demo in the CyBrowser app, with interactive buttons for each task.</p>
          </div>
+         <div class="footer" style="position: absolute;left: -5em;bottom: -3em; ">
+             <img class="plain" src="../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+             <version>3.6.1</version>
+        </div>
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -17,11 +21,11 @@
          <h2>Importing Pathways</h2>
          <ul>
              <li>Launch Cytoscape.</li>
-             <li>In the <b>Control Panel Search Bar</b>, select "WikiPathways" in the drop-down, and type in "Statin".</li>
+             <li>In the <b>Network Search Tool</b> at the top of the <b>Network</b> tab in the <b>Control Panel</b>, select "WikiPathways" in the drop-down, and type in "Statin".</li>
              <li>A list of results will open, with results for all available species:</li>
              
          </ul><br /><br />
-         <img plain src="modules/pathway-data-visualization/WPApp-results.png" style="width:70%">
+         <img plain src="modules/pathway-data-visualization/WPApp-results.png" style="width:60%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -32,7 +36,6 @@
          <div class="cybrowser">
          <ul>
              <li>Select the human "Statin Pathway" and click <b>Import as Pathway</b>, or simply double-click the pathway in the list.</li>
-             <li>This will open the pathway in Cytoscape.</li>
              <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('wikipathways import-as-pathway id=WP430');" value="Import pathway"/>
          </ul><br /><br />
          <img plain src="modules/pathway-data-visualization/Statin-pathway.png" style="width:60%">
@@ -41,7 +44,6 @@
          <div class="not-cybrowser">
          <ul>
              <li>Select the human "Statin Pathway" and click <b>Import as Pathway</b>, or simply double-click the pathway in the list.</li>
-             <li>This will open the pathway in Cytoscape.</li>
          </ul><br /><br />
          <img plain src="modules/pathway-data-visualization/Statin-pathway.png" style="width:60%">
          </div>
@@ -82,9 +84,11 @@
          </section>
              
          <section>
-         <p>After mapping the identifiers on the pathway, a new column labeled "Ensembl" should appear in the <b>Node Table</b>:</p>
+             <ul>
+         <li>After mapping the identifiers on the pathway, a new column named "Ensembl" is added to the <b>Node Table</b>.</li>
+         <li>We are now ready to import the data.</li>
+                 </ul><br /><br />
          <img plain src="modules/pathway-data-visualization/Statin_mapped.png" style="width:60%">
-         <p>We are now ready to import the data.</p>
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -123,7 +127,7 @@
              
          <section>
          <p>The data import interface should now look like this:</p>
-         <img plain src="modules/pathway-data-visualization/WPDataImport.png" style="width:50%">
+         <img plain src="modules/pathway-data-visualization/WPDataImport.png" style="width:45%">
          <ul>
          <li>Click <b>OK</b> to import.</li>
          <li>Once import is complete, look for the newly imported data columns in the <b>Node Table</b> to confirm that it worked.</li>
@@ -143,6 +147,7 @@
          <li>In the <b>Mapping Type</b> drop-down, select <b>Continous Mapping</b>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
              
          </ul><br /><br />
+        <!-- to-do: Add legend to pathway -->
          <img plain src="modules/pathway-data-visualization/StatinData.png" style="width:50%">
              
          <aside class="notes" data-markdown>
