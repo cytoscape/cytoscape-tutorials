@@ -63,16 +63,28 @@
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				history: true,
+                controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 				{ src: '../plugin/markdown/marked.js' },
 				{ src: '../plugin/markdown/markdown.js' },
-                                { src: '../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
-                                { src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
-                                { src: '../plugin/notes/notes.js', async: true },
-                                { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                                { src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+                { src: '../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+                { src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+                { src: '../plugin/notes/notes.js', async: true },
+                { src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
 				]
 				});
 			</script>
