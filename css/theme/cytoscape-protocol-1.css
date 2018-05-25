@@ -2,7 +2,6 @@
  * Cytoscape tutorial 1 theme based off of 'white' theme for reveal.js.
  *
  */
-@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
   color: #fff; }
 
@@ -13,8 +12,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .footer {
   position: absolute;
   left: 2em;
-  bottom: 1em; 
-  }
+  bottom: 1em; }
 
 .footer version {
   vertical-align: 0.95em;
@@ -34,7 +32,7 @@ body {
   background-color: #fff; }
 
 .reveal {
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-size: 20pt;
   font-weight: normal;
   color: #222; }
@@ -110,7 +108,7 @@ body {
 .reveal h6 {
   margin: 0 0 30px 0;
   color: #222;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
@@ -135,7 +133,7 @@ body {
   padding: 5px 0 5px 0;
   color: #fff;
   background-color: #555;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
