@@ -109,7 +109,7 @@ Say you want to present a topic in detail, but it is not covered by any of the e
 We have developed [custom themes for Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/css/theme). These stylesheets provide settings and features tailored for our content, making it easier to put together (and reuse) training materials in this repo. Review how to use these customizations below...
 
 ### Version
-To help develop training material that is accurate and current, we developed a custom footer and variable to specify the version of Cytoscape that the content pertains to. You can update the version tag in the named html or index.html files within the footer div:
+To help develop training material that is accurate and current, we developed a custom footer and variable to specify the version of Cytoscape that the content pertains to. You can update the version tag in the title slide of your presentation/protocol in the module.html files within the footer div:
 ```
 <version>3.5.1</version>
 ```
@@ -155,16 +155,14 @@ Use the ```<highlight>``` tag to highlight text with the Cytoscape-orange color
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/highlight)***
 
 ### Code
-Reveal used [highlightjs](https://highlightjs.org/) to format code snippets. 
+Reveal uses [highlightjs](https://highlightjs.org/) to format code snippets. Use "<pre><code data-trim>" tags around code:
 
 ```
-<pre><code data-trim>
 if (files != null) {
    for (int i=0; i < files.length; i++) {
        String filename = files[i];
    }
 }
-</code></pre>
 ```
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/code)***
