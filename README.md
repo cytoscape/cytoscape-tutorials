@@ -155,14 +155,16 @@ Use the ```<highlight>``` tag to highlight text with the Cytoscape-orange color
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/highlight)***
 
 ### Code
-Reveal uses [highlightjs](https://highlightjs.org/) to format code snippets. Use "<pre><code data-trim>" tags around code:
+Reveal uses [highlightjs](https://highlightjs.org/) to format code snippets. Use tags around code:
 
 ```
+<pre><code data-trim>
 if (files != null) {
    for (int i=0; i < files.length; i++) {
        String filename = files[i];
    }
 }
+</pre><c/ode data-trim>
 ```
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/code)***
