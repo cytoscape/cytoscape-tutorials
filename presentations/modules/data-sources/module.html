@@ -118,12 +118,79 @@
 	</aside>
 </section>
 
+<section data-transition="slide-in fade-out">
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<highlight style="margin-left: -50px">High throughput</highlight>
+		<li>Yeast 2 hybrid</li>
+		<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li>
+		<li>BioID - Proximity-dependent Biotinylation</li>
+	</ul>
+	<div class="fragment fade-in" data-fragment-index="1" style="width:100%;height:800px">
+		<!--img src="modules/data-sources/BioID2.png" class="plain fragment fade-out" data-fragment-index="2"
+		     style="position: absolute; top: 100px; left: 750px;" /-->
+		<img src="modules/data-sources/BioID.png" 
+		     style="position: absolute; top: 0px; left: 0px; width: 100%" />
+	</div>
+	<aside class="notes" data-markdown>
+1. BirA* (a modified e.coli biotin ligase) is used to catalyze the conjugation between Biotin and ATP to form reactive group as Biotin-5'-AMP which is fused to the interested protein X.
+2. Any interacting protein of protein X (within 10nm) is biotinylated.
+3. Any biotinylated proteins can be capture through streptavin-mediated pulldown and identified by MS.
+NOTE: bioID2 is roughly the same, but uses a smaller promiscuous bioin ligase
+	</aside>
+</section>
+
+<section data-transition="fade-in slide-out">
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<highlight style="margin-left: -50px">High throughput</highlight>
+		<li>Yeast 2 hybrid</li>
+		<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li>
+		<li>BioID - Proximity-dependent Biotinylation
+			<ul>
+			<li>BioID2 - same procedure as BioID, but uses a smaller promiscuous biotin ligase</li>
+			<li>split-BioID - like BioID, but BirA* is split into CBirA* and NBirA* parts, which are fused in the presence of Rapamycin, providing a conditional method</li>
+		</ul></li>
+	</ul>
+</section>
+
 <section>
 	<h1>Experimental Techniques</h1>
 	<ul>
 		<highlight style="margin-left: -50px">High throughput</highlight>
 		<li>Yeast 2 hybrid</li>
 		<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li>
+		<li>BioID - Proximity-dependent Biotinylation
+			<ul>
+				<li>Pros:
+					<ul>
+						<li>Can be used for membrane-bound complexes and insoluble proteins</li>
+						<li>Can be used for to capture a "snapshot" of dynamic processes</li>
+					</ul>
+				</li>
+				<li>Cons:
+					<ul>
+						<li>Can capture random collisions (false positives)</li>
+						<li>Size of BirA* (321 AA can interfere with binding (false negatives)
+							<ul>
+								<li>NOTE: BioID2 is smaller (233 AA)</li>
+							</ul>
+						</li>
+						<li>10 nm labeling radius.  Need to consider location of fusion</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Experimental Techniques</h1>
+	<ul>
+		<highlight style="margin-left: -50px">High throughput</highlight>
+		<li>Yeast 2 hybrid</li>
+		<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li>
+		<li>BioID - Proximity-dependent Biotinylation</li>
 		<li>Protein-fragment complementation assays</li>
 	</ul>
 	<div class="fragment fade-in" data-fragment-index="1" style="height:650px">
@@ -140,6 +207,7 @@
 		<highlight style="margin-left: -50px">High throughput</highlight>
 		<li>Yeast 2 hybrid</li> 
 		<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li> 
+		<li>BioID - Proximity-dependent Biotinylation</li>
 		<li>Protein-fragment complementation assays</li> 
 		<li>Phage display</li>
 	</ul>
@@ -157,6 +225,7 @@
 		<highlight style="margin-left: -50px">High throughput</highlight>
 		<li>Yeast 2 hybrid</li>
 		<li>Tandem Affinity Purification/Mass Spectrometry (AP/MS)</li>
+		<li>BioID - Proximity-dependent Biotinylation</li>
 		<li>Protein-fragment complementation assays</li>
 		<li>Phage display</li>
 		<li>Protein microarrays</li>
