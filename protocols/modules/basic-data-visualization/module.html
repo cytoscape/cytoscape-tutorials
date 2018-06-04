@@ -15,7 +15,7 @@
 -->
 <div class="footer" style="position: absolute; left: -5em; bottom: -4em; ">
 <img class="plain" src="../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.6.0</version></div>
+<version>3.6.1</version></div>
 </section>
 
 <section>
@@ -88,7 +88,7 @@ Add speaker notes here...
 	</section>
 
         <section>
-	<h4>Set Node Fill Color</h4>
+	<h3>Set Node Fill Color</h3>
     <ul>
 	<li>Click on the middle square (<b>Map.</b>) next to the <b>Fill Color</b> row in the <b>Styles</b> panel.</li>
 	<li>Click the <b>-- select value --</b> cell in the <b>Column</b> section, and select "gal80Rexp" in the drop-down.</li>
@@ -102,7 +102,7 @@ Add speaker notes here...
     </section>
 
      <section>
-	<h2>Set Default Node Color</h2>
+	<h3>Set Default Node Color</h3>
 	<p>Note that the default node color of pale blue falls within this spectrum. A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.</p>
     <ul>
 	<li>Click the <b>Def.</b> (leftmost) square next to <b>Fill Color</b> and choose a dark gray color.</li>
@@ -116,12 +116,12 @@ Add speaker notes here...
     </section>
 
     <section>
-    <h2>Set Node Border Width</h2>
+    <h3>Set Node Border Width</h3>
         <ul>
             <li>Click on the middle square (<b>Map.</b>) next to the <b>Border Width</b> row in the <b>Styles</b> panel.</li>
             <li>Click the <b>-- select value --</b> cell in the <b>Column</b> section, and select "gal80Rsig" in the drop-down.</li>
             <li>Click the <b>-- select value--</b> cell in the <b>Mapping Type</b> section, and select <b>Continuous Mapping</b> in the drop-down.</li>
-            <img src="DefaultGradient.png">
+            <img src="NodeBorderGradient.png" style="width:60%">
             <li>Click on <b>Set Min and Max...</b> and set the max to "0.05". Click OK to save.</li>
             <li>The range is now set for only significant p values (0 - 0.05). Click on the pivot (open square) for the 0 value and set the value to 5. Repeat for the pivot for the 0.05 value.</li>
         </ul><br /><br />
@@ -130,7 +130,7 @@ Add speaker notes here...
     </section>
 
 	<section>
-    <h2>Layouts</h2>
+    <h3>Layouts</h3>
         <ul>
                 <li>Let's change the layout to Degree Sorted Circle Layout by selecting <highlight>Layout &rarr; Degree Sorted Circle Layout</highlight>. In this layout, the highest degree node is at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on degree.</li>
                 <li></li>
@@ -174,8 +174,8 @@ Add speaker notes here...
 	<section>	
         <p>Now we can expand the selection of nodes:</p>
         <ul>
-            <li>Select the first neighbors of selected nodes by clicking the <img src="FirstNeighborsButton.png" style="width:40%"> button in the toolbar.</li>
-            <li>Create a new network from the current selection by clicking the <img src="NewNetworkFromSelectionButton.png" style="width:40%"> button in the toolbar.</li>
+            <li>Select the first neighbors of selected nodes by clicking the <img src="FirstNeighborsButton.png"> button in the toolbar.</li>
+            <li>Create a new network from the current selection by clicking the <img src="NewNetworkFromSelectionButton.png"> button in the toolbar.</li>
                 
         </ul>
         <img src="../protocols/modules/basic-data-visualization/FinalNetwork.png">
@@ -208,14 +208,15 @@ Add speaker notes here...
 </section>
 
 <section>
-    <p>Im summary, we have explored a yeast interactome from a transcription factor knockout experiment. We created a visual style using expression value as node color and with border width mapped to significance. We selected high expressing genes and their neighbors and created a new network.</p>
+    <h3>Summary</h3>
+    <p>In summary, we have explored a yeast interactome from a transcription factor knockout experiment. We created a visual style using expression value as node color and with border width mapped to significance. We selected high expressing genes and their neighbors and created a new network.</p>
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
 	</aside>
 </section>
 
 <section>
-	<h1>Saving Results</h1>
+	<h3>Saving Results</h3>
     <p>Cytoscape provides a number of ways to save results and visualizations:</p>
 	<ul>
 					<li>As a session: <b>File&rarr;Save</b>, <b>File&rarr;Save As...</b></li>
