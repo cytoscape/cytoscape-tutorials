@@ -32,7 +32,7 @@
 			<a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.tsv">GBM-TP.all.tsv</a>.</li> 
 		<li>Import the file to create a network using <b>File → Import → Network → File</b>. <br/>This will bring up the <b>Import Network From Table</b> dialog.</li>
 		<ul>
-			<li>Select <b>Select None</b> to disable all columns.</li>
+			<li>Click on <b>Select None</b> to disable all columns.</li>
 			<li>Click only on the <b>GeneName</b> column and set this column as the <b>Source Node</b> column (green circle).</li>
 			<li>Click <b>OK</b>. You’ll see a warning about no edges, but that’s OK. This will create a grid of 1500 unconnected nodes, where each node represents a gene.</li>
     </ul>
@@ -149,7 +149,7 @@
     <h3>8. Style the network to show differential expression.</h3>
     <p>In this step, we’ll change the style of the network to highlight the differentially expressed genes.</p>
     <ul>
-        <li><highlight>Re-import expression data.</highlight> First, we need to re-import the expression data for the new network created by the stringApp. Similar to the initial import, start by doing <b>File → Import → Table → File</b>. Again, select the <i>GBM-TP-all.tsv</i> file. However, now we need to use a different network column to match our names. Change the <b>Key Column for Network:</b> from <b>share name</b> to <b>query term</b>. STRING uses Ensembl identifiers, but retains the original query term so we can match data against. Now select <b>OK</b>.</li>
+        <li><highlight>Re-import expression data.</highlight> First, we need to re-import the expression data for the new network created by the stringApp. Similar to the initial import, start by doing <b>File → Import → Table → File</b>. Again, select the <i>GBM-TP-all.tsv</i> file. However, now we need to use a different network column to match our names. Change the <b>Key Column for Network:</b> from <b>shared name</b> to <b>query term</b>. STRING uses Ensembl identifiers, but retains the original query term so we can match data against. Now select <b>OK</b>.</li>
         <!--<div class="cybrowser">
             
         <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-all.tsv firstRowAsColumnNames=true TargetNetworkList=&quot;String Network&quot; keyColumnIndex=1 startLoadRow=1 KeyColumnForMapping=&quot;display name&quot;');" value="Load data"/>
@@ -162,8 +162,8 @@
 
 <section>
     <ul>
-        <img src="modules/functional-enrichment/continous-mapper.png" style="float:right; margin-left:10px">
-        <li><highlight>Create color gradient for expression data.</highlight> To show the expression data, go the <b>Style </b>tab of the <b>Control Panel</b> and click on the middle square <b>(Map.)</b> of the three <b>Fill Color</b> controls. Set the Column to "Cluster 1 Mean log2FC" and set the <b>Mapping Type</b> to "Continuous Mapping". This will create a gray to white gradient. Double-click on the gradient to show the <b>Continuous Mapping Editor</b>. We’re going to use a Red/Blue color gradient, with blue representing underexpressed genes and red representing overexpressed genes. To start, click on the left-most triangle and set the color to Blue. This represents the values that are all less than the min. Repeat for the next triangle over. Now, set the two rightmost triangles to red.  Finally, since we don’t really want intermediate nodes to be purple, add an additional triangle by clicking on the Add button. Drag the new triangle to 0.0 and now click <b>OK</b>. The completed dialog should look like this:</li>
+        <img src="modules/functional-enrichment/continous-mapper.png" style="width:40%;float:right; margin-left:10px">
+        <li><highlight>Create color gradient for expression data.</highlight> To show the expression data, go the <b>Style </b>tab of the <b>Control Panel</b> and click on the middle square <b>(Map.)</b> of the three <b>Fill Color</b> controls. Set the Column to "Cluster 1 Mean log2FC" and set the <b>Mapping Type</b> to "Continuous Mapping". Double-click on the gradient to show the <b>Continuous Mapping Editor</b>. The default gradient is a Blue/Red color gradient, with blue representing underexpressed genes and red representing overexpressed genes. We can keep this default gradient as is.</li>
     </ul>
 </section>
 
@@ -183,7 +183,7 @@
         <br />
     <!-- no command for this. could use "vizmap apply" with a prebaked style -->
     </ul>
-    <img plain src="modules/functional-enrichment/node-size-continous-mapper.png" style="width:60%">
+    <img plain src="modules/functional-enrichment/node-size-continous-mapper.png" style="width:50%">
 </section>
 
 <section>
