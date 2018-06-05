@@ -70,7 +70,7 @@ Add speaker notes here...
             <li>You can select nodes in the network by <highlight>Shift + Click and Drag</highlight> or by <highlight>Shift + clicking on multiple nodes</highlight></li>
         
 		</ul>
-		<p>To learn more about <b>Importing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/#/" target="_blank">Loading Omics Data Tutorial</a>.</p>
+		<p>To learn more about <b>importing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/#/" target="_blank">Loading Omics Data Tutorial</a>.</p>
 
 		<aside class="notes" data-markdown>
 		Add speaker notes here...
@@ -125,7 +125,7 @@ Add speaker notes here...
             <li>Click on <b>Set Min and Max...</b> and set the max to "0.05". Click OK to save.</li>
             <li>The range is now set for only significant p values (0 - 0.05). Click on the handle (triangle) for the max value and set the value to 10 in the <highlight>Node Border Width</highlight> field.</li>
         </ul><br /><br />
-        <p>To learn more about <b>Visualizing Data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/mapping-data/#/" target="_blank">Visualizing Expression Data Tutorial</a>.</p>
+        <p>To learn more about <b>visualizing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/mapping-data/#/" target="_blank">Visualizing Expression Data Tutorial</a>.</p>
         
     </section>
 
@@ -133,8 +133,8 @@ Add speaker notes here...
     <h3>Layouts</h3>
         <ul>
                 <li>Let's change the layout to <b>Degree Sorted Circle Layout</b> by selecting <highlight>Layout &rarr; Degree Sorted Circle Layout</highlight>. In this layout, the highest degree node is at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on degree.</li>
-                <li>Let's apply a force-directed layout instead, which will work better with this network.
-                An easy way to apply the <b>Prefuse Force-directed Layout</b> is by clicking the <highlight>Preferred Layout</highlight> <img src="PreferredLayoutButton.png"> in the toolbar.</li> 
+                <li>We can now change the layout to a force-directed layout instead, which will work better with this network.
+                An easy way to apply the <b>Prefuse Force-directed Layout</b> is by clicking the <highlight>Preferred Layout</highlight> <img src="PreferredLayoutButton.png"> in the toolbar. The preferred layout algorithm can be changed under <highlight>Layout &rarr; Settings...</highlight>.</li> 
         </ul>
         
 <!--			<div class="cybrowser">
@@ -162,7 +162,7 @@ Add speaker notes here...
 					<li>Go to the <highlight>Select</highlight> tab in the Cytoscape Control Panel (the leftmost panel).</li>
 					<li>Click on the <highlight>+</highlight> and create a <highlight>Column Filter</highlight>.</li>
 					<li>Click on <highlight>Choose column...</highlight> and select <highlight>Node: gal80Rexp</highlight></li>
-					<li>Using the slider, specify values of 2 or higher by changing the minimum value to 2.</li>
+					<li>Using the slider, specify values of <b>2</b> or higher by changing the minimum value to 2.</li>
 				</ul>
 			<p>You should now see a few nodes in the network selected.</p>
 
@@ -174,9 +174,9 @@ Add speaker notes here...
 	<section>	
         <p>Now we can expand the selection of nodes:</p>
         <ul>
-            <li>Select the first neighbors of selected nodes by clicking the <img src="FirstNeighborsButton.png"> button in the toolbar.</li>
-            <li>Create a new network from the current selection by clicking the <img src="NewNetworkFromSelectionButton.png"> button in the toolbar.</li>
-            <li>Click on the <highlight>Preferred Layout</highlight> <img src="PreferredLayoutButton.png"> in the toolbar to apply the force-directed layout.</li> 
+            <li>Select the first neighbors of selected nodes by clicking the <highlight>First Neighbors of Selected Nodes (undirected)</highlight> button <img src="FirstNeighborsButton.png"> in the toolbar.</li>
+            <li>Create a new network from the current selection by clicking the <highlight>New Network From Selection (all edges)</highlight> button <img src="NewNetworkFromSelectionButton.png"> in the toolbar.</li>
+            <li>Click on the <highlight>Preferred Layout</highlight> button <img src="PreferredLayoutButton.png"> in the toolbar to apply a force-directed layout.</li> 
                 
         </ul>
 
@@ -187,7 +187,7 @@ Add speaker notes here...
 
 <section>
     <p>The new network should now look like this:</p>
-    <img src="../protocols/modules/basic-data-visualization/FinalNetwork.png">
+    <img src="../protocols/modules/basic-data-visualization/FinalNetwork.png" style="width:45%">
 </section>
 
 <section>
@@ -222,11 +222,11 @@ Add speaker notes here...
 	<h3>Saving Results</h3>
     <p>Cytoscape provides a number of ways to save results and visualizations:</p>
 	<ul>
-                    <li>As an image: <b>File&rarr;Export as Image...</b></li>
-					<li>As a session: <b>File&rarr;Save</b>, <b>File&rarr;Save As...</b></li>
-                    <li>To the web: <b>File&rarr;Export as Web Page...</b> (<a href="modules/saving-results/web_session/index.html" target="_blank">Example</a>)</li>
-		          <li>To a public repository: <b>File&rarr;Export&rarr;Network Collection to NDEx</b></li>
-		              <li>As a graph format file: <b>File&rarr;Export&rarr;Network</b>. <br/>Formats:
+                    <li>As an image: <highlight>File&rarr;Export as Image...</highlight></li>
+					<li>As a session: <highlight>File&rarr;Save</highlight>, <highlight>File&rarr;Save As...</highlight></li>
+                    <li>To the web: <highlight>File&rarr;Export as Web Page...</highlight> (<a href="modules/saving-results/web_session/index.html" target="_blank">Example</a>)</li>
+		          <li>To a public repository: <highlight>File&rarr;Export&rarr;Network Collection to NDEx</highlight></li>
+		              <li>As a graph format file: <highlight>File&rarr;Export&rarr;Network</highlight>. <br/>Formats:
 						<ul>
 										<li>CX JSON</li>
 										<li>Cytoscape.js JSON</li>
