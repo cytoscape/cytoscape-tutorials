@@ -24,26 +24,13 @@
 				<div style="width:40%;float:right; margin-left: 10px">
 					<img src="BasicDataVizDemoLoaded.png">
 				</div>
-				<li>Start Cytoscape and download the <a href="http://nrnb.org/data/BasicDataVizDemo.cys">demo network</a>.</li>
+				<li>Start Cytoscape and download the <a href="http://nrnb.org/data/BasicDataVizDemo.cys">demo network session file</a>.</li>
 				<li>Open the demo network using <highlight>File &rarr; Open...</highlight>.</li>
                 <li>To see node labels, select <highlight>View &rarr; Show Graphics Details</highlight>.</li>
-				<li>You should now see the network on the right.</li>
+				<li>The network will open with the default style, similar to the network on the right:</li>
 			</ul>
     
-		<!--<div class="cybrowser">
-			<ul>
-				<div style="width:40%;float:right; margin-left: 10px">
-					<img src="BasicDataVizDemoLoaded.png">
-				</div>
-				<li>Start Cytoscape and load the demo session.</li>
-
-				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/BasicDataVizDemo.xgmml');" value="Load network"/>
-				<li>When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, we can use the <b>Fit Content</b> function.</li>
-				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view fit content');" value="Fit content"/>
-									
-				<li>You should now see the network on the right.</li>
-			</ul>
-		</div>-->
+            <p>To learn more about <b>importing networks from local files</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-network-data/#/0/13" target="_blank">Loading Networks Tutorial</a>.</p>
 
 		<aside class="notes" data-markdown>
 		Add speaker notes here...
@@ -53,8 +40,8 @@
 
 	<section>
 		<h3>Visualizing Expression Data on Networks</h3>
-		<p>Probably the most common use of expression data in Cytoscape is to set the visual properties of the nodes in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will show an example of doing this.</p>
-		<p>The data used in this example is from yeast, and the genes <b>Gal1</b>, <b>Gal4</b>, and <b>Gal80</b> are all yeast transcription factors. The experiments all involve some perturbation of these transcription factor genes.
+		<p>Probably the most common use of expression data in Cytoscape is to set the <b>visual properties</b> of the nodes (color, shape, border) in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will show an example of doing this.</p>
+		<p>The data used in this example is from yeast, and represents an experiment of perturbations of the genes <b>Gal1</b>, <b>Gal4</b>, and <b>Gal80</b>, which are all yeast transcription factors.
             
 		<aside class="notes" data-markdown>
 Add speaker notes here...
@@ -63,12 +50,12 @@ Add speaker notes here...
 
     
 	<section>
-        <p>The experimental data is visible in the Node Table:</p><br />
+        <p>For this tutorial, the experimental data was part of the Cytoscape session file you loaded earlier, and is visible in the <b>Node Table</b>:</p><br />
 		<ul>
 			<img plain src="modules/loading-omics-data/Galbrowse3.png" style="width:80%"><br /><br />
-			<li>Selecting one or more nodes in the network will update the table to show only the corresponding row(s)</li>
             <li>You can select nodes in the network by <highlight>Shift + Click and Drag</highlight> or by <highlight>Shift + clicking on multiple nodes</highlight></li>
-        
+			<li>Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s)</li>
+            
 		</ul>
 		<p>To learn more about <b>importing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/loading-omics-data/#/" target="_blank">Loading Omics Data Tutorial</a>.</p>
 
@@ -78,10 +65,10 @@ Add speaker notes here...
 	</section>
 
     <section>
-		<p>We are going to map the following node attributes to visual style properties:</p>
+		<p>We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:</p>
 		<ul>
-			<li>The "gal80Rexp" expression values will be mapped to node color</li>
-			<li>Node border width will be mapped to significance for expression values</li>
+			<li>The "gal80Rexp" expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red</li>
+			<li>Significance for expression values will be mapped to Node border width, so nodes with significant changes will appear with a thicker border</li>
 		</ul>
 	</section>
 
@@ -92,9 +79,12 @@ Add speaker notes here...
     <li>Find <highlight>Fill Color</highlight> in the list of properties and expand it to view the mapping options.</li>
 	<li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select "gal80Rexp" in the drop-down.</li>
 	<li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <highlight>Continuous Mapping</highlight> in the drop-down.</li>
-    <li>This produces a default gradient ranging from blue to red. Let's keep this as our node fill color.</li>
+    <li>This produces a default gradient ranging from blue to red for expression values. Notice that the nodes in the network change color. <br />For our purposes, this default gradient works so we don't need to edit it.</li>
     </ul><br /><br />
         <img src="../protocols/modules/basic-data-visualization/NodeFillMapping.png" style="width:40%">
+            
+        <p>To learn more about <b>changing node color</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/mapping-data/#/0/3" target="_blank">Visualizing Expression Data Tutorial</a>.</p>
+            
         <aside class="notes" data-markdown>
             Add speaker notes here...
         </aside>
@@ -102,13 +92,12 @@ Add speaker notes here...
 
      <section>
 	<h3>Set Default Node Color</h3>
-	<p>Note that the default node color of pale blue falls within this spectrum. A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.</p>
+	<p>Some nodes in the network don't have any data, and for those nodes, the default color applies. In our case, the default color is blue, which falls within the spectrum of our blue-red gradient. This is not ideal for data visualization, so a useful trick is to choose a color outside the gradient spectrum to distinguish nodes with no defined expression value.</p>
     <ul>
-	<li>Click the <highlight>Def.</highlight> (leftmost) square next to <highlight>Fill Color</highlight> and choose a dark gray color.</li>
+    <li>Still in the <highlight>Style</highlight> tab, under <highlight>Fill Color</highlight>, click the <highlight>Def.</highlight> (leftmost) square next to <highlight>Fill Color</highlight> and choose a dark gray color.</li>
     </ul>
-        <img src="../protocols/modules/basic-data-visualization/StyledNetwork1.png" style="width:40%">
-         <!--<div class="cybrowser">
-    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('node set properties nodeList=all propertyList=&quot;fill color&quot; valueList=&quot;#999999&quot;');" value="Change default node color"/></div> Doesn't work as a button or in command line dialog-->
+        <!--<img src="../protocols/modules/basic-data-visualization/StyledNetwork1.png" style="width:40%">-->
+         <img src="../protocols/modules/basic-data-visualization/NodeFillDefaultMapping.png" style="width:40%">
          <aside class="notes" data-markdown>
              Add speaker notes here...
          </aside>
@@ -120,10 +109,10 @@ Add speaker notes here...
             <li>Click on the middle square (<highlight>Map.</highlight>) next to the <highlight>Border Width</highlight> row in the <highlight>Styles</highlight> panel.</li>
             <li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select "gal80Rsig" in the drop-down.</li>
             <li>Click the <highlight>-- select value--</highlight> cell in the <b>Mapping Type</b> section, and select <b>Continuous Mapping</b> in the drop-down.</li>
-            <li>Double-click on the default gradient.</li>
-            <img src="NodeBorderGradient.png" style="width:35%">
-            <li>Click on <b>Set Min and Max...</b> and set the max to "0.05". Click OK to save.</li>
-            <li>The range is now set for only significant p values (0 - 0.05). Click on the handle (triangle) for the max value and set the value to 10 in the <highlight>Node Border Width</highlight> field.</li>
+            <li>Double-click on the default gradient, which defines the node border width over the range of p values.</li><br />
+            <img src="NodeBorderGradient.png" style="width:35%"><br />
+            <li>First, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <b>Set Min and Max...</b> and set the max to "0.05". Click OK to save.</li>
+            <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to 10 in the <highlight>Node Border Width</highlight> field. </li>
         </ul><br /><br />
         <p>To learn more about <b>visualizing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/mapping-data/#/" target="_blank">Visualizing Expression Data Tutorial</a>.</p>
         
@@ -131,22 +120,21 @@ Add speaker notes here...
 
 	<section>
     <h3>Layouts</h3>
+        <p>An important aspect of network visualization is the layout, meaning the positioning of nodes and edges. Our network had a preset layout in the original file you imported, but this can be changed.</p>
         <ul>
-                <li>Let's change the layout to <b>Degree Sorted Circle Layout</b> by selecting <highlight>Layout &rarr; Degree Sorted Circle Layout</highlight>. In this layout, the highest degree node is at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on degree.</li>
+                <li>Let's change the layout to <b>Degree Sorted Circle Layout</b> by selecting <highlight>Layout &rarr; Degree Sorted Circle Layout</highlight>. In this layout, nodes are sorted by degree (connectedness), with the highest degree node at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on decreasing degree.</li>
+        </ul>
+        <div class="fragment current-visible">
+        <img src="../protocols/modules/basic-data-visualization/DegreeSorted.png" style="width:30%">
+        </div>
+        <div class="fragment">
+        <ul>
                 <li>We can now change the layout to a force-directed layout instead, which will work better with this network.
                 An easy way to apply the <b>Prefuse Force-directed Layout</b> is by clicking the <highlight>Preferred Layout</highlight> <img src="PreferredLayoutButton.png"> in the toolbar. The preferred layout algorithm can be changed under <highlight>Layout &rarr; Settings...</highlight>.</li> 
+        <img src="../protocols/modules/basic-data-visualizationForceDirected.png" style="width:30%">
         </ul>
-        
-<!--			<div class="cybrowser">
-                <ul>
-                <li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes.</li>
-                <li>Let's change the layout to Circular Layout.</li>
-				<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout circular');" value="Apply Circular Layout"/>
-                </ul>
-			</div>-->
+        </div>
 
-
-<!--<img plain src="Galfiltered-Edge-Weighted.png" style="width:40%">-->
 		<p>Cytoscape supports many different layout algorithms, described in detail in the 
 		<a href="http://manual.cytoscape.org/en/stable/Navigation_and_Layout.html?highlight=layout#automatic-layout-algorithms" target="_blank">Cytoscape manual</a>. </p>
 
@@ -157,22 +145,25 @@ Add speaker notes here...
 
 	<section>
 		<h3>Select Nodes</h3>
-        <p>Next, lets select a subset of nodes with high expression in the gal80 knockout:</p>
+        <p>Cytoscape allows you to easily filter and select nodes and edges based on data attributes. Next, we will select a subset of nodes with high expression in the gal80 knockout:</p>
 				<ul>
 					<li>Go to the <highlight>Select</highlight> tab in the Cytoscape Control Panel (the leftmost panel).</li>
-					<li>Click on the <highlight>+</highlight> and create a <highlight>Column Filter</highlight>.</li>
-					<li>Click on <highlight>Choose column...</highlight> and select <highlight>Node: gal80Rexp</highlight></li>
-					<li>Using the slider, specify values of <b>2</b> or higher by changing the minimum value to 2.</li>
+					<li>Click on the <highlight>+</highlight> buttin and select <highlight>Column Filter</highlight>.</li>
+					<li>Under <highlight>Choose column...</highlight>, select <highlight>Node: gal80Rexp</highlight>. Notice how all the nodes in the network are selected at first.</li>
+					<li>Using the slider or the input fileds, specify values of <b>2</b> or higher by changing the minimum value to 2.</li>
 				</ul>
-			<p>You should now see a few nodes in the network selected.</p>
-
+			<p>You should now see only a few nodes in the network selected (highlighted yellow).</p>
+        
+        <p>To learn more about <b>filtering and selection</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/filtering-by-selection/#/" target="_blank">Flitering by Selection Tutorial</a>.</p>
+        
 		<aside class="notes" data-markdown>
 		Add speaker notes here...
 		</aside>
 	</section>
 
 	<section>	
-        <p>Now we can expand the selection of nodes:</p>
+        <h3>Expand Selection and Create New Network</h3>
+        <p>We have now selected only the few top expressing nodes. To see the context of these nodes in the larger network, we can expand the selection of nodes to include the nodes connecting to the selected nodes, i.e. the first neighbors. Once we have that larger selection, we can create a new network.</p>
         <ul>
             <li>Select the first neighbors of selected nodes by clicking the <highlight>First Neighbors of Selected Nodes (undirected)</highlight> button <img src="FirstNeighborsButton.png"> in the toolbar.</li>
             <li>Create a new network from the current selection by clicking the <highlight>New Network From Selection (all edges)</highlight> button <img src="NewNetworkFromSelectionButton.png"> in the toolbar.</li>
@@ -186,7 +177,7 @@ Add speaker notes here...
 	</section>
 
 <section>
-    <p>The new network should now look like this:</p>
+    <p>Your new network will look similar to this:</p>
     <img src="../protocols/modules/basic-data-visualization/FinalNetwork.png" style="width:45%">
 </section>
 
@@ -195,7 +186,7 @@ Add speaker notes here...
 	<ul>
 		<li>Right-click on any node (for example GAL4).</li>
 		<li>Select the menu <highlight>External Links → Sequences and Proteins → Ensembl Gene View → yeast</highlight>.</li>
-		<li>This action will pop-up a browser window and search the Ensembl database for the term "YPL248C", the name of the node.</li>
+		<li>This will launch a browser window and search the Ensembl database for the term "YPL248C", the name of the node.</li>
 	</ul>
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
