@@ -111,8 +111,8 @@ Add speaker notes here...
             <li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select "gal80Rsig" in the drop-down.</li>
             <li>Click the <highlight>-- select value--</highlight> cell in the <b>Mapping Type</b> section, and select <b>Continuous Mapping</b> in the drop-down.</li>
             <li>Double-click on the default gradient, which defines the node border width over the range of p values.</li>
-        </ul>
-            <img src="NodeBorderGradient.png" style="width:35%">
+        </ul><br />
+            <img src="NodeBorderGradient.png" style="width:30%"><br />
         <ul>
             <li>First, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <b>Set Min and Max...</b> and set the max to "0.05". Click OK to save.</li>
             <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to 10 in the <highlight>Node Border Width</highlight> field. </li>
@@ -124,19 +124,13 @@ Add speaker notes here...
 	<section>
     <h3>Layouts</h3>
         <p>An important aspect of network visualization is the layout, meaning the positioning of nodes and edges. Our network had a preset layout in the original file you imported, but this can be changed.</p>
-        <div class="fragment current-visible">
         <ul>
                 <li>Let's change the layout to <b>Degree Sorted Circle Layout</b> by selecting <highlight>Layout &rarr; Degree Sorted Circle Layout</highlight>. In this layout, nodes are sorted by degree (connectedness), with the highest degree node at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on decreasing degree.</li>
-        <img src="../protocols/modules/basic-data-visualization/DegreeSorted.png" style="width:30%">
         </ul>
-        </div>
-        <div class="fragment">
+        <p>For this network, a degree-sorted circle layout may not be the most effective. Instead, let's try a force-directed layout instead, which may work better with this network.</p>
         <ul>
-                <li>We can now change the layout to a force-directed layout instead, which will work better with this network.
-                An easy way to apply the <b>Prefuse Force-directed Layout</b> is by clicking the <highlight>Preferred Layout</highlight> <img src="PreferredLayoutButton.png"> in the toolbar. The preferred layout algorithm can be changed under <highlight>Layout &rarr; Settings...</highlight>.</li> 
-        <img src="../protocols/modules/basic-data-visualization/ForceDirected.png" style="width:30%">
+                <li>An easy way to apply the <b>Prefuse Force-directed Layout</b> is by clicking the <highlight>Preferred Layout</highlight> <img src="PreferredLayoutButton.png"> in the toolbar. The preferred layout algorithm can be changed under <highlight>Layout &rarr; Settings...</highlight>.</li> 
         </ul>
-        </div>
         
         <div class="fragment">
 		<p>Cytoscape supports many different layout algorithms, described in detail in the 
