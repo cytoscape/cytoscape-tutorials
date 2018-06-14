@@ -43,11 +43,11 @@ Use arrow keys, "space" or the on-screen arrows (lower right) to navigate the sl
 You can access training materials at any time via a web browser. All content is tested in the latest versions of Firefox and Chrome. Simply navigate to the corresponding url, e.g., 
 
 ```
-https://cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation.html
+https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/index.html
 ```
 
 #### Offline
-You can also generate a PDF version of any presentation or protocol and save it as a local file to share or present offline. Note that animated slides do not display as separate slides in PDF form, but rather as single slides in their final form. However, protocols  should be composed in such a way to display properly in PDF. Simply append ```?print-pdf``` to the end of the url for any protocol or protocol module, e.g.,
+You can also generate a PDF version of any presentation or protocol and save it as a local file to share or present offline. Note that animated slides do not display as separate slides in PDF form, but rather as single slides in their final form. However, protocols  should be composed in such a way to display properly in PDF. Simply append ```?print-pdf``` to the end of the url for any protocol, e.g.,
 
 ```
 https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/?print-pdf
@@ -80,11 +80,10 @@ The first thing to notice about our repo is the organization. From the top level
 |     |--intro-cytoscape/
 |     |--(other presentation modules)
 |--protocols/
-|  |--modules/
-|     |--loading-omics-data/
-|     |--(other protocol modules)
+|  |--loading-omics-data/
+|  |--(other protocols)
 ```
-Each level can contain image assets that are relevant at that level. For example, images that are likely to only be needed in a single module should be kept in that module's directory. Images that might be useful to many tutorials should be kept in the top level's ```assets/images```. 
+Each level can contain image assets that are relevant at that level. For example, images that are needed referenced by the html a directory should be kept in that directory. Images that are actively being used across many tutorials are kept in the top level's ```assets/images```. 
 
 Each level will have named html files or ```index.html``` files, which are the files that one presents and shares. Modules directories will also have ```module.html``` files which contain the slide content that is referenced and pulled into the presentable html files. For example, the ```index.html``` file for the ```intro-cytoscape``` module includes reveal headers, scripts and this line of code to pull in the slide content:
 
@@ -105,11 +104,14 @@ Say you want to present a topic in detail, but it is not covered by any of the e
 
    See a [presentation module template](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html) and [code](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/modules/template-a) to see how to build a module and how sample slides are formatted. Note how the ```moduled.html``` file is simply a set of ```<section>``` tags; while the ```index.html``` is generic wrapper you can copy/paste to make your sections work as a reveal.js presentation. The Style section below will cover most of the aspects of reveal you'll need to know to build a set of slides. 
 
+3. **Composing a protocol**
+In contrast to presentations, protocols are easier to prepare. Since protocols work best as brief, self-guided lessons, they are organized as a single level of subdirectories; one for each protocol. Simply copy one of the existing protocol template directories and rename it. Then you can replace the template ```sections``` with your slide content.
+
 ## Style
 We have developed [custom themes for Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/css/theme). These stylesheets provide settings and features tailored for our content, making it easier to put together (and reuse) training materials in this repo. Review how to use these customizations below...
 
 ### Version
-To help develop training material that is accurate and current, we developed a custom footer and variable to specify the version of Cytoscape that the content pertains to. You can update the version tag in the title slide of your presentation/protocol in the module.html files within the footer div:
+To help develop training material that is accurate and current, we developed a custom footer and variable to specify the version of Cytoscape that the content pertains to. You can update the version tag in the title slide of your presentation/protocol files within the footer div:
 ```
 <version>3.5.1</version>
 ```
