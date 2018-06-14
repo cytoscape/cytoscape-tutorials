@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cytoscape App tutorial template</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+<h1>Template Tutorial</h1>
+<p>The reveal framework includes a large set of features and components. This template reviews a core set of components that are useful for Cytoscape tutorials. See links below for complete documentation.</p>
+<ul>              
+<li><a href="https://github.com/cytoscape/cytoscape-tutorials/blob/gh-pages/README.md">Cytoscape Tutorials Using Reveal</a><ul style="list-style-type:none"><li><i>- Detailed information on all reveal components used for Cytoscape tutorials</i></li></ul></li>
+<li><a href="https://github.com/cytoscape/cytoscape-tutorials/blob/gh-pages/reveal-readme.md">General reveal.js documentation</a><ul style="list-style-type:none"><li><i>- Complete documentation for the reveal framework</i></li></ul></li>
+</ul>
+<p>To get started, open <b>module.html</b> and <b>index.html</b> located in <b>protocols/module/template-app</b>. Review how <b>module.htlm</b> is pulled in from the <b>index.html</b> wrapper.</p>
+</section>
+
+<!-- The section tag defines one slide. The "highlight" tag is used for important text. -->
+<section id='intro'>
+<h1>Template Tutorial</h1>
+<h4>Introduction</h4>
+<p>Use the first slide to introduce your app/workflow and the tutorial content, including links to your <a href="http://apps.cytoscape.org/apps/wikipathways">tool</a>. If you don't have a dedicated setup slide, any <highlight>specific installation instructions</highlight> can be included here.</p>
+</section>
+
+<!--This is a slide with text in the form of a list, a figure and a citation -->
+<section id='list-image-cit'>
+<h1>Template Tutorial</h1>
+<h4>List, Image and Citation</h4>
+<p>Here, a brief bullet point list is used to introduce some features of the app, and a citation is provided.</p><br />
+<!-- The figure is placed on the right side using "float:right" and is sized using "width"-->
+<img style="float:right;width:45%" src="WP-App.png">
+<ul style="width:45%">
+	<li>Search hundreds of pathways directly from Cytoscape</li>
+	<li>Import pathways as pathway or network</li>
+	<li>Visualize data or use for network analysis</li>
+</ul>
+<br />
+<!--Citation is styled in a smaller font -->
+<small style="margin-top:40px;">Kutmon (2014) WikiPathways App for Cytoscape: Making biological pathways amenable to network analysis and visualization. <em>F1000Res</em>, 2014 Jul 1</small>
+</section>
+
+<!-- This is a slide with two-column layout -->
+<section id='two-columns'>
+<h1>Template Tutorial</h1>
+<h4>Two-column slide layout</h4>
+<p>The two-column slide layout is convenient for placing text. This example shows two lists of URLs.</p>
+<div class="column">
+<h5><highlight>Cancer pathways</highlight></h5>
+    <ul>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP4262">Breast cancer pathway</a></li>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP4239">EMT in colon cancer</a></li>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP3972">PDGFR-beta pathway</a></li>
+	</ul>
+</div>
+<div class="column">
+<h5><highlight>Disease pathways</highlight></h5>
+	<ul>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP3569">Fanconi Anemia Pathway</a></li>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP2059">Alzheimers Disease</a></li>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP2447">Amyotrophic lateral sclerosis</a></li>
+	</ul>
+</div> 
+</section>
+
+<!-- This is a slide with animation -->
+<section id='frag-list'>
+<h1>Template Tutorial</h1>
+<h4>Animated List Elements</h4>
+<p>Here's an example of an animated list. Click the down or right arrow to step through the list.</p><br />
+<h5><highlight>WikiPathways App Features</highlight></h5>	
+
+<ul>
+    <li>Search hundreds of pathways directly from Cytoscape</li>
+    <li class="fragment">25 species represented</li>
+	<li class="fragment">Import pathways as pathway or network</li>
+	<li class="fragment">Visualize data or use for network analysis</li>
+</ul>
+</section>
+
+<!-- This slide contains CyBrowser buttons that automate Cytoscape functions in CyBrowser -->
+<section id='cybrowser'>
+<h1>Template Tutorial</h1>
+<h4>CyBrowser and CyCommands interactivity</h4>
+<p><b>CyBrowser</b> allows for viewing any html page in Cytoscape. Together with CyCommands, this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network can be included.</p>
+<p>With some css and javascript included in the <b>Cytoscape tutorial style</b> it is possible to selectively view content exclusively in CyBrowser and regular browser, respectively.</p>
+<div class="not-cybrowser">
+<p><highlight>You are viewing this tutorial outside of CyBrowser, launch Cytoscape, open CyBrowser and navigate to this tutorial to see content visible only in CyBrowser.</highlight></p>
+</div>
+<div class="cybrowser">
+<p><highlight>Click the button to import a simple network!</highlight></p>
+<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
+<br /><br />
+</div>
+</section>
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+                
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>

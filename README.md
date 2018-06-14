@@ -50,7 +50,7 @@ https://cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automatio
 You can also generate a PDF version of any presentation or protocol and save it as a local file to share or present offline. Note that animated slides do not display as separate slides in PDF form, but rather as single slides in their final form. However, protocols  should be composed in such a way to display properly in PDF. Simply append ```?print-pdf``` to the end of the url for any protocol or protocol module, e.g.,
 
 ```
-https://cytoscape.github.io/cytoscape-tutorials/protocols/modules/basic-data-visualization/?print-pdf
+https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/?print-pdf
 ```
 Then choose File>Print... and set the orientation to ```landscape``` and Save to PDF. Verify that the page breaks are correct throughout the presentation. For longer presentations, you may need to generate the PDF using an alternative approach, see [Decktape and PhantomJS](https://github.com/astefanutti/decktape). Example usage:
 

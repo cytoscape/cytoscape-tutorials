@@ -1,0 +1,296 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Loading Network Data</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+<h1>Loading Network Data</h1>
+<p>In Cytoscape, network data can be loaded from a variety of sources, and in several different formats. Where you 
+    get your network data depends on your biological question and analysis plan. This tutorial outlines how to load network data from several popular sources and formats. To learn more about finding network data,
+    see our <a href="https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/finding-network-data/index.html">Finding Network Data</a> presentation.</p>
+<ol>
+    <li>Public databases</li>
+    <ul>
+    <li><highlight>NDEx</highlight></li>
+    <li><highlight>PSICQUIC</highlight></li>
+    <li><highlight>STRING/STITCH</highlight></li>
+    <li><highlight>WikiPathways</highlight></li>
+    </ul>
+    <li>Local and remote files</li>
+    <li>Cytoscape apps (Biopax, KEGG and other formats)</li>
+    
+</ol>
+<div class="footer" style="position: absolute; left: -5em; bottom: -3em; ">
+<img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+<version>3.6.1</version>
+</div>   
+</section>
+
+<section>
+<h1>Networks from Public Data</h1>
+<p>Cytoscape includes a <b>Network Search</b> tool at the top of the <b>Network</b> tab in the <b>Control Panel</b> for easy import of public network data. In addition to core apps that are included with your Cytoscape installation (NDEx and PSICQUIC), the resources listed here will depend on which apps you have installed.</p>
+<img plain src="NetworkSearch.png" style="width:50%">
+</section>
+
+<section>
+<h1>NDEx</h1>
+<p>The <a href="http://www.ndexbio.org/">NDEx Project</a> provides an open-source framework where scientists and organizations can share, store, manipulate, and publish biological network knowledge.</p>
+ <img plain src="NDEx-search.png" style="width:50%"><br /><br />
+    <ul>
+    <li>To search NDEx, select it from the <b>Network Search</b> tool drop-down.</li>
+    <li>Type in your search terms and click "Enter" to search.</li>  
+    </ul>
+</section>
+
+<section>
+<ul>
+    <li>Results listing all relevant NDEx networks will open in the CyNDEx2 browser. Select one or more networks to import by clicking the <b>Import</b> button to the left.</li>
+</ul>
+<br /><br />
+<img plain src="ndex-results.png" style="width:52%;float:left;vertical-align:middle">
+<div class="fragment">
+<img plain src="ndex-network.png" style="width:40%;float:right;vertical-align:middle">   
+
+<ul>
+<br />
+    <li>Results listing all relevant NDEx networks will open in the CyNDEx2 browser. Select one or more networks to import by clicking the <b>Import</b> button to the left.</li>
+</ul> 
+</div>
+</section>
+
+<section>
+<h1>PSICQUIC</h1>
+<p>PSICQUIC contains data from multiple sources and types, including internally curated, experimentally observed and predicted. PSICQUIC web service access in Cytoscape is included as a core app.</p>
+    <img plain src="PSICQUIC-control.png" style="width:50%"><br /><br />
+    <ul>
+        <li>To search PSICQUIC, select it from the <b>Network Search</b> tool drop-down.</li>
+        <li>Type in your search terms and click "Enter" to search.</li>   
+    </ul>
+</section>
+
+<section>
+    <ul>
+        <li>PSICQUIC search results are displayed as a list of data sources to choose from. For this tutorial, select BioGRID and Reactome-FIs.</li>
+        <li>Check the option for <b>Automatic Network Merge</b>. Click <b>Import</b> to continue.</li>
+        </ul>
+    <br /><br />
+<img plain src="PSICQUIC-Results.png" style="width:50%">
+    
+</section>
+
+<section>
+<p>The resulting merged network is a combination of interaction data from BioGrid and Reactome. PSICQUIC includes data from several species, denoted by the different node colors. </p>
+<img plain src="PSICQUIC-network.png" style="width:80%">
+
+</section>
+
+<section>
+<h1>STRING/STITCH</h1>
+<p>STRING is a database of known and predicted protein-protein interactions, and STITCH stored known and predicted interactions between chemicals and proteins. Data types include:</p>
+    <ul>
+    <li>Genomic Context Predictions</li>
+    <li>High-throughput Lab Experiments</li>
+    <li>(Conserved) Co-Expression</li>
+    <li>Automated Textmining</li>
+    <li>Previous Knowledge in Databases</li>
+    </ul>
+</section>
+
+<section>
+    <ul>
+        <li>To search STRING, select <b>STRING disease query</b> in the drop-down at the top of the <b>Network</b> tab in the <b>Control Panel</b> and type your search term.</li>
+        <li>Press enter to search. The resulting network will load automatically:</li>
+    </ul>
+    <br /><br />
+    <div class="fragment">
+        <img plain src="StringDisease.png" style="float:left;width:40%">
+    </div>
+    <div class="fragment">
+        <img plain src="StringDiseaseResults.png" style="float:right;width:40%">
+    </div>
+</section>
+
+<section>
+<ul>
+<li>Networks load with a STRING-specific style, which includes 3D protein structure diagrams.</li>
+<li>STRING networks also inlcude data as node/interaction attributes, that can be used to create a <b>Style</b>.</li>
+<li>The STRING app includes options to change interaction confidence level, expand the network etc.</li>
+</ul>   
+<img plain src="StringDetail.png" style="width:50%">
+</section>
+
+<section>
+<h1>WikiPathways</h1>
+<p><a href="https://www.wikipathways.org">WikiPathways</a> is a collaborative wiki platform with manually pathway models. 
+It currently covers over 2,600 pathways in 25 species-specific collections.</p>
+    <img plain src="WP-search.png" style="width:50%"><br /><br />
+    <ul>
+    <li>To search WikiPathways, select it from the <b>Network Search</b> tool drop-down.</li>
+    <li>Type in your search terms and click "Enter" to search.</li> 
+    </ul>
+</section>
+
+<section>
+ <ul>
+        <li>WikiPathways search results are displayed as a list of all available pathway models matching the search term.</li>
+        <li>To restrict the results to a specific specues, use the <b>Only</b> selector at the top and pick a species from the drop-down.</li>
+        <li>Pathway models will open with the original pathway layout by default. To open the pathway as a network, select the <b>Import as Network</b> option.</li>
+        </ul>
+    <br /><br />
+<img plain src="WikiPathwaysApp-results.png" style="width:50%">
+
+</section>
+
+<section>    
+<p>WikiPathways model imported as <b>pathway</b> and <b>network</b>.</p>
+<img plain src="WP-pathway.png" style="width:55%;float:left">
+<img plain src="WP-network.png" style="width:40%;float:right">
+</section>
+
+<section>
+<h1>Local and Remote Files</h1>
+    <p>Cytoscape can load locally and remotely stored network data files in a variety of file formats:</p>
+    <ul>
+        <li><highlight>SIF</highlight>: Simple interaction format</li>
+        <li><highlight>NNF</highlight>: Nested network format</li>
+        <li><highlight>GML</highlight> and <b>XGMML</b> formats</li>
+        <li><highlight>CYS</highlight>: Cytoscape session file</li>
+        <li>Delimited text and Excel format</li>
+    </ul>
+    
+    
+<!-- shouldnt have buttons for intro tutorial, this content not updated
+  <div class="cybrowser">
+    <ul>
+	<li>Start Cytoscape and load the network <i>galFiltered.sif</i> via <b>File → Import → Network → File....</b></li>
+    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
+    <li>When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, select <b>View  → Fit Content</b>.</li>
+    <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('view fit content');" value="Fit content"/>
+	<li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes. The default layout may be changed under <b>Layout → Settings</b>.</li>
+    </ul>
+    </div> -->
+</section>
+
+<section>
+<h2>Loading SIF files</h2>
+    <p><highlight>SIF</highlight> is a simple interaction format consisting of three columns of data: source, interaction and target. To learn more about the SIF format, see the <a href="http://manual.cytoscape.org/en/stable/Supported_Network_File_Formats.html#sif-format">Cytoscape manual</a>.</p>
+    <div style="float:left;width:60%">
+    <ul>
+    <li>Download <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"><i>galFiltered.sif</i></a>. This sample file is also included with your Cytoscape installation, in the <b>sampleData</b> folder.</li>
+    <li>Load the network via <b>File → Import → Network → File....</b></li>
+    <li>To see the whole network, select <b>View  → Fit Content</b>.</li>
+    </ul>
+    </div>
+    <div style="float:right;width:35%">
+    <img plain src="galFilteredLoaded.png"></div>
+</section>
+
+<section>
+    <h2>Loading XGMML files</h2>
+    <p><highlight>XGMML</highlight> is an XML format and can includes node and edge attributes as well as visual style properties. To learn more about the XGMML format, see the <a href="http://manual.cytoscape.org/en/stable/Supported_Network_File_Formats.html#xgmml-format">Cytoscape manual</a>.</p>
+    <ul style="float:left;width:58%">
+    <li>Go to <b>File → Import → Network → URL....</b> and enter the following URL:</li>
+    <p style="font-size: 18px"><b>https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/BasicDataVizDemo.xgmml</b></p>
+    <li>This is the same network as in the previous step, but with node fill color corresponding to expression values. </li>
+    </ul>
+    <img plain src="galFiltered2Loaded.png" style="float:right;width:40%">
+</section>
+
+<section>
+<h1>Cytoscape apps</h1>
+    <p>The <a href="http://apps.cytoscape.org/">Cytoscape App Store</a> has many apps for importing data in various formats. For example, to find all apps that enable import of Biopax format data, search the App Store for "Biopax". Or to see all apps related to data import, click the <b>online data import</b> category in the left sidebar:</p>
+    <img plain src="AppStoreDataImport.png" style="width:50%">
+</section>
+
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+                controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+                { src: '../../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+                { src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+                { src: '../../plugin/notes/notes.js', async: true },
+                { src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
