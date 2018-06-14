@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cytoscape Workshop: Advanced Automation</title>
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/cytoscape-presentation-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="footer">
+				<img src="../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+				<version>3.6.0</version>
+				<!-- Version numbers are also independently set for each module -->
+			</div>
+			<div class="slides"> 
+				<!-- Customizable title slide -->
+				<section>
+				<img class="plain" src="../assets/images/Cytoscape.png" style="height:100%;margin-bottom:30px;">
+				<h2>Advanced Topic: <highlight>Automation</highlight></h2>
+				<h5><span style="font-size: 70%"><a href="https://cytoscape.github.io/cytoscape-tutorials/presen
+tations/advanced-automation-2017-mpi.html">cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation-2017-mpi.html</a></span></h5>
+				<br /><br />
+				<h4>Max Planck Institute for Biology of Ageing</h4>
+				<h5> 30 Nov 2017</h5>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- General introduction to the goals of the workshop -->
+				<section>
+				<h1>Goals and Motivations</h1>
+				<highlight>By the end of this workshop you should be able to:</highlight>
+				<ul>
+					<li>Know when and how to use Cytoscape</li>
+					<li>Identify relevant types and sources of networks</li>
+					<li>Command programmatic control over Cytoscape </li>
+					<li>Integrate Cytoscape into your bioinformatics pipelines </li>
+					<li>Publish, share and export networks online </li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>				
+
+				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
+				<section>
+				<a href="#" class="navigate-next"><ribbon>Introductions and Concepts</ribbon></a>
+				<a href="#/finding-network-data"><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-challenge" ><ribbon>Network Visualization</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis</ribbon></a>
+				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/R" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Add introduction slides for all presenters -->
+				<section>
+				<section>
+				<h1>Introductions</h1>
+				 <div class="column">
+                                        <highlight>John "Scooter" Morris, UCSF</highlight>
+                                        <ul>
+                                                <li>Adjunct Assistant Prof, Pharmaceutical Chemistry</li>
+                                                <li>Executive Director RBVI</li>
+                                                <li>Cytoscape team since 2006</li>
+                                                <li>Author of over a dozen Cytoscape apps</li>
+                                        </ul>
+                                </div>
+                                <div class="column">
+                                        <highlight>Alex Pico, Gladstone Inst.</highlight><br />
+                                        <ul>
+                                                <li>Associate Director, Bioinformatics</li>
+                                                <li>Executive Director NRNB</li>
+                                                <li>Cytoscape team since 2006</li>
+                                                <li>Author of half a dozen Cytoscape apps</li>
+                                        </ul>
+                                </div>
+				</section>
+
+				<!-- Don't forget to survey who your audience is! -->
+				<section>
+				<h1>Introductions</h1>
+				<div style="margin-left:200px;">
+					<img class="plain fragment fade-right" style="float:left; height:350px; margin:80px 0  0 0;" src="introduction-distro.png">
+					<p><highlight>What about you?</highlight></p>
+					<ul  style="display:block;margin-left:260px">
+						<li>Clinicians</li>
+						<li>Bench Biologists</li>
+						<li>Bioinformaticians</li>
+						<li>Computer Scientists</li>
+						<li>Chemists</li>
+						<li>Mathematicians</li>
+						<li>Other</li>
+					</ul>
+				</div>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+				<!-- Cytoscape experience -->
+				<section>
+				<h1>Introductions</h1>
+				<p><highlight>Cytoscape/Network Analysis experience?</highlight></p>
+				<ul>
+								<li class="fragment">None -- that's what I'm here for...</li>
+								<li class="fragment">Some network analysis, but what's Cytoscape?</li>
+								<li class="fragment">I've played with Cytoscape, but only for figures</li>
+								<li class="fragment">I do a lot with networks, but mostly in R/Python/Matlab/...</li>
+								<li class="fragment">I do a lot with networks, and use Cytoscape occasionally</li>
+								<li class="fragment">Lots of both <span class="fragment">(hey, I could probabaly teach this course!)</span></li>
+				</ul>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+				</section>
+
+				<!-- Links to modules within the Introduction & Concepts section -->
+				<section id="intro-network-biology" data-external="modules/intro-network-biology/module.html"></section>
+
+				<section id="intro-cytoscape" data-external="modules/intro-cytoscape/module.html"></section>
+				<section id="finding-network-data" data-external="modules/finding-network-data/module.html"></section>
+
+				<!-- Overview update slide -->
+				<section>
+				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive" ><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-challenge" ><ribbon>Network Visualization</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis</ribbon></a>
+				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/R" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Links to modules within the Visualization and Analysis section -->
+				<section id="network-challenge" data-external="modules/network-challenge/module.html"></section>
+                                <section id="network-taxonomy" data-external="modules/network-taxonomy/module.html"></section>
+				<section id="network-visualization" data-external="modules/network-visualization/module.html"></section>
+				<section id="network-analysis" data-external="modules/network-analysis/module.html"></section>
+
+				<!-- Introduce the dataset and biological question -->
+				<section id="intro-automation" data-external="modules/intro-automation/module.html"></section>
+
+				<section>
+				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive" ><ribbon>Finding Network Data</ribbon></a>
+				<a class="inactive" ><ribbon>Network Visualization</ribbon></a>
+				<a class="inactive" ><ribbon>Network Analysis</ribbon></a>
+				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/R" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Wrap up with helpful links -->
+				<section>
+				<h1>Thank You!</h1>                                <highlight>Here are additional resources you may find useful:</highlight>
+				<ul>
+					<li><a href="http://manual.cytoscape.org" target="_blank">manual.cytoscape.org</a></li>
+					<li><a href="http://tutorials.cytoscape.org" target="_blank">tutorials.cytoscape.org</a></li>
+					<li><a href="http://apps.cytoscape.org" target="_blank">apps.cytoscape.org</a></li>                                        <li><a href="http://cytoscape-publications.tumblr.com/" target="_blank">cytoscape-publications.tumblr.com/</a></li>
+					<li><a href="https://groups.google.com/forum/#!forum/cytoscape-helpdesk" target="_blank">cytoscape-helpdesk@googlegroups.com</a></li>
+					<li><a href="https://groups.google.com/forum/#!forum/cytoscape-app-dev" target="_blank">cytoscape-app-dev@googlegroups.com</a></li>
+					<li><a href="http://nrnb.org/training.html" target="_blank">nrnb.org/training.html</a></li>
+					<li><a href="https://www.surveymonkey.com/r/cytoscape" target="_blank"><blink>surveymonkey.com/r/cytoscape</blink></a></li>	
+				</ul>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: "c",
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../plugin/markdown/marked.js' },
+				{ src: '../plugin/markdown/markdown.js' },
+				{ src: '../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../plugin/notes/notes.js', async: true },
+				{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
