@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Tour of Cytoscape</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+<h1>Tour of Cytoscape</h1>
+<p>This tutorial represents a high-level tour of the features of Cytoscape. Detailed instructions for specific features are provided in separate tutorials linked to from each section.</p>
+<div class="cybrowser">
+<p>This tutorial is designed to run as a demo in the CyBrowser app, with interactive buttons for each task.</p>
+    </div>
+<div class="footer" style="position: absolute;left: 0em;bottom: -15em; ">
+    <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+<version>3.6.1</version>
+</div>
+</section>
+
+<section>
+<h1>Cytoscape Interface</h1>
+<img src="Welcome_36_annotated.png" style="width:70%">    
+</section>
+
+<section>
+<h1>Retrieving Networks</h1>
+<p>Cytoscape accepts network data in a variety of formats and from multiple sources, including many public interaction and network databases. This tutorial uses data from the <a href="https://string-db.org/"><highlight>STRING database</highlight></a> representing genes associated with breast cancer (pictured below).</p>
+<div style="float:left; width:53%">  
+<img src="string-bc.png"></div> 
+<div class="cybrowser">
+<input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/STRING-BreastCancer.xgmml');" value="Load network"/><br />
+</div>
+<div style="position:absolute;left:25em;bottom:1em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-network-data/#/" target="_blank">Learn more about Loading Networks</a></b></p>
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment/#/" target="_blank">Learn more about using STRING</a></b></p>
+</div>
+</section>
+
+<section>
+<h1>Selecting Hub Genes</h1>
+<p>Networks can be filtered, and nodes selected, based on associated data or network properties. The STRING database provides many node and edge attributes that we can use to explore the network. For example, we can use the "disease score" attribute to select the top 2 genes, and then select first neighbors of these, thereby using the network connectivity together with the data to direct discovery.</p>
+<p>The figure below shows a selection of top two nodes and their first neighbors.</p>
+<div style="float:left; width:53%">  
+    <img src="select-nodes.png"></div>
+<div class="cybrowser">
+<input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;9606.ENSP00000324856,9606.ENSP00000265433&quot;');" value="Select top genes"/><br />
+<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any network=current');" value="Select first neighbors"/>
+</div>
+<div style="position:absolute;left:25em;bottom:1em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/filtering-by-selection/#/" target="_blank">Learn more about Filtering by Selection</a></b></p>
+</div>
+</section>
+
+<section>
+<h1>Creating Subnetwork</h1>
+<p>New networks can easily be created in Cytoscape from a selection of nodes and edges. Now that we have the top genes and their neighbors selected, we can create a subnetwork of this more focused subset of the network.</p>
+<p>Once the network is created, we can apply a layout algorithm to help visualize the network. Networks in Cytoscape can be manually manipulated in terms of layout, but Cytoscape also supports a large collection of automatic layout algorithms. Layout algorithms are available under the <highlight>Layout</highlight> menu.</p>
+<div style="float:left; width:30%">  
+    <img src="sub-layout.png"></div>
+<div class="cybrowser">
+<input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create excludeEdges=false networkName=subnetwork nodeList=selected source=current');" value="Create subnetwork"/><br />
+<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout kamada-kawai m_nodeDistanceRestLengthConstant=70 network=current');" value="Apply Layout"/>
+    
+</div>
+<div style="position:absolute;left:25em;bottom:1em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout/#/" target="_blank">Learn more about Layouts</a></b></p>
+</div>
+</section>
+
+<section>
+<h1>Loading Data</h1>
+<p>Cytoscape allows the user to add node, edge and network data as node/edge/network data columns. This could include annotation data for genes, protein-protein interaction confidence scores as well as transcriptomics data. Data is visible in the Table Panel.</p>
+<p>We are going to load mutation data and expression data from the <a href="https://tcga-data.nci.nih.gov/docs/publications/brca_2012/">TCGA breast cancer dataset</a> which includes a wide variety of data types, including genomic DNA copy number arrays, DNA methylation, exome sequencing, mRNA arrays, microRNA sequencing and reverse phase protein arrays.</p>
+<div style="float:left; width:45%">  
+    <img src="table-panel.png"></div>
+<div class="cybrowser">
+<input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/bcr-expr.txt KeyColumnForMapping=&quot;display name&quot; caseSensitiveNetworkCollectionKeys=false caseSensitiveNetworkKeys=false firstRowAsColumnNames=true TargetNetworkList=subnetwork keyColumnIndex=1 startLoadRow=1');" value="Load expression data"/><br />
+<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/bcr-mut.txt KeyColumnForMapping=&quot;display name&quot; caseSensitiveNetworkCollectionKeys=false caseSensitiveNetworkKeys=false firstRowAsColumnNames=true TargetNetworkList=subnetwork keyColumnIndex=1 startLoadRow=1');" value="Load mutation data"/></div>
+<div style="position:absolute;left:25em;bottom:1em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-omics-data/#/" target="_blank">Learn more about Loading Data</a></b></p>  
+</div>
+</section>
+    
+<section>
+<h1>Setting Styles</h1>
+<p>One of Cytoscape’s strengths in network visualization is the ability to allow users to encode any table data (name, type, degree, weight, expression data, etc.) as a property (such as color, size of node, transparency, or font type) of the network. A set of these encoded or mapped table data sets is called a Style.</p>
+<div style="float:left; width:45%">
+<img src="style-expr.png">
+<div class="cybrowser">
+<input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/STRING-BreastCancer_expr.xgmml');" value="Load expression style"/>
+</div>
+</div>
+<div class="fragment" style="float:right; width:45%">
+<img src="style-expr-mut.png">
+<div class="cybrowser">
+<input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/STRING-BreastCancer_expr_mut.xgmml');" value="Load expression/mutation style"/>
+</div></div>
+<div class="fragment" style="position:absolute;left:17em;bottom:-2em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Learn more about Styles</a></b></p> </div>
+</section>
+
+<section>
+	<h1>Saving Results</h1>
+    <p>Cytoscape provides a number of ways to save results and visualizations:</p>
+	<ul>
+					<li>As a session: <b>File&rarr;Save</b>, <b>File&rarr;Save As...</b></li>
+					<li>As an image: <b>File&rarr;Export as Image...</b></li>
+					<li>To the web: <b>File&rarr;Export as Web Page...</b> (<a href="..//saving-results/web_session/index.html">Example</a>)</li>
+		<li>To a public repository: <b>File&rarr;Export&rarr;Network Collection to NDEx</b></li>
+		<li>As a graph format file: <b>File&rarr;Export&rarr;Network</b>. <br/>Formats:
+						<ul>
+										<li>CX JSON</li>
+										<li>Cytoscape.js JSON</li>
+										<li>GraphML</li>
+										<li>PSI-MI</li>
+										<li>XGMML</li>
+										<li>SIF</li>
+                        </ul></li>
+	</ul>
+</section>
+
+<section>
+<h1>Cytoscape Support</h1>
+<ul>
+<li><a href="https://groups.google.com/forum/#!forum/cytoscape-helpdesk" target="_blank">Cytoscape Help Desk</a></li>
+<li><a href="http://chianti.ucsd.edu/cyto_web/bugreport/bugreport.php" target="_blank">Report a bug</a></li>
+<li><a href="http://manual.cytoscape.org/en/stable/" target="_blank">Cytoscape manual</a></li>
+</ul>
+</section>
+
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
