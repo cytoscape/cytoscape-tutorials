@@ -1,0 +1,653 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Network Layout</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+<h1>Cytoscape StringApp</h1>
+<p>In these exercises, we will use the <a
+href="http://apps.cytoscape.org/apps/stringApp">stringApp</a> for
+<a href="http://cytoscape.org/">Cytoscape</a> to retrieve molecular
+networks from the <a href="https://string-db.org/">STRING</a> and
+<a href="http://stitch-db.org/">STITCH</a> databases. The exercises
+will teach you how to:</p>
+
+<ul>
+  <li>retrieve networks for proteins or small-molecule compounds of interest</li>
+  <li>retrieve networks for a disease or an arbitrary topics in PubMed</li>
+  <li>layout and visually style the resulting networks</li>
+  <li>import external data and map them onto a network</li>
+  <li>perform enrichment analyses and visualize the results</li>
+  <li>merge and compare networks</li>
+  <li>select proteins by attributes</li>
+  <li>identify functional modules through network clustering</li>
+</ul>
+<br/><br/><br/><br/><p style="font-size: 60%">The original version of this tutorial was developed by Lars Juhl Jensen of the Novo Nordisk
+Center for Protein Research at the University of Copenhagen.  We thank professor Jensen for his gracious willingness
+to allow us to repackage the content for delivery as a Cytoscape tutorial.</p>
+<div class="footer" style="position: absolute;left: -3em;bottom: -5em; ">
+<img class="plain" src="StringAppLogo.png" style="height:70px;opacity:0.5"> 
+<version>1.3.1</version>
+</div>
+</section>
+
+
+<section>
+<h2>Prerequisites</h2>
+<p>To follow the exercises, please make sure that you have the
+latest version of Cytoscape installed. Then start Cytoscape and go
+to <highlight>Apps → App Manager</highlight> to check for new apps, install
+them and update the current ones if necessarily. The exercises
+require you to have certain Cytoscape apps installed. Search for
+the <highlight>stringApp</highlight> in the search field; if it is not
+already installed, select it and press the <highlight>Install</highlight>
+button to install it. Similarly, make sure you have the <highlight>yFiles
+Layout Algorithms</highlight>, <highlight>enhancedGraphics</highlight>, and
+<highlight>clusterMaker2</highlight> apps installed before closing the
+App Manager.</p>
+
+<p>If you are not already familiar with the STRING database, we highly recommend that 
+you go through the short <a href="https://jensenlab.org/training/string/">STRING exercises</a> 
+provided by the <a href="https://jensenlab.org/">Jensen lab</a> to learn about the 
+underlying data before working with them in these exercises.</p>
+</section>
+
+
+<section>
+<section>
+<h2 id="exercise-1">Exercise 1</h2>
+
+<p>In this exercise, we will perform some simple queries to retrieve
+molecular networks based on a protein, a small-molecule compound,
+a disease, and a topic in PubMed.</p> 
+</section>
+
+<section>
+
+<h3 id="11-protein-queries">1.1 Protein queries</h3>
+
+<p>Go to the menu <highlight>File → Import → Network → Public
+Databases</highlight>. In the import dialog, choose <highlight>STRING:
+protein query</highlight> as <highlight>Data Source</highlight> and
+type your favorite protein into the <highlight>Enter protein names
+or identifiers</highlight> field (e.g. SORCS2). You can select the
+appropriate organism by typing the name (e.g. Homo sapiens). The
+<highlight>Maximum number of interactors</highlight> determines how
+many interaction partners of your protein(s) of interest will be
+added to the network. By default, if you enter only one protein
+name, the resulting network will contain 10 additional interactors.
+If you enter more than one protein name, the network will contain
+only the interactions among these proteins, unless you explicitly
+ask for additional proteins.</p>
+
+<p>Unless the name(s) you entered give unambiguous matches, a
+disambiguation dialog will be shown next. It lists all the matches
+that the stringApp finds for each query term and selects the first
+one for each. Select the right one(s) you meant and continue by
+pressing the <highlight>Import</highlight> button.</p>
+
+<div class="cybrowser">
+<p><a href="cycmd:string protein query query=SORCS2 taxonID=9606" class="btn btn-primary">Import SORCS2 network</a></p>
+</div>
+
+<p><em>How many nodes are in the resulting network? How does this
+compare to the maximum number of interactors you specified? What
+types of information does the <highlight>Node Table</highlight>
+provide?</em></p> 
+</section>
+
+<section>
+<h3 id="12-compound-queries">1.2 Compound queries</h3>
+
+<p>Go to the menu <highlight>File → Import → Network → Public
+Databases</highlight>. In the import dialog, choose <highlight>STITCH:
+protein/compound query</highlight> as <highlight>Data Source</highlight>
+and type your favorite compound into the <highlight>Enter protein
+or compound names or identifiers</highlight> field (e.g. imatinib).
+You can select the organism and number of additional interactors
+just like for the protein query above, and the disambiguation dialog
+also works the same way.</p>
+
+<div class="cybrowser">
+<p><a href="cycmd:string compound query query=imatinib taxonID=9606" class="btn  btn-primary">Import imatinib network</a></p>
+</div>
+
+<p><em>How is this network different from the protein-only network
+with respect to node types and the information provided in the
+<highlight>Node Table</highlight>?</em></p> 
+</section>
+
+<section>
+<h3 id="13-disease-queries">1.3 Disease queries</h3>
+
+<p>Go to the menu <highlight>File → Import → Network → Public
+Databases</highlight>. In the import dialog, choose <highlight>STRING:
+disease query</highlight> as <highlight>Data Source</highlight> and
+type a disease of interest into the <highlight>Enter disease
+term</highlight> field (e.g. Alzheimer’s disease). The stringApp
+will retrieve a STRING network for the top-N proteins (by default
+100) associated with the disease.</p>
+
+<p>The next dialog shows all the matches that the stringApp finds
+for your disease query and selects the first one. Make sure to
+select the intended disease before pressing the
+<highlight>Import</highlight> button to continue.</p>
+
+<div class="cybrowser">
+<p><a href="cycmd:string disease query disease=DOID:10652 taxonID=9606 limit=100" class="btn  btn-primary">Import Alzheimer’s disease network</a></p>
+</div>
+
+<p><em>Which additional attribute column do you get in the <highlight>Node Table</highlight> for a disease query compared to a protein query? (Hint: check the last column.)</em></p>
+</section>
+
+<section>
+<h3 id="14-pubmed-queries">1.4 PubMed queries</h3>
+
+<p>Go to the menu <highlight>File → Import → Network → Public
+Databases</highlight>. In the import dialog, choose <highlight>STRING:
+PubMed query</highlight> as <highlight>Data Source</highlight> and
+type query representing a topic of interest into the <highlight>PubMed
+Query</highlight> field (e.g. jet-lag). You can use any query that
+would work on the PubMed website, but it should obviously a topic
+with related genes or proteins. The stringApp will query PubMed for
+the abstracts, find the top-N proteins (by default 100) associated
+with these abstracts, and retrieve a STRING network for them.</p>
+
+<div class="cybrowser">
+<p><a href="cycmd:string pubmed query pubmed=jet-lag taxonID=9606 limit=50" class="btn  btn-primary">Import jet-lag network</a></p>
+</div>
+
+<p><em>Which attribute column do you get in the <highlight>Node Table</highlight> for a PubMed query compared to a disease query? (Hint: check the last columns.)</em></p>
+</section>
+
+<section>
+<h3 id="15-new-search-interface">1.5 New search interface</h3>
+
+<p>The types of queries described above can alternatively be performed
+through the new Cytoscape search interface. Click on the drop-down
+menu with an icon on it, located on the left side below the
+<highlight>Network</highlight> tab in the <highlight>Control
+Panel</highlight>. Select one of the four possible STRING queries
+and directly enter your query in the text field. To change settings
+such as organism, click the ☰ button next to the text field. Finally,
+click the 🔍 button to retrieve a STRING network for your query.</p>
+</section> </section>
+
+<section>
+<section>
+
+<h2 id="exercise-2">Exercise 2</h2>
+
+<p>In this exercise, we will work with a list of 78 proteins that
+interact with TrkA (tropomyosin-related kinase A) in neuroblastoma
+cells 10 min after stimulation with NGF (nerve growth factor) (<a
+href="http://stke.sciencemag.org/content/8/374/ra40">Emdal et al.,
+2015</a>). An adapted table with the data from this study is available
+<a href="../data/Emdal2015SciSignal.xlsx">here</a>.</p>
+
+</section>
+
+<section>
+
+<h3 id="21-protein-network-retrieval">2.1 Protein network retrieval</h3>
+
+<p>Start Cytoscape or open a new session from the menu <highlight>File
+→ New → Session</highlight>. Go to the menu <highlight>File → Import
+→ Network → Public Databases</highlight>. In the import dialog,
+choose <highlight>STRING: protein query</highlight> as the
+<highlight>Data Source</highlight> and paste the list of UniProt
+accession numbers from the first column in the table into the
+<highlight>Enter protein names or identifiers</highlight> field.</p>
+
+<p>Next, the disambiguation dialog shows all STRING proteins that
+match the query terms, with the first protein for each query term
+automatically selected. This default is fine for this exercise;
+click the <highlight>Import</highlight> button to continue.</p>
+
+<p><em>How many nodes and edges are there in the resulting network? Do the proteins all form a connected network? Why?</em></p>
+
+<p>Cytoscape provides several visualization options under the
+<highlight>Layout</highlight> menu. Experiment with these and find
+one that allows you to see the shape of the network easily. For
+example, you can try the <highlight>Degree Sorted Circle
+Layout</highlight>, the <highlight>Prefuse Force Directed
+Layout</highlight> with <highlight>score</highlight> as edge weight,
+and <highlight>yFiles Organic Layout</highlight>.</p>
+
+<p><em>Can you find a layout that allows you to easily recognize patterns in the network? What about the Edge-weighted Spring Embedded Layout with the attribute ‘score’, which is the combined STRING interaction score.</em></p>
+</section>
+
+<section>
+
+<h3 id="22-discrete-color-mapping">2.2.1 Discrete color mapping</h3>
+
+<p>Cytoscape allows you to map attributes of the nodes and edges
+to visual properties such as node color and edge width. Here, we
+will map drug target family data from the <a
+href="https://pharos.nih.gov/idg/targets">Pharos</a> database to
+the node color.</p>
+
+<p>Select <highlight>Style</highlight> from the top menu in the
+left panel (it is between <highlight>Network</highlight> and
+<highlight>Select</highlight>). Click the <highlight>◀</highlight>
+button to the right of the property you want to change, in this
+case <highlight>Fill Color</highlight>, and set
+<highlight>Column</highlight> to the node column containing the
+data that you want to use (i.e. <highlight>target family</highlight>).
+This action will remove the rainbow coloring of the nodes and present
+you with a list of all the different values of the attribute that
+are exist in the network.</p>
+
+<p><em>Which target families are present in the network?</em></p>
+
+
+</section>
+<section>
+<h3 id="22-discrete-color-mapping">2.2.2 Discrete color mapping</h3>
+
+<p>To color the corresponding proteins, first click the field to
+the right of an attribute value, i.e. <highlight>GPCR</highlight>
+or <highlight>Kinase</highlight>, then click the <highlight>⋯</highlight>
+button and choose a color from color selection dialog. You can also
+set a default color, e.g. for all nodes that do not have a target
+family annotation from Pharos, by clicking on the white button in
+the first column of the same row.</p>
+
+<p><em>How many of the proteins in the network are kinases?</em></p>
+
+<p>Note that the retrieved network contains a lot of additional
+information associated with the nodes and edges, such as the protein
+sequence, tissue expression data (Node Table) as well as the
+confidence scores for the different interaction evidences (Edge
+Table). In the following, we will explore these data using
+Cytoscape.</p> 
+
+</section>
+<section>
+
+<h3 id="231-data-import">2.3.1 Data import</h3>
+
+<p>Network nodes and edges can have additional information associated
+with them that we can load into Cytoscape and use for visualization.
+We will import the data from an ExCEL spreadsheet derived from data
+provided in the paper mentioned above.
+Begin by downloading the 
+<a href="../data/Emdal2015SciSignal.xlsx"> data file</a>.
+</p>
+
+</section>
+<section>
+<h3 id="231-data-import">2.3.2 Data import</h3>
+
+<p>To import the node attributes file into Cytoscape, go to
+<highlight>File → Import → Table → File</highlight>, then
+select the file you downloaded in the previous step.  The preview
+in the import dialog will show how the file is interpreted given
+the current settings and will update automatically when you change
+them. To change the default selection chosen by Cytoscape, click
+on the arrow in the column heading. For example, you can decide
+whether the column is imported or not by changing the
+<highlight>Meaning</highlight> of the column (hover over each symbol
+with the mouse to see what they mean). This column-specific dialog
+will also allow you to change the column name and type.</p>
+
+<p>Now you need to map unique identifiers between the entries in
+the data and the nodes in the network. The key point of this is to
+identify which nodes in the network are equivalent to which entries
+in the table. This enables mapping of data values into visual
+properties like Fill Color and Shape. This kind of mapping is
+typically done by comparing the unique Identifier attribute value
+for each node (Key Column for Network) with the unique Identifier
+value for each data value (key symbol). As a default, Cytoscape
+looks for an attribute value of ‘ID’ in the network and a user-supplied
+Key in the dataset.</p>
+
+</section>
+<section>
+<h3 id="232-data-import">2.3.3 Data import</h3>
+<p>The <highlight>Key Column</highlight> for Network can be changed
+using a combo box and allows you to set the node attribute column
+that is to be used as key to map to. In this case it is <highlight>query
+term</highlight> because this attribute contains the UniProt accession
+numbers you entered when retrieving the network. You can also change
+the Key by pressing the key button for the column that is to be
+used as key for mapping values in the dataset.</p>
+
+<p>If there is a match between the value of a Key in the dataset
+and the value the Key Column for Network field in the network, all
+attribute–value pairs associated with the element in the dataset
+are assigned to the matching node in the network. You will find the
+imported columns at the end of the Node Table.</p>
+
+</section>
+<section>
+
+<h3 id="241-continuous-color-mapping">2.4.1 Continuous color mapping</h3>
+
+<p>Now, we want to color the nodes according to the protein abundance
+(log ratio) compared to the cells before NGF treatment. From the
+left panel top menu, select <highlight>Style</highlight> (it is to
+the right of <highlight>Network</highlight>). Then click on the
+<highlight>◀</highlight> button to the right of the property you
+want to change, for example <highlight>Fill Color</highlight>. Next,
+set <highlight>Column</highlight> to the node column containing the
+data that you want to use (10 min log ratio). Since this is a numeric
+value, we will use the <highlight>Continuous Mapping</highlight>
+as the <highlight>Mapping Type</highlight>, and set a color gradient
+for how abundant each protein is. The default Cytoscape color
+gradient blue-white-red already gives a nice visualization of the
+negative-to-positive abundance ratio.</p>
+<p><em>Are the up-regulated nodes grouped together?</em></p>
+
+</section>
+<section>
+
+<h3 id="242-continuous-color-mapping">2.4.2 Continuous color mapping</h3>
+<p>To change the colors, double click on the color gradient in order
+to bring up the <highlight>Continuous Mapping Editor</highlight>
+window and edit the colors for the continuous mapping. In the mapping
+editor dialog, the color that will be used for the minimum value
+is on the left, and the max is on the right. Double click on the
+triangles on the top and sides of the gradient to change the colors.
+The triangles on the top represent the values at which the data
+will be clipped; anything above the right triangle will be set to
+the max value. This is useful if you have a small number of values
+that are significantly higher than the median. To have three colors,
+you need to add a new triangle (for the white color) by pressing
+the Add button and set the Handle position value to 0. As you move
+the triangles and change the color, the display in the network pane
+will automatically update — so this is all easier to do than to
+explain! If at any point it doesn’t seem to work as expected, it
+is easiest to just delete the mapping and start again.</p>
+
+<p><em>Can you improve the color mapping such that it is easier to see which nodes have a log ratio below -2 and above 2?</em></p>
+
+</section>
+<section>
+
+<h3 id="251-functional-enrichment">2.5.1 Functional enrichment</h3>
+
+<p>Next, we will retrieve functional enrichment for the proteins
+in our network. After making sure that no nodes are selected in the
+network, go to the menu <highlight>Apps → STRING Enrichment →
+Retrieve functional enrichment</highlight> and keep the default
+p-value of 0.05. A new STRING Enrichment tab will appear in the
+Table Panel on the bottom. It contains a table of enriched terms
+and corresponding information for each enrichment category.</p>
+
+<div class="cybrowser">
+<p><a href="cycmd:string retrieve enrichment cutoff=0.05" class="btn  btn-primary">Retrieve functional enrichment</a></p>
+</div>
+
+<p><em>Which are the three most statistically significant terms?</em></p>
+
+</section>
+<section>
+
+<h3 id="252-functional-enrichment">2.5.2 Functional enrichment</h3>
+<p>To explore only specific types of terms, e.g. GO terms, and to
+remove redundant terms from the table, click on the filter icon in
+the <highlight>Table panel</highlight> (leftmost icon). Select the
+three types of GO terms, enable the option to <highlight>Remove
+redundant terms</highlight> and set <highlight>Redundancy
+cutoff</highlight> to 0.2. In this way, you will see only the
+statistically significant GO terms that do not represent largely
+the same set of proteins within the network. You can see which
+proteins are annotated with a given term by selecting the term in
+the <highlight>STRING Enrichment</highlight> panel.</p>
+
+<p><em>Do the functional terms assigned to a protein correlate with whether it is up- or down-regulated?</em></p>
+
+</section>
+<section>
+
+<h3 id="253-functional-enrichment">2.5.3 Functional enrichment</h3>
+<p>Next, we will visualize the top-3 enriched terms in the network
+by using split charts. Click the settings icon (rightmost icon) and
+set the <highlight>Number of terms</highlight> to chart to 3; you
+can optionally also <highlight>Change Color Palette</highlight>
+before clicking <highlight>OK</highlight> to confirm the new settings.
+Click the colorful chart icon to show the terms as the charts on
+the network.</p>
+
+<p><em>Do these terms give good coverage of the proteins in network?</em></p>
+
+<p>Finally, save the list of enriched terms and associated p-values
+as a text file by going to <highlight>File → Export → Export STRING
+Enrichment</highlight>.</p> </section> </section>
+
+<section>
+<section>
+
+<h2 id="exercise-3">Exercise 3</h2>
+
+<p>We are going to use the stringApp to query the <a
+href="https://diseases.jensenlab.org">DISEASES</a> database for
+proteins associated with Parkinson’s disease and with Alzheimer’s
+disease, retrieve STRING networks for both, created a combined
+network for the two neurodegenerative diseases, identify clusters
+in the network, and color it to compare the diseases.</p> </section>
+<section>
+
+<h3 id="31-disease-network-retrieval">3.1 Disease network retrieval</h3>
+
+<p>Open a new session in Cytoscape from the menu <highlight>File →
+New → Session</highlight>. Use the menu <highlight>File → Import →
+Network → Public Databases</highlight> and the <highlight>STRING:
+disease query</highlight> option. Retrieve a network for
+<highlight>Parkinson’s disease</highlight> and another for
+<highlight>Alzheimer’s disease</highlight>.</p>
+
+<div class="cybrowser">
+<p><a href="cycmd:string disease query disease=DOID:14330 taxonID=9606 limit=100" class="btn  btn-primary">Import Parkinson’s disease network</a> <a href="cycmd:string disease query disease=DOID:10652 taxonID=9606 limit=100" class="btn  btn-primary">Import Alzheimer’s disease network</a></p>
+</div>
+</section>
+<section>
+
+<h3 id="32-working-with-node-attributes">3.2. Working with node attributes</h3>
+
+<p>Browse through the node attributes table and find the disease
+score column. Sort it descending by values to see the highest disease
+scores. You can highlight the corresponding nodes by selecting the
+rows in the table, bringing up the context menu (right-click the
+selected rows) and choosing the ‘Select nodes from selected rows’
+option. You can also use one of the icons in the menu to zoom into
+the selected node.</p>
+
+<p>Look for an example for a node with a disease score of 5 and one with a disease score below 4.</p>
+
+<p>Rename the <highlight>disease score</highlight> columns in the
+two networks to <highlight>PD score</highlight> and <highlight>AD
+score</highlight>, respectively, by right-clicking the name and
+choosing the <highlight>Rename column</highlight> option.</p>
+
+<div class="cybrowser">
+<p><a href="cycmd:table rename column columnName=&quot;disease score&quot; newColumnName=&quot;PD score&quot; table=&quot;String Network - Parkinson's disease default node" class="btn  btn-primary">Rename disease score to PD score</a> <a href="cycmd:table rename column columnName=&quot;disease score&quot; newColumnName=&quot;AD score&quot; table=&quot;String Network - Alzheimer's disease default node" class="btn  btn-primary">Rename disease score to AD score</a></p>
+</div>
+</section>
+<section>
+
+<h3 id="331-merging-networks">3.3.1 Merging networks</h3>
+
+<p>Cytoscape provides functionality to merge two or more networks,
+building either their union, intersection or difference. To merge
+the two disease networks go to the menu <highlight>Tools → Merge →
+Networks</highlight>. Select the two disease networks in the
+<highlight>Available Networks</highlight> list and move them to the
+<highlight>Networks to Merge</highlight> list by clicking the
+<highlight>&gt;</highlight> button. Make sure the
+<highlight>Union</highlight> button is selected and click the
+<highlight>Merge</highlight> button.</p>
+
+<p><em>How many nodes and edges are there in the merged network compared to the two individual disease networks?</em></p>
+
+</section>
+<section>
+
+<h3 id="332-merging-networks">3.3.2 Merging networks</h3>
+<p>Because the merged network was not created by the stringApp, but
+rather by Cytoscape’s merge tool based on two separately retrieved
+STRING networks, we now have two problems. First, Cytoscape does
+not know the merged network is a STRING network, and most menu
+points in the stringApp menu are thus grayed out; fix this by going
+to the menu <highlight>Apps → STRING → Set as STRING network</highlight>.
+Second, because the two disease networks were retrieved separately,
+the merged network does not contain any interactions between proteins
+involved only in Parkinson’s disease and proteins involved only in
+Alzheimer’s disease, even if the proteins interact according to
+STRING. To solve this, first go to the menu <highlight>Apps → STRING
+→ Change confidence menu</highlight>, set the <highlight>New
+confidence cutoff</highlight> to 1, and press <highlight>OK</highlight>;
+this will remove all STRING interactions, leaving only the proteins.
+Then bring up the same dialog and lower the confidence cutoff back
+down to 0.4; the stringApp will now query the server again to
+retrieve interactions among all the proteins.</p>
+
+<p><em>How many nodes and edges does the network contain compared to before?</em></p>
+</section>
+<section>
+
+<h3 id="34-network-clustering">3.4 Network clustering</h3>
+
+<p>Next, we will use the MCL algorithm to find identify clusters
+of tightly connected proteins within the combined network. Go to
+the menu <highlight>Apps → clusterMaker → MCL Cluster</highlight>.
+Set the <highlight>Granularity parameter (inflation value)</highlight>
+to 4 and choose the <highlight>score</highlight> attribute (i.e.
+the overall STRING confidence score) as <highlight>Array
+Sources</highlight>, select the option <highlight>Create new clustered
+network</highlight>, and click <highlight>OK</highlight> to start
+the clustering. The app will now run the algorithm and automatically
+create a network showing the clusters.</p>
+
+<div class="cybrowser">
+<p><a href="cycmd:cluster mcl attribute=score inflation_parameter=4 showUI=true" class="btn  btn-primary">Cluster network</a></p>
+</div>
+
+<p><em>How many clusters have at least 4 nodes?</em></p>
+</section>
+<section>
+
+<h3 id="35-selection-filters-and-visual-style-bypass">3.5 Selection filters and visual style bypass</h3>
+
+<p>Finally, we want to color the nodes based on which disease(s)
+the proteins are involved in. To do so we will make use of selection
+filters to select nodes based on their attributes and the visual
+style bypass to explicitly specify the colors of individual nodes.</p>
+
+<p>First, to select all proteins associated with Alzheimer’s disease,
+go to the <highlight>Select</highlight> tab, click the
+<highlight>+</highlight> button, and choose <highlight>Column
+Filter</highlight>. Select <highlight>Node: AD score</highlight>
+in the drop-down menu and the 100 nodes associated with Alzheimer’s
+disease will be highlighted yellow in the network. Next, go to the
+<highlight>Style</highlight> tab and click the square just left of
+<highlight>Fill color</highlight> to set a bypass color for the
+selected nodes (e.g. red). Repeat this process for the node attribute
+column <highlight>Node: PD score</highlight> and choose different
+color (e.g. blue).</p>
+
+<p>To select the nodes that are shared between the diseases, go to
+the <highlight>Select</highlight> tab and create two column filters,
+one for <highlight>Node: AD score</highlight> and one for
+<highlight>Node: PD score</highlight>. Since the filters by default
+are combined using the <highlight>Match all (AND)</highlight> rule,
+only the nodes that have both scores will be selected. Go to the
+<highlight>Style</highlight> tab to set a third bypass color for
+this last group.</p>
+
+<p><em>How are the two diseases distributed across the clusters?</em></p>
+</section
+</section>
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+                controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+                
+                { src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+                { src: '../../plugin/notes/notes.js', async: true },
+                { src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
