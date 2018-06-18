@@ -49,19 +49,15 @@ Add speaker notes here...
 </section>
 
 <section>
-<div class="not-cybrowser">
 <h1>Loading network data</h1>
     
     <ul  style="width:45%">
         <li>Launch Cytoscape and if the <b>stringApp</b> is not installed, install it from the <a href="http://apps.cytoscape.org/apps/stringapp">App Store.</a></li>
-        <li>In the <b>Network Search</b> tool at the top of the <b>Network</b> tab in the <b>Control Panel</b>, select <b>STRING disease query</b> from the drop-down.</li>
-        <li>Type in "breast cancer" and click <b>Enter</b> to search.</li>
+        <li>In the <highlight>Network Search</highlight> tool at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>STRING disease query</highlight> from the drop-down.</li>
+        <li>Type in "breast cancer" and click <highlight>Enter</highlight> to search.</li>
     </ul>
        
-    <img plain src="string-bc.png" style="float:right;width:45%">
-    
-</div>
-
+    <img plain src="../../assets/images/string-bc-color.png" style="float:right;width:45%">
 
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -69,17 +65,14 @@ Add speaker notes here...
 </section>
 
 <section>
-<div class="not-cybrowser">
 <h1>Selecting nodes based on degree</h1>
     <p>Every node in a network has a <b>Degree</b> property, which corresponds to the number of edges connecting the node to other nodes, either as a target or source. Filtering based on node degree is a useful way to remove nodes with too few or too many connections.</p>
     <ul>
-        <li>Click on the <b>Select</b> tab of the <b>Control Panel</b>.</li>
-        <li>Click on the drop-down to the right and select <b>Create New Filter</b>. Enter a name for your filter, for example "node degree".</li>
-        <li>Click the + (add) button and select <b>Degree Filter</b>.</li>
+        <li>Click on the <highlight>Select</highlight> tab of the <highlight>Control Panel</highlight>.</li>
+        <li>Click on the drop-down to the right and select <highlight>Create New Filter</highlight>. Enter a name for your filter, for example "node degree".</li>
+        <li>Click the <highlight>+</highlight> (add) button and select <highlight>Degree Filter</highlight>.</li>
         <li>Leave the default selections for the two drop-downs (<b>In + Out</b> and <b>in</b>), and adjust the slider to include nodes with degree between 3 and 50. This will select all nodes with degree 3 or more.</li>
-    </ul>
-</div>
-    
+    </ul>    
     
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -89,7 +82,7 @@ Add speaker notes here...
 <section>
 <p>The filter will be automatically applied. At the bottom of the <b>Select</b> tab, you can see how many edges/nodes where selected. A set of 59 nodes have been selected in your network. The main component of your network should now look like this, notice the yellow highlighted selected nodes:</p>
 
-    <img plain src="string-bc-degree.png" style="width:50%">
+    <img plain src="../../assets/images/string-bc-degree.png" style="width:50%">
 		
     
 <aside class="notes" data-markdown>
@@ -98,34 +91,32 @@ Add speaker notes here...
 </section>
 
 <section>
-<div class=not-cybrowser> 
 <h1>Creating a subnetwork from a selection</h1>
     <p>We can now create a new network, or subnetwork, from our selected set of nodes.</p>
 <ul>
-    <li>With the 59 nodes still selected, go to <b>New &rarr; Network &rarr; From selected nodes, all edges</b>.</li>
+    <li>With the 59 nodes still selected, go to <highlight>New &rarr; Network &rarr; From selected nodes, all edges</highlight>.</li>
     <li>The new network will look similar to this:</li>
 </ul>
-<img plain src="string-bc-subnet1.png" style="width:60%">
+<img plain src="../../assets/images/string-bc-subnet1.png" style="width:60%">
 
-</div>
 </section>
     
 <section>
     <h1>Selecting nodes based on attributes</h1>
     <p>To further filter the network, we can prune out nodes with low <b>disease score</b>. The disease score comes from STRING and indicates the strength of the association to the disease queried. </p>
     <ul>
-        <li>Click on the <b>Select</b> tab of the <b>Control Panel</b>.</li>
-        <li>Click on the drop-down to the right and select <b>Create New Filter</b>. Enter a name for your filter, for example "disease score".</li>
-        <li>Click the + (add) button and select <b>Column Filter</b>. In the <b>Choose column...</b> drop-down, select <b>Node: disease score</b>.</li>
+        <li>Click on the <highlight>Select</highlight> tab of the <highlight>Control Panel</highlight>.</li>
+        <li>Click on the drop-down to the right and select <highlight>Create New Filter</highlight>. Enter a name for your filter, for example "disease score".</li>
+        <li>Click the <highlight>+</highlight> (add) button and select <highlight>Column Filter</highlight>. In the <highlight>Choose column...</highlight> drop-down, select <highlight>Node: disease score</highlight>.</li>
         <li>In the selection slider, select scores between 4.5 and 5.</li>
-        <li>Again, select <b>New &rarr; Network &rarr; From selected nodes</b>, all edges.</li>
+        <li>Again, select <highlight>New &rarr; Network &rarr; From selected nodes</highlight>, all edges.</li>
     </ul>
 </section>
     
 <section>
-    <p>The final network contains much fewer nodes, but they are the most connected and those most highly associated with disease. If you examine the network you can see several well-known breast cancer oncogenes, for example <highlight>BRCA1</highlight> and <highlight>PTEN</highlight>.</p>
+    <p>The final network contains much fewer nodes, but they are the most connected and those most highly associated with disease. If you examine the network you can see several well-known breast cancer oncogenes, for example <b>BRCA1</b> and <b>PTEN</b>.</p>
     
-    <img plain src="string-bc-final.png" style="width:60%">
+    <img plain src="../../assets/images/string-bc-final.png" style="width:60%">
 
 <aside class="notes" data-markdown>
 Add speaker notes here...
