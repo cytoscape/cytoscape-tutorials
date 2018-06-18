@@ -42,37 +42,37 @@
 <h2>Applying a Layout Algorithm</h2>
 <div style="float:left;width:55%">
     <ul>
-    <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"><i>galFiltered.sif</i> network</a>. This sample file is included with your Cytoscape installation, in the <b>sampleData</b> folder.</li>
-    <li>To see the whole network, select <b>View  → Fit Content</b>.</li>
-    <li>Go to <b>Layout</b> and select <b>Circular Layout</b>.</li>
+    <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"><i>galFiltered.sif</i></a> network. This sample file is included with your Cytoscape installation, in the <b>sampleData</b> folder.</li>
+    <li>To see the whole network, select <highlight>View &rarr; Fit Content</highlight>.</li>
+        <li>Go to <highlight>Layout</highlight> and select <highlight>Circular Layout<</highlight>.</li>
     </ul><br /><br />
     <p class="fragment">
     The <highlight>circular</highlight> algorithm produces layouts that emphasize group and tree structures within a network. It partitions the network by analyzing its connectivity structure, and arranges the partitions as separate circles. The circles themselves are arranged in a radial tree layout fashion.</p>
 </div>
     <div style="float:right;width:45%">
-    <img plain src="circular.png"></div>
+    <img plain src="../../assets/images/circular.png"></div>
 </section>
 
 <section>
 <h2>Examples of Layout Algorithms</h2>
 <p style="float:left;width:55%">The <highlight>Edge-weighted spring-embedded</highlight> layout is based on a “force-directed” paradigm as implemented by Kamada and Kawai (1988). Network nodes are treated like physical objects that repel each other, such as electrons. The connections between nodes are treated like metal springs attached to the pair of nodes. These springs repel or attract their end points according to a force function. The layout algorithm sets the positions of the nodes in a way that minimizes the sum of forces in the network.</p>
-<img plain src="edgeweighted.png" style="float:right;width:40%">
+<img plain src="../../assets/images/edgeweighted.png" style="float:right;width:40%">
 </section>
 
 <section>
     <h2>Examples of Layout Algorithms</h2>
 <p style="float:left;width:50%">The <highlight>Compound Spring Embedder (CoSE) layout</highlight> is based on the traditional force-directed layout algorithm with extensions to handle multi-level nesting (compound nodes), edges between nodes of arbitrary nesting levels and varying node sizes. It is the suggested Cytoscape layout for compound graphs, although it also works very well with noncompound graphs.</p>
-<img plain src="cose.png" style="float:right;width:48%">
+<img plain src="../../assets/images/cose.png" style="float:right;width:48%">
 </section>
 
 <section>
 <h2>Layout Settings</h2>
 <ul>
-    <li>Select <b>Layout &rarr; Settings....</b> to open the Layout Settings dialog.</li>
-<li>To change the settings for a particular algorithm, select it from the <b>Layout Algorithm></b> drop-down. The relevant set of parameters will be displayed.</li>
-<li>When changes are complete, click <b>Apply Layout</b> to apply to your network.</li>
+    <li>Select <highlight>Layout &rarr; Settings....</higlight> to open the <b>Layout Settings</b> dialog.</li>
+<li>To change the settings for a particular algorithm, select it from the <highlight>Layout Algorithm></highlight> drop-down. The relevant set of parameters will be displayed.</li>
+<li>When changes are complete, click <highlight>Apply Layout</highlight> to apply to your network.</li>
 </ul><br /><br />
-<img plain src="layout-settings.png" style="width:38%">
+<img plain src="../../assets/images/layout-settings.png" style="width:38%">
 </section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
