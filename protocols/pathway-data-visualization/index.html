@@ -34,13 +34,13 @@
          <p><a href="https://www.wikipathways.org">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization.</p>
          <p>The data used in this tutorial is available <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.txt">here</a>. The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values). </p>
          <p><highlight>You will need Cytoscape 3.6 with the latest WikiPathways App installed.</highlight></p>
-         <div class="cybrowser">
+<!--         <div class="cybrowser">
          <p>The tutorial is designed to run as a demo in the CyBrowser app, with interactive buttons for each task.</p>
          </div>
          <div class="footer" style="position: absolute;left: -2em;bottom: -3em; ">
              <img class="plain" src="../../assets/images/earth-or-pathway_text.png" style="height:70px;opacity:0.5"> 
              <version>3.6.1</version>
-        </div>
+        </div>-->
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -63,20 +63,20 @@
              
          <section>
              
-         <div class="cybrowser">
+         <!--<div class="cybrowser">
          <ul>
              <li>Select the human "Statin Pathway" and click <b>Import as Pathway</b>, or simply double-click the pathway in the list.</li>
              <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('wikipathways import-as-pathway id=WP430');" value="Import pathway"/>
          </ul><br /><br />
          <img plain src="Statin-pathway.png" style="width:60%">
-         </div>
+         </div>-->
              
-         <div class="not-cybrowser">
+         <!--<div class="not-cybrowser">-->
          <ul>
              <li>Select the human "Statin Pathway" and click <b>Import as Pathway</b>, or simply double-click the pathway in the list.</li>
          </ul><br /><br />
          <img plain src="Statin-pathway.png" style="width:60%">
-         </div>
+         <!--</div>-->
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -86,7 +86,7 @@
          <section>
         
          <h2>Identifier Mapping</h2>
-         <div class="not-cybrowser">
+         <!--<div class="not-cybrowser">-->
          <p>Nodes in pathways from WikiPathways are annotated with identifiers from common public databases, in the <b>XrefId</b> column in the <b>Node Table</b>. The Statin pathway is annotated with mostly Entrez Gene identifiers. Our experimental data is annotated with Ensembl identifiers, so we will map the Entrez ids on the pathway to Ensembl using the IdMapper.</p>
          <p></p>
          <ul>
@@ -95,9 +95,9 @@
              <img plain src="IdMapperInterface.png" style="width:40%"><br /><br />
              <li>Setup the mapping and click <b>OK</b> to continue.</li>
              </ul>
-             </div>
+             <!--</div>-->
              
-          <div class="cybrowser">
+<!--          <div class="cybrowser">
          <p>Nodes in pathways from WikiPathways are annotated with identifiers from common public databases, in the <b>XrefId</b> column in the <b>Node Table</b>. The Statin pathway is annotated with mostly Entrez Gene identifiers. Our experimental data is annotated with Ensembl identifiers, so we will map the Entrez ids on the pathway to Ensembl using the IdMapper.</p>
          <p></p>
          <ul>
@@ -107,7 +107,7 @@
              <li>Setup the mapping and click <b>OK</b> to continue.</li>
              <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('idmapper map column source_column=XrefId source_selection=&quot;Entrez Gene&quot; species=Human target_selection=Ensembl');" value="Map identifiers"/>
          </ul>
-             </div>
+             </div>-->
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -126,7 +126,7 @@
          
          <section>
              
-         <div class="not-cybrowser">
+         <!--<div class="not-cybrowser">-->
          <h2>Data Import</h2>
          <p>Now that we have added Ensembl identifiers to the pathway, we can use this new column to map the experimental data.</p>
          <ul>
@@ -135,9 +135,9 @@
          <li>In the <b>Key Column for Network</b> drop-down, select the new "Ensembl" column.</li>
          <li>In the <b>Preview</b> table, note that the "Gene ID" column is already selected as the key.</li>
          </ul>
-         </div>
+         <!--</div>-->
              
-         <div class="cybrowser">
+<!--         <div class="cybrowser">
          <h2>Data Import</h2>
          <p>Now that we have added Ensembl identifiers to the pathway, we can use this new column to map the experimental data.</p>
          <ul>
@@ -148,7 +148,7 @@
          
          <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://rawgit.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/WPExpData.txt KeyColumnForMapping=Ensembl KeyColumnForMappingNetworkList=Ensembl firstRowAsColumnNames=true keyColumnIndex=1 TargetNetworkList=&quot;Statin Pathway - Homo Sapiens&quot; startLoadRow=2');" value="Import Data"/>
          </ul>
-         </div>
+         </div>-->
              
          <aside class="notes" data-markdown>
          Notes go here 
