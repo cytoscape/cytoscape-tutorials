@@ -25,7 +25,7 @@
 		<div class="reveal">
 			<div class="footer">
 				<img src="../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-				<version>3.6.0</version>
+				<version>3.6.1</version>
 				<!-- Version numbers are also independently set for each module -->
 			</div>
 			<div class="slides"> 
@@ -34,10 +34,10 @@
 				<img class="plain" src="../assets/images/Cytoscape.png" style="height:100%;margin-bottom:30px;">
 				<h2>Advanced Topic: <highlight>Automation</highlight></h2>
 				<h5><span style="font-size: 70%"><a href="https://cytoscape.github.io/cytoscape-tutorials/presen
-tations/advanced-automation-2017-mpi.html">cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation-2017-mpi.html</a></span></h5>
+tations/advanced-automation-2018-ucsf.html">cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation-2018-ucsf.html</a></span></h5>
 				<br /><br />
-				<h4>Max Planck Institute for Biology of Ageing</h4>
-				<h5> 30 Nov 2017</h5>
+				<h4>Gladstone/UCSF/CCMI/CZ Biohub</h4>
+				<h5>26 June 2018</h5>
 
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
@@ -61,18 +61,20 @@ tations/advanced-automation-2017-mpi.html">cytoscape.github.io/cytoscape-tutoria
 				</aside>
 				</section>				
 
+
 				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
 				<section>
 				<a href="#" class="navigate-next"><ribbon>Introductions and Concepts</ribbon></a>
-				<a href="#/finding-network-data"><ribbon>Finding Network Data</ribbon></a>
-				<a href="#/network-challenge" ><ribbon>Network Visualization</ribbon></a>
-				<a href="#/network-analysis" ><ribbon>Network Analysis</ribbon></a>
-				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/R" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+				<a href="#/guided-tour"><ribbon>Guided Tour of Cytoscape</ribbon></a>
+				<a href="#/network-taxonomy"><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis and Viz</ribbon></a>
+				<a href="#/automation" target="_blank"><ribbon>Cytoscape Automation</ribbon></a>
 
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
 				</aside>
 				</section>
+
 
 				<!-- Add introduction slides for all presenters -->
 				<section>
@@ -123,12 +125,11 @@ tations/advanced-automation-2017-mpi.html">cytoscape.github.io/cytoscape-tutoria
 				<h1>Introductions</h1>
 				<p><highlight>Cytoscape/Network Analysis experience?</highlight></p>
 				<ul>
-								<li class="fragment">None -- that's what I'm here for...</li>
-								<li class="fragment">Some network analysis, but what's Cytoscape?</li>
-								<li class="fragment">I've played with Cytoscape, but only for figures</li>
-								<li class="fragment">I do a lot with networks, but mostly in R/Python/Matlab/...</li>
-								<li class="fragment">I do a lot with networks, and use Cytoscape occasionally</li>
-								<li class="fragment">Lots of both <span class="fragment">(hey, I could probabaly teach this course!)</span></li>
+ 								<li class="fragment">None -- that's what I'm here for!</li>
+								<li class="fragment">Some network analysis, but <em>what's Cytoscape?</em></li>
+								<li class="fragment">I've played with Cytoscape, but still have a lot to learn.</li>
+                                <li class="fragment">I do a lot with networks, but mostly in R/Python/Matlab/...</li>
+								<li class="fragment">I do all of the above... <span class="fragment"><em><br/>(hey, I could probably teach this course!)</em></span></li>           
 				</ul>
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
@@ -140,41 +141,98 @@ tations/advanced-automation-2017-mpi.html">cytoscape.github.io/cytoscape-tutoria
 				<section id="intro-network-biology" data-external="modules/intro-network-biology/module.html"></section>
 
 				<section id="intro-cytoscape" data-external="modules/intro-cytoscape/module.html"></section>
-				<section id="finding-network-data" data-external="modules/finding-network-data/module.html"></section>
+                
+                <!-- How to launch guided tour -->
+                <section id="guided-tour">
+                    <section>
+                    <h1>Tour of Cytoscape</h1>
+                    <img style="width:60%;"  src="modules/intro-cytoscape/launch.png"/>
+                        <br />
+                    <ol>
+	                   <li>Launch Cytoscape v3.6.1</li>
+                    </ol>
+                    <aside class="notes" data-markdown>
+                        Add speaker notes here...
+                    </aside>
+                </section>
+                <section>
+                    <h1>Tour of Cytoscape</h1>
+                    <img style="width:30%;"  src="modules/intro-cytoscape/open-cybrowser.png"/>
+                    <img style="width:60%;margin-left: 40px"  src="modules/intro-cytoscape/open-tutorials.png"/>
+                        <br />
+                    <ol start="2">
+	                    <li>Open CyBrowser</li>
+                        <li>Enter URL: tutorials.cytoscape.org</li>
+                    </ol>
+                    <aside class="notes" data-markdown>
+                        Add speaker notes here...
+                    </aside>
+                </section>
+                    <section>
+                    <h1>Tour of Cytoscape</h1>
+                    <img style="width:50%;"  src="modules/intro-cytoscape/tutorials.png"/>
+                    <img style="width:49%;"  src="modules/intro-cytoscape/tour-start.png"/>
+                        <br />
+                    <ol start="4">
+	                   <li>Click on <b>Tour of Cytoscape</b></li>
+                        <li>Resize window to your preference</li>
+                    </ol>
+                    <aside class="notes" data-markdown>
+                        Add speaker notes here...
+                    </aside>
+                </section>
 
-				<!-- Overview update slide -->
+                    </section>
+                    
+
+				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
 				<section>
 				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
-				<a class="inactive" ><ribbon>Finding Network Data</ribbon></a>
-				<a href="#/network-challenge" ><ribbon>Network Visualization</ribbon></a>
-				<a href="#/network-analysis" ><ribbon>Network Analysis</ribbon></a>
-				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/R" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+				<a class="inactive"><ribbon>Guided Tour of Cytoscape</ribbon></a>
+				<a href="#/network-taxonomy"><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis and Viz</ribbon></a>
+				<a href="#/automation" target="_blank"><ribbon>Cytoscape Automation</ribbon></a>
+
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
 				</aside>
 				</section>
 
-				<!-- Links to modules within the Visualization and Analysis section -->
-				<section id="network-challenge" data-external="modules/network-challenge/module.html"></section>
-                                <section id="network-taxonomy" data-external="modules/network-taxonomy/module.html"></section>
-				<section id="network-visualization" data-external="modules/network-visualization/module.html"></section>
+                <section id="network-taxonomy" data-external="modules/network-taxonomy/module.html"></section>
+                <section id="data-sources" data-external="modules/data-sources/module.html"></section>
+                <section id="finding-network-data" data-external="modules/finding-network-data/module.html"></section>
+                
+				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
+				<section>
+				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive"><ribbon>Guided Tour of Cytoscape</ribbon></a>
+				<a class="inactive"><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis and Viz</ribbon></a>
+				<a href="#/automation" target="_blank"><ribbon>Cytoscape Automation</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+                
 				<section id="network-analysis" data-external="modules/network-analysis/module.html"></section>
-
-				<!-- Introduce the dataset and biological question -->
-				<section id="intro-automation" data-external="modules/intro-automation/module.html"></section>
-
+                <section id="network-visualization" data-external="modules/network-visualization/module.html"></section>
+	
+				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
 				<section>
 				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
-				<a class="inactive" ><ribbon>Finding Network Data</ribbon></a>
-				<a class="inactive" ><ribbon>Network Visualization</ribbon></a>
-				<a class="inactive" ><ribbon>Network Analysis</ribbon></a>
-				<a href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/R" target="_blank"><ribbon>Automation via CyREST</ribbon></a>
+				<a class="inactive"><ribbon>Guided Tour of Cytoscape</ribbon></a>
+				<a class="inactive"><ribbon>Finding Network Data</ribbon></a>
+				<a class="inactive" ><ribbon>Network Analysis and Viz</ribbon></a>
+				<a href="#/automation" target="_blank"><ribbon>Cytoscape Automation</ribbon></a>
 
 				<aside class="notes" data-markdown>
 				Add speaker notes here...
 				</aside>
 				</section>
 
+				<section id="automation" data-external="modules/intro-automation/module.html"></section>
+                
 				<!-- Wrap up with helpful links -->
 				<section>
 				<h1>Thank You!</h1>                                <highlight>Here are additional resources you may find useful:</highlight>
