@@ -92,8 +92,8 @@ Add speaker notes here...
     <section>
 		<p>We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:</p>
 		<ul>
-			<li>The "gal80Rexp" expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red</li>
-			<li>Significance for expression values will be mapped to Node border width, so nodes with significant changes will appear with a thicker border</li>
+			<li>The <b>gal80Rexp</b> expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red</li>
+			<li>Significance for expression values will be mapped to Node Border Width, so nodes with significant changes will appear with a thicker border</li>
 		</ul>
 	</section>
 
@@ -102,7 +102,7 @@ Add speaker notes here...
     <ul>
     <li>Click on the <highlight>Style</highlight> tab in the <highlight>Control Panel</highlight>.</li>
     <li>Find <highlight>Fill Color</highlight> in the list of properties and expand it to view the mapping options.</li>
-	<li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select "gal80Rexp" in the drop-down.</li>
+	<li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <highlight>gal80Rexp</highlight> in the drop-down.</li>
 	<li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <highlight>Continuous Mapping</highlight> in the drop-down.</li>
     <li>This produces a default gradient ranging from blue to red for expression values. Notice that the nodes in the network change color. <br />For our purposes, this default gradient works so we don't need to edit it.</li>
     </ul><br /><br />
@@ -131,7 +131,7 @@ Add speaker notes here...
     <h3>Set Node Border Width</h3>
         <ul>
             <li>Click on the middle square (<highlight>Map.</highlight>) next to the <highlight>Border Width</highlight> row in the <highlight>Styles</highlight> panel.</li>
-            <li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select "gal80Rsig" in the drop-down.</li>
+            <li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <highlight>gal80Rsig</highlight> in the drop-down.</li>
             <li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <b>Continuous Mapping</b> in the drop-down.</li>
             <li>Double-click on the default gradient, which defines the node border width over the range of p values.</li>
         </ul><br />
@@ -205,8 +205,8 @@ Add speaker notes here...
 	<h3>Exploring Nodes</h3>
 	<ul>
 		<li>Right-click on any node (for example GAL4).</li>
-		<li>Select the menu <highlight>External Links → Sequences and Proteins → Ensembl Gene View → yeast</highlight>.</li>
-		<li>This will launch a browser window and search the Ensembl database for the term "YPL248C", the name of the node.</li>
+		<li>Select the menu <highlight>External Links &rarr; Sequences and Proteins → Ensembl Gene View → yeast</highlight>.</li>
+		<li>This will launch a browser window and search the Ensembl database for the term <b>YPL248C</b>, the name of the node.</li>
 	</ul>
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
@@ -218,12 +218,18 @@ Add speaker notes here...
 	GAL4 interacts with GAL80, which shows a significant level of repression: it is medium blue with a thicker border.
 	<p>Note that while GAL80 shows evidence of significant repression, most nodes interacting with GAL4 show significant levels of induction: they are rendered as red rectangles.
 	GAL11 is a general transcription co-factor with many interactions.</p>
-	<p>Putting all of this together, we see that the transcriptional activation activity of Gal4 is repressed by Gal80. So, repression of Gal80 increases the transcriptional activation activity of Gal4. Even though the expression of Gal4 itself did not change much, the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed. This explains why there is so much up-regulation in the vicinity of Gal4.</p>
+	<p>Putting all of this together, we see that the <b><i>transcriptional activation activity of Gal4 is repressed by Gal80</i></b>. So, repression of Gal80 increases the transcriptional activation activity of Gal4. Even though the expression of Gal4 itself did not change much, <b><i>the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed</i></b>. This explains why there is so much up-regulation in the vicinity of Gal4.</p>
 </section>
 
 <section>
     <h3>Summary</h3>
-    <p>In summary, we have explored a yeast interactome from a transcription factor knockout experiment. We created a visual style using expression value as node color and with border width mapped to significance. We selected high expressing genes and their neighbors and created a new network. We can now export this network as a publication-quality image....</p>
+    <p>In summary, we have: </p>
+        <ul>
+        <li>Explored a yeast interactome from a transcription factor knockout experiment</li>
+        <li>Created a visual style using expression value as node color and with border width mapped to significance</li>
+        <li>Selected high expressing genes and their neighbors and created a new network</li>
+        </ul>
+    <p>Finally, we can now export this network as a publication-quality image....</p>
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
 	</aside>
