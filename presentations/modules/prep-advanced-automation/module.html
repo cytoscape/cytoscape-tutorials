@@ -14,14 +14,14 @@
             <li>You will need <a target="_blank" href="https://cloud.r-project.org/">R version 3.5.0 or greater</a></li>
             <li>You will need <a target="_blank" href="https://www.rstudio.com/products/rstudio/download/#download">RStudio 1.1 or greater</a></li>
             <li>You will need Bioconductor 3.7. Simply run these R commands:
-<pre>source("https://bioconductor.org/biocLite.R")
-biocLite()</pre> </li>
+<pre>install.packages("BiocManager")
+BiocManager::install()</pre> </li>
             </ul>
 </section>
 <section>
         <h1>Pre-Workshop Instructions</h1>
         <h3>STEP 3: Install the RCy3 package</h3> 
-    <ul><li><b>OPTION 1:</b> Given that you have the latest Bioconductor installed, you can simply run this R command: <pre>biocLite("RCy3")</pre></li>
+    <ul><li><b>OPTION 1:</b> Given that you have the latest Bioconductor installed, you can simply run this R command: <pre>BiocManager::install("RCy3")</pre></li>
         <li><b>OPTION 2:</b> If you run into troubles or want an alternative to Bioconductor, then you can attempt <a target="_blank" href="https://github.com/cytoscape/RCy3#how-to-install">installing the development code</a></li>
         <li>Additional <a href="https://github.com/cytoscape/RCy3#troubleshooting" target="_blank">troubleshooting tips</a> are also available</li>
 </ul>
