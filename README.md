@@ -52,10 +52,11 @@ You can also generate a PDF version of any presentation or protocol and save it 
 ```
 https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/?print-pdf
 ```
-Then choose File>Print... and set the orientation to ```landscape``` and Save to PDF. Verify that the page breaks are correct throughout the presentation. For longer presentations, you may need to generate the PDF using an alternative approach, see [Decktape and PhantomJS](https://github.com/astefanutti/decktape). Example usage:
+Then choose File>Print... and set the orientation to ```landscape``` and Save to PDF. Verify that the page breaks are correct throughout the presentation. For longer presentations, you may need to generate the PDF using an alternative approach, see [Decktape](https://github.com/astefanutti/decktape). Example usage:
 
 ```
-./phantomjs decktape.js automatic https://cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation.html#/ advanced-automation.pdf
+npm install -g decktape
+decktape automatic https://cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation.html#/ advanced-automation.pdf
 ```
 
 ## Sharing
