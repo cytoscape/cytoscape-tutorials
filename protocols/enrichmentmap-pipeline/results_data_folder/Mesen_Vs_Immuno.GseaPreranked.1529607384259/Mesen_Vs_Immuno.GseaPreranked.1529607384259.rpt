@@ -1,0 +1,20 @@
+producer_class	xtools.gsea.GseaPreranked
+producer_timestamp	1529607384259
+param	scoring_scheme	weighted
+param	norm	meandiv
+param	make_sets	true
+param	gui	false
+param	set_max	200
+param	rnd_seed	timestamp
+param	rpt_label	Mesen_Vs_Immuno
+param	gmx	/Users/risserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/cytoscape-tutorials-reveal/protocols/enrichmentmap-pipeline/Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt
+param	out	/Users/risserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/cytoscape-tutorials-reveal/protocols/enrichmentmap-pipeline/results_data_folder
+param	help	false
+param	zip_report	false
+param	create_svgs	false
+param	set_min	15
+param	nperm	1000
+param	rnk	/Users/risserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/cytoscape-tutorials-reveal/protocols/enrichmentmap-pipeline/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk
+param	plot_top_x	20
+
+file	/Users/risserlin/Dropbox (Bader Lab)/Ruth Isserlin's files/Sourcecode/cytoscape-tutorials-reveal/protocols/enrichmentmap-pipeline/results_data_folder/Mesen_Vs_Immuno.GseaPreranked.1529607384259/index.html
