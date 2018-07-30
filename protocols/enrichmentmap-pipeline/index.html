@@ -1,0 +1,775 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>EnrichmentMap Pipeline</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+
+
+            <section>
+            <h1>Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA and Enrichment Map in Cytoscape</h1>
+            <p>This step-by-step protocol explains how to complete pathway enrichment analysis using <b>g:Profiler</b> (filtered gene list) and <b>GSEA</b> (unfiltered, whole genome, ranked gene list), followed by visualization and interpretation using <b>EnrichmentMap</b>.</p>
+            <ul>              
+                <li><a href="https://biit.cs.ut.ee/gprofiler/">g:Profiler</a><ul style="list-style-type:none"><li><i>- is a web-based thresholded pathway enrichment tool</i></li></ul></li>
+                <li><a href="https://software.broadinstitute.org/gsea/index.jsp">Gene Set Enrichment Analysis(GSEA)</a><ul style="list-style-type:none"><li><i>- is a desktop application that analyzes ranked gene lists using a permutation-based test</i></li></ul></li>
+                <li><a href="http://apps.cytoscape.org/apps/enrichmentmap">EnrichmentMap</a><ul style="list-style-type:none"><li><i>- is a Cytoscape app that visualizes the results from pathway enrichment analysis</i></li></ul></li>
+            </ul>
+            </section>
+
+            <section id='Equipment'>
+            <h1>Software Requirements</h1>
+            <p><highlight>Tools needed for this protocol:</highlight></p>
+                <ul>   
+                    <li><ul style="list-style-type:none">A contemporary web browser (e.g. Chrome) for pathway enrichment analysis with g:Profiler. </ul></li>
+                    <li><ul style="list-style-type:none"><a href = "http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Standard Edition</a> required to run GSEA and Cytoscape. </ul></li>
+                    <li><ul style="list-style-type:none"><a href="http://www.broadinstitute.org/gsea/downloads.jsp">GSEA desktop application</a> for pathway enrichment analysis. </ul></li>
+                    <li><ul style="list-style-type:none"><a href="http://cytoscape.org/download.php">Cytoscape desktop application</a> required for enrichment map visualization. Refer to the <a href="http://manual.cytoscape.org/en/stable/">manual</a> for a basic introduction. </ul></li>
+                    <li><ul style="list-style-type:none">The following Cytoscape apps: </ul></li>
+                    <ul><ul>
+                        <li><a href="http://apps.cytoscape.org/apps/enrichmentmap">EnrichmentMap</a><i>- version 3.1 or higher,</i></li>
+                        <li><a href="http://apps.cytoscape.org/apps/clustermaker2">clusterMaker2</a><i>- version 0.9.5 or higher,</i></li>
+                        <li><a href="http://apps.cytoscape.org/apps/wordcloud">WordCloud</a><i>- version 3.1.0 or higher,</i></li>
+                        <li><a href="http://apps.cytoscape.org/apps/autoannotate">AutoAnnotate</a><i>- version 1.2.0 or higher.</i></li>
+                        <li><i>The above can be conveniently downloaded and installed together by installing the <a href="http://apps.cytoscape.org/apps/enrichmentmappipelinecollection">“EnrichmentMap Pipeline Collection” </a> from the Cytoscape App Store.</i></li>
+                        </ul></ul>              
+                </ul>   
+            </section>
+                
+            
+                
+            <!-- The section tag defines one slide. The "highlight" tag is used for important text. -->
+            <section id='data_gprofiler'>
+            <h1>Data</h1>
+            <p>We provide downloadable example files referred throughout the protocol. We recommend saving all these files in a personal project data folder before starting. We also recommend creating an additional result data folder to save the files generated while performing the protocol.</p><p><highlight>The example data provided for g:Profiler:</highlight></p>
+                <ul>   
+                    <li>A gene list (<a href="https://biit.cs.ut.ee/gprofiler/">g:Profiler</a>)
+                        <ul><ul>
+                            <li><i>A list of genes with frequent somatic single nucleotide variants (SNVs) identified in The Cancer Genome Atlas (TCGA) exome sequencing data of 3,200 tumors of 12 types.The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples. Genes are ranked in decreasing order of significance (FDR q-value) and mutation frequency</i></li>
+                            <li><i><a href="Supplementary_Table1_Cancer_drivers.txt">Supplementary_Table1_Cancer_drivers.txt</a></i></li>
+                        </ul></ul>
+                    </li>
+                </ul>    
+            </section>
+                
+                
+            <section id="data_gsea">
+            <h1>Data - continued</h1>
+            <p><highlight>The example data provided for GSEA:</highlight></p>
+                <ul>   
+                    <li> A ranked gene list of interest(<a href="https://software.broadinstitute.org/gsea/index.jsp">GSEA</a>)
+                        <ul><ul>
+                            <li><i>A list of differentially expressed genes in two subtypes of ovarian cancer defined by TCGA.</i></li>
+                            <li><i>An RNK file is a two-column text file with gene IDs in the first column and gene scores in the second column. All (or most) genes in the genome need to have a score and the gene IDs need to match those used in the GMT file.</i></li>
+                            <li><i> <a href="Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a></i></li>
+                            </ul></ul></li>
+                    
+                    <li> Pathway gene set database(<a href="http://download.baderlab.org/EM_Genesets/current_release/">Baderlab genesets</a>)
+                        <ul><ul>
+                            <li><i>Contains a database of pathway gene sets used for pathway enrichment analysis in the standard GMT format, downloaded from http://baderlab.org/GeneSets. This file contains pathways downloaded on July 1, 2017 from eight data sources: Gene Ontology, Reactome, Panther, NetPath, NCI, MSigDB curated gene sets (C2 collection, excluding Reactome and KEGG), MSigDB Hallmark (H collection) and HumanCyc.</i></li>
+                            <li><i>A GMT file is a text file where every line represents a gene set for a single pathway. Each line includes a pathway ID, name and the list of associated genes in a tab-separated format.</i></li>
+                            <li><i><a href="Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</a></i></li>
+                            </ul></ul></li>
+                </ul>    
+            </section>
+            <section id="setup">
+            <h1>Setup</h1>
+            <p>Dowanload and install the required software.  Download the required input and output files from the supplementary materials of the protocol.</p>
+            <p><highlight>Required Software:</highlight></p>
+                <ol start = "1">
+                    <li><ul style="list-style-type:none">Download the required input and output files from the supplementary materials of the protocol.</ul></li>
+                    <ul><ol style="list-style-type:lower-roman">
+                        <li>Create two directories, <b>project data folder</b> and <b>results data folder</b>.</li>
+                        <li>Place all downloaded input and example output files into the project data folder. </li>
+                        <li>As you progress through the protocol place any newly generated files into the results data folder.</li>
+                    </ol></ul>
+                    <li><ul style="list-style-type:none">Install <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java</a> Version 8 or higher if not already installed.</ul></li>
+                    <li><ul style="list-style-type:none">Download the latest version of <a href="http://www.broadinstitute.org/gsea/downloads.jsp">GSEA</a>. We recommend the javaGSEA desktop application.(Free registratio is required)</ul></li>
+                    <li><ul style="list-style-type:none">Download the latest version of  <a href="http://www.cytoscape.org">Cytoscape</a>. Cytoscape version 3.6.0 or higher is required.</ul></li>
+                </ol>
+            </section>
+            
+            <section id="cytoscape_apps">
+            <h1>Cytoscape Setup</h1>
+                <ol start = "5">
+                    <li><ul style="list-style-type:none">Launch Cytoscape.  Refer to the <a href="http://manual.cytoscape.org/en/stable/">manual</a> for a basic introduction.</ul></li>
+                    <ol style="list-style-type:lower-roman">
+                        <li><ul style="list-style-type:none">Go to Apps --> App manager (i.e., open the Apps menu and select the item “App manager”).</ul></li>
+                        <li><ul style="list-style-type:none">In the Install Apps tab search bar, search for “EnrichmentMap”.</ul></li>
+                        <li><ul style="list-style-type:none">Click on <highlight>EnrichmentMap Pipeline Collection</highlight> in the centre panel. Verify that it is version 1.0.0 or higher.</ul></li>
+                        <li><ul style="list-style-type:none">Click on the Install button.</ul></li>
+                        <li><ul style="list-style-type:none">Go to the Currently Installed tab and verify that the apps (<a href="http://apps.cytoscape.org/apps/enrichmentmap">EnrichmentMap</a>, <a href="http://apps.cytoscape.org/apps/clustermaker2">clusterMaker2</a>, <a href="http://apps.cytoscape.org/apps/wordcloud">WordCloud</a> and <a href="http://apps.cytoscape.org/apps/autoannotate">AutoAnnotate</a>) have been installed.</ul></li>
+                    </ol>
+                    
+                </ol>
+            </section>    
+                
+            <section id="method">
+                <h1>Determine best Pathway Analysis Method </h1>
+                <p>Two major types of gene lists are used in pathway enrichment analysis of omics data. Select A or B, depending on the type of gene list you have.</p>
+                <div class="column">
+                <h5><highlight>A. Flat (unranked) gene lists</highlight></h5>
+                    <ul><ul>
+                        <li><a href="https://biit.cs.ut.ee/gprofiler/">g:Profiler</a></li>
+                        <li>a statistical threshold is required.</li>
+                        <li>Partial, filtered ranked gene lists can also be analyzed with g:Profiler.</li>
+                        <li>Alternate tools: David, ToppGene, Enrichr,GREAT</li>
+                        </ul></ul>
+                </div>
+                <div class="column">
+                <h5><highlight>B. Ranked, whole genome gene lists</highlight></h5>
+                    <ul><ul>
+                        <li><a href="https://software.broadinstitute.org/gsea/index.jsp">GSEA</a></li>
+                        <li>does not require prior filtering using statistical thresholds.</li>                     
+                        <li>Alternate tools:Camera, Roast, GOseq</li>
+                    </ul></ul>
+                </div> 
+            </section>
+                
+            <section id="run_gprofiler">        
+                <section>
+                    <h1>6A. Pathway enrichment analysis of a gene list using g:Profiler </h1>               
+                    <ol style="list-style-type:lower-roman">
+                        <li>Open g:Profiler</li>
+                        <ul>
+                            <li>Launch Browser</li>
+                            <li>Open the g:Profiler website at <a href="http://biit.cs.ut.ee/gprofiler/">http://biit.cs.ut.ee/gprofiler/</a> </li> 
+                        </ul>
+                    </ol>
+                    <br />
+
+                </section>
+
+                <section>
+                    <h3>6A. g:Profiler -Input data and set parameters</h3>
+                    <img style="float:right;width:45%" src="gprofiler_interface_step1.png">
+                    <ol style="list-style-type:lower-roman;width:45%" start = "2">
+                        <li>Paste the gene list (<a href="Supplementary_Table1_Cancer_drivers.txt">gprofiler_genelist_Cancer_drivers.txt</a>) into the Query field in top-left corner of the screen.</li>
+                        <li>Check the box next to <b>Ordered query.</b></li>
+                        <li>Check the box next to <b>No electronic GO annotations. </b></li>
+                        <li>Click on Show Advanced Options </li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h3>6A. g:Profiler -Input data and set parameters - cont'd</h3>
+                    <img style="float:right;width:55%" src="gprofiler_interface_step2.png">
+                    <ol start="6" style="list-style-type:lower-roman;width:35%">
+                        <li>Set filters on gene annotation data using the legend on the right. We recommend that initial pathway enrichment analyses only includes biological processes (BP) of GO and molecular pathways of Reactome. Keep the two checkboxes checked and uncheck all other boxes in the legend. </li>                   
+                    </ol>
+                </section>                
+
+                <section>
+                    <h3>6A. g:Profiler -Input data and set parameters - cont'd</h3>
+                    <div class="row">
+                    <img style="float:right;width:40%" src="gprofiler_interface_step3.png">
+                    <ol style="list-style-type:lower-roman;width:55%" start="7">
+                        <li>Set the dropdown values of <b>Size of functional category</b> to <highlight>5 (‘min’)</highlight> and <highlight>350 (‘max’)</highlight>. Large pathways are of limited interpretative value, while numerous small pathways decrease the statistical power because of excessive multiple testing.</li>
+                        <li>Set the dropdown <b>Size of query/term intersection</b> to <highlight>3</highlight>. The analysis will only consider more reliable pathways that have three or more genes in the input gene list.</li>
+                        <li>Click <b>g:Profile!</b> to run the analysis.  
+                            <ul>
+                                <li>A graphical heat map image will be shown with detected pathways shown along the y axis (left) and associated genes of the input list shown along the x axis (top). Resulting pathways are organized hierarchically into related groups. </li>
+                                
+                                <li>g:Profiler returns only statistically significant pathways with p-values adjusted for multiple testing correction (called q-values).</li>
+                                <li><font color="red"> By default, results with q-values below 0.05 are reported. </font></li>
+                            </ul></li>
+                    </ol>
+                    </div>
+                    <aside class="notes">
+                        <ul>
+                            <li>g:Profiler uses graphical output by default and switches to textual output when a large number of pathways is found.</li>
+                            <li>g:Profiler reports unrecognized and ambiguous gene IDs that can be resolved manually.</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section id="gprofiler_">
+                    <h3>6A. g:Profiler -Input data and set parameters - cont'd</h3>
+                    <img style="float:right;width:45%" src="gprofiler_interface_step4.png">
+                    <ol style="list-style-type:lower-roman;width:45%" start="10">
+                        <li>Use the dropdown menu <b>Output type</b> and select the option <highlight>Generic Enrichment Map (TAB)</highlight>. This file is required for visualizing pathway results with Cytoscape and EnrichmentMap.</li>
+                        <li>Click <b>g:Profile!</b> again to run the analysis with the updated parameters.  
+                            <ul>
+                            <li>The required link <b>Download data in Generic Enrichment Map (GEM) format</b> will appear under the g:Profiler interface.</li>
+                            </ul>
+                        </li>              
+                    </ol>
+                </section>
+                <section id="gprofiler_file_download">
+                    <h3>6A. g:Profiler -Input data and set parameters - cont'd</h3>
+                    <img style="float:right;width:40%" src="gprofiler_interface_step5.png">
+                    <ol style="list-style-type:lower-roman;width:60%" start="11">
+                        <li> cont'd - Download enrichment file.
+                        <ul>
+                            <li> Download the file from the link and save it on your computer in your <b>result data folder</b> created in <a href="#setup"><b>Step 1i</b></a>. Example results are provided in <b>Supplementary_Table4_gprofiler_results.txt</b>.</li></ul>
+                        </li>
+                        <li>Download the required GMT file by clicking on the link <b>name</b> at the bottom of the Advanced Options form. The GMT file is a compressed ZIP archive that contains all gene sets used by g:Profiler (e.g., <b>gprofiler_hsapiens.NAME.gmt.zip</b>). 
+                            <ul>
+                                <li>The gene set files are divided by data source.</li>
+                                <li> Download and uncompress the ZIP archive to your project folder.</li>
+                                <li>All required gene sets for this analysis will be in the file hsapiens.pathways.Name.gmt (<b>Supplementary_Table5_hsapiens.pathways.NAME.gmt</b>).</li>
+                                <li> Place the saved file in your <b>result data folder</b> created in <a href="#setup"><b>Step 1i</b></a>.</li>
+                            </ul>  </li>                      
+                    </ol>
+                </section>
+            </section>
+            <section id="run_gsea">
+                <section id="gsea_interface">
+                    <h1>6B. Pathway enrichment analysis of a ranked gene list using GSEA </h1>
+                    <div class="row">
+                    <img style="float:right;width:25%" src="gsea_logo.png">
+                    <ol style="list-style-type:lower-roman;width:75%">
+                        <li>Launch GSEA by opening the downloaded GSEA file (gsea.jnlp) </li>
+                    </ol>
+                    </div>
+                    <aside class="notes">
+                      <font size="1">    
+                      <font color="red"> TROUBLESHOOTING: Unable to launch GSEA</font> 
+                        <ol>                    
+                            <li>macOS for the first time,
+                            <ul>
+                                <li>error “gsea.jnlp cannot be opened because it is from an unidentified developer”.</li>
+                                <li> Click on “Ok”.</li>
+                                <li> Instead of double clicking on the gsea.jnlp icon/file, right click and select “open”.</li>
+                                <li> The same error will appear but this time it will give you the option to “Open” or “Cancel”. Click on “Open”.</li>
+                                <li> After this initial opening, subsequent double clicks on gsea.jnlp will launch GSEA without errors or warnings.</li>
+                            </ul></li>
+                            <li>If GSEA still fails to launch through the Java Web Start downloaded from the GSEA website,
+                                <ul>
+                                <li>GSEA can alternatively be launched from the command line.</li>
+                                <li> Go to the GSEA download site and download javaGSEA JAR file.</li>
+                                <li>  Open a command line terminal.</li>
+                                <li> navigate to the directory where the file javaGSEA.jar was downloaded.</li>
+                                <li> Run the command "java –Xmx4G –jar gsea-3.0.jar".</li>
+                            </ul></li>
+                        </ol>
+                          </font>
+                    </aside>
+                </section>
+
+                <section id="gsea_interface1">
+                    <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
+                    <img style="float:right;width:50%" src="gsea_interface1.png">
+                    <p><highlight>Load the required data files into GSEA:</highlight></p>
+                    <ol style="list-style-type:lower-roman;width:45%", start = "2">
+                        <li>Click on <b>Load Data</b> in the top left corner in the Steps in GSEA Analysis section. </li>
+                        <li>In the <b>Load Data</b> tab, click on <b>Browse for files …</b></li>
+                        <li>Find your <b>project data folder</b> and select the file <b><a href="Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">ranked genelist file</a></b>.</li>
+                        <ul>                 
+                            <li>Also select the pathway gene set definition (GMT) file using a multiple select method such as shift-click (<b><a href="Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">genesets gmt file</a></b>).</li>
+                            <li> Click the <b>Choose</b> button to continue.</li>
+                            <li> A message box indicates that the files were loaded successfully. Click the <b>OK</b> button to continue.  </li>
+                        </ul>
+                        <li>Click on <b>Run GSEAPreranked</b> in the side bar under Tools. </li>
+                    </ol>
+                     <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: GSEA may seem non-responsive but it is actually loading in large files.</font>                    
+                            <li>Possible reason:Large GMT file
+                            <ul>
+                                <li>It may take 5-10 seconds for GSEA to load input files. The files are loaded successfully once a message appears on the screen “Files loaded successfully: 2/2. There were no errors”.</li>
+                            </ul></li>
+                        </ul>                        
+                       <ul><font color="red"> TROUBLESHOOTING: How to use MSigdb or alternate GMT files.</font>
+                           <li>GSEA also supplies its own gene set files that are accessible directly through the GSEA interface from the MSigDB resource.</li>
+                           <li>These files do not need to be imported into GSEA. When you define the GMT file, the MSigDB gene set files can be found in the first tab “Gene Matrix (from website)” of the “Select one or more genesets” dialog. The latest versions of the MSigDB gene set files are in bold but previous versions can also be accessed. To select multiple gene set files, use multi-file select by simultaneously clicking on the desired files and holding the control key on Windows or command on macOS.</li>
+                        </ul>
+                    </font>
+                    </aside>
+                </section>
+
+                <section id="gsea_interface2">
+                    <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
+                    <div class="row">
+                        <p><highlight>Specify the following parameters::</highlight></p>
+                        <img style="float:right;width:60%" src="gsea_interface2.png">
+                        <ol style="list-style-type:lower-roman;width:35%", start = "6">
+                            <li><font color="green">Gene sets database</font> – 
+                                <ul>
+                                    <li>click on the button (…) located to the right and wait a few seconds for the gene set selection window to appear.</li>
+                                    <li>Go to the <b>Gene matrix (local gmx/gmt)</b> tab using the top right arrow.</li>
+                                    <li>Click on the downloaded local GMT file <a href="Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</a>(<a href="#data_gsea">click for info on data files</a>) and click on <b>OK</b> at the bottom of the window. </li>
+                                </ul>
+                            </li>                     
+                        </ol>
+                    </div>
+                    <div class="row">
+                    <ul><li style="list-style-type:none">
+                        <ol style="list-style-type:lower-roman", start = "7">
+                            <li><font color="green">Number of permutations</font> – number of times that the gene sets will be randomized to create the null distribution to calculate the p-value and FDR q-value. Use the default value of 1000 permutations. </li>
+                            <li><font color="green">Ranked List</font> – select the ranked gene list by clicking on the right-most arrows and highlighting the rank file(<b><a href="Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a></b>)(<a href="#data_gsea">click for info on data files</a>).</li>
+                            <li>Click the Show button next to Basic fields to display extra options.</li>
+                        </ol>
+                    </li></ul>
+                    </div>
+                   <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Increasing the number of permutations will increase computation time.</font>                    
+                            <ul>
+                                <li>The higher the number of permutations, the longer the analysis will take. </li>
+                                <li>To calculate the FDR q-value for each gene set, the data is randomized by permuting the genes in each gene set and recalculating the p-values for the randomized set. This parameter specifies how many times this randomization is done.</li>
+                                <li> The more randomizations are performed, the more precise the FDR q-value estimation will be (to a limit, as eventually the FDR q-value will stabilize at the actual value). On a Windows machine with 16G of RAM and i7 3.4 GHz processor, an analysis with 10, 100, 500, or 1000 randomizations on our example set with above defined parameters takes 155, 224, 544, and 1012 seconds, respectively.</li>
+                            </ul>
+                        </ul>                        
+
+                    </font>
+                    </aside>
+                </section>
+
+
+                <section id="gsea_interface3">
+                    <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
+                        <p><highlight>Specify the following parameters: cont'd</highlight></p>
+                        <img style="float:right;width:60%" src="gsea_interface3.png">
+                        <ol style="list-style-type:lower-roman;width:35%", start = "10">
+                            <li><font color="green">Analysis name </font> – change default “my_analysis” to a specific name, for example “Mesen_vs_Immuno”. </li>
+                            <li><font color="green">Max size: exclude larger sets  </font> – By default GSEA sets the upper limit to 500. Set this to 200 to remove the larger sets from the analysis. </li>
+                            <li><font color="green">Save results in this folder  </font> – navigate to the folder where GSEA should save the results. We recommend you choose the result data folder created in <a href="#setup"><b>Step 1i</b></a>. Otherwise, GSEA will use the default location gsea_home/output/[date] in your home directory. </li>
+                        </ol>
+                </section>
+
+                <section>
+                    <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
+                    <p><highlight>Run GSEA:</highlight></p>
+                    <img style="float:right;width:60%" src="gsea_interface4.png">
+                    <ol style="list-style-type:lower-roman;width:35%", start = "13">
+                        <li><b>Run GSEA </b> – click on the <b>Run</b> button located at the bottom of the window. 
+                            
+                            <ul>
+                                <li>The <b>GSEA reports</b> pane at the bottom left of the window will show the status “Running”. </li>
+                                <li>It will be updated to “Success” upon completion. </li>
+                                <li><font color="red">This is expected to be a long running process, depending on the speed of your computer. </font> </li> 
+                            </ul>
+                        </li></ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: GSEA looks non-responsive but it is actually computing enrichments.</font>
+                           <li>Possible reason: No progress bar.
+                           <ul>                        
+                            <li>GSEA has no progress bar to indicate estimated time to completion. </li>
+                            <li>A run can take a few minutes or hours depending on your data size and computer speed.</li>
+                            <li> Click on the “+” in the bottom left corner of the screen to see messages such as “shuffleGeneSet for GeneSet 4661/4715 nperm: 1000” </li>
+                            <li>This message indicates that GSEA is shuffling 4,715 gene sets 1,000 times each, 4,661 of which are complete. Once the permutations are complete, GSEA generates the report.</li>
+                            </ul></li>
+                        </ul>       
+                       <ul><font color="red"> TROUBLESHOOTING: Error message "Java Heap space".</font>
+                           <li>Possible reason: GSEA was launched with insufficient memory.
+                           <ul>                        
+                            <li>The error message “Java Heap space” indicates that the software has run out of memory.  </li>
+                            <li>Another version of GSEA is needed if you are running the Web Start application. There are multiple options available for download from the GSEA website. You can download a webstart application that launches GSEA with 1, 2, 4, or 8GB. Upgrade to a webstart that launches with more memory.</li>
+                            <li>  If you are already using the webstart that launches with 8GB then you require GSEA JAVA jar file which can be executed from the command line with increased memory .</li>
+                            </ul></li>
+                        </ul>
+                    </font>
+                    </aside>
+
+                </section>    
+
+                <section>
+                    <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
+                        <div class="row">
+                            <ul style="list-style-type:none">
+                            <p><highlight>Examine GSEA Results:</highlight></p>
+                            <img style="float:right;width:30%" src="figure4A_gsea_snapshots.png">
+                            <ol style="list-style-type:lower-roman;width:65%", start = "14">
+                                <li> Once the GSEA analysis is complete, a green notification “Success” will appear in the bottom left section of the screen. 
+                                    <ul>
+                                        <li>All GSEA output files will be automatically saved and available in the folder you specified in the GseaPreranked interface (<a href="#gsea_interface3">Specified in Step 6Bxii</a>).</li> 
+                                        <li>Click on “Success” to open the results in your web browser.</li>
+                                        <li>Pathways enriched in top-ranking genes (i.e. up-regulated) are shown in the first set (‘na_pos’; ‘mesenchymal’ in this protocol)</li>
+                                        <li>Pathways enriched in bottom-ranked genes (i.e. down-regulated) in the second set (‘na_neg’; ‘immunoreactive’) </li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <ul style="list-style-type:none">
+                                <ol style="list-style-type:lower-roman", start = "15">
+                                    <li>In the web browser results summary, click on the “Snapshot” link under the results to get an overview of the top 20 findings.
+                                        <ul>
+                                            <li>The most significant pathways for the first phenotype (‘na_pos’) should clearly display enrichment in top-ranking (i.e. up-regulated) genes (left side of the plot.</li> 
+                                            <li>the most significant pathways for the second phenotype (‘na_neg’) should clearly display enrichment in bottom-ranked (i.e. down-regulated) genes (right side of the plot)</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </ul>
+                        </div>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: How to access previous results.</font>
+                           <li>Possible reason: GSEA application was closed since running the analysis but you would like to see previous results.
+                           <ul>                        
+                            <li>If the GSEA software is closed, you can access previous results by opening the working folder and opening the ‘index.html’ file. </li>
+                            <li> Alternatively, you can re-launch GSEA and click on “Analysis history”, then “History” and then navigate to date of your analysis.</li>
+                            <li> Although all analyses, regardless of where the results files were saved, are listed under history, it is organized by date the analysis was run. If you cannot remember when you ran a specific analysis, then you may have to manually search through a few directories to find the desired analysis. </li>
+                          </ul></li>
+                        </ul>       
+                       <ul><font color="red"> TROUBLESHOOTING: What will GSEA use for phenotype labels in a CLS file that specifies more than two phenotypes?</font>
+                           <ul>                        
+                            <li>When running GSEA with expression data as input (instead of a pre-calculated rank file), a phenotype label (i.e. biological condition or sample class) is provided as input for each sample and specified in the GSEA ‘cls’ file.  </li>
+                            <li>When running GSEA, the two phenotypes to compare for differential gene expression analysis are specified and these phenotypes are used in the pathway enrichment result files. </li>
+                            <li> In contrast, in a GSEA preranked analysis (i.e. when a ranked gene list is provided by the user), GSEA automatically labels one phenotype “na_pos” (corresponding to enrichment in the genes at the top of the ranked list, where ‘na’ means the phenotype label is "not available") and the other “na_neg” (corresponding to enrichment in the genes at the bottom of the ranked list). This convention is also used by the EnrichmentMap software, designating the first phenotype as “positive” and the second phenotype as “negative”. </li>
+                            </ul>
+                        </ul>
+                    </font>
+                    </aside>
+                </section>
+                
+                <section>
+                    <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
+                            <ul style="list-style-type:none">
+                            <p><highlight>Examine GSEA Results- cont'd:</highlight></p>
+                            <img style="float:right;width:50%" src="figure4B_gsea_results_indepth.png">
+                            <ol style="list-style-type:lower-roman;width:45%", start = "16">
+                                <li> In the web browser results summary, click on ‘Detailed enrichment results in HTML format’. 
+                                    <ul>
+                                        <li>Use the row numbering to check the number of pathways that have FDR q-values below 0.05 to determine appropriate thresholds for EnrichmentMap in the next step of the protocol.</li> 
+                                        <li>If no pathways are reported at q&lt; 0.05, more lenient thresholds such as q&lt;0.1 or q&lt;0.25 could be used </li>
+                                        <li>The threshold q&lt;0.25 provides very lenient filtering and it is not uncommon to find thousands of enriched pathways at this level. Robust analyses should use a cutoff of q&lt; 0.05 or lower. </li>
+                                        <li><font color="red">Filtering only by uncorrected p-values is not recommended. </font></li>
+                                    </ul>
+                                </li>
+                            </ol>
+                            </ul>                     
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Few or no results returned by GSEA</font>
+                           <li>Possible reason: Possible identifier mapping issue.
+                           <ul>                        
+                            <li>Check the number of gene sets that were analyzed. If the number is low (e.g. low hundreds), it could indicate gene ID mapping problems.</li>
+                          </ul></li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+            </section>    
+                
+             <section id="visualize">
+                <h1>Visualize enrichment results with EnrichmentMap </h1>
+                <img style="float:right;width:65%" src="EnrichmentMap_interface.png">
+                 <ol start="7" style="width:30%">
+                     <li>
+                        <ul style="list-style-type:none"><li>Launch the Cytoscape software. Introductory Cytoscape tutorials can be found at <a href="http://tutorials.cytoscape.org">http://tutorials.cytoscape.org</a>.</li></ul>
+                     </li>
+                     <li>
+                        <ul style="list-style-type:none"><li>In the menu, click <b>Apps</b> --> <b>EnrichmentMap</b>. </li></ul>
+                     </li>
+                     <li>
+                        <ul style="list-style-type:none"><li>Create <b>Enrichment Map panel</b> will appear. Creating enrichment maps with g:Profiler (<a href="#visualize_gprofiler">follow steps in 9A</a>) and GSEA (<a href="#visualize_gsea">follow steps in 9B</a>) requires different input files.</li></ul>
+                     </li>
+                 </ol>
+            </section>
+                
+            <section id="visualize_gprofiler">
+                <section id="visualize_gprofiler_interface1">
+                    <h1>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results</h1>
+                    <img style="float:right;width:65%" src="em_gprofiler1.png">
+                     <ol style="list-style-type:lower-roman;width:35%">
+                         <li>
+                            <ul style="list-style-type:none"><li>In the <b>Create Enrichment Map</b> panel, click on folder icon.</li></ul>
+                         </li>
+                         <li>
+                            <ul style="list-style-type:none"><li>Locate and select your <b>result data folder</b> containing the g:Profiler results and click on <b>Open</b>.</li></ul>
+                         </li>
+                         <li>
+                            <ul style="list-style-type:none"><li>In the right-hand pane g:Profiler output files will be automatically populated into their specified fields. Alternatively, users can click on the + symbol to specify each of the required files manually.</li></ul>
+                         </li>
+                     </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Autoload of g:Profiler results creates many datasets with incorrect file specification.</font>
+                           <li>Possible reason: There are too many text files within the directory specified.
+                           <ul>                        
+                            <li>To simplify loading g:Profiler results into EnrichmentMap and populating the correct fields in the EnrichmentMap interface, place the g:Profiler results file and gene set file (i.e. Supplementary_Table4_gprofiler_results.txt and Supplementary_Table5_hsapiens.pathways.NAME.gmt) into a directory together by themselves. </li>
+                          </ul></li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section id="visualize_gprofiler_interface2">
+                    <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
+                    <div class="row">
+                    <img style="float:right;width:50%" src="em_gprofiler2.png">
+                     <ol style="list-style-type:lower-roman;width:50%" start="4">
+                         <li>
+                            <ul style="list-style-type:none"><li>In the right-hand pane, modify <b>Name</b> of the created data set if desired. By default, EnrichmentMap will use the name of the g:Profiler enrichment results file (e.g. <b>Supplementary_Table4_gprofiler_results.txt</b>).</li></ul>
+                         </li>
+                         <li>
+                            <ul style="list-style-type:none"><li>Verify the <b>Analysis Type</b> is set to “Generic/gProfiler”.</li></ul>
+                         </li>
+                         <li>
+                            <ul style="list-style-type:none"><li>Verify the Enrichments results file is the g:Profiler file downloaded in <a href="#gprofiler_file_download">Step 6Axi</a> (or alternatively, manually specify <b>Supplementary_Table4_gprofiler_results.txt</b>).</li></ul>
+                         </li>
+                     </ol>
+                    </div>
+                    <div class="row">
+                        <ol style="list-style-type:lower-roman" start="7">
+                            <li>
+                            <ul style="list-style-type:none"><li>Verify the <b>GMT</b> specified is the file retrieved from the g:Profiler website in <a href="#gprofiler_file_download">Step 6Axii</a> . Use the file <b>hsapiens.pathways.NAME.gmt</b> (or alternately manually specify <b>Supplementary_Table5_hsapiens.pathways.NAME.gmt</b>) that contains gene sets corresponding to GO biological processes and Reactome pathways.</li></ul>
+                         </li>
+                        </ol>
+                    </div>
+                </section>
+                <section id="visualize_gprofiler_interface3">
+                    <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
+                    <div class="row">
+                    <img style="float:right;width:40%" src="em_gprofiler3.png">
+                     <ol style="list-style-type:lower-roman;width:55%" start="8">
+                         <li>
+                             <ul style="list-style-type:none"><li><b>Expressions</b> - <font color="green">(Optional)</font> Upload an expression matrix for the genes analyzed in g:Profiler or alternatively an expression data set of all genes. If the expression data set contains additional genes not used for the g:Profiler search, their expression values will still appear in the heat map of the enrichment map (for example file see <b>Supplementary_Table6_TCGA_OV_RNAseq_expression.txt</b>).</li></ul></li>
+                        </ol>
+                    </div>
+                    <div class="row">
+                        <ol style="list-style-type:lower-roman" start="9">
+                         <li>
+                             <ul style="list-style-type:none"><li><b>Ranks</b> – <font color="green">(Optional)</font> Ranks for the gene list or the expression data can be specified (for example, see <b>Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</b>).</li></ul></li>
+                        <li>
+                            <ul style="list-style-type:none"><li><b>Classes</b> – <font color="green">(Optional)</font> GSEA CLS file defining the phenotype (i.e. biological conditions) of each sample in the expression file, for example, see <b>Supplementary_Table7_TCGA_OV_RNAseq_classes.cls. </b>).</li></ul></li>
+                        <li>
+                            <ul style="list-style-type:none"><li><b>Phenotypes</b> – <font color="green">(Optional)</font> If there are two different phenotypes in the expression data, update the phenotype labels so that ‘positive’ represents the phenotype associated with positive values (Mesenchymal in this example) and ‘negative’ with negative values (Immunoreactive in this example).</li></ul></li>
+
+                         </ol>
+                    </div>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: How to create g:Profiler map with more than one phenotype.</font>
+                           <li>Although an individual g:Profiler analysis only has one phenotype, it is possible to modify a single results file to contain two analyses. 
+                               <ul><
+                                   li>This is relevant when the phenotypes are mutually exclusive.</li>
+                                   <li>For the analysis you want to associate with the additional phenotype (which would correspond to down-regulated genes in GSEA PreRanked, thus called “negative”) open the g:Profiler results file (preferably in a spreadsheet so you can easily modify a single column).</li>
+                                   <li>The fifth column specifies the phenotype. Update the column to have the value of “-1” for each result in the file.</li>
+                                   <li>Open the second analysis file. Copy all the results from the second file and paste them into the updated negative g:Profiler file.</li> 
+                                   <li>Save the file and use it as the g:Profiler enrichment results file in the EnrichmentMap interface instead of the original results files.</li>
+                                   <li>Pathways corresponding to two phenotypes will be colored red and blue in the resulting enrichment map. One limitation with this approach is that a pathway cannot be included in both positive and negative sets.</li>
+                                </ul>
+                           </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section  id="em_num_nodes_param"  >
+                    <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
+                    <p><highlight>Tune Parameters:</highlight></p>
+                    <img style="float:right;width:40%" src="EM_number_of_nodes.png">
+                     <ol style="list-style-type:lower-roman;width:55%" start="12">
+                         <li><b>Number of Nodes: </b> - 
+                             <ul>
+                                 <li> g:Profiler returns only statistically significant results (q &lt; 0.05) by default, so the <b>FDR q-value cutoff</b> parameter can be set to 1 in the EnrichmentMap Input panel unless a more stringent filtering is desired. For this protocol, set FDR q-value to 0.01.</li>
+                                 <li>Select <b>Filter genes by expressions</b> to exclude any genes in the gene set definition file (i.e. the gmt file) that are not found in the supplied expression file. </li>
+                                <li>If <b>Filter genes by expressions</b> is not selected, any gene that is not found in the expression file will be retained and will be presented in the expression heat map viewer with all of its associated expression values grayed out.</li></ul></li>
+                        </ol>
+                </section>
+                <section id="em_num_edges_param" >
+                    <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
+                    <p><highlight>Tune Parameters cont'd:</highlight></p>
+                    <img style="float:right;width:40%" src="EM_number_of_edges.png">
+                     <ol style="list-style-type:lower-roman;width:55%" start="13">
+                         <li><b>Number of Edges: </b> - 
+                             <ul>
+                                 <li> Keep the connectivity slider in the centre.</li>
+                                 <li>If the network is too cluttered because of too many connections (edges), move the slider to the left to make the network sparser.  </li>
+                                <li>Alternatively, if the network is too sparse (i.e. there are too many disconnected pathways), move the slider to the right to obtain a more densely connected network.</li></ul></li>
+                        </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: What happens when you move the similarity slider bar?</font>
+                                                  
+                            <li>Moving the slider to the left (or right) will adjust the underlying similarity statistic threshold to make the resulting network sparser (or denser). </li>
+                            <li>The slider is set with predefined defaults but users can fine-tune the similarity metric by selecting "Show advanced options" at the bottom of the "Create Enrichment Map" panel. </li>
+                            <li>Predefined values appear as tick marks on the slider and include Jaccard > 0.35, Jaccard > 0.25, combined > 0.375, overlap > 0.5, overlap > 0.25. </li>                          
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                     <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
+                    <div class="row">
+                        <img src="EM_build.png">
+                    </div>
+                    <div class="row">
+                     <ol style="list-style-type:lower-roman" start="14">
+                         <li>Click the <b>Build</b> button at the bottom of the EnrichmentMap Input panel. A <b>Building EnrichmentMap</b> box appears and indicates the progress status. This box will disappear once the map has been created successfully.
+                             </li>
+                        </ol>
+                    </div>
+                </section>
+            </section>
+                
+            <section id="visualize_gsea">
+                <section id="visualize_gsea_interface1">
+                        <h1>9B. Visualize enrichment results with EnrichmentMap use GSEA results</h1>
+                        <img style="float:right;width:65%" src="em_gsea1.png">
+                         <ol style="list-style-type:lower-roman;width:35%">
+                             <li>
+                                <ul style="list-style-type:none"><li>In the <b>Create Enrichment Map</b> panel, click on folder icon.</li></ul>
+                             </li>
+                             <li>
+                                <ul style="list-style-type:none"><li>Locate and select your <b>result data folder</b> containing the GSEA results and click on <b>Open</b>.</li></ul>
+                             </li>
+                             <li>
+                                <ul style="list-style-type:none"><li>In the right-hand pane, GSEA output files will be auto populated into their specified fields. Alternately the + symbol can be clicked to specify each of the required files manually.</li></ul>
+                             </li>
+                         </ol>
+                        <aside class="notes">
+                            <font size ="1">		          
+                            <ul><font color="red"> TROUBLESHOOTING: How to easily create GSEA map with more than one dataset.</font>    
+                                <li>If you specify a directory that contains multiple GSEA results rather than an individual GSEA results folder, EnrichmentMap will treat every GSEA results folder as its own data set. This enables easy multi-data set analyses. If you only want one data set but inadvertently selected the directory containing multiple GSEA results instead of selecting an individual folder, simply select the data sets you do not want to use and click on the trash can at the top of the EnrichmentMap input panel to remove them. </li>
+                              </ul>
+                               
+                        </font>
+                        </aside>
+                    </section>
+            </section>   
+                
+            <!--This is a slide with text in the form of a list, a figure and a citation -->
+            <section id='list-image-cit'>
+            <h1>Template Tutorial</h1>
+            <h4>List, Image and Citation</h4>
+            <p>Here, a brief bullet point list is used to introduce some features of the app, and a citation is provided.</p><br />
+            <!-- The figure is placed on the right side using "float:right" and is sized using "width"-->
+            <img style="float:right;width:45%" src="WP-App.png">
+            <ul style="width:45%">
+                <li>Search hundreds of pathways directly from Cytoscape</li>
+                <li>Import pathways as pathway or network</li>
+                <li>Visualize data or use for network analysis</li>
+            </ul>
+            <br />
+            <!--Citation is styled in a smaller font -->
+            <small style="margin-top:40px;">Kutmon (2014) WikiPathways App for Cytoscape: Making biological pathways amenable to network analysis and visualization. <em>F1000Res</em>, 2014 Jul 1</small>
+            </section>
+
+            <!-- This is a slide with two-column layout -->
+            <section id='two-columns'>
+            <h1>Template Tutorial</h1>
+            <h4>Two-column slide layout</h4>
+            <p>The two-column slide layout is convenient for placing text. This example shows two lists of URLs.</p>
+            <div class="column">
+            <h5><highlight>Cancer pathways</highlight></h5>
+                <ul>
+                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP4262">Breast cancer pathway</a></li>
+                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP4239">EMT in colon cancer</a></li>
+                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP3972">PDGFR-beta pathway</a></li>
+                </ul>
+            </div>
+            <div class="column">
+            <h5><highlight>Disease pathways</highlight></h5>
+                <ul>
+                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP3569">Fanconi Anemia Pathway</a></li>
+                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP2059">Alzheimers Disease</a></li>
+                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP2447">Amyotrophic lateral sclerosis</a></li>
+                </ul>
+            </div> 
+            </section>
+
+            <!-- This is a slide with animation -->
+            <section id='frag-list'>
+            <h1>Template Tutorial</h1>
+            <h4>Animated List Elements</h4>
+            <p>Here's an example of an animated list. Click the down or right arrow to step through the list.</p><br />
+            <h5><highlight>WikiPathways App Features</highlight></h5>	
+
+            <ul>
+                <li>Search hundreds of pathways directly from Cytoscape</li>
+                <li class="fragment">25 species represented</li>
+                <li class="fragment">Import pathways as pathway or network</li>
+                <li class="fragment">Visualize data or use for network analysis</li>
+            </ul>
+            </section>
+
+            <!-- This slide contains CyBrowser buttons that automate Cytoscape functions in CyBrowser -->
+            <section id='cybrowser'>
+            <h1>Template Tutorial</h1>
+            <h4>CyBrowser and CyCommands interactivity</h4>
+            <p><b>CyBrowser</b> allows for viewing any html page in Cytoscape. Together with CyCommands, this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network can be included.</p>
+            <p>With some css and javascript included in the <b>Cytoscape tutorial style</b> it is possible to selectively view content exclusively in CyBrowser and regular browser, respectively.</p>
+            <div class="not-cybrowser">
+            <p><highlight>You are viewing this tutorial outside of CyBrowser, launch Cytoscape, open CyBrowser and navigate to this tutorial to see content visible only in CyBrowser.</highlight></p>
+            </div>
+            <div class="cybrowser">
+            <p><highlight>Click the button to import a simple network!</highlight></p>
+            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
+            <br /><br />
+            </div>
+            </section>
+  		</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
