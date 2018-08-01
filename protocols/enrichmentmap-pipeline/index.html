@@ -162,7 +162,7 @@
 
                 <section>
                     <h3>6A. g:Profiler -Input data and set parameters</h3>
-                    <img style="float:right;width:45%" src="gprofiler_interface_step1.png">
+                    <img style="float:right;width:45%" src="./figures/gprofiler_interface_step1.png">
                     <ol style="list-style-type:lower-roman;width:45%" start = "2">
                         <li>Paste the gene list (<a href="Supplementary_Table1_Cancer_drivers.txt">gprofiler_genelist_Cancer_drivers.txt</a>) into the Query field in top-left corner of the screen.</li>
                         <li>Check the box next to <b>Ordered query.</b></li>
@@ -173,7 +173,7 @@
 
                 <section>
                     <h3>6A. g:Profiler -Input data and set parameters - cont'd</h3>
-                    <img style="float:right;width:55%" src="gprofiler_interface_step2.png">
+                    <img style="float:right;width:55%" src="./figures/gprofiler_interface_step2.png">
                     <ol start="6" style="list-style-type:lower-roman;width:35%">
                         <li>Set filters on gene annotation data using the legend on the right. We recommend that initial pathway enrichment analyses only includes biological processes (BP) of GO and molecular pathways of Reactome. Keep the two checkboxes checked and uncheck all other boxes in the legend. </li>                   
                     </ol>
@@ -182,7 +182,7 @@
                 <section>
                     <h3>6A. g:Profiler -Input data and set parameters - cont'd</h3>
                     <div class="row">
-                    <img style="float:right;width:40%" src="gprofiler_interface_step3.png">
+                    <img style="float:right;width:40%" src="./figures/gprofiler_interface_step3.png">
                     <ol style="list-style-type:lower-roman;width:55%" start="7">
                         <li>Set the dropdown values of <b>Size of functional category</b> to <highlight>5 (‘min’)</highlight> and <highlight>350 (‘max’)</highlight>. Large pathways are of limited interpretative value, while numerous small pathways decrease the statistical power because of excessive multiple testing.</li>
                         <li>Set the dropdown <b>Size of query/term intersection</b> to <highlight>3</highlight>. The analysis will only consider more reliable pathways that have three or more genes in the input gene list.</li>
@@ -205,7 +205,7 @@
                 
                 <section id="gprofiler_">
                     <h3>6A. g:Profiler -Input data and set parameters - cont'd</h3>
-                    <img style="float:right;width:45%" src="gprofiler_interface_step4.png">
+                    <img style="float:right;width:45%" src="./figures/gprofiler_interface_step4.png">
                     <ol style="list-style-type:lower-roman;width:45%" start="10">
                         <li>Use the dropdown menu <b>Output type</b> and select the option <highlight>Generic Enrichment Map (TAB)</highlight>. This file is required for visualizing pathway results with Cytoscape and EnrichmentMap.</li>
                         <li>Click <b>g:Profile!</b> again to run the analysis with the updated parameters.  
@@ -217,7 +217,7 @@
                 </section>
                 <section id="gprofiler_file_download">
                     <h3>6A. g:Profiler -Input data and set parameters - cont'd</h3>
-                    <img style="float:right;width:40%" src="gprofiler_interface_step5.png">
+                    <img style="float:right;width:40%" src="./figures/gprofiler_interface_step5.png">
                     <ol style="list-style-type:lower-roman;width:60%" start="11">
                         <li> cont'd - Download enrichment file.
                         <ul>
@@ -237,7 +237,7 @@
                 <section id="gsea_interface">
                     <h1>6B. Pathway enrichment analysis of a ranked gene list using GSEA </h1>
                     <div class="row">
-                    <img style="float:right;width:25%" src="gsea_logo.png">
+                    <img style="float:right;width:25%" src="./figures/gsea_logo.png">
                     <ol style="list-style-type:lower-roman;width:75%">
                         <li>Launch GSEA by opening the downloaded GSEA file (gsea.jnlp) </li>
                     </ol>
@@ -269,7 +269,7 @@
 
                 <section id="gsea_interface1">
                     <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
-                    <img style="float:right;width:50%" src="gsea_interface1.png">
+                    <img style="float:right;width:50%" src="./figures/gsea_interface1.png">
                     <p><highlight>Load the required data files into GSEA:</highlight></p>
                     <ol style="list-style-type:lower-roman;width:45%", start = "2">
                         <li>Click on <b>Load Data</b> in the top left corner in the Steps in GSEA Analysis section. </li>
@@ -302,7 +302,7 @@
                     <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
                     <div class="row">
                         <p><highlight>Specify the following parameters::</highlight></p>
-                        <img style="float:right;width:60%" src="gsea_interface2.png">
+                        <img style="float:right;width:60%" src="./figures/gsea_interface2.png">
                         <ol style="list-style-type:lower-roman;width:35%", start = "6">
                             <li><font color="green">Gene sets database</font> – 
                                 <ul>
@@ -340,7 +340,7 @@
                 <section id="gsea_interface3">
                     <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
                         <p><highlight>Specify the following parameters: cont'd</highlight></p>
-                        <img style="float:right;width:60%" src="gsea_interface3.png">
+                        <img style="float:right;width:60%" src="./figures/gsea_interface3.png">
                         <ol style="list-style-type:lower-roman;width:35%", start = "10">
                             <li><font color="green">Analysis name </font> – change default “my_analysis” to a specific name, for example “Mesen_vs_Immuno”. </li>
                             <li><font color="green">Max size: exclude larger sets  </font> – By default GSEA sets the upper limit to 500. Set this to 200 to remove the larger sets from the analysis. </li>
@@ -351,7 +351,7 @@
                 <section>
                     <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
                     <p><highlight>Run GSEA:</highlight></p>
-                    <img style="float:right;width:60%" src="gsea_interface4.png">
+                    <img style="float:right;width:60%" src="./figures/gsea_interface4.png">
                     <ol style="list-style-type:lower-roman;width:35%", start = "13">
                         <li><b>Run GSEA </b> – click on the <b>Run</b> button located at the bottom of the window. 
                             
@@ -390,7 +390,7 @@
                         <div class="row">
                             <ul style="list-style-type:none">
                             <p><highlight>Examine GSEA Results:</highlight></p>
-                            <img style="float:right;width:30%" src="figure4A_gsea_snapshots.png">
+                            <img style="float:right;width:30%" src="./figures/figure4A_gsea_snapshots.png">
                             <ol style="list-style-type:lower-roman;width:65%", start = "14">
                                 <li> Once the GSEA analysis is complete, a green notification “Success” will appear in the bottom left section of the screen. 
                                     <ul>
@@ -440,7 +440,7 @@
                     <h3>6B. Pathway enrichment analysis of a ranked gene list using GSEA - cont'd </h3>
                             <ul style="list-style-type:none">
                             <p><highlight>Examine GSEA Results- cont'd:</highlight></p>
-                            <img style="float:right;width:50%" src="figure4B_gsea_results_indepth.png">
+                            <img style="float:right;width:50%" src="./figures/figure4B_gsea_results_indepth.png">
                             <ol style="list-style-type:lower-roman;width:45%", start = "16">
                                 <li> In the web browser results summary, click on ‘Detailed enrichment results in HTML format’. 
                                     <ul>
@@ -467,7 +467,7 @@
                 
              <section id="visualize">
                 <h1>Visualize enrichment results with EnrichmentMap </h1>
-                <img style="float:right;width:65%" src="EnrichmentMap_interface.png">
+                <img style="float:right;width:65%" src="./figures/EnrichmentMap_interface.png">
                  <ol start="7" style="width:30%">
                      <li>
                         <ul style="list-style-type:none"><li>Launch the Cytoscape software. Introductory Cytoscape tutorials can be found at <a href="http://tutorials.cytoscape.org">http://tutorials.cytoscape.org</a>.</li></ul>
@@ -484,7 +484,7 @@
             <section id="visualize_gprofiler">
                 <section id="visualize_gprofiler_interface1">
                     <h1>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results</h1>
-                    <img style="float:right;width:65%" src="em_gprofiler1.png">
+                    <img style="float:right;width:65%" src="./figures/em_gprofiler1.png">
                      <ol style="list-style-type:lower-roman;width:35%">
                          <li>
                             <ul style="list-style-type:none"><li>In the <b>Create Enrichment Map</b> panel, click on folder icon.</li></ul>
@@ -510,7 +510,7 @@
                 <section id="visualize_gprofiler_interface2">
                     <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
                     <div class="row">
-                    <img style="float:right;width:50%" src="em_gprofiler2.png">
+                    <img style="float:right;width:50%" src="./figures/em_gprofiler2.png">
                      <ol style="list-style-type:lower-roman;width:50%" start="4">
                          <li>
                             <ul style="list-style-type:none"><li>In the right-hand pane, modify <b>Name</b> of the created data set if desired. By default, EnrichmentMap will use the name of the g:Profiler enrichment results file (e.g. <b>Supplementary_Table4_gprofiler_results.txt</b>).</li></ul>
@@ -534,7 +534,7 @@
                 <section id="visualize_gprofiler_interface3">
                     <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
                     <div class="row">
-                    <img style="float:right;width:40%" src="em_gprofiler3.png">
+                    <img style="float:right;width:40%" src="./figures/em_gprofiler3.png">
                      <ol style="list-style-type:lower-roman;width:55%" start="8">
                          <li>
                              <ul style="list-style-type:none"><li><b>Expressions</b> - <font color="green">(Optional)</font> Upload an expression matrix for the genes analyzed in g:Profiler or alternatively an expression data set of all genes. If the expression data set contains additional genes not used for the g:Profiler search, their expression values will still appear in the heat map of the enrichment map (for example file see <b>Supplementary_Table6_TCGA_OV_RNAseq_expression.txt</b>).</li></ul></li>
@@ -571,7 +571,7 @@
                 <section  id="em_num_nodes_param"  >
                     <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
                     <p><highlight>Tune Parameters:</highlight></p>
-                    <img style="float:right;width:40%" src="EM_number_of_nodes.png">
+                    <img style="float:right;width:40%" src="./figures/EM_number_of_nodes.png">
                      <ol style="list-style-type:lower-roman;width:55%" start="12">
                          <li><b>Number of Nodes: </b> - 
                              <ul>
@@ -583,7 +583,7 @@
                 <section id="em_num_edges_param" >
                     <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
                     <p><highlight>Tune Parameters cont'd:</highlight></p>
-                    <img style="float:right;width:40%" src="EM_number_of_edges.png">
+                    <img style="float:right;width:40%" src="./figures/EM_number_of_edges.png">
                      <ol style="list-style-type:lower-roman;width:55%" start="13">
                          <li><b>Number of Edges: </b> - 
                              <ul>
@@ -605,7 +605,7 @@
                 <section>
                      <h3>9A. Visualize enrichment results with EnrichmentMap use g:Profiler results - cont'd</h3>
                     <div class="row">
-                        <img src="EM_build.png">
+                        <img src="./figures/EM_build.png">
                     </div>
                     <div class="row">
                      <ol style="list-style-type:lower-roman" start="14">
@@ -619,7 +619,7 @@
             <section id="visualize_gsea">
                 <section id="visualize_gsea_interface1">
                         <h1>9B. Visualize enrichment results with EnrichmentMap use GSEA results</h1>
-                        <img style="float:right;width:65%" src="em_gsea1.png">
+                        <img style="float:right;width:65%" src="./figures/em_gsea1.png">
                          <ol style="list-style-type:lower-roman;width:35%">
                              <li>
                                 <ul style="list-style-type:none"><li>In the <b>Create Enrichment Map</b> panel, click on folder icon.</li></ul>
@@ -640,78 +640,621 @@
                         </font>
                         </aside>
                     </section>
-            </section>   
+                <section id="visualize_gsea_interface2">
+                    <h3>9B. Visualize enrichment results with EnrichmentMap use GSEA results - cont'd</h3>
+                    <div class="row">
+                    <img style="float:right;width:50%" src="./figures/em_gsea2.png">
+                     <ol style="list-style-type:lower-roman;width:50%" start="4">
+                         <li>
+                            <ul style="list-style-type:none"><li>In the right-hand pane, modify <b>Name</b> of the created data set if desired. By default, EM will use the first part of the GSEA folder name prior to the last dot ‘.’ to create the data set name. For example, if the directory is called Mesen_vs_Immuno.GseaPreranked.12345, the name will be populated as Mesen_vs_Immuno.GseaPreranked.</li></ul>
+                         </li>
+                         <li>
+                            <ul style="list-style-type:none"><li>Verify the <b>Analysis Type</b> is set to “GSEA”.</li></ul>
+                         </li>
+                     </ol>
+                    </div>
+                    <div class="row">
+                        <ol style="list-style-type:lower-roman" start="6">
+                            <li>
+                            <ul style="list-style-type:none"><li><B>Enrichment Pos - </B>Verify that file is set to <b> [your_path_to_gsea_dir]/Mesen_vs_Immuno.GseaPreranked.12345/gsea_report_for_na_pos_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately navigate to the file <b>Supplementary_Table8_gsea_report_for_na_pos.xls.</b></li></ul>
+                         </li>
+                         <li>
+                            <ul style="list-style-type:none"><li><B>Enrichment Neg - </B>Verify that file is set to <b>[your_path_to_gsea_dir]/Mesen_vs_Immuno.GseaPreranked.12345/gsea_report_for_na_neg_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately navigate to the file <b>Supplementary_Table9_gsea_report_for_na_neg.xls.</b></li></ul>
+                         </li>
+                            <li>
+                            <ul style="list-style-type:none"><li>Verify the <b>GMT</b> Verify that the file is set to <b>Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</b>.</li></ul>
+                         </li>
+                        </ol>
+                    </div>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: What is the random number appended to the GSEA directory name?</font>
+                           <li>Every GSEA analysis generates a random number that is appended to the names of the files and directories. The number will be different for every new analysis. 
+                           </li>
+                        </ul>
+                        <ul><font color="red"> TROUBLESHOOTING: Enrichment map uses a GMT file that was not the original file input to GSEA.</font>
+                           <li>If EnrichmentMap cannot find the original GMT file used in the GSEA analysis, it will use a filtered GMT file found in the GSEA ‘edb’ results directory. EnrichmentMap will not be able to find your original GMT file if you have moved it since running GSEA analysis. Although it is a GMT file, it has been filtered to contain only genes found in the expression file. If you use this filtered file, you will get different pathway connectivity depending on the expression data being used. You should always use the original GMT file used for the GSEA analysis and not the filtered one in the results directory. 
+                           </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section id="visualize_gsea_interface3">
+                    <h3>9B. Visualize enrichment results with EnrichmentMap use GSEA results - cont'd</h3>
+                    <div class="row">
+                    <img style="float:right;width:35%" src="./figures/em_gsea3.png">
+                     <ol style="list-style-type:lower-roman;width:55%" start="9">
+                         <li>
+                             <ul style="list-style-type:none"><li><b>Ranks</b> - <font color="green">(Optional)</font> Verify that the file is set to <b>ranked_gene_list_na_pos_versus_na_neg_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately, navigate to the file <b>Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</b>).</li></ul></li>
+                         <li>
+                             <ul style="list-style-type:none"><li><b>Expressions</b> - <font color="green">(Optional)</font> <b>Supplementary_Table6_TCGA_OV_RNAseq_expression.txt </b>).</li></ul></li>
+                        </ol>
+                    </div>
+                    <div class="row">
+                        <ol style="list-style-type:lower-roman" start="11">
+                            
+                        <li>
+                            <ul style="list-style-type:none"><li><b>Classes</b> – <font color="green">(Optional)</font> GSEA CLS file defining the phenotype (i.e. biological conditions) of each sample in the expression file, for example, see <b>Supplementary_Table7_TCGA_OV_RNAseq_classes.cls. </b>).</li></ul></li>
+                        <li>
+                            <ul style="list-style-type:none"><li><b>Phenotypes</b> – <font color="green">(Optional)</font> In the text boxes replace ‘na_pos’ with ‘Mesenchymal’ and ‘na_neg’ with ‘Immunoreactive’. ‘Mesenchymal’ will be associated with red nodes as it corresponds to the positive phenotype while ‘Immunoreactive’ will be labeled blue.</li></ul></li>
+
+                         </ol>
+                    </div>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: What is the random number appended to the GSEA directory name?</font>
+                           <li>Every GSEA analysis generates a random number that is appended to the names of the files and directories. The number will be different for every new analysis. 
+                           </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section  id="em_num_nodes_param_gsea"  >
+                    <h3>9B. Visualize enrichment results with EnrichmentMap use GSEA results - cont'd</h3>
+                    <p><highlight>Tune Parameters:</highlight></p>
+                    <img style="float:right;width:40%" src="./figures/EM_number_of_nodes.png">
+                     <ol style="list-style-type:lower-roman;width:55%" start="13">
+                         <li><b>Number of Nodes: </b> - 
+                             <ul>
+                                 <li> Set FDR q-value cutoff to 0.01. </li>
+                                 <li>Select <b>Filter genes by expressions</b> to exclude any genes in the gene set definition file (i.e. the gmt file) that are not found in the supplied expression file. </li>
+                                <li>If <b>Filter genes by expressions</b> is not selected, any gene that is not found in the expression file will be retained and will be presented in the expression heat map viewer with all of its associated expression values grayed out.</li></ul></li>
+                        </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Cannot provide a more precise value.</font>
+                           <li>Scientific notation is not enabled. To set the threshold to a small number, select ‘Scientific Notation’ and set a q-value cutoff such as 1E-04.
+                           </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section id="em_num_edges_param_gsea" >
+                    <h3>9B. Visualize enrichment results with EnrichmentMap use GSEA results - cont'd</h3>
+                    <p><highlight>Tune Parameters cont'd:</highlight></p>
+                    <img style="float:right;width:40%" src="./figures/EM_number_of_edges.png">
+                     <ol style="list-style-type:lower-roman;width:55%" start="14">
+                         <li><b>Number of Edges: </b> - 
+                             <ul>
+                                 <li> Keep the connectivity slider in the centre.</li>
+                                 <li>If the network is too cluttered because of too many connections (edges), move the slider to the left to make the network sparser.  </li>
+                                <li>Alternatively, if the network is too sparse (i.e. there are too many disconnected pathways), move the slider to the right to obtain a more densely connected network.</li></ul></li>
+                        </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: What happens when you move the similarity slider bar?</font>
+                                                  
+                            <li>Moving the slider to the left (or right) will adjust the underlying similarity statistic threshold to make the resulting network sparser (or denser). </li>
+                            <li>The slider is set with predefined defaults but users can fine-tune the similarity metric by selecting "Show advanced options" at the bottom of the "Create Enrichment Map" panel. </li>
+                            <li>Predefined values appear as tick marks on the slider and include Jaccard > 0.35, Jaccard > 0.25, combined > 0.375, overlap > 0.5, overlap > 0.25. </li>                          
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                     <h3>9B. Visualize enrichment results with EnrichmentMap use GSEA results - cont'd</h3>
+                    <div class="row">
+                        <img src="./figures/EM_build.png">
+                    </div>
+                    <div class="row">
+                     <ol style="list-style-type:lower-roman" start="15">
+                         <li>Click the <b>Build</b> button at the bottom of the EnrichmentMap Input panel. A <b>Building EnrichmentMap</b> box appears and indicates the progress status. This box will disappear once the map has been created successfully.
+                             </li>
+                        </ol>
+                    </div>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Cannot provide a more precise value.</font>
+                           <li>Scientific notation is not enabled. To set the threshold to a small number, select ‘Scientific Notation’ and set a q-value cutoff such as 1E-04.
+                           </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+            </section>
+                <section id="em_anticipated_results" >
+                    <h1>10. Resulting enrichment maps from g:Profiler and GSEA pipelines</h1>
+                    <img src="./figures/step10_anticipated_results.png">
+                </section>
+            <section id=navigate>
+                <section>
+                    <h1>11. Navigating and interpreting the enrichment map </h1>
+                    <img style="float:right;width:40%" src="./figures/em_interface1.png">
+                    <ol style="list-style-type:disc;width:55%">
+                         <li>An enrichment map must be interpreted to discover novel information about a data set and must be manually refined to create a publication quality figure.
+                             </li>
+                        <li>To explore the enrichment map, select the network of interest in the <b>Control Panel</b> located at the left side of the Cytoscape window. </li>
+                        <li>The <b>Network Panel</b> can be selected using the left most tab of the <b>Control Panel.</b> </li>
+                        </ol>
+                    <div class="row">
+                    <ol style="list-style-type:disc;">
+                         
+                        <li>The selected network appears in the main window, navigate to it (zoom and pan) using Cytoscape controls (<b>section A</b>) and explore the pathways by reading the gene set labels.</li>
+                        <li>Pathways with many common genes often represent similar biological processes and are grouped together as sub-networks or themes in the network. Click on a node to display the corresponding genes in the table below the network view (<b>section B</b>). </li>
+                        </ol>
+                    </div>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Few or no pathways present in enrichment map.</font>
+                           <li>A  pathway enrichment analysis resulting in few or no enriched pathways may be caused by suboptimal statistical processing used to define the original gene list. </li>
+                            <li>Enriched pathways are unlikely to be found if the gene list ranks are too noisy and the most important genes are not at the top of the list, no genes are highly significant, or a large fraction of genes are highly significant. </li>
+                            <li>If the gene list has been correctly defined, analyzing further databases of pathways and gene sets or setting more liberal filters may improve results.
+                           </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h1>12. Find specific genes </h1>
+                    <img style="float:right;width:55%" src="./figures/em_interface2.png">
+                    <ol style="list-style-type:disc;width:40%">
+                        <li>To find a gene or pathway of interest, type its name in the search bar located in the top right corner (<b>section C</b>). 
+                             </li>
+                        <li>All pathways containing that gene will be highlighted. For example, TP53 and BGN are the top genes in g:Profiler and GSEA analyses, respectively.  </li>
+                        </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Cannot find any pathways with my search gene.</font>
+                           <li>Check that the gene identifier type used for the search matches the identifier type used in the analysis.</li>
+                            <li>Multiple genes separated by spaces can be entered into the search bar. Any pathway that contains the gene will be selected and highlighted in the network.   </li>
+                            <li>Adding keywords “AND” into the search bar will show only pathways that contain all genes in the search query (e.g. "geneA AND geneB"). 
+                           </li>
+                            <li>If the original analysis did not use gene symbols then you will not be able to search by gene symbols. Instead use the identifier type that the analysis was based on, for example Entrez Gene ID or Ensembl gene ID.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h1>13. Find most enriched pathways </h1>
+                    <img style="float:right;width:55%" src="./figures/em_interface3.png">
+                    <ol style="list-style-type:disc;width:40%">
+                        <li>To find the most enriched pathways, look at the <b>Table Panel</b> located below the network view. 
+                             </li>
+                        <li>Select the Node Table tab (section D)</li>
+                        <li> select and sort the column named “EM#_fdr_qvalue” (for g:Profiler) or “EM#_NES” (for GSEA) by clicking on the column header.  </li>
+                        <li>To highlight a subset of these pathways in the network, select rows corresponding to pathways of interest, right-click on any selected row in the table and select <b>“Select nodes from selected rows”.</b> </li>
+                        </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Very few entries in node table although the network contains many nodes.</font>
+                           <li>Some nodes in the network are already selected. </li>
+                            <li>If there are very few records in the node table make sure that no nodes are selected in the network. Or click on the gear icon and change the setting from “Auto” to “Show all”.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h1>14. Expression Viewer</h1>
+                    <img style="float:right;width:55%" src="./figures/em_heatmap1.png">
+                    <ol style="list-style-type:disc;width:40%">
+                        <li>When a gene expression matrix is provided as input to EnrichmentMap, we can study the expression pattern of the genes included in enriched pathways. 
+                             </li>
+                        <li>Click on an individual node to generate a gene expression heat map that will appear in the <b>Heat Map</b> tab of <b>Table Panel</b>.</li>
+                        <li> If the analysis is based on GSEA results and a rank file is supplied, the leading edge genes will be highlighted in yellow for individual node selections. Several options for heat map visualization are available.  </li>
+                        </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: An expression matrix was not supplied.</font>
+                           <li>If no expression file is input to EnrichmentMap it will automatically create a dummy expression file where any gene found in the enrichment file will be given a placeholder expression value of 0.25, and any gene found in a pathway but not found in the enrichment results file be assigned a placeholder expression value of NA. Therefore clicking on any node in the enrichment map will show the genes used for the analysis as well as genes in the pathway that are not part of the query set.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h3>14. Expression Viewer - cont'd </h3>
+                    <p><highlight>In the Table Panel Heat Map tab, it is possible to:</highlight></p>
+                    <img style="float:right;width:55%" src="./figures/em_heatmap2.png">
+                    <ol style="float:left;list-style-type:lower-roman;width:40%" start=1>
+                        <li>Adjust the <b>Sort</b> option: sorting options include hierarchical clustering, ranks, or no sorting. To change the sorting option, click on the Sort button visible in the top left corner of the heat map table (<b>section A</b>).
+                             </li>
+                        <ol style="list-style-type:disc">
+                            <li>By default, the heat map is sorted by ranks if a rank file is supplied. In the absence of a rank file, no sort is applied. Additional rank files can be uploaded for comparison through the settings menu located at the top right corner in the <b>Heat Map Panel</b> (section F). .</li>
+                            <li> If the analysis is based on GSEA results and a rank file is supplied, the leading edge genes will be highlighted in yellow for individual node selections. Several options for heat map visualization are available.  </li>
+                        </ol>
+                        </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: An expression matrix was not supplied.</font>
+                           <li>If no expression file is input to EnrichmentMap it will automatically create a dummy expression file where any gene found in the enrichment file will be given a placeholder expression value of 0.25, and any gene found in a pathway but not found in the enrichment results file be assigned a placeholder expression value of NA. Therefore clicking on any node in the enrichment map will show the genes used for the analysis as well as genes in the pathway that are not part of the query set.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
                 
-            <!--This is a slide with text in the form of a list, a figure and a citation -->
-            <section id='list-image-cit'>
-            <h1>Template Tutorial</h1>
-            <h4>List, Image and Citation</h4>
-            <p>Here, a brief bullet point list is used to introduce some features of the app, and a citation is provided.</p><br />
-            <!-- The figure is placed on the right side using "float:right" and is sized using "width"-->
-            <img style="float:right;width:45%" src="WP-App.png">
-            <ul style="width:45%">
-                <li>Search hundreds of pathways directly from Cytoscape</li>
-                <li>Import pathways as pathway or network</li>
-                <li>Visualize data or use for network analysis</li>
-            </ul>
-            <br />
-            <!--Citation is styled in a smaller font -->
-            <small style="margin-top:40px;">Kutmon (2014) WikiPathways App for Cytoscape: Making biological pathways amenable to network analysis and visualization. <em>F1000Res</em>, 2014 Jul 1</small>
-            </section>
+                <section>
+                    <h3>14. Expression Viewer - cont'd </h3>
+                    <img src="./figures/em_heatmap3.png">
+                    <div class="row">
+                    <ol style="list-style-type:lower-roman;" start=2>          
+                        <li>Define Genes you wish to visualize in the heat map (<b>section B</b>b). Data can be viewed for all genes contained in the selected nodes (union of nodes) or just for the genes common to selected nodes (intersection of nodes). By default, all genes are shown.</li>
+                        <li>Change Expressions value visualization depending on your data type (<b>section C</b>). Data can be viewed as it was loaded (<b>Values</b>), or row normalized where the row mean is subtracted from every value and then divided by the row’s standard deviation (<b>Row Norm</b>), or log transformed (<b>Log</b>).</li>
 
-            <!-- This is a slide with two-column layout -->
-            <section id='two-columns'>
-            <h1>Template Tutorial</h1>
-            <h4>Two-column slide layout</h4>
-            <p>The two-column slide layout is convenient for placing text. This example shows two lists of URLs.</p>
-            <div class="column">
-            <h5><highlight>Cancer pathways</highlight></h5>
-                <ul>
-                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP4262">Breast cancer pathway</a></li>
-                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP4239">EMT in colon cancer</a></li>
-                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP3972">PDGFR-beta pathway</a></li>
-                </ul>
-            </div>
-            <div class="column">
-            <h5><highlight>Disease pathways</highlight></h5>
-                <ul>
-                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP3569">Fanconi Anemia Pathway</a></li>
-                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP2059">Alzheimers Disease</a></li>
-                    <li><a href="https://www.wikipathways.org/index.php/Pathway:WP2447">Amyotrophic lateral sclerosis</a></li>
-                </ul>
-            </div> 
-            </section>
+                        </ol>
+                    </div>
+                </section>
+                <section>
+                    <h3>14. Expression Viewer - cont'd </h3>
+                    <img src="./figures/em_heatmap4.png">
+                    <div class="row">
+                    <ol style="list-style-type:lower-roman;" start=4>          
+                        <li><b>Compress</b> heat map columns (<b>section 8D</b>). By default, all expression values are visible as individual columns in the heat map for expression sets with less than 50 samples. It is possible to compress the data in a single column by selecting <b>Compress</b>, <b>Data Set</b> using the aggregation methods <b>Median</b>, <b>Max</b> (maximum) or <b>Min</b> (minimum). If a CLS file has been uploaded, the expression set can be compressed using one column per defined sample group using the Class option. If the expression matrix contains 50 samples or more, EnrichmentMap will automatically compress the values to their median value by default.</li>
+                        <li>Check <b>Values</b> (<b>section E</b>) to show the expression numerical values in addition to the heat map color scale.</li>
+                        <li>Additional fine tuning of the heat map can be done through the <b>Settings Panel</b> (<b>section F</b>) that includes functionality to add new rank files, export the heat map data as a tab delimited text file or PDF image, change the distance metric for hierarchical clustering, or turn on the node table heat map autofocus. 
+</li>
+                        </ol>
+                    </div>
+                </section>
+                <section>
+                    <h3>14. Expression Viewer - cont'd </h3>
+                    <img style="float:right;width:55%" src="./figures/em_heatmap5.png">
 
-            <!-- This is a slide with animation -->
-            <section id='frag-list'>
-            <h1>Template Tutorial</h1>
-            <h4>Animated List Elements</h4>
-            <p>Here's an example of an animated list. Click the down or right arrow to step through the list.</p><br />
-            <h5><highlight>WikiPathways App Features</highlight></h5>	
+                    <ol style="list-style-type:lower-roman;width:40%" start=7>          
+                        <li>The resulting heat map. 
+                            <ol style="list-style-type:disc">
+                                <li>On this figure, genes are sorted using the GSEA rank file, highlighting the leading edge in yellow.</li>
+                                <li>All genes contained in selected nodes are shown, </li>
+                                <li>expression values are row normalized,</li>
+                                <li>no compression is applied and individual expression numerical values are not shown.</li>
+                                <li>Column headings are colored according to sample phenotype. Red color refers to the first phenotype (Mesenchymal), and blue to the second phenotype (Immunoreactive).</li>
+                                </ol>
+                        </li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Heatmap column names are not colored by dataset</font>
+                           <li>No CLS file loaded or mismatch between CLS file and phenotype definition.If the heat map columns are not colored for a GSEA analysis, make sure the phenotype names specified in the EnrichmentMap input panel match the class names specified in the class file (MesenchymalvsImmunoreactive_RNA-Seq_classes.cls). Also see TROUBLESHOOTING 9Bxiii.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h3>14. Expression Viewer - cont'd </h3>
+                    <img style="float:right;width:35%" src="./figures/em_heatmap6.png">
 
-            <ul>
-                <li>Search hundreds of pathways directly from Cytoscape</li>
-                <li class="fragment">25 species represented</li>
-                <li class="fragment">Import pathways as pathway or network</li>
-                <li class="fragment">Visualize data or use for network analysis</li>
-            </ul>
-            </section>
+                    <ol style="list-style-type:lower-roman;width:60%" start=8>
+                        <highlight>The heat map can be exported to a text file for further analysis</highlight>
+                        <li>Click on the Settings icon of the heat map (<b>section F</b>) and select <b>Export as TXT</b>.
+                        </li>
+                        <li>If only an individual node is selected, a dialog will offer to export the Leading edge only for GSEA analysis. If selected, only the highlighted genes will be exported; otherwise, the entire set of genes is saved. </li>
+                        <li>Specify the file name and location and click <b>Save</b>.</li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Option to save only leading edge genes is not given.</font>
+                           <li>Selection includes more than one node or data set contains no leading edge information (i.e was not built from GSEA results)</li>
+                            <li>The leading edge is only available for GSEA analyses. The option will only appear if the Enrichment map was built with GSEA results and a rank file was specified.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h1>15. Organize and clarify the network </h1>
+                    <img style="float:right;width:35%" src="./figures/em_clarify1.png">
 
-            <!-- This slide contains CyBrowser buttons that automate Cytoscape functions in CyBrowser -->
-            <section id='cybrowser'>
-            <h1>Template Tutorial</h1>
-            <h4>CyBrowser and CyCommands interactivity</h4>
-            <p><b>CyBrowser</b> allows for viewing any html page in Cytoscape. Together with CyCommands, this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network can be included.</p>
-            <p>With some css and javascript included in the <b>Cytoscape tutorial style</b> it is possible to selectively view content exclusively in CyBrowser and regular browser, respectively.</p>
-            <div class="not-cybrowser">
-            <p><highlight>You are viewing this tutorial outside of CyBrowser, launch Cytoscape, open CyBrowser and navigate to this tutorial to see content visible only in CyBrowser.</highlight></p>
-            </div>
-            <div class="cybrowser">
-            <p><highlight>Click the button to import a simple network!</highlight></p>
-            <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
-            <br /><br />
-            </div>
+                    <ol style="list-style-type:lower-roman;width:60%" start=1>
+                        <li>If the network has too many nodes, go to the EnrichmentMap tab in the <b>Control Panel</b> and use the Node Cutoff Q-value threshold slider. Adjusting to a numerical value closer to 0 will remove less significant nodes (<b>section E</b>)
+                        </li>
+                        <li>If the network is too interconnected, go to the EnrichmentMap tab in the <b>Control Panel</b> and increasing the Edge Cutoff (Similarity) threshold will remove connections between less related nodes (<b>section F</b> ).</li>
+                        <li>The network layout may be applied again after adjusting the cutoffs (see the Layout menu in Cytoscape). The default layout algorithm is the unweighted Prefuse Force Directed layout. We also recommend the prefuse force-directed layouts weighted using the gene set similarity coefficient. Alternative layout algorithms are available and we encourage experimenting with them.</li>
+                        <li>To restore nodes or edges, adjust threshold sliders to their original positions.</li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Which is the best layout to use?</font>
+                           <li>There are many different layout algorithms available in Cytoscape that can be used for EnrichmentMap.</li>
+                            <li> We recommend using an edge weighted layout, which considers the overlap score between pathways.</li>
+                            <li> Most layouts (except yFiles) offer the ability to organize just the selected nodes.</li>
+                            <li> Experiment with different layouts to see which works best with your data. If you do not like the resulting layout, press command-Z on macOS or ctrl-Z on Windows or click on Edit --> Undo to revert to the previous view.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h3>15. Organize and clarify the network - cont'd </h3>
+                    <p><highlight>Separate two different phenotypes:</highlight></p>
+                    <img style="float:right;width:35%" src="./figures/em_clarify2.png">
+
+                    <ol style="list-style-type:lower-roman;width:55%" start=5>
+                        <li>It can be helpful to separate two different phenotypes (i.e. place all the red nodes to one side and all blue nodes to the other). 
+                        </li>
+                        <li>Go to the <b>Select tab</b> in the <b>Control Panel</b> </li>
+                        <li>Click on the + symbol and select <b>Column filter</b></li>
+                        <li>Click on <b>Choose column…</b> and select “EM1_NES (Mesem_vs_Immuno)”</li>
+                        <li>Click on the box next to <b>between</b> and change the value to zero. Click <b>Apply</b> at the bottom of the panel.</li>
+                        <li>All red nodes should now be selected. Click and hold on any selected node and drag selection to the left until it does not overlap any blue nodes.</li>
+                        <li>Select <b>Layouts</b> from the Cytoscape menu and apply <b>Prefuse Force Directed Layout  -->   Selected Nodes Only  -->  (none)</b>.</li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Which is the best layout to use?</font>
+                           <li>There are many different layout algorithms available in Cytoscape that can be used for EnrichmentMap.</li>
+                            <li> We recommend using an edge weighted layout, which considers the overlap score between pathways.</li>
+                            <li> Most layouts (except yFiles) offer the ability to organize just the selected nodes.</li>
+                            <li> Experiment with different layouts to see which works best with your data. If you do not like the resulting layout, press command-Z on macOS or ctrl-Z on Windows or click on Edit --> Undo to revert to the previous view.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                
+                <section>
+                    <h3>15. Organize and clarify the network - cont'd </h3>
+                    <p><highlight>Do the same but for the blue nodes:</highlight></p>
+                    <img style="float:right;width:35%" src="./figures/em_clarify3.png">
+
+                    <ol style="list-style-type:lower-roman;width:55%" start=12>
+                        <li>Go back to the <b>Control Panel</b> Select tab, adjust slider to select all negative values. Click on <b>Apply</b> at the bottom of the Select tab. 
+                        </li>
+                        <li>All blue nodes should now be selected. Click and hold on any selected node and drag selection to the right until it does not overlap any red nodes. </li>
+                        <li>Select <b>Layouts</b> from the Cytoscape menu and apply <b>Prefuse Force Directed Layout  -->   Selected Nodes Only  -->  (none)</b>.</li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Which is the best layout to use?</font>
+                           <li>There are many different layout algorithms available in Cytoscape that can be used for EnrichmentMap.</li>
+                            <li> We recommend using an edge weighted layout, which considers the overlap score between pathways.</li>
+                            <li> Most layouts (except yFiles) offer the ability to organize just the selected nodes.</li>
+                            <li> Experiment with different layouts to see which works best with your data. If you do not like the resulting layout, press command-Z on macOS or ctrl-Z on Windows or click on Edit --> Undo to revert to the previous view.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h1>16.	Define major biological themes. </h1>
+                    <p>Enrichment maps typically include clusters of similar pathways representing major biological themes. Clusters can be automatically defined and summarized using the AutoAnnotate Cytoscape app. AutoAnnotate first clusters the network using the clusterMaker2 app and then summarizes each cluster based on word frequency within the pathway names via the WordCloud app.</p>
+                    <img style="float:right;width:35%" src="./figures/em_clarify4.png">
+
+                    <ol style="list-style-type:lower-roman;width:55%" start=1>
+                        <li>From the Cytoscape menu bar, launch AutoAnnotate by selecting <b>Apps, AutoAnnotate, New Annotation Set…</b></li>
+                        <li>The <b>AutoAnnotate: Create Annotation Set</b> panel will appear. </li>
+                        <li>In the <b>Quick Start</b> tab click on <b>Create Annotations</b>. </li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Labels contain uninformative words.</font>
+                           <li>Node names contain uninformative words that are not excluded by default or are not considered during network normalization.</li>
+                            <li> If particular non-informative words keep appearing in the labels generated by AutoAnnotate, try adjusting the WordCloud normalization factor. </li>
+                            <li> The significance of each word is calculated based on the number of occurrences in the given cluster of pathways. </li>
+                            <li> This causes frequent words such as “pathway” or “regulation” to be prominent. By increasing the normalization factor, we reduce the priority of such recurrent words in cluster labels. If that doesn’t help, you can add the non-informative words to the WordCloud word exclusion list.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h3>16.	Define major biological themes - cont'd </h3>
+                    <img style="float:right;width:55%" src="./figures/em_clarify5.png">
+
+                    <ol style="list-style-type:lower-roman;width:35%" start=4>
+                        <li>Each cluster in the network will have a circle annotation drawn around it and will be associated with a set of words (by default three) that correspond to the most frequent node labels in the cluster.
+                            <ol style="list-style-type:disc">
+                                <li>These words are automatically selected and often must be manually renamed (see Step 18iii).</li>
+                                <li>Moving individual nodes within a cluster will automatically resize the surrounding circle and moving an entire cluster will redraw the surrounding circle in the new cluster location.</li>
+                            </ol>   
+                        </li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Labels are bigger for bigger clusters but I want all the labels to be the same size.</font>
+                           <li>Setting to scale labels to the size of the cluster is enabled.</li>
+                            <li> The number of nodes in a cluster determines label size by default. Thus, the cluster size may relate to pathway popularity instead of importance in the experiment. Annotation labels can all be set to the same size by unchecking the option “Scale font by cluster size” in the AutoAnnotate results panel. </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h3>16.	Define major biological themes - cont'd </h3>
+                    <img src="./figures/em_clarify6.png">
+
+                    <ol style="list-style-type:lower-roman" start=5>
+                        <li>Manually arrange clusters to clean up the figure. Move nodes to reduce node and label overlap. Figure above shows the results of this process.                        
+                        </li>
+                    </ol>
+                </section>
+                 <section>
+                    <h1>17.	Create a simplified network view  </h1>
+                    <p>This creates a single group node for every cluster with a summarized name and provides an overview of the enrichment result themes that is useful for enrichment maps containing many nodes.</p>
+                    <img style="float:right;width:35%" src="./figures/em_clarify7.png">
+
+                    <ol style="list-style-type:lower-roman;width:35%" start=1>
+                        <li>In <b>Control Panel</b> select the <b>AutoAnnotate </b> tab.</li>
+                        <li>Click on the Menu icon in the upper right corner. </li>
+                        <li>Select <b>Collapse All</b>. </li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Pop up after selecting "Collapse all" shows up everytime I collapse my clusters.</font>
+                           <li>Have not specified "Don't ask me again" option on pop up.</li>
+                            <li>Once you click on “Collapse All” a pop-up window will show the message “Before collapsing clusters please go to the menu Edit->Preferences->Group preferences and select “Enable attribute aggregation”. There is no need to adjust this parameter repeatedly. Click on “Don’t ask me again” and “OK” if you have set this parameter previously. </li>
+                        </ul>       
+                   
+                        <ul><font color="red"> TROUBLESHOOTING: Collapsing my network takes a long time.</font>
+                           <li>The larger the network or the more clusters in a network, the longer collapsing will take. </li>
+                            <li>For large networks, collapsing and expanding may take time. For a quick view of the collapsed network you can create a summary network by selecting the “Create summary Network…”. There are two options for the summary network: “clusters only” which creates a summary network with just the circled clusters, or “clusters and unclustered nodes” which creates a summary network that also includes the singleton nodes not part of any cluster. </li>
+                        </ul>
+                            <ul><font color="red"> TROUBLESHOOTING: Collapsed network contain grey nodes instead of colored as they were in the pre-collapsed network.</font>
+                           <li>Attribute aggregation in not enabled. </li>
+                            <li>If the nodes in the resulting collapsed network are grey then you forgot to enable attribute aggregation. Expand clusters and before collapsing clusters again, go to the menu Edit->Preferences->Group preferences and select “Enable attribute aggregation". </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h3>17.	Create a simplified network view - cont'd </h3>
+                    <p><highlight>Scale collapsed network for better viewing:</highlight></p>
+                    <img style="float:right;width:35%" src="./figures/em_clarify8.png">
+
+                    <ol style="list-style-type:lower-roman;width:35%" start=4>
+                        <li>In the Cytoscape menu bar, select <b>View --> Show Tool Panel</b>.</li>
+                        <li>Go to the Node Layout Tools panel located at the bottom of the <b>Control Panel</b>.</li>
+                        <li>Locate the <b>Scale</b> slider bar and use it on unselected nodes (uncheck Selected only).</li>
+                        <li>Move slider left to tighten the node spacing. Close the Node Layout Tools panel when finished.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h1>18.	Manually arranging the network   </h1>
+                    <p>Manually arranging the network nodes and custom labeling the major themes is required for the clearest network view and for a publication quality figure. For instance, it is useful to bring together similar themes, such as signaling or metabolic pathways, even if they are not connected in the map. Use of space should be optimized so that large amounts of white space are not present. <b><font color="purple"> This is a time consuming step, but the more effort spent, the higher quality the resulting figure will be.</font></b></p>
+                    <ol style="list-style-type:lower-roman" start=1>
+                        <li>If the focus of the figure is only on a subset of the network, it can be easier to work with just the subset.
+                            <ol style="list-style-type:disc">
+                                <li>To create this, select the nodes of interest, then in the Cytoscape menu bar select <b>File --> New --> Network --> From selected nodes --> all edges</b></li>
+                                <li>or alternatively use the corresponding icon in the Cytoscape tools menu bar (<b>New network from selection, (all edges)</b>).</li>
+                            </ol>  
+                        </li>
+                        <li>When the purpose of the figure is to show a large network and highlight only the main themes, 
+                            <ol style="list-style-type:disc">
+                                <li>clicking on <b>Publication ready</b> located at the bottom of the <b>EM Control panel</b> will remove node labels.</li>
+                                <li>To revert to the original network, click on the <b>Publication ready</b> button again.  </li>
+                            </ol>
+                        </li>
+                        <li>Automatic WordCloud-generated theme names are useful for quickly exploring an enrichment map, but frequently need to be renamed for publication quality figures.
+                            <ol style="list-style-type:disc">
+                                <li> Naming should carefully consider all pathways and genes within each theme.</li>
+                                <li>Themes can be renamed in AutoAnnotate by right-clicking the name in the AutoAnnotate panel in the “<b>Cluster</b>” column, and selecting <b>Rename…</b> </li>
+                                <li>Alternatively, labels can be changed in external drawing software (see Step 20). Note that re-clustering the network will reset theme names.</li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: In the EnrichmentMap input panel, the bottom options  "Publication Ready" and "Set Signature Edge Width" are not visible. </font>
+                           <li>The Node Layout Tool is open. </li>
+                            <li>Close the Node Layout Tools window using the x symbol located at the top right corner.  </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                
+                <section>
+                    <h1>19.	Create a subnetwork  </h1>
+                    <p>Create a subnetwork that highlights a specific theme subset. Enrichment maps of rich omics data sets are often large and complicated and it is often useful to emphasize specific themes or relevant pathways in a final figure. For example, we will select the top mesenchymal and immunoreactive pathways and create a subnetwork for detailed visualization.</p>
+                    <img style="float:right;width:35%" src="./figures/em_clarify9.png">
+                    <ol style="list-style-type:lower-roman;width:55%" start=1>
+                        <li>Click on the <b>Select tab</b> in the <b>Control Panel</b>.</li>
+                        <li>Click on the + symbol and select Column filter.</li>
+                        <li>Click on <b>Choose column…</b> and select “<b>EM1_NES (Mesem_vs_Immuno)</b>”.</li>
+                        <li>Click on the box next to <b>between</b> and replace the negative value by 2.5. Do not change the positive value next to <b>inclusive</b>. Click <b>Enter</b>.</li>
+                    </ol>
+                    
+                </section>
+                
+                <section>
+                    <h3>19.	Create a subnetwork - cont'd  </h3>
+                    <img style="float:right;width:35%" src="./figures/em_clarify10.png">
+                    <ol style="list-style-type:lower-roman;width:55%" start=5>
+                        <li>Click on the + symbol and select Column filter.</li>
+                        <li>Click on <b>Choose column…</b> and select “<b>EM1_NES (Mesem_vs_Immuno)</b>”.</li>
+                        <li>Click on the box next to <b>inclusive</b> and change the value to -2.5. Do not change the negative value next to <b>between</b>. Click <b>Enter</b>.</li>
+                        <li>Above the two column filters you just added, change the drop down from <b>Match all (AND)</b> to <b>Match any (OR)</b>.</li>
+                        <li>Click on <b>Apply</b>. Under the apply button, it should display the number of nodes and edges selected. In this example, 32 nodes should be selected.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>19.	Create a subnetwork - cont'd  </h3>
+                    <img  src="./figures/em_subnetwork.png">
+                    <ol style="list-style-type:lower-roman;" start=10>
+                        <li>From the Cytoscape menu, Select <b>File --> New --> Network --> From selected nodes, all edges</b>.</li>
+                        <li>A new smaller network should appear. Manually move nodes around to optimize the layout.</li>
+                        <li>Annotate the network as described in Step 16 </li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: The created subnetwork is empty. </font>
+                           <li>Nodes were not selected prior to the creation of the subnetwork. </li>
+                            <li>Make sure that the nodes that will be part of the subnetwork are selected before creation of the subnetwork.  </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h1>20. Export an image	</h1>
+                    <img src="./figures/em_save.png">
+                    <ol style="list-style-type:lower-roman" start=1>
+                        <li>In the Cytoscape menu bar, select <b>File --> Export as Image…</b></li>
+                        <li>Set the <b>Export File Format</b> to PDF (*.pdf).</li>
+                        <li>Click on <b>Browse…</b> to specify file name and location.</li>
+                        <li>Click on <b>Save</b> to close the browser window and then on <b>OK</b>.</li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: Exported image only contains a small subset of my network.</font>
+                           <li>Only what is visible in the view is exported. </li>
+                            <li>In image export, only the visible part of the map will be exported. Make sure that the entire network is visible on your screen before exporting. </li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h1>21. Identify network creation parameters</h1>
+                    <p>Identify network creation parameters. In the previous step we exported the network as an image, but the parameters used to create the map are needed to interpret and reproduce the image.</p>
+                    <img src="./figures/em_params.png">
+                    <ol style="list-style-type:lower-roman" start=1>
+                        <li>In the <b>Control Panel</b>, locate the EnrichmentMap Input panel and click on the cog (settings) icon in the top right-hand corner.</li>
+                        <li>Click on <b>show Creation Parameters…</b></li>
+                        <li>In the displayed panel you will find the FDR q-value, similarity metric and threshold parameters to be added to the text legend of figure. In this example: “Enrichment map was created with parameters q &lt; 0.01, and Jaccard Overlap combined coefficient &gt; 0.375 with combined constant = 0.5”. </li>
+                    </ol>
+                    <aside class="notes">
+                        <font size ="1">		          
+                        <ul><font color="red"> TROUBLESHOOTING: The parameters shown do not match what I expected them to be.</font>
+                           <li>The creation parameters panel only shows the parameters that were used at network creation. If you modified the network using filters or the EnrichmentMap slider bars you will have to update the thresholds accordingly.</li>
+                        </ul>       
+                    </font>
+                    </aside>
+                </section>
+                <section>
+                    <h1>22. Show and create a legend. </h1>
+                    <img style="float:right;width:35%" src="./figures/example_legend.png">
+                    <ol style="list-style-type:disc;width:55%">
+                        <li>In the <b>Control Panel</b>, locate the <b>EnrichmentMap Input panel</b> and click on the cog icon in the top right corner.</li>
+                        <li>Click on <b>Show Legend</b>.</li>
+                        <li>The example shows a simplified legend, however many different node and edge attributes like size, shape and color can be used in the enrichment map to represent different aspects of the data.</li>
+                        <li><font color="red">It is important to describe them in the text associated with the figure or in the figure itself as a legend.</font></li>
+                        <li> The basic legend components (available as SVG and PDF images at <a href="http://baderlab.org/Software/EnrichmentMap#Legends">http://baderlab.org/Software/EnrichmentMap#Legends</a>) that can be used for an enrichment map figure. You can manually select the components relevant to your analysis. </li>
+                    </ol>
+                       
+                </section>
+                <section>
+                    <h1>23. Save all work as a Cytoscape session </h1>
+                    <ol style="list-style-type:disc;width:55%">
+                        <li>In the Cytoscape menu, select <b>File --> Save As… </b></li>
+                        <li>Navigate to the directory you wish to save the session and specify the desired file name. </li>
+                    </ol>
+                       
+                </section>
+                
+                
             </section>
+            <section>
+                    <h1>Acknowledgements </h1>
+                    <p>Presentation is based on the publication <b>"Pathway enrichment analysis and visualization of omics data using g:Profiler, GSEA and Cytoscape EnrichmentMap"</b></p>
+                    
+                     <h5><highlight>Written by:</highlight></h5>
+                     <p><b>Jüri Reimand</b>, <b>Ruth Isserlin</b>, Veronique Voisin, Mike Kucera, Christian Tannus-Lopes, Asha Rostamianfar, Lina Wadi, Mona Meyer, Jeff Wong, Changjiang Xu, Daniele Merico, Gary D. Bader</p>
+            </section>
+                
+
+            
+
+           
+            
   		</div>
 		</div>
 
