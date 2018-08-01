@@ -1,0 +1,1785 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Bioc 2018 Rcy3 Intro Workshop</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+
+<section data-state="section" data-transition="linear" data-transition-speed="default">
+    <h1>Cytoscape Automation in R using Rcy3</h1>
+    <p>Ruth Isserlin<br/>July 26, 2018</p>
+<div class="footer" style="position: absolute; left: -3em; bottom: -4em; ">
+                    <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+                    <version>3.6.1</version>
+                </div>
+
+
+</section>
+       
+           
+                
+        <section>
+            <section data-transition="linear" data-transition-speed="default">
+                <h1>Overview</h1>
+                <highlight>Instructor(s) name(s) and contact information</highlight>
+
+                <ul>
+                    <li>Ruth Isserlin - ruth dot isserlin (at) utoronto (dot) ca</li>
+                    <li>Brendan Innes - brendan (dot) innes (at) mail (dot) utoronto (dot) ca</li>
+                    <li>Jeff Wong - jvwong (at) gmail (dot) com </li>
+                    <li>Gary Bader - gary (dot) bader (at) utoronto (dot) ca</li>
+                </ul>
+            </section>
+            
+            <section>
+            <h1>Download and Install:</h1>
+
+                <ul>
+                    <li>Slides - <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/Bioc2018_RCy3_intro/">https://cytoscape.github.io/cytoscape-tutorials/protocols/Bioc2018_RCy3_intro/</a></li>
+                    <li>Cytoscape - <a href="http://www.cytoscape.org/download.php">http://www.cytoscape.org/download.php</a></li>
+                    <li>RNotebook files - <a href="https://github.com/Bioconductor/BiocWorkshops/blob/master/230_Isserlin_RCy3_intro.Rmd">https://github.com/Bioconductor/BiocWorkshops/blob/master/230_Isserlin_RCy3_intro.Rmd</a></li>
+                    <li>Workshop Book - <a href="https://bioconductor.github.io/BiocWorkshops/BioC2018.pdf">https://bioconductor.github.io/BiocWorkshops/BioC2018.pdf</a></li>
+                    <li> R packages (list below)</li>
+                    <li> Cytoscape Apps (listed below) - in Cytoscape go to <strong>Apps->App Manager</strong> to install apps.</li>
+                </ul>
+                <br><br>
+                 <table style="float: left;"><thead>
+                        <tr><th>in RStudio install the following packages</th></tr>
+                    </thead><tbody>
+                    <tr><td>RCy3</td></tr>
+                    <tr><td>gProfileR</td></tr>
+                    <tr><td>RCurl</td></tr>
+                    <tr><td>EnrichmentBrowser</td></tr>
+                    </tbody></table> 
+                
+                <table style="float: right;"><thead>
+                    <tr><th>in Cytoscape install</th></tr>
+                    </thead><tbody>
+                    <tr><td>EnrichmentMap pipeline Collection</td></tr>
+                    <tr><td>Functional Enrichment Collection</td></tr>
+                    <tr><td>aMatReader</td></tr>
+                    </tbody></table>
+            </section>
+                
+            <section data-transition="linear" data-transition-speed="default">
+                <h4>Prerequisites</h4>
+                
+                <table style="float: left;"><thead>
+                    <tr><th>Workshop prerequisites</th></tr>
+                    </thead><tbody>
+                    <tr><td>Basic knowledge of R syntax</td></tr>
+                    <tr><td>Basic knowledge of Cytoscape software</td></tr>
+                    <tr><td>Familiarity with network biology concepts</td></tr>
+                    </tbody></table>
+                
+                <table><thead>
+                        <tr><th>R / Bioconductor packages</th></tr>
+                    </thead><tbody>
+                    <tr><td>RCy3</td></tr>
+                    <tr><td>gProfileR</td></tr>
+                    <tr><td>RCurl</td></tr>
+                    <tr><td>EnrichmentBrowser</td></tr>
+                    </tbody></table>                
+            </section>
+
+            <section data-transition="linear" data-transition-speed="default">
+                <h3>Outline</h3>
+
+                <table><thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Time</th>
+                    </tr>
+                    </thead><tbody>
+                    <tr>
+                        <td>Introduction</td>
+                        <td>15m</td>
+                    </tr>
+                    <tr>
+                        <td>Driving Cytoscape from R</td>
+                        <td>15m</td>
+                    </tr>
+                    <tr>
+                        <td>Creating, retrieving and manipulating networks</td>
+                        <td>15m</td>
+                    </tr>
+                    <tr>
+                        <td>Summary</td>
+                        <td>10m</td>
+                    </tr>
+                    </tbody></table>
+            </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Workshop goals and objectives</h3>
+                    <ul style="float: left;list-style-type:none">
+                    <li><highlight>Learning goals</highlight></li>
+
+                        <ul style="float: left">
+                            <li>Know when and how to use Cytoscape in your research area</li>
+                            <li>Generalize network analysis methods to multiple problem domains</li>
+                            <li>Integrate Cytoscape into your bioinformatics pipelines</li>
+                        </ul>
+                        <br>
+                    <li><highlight>Learning objectives</highlight></li>
+
+                        <ul style="float: left">
+                            <li>Programmatic control over Cytoscape from R</li>
+                            <li>Publish, share and export networks</li>
+                        </ul>
+                    </ul>
+                </section>
+            </section>
+            <section id="cytoscape_background">
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Background</h1>
+
+                    <h3>Cytoscape</h3>
+                    <img style="float:left;width:15%" src="./images/cy3logoOrange.png">
+                    <ul style="float:right;width:80%">
+                        <li><a href="www.cytoscape.org">Cytoscape</a><a href="#refs">(Shannon et al.)</a> is a freely available open-source, cross platform network analysis software.<br/></li>
+                        <li><a href="www.cytoscape.org">Cytoscape</a><a href="#refs">(Shannon et al.)</a> can visualize complex networks and help integrate them with any other data type.<br/></li>
+                        <li><a href="www.cytoscape.org">Cytoscape</a><a href="#refs">(Shannon et al.)</a> has an active developer and user base with more than <strong>300</strong> community created apps available from the (Cytoscape App Store)[apps.cytoscape.org].</li>
+                        <li><strong>Check out some of the tasks you can do with Cytoscape in our online tutorial guide - tutorials.cytoscape.org</strong></li>
+                    </ul>
+                </section>
+           
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Cytoscape Apps</h3>
+                   
+                    <p style="text-align:center;"><img  src="./images/Apps-4.png" /></p>
+
+                </section>
+            </section>
+            <section id="network_primer">
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Overview of network biology themes and concepts</h1>
+                    <h4>Why Networks?</h4>
+
+                    <ul style="float: left;list-style-type:none">
+                        <li><highlight>Networks are everywhere&hellip;</highlight></li>
+                            <ul>
+                                <li>Molecular Networks</li>
+                                <li>Cell-Cell communication Networks</li>
+                                <li>Computer networks</li>
+                                <li>Social Networks</li>
+                                <li>Internet</li>
+                            </ul>
+
+                        <li><highlight>Networks are powerful tools&hellip;</highlight></li>
+                            <ul>
+                                <li>Reduce complexity</li>
+                                <li>More efficient than tables</li>
+                                <li>Great for data integration</li>
+                                <li>Intuitive visualization</li>
+                            </ul>
+                    </ul>
+
+
+                </section> 
+                
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+                        <p>Often data in our pipelines are represented as data.frames, tables, matrices, vectors or lists.  Sometimes we represent this data as heatmaps, or plots in efforts to summarize the results visually.  Network visualization offers an additional method that readily incorporates many different data types and variables into a single picture. </p>
+
+                        <p style="text-align:center;"><img src="./images/tables2networks.png" ></p>
+                    </div>
+                </section>
+                
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Network types</h3>
+                    <div class="slideContent noTitle" >
+                        <p>In order to translate your data into a network it is important to define the entities and their relationships.  Entities and relationships can be anything. They can be user defined or they can be queried from a database.</p>
+
+                        <ul style="float: left;list-style-type:none">
+                        <li><highlight>Examples of Networks and their associated entities:</highlight></li>
+
+                            <ul>
+                                <li><strong>Protein - Protein interaction network</strong> <br/></li>
+                                <li><strong>Gene - gene interaction network</strong> - <br/></li>
+                                <li><strong>Coexpression network</strong> </li>
+                                <li><strong>Enrichment Map</strong> </li>
+                                <li><strong>Social network</strong> </li>
+                                <li><strong>Copublication network</strong> </li>
+                            </ul>
+                        </ul>
+
+                    </div>
+                    <aside class="notes">
+                        <small>
+                        <ul>
+                            <li><strong>Protein - Protein interaction network</strong> - is a directed or undirected network where nodes in the network are proteins or genes and edges represent how those proteins interact.<br/></li>
+                            <li><strong>Gene - gene interaction network</strong> - nodes in the network are genes and edges can represent synthetic lethality i.e. two genes have a connection if deleting both of them cause a decrease in fitness.<br/></li>
+                            <li><strong>Coexpression network</strong> - nodes in the network are genes or proteins and edges represent the degree of co-expression the two genes have.  Often the edges are associated with a correlation score (i.e. pearson correlation) and edges are filtered by a defined threshold.  If no threshold is specified all genes will be connected to all other genes creating a hairball.</li>
+                            <li><strong>Enrichment Map</strong> - nodes in the networks are groups of genes from pathways or functions (i.e. genesets) and edges represent pathway crosstalk ( genes in common).</li>
+                            <li><strong>Social network</strong> -  nodes in the network are individuals and edges are some sort of social interaction between two individuals, for example, friends on Facebook, linked in LinkedIN, &hellip;</li>
+                            <li><strong>Copublication network</strong> - a specialization of the social network for research purposes. Nodes in the network are individuals and edges between any two individuals for those who have co-authored a publication together.</li>
+                        </ul>
+                        </small>
+                    </aside>
+                </section>
+ 
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Networks as Tools</h3>
+                    <div class="slideContent" >
+                        <p>Networks can be used for two main purposes but often go hand in hand.  </p>
+
+                        <ul style="float: left;list-style-type:none">
+                            <li><highlight>Analysis</highlight></li>
+                            <ul>
+                                <li>Topological properties </li>
+                                <li>Hubs and subnetworks <br/></li>
+                                <li>Cluster, classify, and diffuse<br/></li>
+                                <li>Data integration</li>
+                            </ul>
+
+                            <li><highlight>Visualization</highlight></li>
+
+                            <ul>
+                                <li>Data overlays</li>
+                                <li>Layouts and animation</li>
+                                <li>Exploratory analysis</li>
+                                <li>Context and interpretation</li>
+                            </ul>
+                        </ul>
+
+                    </div>
+                    <aside class="notes">
+                        <ul>
+                                <li>Topological properties - including number of nodes, number of edges, node degree, average clustering coefficients, shortest path lengths, density, and many more.  Topological properties can help gain insights into the structure and organization of the resulting biological networks as well as help highlight specific node or regions of the network.<br/></li>
+                                <li>Hubs and subnetworks - a hub is generally a highly connected node in a scale-free network.  Removal of hubs cause rapid breakdown of the underlying network.  Subnetworks are interconnected regions of the network and can be defined by any user defined parameter.<br/></li>
+                                <li>Cluster, classify, and diffuse<br/></li>
+                                <li>Data integration</li>
+                            </ul>
+                    </aside>
+                </section>
+            </section>
+            <section id="RCy3_primer">
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Translating biological data into Cytoscape using RCy3</h1>
+                    <div class="slideContent" >
+                        <p>Networks offer us a useful way to represent our biological data.  But how do we seamlessly translate our data from R into Cytoscape?</p>
+
+                        <p style="text-align:center;"><img src="./images/CytoscapeAutomation_3.png" style="width:70%"/></p>
+                    </div>
+                    <aside class="notes">
+                        <p>There are multiple ways to communicate with Cytoscape programmatically.  There are two main complementary portals,<strong>cyRest</strong><a href="#refs">(Ono et al.)</a> and <strong>Commands</strong>, that form the foundation.  cyRest transforms Cytoscape in to a REST (Representational State Transfer) enabled service where it essentially listens for events through a predefined port (by default port 1234).  The cyRest functionality started as an app add in but has now been incorporated into the main release. Commands, on the other hand, offer a mechanism whereby app developers can expose their functionality to other apps or to user through the command interface.  Prior to the implementation of cyRest many of the basic network functions were first available as commands so there is some overlap between the two different methods.  \@ref(fig:cytoscapeRcy3) shows the different ways you can call Cytoscape.</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Set up</h3>
+                    <div class="slideContent" >
+                        <p>In order to create networks in Cytoscape from R you need:</p>
+
+                        <ul>
+                            <li><strong>RCy3</strong> - a biocondutor package</li>
+                        </ul>
+
+                    <pre><code class="r">if(!&quot;RCy3&quot; %in% installed.packages()){
+                        install.packages(&quot;BiocManager&quot;)
+                        BiocManager::install(&quot;RCy3&quot;)
+                    }
+                    library(RCy3)
+                    </code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Set up - (part 2)</h3>
+                    <div class="slideContent" >
+                        <ul>
+                            <li><strong>Cytoscape</strong> - Download and install <a href="cytoscape.org/download.php">Cytoscape 3.6.1.</a> or higher.  Java 9 in not supported.  Please make sure that Java 8 is installed.
+
+                                <ul>
+                                    <li>Install additional cytoscape apps that will be used in this workshop.  If using cytoscape 3.6.1 or older the apps need to manually installed through the <a href="http://manual.cytoscape.org/en/latest/App_Manager.html#installing-apps">app manager</a> in Cytoscape or through your <a href="https://apps.cytoscape.org/help/getstarted_app_install">web browser</a>.  (click on the method to see detailed instructions)
+
+                                        <ul>
+                                            <li><a href="http://apps.cytoscape.org/apps/functionalenrichmentcollection">Functional Enrichment Collection</a> -a collection of apps to retrieve networks and pathways, integrate and explore the data, perform functional enrichment analysis, and interpret and display your results.</li>
+                                            <li><a href="http://apps.cytoscape.org/apps/enrichmentmappipelinecollection">EnrichmentMap Pipeline Collection</a> - a collection of apps including EnrichmentMap<a href="#refs">(Merico et al.)</a>, AutoAnnotate<a href="#refs">(Kucera et al.)</a>, WordCloud<a href="#refs">(Oesper et al.)</a> and clusterMaker2<a href="#refs">(Morris et al.)</a> used to visualize and analysis enrichment results.</li>
+                                        </ul></li>
+                                </ul></li>
+                        </ul>
+
+                    </div>
+
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Set up - (part 4)</h3>
+                    <div class="slideContent" >
+                        <p>If you are using Cytoscape 3.7 or higher (Cytoscape 3.7 will be released in August 2018) then apps can be installed directly from R.</p>
+
+<pre><code class="r">#list of cytoscape apps to install
+installation_responses &lt;- c()
+
+#list of app to install
+cyto_app_toinstall &lt;- c(&quot;clustermaker2&quot;, &quot;enrichmentmap&quot;, &quot;autoannotate&quot;, &quot;wordcloud&quot;, &quot;stringapp&quot;, &quot;aMatReader&quot;)
+
+cytoscape_version &lt;- unlist(strsplit( cytoscapeVersionInfo()[&#39;cytoscapeVersion&#39;],split = &quot;\\.&quot;))
+if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;=3) 
+   &amp;&amp; as.numeric(cytoscape_version[2]&gt;=7)){
+  for(i in 1:length(cyto_app_toinstall)){
+    #check to see if the app is installed.  Only install it if it hasn&#39;t been installed
+    if(!grep(commandsGET(paste(&quot;apps status app=\&quot;&quot;, cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;)), 
+             pattern = &quot;status: Installed&quot;)){
+      installation_response &lt;-commandsGET(paste(&quot;apps install app=\&quot;&quot;, 
+                                                cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;))
+      installation_responses &lt;- c(installation_responses,installation_response)
+    } else{
+      installation_responses &lt;- c(installation_responses,&quot;already installed&quot;)
+    }
+  }
+  installation_summary &lt;- data.frame(name = cyto_app_toinstall, 
+                                     status = installation_responses)
+
+  knitr::kable(list(installation_summary),
+  booktabs = TRUE, caption = &#39;A Summary of automated app installation&#39;
+)
+}
+</code></pre>
+
+                    </div>
+
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Communicating with Cytoscape</h3>
+                    <div class="slideContent" >
+                        <p><strong>Make sure that Cytoscape is open</strong></p>
+
+<pre><code class="r"> cytoscapePing ()
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_cytoscapeping.png" /></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Getting started</h3>
+                    <div class="slideContent" >
+                        <p>Confirm that Cytoscape is installed and opened</p>
+
+<pre><code class="r"> cytoscapeVersionInfo ()
+</code></pre>
+
+<p style="text-align:center;"><img src="./images/screenshot_cytoscapeversion.png" /></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Browse available functions, commands and arguments</h3>
+                    <div class="slideContent" >
+                        <p>Depending on what apps you have installed there is different functionality available.  </p>
+
+                        <p>To see all the functions available in RCy3 package</p>
+
+                        <pre><code class="r">help(package=RCy3)
+                        </code></pre>
+
+                        <pre><code class="r">cyrestAPI()  # CyREST API
+                        </code></pre>
+
+                        <pre><code class="r">commandsAPI()  # Commands API
+                        </code></pre>
+
+                    </div>
+                    <aside class="notes">
+                        <p>Open swagger docs for live instances of CyREST API.  The CyREST  API list all the functions available in a base distribution of cytoscape.  The below command will launch the swagger documentation in a web browser.  Functions are clustered into categories.  Expanding individual categories will show all the option available.  Further expanding an individual command will show detailed documentation for the function, input, outputs and allow you to try and run the function.  Running the function will show the url used for the query and all returned responses. </p>
+                        <p>As mentioned above, there are two ways to interact with Cytoscape, through the Cyrest API or commands.  To see the available commands in swagger similar to the Cyrest API.</p>
+                    </aside>
+                </section>
+    
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Help on specific cytoscape command</h3>
+                    <div class="slideContent" >
+                        <p>To get information about an individual command from the R environment you can also use the commandsHelp function.  Simply specify what command you would like to get information on by adding its name to the command.  For example &ldquo;commandsHelp(&quot;help string&rdquo;)&ldquo;</p>
+
+                        <pre><code class="r">commandsHelp(&quot;help&quot;)
+                        </code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_availablecommands.png" /></p>
+
+                    </div>
+
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Cytoscape Basics</h3>
+                    <div class="slideContent" >
+                        <p>Create a Cytoscape network from some basic R objects</p>
+
+                        <pre><code class="r">nodes &lt;- data.frame(id=c(&quot;node 0&quot;,&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;),
+                                   group=c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;), # categorical strings
+                                   score=as.integer(c(20,10,15,5)), # integers
+                                   stringsAsFactors=FALSE)
+                        edges &lt;- data.frame(source=c(&quot;node 0&quot;,&quot;node 0&quot;,&quot;node 0&quot;,&quot;node 2&quot;),
+                                   target=c(&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;,&quot;node 3&quot;),
+                                   interaction=c(&quot;inhibits&quot;,&quot;interacts&quot;,&quot;activates&quot;,&quot;interacts&quot;),  # optional
+                                   weight=c(5.1,3.0,5.2,9.9), # numeric
+                                   stringsAsFactors=FALSE)
+                        </code></pre>
+
+                    </div>
+
+                </section>
+               
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Data frame used to create Network</h3>
+                    <div class="slideContent" >
+                        
+                        <ul style="float: left;list-style-type:none">
+                        <p style="text-align:center;"><li><highlight>Nodes table:</highlight></li></p>
+                            <table><thead>
+                                <tr>
+                                    <th align="left">id</th>
+                                    <th align="left">group</th>
+                                    <th align="right">score</th>
+                                </tr>
+                                </thead><tbody>
+                                <tr>
+                                    <td align="left">node 0</td>
+                                    <td align="left">A</td>
+                                    <td align="right">20</td>
+                                </tr>
+                                <tr>
+                                    <td align="left">node 1</td>
+                                    <td align="left">A</td>
+                                    <td align="right">10</td>
+                                </tr>
+                                <tr>
+                                    <td align="left">node 2</td>
+                                    <td align="left">B</td>
+                                    <td align="right">15</td>
+                                </tr>
+                                <tr>
+                                    <td align="left">node 3</td>
+                                    <td align="left">B</td>
+                                    <td align="right">5</td>
+                                </tr>
+                                </tbody></table>
+                            <li><highlight> </highlight></li>
+                        </ul>
+                            <ul style="float: right;list-style-type:none">
+                            <p style="text-align:center;"><li><highlight>Edges table:</highlight></li></p>
+                                <table><thead>
+                                <tr>
+                                <th align="left">source</th>
+                                <th align="left">target</th>
+                                <th align="left">interaction</th>
+                                <th align="right">weight</th>
+                                </tr>
+                                </thead><tbody>
+                                <tr>
+                                <td align="left">node 0</td>
+                                <td align="left">node 1</td>
+                                <td align="left">inhibits</td>
+                                <td align="right">5.1</td>
+                                </tr>
+                                <tr>
+                                <td align="left">node 0</td>
+                                <td align="left">node 2</td>
+                                <td align="left">interacts</td>
+                                <td align="right">3.0</td>
+                                </tr>
+                                <tr>
+                                <td align="left">node 0</td>
+                                <td align="left">node 3</td>
+                                <td align="left">activates</td>
+                                <td align="right">5.2</td>
+                                </tr>
+                                <tr>
+                                <td align="left">node 2</td>
+                                <td align="left">node 3</td>
+                                <td align="left">interacts</td>
+                                <td align="right">9.9</td>
+                                </tr>
+                                </tbody></table>
+                        </ul>
+
+                    </div>
+
+                </section>
+                 
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Create Network</h3>
+                    <div class="slideContent" >
+                        <pre><code class="r">createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;, collection=&quot;DataFrame Example&quot;)
+                        </code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_networkload_1.png" /></p>
+
+                    </div>
+
+                </section>
+                
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Export an image of the network</h3>
+                    <div class="slideContent" >
+                        <p>Remember. All networks we make are created in Cytoscape so get an image of the resulting network and include it in your current analysis if desired.</p>
+
+                        <pre><code class="r">initial_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;initial_example_network.png&quot;)
+                        </code></pre>
+
+                        <pre><code class="r">if(file.exists(initial_network_png_file_name)){
+                          #cytoscape hangs waiting for user response if file already exists.  Remove it first
+                          file.remove(initial_network_png_file_name)
+                          } 
+
+                        #export the network
+                        exportImage(initial_network_png_file_name, type = &quot;png&quot;)
+                        </code></pre>
+                    </div>
+
+                </section>
+                <section>
+                    <h3>Initial simple network</h3>
+                     <p  style="text-align:center;"><img src="./images/initial_example_network.png" /></p>
+                </section>
+            </section>
+            <section id="data">
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Example Data Set</h1>
+                    <div class="slideContent" >
+                        <p>We downloaded gene expression data from the Ovarian Serous Cystadenocarcinoma project of The Cancer Genome Atlas (TCGA)<a href="#refs">(International Genome et al.)</a>, <a href="http://cancergenome.nih.gov">http://cancergenome.nih.gov</a> via the Genomic Data Commons (GDC) portal<a href="#refs">(Grossman et al.)</a> on 2017-06-14 using TCGABiolinks R package<a href="#refs">(Colaprico et al.)</a>. </p>
+                            <ul>
+                                <li>300 samples available as RNA-seq data</li>
+                                <li>79 classified as Immunoreactive, 72 classified as Mesenchymal, 69 classified as Differentiated, and 80 classified as Proliferative samples</li>
+                                <li>RNA-seq read counts were converted to CPM values and genes with CPM &gt; 1 in at least 50 of the samples are retained for further study </li>
+                                <li>The data was normalized and differential expression was calculated for each cancer class relative to the rest of the samples. </li>
+                        </ul>
+                        </div>
+                    </section>
+                    <section>
+                        <p>There are two data files:</p>
+
+                            <ol>
+                            <li>Expression matrix - containing the normalized expression for each gene across all 300 samples.</li>
+                            <li>Gene ranks - containing the p-values, FDR and foldchange values for the 4 comparisons (mesenchymal vs rest, differential vs rest, proliferative vs rest and immunoreactive vs rest)</li>
+                            </ol>
+
+                        <pre><code class="r">RNASeq_expression_matrix &lt;- read.table( 
+                          file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;TCGA_OV_RNAseq_expression.txt&quot;),  
+                          header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
+
+RNASeq_gene_scores &lt;- read.table( 
+                           file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;TCGA_OV_RNAseq_All_edgeR_scores.txt&quot;),  
+                          header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
+                        </code></pre>
+
+                    </section>
+
+                    <section data-transition="linear" data-transition-speed="default">
+                        <h3>Finding Network Data</h3>
+                        <div class="slideContent" >
+                            <ul style="list-style-type:none">
+                                <li><highlight>How do I represent <em>my</em> data as a network?</highlight></li>
+
+                            <li>Unfortunately, there is not a simple answer.<br> <br>
+                               </li>
+                            </ul>
+                        </div>
+                </section>
+                <section>
+                    <div class="slideContent" >
+                            <h3>It depends on your biological question!</h3>   
+                            
+                        <ul style="list-style-type:none">
+                            <li><highlight>Example use cases:</highlight></li>
+
+                                <ol>
+                                    <li><strong>Omics data</strong> - I have a ----------- <em>fill in the blank</em> (microarray, RNASeq, Proteomics, ATACseq, MicroRNA, GWAS &hellip;) dataset.  I have normalized and scored my data. How do I overlay my data on existing interaction data?  </li>
+                                    <li><strong>Coexpression data</strong> -I have a dataset that represents relationships.  How do I represent it as a network.</li>
+                                    <li><strong>Omics data</strong> - I have a -----------<em>fill in the blank</em> (microarray, RNASeq, Proteomics, ATACseq, MicroRNA, GWAS &hellip;) dataset.  I have normalized and scored my data.  I have run my data through a functional enrichment tool and now have a set of enriched terms associated with my dataset. How do I represent my functional enrichments as a network?</li>
+                                </ol>
+                            </ul>
+                        </div>
+                </section>
+            </section>
+            <section id="use_case_1">
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Use Case 1 - How are my top genes related?</h1>
+                    <div class="slideContent" >
+                        <p>Omics data - I have a -----------<em>fill in the blank</em> (microarray, RNASeq, Proteomics, ATACseq, MicroRNA, GWAS &hellip;) dataset.  I have normalized and scored my data. How do I overlay my data on existing interaction data? </p>
+
+                        <p>There are endless amounts of databases storing interaction data. </p>
+
+                        <p style="text-align:center;"><img src="./images/interaction-dbs.png" /></p>
+
+                    </div>
+
+                </section>
+ 
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Cytoscape Apps with network data</h3>
+                    <div class="slideContent" >
+                        <p>Thankfully we don&#39;t have to query each independent ally.  In addition to many specialized (for example, for specific molecules, interaction type, or species) interaction databases there are also databases that collate these databases to create a broad resource that is easier to use. For example:</p>
+
+                            <ul>
+                                <li><a href="http://apps.cytoscape.org/apps/stringapp">StringApp</a> - is a protein - protein and protein- chemical database that imports data from <a href="string-db.org">String</a><a href="which%20itself%20includes%20data%20from%20multiple%20species,%20coexpression,%20text-mining,existing%20databases,%20and%20genomic%20context"></a><a href="#refs">(Szklarczyk et al.)</a>, [STITCH] into a unified, queriable database.</li>
+                                <li><a href="https://psicquic.github.io/">PSICQUIC</a><a href="#refs">(Aranda et al.)</a> - a REST-ful service that is the responsibility of the database provider to set up and maintain.  PSICQUIC is an additional interface that allows users to search all available databases (that support this REST-ful service).  The databases are required to represent their interaction data in Proteomic Standards Initiative - molecular interaction (PSI-MI) format. To see a list of all the available data source see <a href="http://www.ebi.ac.uk/Tools/webservices/psicquic/registry/registry?action=STATUS">here</a></li>
+                                <li><a href="http://home.ndexbio.org/index/">nDex</a><a href="#refs">(Pratt et al.)</a> - a network data exchange repository. </li>
+                                <li><a href="http://genemania.org/">GeneMANIA</a><a href="#refs">(Mostafavi et al.)</a> - contains multiple networks (shared domains, physical interactions, pathways, predicted, co-expression, genetic interactions and co-localized network).  Given a set of genes GeneMANIA selects and weights networks that optimize the connectivity between the query genes.  GeneMANIA will also return additional genes that are highly related to your query set.</li>
+                                <li><a href="http://www.pathwaycommons.org/">PathwayCommons</a> - (access the data through the <a href="http://apps.cytoscape.org/apps/cypath2">CyPath2App</a>) is a pathway and interaction data source.  Data is collated from a large set of resources (list <a href="http://www.pathwaycommons.org/pc2/datasources">here</a> ) and stored in the BioPAX<a href="#refs">(Demir et al.)</a> format.  BioPAX is a data standard that allows for detailed representation of pathway mechanistic details as opposed to collapsing it to the set of interactions between molecules.  BioPAX pathways from Pathway commons can also be loaded directly into R using the <a href="http://bioconductor.org/packages/release/bioc/html/paxtoolsr.html">PaxToolsR</a><a href="#refs">(Luna et al.)</a> Bioconductor package.<br/></li>
+                            </ul>                       
+                    </div>
+                </section>
+                
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+                        <p>Get a subset of genes of interest from our scored data:</p>
+
+<pre><code class="r">top_mesenchymal_genes &lt;- RNASeq_gene_scores[which(RNASeq_gene_scores$FDR.mesen &lt; 0.05 &amp; RNASeq_gene_scores$logFC.mesen &gt; 2),]
+head(top_mesenchymal_genes)
+</code></pre>
+
+<pre><code>      Name geneid logFC.mesen logCPM.mesen  LR.mesen PValue.mesen
+188   PRG4  10216    2.705305    2.6139056  95.58179     1.42e-22
+252  PROK1  84432    2.543381    1.3255202  68.31067     1.40e-16
+308  PRRX1   5396    2.077538    4.8570983 123.09925     1.33e-28
+434  PTGFR   5737    2.075707   -0.1960881  73.24646     1.14e-17
+438  PTGIS   5740    2.094198    5.8279714 165.11038     8.65e-38
+1214 BARX1  56033    3.267472    1.7427387 166.30064     4.76e-38
+     FDR.mesen logFC.diff logCPM.diff   LR.diff  PValue.diff     FDR.diff
+188   7.34e-21 -1.2716521   2.6139056 14.107056 1.726950e-04 1.181751e-03
+252   4.77e-15  0.7455119   1.3255202  5.105528 2.384972e-02 6.549953e-02
+308   1.08e-26 -1.2367108   4.8570983 29.949104 4.440000e-08 1.250000e-06
+434   4.30e-16 -0.4233297  -0.1960881  2.318523 1.278413e-01 2.368387e-01
+438   1.20e-35 -0.4448761   5.8279714  5.696086 1.700278e-02 5.027140e-02
+1214  6.82e-36 -2.4411370   1.7427387 52.224346 4.950000e-13 6.970000e-11
+     Row.names.y logFC.immuno logCPM.immuno LR.immuno PValue.immuno
+188   PRG4|10216   -0.4980017     2.6139056  2.651951   0.103422901
+252  PROK1|84432   -1.9692994     1.3255202 27.876348   0.000000129
+308   PRRX1|5396   -0.4914091     4.8570983  5.773502   0.016269586
+434   PTGFR|5737   -0.6737143    -0.1960881  6.289647   0.012144523
+438   PTGIS|5740   -0.6138074     5.8279714 11.708780   0.000622059
+1214 BARX1|56033   -0.6063633     1.7427387  4.577141   0.032401228
+      FDR.immuno logFC.prolif logCPM.prolif  LR.prolif PValue.prolif
+188  0.185548905   -0.9356510     2.6139056  8.9562066  0.0027652850
+252  0.000001650   -1.3195933     1.3255202 13.7675841  0.0002068750
+308  0.042062023   -0.3494185     4.8570983  2.9943819  0.0835537930
+434  0.033197211   -0.9786631    -0.1960881 12.9112727  0.0003266090
+438  0.002779895   -1.0355143     5.8279714 31.9162051  0.0000000161
+1214 0.073565295   -0.2199714     1.7427387  0.6315171  0.4267993850
+      FDR.prolif
+188  0.006372597
+252  0.000622057
+308  0.128528698
+434  0.000932503
+438  0.000000107
+1214 0.510856262
+</code></pre>
+
+                        <p>We are going to query the String Database to get all interactions found for our set of top Mesenchymal genes.</p>
+
+                    </div>
+
+                </section>
+                
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+<pre><code class="r">commandsHelp(&quot;help string&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_availablestringcommands.png" /></p>
+
+<pre><code class="r">commandsHelp(&quot;help string protein query&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_availablestringarguments.png" /></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+                        <p>Query String</p>
+
+<pre><code class="r">mesen_string_interaction_cmd &lt;- paste(&#39;string protein query taxonID=9606 limit=150 cutoff=0.9 query=&quot;&#39;,paste(top_mesenchymal_genes$Name, collapse=&quot;,&quot;),&#39;&quot;&#39;,sep=&quot;&quot;)
+commandsGET(mesen_string_interaction_cmd)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_stringnetworkload.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+                        <p>Get a screenshot of the initial network</p>
+
+<pre><code class="r">initial_string_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;, &quot;initial_string_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(initial_string_network_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  response &lt;- file.remove(initial_string_network_png_file_name)
+} 
+
+response &lt;- exportImage(initial_string_network_png_file_name, type = &quot;png&quot;)
+</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h3>Initial String Network - top Mesenchymal genes interactions</h3>
+                        <p style="text-align:center;"><img src="./images/initial_string_network.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Layouts</h3>
+                    <div class="slideContent" >
+                        <p>Layout the network</p>
+
+<pre><code class="r">layoutNetwork(&#39;force-directed&#39;)
+</code></pre>
+
+                        <p>Check what other layout algorithms are available to try out</p>
+
+<pre><code class="r">getLayoutNames()
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_availablelayouts.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Layouts - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Get the parameters for a specific layout</p>
+
+<pre><code class="r">getLayoutPropertyNames(layout.name=&#39;force-directed&#39;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_availablelayoutarguments.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Layouts - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Re-layout the network using the force directed layout but specify some of the parameters </p>
+
+<pre><code class="r">layoutNetwork(&#39;force-directed defaultSpringCoefficient=0.0000008 defaultSpringLength=70&#39;)
+</code></pre>
+
+                        <p>Get a screenshot of the re-laid out network</p>
+
+<pre><code class="r">relayout_string_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, 
+&quot;images&quot;,&quot;relayout_string_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(relayout_string_network_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  response&lt;- file.remove(relayout_string_network_png_file_name)
+  } 
+response &lt;- exportImage(relayout_string_network_png_file_name, type = &quot;png&quot;)
+</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>String network with new layout</h3>
+                    <div>
+                        <p style="text-align:center;"><img src="./images/relayout_string_network.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Overlay our expression data on the String network.  </h3>
+                    <div class="slideContent" >
+                        <p>To do this we will be using the loadTableData function from RCy3. It is important to make sure that  that your identifiers types match up.  You can check what is used by String by pulling in the column names of the node attribute table.</p>
+
+<pre><code class="r">getTableColumnNames(&#39;node&#39;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_availablenodecolumns.png"></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Overlay our expression data on the String network - cont&#x27;d  </h3>
+                    <div class="slideContent" >
+                        <p>If you are unsure of what each column is and want to further verify the column to use you can also pull in the entire node attribute table.</p>
+
+<pre><code class="r">node_attribute_table_topmesen &lt;- getTableColumns(table=&quot;node&quot;)
+head(node_attribute_table_topmesen[,3:7])
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_nodetable.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Overlay our expression data on the String network - cont&#x27;d  </h3>
+                    <div class="slideContent" >
+                        <p>The column &ldquo;display name&rdquo; contains HGNC gene names which are also found in our Ovarian Cancer dataset.</p>
+
+                        <p>To import our expression data we will match our dataset to the &ldquo;display name&rdquo; node attribute.</p>
+
+<pre><code class="r">?loadTableData
+
+loadTableData(RNASeq_gene_scores,table.key.column = &quot;display name&quot;,
+data.key.column = &quot;Name&quot;)  #default data.frame key is row.names
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_nodeattributeload.png"></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style</h3>
+                    <div class="slideContent" >
+                        <p>Modify the visual style
+                            Create your own visual style to visualize your expression data on the String network. </p>
+
+                        <p>Start with a default style</p>
+
+<pre><code class="r">style.name = &quot;MesenchymalStyle&quot;
+defaults.list &lt;- list(NODE_SHAPE=&quot;ellipse&quot;,
+                 NODE_SIZE=60,
+                 NODE_FILL_COLOR=&quot;#AAAAAA&quot;,
+                 EDGE_TRANSPARENCY=120)
+# p for passthrough; nothing else needed
+node.label.map &lt;- mapVisualProperty(&#39;node label&#39;,&#39;display name&#39;,&#39;p&#39;) 
+createVisualStyle(style.name, defaults.list, list(node.label.map))
+setVisualStyle(style.name=style.name)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_visualstyleapplied.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Update your created style with a mapping for the Mesenchymal logFC expression. The first step is to grab the column data from Cytoscape (we can reuse the node_attribute table concept from above but we have to call the function again as we have since added our expression data) and pull out the min and max to define our data mapping range of values.</p>
+
+                        <p><strong>Note</strong>: you could define the min and max based on the entire dataset or just the subset that is represented in Cytoscape currently.  The two methods will give you different results.  If you intend on comparing different networks created with the same dataset then it is best to calculate the min and max from the entire dataset as opposed to a subset. </p>
+
+<pre><code class="r">min.mesen.logfc = min(RNASeq_gene_scores$logFC.mesen,na.rm=TRUE)
+max.mesen.logfc = max(RNASeq_gene_scores$logFC.mesen,na.rm=TRUE)
+data.values = c(min.mesen.logfc,0,max.mesen.logfc)
+</code></pre>
+
+                    </div>
+
+                </section>
+                
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="mediaInline slideContent" >
+                        <p>Next, we use the RColorBrewer package to help us pick good colors to pair with our data values.</p>
+
+<pre><code class="r">library(RColorBrewer)
+display.brewer.all(length(data.values), colorblindFriendly=TRUE, type=&quot;div&quot;) 
+</code></pre>
+
+<p  style="text-align:center;"><img style="width:50%" src="data:image/png;base64,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SE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE7g/wMmFLfsTJn6kQAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-28"/></p>
+
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h3>logFC to node color</h3>
+<pre><code class="r">node.colors &lt;- c(rev(brewer.pal(length(data.values), &quot;RdBu&quot;)))
+</code></pre>
+
+                        <p>Map the colors to our data value and update our visual style. </p>
+
+<pre><code class="r">setNodeColorMapping(&quot;logFC.mesen&quot;, data.values, node.colors, style.name=style.name)
+</code></pre>
+
+                    </div>
+
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                          <p>Remember, String includes your query proteins as well as other proteins that associate with your query proteins (including the strongest connection first).  Not all of the proteins in this network are your top hits.  How can we visualize which proteins are our top Mesenchymal hits?</p>
+                        
+                        <p>Add a different border color or change the node shape for our top hits.</p>
+
+<pre><code class="r">getNodeShapes()
+
+#select the Nodes of interest
+#selectNode(nodes = top_mesenchymal_genes$Name, by.col=&quot;display name&quot;)
+setNodeShapeBypass(node.names = top_mesenchymal_genes$Name, new.shapes = &quot;TRIANGLE&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_availablenodeshapes.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Change the size of the node to be correlated with the Mesenchymal p-value. </p>
+
+<pre><code class="r">setNodeSizeMapping(table.column = &#39;LR.mesen&#39;, 
+                   table.column.values = c(min(RNASeq_gene_scores$LR.mesen), 
+                                           mean(RNASeq_gene_scores$LR.mesen), 
+                                           max(RNASeq_gene_scores$LR.mesen)), 
+                   sizes = c(30, 60, 150),mapping.type = &quot;c&quot;, style.name = style.name)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Get a screenshot of the resulting network</p>
+
+<pre><code class="r">mesen_string_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;mesen_string_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(mesen_string_network_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  response&lt;- file.remove(mesen_string_network_png_file_name)
+  } 
+response &lt;- exportImage(mesen_string_network_png_file_name, type = &quot;png&quot;)
+</code></pre>
+                    </div>
+
+                </section>
+                <section>
+                    <div>
+                        <h3>Formatted String network</h3>
+                        <p style="text-align:center;"><img src="./images/mesen_string_network.png" ></p>
+
+                    </div>
+
+                </section>
+            </section>
+            <section id="use_case_2">
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Use Case 2 - Which genes have similar expression.</h1>
+                    <div class="slideContent" >
+                        <p>Instead of querying existing resources look for correlations in your own dataset to find out which genes have similar expression.  There are many tools that can analyze your data for correlation.  A popular tool is Weighted Gene Correlation Network Analysis (WGCNA)<a href="#refs">(Langfelder et al.)</a> which takes expression data and calculates functional modules.  As a simple example we can transform our expression dataset into a correlation matrix.  </p>
+
+                        <p>Using the Cytoscape App, aMatReader<a href="#refs">(Settle et al.)</a>, we transform our adjacency matrix into an interaction network. First we filter the correlation matrix to contain only the strongest connections (for example, only correlations greater than 0.9). </p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+<pre><code class="r">RNASeq_expression &lt;- RNASeq_expression_matrix[,3:ncol(RNASeq_expression_matrix)]
+
+rownames(RNASeq_expression) &lt;- RNASeq_expression_matrix$Name
+RNAseq_correlation_matrix &lt;- cor(t(RNASeq_expression), method=&quot;pearson&quot;)
+
+#set the diagonal of matrix to zero - eliminate self-correlation
+RNAseq_correlation_matrix[ 
+  row(RNAseq_correlation_matrix) == col(RNAseq_correlation_matrix) ] &lt;- 0
+
+# set all correlations that are less than 0.9 to zero
+RNAseq_correlation_matrix[which(RNAseq_correlation_matrix&lt;0.90)] &lt;- 0
+
+#get rid of rows and columns that have no correlations with the above thresholds
+RNAseq_correlation_matrix &lt;- RNAseq_correlation_matrix[which(rowSums(RNAseq_correlation_matrix) != 0),
+                          which(colSums(RNAseq_correlation_matrix) !=0)]
+
+#write out the correlation file
+correlation_filename &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;, &quot;data&quot;, &quot;TCGA_OV_RNAseq_expression_correlation_matrix.txt&quot;) 
+write.table( RNAseq_correlation_matrix,  file = correlation_filename, col.names  = TRUE, row.names = FALSE, sep = &quot;\t&quot;, quote=FALSE)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Use the CyRest call to access the aMatReader functionality.</h3>
+                    <div class="slideContent" >
+<pre><code class="r">amat_url &lt;- &quot;aMatReader/v1/import&quot;
+amat_params = list(files = list(correlation_filename),
+                   delimiter = &quot;TAB&quot;,
+                   undirected = FALSE,
+                   ignoreZeros = TRUE,
+                   interactionName = &quot;correlated with&quot;,
+                   rowNames = FALSE
+                   )
+
+response &lt;- cyrestPOST(operation = amat_url, body = amat_params, 
+base.url = &quot;http://localhost:1234&quot;)
+
+current_network_id &lt;- response$data[&quot;suid&quot;]
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network</h3>
+                    <div class="slideContent" >
+                        <p>Relayout</p>
+
+<pre><code class="r">#relayout network
+layoutNetwork(&#39;cose&#39;,
+              network = as.numeric(current_network_id))
+</code></pre>
+
+                        <p>Rename</p>
+
+<pre><code class="r">renameNetwork(title = &quot;Coexpression_network_pear0_9&quot;,
+              network = as.numeric(current_network_id))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Modify the visualization to see where each genes is predominantly expressed.  Look at the 4 different p-values associated with each gene and color the nodes with the type associated with the lowest FDR.</p>
+
+                        <p>Load in the scoring data.  Specify the cancer type where the genes has the lowest FDR value.</p>
+
+<pre><code class="r">nodes_in_network &lt;- rownames(RNAseq_correlation_matrix)
+
+#add an additional column to the gene scores table to indicate in which samples
+# the gene is significant
+node_class &lt;- vector(length = length(nodes_in_network),mode = &quot;character&quot;)
+for(i in 1:length(nodes_in_network)){
+  current_row &lt;- which(RNASeq_gene_scores$Name == nodes_in_network[i])
+  min_pvalue &lt;- min(RNASeq_gene_scores[current_row,
+                                       grep(colnames(RNASeq_gene_scores), pattern = &quot;FDR&quot;)])
+  if(RNASeq_gene_scores$FDR.mesen[current_row] &lt;=min_pvalue){
+    node_class[i] &lt;- paste(node_class[i],&quot;mesen&quot;,sep = &quot; &quot;)
+  }
+  if(RNASeq_gene_scores$FDR.diff[current_row] &lt;=min_pvalue){
+    node_class[i] &lt;- paste(node_class[i],&quot;diff&quot;,sep = &quot; &quot;)
+  }
+  if(RNASeq_gene_scores$FDR.prolif[current_row] &lt;=min_pvalue){
+    node_class[i] &lt;- paste(node_class[i],&quot;prolif&quot;,sep = &quot; &quot;)
+  }
+  if(RNASeq_gene_scores$FDR.immuno[current_row] &lt;=min_pvalue){
+    node_class[i] &lt;- paste(node_class[i],&quot;immuno&quot;,sep = &quot; &quot;)
+  }
+}
+node_class &lt;- trimws(node_class)
+node_class_df &lt;-data.frame(name=nodes_in_network, node_class,stringsAsFactors = FALSE)
+
+head(node_class_df)
+</code></pre>
+
+<pre><code>    name node_class
+1  ABCA6      mesen
+2  ABCA8      mesen
+3   ABI3     immuno
+4   ACAN     prolif
+5  ACAP1     immuno
+6 ADAM12      mesen
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Map the new node attribute and the all the gene scores to the network.</p>
+
+<pre><code class="r">#default data.frame key is row.names
+loadTableData(RNASeq_gene_scores,table.key.column = &quot;name&quot;,data.key.column = &quot;Name&quot;)  
+
+#default data.frame key is row.names
+loadTableData(node_class_df,table.key.column = &quot;name&quot;,data.key.column = &quot;name&quot;)  
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Create a color mapping for the different cancer types.</p>
+
+<pre><code class="r">#create a new mapping with the different types
+unique_types &lt;- sort(unique(node_class))
+
+coul = brewer.pal(4, &quot;Set1&quot;) 
+
+# I can add more tones to this palette :
+coul = colorRampPalette(coul)(length(unique_types))
+
+setNodeColorMapping(table.column = &quot;node_class&quot;,table.column.values = unique_types,
+                    colors = coul,mapping.type = &quot;d&quot;)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network - cont&#x27;d</h3>
+                    <div class="slideContent" >
+<pre><code class="r">correlation_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;correlation_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(correlation_network_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(correlation_network_png_file_name)
+  } 
+
+#export the network
+exportImage(correlation_network_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/correlation_network.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Cluster the Network</h3>
+                    <div class="slideContent" >
+<pre><code class="r">#make sure it is set to the right network
+  setCurrentNetwork(network = getNetworkName(suid=as.numeric(current_network_id)))
+
+  #cluster the network
+  clustermaker_url &lt;- paste(&quot;cluster mcl network=SUID:&quot;,current_network_id, sep=&quot;&quot;)
+  commandsGET(clustermaker_url)
+
+  #get the clustering results
+  default_node_table &lt;- getTableColumns(table= &quot;node&quot;,network = as.numeric(current_network_id))
+
+  head(default_node_table)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis</h3>
+                    <div class="slideContent" >
+                        <p>Perform pathway Enrichment on one of the clusters using
+g:Profiler<a href="#refs">(Reimand et al.)</a>. g:Profiler is an online functional enrichment web service that will take your gene list and return the set of enriched pathways.  For automated analysis g:Profiler has created an R library to interact with it directly from R instead of using the web page. </p>
+
+                        <p>Create a function to call g:Profiler and convert the returned results into a generic enrichment map input file.</p>
+
+<pre><code class="r">tryCatch(expr = { library(&quot;gProfileR&quot;)}, 
+         error = function(e) { install.packages(&quot;gProfileR&quot;)}, finally = library(&quot;gProfileR&quot;))
+
+#function to run gprofiler using the gprofiler library
+# 
+# The function takes the returned gprofiler results and formats it to the generic EM input file
+#
+# function returns a data frame in the generic EM file format.
+runGprofiler &lt;- function(genes,current_organism = &quot;hsapiens&quot;, 
+                         significant_only = F, set_size_max = 200, 
+                         set_size_min = 3, filter_gs_size_min = 5 , exclude_iea = F){
+
+  gprofiler_results &lt;- gprofiler(genes ,
+                                 significant=significant_only,ordered_query = F,
+                                exclude_iea=exclude_iea,max_set_size = set_size_max,
+                                 min_set_size = set_size_min,
+                                 correction_method = &quot;fdr&quot;,
+                                 organism = current_organism,
+                                src_filter = c(&quot;GO:BP&quot;,&quot;REAC&quot;))
+
+  #filter results
+  gprofiler_results &lt;- gprofiler_results[which(gprofiler_results[,&#39;term.size&#39;] &gt;= 3
+                                        &amp; gprofiler_results[,&#39;overlap.size&#39;] &gt;= filter_gs_size_min ),]
+
+  # gProfileR returns corrected p-values only.  Set p-value to corrected p-value
+  if(dim(gprofiler_results)[1] &gt; 0){
+    em_results &lt;- cbind(gprofiler_results[,
+                                c(&quot;term.id&quot;,&quot;term.name&quot;,&quot;p.value&quot;,&quot;p.value&quot;)], 1,
+                                gprofiler_results[,&quot;intersection&quot;])
+  colnames(em_results) &lt;- c(&quot;Name&quot;,&quot;Description&quot;, &quot;pvalue&quot;,&quot;qvalue&quot;,&quot;phenotype&quot;,&quot;genes&quot;)
+
+  return(em_results)
+  } else {
+    return(&quot;no gprofiler results for supplied query&quot;)
+  }
+}
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Run g:Profiler.  g:Profiler will return a set of pathways and functions that are found to be enriched in our query set of genes.  </p>
+
+<pre><code class="r">  current_cluster &lt;- &quot;1&quot;
+  #select all the nodes in cluster 1
+  selectednodes &lt;- selectNodes(current_cluster, by.col=&quot;__mclCluster&quot;)
+
+  #create a subnetwork with cluster 1
+  subnetwork_suid &lt;- createSubnetwork(nodes=&quot;selected&quot;)
+
+  renameNetwork(&quot;Cluster1_Subnetwork&quot;, network=as.numeric(subnetwork_suid))
+
+  subnetwork_node_table &lt;- getTableColumns(table= &quot;node&quot;,network = as.numeric(subnetwork_suid))
+
+  em_results &lt;- runGprofiler(subnetwork_node_table$name)
+
+ #write out the g:Profiler results
+ em_results_filename &lt;-file.path(getwd(),
+                            &quot;230_Isserlin_RCy3_intro&quot;, &quot;data&quot;,paste(&quot;gprofiler_cluster&quot;,current_cluster,&quot;enr_results.txt&quot;,sep=&quot;_&quot;))
+
+  write.table(em_results,em_results_filename,col.name=TRUE,sep=&quot;\t&quot;,row.names=FALSE,quote=FALSE)
+
+
+  head(em_results)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/screenshot_gprofiler_emresults.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Create an enrichment map with the returned g:Profiler results.  An enrichment map is a different sort of network.  Instead of nodes representing genes, nodes represent pathways or functions.  Edges between these pathways or functions represent shared genes or pathway crosstalk.  An enrichment map is a way to visualize your enrichment results to help reduce redundancy and uncover main themes.  Pathways can also be explored in detail using the features available through the App in Cytoscape. </p>
+
+<pre><code class="r"> em_command = paste(&#39;enrichmentmap build analysisType=&quot;generic&quot; &#39;, 
+                   &#39;pvalue=&#39;,&quot;0.05&quot;, &#39;qvalue=&#39;,&quot;0.05&quot;,
+                   &#39;similaritycutoff=&#39;,&quot;0.25&quot;,
+                   &#39;coeffecients=&#39;,&quot;JACCARD&quot;,
+                   &#39;enrichmentsDataset1=&#39;,em_results_filename ,
+                   sep=&quot; &quot;)
+
+  #enrichment map command will return the suid of newly created network.
+  em_network_suid &lt;- commandsRun(em_command)
+
+  renameNetwork(&quot;Cluster1_enrichmentmap&quot;, network=as.numeric(em_network_suid))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Export image of resulting Enrichment map.</p>
+
+<pre><code class="r">cluster1em_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;cluster1em.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(cluster1em_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(cluster1em_png_file_name)
+  } 
+
+#export the network
+exportImage(cluster1em_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/cluster1em.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Annotate the Enrichment map to get the general themes that are found in the enrichment results of cluster 1</p>
+
+<pre><code class="r">#get the column from the nodetable and node table
+  nodetable_colnames &lt;- getTableColumnNames(table=&quot;node&quot;,  network =  as.numeric(em_network_suid))
+
+  descr_attrib &lt;- nodetable_colnames[grep(nodetable_colnames, pattern = &quot;_GS_DESCR&quot;)]
+
+  #Autoannotate the network
+  autoannotate_url &lt;- paste(&quot;autoannotate annotate-clusterBoosted labelColumn=&quot;, descr_attrib,&quot; maxWords=3 &quot;, sep=&quot;&quot;)
+    current_name &lt;-commandsGET(autoannotate_url)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Export image of resulting Annotated Enrichment map.</p>
+
+<pre><code class="r">cluster1em_annot_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;cluster1em_annot.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(cluster1em_annot_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(cluster1em_annot_png_file_name)
+  } 
+
+#export the network
+exportImage(cluster1em_annot_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/cluster1em_annot.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Dense networks small or large never look like network figures we so often see in journals.  A lot of manual tweaking, reorganization and optimization is involved in getting that perfect figure ready network.  The above network is what the network starts as.  The below figure is what it can look like after a few minutes of manual reorganiazation.  (individual clusters were selected from the auto annotate panel and separated from other clusters)</p>
+
+                        <p style="text-align:center;"><img src="./images/cluster1em_annot_man.png" ></p>
+
+                    </div>
+
+                </section>
+            </section>
+            <section id="use_case_3">
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Use Case 3 - Functional Enrichment of Omics set.</h1>
+                    <div class="slideContent" >
+                        <p>Reducing our large OMICs expression set to a simple list of genes eliminates the majority of the signals present in the data.  Thresholding will only highlight the strong signals neglecting the often more interesting subtle signals. In order to capitalize on the wealth of data present in the data we need to perform pathway enrichment analysis on the entire expression set. There are many tools in R or as standalone apps that perform this type of analysis.  </p>
+
+                        <p>To demonstrate how you can use Cytoscape and RCy3 in your enrichment analysis pipeline we will use EnrichmentBrowser package (as demonstrated in detail in the workshop <a href="https://github.com/Bioconductor/BiocWorkshops/blob/master/Geistlinger_Omics.Rmd%5D">Functional enrichment analysis of high-throughput omics data</a>) to perform pathway analysis.  </p>
+
+<pre><code class="r">if(!&quot;EnrichmentBrowser&quot; %in% installed.packages()){
+    install.packages(&quot;BiocManager&quot;)
+    BiocManager::install(&quot;EnrichmentBrowser&quot;)
+}
+
+suppressPackageStartupMessages(library(EnrichmentBrowser))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Geneset Files</h3>
+                    <div class="slideContent" >
+                        <p>Download the latest pathway definition file from the <a href="http://download.baderlab.org/EM_Genesets/current_release/">Baderlab download site</a>.  Baderlab genesets are updated on a monthly basis. Detailed information about the sources can be found <a href="http://baderlab.org/GeneSets">here</a>.</p>
+                        
+                        <p>Only Human, Mouse and Rat gene set files are currently available on the Baderlab downloads site.  If you are working with a species other than human (and it is either rat or mouse) change the gmt_url below to correct species. </p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Geneset Files - cont&#x27;d</h3>
+                    <div class="slideContent" >
+<pre><code class="r">tryCatch(expr = { suppressPackageStartupMessages(library(&quot;RCurl&quot;))}, 
+         error = function(e) {  install.packages(&quot;RCurl&quot;)}, 
+         finally = library(&quot;RCurl&quot;))
+
+gmt_url = &quot;http://download.baderlab.org/EM_Genesets/current_release/Human/symbol/&quot;
+
+
+#list all the files on the server
+filenames = getURL(gmt_url)
+tc = textConnection(filenames)
+contents = suppressWarnings(readLines(tc))
+close(tc)
+
+#get the gmt that has all the pathways and does not include terms inferred from electronic annotations(IEA)
+#start with gmt file that has pathways only
+rx = gregexpr(&quot;(?&lt;=&lt;a href=\&quot;)(.*.GOBP_AllPathways_no_GO_iea.*.)(.gmt)(?=\&quot;&gt;)&quot;,
+  contents, perl = TRUE)
+gmt_file = unlist(regmatches(contents, rx))
+
+dest_gmt_file &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;, &quot;data&quot;, gmt_file)
+
+download.file(
+    paste(gmt_url,gmt_file,sep=&quot;&quot;),
+    destfile=dest_gmt_file
+)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Geneset Files - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Load in the gmt file</p>
+
+<pre><code class="r">library(EnrichmentBrowser)
+baderlab.gs &lt;- getGenesets(dest_gmt_file)
+baderlab.gs[1:2]
+</code></pre>
+
+<pre><code>$`THIO-MOLYBDENUM COFACTOR BIOSYNTHESIS%HUMANCYC%PWY-5963`
+[1] &quot;MOCOS&quot;
+
+$`PROLINE BIOSYNTHESIS I%HUMANCYC%PROSYN-PWY`
+[1] &quot;PYCR2&quot;    &quot;ALDH18A1&quot; &quot;PYCR1&quot;    &quot;PYCRL&quot;   
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>EnrichmentBrowser</h3>
+                    <div class="slideContent" >
+                        <p>Create the dataset required by EnrichmentBrowser tools</p>
+
+<pre><code class="r">#create the expression file - A tab separated text file containing expression values. Columns = samples/subjects; rows = features/probes/genes; NO headers, row or column names.
+expr &lt;- RNASeq_expression
+
+sumexpr_filename &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;SummarizeExperiment_expression.txt&quot;) 
+write.table( expr ,  file = sumexpr_filename , col.names  = FALSE, row.names = FALSE, sep = &quot;\t&quot;, quote=FALSE)
+
+
+rowData &lt;- RNASeq_gene_scores[,grep(colnames(RNASeq_gene_scores), pattern=&quot;mesen&quot;)]
+rowData &lt;- cbind(RNASeq_gene_scores$Name,rowData)
+colnames(rowData)[2] &lt;- &quot;FC&quot;
+colnames(rowData)[6] &lt;- &quot;ADJ.PVAL&quot;
+
+sumexpr_rdat_filename &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;SummarizeExperiment_rdat.txt&quot;) 
+write.table( rowData[,1] ,  file = sumexpr_rdat_filename , col.names  = FALSE, row.names = FALSE, sep = &quot;\t&quot;, quote=FALSE)
+
+#load in the data classification data
+# A tab separated text file containing annotation information for the samples in either *two or three* columns. NO headers, row or column names. The number of rows/samples in this file should match the number of columns/samples of the expression matrix. The 1st column is reserved for the sample IDs; The 2nd column is reserved for a *BINARY* group assignment. Use &#39;0&#39; and &#39;1&#39; for unaffected (controls) and affected (cases) sample class
+classDefinitions_RNASeq &lt;- read.table( 
+  file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;RNASeq_classdefinitions.txt&quot;), header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
+
+colData &lt;- data.frame(Sample = colnames(RNASeq_expression),
+                      GROUP = classDefinitions_RNASeq$SUBTYPE, 
+                      stringsAsFactors = FALSE)
+rownames(colData) &lt;- colnames(RNASeq_expression)
+colData$GROUP[which(colData$GROUP != &quot;Mesenchymal&quot;)] &lt;- 0
+colData$GROUP[which(colData$GROUP == &quot;Mesenchymal&quot;)] &lt;- 1
+
+sumexpr_cdat_filename &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;SummarizeExperiment_cdat.txt&quot;) 
+write.table( colData ,  file = sumexpr_cdat_filename , col.names  = FALSE, row.names = FALSE, sep = &quot;\t&quot;, quote=FALSE)
+
+#create the Summarize Experiment object
+se_OV &lt;- EnrichmentBrowser::readSE(assay.file = sumexpr_filename , cdat.file = sumexpr_cdat_filename, rdat.file = sumexpr_rdat_filename)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>EnrichmentBrowser - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Put our precomputed p-values and fold change values into the Summarized Experiment object so we can use our rankings for the analysis</p>
+
+<pre><code class="r">#set the Summarized Experiment to our computed p-values and FC
+rowData(se_OV) &lt;- rowData
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>EnrichmentBrowser - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Run basic Over representation analysis (ORA) using our ranked genes and our gene set file downloaded from the Baderlab genesets.</p>
+
+<pre><code class="r">ora.all &lt;- sbea(method=&quot;ora&quot;, se=se_OV, gs=baderlab.gs, perm=0, alpha=0.05)
+gsRanking(ora.all)
+</code></pre>
+
+
+                        <p style="text-align:center;"><img src="./images/screenshot_ora_results.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>EnrichmentBrowser - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Take the enrichment results and create a generic enrichment map input file so we can create an Enrichment map.  Description of format of the generic input file can be found <a href="http://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files">here</a> and example generic enrichment map files can be found <a href="http://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#examples-of-generic-enrichment-result-files">here</a></p>
+
+<pre><code class="r">#manually adjust p-values
+ora.all$res.tbl &lt;- cbind(ora.all$res.tbl, p.adjust(ora.all$res.tbl$P.VALUE, &quot;BH&quot;))
+colnames(ora.all$res.tbl)[ncol(ora.all$res.tbl)] &lt;- &quot;Q.VALUE&quot; 
+
+#create a generic enrichment map file
+em_results_mesen &lt;- data.frame(name = ora.all$res.tbl$GENE.SET,descr = ora.all$res.tbl$GENE.SET, 
+                               pvalue=ora.all$res.tbl$P.VALUE, qvalue=ora.all$res.tbl$Q.VALUE, stringsAsFactors = FALSE)
+
+#write out the ora results
+ em_results_mesen_filename &lt;-file.path(getwd(),
+                            &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;mesen_ora_enr_results.txt&quot;)
+
+  write.table(em_results_mesen,em_results_mesen_filename,col.name=TRUE,sep=&quot;\t&quot;,row.names=FALSE,quote=FALSE)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Map</h3>
+                    <div class="slideContent" >
+                        <p>Create an enrichment map with the returned ORA results.</p>
+
+<pre><code class="r"> em_command = paste(&#39;enrichmentmap build analysisType=&quot;generic&quot; &#39;, &quot;gmtFile=&quot;, dest_gmt_file,
+                   &#39;pvalue=&#39;,&quot;0.05&quot;, &#39;qvalue=&#39;,&quot;0.05&quot;,
+                   &#39;similaritycutoff=&#39;,&quot;0.25&quot;,
+                   &#39;coeffecients=&#39;,&quot;JACCARD&quot;,
+                   &#39;enrichmentsDataset1=&#39;,em_results_mesen_filename ,
+                   sep=&quot; &quot;)
+
+  #enrichment map command will return the suid of newly created network.
+  em_mesen_network_suid &lt;- commandsRun(em_command)
+
+  renameNetwork(&quot;Mesenchymal_ORA_enrichmentmap&quot;, network=as.numeric(em_mesen_network_suid))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Map - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Export image of resulting Enrichment map.</p>
+
+<pre><code class="r">mesenem_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;mesenem.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(mesenem_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(mesenem_png_file_name)
+  } 
+
+#export the network
+exportImage(mesenem_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./images/mesenem.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Map - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Annotate the Enrichment map to get the general themes that are found in the enrichment results.  Often for very busy networks annotating the networks doesn&#39;t help to reduce the complexity but instead adds to it.  To get rid of some of the pathway redundancy and density in the network create a summary of the underlying network. The summary network collapses each cluster to a summary node.  Each summary node is annotated with a word tag (the top 3 words associated with the nodes of the cluster) that is computed using the Wordcloud app.</p>
+
+<pre><code class="r">#get the column from the nodetable and node table
+  nodetable_colnames &lt;- getTableColumnNames(table=&quot;node&quot;,  network =  as.numeric(em_mesen_network_suid))
+
+  descr_attrib &lt;- nodetable_colnames[grep(nodetable_colnames, pattern = &quot;_GS_DESCR&quot;)]
+
+  #Autoannotate the network
+  autoannotate_url &lt;- paste(&quot;autoannotate annotate-clusterBoosted labelColumn=&quot;, descr_attrib,&quot; maxWords=3 &quot;, sep=&quot;&quot;)
+    current_name &lt;-commandsGET(autoannotate_url)
+
+  #create a summary network 
+  commandsGET(&quot;autoannotate summary network=&#39;current&#39;&quot;)
+
+  #change the network name
+  summary_network_suid &lt;- getNetworkSuid()
+
+  renameNetwork(title = &quot;Mesen_ORA_summary_netowrk&quot;,
+              network = as.numeric(summary_network_suid))
+
+  #get the summary node names
+  summary_nodes &lt;- getTableColumns(table=&quot;node&quot;,columns=c(&quot;name&quot;))
+
+  #clear bypass style the summary network has
+  clearNodePropertyBypass(node.names = summary_nodes$name,visual.property = &quot;NODE_SIZE&quot;)
+
+  #relayout network
+  layoutNetwork(&#39;cose&#39;,
+              network = as.numeric(summary_network_suid))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Map - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Export image of resulting Summarized Annotated Enrichment map.</p>
+
+<pre><code class="r">mesenem_summary_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;,&quot;images&quot;,&quot;mesenem_summary_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(mesenem_summary_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(mesenem_summary_png_file_name)
+  } 
+
+#export the network
+exportImage(mesenem_summary_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p  style="text-align:center;"><img src="./images/mesenem_summary_network.png" ></p>
+
+                    </div>
+
+                </section>
+                
+                
+            </section>
+                <section>
+                    <h1 id="refs">References</h1>
+                    <font size ="1">	
+                    <div id="refs" class="references">
+                    <div id="ref-psicquic">
+                    <p>Aranda, Bruno, Hagen Blankenburg, Samuel Kerrien, Fiona SL Brinkman, Arnaud Ceol, Emilie Chautard, Jose M Dana, et al. 2011. “PSICQUIC and Psiscore: Accessing and Scoring Molecular Interactions.” <em>Nature Methods</em> 8 (7). Nature Publishing Group: 528.</p>
+                    </div>
+                    <div id="ref-TCGABiolinks">
+                    <p>Colaprico, A., T. C. Silva, C. Olsen, L. Garofano, C. Cava, D. Garolini, T. S. Sabedot, et al. 2016. “TCGAbiolinks: An R/Bioconductor Package for Integrative Analysis of Tcga Data.” Journal Article. <em>Nucleic Acids Res</em> 44 (8): e71. doi:<a href="https://doi.org/10.1093/nar/gkv1507">10.1093/nar/gkv1507</a>.</p>
+                    </div>
+                    <div id="ref-biopax">
+                    <p>Demir, Emek, Michael P Cary, Suzanne Paley, Ken Fukuda, Christian Lemer, Imre Vastrik, Guanming Wu, et al. 2010. “The Biopax Community Standard for Pathway Data Sharing.” <em>Nature Biotechnology</em> 28 (9). Nature Publishing Group: 935.</p>
+                    </div>
+                    <div id="ref-GDC">
+                    <p>Grossman, R. L., A. P. Heath, V. Ferretti, H. E. Varmus, D. R. Lowy, W. A. Kibbe, and L. M. Staudt. 2016. “Toward a Shared Vision for Cancer Genomic Data.” Journal Article. <em>N Engl J Med</em> 375 (12): 1109–12. doi:<a href="https://doi.org/10.1056/NEJMp1607591">10.1056/NEJMp1607591</a>.</p>
+                    </div>
+                    <div id="ref-TCGA">
+                    <p>International Cancer Genome, Consortium, T. J. Hudson, W. Anderson, A. Artez, A. D. Barker, C. Bell, R. R. Bernabe, et al. 2010. “International Network of Cancer Genome Projects.” Journal Article. <em>Nature</em> 464 (7291): 993–8. doi:<a href="https://doi.org/10.1038/nature08987">10.1038/nature08987</a>.</p>
+                    </div>
+                    <div id="ref-autoannotate">
+                    <p>Kucera, Mike, Ruth Isserlin, Arkady Arkhangorodsky, and Gary D Bader. 2016. “AutoAnnotate: A Cytoscape App for Summarizing Networks with Semantic Annotations.” <em>F1000Research</em> 5. Faculty of 1000 Ltd.</p>
+                    </div>
+                    <div id="ref-wgcna">
+                    <p>Langfelder, Peter, and Steve Horvath. 2008. “WGCNA: An R Package for Weighted Correlation Network Analysis.” <em>BMC Bioinformatics</em> 9 (1). BioMed Central: 559.</p>
+                    </div>
+                    <div id="ref-RSEM">
+                    <p>Li, B., and C. N. Dewey. 2011. “RSEM: Accurate Transcript Quantification from Rna-Seq Data with or Without a Reference Genome.” Journal Article. <em>BMC Bioinformatics</em> 12: 323. doi:<a href="https://doi.org/10.1186/1471-2105-12-323">10.1186/1471-2105-12-323</a>.</p>
+                    </div>
+                    <div id="ref-paxtoolsr">
+                    <p>Luna, Augustin, Özgün Babur, Bülent Arman Aksoy, Emek Demir, and Chris Sander. 2015. “PaxtoolsR: Pathway Analysis in R Using Pathway Commons.” <em>Bioinformatics</em> 32 (8). Oxford University Press: 1262–4.</p>
+                    </div>
+                    <div id="ref-enrichmentmap">
+                    <p>Merico, Daniele, Ruth Isserlin, Oliver Stueker, Andrew Emili, and Gary D Bader. 2010. “Enrichment Map: A Network-Based Method for Gene-Set Enrichment Visualization and Interpretation.” <em>PloS One</em> 5 (11). Public Library of Science: e13984.</p>
+                    </div>
+                    <div id="ref-clustermaker">
+                    <p>Morris, John H, Leonard Apeltsin, Aaron M Newman, Jan Baumbach, Tobias Wittkop, Gang Su, Gary D Bader, and Thomas E Ferrin. 2011. “ClusterMaker: A Multi-Algorithm Clustering Plugin for Cytoscape.” <em>BMC Bioinformatics</em> 12 (1). BioMed Central: 436.</p>
+                    </div>
+                    <div id="ref-genemania">
+                    <p>Mostafavi, Sara, Debajyoti Ray, David Warde-Farley, Chris Grouios, and Quaid Morris. 2008. “GeneMANIA: A Real-Time Multiple Association Network Integration Algorithm for Predicting Gene Function.” <em>Genome Biology</em> 9 (1). BioMed Central: S4.</p>
+                    </div>
+                    <div id="ref-wordcloud">
+                    <p>Oesper, Layla, Daniele Merico, Ruth Isserlin, and Gary D Bader. 2011. “WordCloud: A Cytoscape Plugin to Create a Visual Semantic Summary of Networks.” <em>Source Code for Biology and Medicine</em> 6 (1). BioMed Central: 7.</p>
+                    </div>
+                    <div id="ref-cyrest">
+                    <p>Ono, Keiichiro, Tanja Muetze, Georgi Kolishovski, Paul Shannon, and Barry Demchak. 2015. “CyREST: Turbocharging Cytoscape Access for External Tools via a Restful Api.” <em>F1000Research</em> 4. Faculty of 1000 Ltd.</p>
+                    </div>
+                    <div id="ref-ndex">
+                    <p>Pratt, Dexter, Jing Chen, Rudolf Pillich, Vladimir Rynkov, Aaron Gary, Barry Demchak, and Trey Ideker. 2017. “NDEx 2.0: A Clearinghouse for Research on Cancer Pathways.” <em>Cancer Research</em> 77 (21). AACR: e58–e61.</p>
+                    </div>
+                    <div id="ref-gprofiler">
+                    <p>Reimand, Jüri, Tambet Arak, Priit Adler, Liis Kolberg, Sulev Reisberg, Hedi Peterson, and Jaak Vilo. 2016. “G: Profiler—a Web Server for Functional Interpretation of Gene Lists (2016 Update).” <em>Nucleic Acids Research</em> 44 (W1). Oxford University Press: W83–W89.</p>
+                    </div>
+                    <div id="ref-edgeR">
+                    <p>Robinson, M. D., D. J. McCarthy, and G. K. Smyth. 2010. “EdgeR: A Bioconductor Package for Differential Expression Analysis of Digital Gene Expression Data.” Journal Article. <em>Bioinformatics</em> 26 (1): 139–40. doi:<a href="https://doi.org/10.1093/bioinformatics/btp616">10.1093/bioinformatics/btp616</a>.</p>
+                    </div>
+                    <div id="ref-cytoscape">
+                    <p>Shannon, Paul, Andrew Markiel, Owen Ozier, Nitin S Baliga, Jonathan T Wang, Daniel Ramage, Nada Amin, Benno Schwikowski, and Trey Ideker. 2003. “Cytoscape: A Software Environment for Integrated Models of Biomolecular Interaction Networks.” <em>Genome Research</em> 13 (11). Cold Spring Harbor Lab: 2498–2504.</p>
+                    </div>
+                    <div id="ref-string">
+                    <p>Szklarczyk, Damian, John H Morris, Helen Cook, Michael Kuhn, Stefan Wyder, Milan Simonovic, Alberto Santos, et al. 2016. “The String Database in 2017: Quality-Controlled Protein–protein Association Networks, Made Broadly Accessible.” <em>Nucleic Acids Research</em>. Oxford University Press, gkw937.</p>
+                    </div>
+                    <div id="ref-OV">
+                    <p>Verhaak, R. G., P. Tamayo, J. Y. Yang, D. Hubbard, H. Zhang, C. J. Creighton, S. Fereday, et al. 2013. “Prognostically Relevant Gene Signatures of High-Grade Serous Ovarian Carcinoma.” Journal Article. <em>J Clin Invest</em> 123 (1): 517–25. doi:<a href="https://doi.org/10.1172/JCI65833">10.1172/JCI65833</a>.</p>
+                    </div>
+                    <div id="ref-MapSplice">
+                    <p>Wang, K., D. Singh, Z. Zeng, S. J. Coleman, Y. Huang, G. L. Savich, X. He, et al. 2010. “MapSplice: Accurate Mapping of Rna-Seq Reads for Splice Junction Discovery.” Journal Article. <em>Nucleic Acids Res</em> 38 (18): e178. doi:<a href="https://doi.org/10.1093/nar/gkq622">10.1093/nar/gkq622</a>.</p>
+                    </div>
+                        </div>
+                    </font>
+                </section>
+
+
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
