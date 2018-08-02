@@ -6,18 +6,18 @@
 
 		<title>Bioc 2018 Rcy3 Intro Workshop</title>
 
-		<link rel="stylesheet" href="../../css/reveal.css">
-		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/cytoscape-protocol-1.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 	</head>
@@ -31,9 +31,9 @@
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
     <h1>Cytoscape Automation in R using Rcy3</h1>
-    <p>Ruth Isserlin<br/>July 26, 2018</p>
+    <ul><p>Ruth Isserlin<br/>July 26, 2018<br/>BioC 2018 - Toronto, Ontario</p></ul>
 <div class="footer" style="position: absolute; left: -3em; bottom: -4em; ">
-                    <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+                    <img class="plain" src="../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
                     <version>3.6.1</version>
                 </div>
 
@@ -59,7 +59,7 @@
             <h1>Download and Install:</h1>
 
                 <ul>
-                    <li>Slides - <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/BIOC2018-RCy3-intro/">https://cytoscape.github.io/cytoscape-tutorials/protocols/Bioc2018_RCy3_intro/</a></li>
+                    <li>Slides - <a href="https://cytoscape.github.io/cytoscape-tutorials/presentations/bioc2018_Rcy3_intro#/">https://cytoscape.github.io/cytoscape-tutorials/presentations/bioc2018_Rcy3_intro#/</a></li>
                     <li>Cytoscape - <a href="http://www.cytoscape.org/download.php">http://www.cytoscape.org/download.php</a></li>
                     <li>RNotebook files - <a href="https://github.com/Bioconductor/BiocWorkshops/blob/master/230_Isserlin_RCy3_intro.Rmd">https://github.com/Bioconductor/BiocWorkshops/blob/master/230_Isserlin_RCy3_intro.Rmd</a></li>
                     <li>Workshop Book - <a href="https://bioconductor.github.io/BiocWorkshops/BioC2018.pdf">https://bioconductor.github.io/BiocWorkshops/BioC2018.pdf</a></li>
@@ -159,7 +159,7 @@
                     <h1>Background</h1>
 
                     <h3>Cytoscape</h3>
-                    <img style="float:left;width:15%" src="./images/cy3logoOrange.png">
+                    <img style="float:left;width:15%" src="./modules/automation/cy3logoOrange.png">
                     <ul style="float:right;width:80%">
                         <li><a href="www.cytoscape.org">Cytoscape</a><a href="#refs">(Shannon et al.)</a> is a freely available open-source, cross platform network analysis software.<br/></li>
                         <li><a href="www.cytoscape.org">Cytoscape</a><a href="#refs">(Shannon et al.)</a> can visualize complex networks and help integrate them with any other data type.<br/></li>
@@ -171,7 +171,7 @@
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Cytoscape Apps</h3>
                    
-                    <p style="text-align:center;"><img  src="./images/Apps-4.png" /></p>
+                    <p style="text-align:center;"><img  src="./modules/automation/Apps-4.png" /></p>
 
                 </section>
             </section>
@@ -207,7 +207,7 @@
                     <div class="slideContent noTitle" >
                         <p>Often data in our pipelines are represented as data.frames, tables, matrices, vectors or lists.  Sometimes we represent this data as heatmaps, or plots in efforts to summarize the results visually.  Network visualization offers an additional method that readily incorporates many different data types and variables into a single picture. </p>
 
-                        <p style="text-align:center;"><img src="./images/tables2networks.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/tables2networks.png" ></p>
                     </div>
                 </section>
                 
@@ -285,7 +285,7 @@
                     <div class="slideContent" >
                         <p>Networks offer us a useful way to represent our biological data.  But how do we seamlessly translate our data from R into Cytoscape?</p>
 
-                        <p style="text-align:center;"><img src="./images/CytoscapeAutomation_3.png" style="width:70%"/></p>
+                        <p style="text-align:center;"><img src="./modules/automation/CytoscapeAutomation_3.png" style="width:70%"/></p>
                     </div>
                     <aside class="notes">
                         <p>There are multiple ways to communicate with Cytoscape programmatically.  There are two main complementary portals,<strong>cyRest</strong><a href="#refs">(Ono et al.)</a> and <strong>Commands</strong>, that form the foundation.  cyRest transforms Cytoscape in to a REST (Representational State Transfer) enabled service where it essentially listens for events through a predefined port (by default port 1234).  The cyRest functionality started as an app add in but has now been incorporated into the main release. Commands, on the other hand, offer a mechanism whereby app developers can expose their functionality to other apps or to user through the command interface.  Prior to the implementation of cyRest many of the basic network functions were first available as commands so there is some overlap between the two different methods.  \@ref(fig:cytoscapeRcy3) shows the different ways you can call Cytoscape.</p>
@@ -377,7 +377,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
 <pre><code class="r"> cytoscapePing ()
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_cytoscapeping.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_cytoscapeping.png" /></p>
 
                     </div>
 
@@ -390,7 +390,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
 <pre><code class="r"> cytoscapeVersionInfo ()
 </code></pre>
 
-<p style="text-align:center;"><img src="./images/screenshot_cytoscapeversion.png" /></p>
+<p style="text-align:center;"><img src="./modules/automation/screenshot_cytoscapeversion.png" /></p>
 
                     </div>
 
@@ -426,7 +426,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                         <pre><code class="r">commandsHelp(&quot;help&quot;)
                         </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_availablecommands.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablecommands.png" /></p>
 
                     </div>
 
@@ -535,7 +535,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                         <pre><code class="r">createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;, collection=&quot;DataFrame Example&quot;)
                         </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_networkload_1.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_networkload_1.png" /></p>
 
                     </div>
 
@@ -562,7 +562,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                 </section>
                 <section>
                     <h3>Initial simple network</h3>
-                     <p  style="text-align:center;"><img src="./images/initial_example_network.png" /></p>
+                     <p  style="text-align:center;"><img src="./modules/automation/initial_example_network.png" /></p>
                 </section>
             </section>
             <section id="data">
@@ -632,7 +632,7 @@ RNASeq_gene_scores &lt;- read.table(
 
                         <p>There are endless amounts of databases storing interaction data. </p>
 
-                        <p style="text-align:center;"><img src="./images/interaction-dbs.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/automation/interaction-dbs.png" /></p>
 
                     </div>
 
@@ -711,12 +711,12 @@ head(top_mesenchymal_genes)
 <pre><code class="r">commandsHelp(&quot;help string&quot;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_availablestringcommands.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablestringcommands.png" /></p>
 
 <pre><code class="r">commandsHelp(&quot;help string protein query&quot;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_availablestringarguments.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablestringarguments.png" /></p>
 
                     </div>
 
@@ -730,7 +730,7 @@ head(top_mesenchymal_genes)
 commandsGET(mesen_string_interaction_cmd)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_stringnetworkload.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_stringnetworkload.png" ></p>
 
                     </div>
 
@@ -755,7 +755,7 @@ response &lt;- exportImage(initial_string_network_png_file_name, type = &quot;pn
                 <section>
                     <div>
                         <h3>Initial String Network - top Mesenchymal genes interactions</h3>
-                        <p style="text-align:center;"><img src="./images/initial_string_network.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/initial_string_network.png" ></p>
 
                     </div>
 
@@ -773,7 +773,7 @@ response &lt;- exportImage(initial_string_network_png_file_name, type = &quot;pn
 <pre><code class="r">getLayoutNames()
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_availablelayouts.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablelayouts.png" ></p>
 
                     </div>
 
@@ -786,7 +786,7 @@ response &lt;- exportImage(initial_string_network_png_file_name, type = &quot;pn
 <pre><code class="r">getLayoutPropertyNames(layout.name=&#39;force-directed&#39;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_availablelayoutarguments.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablelayoutarguments.png" ></p>
 
                     </div>
 
@@ -816,7 +816,7 @@ response &lt;- exportImage(relayout_string_network_png_file_name, type = &quot;p
                 <section>
                     <h3>String network with new layout</h3>
                     <div>
-                        <p style="text-align:center;"><img src="./images/relayout_string_network.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/relayout_string_network.png" ></p>
 
                     </div>
 
@@ -829,7 +829,7 @@ response &lt;- exportImage(relayout_string_network_png_file_name, type = &quot;p
 <pre><code class="r">getTableColumnNames(&#39;node&#39;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_availablenodecolumns.png"></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablenodecolumns.png"></p>
 
                     </div>
 
@@ -843,7 +843,7 @@ response &lt;- exportImage(relayout_string_network_png_file_name, type = &quot;p
 head(node_attribute_table_topmesen[,3:7])
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_nodetable.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_nodetable.png" ></p>
 
                     </div>
 
@@ -861,7 +861,7 @@ loadTableData(RNASeq_gene_scores,table.key.column = &quot;display name&quot;,
 data.key.column = &quot;Name&quot;)  #default data.frame key is row.names
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_nodeattributeload.png"></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_nodeattributeload.png"></p>
 
                     </div>
 
@@ -885,7 +885,7 @@ createVisualStyle(style.name, defaults.list, list(node.label.map))
 setVisualStyle(style.name=style.name)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_visualstyleapplied.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_visualstyleapplied.png" ></p>
 
                     </div>
 
@@ -948,7 +948,7 @@ display.brewer.all(length(data.values), colorblindFriendly=TRUE, type=&quot;div&
 setNodeShapeBypass(node.names = top_mesenchymal_genes$Name, new.shapes = &quot;TRIANGLE&quot;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_availablenodeshapes.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablenodeshapes.png" ></p>
 
                     </div>
 
@@ -988,7 +988,7 @@ response &lt;- exportImage(mesen_string_network_png_file_name, type = &quot;png&
                 <section>
                     <div>
                         <h3>Formatted String network</h3>
-                        <p style="text-align:center;"><img src="./images/mesen_string_network.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/mesen_string_network.png" ></p>
 
                     </div>
 
@@ -1169,7 +1169,7 @@ setNodeColorMapping(table.column = &quot;node_class&quot;,table.column.values = 
 exportImage(correlation_network_png_file_name, type = &quot;png&quot;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/correlation_network.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/correlation_network.png" ></p>
 
                     </div>
 
@@ -1270,7 +1270,7 @@ runGprofiler &lt;- function(genes,current_organism = &quot;hsapiens&quot;,
   head(em_results)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/screenshot_gprofiler_emresults.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_gprofiler_emresults.png" ></p>
 
                     </div>
 
@@ -1313,7 +1313,7 @@ runGprofiler &lt;- function(genes,current_organism = &quot;hsapiens&quot;,
 exportImage(cluster1em_png_file_name, type = &quot;png&quot;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/cluster1em.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/cluster1em.png" ></p>
 
                     </div>
 
@@ -1353,7 +1353,7 @@ exportImage(cluster1em_png_file_name, type = &quot;png&quot;)
 exportImage(cluster1em_annot_png_file_name, type = &quot;png&quot;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/cluster1em_annot.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/cluster1em_annot.png" ></p>
 
                     </div>
 
@@ -1363,7 +1363,7 @@ exportImage(cluster1em_annot_png_file_name, type = &quot;png&quot;)
                     <div class="slideContent" >
                         <p>Dense networks small or large never look like network figures we so often see in journals.  A lot of manual tweaking, reorganization and optimization is involved in getting that perfect figure ready network.  The above network is what the network starts as.  The below figure is what it can look like after a few minutes of manual reorganiazation.  (individual clusters were selected from the auto annotate panel and separated from other clusters)</p>
 
-                        <p style="text-align:center;"><img src="./images/cluster1em_annot_man.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/cluster1em_annot_man.png" ></p>
 
                     </div>
 
@@ -1515,7 +1515,7 @@ gsRanking(ora.all)
 </code></pre>
 
 
-                        <p style="text-align:center;"><img src="./images/screenshot_ora_results.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_ora_results.png" ></p>
 
                     </div>
 
@@ -1581,7 +1581,7 @@ em_results_mesen &lt;- data.frame(name = ora.all$res.tbl$GENE.SET,descr = ora.al
 exportImage(mesenem_png_file_name, type = &quot;png&quot;)
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./images/mesenem.png" ></p>
+                        <p style="text-align:center;"><img src="./modules/automation/mesenem.png" ></p>
 
                     </div>
 
@@ -1640,7 +1640,7 @@ exportImage(mesenem_png_file_name, type = &quot;png&quot;)
 exportImage(mesenem_summary_png_file_name, type = &quot;png&quot;)
 </code></pre>
 
-                        <p  style="text-align:center;"><img src="./images/mesenem_summary_network.png" ></p>
+                        <p  style="text-align:center;"><img src="./modules/automation/mesenem_summary_network.png" ></p>
 
                     </div>
 
@@ -1726,8 +1726,8 @@ exportImage(mesenem_summary_png_file_name, type = &quot;png&quot;)
 			</div>
 		</div>
 
-		<script src="../../lib/js/head.min.js"></script>
-		<script src="../../js/reveal.js"></script>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -1772,12 +1772,12 @@ exportImage(mesenem_summary_png_file_name, type = &quot;png&quot;)
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-				{ src: '../../plugin/markdown/marked.js' },
-				{ src: '../../plugin/markdown/markdown.js' },
-				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
-				{ src: '../../plugin/notes/notes.js', async: true },
-				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				{ src: '../plugin/markdown/marked.js' },
+				{ src: '../plugin/markdown/markdown.js' },
+				{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../plugin/notes/notes.js', async: true },
+				{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
 				]
 				});
 			</script>
