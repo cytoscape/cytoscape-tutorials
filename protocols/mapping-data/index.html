@@ -36,7 +36,7 @@ Add speaker notes here...
 </aside>
 <div class="footer" style="position: absolute; left: -5em; bottom: -4em; ">
 <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.6.1</version>
+<version>3.7</version>
     </div>
 </section>
 
@@ -55,9 +55,9 @@ Add speaker notes here...
 <section>
 	<h2>Label the Nodes</h2>
     <ul>
-	<li>Open the <highlight>Styles</highlight> interface by selecting its tab in the <highlight>Control Panel</highlight> (the leftmost panel). We are going to use the <b>COMMON</b> name attribute to give the nodes useful names:</li>
+	<li>Open the <highlight>Style</highlight> interface by selecting its tab in the <highlight>Control Panel</highlight> (the leftmost panel). We are going to use the <b>COMMON</b> name attribute to give the nodes useful names:</li>
 	<li>Zoom in on the network so that node labels are visible.</li>
-	<li>Click the second column of the <highlight>Label</highlight> row in the <highlight>Styles</highlight> panel. This should produce a drop-down panel with <b>Column</b> and <b>Mapping Type</b>.</li>
+	<li>Click the second column of the <highlight>Label</highlight> row in the <highlight>Style</highlight> panel. This should produce a drop-down panel with <b>Column</b> and <b>Mapping Type</b>.</li>
 	<li>Change the <highlight>Column</highlight> to <highlight>COMMON</highlight> by clicking on the field to the right of the <highlight>Column</highlight> label. This should bring up a list of columns. Select <highlight>COMMON</highlight>.</li>
 	<li>Verify that the node labels on the network have changed to their common names.</li>
 	<li>By default, the <b>Mapping Type</b> is <highlight>Passthrough Mapping</highlight>, which is what we want to use. Other options are <b>Discrete Mapping</b> and <b>Continuous Mapping</b>.</li>
@@ -71,14 +71,13 @@ Add speaker notes here...
 <section>
 	<h2>Color the nodes</h2>
     <ul>
-	<li>Click on the middle square (<highlight>Map.</highlight>) next to the <highlight>Fill Color</highlight> row in the <highlight>Styles</highlight> panel.</li>
+	<li>Click on the middle square (<highlight>Map.</highlight>) next to the <highlight>Fill Color</highlight> row in the <highlight>Style</highlight> panel.</li>
 	<li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section.</li>
 	<li>In the drop-down menu of available column names, select <highlight>gal80Rexp</highlight>.</li>
 	<li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section.</li>
 	<li>In the drop-down menu of available mapping types, select <highlight>Continuous Mapping</highlight>.</li>
-	<li>This produces a default gradient ranging from blue to red for expression values. Notice that the nodes in the network change color. <br />For our purposes, this default gradient works so we don't need to edit it.</li>
-	<li>Click on the color gradient to change the colors. This will pop-up a gradient editing dialog.</li>
-	<li>We're going to build a basic blue-white-yellow gradient for our expression values.</li>
+	<li>This produces a default gradient ranging from blue to red for expression values. Notice that the nodes in the network change color. Double-click on the color gradient to change the colors.</li>
+	<li>We are going to choose a different pre-formatted color scheme. In the <highlight>Continouse Mapping Editor</highlight>, click the button next to <highlight>Current Palette</highlight> in the upper left.</li>
     </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -87,13 +86,11 @@ Add speaker notes here...
 
 <section>
     <ul>
-	<li>Drag the left-most, black inverted triangle handle along the top of the gradient. Drag it to an value of approx. -1.2. Double-click on the handle and set a color in the blue range.</li>
-	<li>Drag the white inverted triangle handle to approx 0.5. You can type the value in the <b>Handle Position</b> section to be more precise.</li>
-	<li>Add a new handle by clicking <highlight>Add</highlight>, and drag that handle to 2.5. Set the color to yellow.</li>
-	<li>Finally, set the <highlight>Maximum Color</highlight> by double-clicking on the white, left-pointing triangle. Set it to green.</li>
-	<li>You can also change the color of each handle by double-clicking or using the <highlight>Node Fill Color</highlight> selector button in the <highlight>Handle Settings</highlight> section.</li>
-	<li>This should produce a Blue-White-Yellow Color gradient like the image below, with min and max extremes colored black and green, respectively.</li>
-	<li>Click <highlight>OK</highlight> to save the gradient adjustment dialog and verify that the nodes in the network reflect the new coloring scheme.</li>
+    <li>Select the first palette listed under the <highlight>ColorBrewer</highlight> tab and click <highlight>OK</highlight> to continue. You will see a warning that the color settings are about to change, click <highlight>Yes</highlight> to continue.</li>
+    <li>The ore-defined palettes come from published recommendations for choosing colors in scientific and cartographic applications, for example <a href="http://colorbrewer2.org">BrewerColors</a>.</li>
+    <li>The network should now look like this:<br /><br /></li>
+	
+    <img plain src="NetworkBrewer.png" style="width:60%">
     </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -101,15 +98,8 @@ Add speaker notes here...
 </section>
 
 <section>
-    <img plain src="500px-Node_color_gradient3_v2.png" style="width:60%">
-<aside class="notes" data-markdown>
-Add speaker notes here...
-</aside>
-</section>
-
-<section>
 	<h2>Set the Default Node Color</h2>
-	<p>Note that the default node color of pale blue falls within this spectrum. A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.</p>
+	<p>Note that the default node color of pale blue is close to the color range in the selected palette. A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.</p>
     <ul>
 	<li>Click the <highlight>Def.</highlight> (leftmost) square next to <highlight>Fill Color</highlight> and choose a dark gray color.</li>
 	<li>Zoom out on the network view to verify that a few nodes have been colored gray.</li>
@@ -128,7 +118,7 @@ Add speaker notes here...
 	<li>In the drop-down menu of available column names, select <b>gal80Rsig</b>.</li>
 	<li>Click the <highlight>-- select value --</highlight> cell next to <highlight>Mapping Type</highlight>.</li>
 	<li>In the drop-down menu of available mapping types, select <highlight>Continuous Mapping</highlight>.</li>
-	<li>This will create an empty icon in the <b>Current Mapping</b> row of the <b>Shape</b> section. Click on this icon.</li>
+	<li>This will create an empty icon in the <b>Current Mapping</b> row of the <b>Shape</b> section. Double-click on this icon.</li>
 	<li>This action will pop-up a continuous shape selection dialog.</li>
     </ul>
 <aside class="notes" data-markdown>
@@ -144,17 +134,8 @@ Add speaker notes here...
 	<li>In the node shape selection dialog, choose the <highlight>Rectangle</highlight> shape and click the <highlight>Apply</highlight> button.</li>
 	<li>Click the black triangle and move the slider to the left, to slightly lower that 0.05, our threshold for significance.</li>
 	<li>Close the continuous shape selection dialog and verify that some nodes now have a square shape.</li>
-        </ul>
+        </ul><br /><br />
         <img plain src="Node_shape_editor3.png" style="width:50%">
-<aside class="notes" data-markdown>
-Add speaker notes here...
-</aside>
-</section>
-
-<section>
-	<p>The network should now look like this:</p>
-    <img plain src="1600px-Galfiltered-visualization3.png" style="width:60%">
-
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
@@ -164,9 +145,10 @@ Add speaker notes here...
 	<h2>Fun with Charts</h2>
 	<p>In addition to coloring the nodes, Cytoscape also provides the ability to draw charts and graphs on each node. For example, suppose we wanted to display a bar chart showing all of the expression values on each of our nodes?</p>
     <ul>
-	<li>To reset things a little, remove the mapping for <highlight>Fill Color</highlight> by doing a Right-Click over the <highlight>Fill Color</highlight> row and selecting <highlight>Edit &rarr; Remove Mappings from Selected Visual Properties</highlight>.</li>
+	<li>To reset things a little, remove the mapping for <highlight>Fill Color</highlight> by right-clicking over the <highlight>Fill Color</highlight> row and selecting <highlight>Edit &rarr; Remove Mappings from Selected Visual Properties</highlight>.</li>
 	<li>Now change the default value to a lighter shade of grey so we can see our chart.</li>
-	<li>Near the top of the panel, select <highlight>Properties</highlight> and choose <highlight>Paint &rarr; Custom Paint 1 &rarr; Image/Chart 1</highlight>. This will add a new row in our list of <b>Node Visual Properties</b> called <b>Image/Chart 1</b>.</li>
+    <li>In the list of <b>Node Visual Properties</b>, locate the property called <b>Image/Chart 1</b>. <br />Note: If this property is not listed,
+	select <highlight>Properties</highlight> drop-down at the top of the list and choose <highlight>Paint &rarr; Custom Paint 1 &rarr; Image/Chart 1</highlight>.</li>
         </ul>
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -180,7 +162,7 @@ Add speaker notes here...
 	<li>Move the three columns containing the expression data (gal1RGexp, gal4RGexp, gal80Rexp) from <highlight>Available Columns:</highlight> to <highlight>Selected Columns:</highlight> by selecting the rows and clicking the right arrow. This indicates that we're going to use the data from these three columns to create our chart.</li>
 	<li>Now select <highlight>Heat Strips</highlight> for the type of bar chart.</li>
     </ul>
-    <br />
+    <br /><br />
     <img plain src="600px-ChartDialog.png" style="width:60%">
 
 <aside class="notes" data-markdown>
@@ -193,7 +175,7 @@ Add speaker notes here...
 	<li>Click on <highlight>Options</highlight> if you want to add labels to the graphs, change the default coloring, etc.</li>
 	<li>Click <highlight>Apply</highlight> to see the resulting charts.</li>
     </ul>
-    <br />
+    <br /><br />
     <img plain src="1599px-GalWithCharts.png" style="width:60%">
 <aside class="notes" data-markdown>
 Add speaker notes here...
