@@ -74,11 +74,11 @@ Add speaker notes here...
 
     
 	<section>
-        <p>For this tutorial, the experimental data was part of the Cytoscape session file you loaded earlier, and is visible in the <b>Node Table</b>:</p><br />
+        <p>For this tutorial, the experimental data was part of the Cytoscape session file you loaded earlier, and is visible in the Node Table:</p><br />
 		<ul>
 			<img plain src="Galbrowse3.png" style="width:80%"><br /><br />
-            <li>You can select nodes in the network by <highlight>Shift + Click and Drag</highlight> or by <highlight>Shift + clicking on multiple nodes</highlight></li>
-			<li>Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s)</li>
+            <li>You can select nodes in the network by <highlight>Shift + Click and Drag</highlight> or by <highlight>Shift + clicking on multiple nodes</highlight>.</li>
+			<li>Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s).</li>
             
 		</ul>
     <br />
@@ -92,8 +92,8 @@ Add speaker notes here...
     <section>
 		<p>We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:</p>
 		<ul>
-			<li>The <b>gal80Rexp</b> expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red</li>
-			<li>Significance for expression values will be mapped to Node Border Width, so nodes with significant changes will appear with a thicker border</li>
+			<li>The <b>gal80Rexp</b> expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red.</li>
+			<li>Significance for expression values will be mapped to Node Border Width, so nodes with significant changes will appear with a thicker border.</li>
 		</ul>
 	</section>
 
@@ -102,7 +102,7 @@ Add speaker notes here...
     <ul>
     <li>Click on the <highlight>Style</highlight> tab in the <highlight>Control Panel</highlight>.</li>
     <li>Find <highlight>Fill Color</highlight> in the list of properties and expand it to view the mapping options.</li>
-	<li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <highlight>gal80Rexp</highlight> in the drop-down.</li>
+	<li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <b>gal80Rexp</b> in the drop-down.</li>
 	<li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <highlight>Continuous Mapping</highlight> in the drop-down.</li>
     <li>This produces a default gradient ranging from blue to red for expression values. Notice that the nodes in the network change color. <br />For our purposes, this default gradient works so we don't need to edit it.</li>
     </ul><br /><br />
@@ -130,15 +130,15 @@ Add speaker notes here...
     <section>
     <h3>Set Node Border Width</h3>
         <ul>
-            <li>Click on the middle square (<highlight>Map.</highlight>) next to the <highlight>Border Width</highlight> row in the <highlight>Styles</highlight> panel.</li>
-            <li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <highlight>gal80Rsig</highlight> in the drop-down.</li>
-            <li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <b>Continuous Mapping</b> in the drop-down.</li>
+            <li>Click on the middle square (<highlight>Map.</highlight>) next to the <highlight>Border Width</highlight> row in the <highlight>Style</highlight> panel.</li>
+            <li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <b>gal80Rsig</b> in the drop-down.</li>
+            <li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <highlight>Continuous Mapping</highlight> in the drop-down.</li>
             <li>Double-click on the default gradient, which defines the node border width over the range of p values.</li>
-        </ul><br />
-            <img src="NodeBorderGradient.png" style="width:30%"><br />
+        </ul><br /><br />
+        <img src="NodeBorderGradient.png" style="width:30%"><br /><br />
         <ul>
-            <li>First, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to "0.05". Click <highlight>OK</highlight> to save.</li>
-            <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to 10 in the <highlight>Node Border Width</highlight> field. </li>
+            <li>First, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
+            <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>10</b> in the <highlight>Node Border Width</highlight> field. </li>
         </ul><br /><br />
         <p>To learn more about <b>visualizing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Expression Data Tutorial</a>.</p>
         
@@ -168,9 +168,9 @@ Add speaker notes here...
         <p>Cytoscape allows you to easily filter and select nodes and edges based on data attributes. Next, we will select a subset of nodes with high expression in the gal80 knockout:</p>
 				<ul>
 					<li>Go to the <highlight>Select</highlight> tab in the Cytoscape Control Panel (the leftmost panel).</li>
-					<li>Click on the <highlight>+</highlight> buttin and select <highlight>Column Filter</highlight>.</li>
+					<li>Click on the <highlight>+</highlight> button and select <highlight>Column Filter</highlight>.</li>
 					<li>Under <highlight>Choose column...</highlight>, select <highlight>Node: gal80Rexp</highlight>. Notice how all the nodes in the network are selected at first.</li>
-					<li>Using the slider or the input fileds, specify values of <b>2</b> or higher by changing the minimum value to 2.</li>
+					<li>Using the slider or the input fields, specify values of <b>2</b> or higher by changing the minimum value to 2.</li>
 				</ul>
 			<p>You should now see only a few nodes in the network selected (highlighted yellow).</p>
         <br />
@@ -236,14 +236,14 @@ Add speaker notes here...
 </section>
 
 <section>
-	<h3>Saving Results</h3>
+	<h1>Saving Results</h1>
     <p>Cytoscape provides a number of ways to save results and visualizations:</p>
 	<ul>
-                    <li>As an image: <highlight>File &rarr; Export as Image...</highlight></li>
 					<li>As a session: <highlight>File &rarr; Save</highlight>, <highlight>File &rarr; Save As...</highlight></li>
-                    <li>To the web: <highlight>File &rarr; Export as Web Page...</highlight> (<a href="../saving-results/web_session/index.html" target="_blank">Example</a>)</li>
-		          <li>To a public repository: <highlight>File &rarr; Export &rarr; Network Collection to NDEx</highlight></li>
-		              <li>As a graph format file: <highlight>File &rarr; Export &rarr; Network</highlight>. <br/>Formats:
+					<li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+					<li>To the web: <highlight>File &rarr; Export &rarr; Network to Web Page...</highlight> (<a href="../saving-results/web_session/index.html">Example</a>)</li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a graph format file: <highlight>File &rarr; Export &rarr; Network to File</highlight>. <br/>Formats:
 						<ul>
 										<li>CX JSON</li>
 										<li>Cytoscape.js JSON</li>
