@@ -38,17 +38,17 @@
     
 <div class="footer" style="position: absolute;left: -2em;bottom: -3em; ">
     <img class="plain" src="earth-or-pathway_text.png" style="height:80px;opacity:0.5"> 
-    <version>3.3.1</version>
+    <version>3.3.5</version>
 </div>
 </section>
                 
 <section>
         <h2>Prerequisties</h2>
         <ul>
-            <li>Install the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a></li>
-            <li>Install the <b>WikiPathways app</b> via <highlight>Apps &rarr; App Manager</highlight></li>
-            <li>The <b>ID Mapper app</b> is installed with Cytoscape by default</li>
-            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.txt">data</a> used in this tutorial. The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values)</li>
+            <li>Install the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
+            <li>Install the <b>WikiPathways app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
+            <li>The <b>ID Mapper app</b> is installed with Cytoscape by default.</li>
+            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.txt">data</a> used in this tutorial. The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).</li>
         </ul>
              
          <aside class="notes" data-markdown>
@@ -59,7 +59,7 @@
 <section>
          <h2>Importing Pathways</h2>
          <ul>
-             <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in "Statin" and click the search icon.</li>
+             <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>Statin</b> and click the search icon.</li>
              <li>A list of results for all available species will open. To see results from a select species, click the <b>Only</b> checkbox and select a species from the drop-down.</li>
              <li>Select the human <highlight>Statin Pathway</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>   
          </ul>
@@ -82,30 +82,7 @@
          <section>
         
          <h2>Identifier Mapping</h2>
-         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <b>XrefId</b> column in the <b>Node Table</b>. The Statin pathway is annotated with mostly Entrez Gene identifiers. Our experimental data is annotated with Ensembl identifiers, so we will map the Entrez identifiers on the pathway to Ensembl using ID Mapper.</p>
-         <p></p>
-         <ul>
-             <li>In the <highlight>Node Table</highlight>, right-click on the column header <highlight>XrefId</highlight> and select <highlight>Map column ...</highlight></li>
-             <li>This brings up the ID Mapper interface. ID Mapper guesses what the parameters are based on the pathway/network. In this case, we want to map from <b>Entrez Gene</b> to <b>Ensembl</b>:</li> <br />
-             <img plain src="IdMapperInterface.png" style="width:40%"><br /><br />
-             <li>Setup the mapping and click <highlight>OK</highlight> to continue.</li>
-             </ul>
-             
-<!--          <div class="cybrowser">
-             <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('idmapper map column source_column=XrefId source_selection=&quot;Entrez Gene&quot; species=Human target_selection=Ensembl');" value="Map identifiers"/>
-             </div>-->
-             
-         <aside class="notes" data-markdown>
-         Notes go here 
-         </aside>
-         </section>
-             
-         <section>
-            <ul>
-            <li>When mapping is complete, a new column named <b>Ensembl</b> is added to the <b>Node Table</b>.</li>
-            <li>We are now ready to import the data.</li>
-            </ul>
-            <br /><br />
+         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <b>XrefId</b> column in the <b>Node Table</b>. The Statin pathway is annotated with mostly Entrez Gene identifiers, and our experimental data is annotated with Ensembl identifiers. The ID Mapper automatically maps the identifiers in the pathway to Ensembl, adding a column named <b>Ensembl</b>.</p>
          <img plain src="Statin_mapped.png" style="width:80%">
          <aside class="notes" data-markdown>
          Notes go here 
@@ -115,11 +92,11 @@
          <section>
              
          <h2>Data Import</h2>
-         <p>Now that we have added Ensembl identifiers to the pathway, we can use this new column to map the experimental data.</p>
+         <p>We will use the new Ensembl column to map the experimental data:</p>
          <ul>
-         <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.txt">WPExpData.txt</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table &rarr; File....</highlight></li>
+         <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.txt">WPExpData.txt</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
          <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down.</li>
-         <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <highlight>Ensembl</highlight> column.</li>
+         <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <b>Ensembl</b> column.</li>
          <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
          </ul>
              
@@ -150,7 +127,7 @@
          <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as <b>Node Fill Color</b>.</p>
          <ul>
          <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Map.</highlight> box for <highlight>Fill Color</highlight>.</li>
-         <li>In the <highlight>Column</highlight>drop-down, select <b>"hypercholesterolemia vs normal log2foldchange"</b>.</li>
+         <li>In the <highlight>Column</highlight> drop-down, select <b>"hypercholesterolemia vs normal log2foldchange"</b>.</li>
          <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continous Mapping</highlight>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
              
          </ul><br /><br />
@@ -168,7 +145,7 @@
 	<h1>Publish Results</h1>
     <p>Cytoscape provides a number of ways to save publication-quality images:</p>
 	<ul>
-					<li><highlight>File &rarr; Export as Image...</highlight></li>
+					<li><highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
 						<ul>
 										<li>PDF</li>
 										<li>SVG</li>
