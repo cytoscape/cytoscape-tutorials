@@ -1,0 +1,368 @@
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Use Case - How are my top genes related?</h1>
+                    <div class="slideContent" >
+                        <p>Omics data - I have a -----------<em>fill in the blank</em> (microarray, RNASeq, Proteomics, ATACseq, MicroRNA, GWAS &hellip;) dataset.  I have normalized and scored my data. How do I overlay my data on existing interaction data? </p>
+
+                        <p>There are endless amounts of databases storing interaction data. </p>
+
+                        <p style="text-align:center;"><img src="./modules/automation/interaction-dbs.png" /></p>
+
+                    </div>
+
+                </section>
+ 
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Cytoscape Apps with network data</h3>
+                    <div class="slideContent" >
+                        <p>Thankfully we don&#39;t have to query each independent ally.  In addition to many specialized (for example, for specific molecules, interaction type, or species) interaction databases there are also databases that collate these databases to create a broad resource that is easier to use. For example:</p>
+
+                            <ul>
+                                <li><a href="http://apps.cytoscape.org/apps/stringapp">StringApp</a> - is a protein - protein and protein- chemical database that imports data from <a href="string-db.org">String</a><a href="which%20itself%20includes%20data%20from%20multiple%20species,%20coexpression,%20text-mining,existing%20databases,%20and%20genomic%20context"></a><a href="#refs">(Szklarczyk et al.)</a>, [STITCH] into a unified, queriable database.</li>
+                                <li><a href="https://psicquic.github.io/">PSICQUIC</a><a href="#refs">(Aranda et al.)</a> - a REST-ful service that is the responsibility of the database provider to set up and maintain.  PSICQUIC is an additional interface that allows users to search all available databases (that support this REST-ful service).  The databases are required to represent their interaction data in Proteomic Standards Initiative - molecular interaction (PSI-MI) format. To see a list of all the available data source see <a href="http://www.ebi.ac.uk/Tools/webservices/psicquic/registry/registry?action=STATUS">here</a></li>
+                                <li><a href="http://home.ndexbio.org/index/">nDex</a><a href="#refs">(Pratt et al.)</a> - a network data exchange repository. </li>
+                                <li><a href="http://genemania.org/">GeneMANIA</a><a href="#refs">(Mostafavi et al.)</a> - contains multiple networks (shared domains, physical interactions, pathways, predicted, co-expression, genetic interactions and co-localized network).  Given a set of genes GeneMANIA selects and weights networks that optimize the connectivity between the query genes.  GeneMANIA will also return additional genes that are highly related to your query set.</li>
+                                <li><a href="http://www.pathwaycommons.org/">PathwayCommons</a> - (access the data through the <a href="http://apps.cytoscape.org/apps/cypath2">CyPath2App</a>) is a pathway and interaction data source.  Data is collated from a large set of resources (list <a href="http://www.pathwaycommons.org/pc2/datasources">here</a> ) and stored in the BioPAX<a href="#refs">(Demir et al.)</a> format.  BioPAX is a data standard that allows for detailed representation of pathway mechanistic details as opposed to collapsing it to the set of interactions between molecules.  BioPAX pathways from Pathway commons can also be loaded directly into R using the <a href="http://bioconductor.org/packages/release/bioc/html/paxtoolsr.html">PaxToolsR</a><a href="#refs">(Luna et al.)</a> Bioconductor package.<br/></li>
+                            </ul>                       
+                    </div>
+                </section>
+                
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+                        <p>Get a subset of genes of interest from our scored data:</p>
+
+<pre><code class="r">top_mesenchymal_genes &lt;- RNASeq_gene_scores[which(RNASeq_gene_scores$FDR.mesen &lt; 0.05 &amp; RNASeq_gene_scores$logFC.mesen &gt; 2),]
+head(top_mesenchymal_genes)
+</code></pre>
+
+<pre><code>      Name geneid logFC.mesen logCPM.mesen  LR.mesen PValue.mesen
+188   PRG4  10216    2.705305    2.6139056  95.58179     1.42e-22
+252  PROK1  84432    2.543381    1.3255202  68.31067     1.40e-16
+308  PRRX1   5396    2.077538    4.8570983 123.09925     1.33e-28
+434  PTGFR   5737    2.075707   -0.1960881  73.24646     1.14e-17
+438  PTGIS   5740    2.094198    5.8279714 165.11038     8.65e-38
+1214 BARX1  56033    3.267472    1.7427387 166.30064     4.76e-38
+     FDR.mesen logFC.diff logCPM.diff   LR.diff  PValue.diff     FDR.diff
+188   7.34e-21 -1.2716521   2.6139056 14.107056 1.726950e-04 1.181751e-03
+252   4.77e-15  0.7455119   1.3255202  5.105528 2.384972e-02 6.549953e-02
+308   1.08e-26 -1.2367108   4.8570983 29.949104 4.440000e-08 1.250000e-06
+434   4.30e-16 -0.4233297  -0.1960881  2.318523 1.278413e-01 2.368387e-01
+438   1.20e-35 -0.4448761   5.8279714  5.696086 1.700278e-02 5.027140e-02
+1214  6.82e-36 -2.4411370   1.7427387 52.224346 4.950000e-13 6.970000e-11
+     Row.names.y logFC.immuno logCPM.immuno LR.immuno PValue.immuno
+188   PRG4|10216   -0.4980017     2.6139056  2.651951   0.103422901
+252  PROK1|84432   -1.9692994     1.3255202 27.876348   0.000000129
+308   PRRX1|5396   -0.4914091     4.8570983  5.773502   0.016269586
+434   PTGFR|5737   -0.6737143    -0.1960881  6.289647   0.012144523
+438   PTGIS|5740   -0.6138074     5.8279714 11.708780   0.000622059
+1214 BARX1|56033   -0.6063633     1.7427387  4.577141   0.032401228
+      FDR.immuno logFC.prolif logCPM.prolif  LR.prolif PValue.prolif
+188  0.185548905   -0.9356510     2.6139056  8.9562066  0.0027652850
+252  0.000001650   -1.3195933     1.3255202 13.7675841  0.0002068750
+308  0.042062023   -0.3494185     4.8570983  2.9943819  0.0835537930
+434  0.033197211   -0.9786631    -0.1960881 12.9112727  0.0003266090
+438  0.002779895   -1.0355143     5.8279714 31.9162051  0.0000000161
+1214 0.073565295   -0.2199714     1.7427387  0.6315171  0.4267993850
+      FDR.prolif
+188  0.006372597
+252  0.000622057
+308  0.128528698
+434  0.000932503
+438  0.000000107
+1214 0.510856262
+</code></pre>
+
+                        <p>We are going to query the String Database to get all interactions found for our set of top Mesenchymal genes.</p>
+
+                    </div>
+
+                </section>
+                
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+<pre><code class="r">commandsHelp(&quot;help string&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablestringcommands.png" /></p>
+
+<pre><code class="r">commandsHelp(&quot;help string protein query&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablestringarguments.png" /></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+                        <p>Query String</p>
+
+<pre><code class="r">mesen_string_interaction_cmd &lt;- paste(&#39;string protein query taxonID=9606 limit=150 cutoff=0.9 query=&quot;&#39;,paste(top_mesenchymal_genes$Name, collapse=&quot;,&quot;),&#39;&quot;&#39;,sep=&quot;&quot;)
+commandsGET(mesen_string_interaction_cmd)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_stringnetworkload.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+                        <p>Get a screenshot of the initial network</p>
+
+<pre><code class="r">initial_string_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;, &quot;initial_string_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(initial_string_network_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  response &lt;- file.remove(initial_string_network_png_file_name)
+} 
+
+response &lt;- exportImage(initial_string_network_png_file_name, type = &quot;png&quot;)
+</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h3>Initial String Network - top Mesenchymal genes interactions</h3>
+                        <p style="text-align:center;"><img src="./modules/automation/initial_string_network.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Layouts</h3>
+                    <div class="slideContent" >
+                        <p>Layout the network</p>
+
+<pre><code class="r">layoutNetwork(&#39;force-directed&#39;)
+</code></pre>
+
+                        <p>Check what other layout algorithms are available to try out</p>
+
+<pre><code class="r">getLayoutNames()
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablelayouts.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Layouts - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Get the parameters for a specific layout</p>
+
+<pre><code class="r">getLayoutPropertyNames(layout.name=&#39;force-directed&#39;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablelayoutarguments.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Layouts - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Re-layout the network using the force directed layout but specify some of the parameters </p>
+
+<pre><code class="r">layoutNetwork(&#39;force-directed defaultSpringCoefficient=0.0000008 defaultSpringLength=70&#39;)
+</code></pre>
+
+                        <p>Get a screenshot of the re-laid out network</p>
+
+<pre><code class="r">relayout_string_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, 
+&quot;images&quot;,&quot;relayout_string_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(relayout_string_network_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  response&lt;- file.remove(relayout_string_network_png_file_name)
+  } 
+response &lt;- exportImage(relayout_string_network_png_file_name, type = &quot;png&quot;)
+</code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>String network with new layout</h3>
+                    <div>
+                        <p style="text-align:center;"><img src="./modules/automation/relayout_string_network.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Overlay our expression data on the String network.  </h3>
+                    <div class="slideContent" >
+                        <p>To do this we will be using the loadTableData function from RCy3. It is important to make sure that  that your identifiers types match up.  You can check what is used by String by pulling in the column names of the node attribute table.</p>
+
+<pre><code class="r">getTableColumnNames(&#39;node&#39;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablenodecolumns.png"></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Overlay our expression data on the String network - cont&#x27;d  </h3>
+                    <div class="slideContent" >
+                        <p>If you are unsure of what each column is and want to further verify the column to use you can also pull in the entire node attribute table.</p>
+
+<pre><code class="r">node_attribute_table_topmesen &lt;- getTableColumns(table=&quot;node&quot;)
+head(node_attribute_table_topmesen[,3:7])
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_nodetable.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Overlay our expression data on the String network - cont&#x27;d  </h3>
+                    <div class="slideContent" >
+                        <p>The column &ldquo;display name&rdquo; contains HGNC gene names which are also found in our Ovarian Cancer dataset.</p>
+
+                        <p>To import our expression data we will match our dataset to the &ldquo;display name&rdquo; node attribute.</p>
+
+<pre><code class="r">?loadTableData
+
+loadTableData(RNASeq_gene_scores,table.key.column = &quot;display name&quot;,
+data.key.column = &quot;Name&quot;)  #default data.frame key is row.names
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_nodeattributeload.png"></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style</h3>
+                    <div class="slideContent" >
+                        <p>Modify the visual style
+                            Create your own visual style to visualize your expression data on the String network. </p>
+
+                        <p>Start with a default style</p>
+
+<pre><code class="r">style.name = &quot;MesenchymalStyle&quot;
+defaults.list &lt;- list(NODE_SHAPE=&quot;ellipse&quot;,
+                 NODE_SIZE=60,
+                 NODE_FILL_COLOR=&quot;#AAAAAA&quot;,
+                 EDGE_TRANSPARENCY=120)
+# p for passthrough; nothing else needed
+node.label.map &lt;- mapVisualProperty(&#39;node label&#39;,&#39;display name&#39;,&#39;p&#39;) 
+createVisualStyle(style.name, defaults.list, list(node.label.map))
+setVisualStyle(style.name=style.name)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_visualstyleapplied.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Update your created style with a mapping for the Mesenchymal logFC expression. The first step is to grab the column data from Cytoscape (we can reuse the node_attribute table concept from above but we have to call the function again as we have since added our expression data) and pull out the min and max to define our data mapping range of values.</p>
+
+                        <p><strong>Note</strong>: you could define the min and max based on the entire dataset or just the subset that is represented in Cytoscape currently.  The two methods will give you different results.  If you intend on comparing different networks created with the same dataset then it is best to calculate the min and max from the entire dataset as opposed to a subset. </p>
+
+<pre><code class="r">min.mesen.logfc = min(RNASeq_gene_scores$logFC.mesen,na.rm=TRUE)
+max.mesen.logfc = max(RNASeq_gene_scores$logFC.mesen,na.rm=TRUE)
+data.values = c(min.mesen.logfc,0,max.mesen.logfc)
+</code></pre>
+
+                    </div>
+
+                </section>
+                
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="mediaInline slideContent" >
+                        <p>Next, we use the RColorBrewer package to help us pick good colors to pair with our data values.</p>
+
+<pre><code class="r">library(RColorBrewer)
+display.brewer.all(length(data.values), colorblindFriendly=TRUE, type=&quot;div&quot;) 
+</code></pre>
+
+<p  style="text-align:center;"><img style="width:50%" src="data:image/png;base64,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SE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE5AwCfXMgUTIECAAIFiAQFfbGQEAQIECBBITkDAJ9cyBRMgQIAAgWIBAV9sZAQBAgQIEEhOQMAn1zIFEyBAgACBYgEBX2xkBAECBAgQSE7g/wMmFLfsTJn6kQAAAABJRU5ErkJggg==" alt="plot of chunk unnamed-chunk-28"/></p>
+
+                    </div>
+                </section>
+                <section>
+                    <div>
+                        <h3>logFC to node color</h3>
+<pre><code class="r">node.colors &lt;- c(rev(brewer.pal(length(data.values), &quot;RdBu&quot;)))
+</code></pre>
+
+                        <p>Map the colors to our data value and update our visual style. </p>
+
+<pre><code class="r">setNodeColorMapping(&quot;logFC.mesen&quot;, data.values, node.colors, style.name=style.name)
+</code></pre>
+
+                    </div>
+
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                          <p>Remember, String includes your query proteins as well as other proteins that associate with your query proteins (including the strongest connection first).  Not all of the proteins in this network are your top hits.  How can we visualize which proteins are our top Mesenchymal hits?</p>
+                        
+                        <p>Add a different border color or change the node shape for our top hits.</p>
+
+<pre><code class="r">getNodeShapes()
+
+#select the Nodes of interest
+#selectNode(nodes = top_mesenchymal_genes$Name, by.col=&quot;display name&quot;)
+setNodeShapeBypass(node.names = top_mesenchymal_genes$Name, new.shapes = &quot;TRIANGLE&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablenodeshapes.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Change the size of the node to be correlated with the Mesenchymal p-value. </p>
+
+<pre><code class="r">setNodeSizeMapping(table.column = &#39;LR.mesen&#39;, 
+                   table.column.values = c(min(RNASeq_gene_scores$LR.mesen), 
+                                           mean(RNASeq_gene_scores$LR.mesen), 
+                                           max(RNASeq_gene_scores$LR.mesen)), 
+                   sizes = c(30, 60, 150),mapping.type = &quot;c&quot;, style.name = style.name)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Visual Style - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Get a screenshot of the resulting network</p>
+
+<pre><code class="r">mesen_string_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;mesen_string_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(mesen_string_network_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  response&lt;- file.remove(mesen_string_network_png_file_name)
+  } 
+response &lt;- exportImage(mesen_string_network_png_file_name, type = &quot;png&quot;)
+</code></pre>
+                    </div>
+
+                </section>
+                <section>
+                    <div>
+                        <h3>Formatted String network</h3>
+                        <p style="text-align:center;"><img src="./modules/automation/mesen_string_network.png" ></p>
+
+                    </div>
+
+                </section>

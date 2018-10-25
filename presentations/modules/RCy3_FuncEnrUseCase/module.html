@@ -1,0 +1,275 @@
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Use Case - Functional Enrichment of Omics set.</h1>
+                    <div class="slideContent" >
+                        <p>Reducing our large OMICs expression set to a simple list of genes eliminates the majority of the signals present in the data.  Thresholding will only highlight the strong signals neglecting the often more interesting subtle signals. In order to capitalize on the wealth of data present in the data we need to perform pathway enrichment analysis on the entire expression set. There are many tools in R or as standalone apps that perform this type of analysis.  </p>
+
+                        <p>To demonstrate how you can use Cytoscape and RCy3 in your enrichment analysis pipeline we will use EnrichmentBrowser package (as demonstrated in detail in the workshop <a href="https://github.com/Bioconductor/BiocWorkshops/blob/master/Geistlinger_Omics.Rmd%5D">Functional enrichment analysis of high-throughput omics data</a>) to perform pathway analysis.  </p>
+
+<pre><code class="r">if(!&quot;EnrichmentBrowser&quot; %in% installed.packages()){
+    install.packages(&quot;BiocManager&quot;)
+    BiocManager::install(&quot;EnrichmentBrowser&quot;)
+}
+
+suppressPackageStartupMessages(library(EnrichmentBrowser))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Geneset Files</h3>
+                    <div class="slideContent" >
+                        <p>Download the latest pathway definition file from the <a href="http://download.baderlab.org/EM_Genesets/current_release/">Baderlab download site</a>.  Baderlab genesets are updated on a monthly basis. Detailed information about the sources can be found <a href="http://baderlab.org/GeneSets">here</a>.</p>
+                        
+                        <p>Only Human, Mouse and Rat gene set files are currently available on the Baderlab downloads site.  If you are working with a species other than human (and it is either rat or mouse) change the gmt_url below to correct species. </p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Geneset Files - cont&#x27;d</h3>
+                    <div class="slideContent" >
+<pre><code class="r">tryCatch(expr = { suppressPackageStartupMessages(library(&quot;RCurl&quot;))}, 
+         error = function(e) {  install.packages(&quot;RCurl&quot;)}, 
+         finally = library(&quot;RCurl&quot;))
+
+gmt_url = &quot;http://download.baderlab.org/EM_Genesets/current_release/Human/symbol/&quot;
+
+
+#list all the files on the server
+filenames = getURL(gmt_url)
+tc = textConnection(filenames)
+contents = suppressWarnings(readLines(tc))
+close(tc)
+
+#get the gmt that has all the pathways and does not include terms inferred from electronic annotations(IEA)
+#start with gmt file that has pathways only
+rx = gregexpr(&quot;(?&lt;=&lt;a href=\&quot;)(.*.GOBP_AllPathways_no_GO_iea.*.)(.gmt)(?=\&quot;&gt;)&quot;,
+  contents, perl = TRUE)
+gmt_file = unlist(regmatches(contents, rx))
+
+dest_gmt_file &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;, &quot;data&quot;, gmt_file)
+
+download.file(
+    paste(gmt_url,gmt_file,sep=&quot;&quot;),
+    destfile=dest_gmt_file
+)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Geneset Files - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Load in the gmt file</p>
+
+<pre><code class="r">library(EnrichmentBrowser)
+baderlab.gs &lt;- getGenesets(dest_gmt_file)
+baderlab.gs[1:2]
+</code></pre>
+
+<pre><code>$`THIO-MOLYBDENUM COFACTOR BIOSYNTHESIS%HUMANCYC%PWY-5963`
+[1] &quot;MOCOS&quot;
+
+$`PROLINE BIOSYNTHESIS I%HUMANCYC%PROSYN-PWY`
+[1] &quot;PYCR2&quot;    &quot;ALDH18A1&quot; &quot;PYCR1&quot;    &quot;PYCRL&quot;   
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>EnrichmentBrowser</h3>
+                    <div class="slideContent" >
+                        <p>Create the dataset required by EnrichmentBrowser tools</p>
+
+<pre><code class="r">#create the expression file - A tab separated text file containing expression values. Columns = samples/subjects; rows = features/probes/genes; NO headers, row or column names.
+expr &lt;- RNASeq_expression
+
+sumexpr_filename &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;SummarizeExperiment_expression.txt&quot;) 
+write.table( expr ,  file = sumexpr_filename , col.names  = FALSE, row.names = FALSE, sep = &quot;\t&quot;, quote=FALSE)
+
+
+rowData &lt;- RNASeq_gene_scores[,grep(colnames(RNASeq_gene_scores), pattern=&quot;mesen&quot;)]
+rowData &lt;- cbind(RNASeq_gene_scores$Name,rowData)
+colnames(rowData)[2] &lt;- &quot;FC&quot;
+colnames(rowData)[6] &lt;- &quot;ADJ.PVAL&quot;
+
+sumexpr_rdat_filename &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;SummarizeExperiment_rdat.txt&quot;) 
+write.table( rowData[,1] ,  file = sumexpr_rdat_filename , col.names  = FALSE, row.names = FALSE, sep = &quot;\t&quot;, quote=FALSE)
+
+#load in the data classification data
+# A tab separated text file containing annotation information for the samples in either *two or three* columns. NO headers, row or column names. The number of rows/samples in this file should match the number of columns/samples of the expression matrix. The 1st column is reserved for the sample IDs; The 2nd column is reserved for a *BINARY* group assignment. Use &#39;0&#39; and &#39;1&#39; for unaffected (controls) and affected (cases) sample class
+classDefinitions_RNASeq &lt;- read.table( 
+  file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;RNASeq_classdefinitions.txt&quot;), header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
+
+colData &lt;- data.frame(Sample = colnames(RNASeq_expression),
+                      GROUP = classDefinitions_RNASeq$SUBTYPE, 
+                      stringsAsFactors = FALSE)
+rownames(colData) &lt;- colnames(RNASeq_expression)
+colData$GROUP[which(colData$GROUP != &quot;Mesenchymal&quot;)] &lt;- 0
+colData$GROUP[which(colData$GROUP == &quot;Mesenchymal&quot;)] &lt;- 1
+
+sumexpr_cdat_filename &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;SummarizeExperiment_cdat.txt&quot;) 
+write.table( colData ,  file = sumexpr_cdat_filename , col.names  = FALSE, row.names = FALSE, sep = &quot;\t&quot;, quote=FALSE)
+
+#create the Summarize Experiment object
+se_OV &lt;- EnrichmentBrowser::readSE(assay.file = sumexpr_filename , cdat.file = sumexpr_cdat_filename, rdat.file = sumexpr_rdat_filename)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>EnrichmentBrowser - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Put our precomputed p-values and fold change values into the Summarized Experiment object so we can use our rankings for the analysis</p>
+
+<pre><code class="r">#set the Summarized Experiment to our computed p-values and FC
+rowData(se_OV) &lt;- rowData
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>EnrichmentBrowser - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Run basic Over representation analysis (ORA) using our ranked genes and our gene set file downloaded from the Baderlab genesets.</p>
+
+<pre><code class="r">ora.all &lt;- sbea(method=&quot;ora&quot;, se=se_OV, gs=baderlab.gs, perm=0, alpha=0.05)
+gsRanking(ora.all)
+</code></pre>
+
+
+                        <p style="text-align:center;"><img src="./modules/automation/screenshot_ora_results.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>EnrichmentBrowser - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Take the enrichment results and create a generic enrichment map input file so we can create an Enrichment map.  Description of format of the generic input file can be found <a href="http://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#generic-results-files">here</a> and example generic enrichment map files can be found <a href="http://enrichmentmap.readthedocs.io/en/latest/FileFormats.html#examples-of-generic-enrichment-result-files">here</a></p>
+
+<pre><code class="r">#manually adjust p-values
+ora.all$res.tbl &lt;- cbind(ora.all$res.tbl, p.adjust(ora.all$res.tbl$P.VALUE, &quot;BH&quot;))
+colnames(ora.all$res.tbl)[ncol(ora.all$res.tbl)] &lt;- &quot;Q.VALUE&quot; 
+
+#create a generic enrichment map file
+em_results_mesen &lt;- data.frame(name = ora.all$res.tbl$GENE.SET,descr = ora.all$res.tbl$GENE.SET, 
+                               pvalue=ora.all$res.tbl$P.VALUE, qvalue=ora.all$res.tbl$Q.VALUE, stringsAsFactors = FALSE)
+
+#write out the ora results
+ em_results_mesen_filename &lt;-file.path(getwd(),
+                            &quot;230_Isserlin_RCy3_intro&quot;,&quot;data&quot;,&quot;mesen_ora_enr_results.txt&quot;)
+
+  write.table(em_results_mesen,em_results_mesen_filename,col.name=TRUE,sep=&quot;\t&quot;,row.names=FALSE,quote=FALSE)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Map</h3>
+                    <div class="slideContent" >
+                        <p>Create an enrichment map with the returned ORA results.</p>
+
+<pre><code class="r"> em_command = paste(&#39;enrichmentmap build analysisType=&quot;generic&quot; &#39;, &quot;gmtFile=&quot;, dest_gmt_file,
+                   &#39;pvalue=&#39;,&quot;0.05&quot;, &#39;qvalue=&#39;,&quot;0.05&quot;,
+                   &#39;similaritycutoff=&#39;,&quot;0.25&quot;,
+                   &#39;coeffecients=&#39;,&quot;JACCARD&quot;,
+                   &#39;enrichmentsDataset1=&#39;,em_results_mesen_filename ,
+                   sep=&quot; &quot;)
+
+  #enrichment map command will return the suid of newly created network.
+  em_mesen_network_suid &lt;- commandsRun(em_command)
+
+  renameNetwork(&quot;Mesenchymal_ORA_enrichmentmap&quot;, network=as.numeric(em_mesen_network_suid))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Map - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Export image of resulting Enrichment map.</p>
+
+<pre><code class="r">mesenem_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;mesenem.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(mesenem_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(mesenem_png_file_name)
+  } 
+
+#export the network
+exportImage(mesenem_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/automation/mesenem.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Map - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Annotate the Enrichment map to get the general themes that are found in the enrichment results.  Often for very busy networks annotating the networks doesn&#39;t help to reduce the complexity but instead adds to it.  To get rid of some of the pathway redundancy and density in the network create a summary of the underlying network. The summary network collapses each cluster to a summary node.  Each summary node is annotated with a word tag (the top 3 words associated with the nodes of the cluster) that is computed using the Wordcloud app.</p>
+
+<pre><code class="r">#get the column from the nodetable and node table
+  nodetable_colnames &lt;- getTableColumnNames(table=&quot;node&quot;,  network =  as.numeric(em_mesen_network_suid))
+
+  descr_attrib &lt;- nodetable_colnames[grep(nodetable_colnames, pattern = &quot;_GS_DESCR&quot;)]
+
+  #Autoannotate the network
+  autoannotate_url &lt;- paste(&quot;autoannotate annotate-clusterBoosted labelColumn=&quot;, descr_attrib,&quot; maxWords=3 &quot;, sep=&quot;&quot;)
+    current_name &lt;-commandsGET(autoannotate_url)
+
+  #create a summary network 
+  commandsGET(&quot;autoannotate summary network=&#39;current&#39;&quot;)
+
+  #change the network name
+  summary_network_suid &lt;- getNetworkSuid()
+
+  renameNetwork(title = &quot;Mesen_ORA_summary_netowrk&quot;,
+              network = as.numeric(summary_network_suid))
+
+  #get the summary node names
+  summary_nodes &lt;- getTableColumns(table=&quot;node&quot;,columns=c(&quot;name&quot;))
+
+  #clear bypass style the summary network has
+  clearNodePropertyBypass(node.names = summary_nodes$name,visual.property = &quot;NODE_SIZE&quot;)
+
+  #relayout network
+  layoutNetwork(&#39;cose&#39;,
+              network = as.numeric(summary_network_suid))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Map - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Export image of resulting Summarized Annotated Enrichment map.</p>
+
+<pre><code class="r">mesenem_summary_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;,&quot;images&quot;,&quot;mesenem_summary_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(mesenem_summary_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(mesenem_summary_png_file_name)
+  } 
+
+#export the network
+exportImage(mesenem_summary_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p  style="text-align:center;"><img src="./modules/automation/mesenem_summary_network.png" ></p>
+
+                    </div>
+
+                </section>

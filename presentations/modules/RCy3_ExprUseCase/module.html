@@ -1,0 +1,373 @@
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Use Case - Which genes have similar expression.</h1>
+                    <div class="slideContent" >
+                        <p>Instead of querying existing resources look for correlations in your own dataset to find out which genes have similar expression.  There are many tools that can analyze your data for correlation.  A popular tool is Weighted Gene Correlation Network Analysis (WGCNA)<a href="#refs">(Langfelder et al.)</a> which takes expression data and calculates functional modules.  As a simple example we can transform our expression dataset into a correlation matrix.  </p>
+
+                        <p>Using the Cytoscape App, aMatReader<a href="#refs">(Settle et al.)</a>, we transform our adjacency matrix into an interaction network. First we filter the correlation matrix to contain only the strongest connections (for example, only correlations greater than 0.9). </p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+
+                    <div class="slideContent noTitle" >
+<pre><code class="r">RNASeq_expression &lt;- RNASeq_expression_matrix[,3:ncol(RNASeq_expression_matrix)]
+
+rownames(RNASeq_expression) &lt;- RNASeq_expression_matrix$Name
+RNAseq_correlation_matrix &lt;- cor(t(RNASeq_expression), method=&quot;pearson&quot;)
+
+#set the diagonal of matrix to zero - eliminate self-correlation
+RNAseq_correlation_matrix[ 
+  row(RNAseq_correlation_matrix) == col(RNAseq_correlation_matrix) ] &lt;- 0
+
+# set all correlations that are less than 0.9 to zero
+RNAseq_correlation_matrix[which(RNAseq_correlation_matrix&lt;0.90)] &lt;- 0
+
+#get rid of rows and columns that have no correlations with the above thresholds
+RNAseq_correlation_matrix &lt;- RNAseq_correlation_matrix[which(rowSums(RNAseq_correlation_matrix) != 0),
+                          which(colSums(RNAseq_correlation_matrix) !=0)]
+
+#write out the correlation file
+correlation_filename &lt;- file.path(getwd(), &quot;230_Isserlin_RCy3_intro&quot;, &quot;data&quot;, &quot;TCGA_OV_RNAseq_expression_correlation_matrix.txt&quot;) 
+write.table( RNAseq_correlation_matrix,  file = correlation_filename, col.names  = TRUE, row.names = FALSE, sep = &quot;\t&quot;, quote=FALSE)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Use the CyRest call to access the aMatReader functionality.</h3>
+                    <div class="slideContent" >
+<pre><code class="r">amat_url &lt;- &quot;aMatReader/v1/import&quot;
+amat_params = list(files = list(correlation_filename),
+                   delimiter = &quot;TAB&quot;,
+                   undirected = FALSE,
+                   ignoreZeros = TRUE,
+                   interactionName = &quot;correlated with&quot;,
+                   rowNames = FALSE
+                   )
+
+response &lt;- cyrestPOST(operation = amat_url, body = amat_params, 
+base.url = &quot;http://localhost:1234&quot;)
+
+current_network_id &lt;- response$data[&quot;suid&quot;]
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network</h3>
+                    <div class="slideContent" >
+                        <p>Relayout</p>
+
+<pre><code class="r">#relayout network
+layoutNetwork(&#39;cose&#39;,
+              network = as.numeric(current_network_id))
+</code></pre>
+
+                        <p>Rename</p>
+
+<pre><code class="r">renameNetwork(title = &quot;Coexpression_network_pear0_9&quot;,
+              network = as.numeric(current_network_id))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network - cont&#x27;d</h3>
+                    <div class="slideContent" style="font-size:80%">
+                        <p>Modify the visualization to see where each genes is predominantly expressed.  Look at the 4 different p-values associated with each gene and color the nodes with the type associated with the lowest FDR.</p>
+
+                        <p>Load in the scoring data.  Specify the cancer type where the genes has the lowest FDR value.</p>
+
+<pre><code class="r">nodes_in_network &lt;- rownames(RNAseq_correlation_matrix)
+
+#add an additional column to the gene scores table to indicate in which samples
+# the gene is significant
+node_class &lt;- vector(length = length(nodes_in_network),mode = &quot;character&quot;)
+for(i in 1:length(nodes_in_network)){
+  current_row &lt;- which(RNASeq_gene_scores$Name == nodes_in_network[i])
+  min_pvalue &lt;- min(RNASeq_gene_scores[current_row,
+                                       grep(colnames(RNASeq_gene_scores), pattern = &quot;FDR&quot;)])
+  if(RNASeq_gene_scores$FDR.mesen[current_row] &lt;=min_pvalue){
+    node_class[i] &lt;- paste(node_class[i],&quot;mesen&quot;,sep = &quot; &quot;)
+  }
+  if(RNASeq_gene_scores$FDR.diff[current_row] &lt;=min_pvalue){
+    node_class[i] &lt;- paste(node_class[i],&quot;diff&quot;,sep = &quot; &quot;)
+  }
+  if(RNASeq_gene_scores$FDR.prolif[current_row] &lt;=min_pvalue){
+    node_class[i] &lt;- paste(node_class[i],&quot;prolif&quot;,sep = &quot; &quot;)
+  }
+  if(RNASeq_gene_scores$FDR.immuno[current_row] &lt;=min_pvalue){
+    node_class[i] &lt;- paste(node_class[i],&quot;immuno&quot;,sep = &quot; &quot;)
+  }
+}
+node_class &lt;- trimws(node_class)
+node_class_df &lt;-data.frame(name=nodes_in_network, node_class,stringsAsFactors = FALSE)
+
+head(node_class_df)
+</code></pre>
+
+<pre style="font-size:70%">    name  node_class
+1  ABCA6      mesen
+2  ABCA8      mesen
+3   ABI3     immuno
+4   ACAN     prolif
+5  ACAP1     immuno
+6 ADAM12      mesen
+</pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Map the new node attribute and the all the gene scores to the network.</p>
+
+<pre><code class="r">#default data.frame key is row.names
+loadTableData(RNASeq_gene_scores,table.key.column = &quot;name&quot;,data.key.column = &quot;Name&quot;)  
+
+#default data.frame key is row.names
+loadTableData(node_class_df,table.key.column = &quot;name&quot;,data.key.column = &quot;name&quot;)  
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Create a color mapping for the different cancer types.</p>
+
+<pre><code class="r">#create a new mapping with the different types
+unique_types &lt;- sort(unique(node_class))
+
+coul = brewer.pal(4, &quot;Set1&quot;) 
+
+# I can add more tones to this palette :
+coul = colorRampPalette(coul)(length(unique_types))
+
+setNodeColorMapping(table.column = &quot;node_class&quot;,table.column.values = unique_types,
+                    colors = coul,mapping.type = &quot;d&quot;)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Modify resulting network - cont&#x27;d</h3>
+                    <div class="slideContent" >
+<pre><code class="r">correlation_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;correlation_network.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(correlation_network_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(correlation_network_png_file_name)
+  } 
+
+#export the network
+exportImage(correlation_network_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/RCy3_ExprUseCase/correlation_network.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Cluster the Network</h3>
+                    <div class="slideContent" >
+<pre><code class="r">#make sure it is set to the right network
+  setCurrentNetwork(network = getNetworkName(suid=as.numeric(current_network_id)))
+
+  #cluster the network
+  clustermaker_url &lt;- paste(&quot;cluster mcl network=SUID:&quot;,current_network_id, sep=&quot;&quot;)
+  commandsGET(clustermaker_url)
+
+  #get the clustering results
+  default_node_table &lt;- getTableColumns(table= &quot;node&quot;,network = as.numeric(current_network_id))
+
+  head(default_node_table)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis</h3>
+                    <div class="slideContent" >
+                        <p>Perform pathway Enrichment on one of the clusters using
+g:Profiler<a href="#refs">(Reimand et al.)</a>. g:Profiler is an online functional enrichment web service that will take your gene list and return the set of enriched pathways.  For automated analysis g:Profiler has created an R library to interact with it directly from R instead of using the web page. </p>
+
+                        <p>Create a function to call g:Profiler and convert the returned results into a generic enrichment map input file.</p>
+
+<pre><code class="r">tryCatch(expr = { library(&quot;gProfileR&quot;)}, 
+         error = function(e) { install.packages(&quot;gProfileR&quot;)}, finally = library(&quot;gProfileR&quot;))
+
+#function to run gprofiler using the gprofiler library
+# 
+# The function takes the returned gprofiler results and formats it to the generic EM input file
+#
+# function returns a data frame in the generic EM file format.
+runGprofiler &lt;- function(genes,current_organism = &quot;hsapiens&quot;, 
+                         significant_only = F, set_size_max = 200, 
+                         set_size_min = 3, filter_gs_size_min = 5 , exclude_iea = F){
+
+  gprofiler_results &lt;- gprofiler(genes ,
+                                 significant=significant_only,ordered_query = F,
+                                exclude_iea=exclude_iea,max_set_size = set_size_max,
+                                 min_set_size = set_size_min,
+                                 correction_method = &quot;fdr&quot;,
+                                 organism = current_organism,
+                                src_filter = c(&quot;GO:BP&quot;,&quot;REAC&quot;))
+
+  #filter results
+  gprofiler_results &lt;- gprofiler_results[which(gprofiler_results[,&#39;term.size&#39;] &gt;= 3
+                                        &amp; gprofiler_results[,&#39;overlap.size&#39;] &gt;= filter_gs_size_min ),]
+
+  # gProfileR returns corrected p-values only.  Set p-value to corrected p-value
+  if(dim(gprofiler_results)[1] &gt; 0){
+    em_results &lt;- cbind(gprofiler_results[,
+                                c(&quot;term.id&quot;,&quot;term.name&quot;,&quot;p.value&quot;,&quot;p.value&quot;)], 1,
+                                gprofiler_results[,&quot;intersection&quot;])
+  colnames(em_results) &lt;- c(&quot;Name&quot;,&quot;Description&quot;, &quot;pvalue&quot;,&quot;qvalue&quot;,&quot;phenotype&quot;,&quot;genes&quot;)
+
+  return(em_results)
+  } else {
+    return(&quot;no gprofiler results for supplied query&quot;)
+  }
+}
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Run g:Profiler.  g:Profiler will return a set of pathways and functions that are found to be enriched in our query set of genes.  </p>
+
+<pre><code class="r">  current_cluster &lt;- &quot;1&quot;
+  #select all the nodes in cluster 1
+  selectednodes &lt;- selectNodes(current_cluster, by.col=&quot;__mclCluster&quot;)
+
+  #create a subnetwork with cluster 1
+  subnetwork_suid &lt;- createSubnetwork(nodes=&quot;selected&quot;)
+
+  renameNetwork(&quot;Cluster1_Subnetwork&quot;, network=as.numeric(subnetwork_suid))
+
+  subnetwork_node_table &lt;- getTableColumns(table= &quot;node&quot;,network = as.numeric(subnetwork_suid))
+
+  em_results &lt;- runGprofiler(subnetwork_node_table$name)
+
+ #write out the g:Profiler results
+ em_results_filename &lt;-file.path(getwd(),
+                            &quot;230_Isserlin_RCy3_intro&quot;, &quot;data&quot;,paste(&quot;gprofiler_cluster&quot;,current_cluster,&quot;enr_results.txt&quot;,sep=&quot;_&quot;))
+
+  write.table(em_results,em_results_filename,col.name=TRUE,sep=&quot;\t&quot;,row.names=FALSE,quote=FALSE)
+
+
+  head(em_results)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/RCy3_ExprUseCase/screenshot_gprofiler_emresults.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Create an enrichment map with the returned g:Profiler results.  An enrichment map is a different sort of network.  Instead of nodes representing genes, nodes represent pathways or functions.  Edges between these pathways or functions represent shared genes or pathway crosstalk.  An enrichment map is a way to visualize your enrichment results to help reduce redundancy and uncover main themes.  Pathways can also be explored in detail using the features available through the App in Cytoscape. </p>
+
+<pre><code class="r"> em_command = paste(&#39;enrichmentmap build analysisType=&quot;generic&quot; &#39;, 
+                   &#39;pvalue=&#39;,&quot;0.05&quot;, &#39;qvalue=&#39;,&quot;0.05&quot;,
+                   &#39;similaritycutoff=&#39;,&quot;0.25&quot;,
+                   &#39;coeffecients=&#39;,&quot;JACCARD&quot;,
+                   &#39;enrichmentsDataset1=&#39;,em_results_filename ,
+                   sep=&quot; &quot;)
+
+  #enrichment map command will return the suid of newly created network.
+  em_network_suid &lt;- commandsRun(em_command)
+
+  renameNetwork(&quot;Cluster1_enrichmentmap&quot;, network=as.numeric(em_network_suid))
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Export image of resulting Enrichment map.</p>
+
+<pre><code class="r">cluster1em_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;cluster1em.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(cluster1em_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(cluster1em_png_file_name)
+  } 
+
+#export the network
+exportImage(cluster1em_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/RCy3_ExprUseCase/cluster1em.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Annotate the Enrichment map to get the general themes that are found in the enrichment results of cluster 1</p>
+
+<pre><code class="r">#get the column from the nodetable and node table
+  nodetable_colnames &lt;- getTableColumnNames(table=&quot;node&quot;,  network =  as.numeric(em_network_suid))
+
+  descr_attrib &lt;- nodetable_colnames[grep(nodetable_colnames, pattern = &quot;_GS_DESCR&quot;)]
+
+  #Autoannotate the network
+  autoannotate_url &lt;- paste(&quot;autoannotate annotate-clusterBoosted labelColumn=&quot;, descr_attrib,&quot; maxWords=3 &quot;, sep=&quot;&quot;)
+    current_name &lt;-commandsGET(autoannotate_url)
+</code></pre>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Export image of resulting Annotated Enrichment map.</p>
+
+<pre><code class="r">cluster1em_annot_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;cluster1em_annot.png&quot;)
+</code></pre>
+
+<pre><code class="r">if(file.exists(cluster1em_annot_png_file_name)){
+  #cytoscape hangs waiting for user response if file already exists.  Remove it first
+  file.remove(cluster1em_annot_png_file_name)
+  } 
+
+#export the network
+exportImage(cluster1em_annot_png_file_name, type = &quot;png&quot;)
+</code></pre>
+
+                        <p style="text-align:center;"><img src="./modules/RCy3_ExprUseCase/cluster1em_annot.png" ></p>
+
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Enrichment Analysis - cont&#x27;d</h3>
+                    <div class="slideContent" >
+                        <p>Dense networks small or large never look like network figures we so often see in journals.  A lot of manual tweaking, reorganization and optimization is involved in getting that perfect figure ready network.  The above network is what the network starts as.  The below figure is what it can look like after a few minutes of manual reorganiazation.  (individual clusters were selected from the auto annotate panel and separated from other clusters)</p>
+
+                        <p style="text-align:center;"><img src="./modules/RCy3_ExprUseCase/cluster1em_annot_man.png" ></p>
+
+                    </div>
+
+                </section>

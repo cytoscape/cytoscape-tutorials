@@ -3,7 +3,7 @@
                     <div class="slideContent" >
                         <p>Networks offer us a useful way to represent our biological data.  But how do we seamlessly translate our data from R into Cytoscape?</p>
 
-                        <p style="text-align:center;"><img src="./modules/automation/CytoscapeAutomation_3.png" style="width:70%"/></p>
+                        <p style="text-align:center;"><img src="./modules/RCy3_primer/CytoscapeAutomation_3.png" style="width:60%"/></p>
                     </div>
                     <aside class="notes">
                         <p>There are multiple ways to communicate with Cytoscape programmatically.  There are two main complementary portals,<strong>cyRest</strong><a href="#refs">(Ono et al.)</a> and <strong>Commands</strong>, that form the foundation.  cyRest transforms Cytoscape in to a REST (Representational State Transfer) enabled service where it essentially listens for events through a predefined port (by default port 1234).  The cyRest functionality started as an app add in but has now been incorporated into the main release. Commands, on the other hand, offer a mechanism whereby app developers can expose their functionality to other apps or to user through the command interface.  Prior to the implementation of cyRest many of the basic network functions were first available as commands so there is some overlap between the two different methods.  \@ref(fig:cytoscapeRcy3) shows the different ways you can call Cytoscape.</p>
@@ -95,7 +95,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
 <pre><code class="r"> cytoscapePing ()
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./modules/automation/screenshot_cytoscapeping.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_cytoscapeping.png" /></p>
 
                     </div>
 
@@ -108,7 +108,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
 <pre><code class="r"> cytoscapeVersionInfo ()
 </code></pre>
 
-<p style="text-align:center;"><img src="./modules/automation/screenshot_cytoscapeversion.png" /></p>
+<p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_cytoscapeversion.png" /></p>
 
                     </div>
 
@@ -144,7 +144,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                         <pre><code class="r">commandsHelp(&quot;help&quot;)
                         </code></pre>
 
-                        <p style="text-align:center;"><img src="./modules/automation/screenshot_availablecommands.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_availablecommands.png" /></p>
 
                     </div>
 
@@ -253,7 +253,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                         <pre><code class="r">createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;, collection=&quot;DataFrame Example&quot;)
                         </code></pre>
 
-                        <p style="text-align:center;"><img src="./modules/automation/screenshot_networkload_1.png" /></p>
+                        <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_networkload_1.png" /></p>
 
                     </div>
 
@@ -280,5 +280,5 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                 </section>
                 <section>
                     <h3>Initial simple network</h3>
-                     <p  style="text-align:center;"><img src="./modules/automation/initial_example_network.png" /></p>
+                     <p  style="text-align:center;"><img src="./modules/RCy3_primer/initial_example_network.png" /></p>
                 </section>
