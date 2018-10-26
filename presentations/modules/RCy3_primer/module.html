@@ -65,7 +65,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
    &amp;&amp; as.numeric(cytoscape_version[2]&gt;=7)){
   for(i in 1:length(cyto_app_toinstall)){
     #check to see if the app is installed.  Only install it if it hasn&#39;t been installed
-    if(!grep(commandsGET(paste(&quot;apps status app=\&quot;&quot;, cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;)), 
+    if(!grepl(commandsGET(paste(&quot;apps status app=\&quot;&quot;, cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;)), 
              pattern = &quot;status: Installed&quot;)){
       installation_response &lt;-commandsGET(paste(&quot;apps install app=\&quot;&quot;, 
                                                 cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;))
@@ -77,8 +77,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
   installation_summary &lt;- data.frame(name = cyto_app_toinstall, 
                                      status = installation_responses)
 
-  knitr::kable(list(installation_summary),
-  booktabs = TRUE, caption = &#39;A Summary of automated app installation&#39;
+  # knitr::kable(list(installation_summary), booktabs = TRUE, caption = &#39;A Summary of automated app installation&#39;
 )
 }
 </code></pre>
