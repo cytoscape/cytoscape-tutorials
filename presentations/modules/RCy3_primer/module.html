@@ -77,7 +77,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
   installation_summary &lt;- data.frame(name = cyto_app_toinstall, 
                                      status = installation_responses)
 
-  # knitr::kable(list(installation_summary), booktabs = TRUE, caption = &#39;A Summary of automated app installation&#39;
+  knitr::kable(list(installation_summary), booktabs = TRUE, caption = &#39;A Summary of automated app installation&#39;
 )
 }
 </code></pre>
