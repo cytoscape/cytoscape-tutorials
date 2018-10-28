@@ -24,12 +24,11 @@ tryCatch(expr = { suppressPackageStartupMessages(library("RCurl"))},
           error = function(e) {  install.packages("RCurl")},
           finally = library("RCurl"))
 
-matrix &lt;- getURL("https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/bioc2018_Rcy3_intro/230_Isserlin_RCy3_intro/data/TCGA_OV_RNAseq_expression.txt?raw=true")
+matrix &lt;- getURL("https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/presentations/modules/RCy3_ExampleData/data/TCGA_OV_RNAseq_expression.txt")
 RNASeq_expression_matrix &lt;- read.table(text=matrix, header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
 
-RNASeq_gene_scores &lt;- read.table( 
-    file.path(getwd(),&quot;path&quot;,&quot;TCGA_OV_RNAseq_All_edgeR_scores.txt&quot;),  
-    header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
+matrix &lt;- getURL("https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/presentations/modules/RCy3_ExampleData/data/TCGA_OV_RNAseq_All_edgeR_scores.txt")
+RNASeq_gene_scores &lt;- read.table(text=matrix, header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
 			</code></pre>
 
 	</section>

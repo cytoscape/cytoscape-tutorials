@@ -16,14 +16,14 @@
                         <p>In order to create networks in Cytoscape from R you need:</p>
 
                         <ul>
-                            <li><strong>RCy3</strong> - a biocondutor package</li>
+                            <li><strong>RCy3</strong> - a bioconductor package</li>
                         </ul>
 
                     <pre><code class="r">if(!&quot;RCy3&quot; %in% installed.packages()){
-                        install.packages(&quot;BiocManager&quot;)
-                        BiocManager::install(&quot;RCy3&quot;)
-                    }
-                    library(RCy3)
+	install.packages(&quot;BiocManager&quot;)
+	BiocManager::install(&quot;RCy3&quot;)
+}
+library(RCy3)
                     </code></pre>
 
                     </div>
@@ -33,10 +33,10 @@
                     <h3>Set up - (part 2)</h3>
                     <div class="slideContent" >
                         <ul>
-                            <li><strong>Cytoscape</strong> - Download and install <a href="cytoscape.org/download.php">Cytoscape 3.6.1.</a> or higher.  Java 9 in not supported.  Please make sure that Java 8 is installed.
+                            <li><strong>Cytoscape</strong> - Download and install <a href="cytoscape.org/download.php">Cytoscape 3.7.0.</a> or higher.  Java 9 is not supported.  Please make sure that Java 8 is installed.
 
                                 <ul>
-                                    <li>Install additional cytoscape apps that will be used in this workshop.  If using cytoscape 3.6.1 or older the apps need to manually installed through the <a href="http://manual.cytoscape.org/en/latest/App_Manager.html#installing-apps">app manager</a> in Cytoscape or through your <a href="https://apps.cytoscape.org/help/getstarted_app_install">web browser</a>.  (click on the method to see detailed instructions)
+                                    <li>Install additional cytoscape apps that will be used in this workshop.  If using cytoscape 3.7.0 or older the apps need to manually installed through the <a href="http://manual.cytoscape.org/en/latest/App_Manager.html#installing-apps">app manager</a> in Cytoscape or through your <a href="https://apps.cytoscape.org/help/getstarted_app_install">web browser</a>.  (click on the method to see detailed instructions)
 
                                         <ul>
                                             <li><a href="http://apps.cytoscape.org/apps/functionalenrichmentcollection">Functional Enrichment Collection</a> -a collection of apps to retrieve networks and pathways, integrate and explore the data, perform functional enrichment analysis, and interpret and display your results.</li>
@@ -52,9 +52,9 @@
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Set up - (part 4)</h3>
                     <div class="slideContent" >
-                        <p>If you are using Cytoscape 3.7 or higher (Cytoscape 3.7 will be released in August 2018) then apps can be installed directly from R.</p>
+                        <p>If you are using Cytoscape 3.7 or higher then apps can be installed directly from R.</p>
 
-<pre><code class="r">#list of cytoscape apps to install
+<pre style="font-size:60%"><code class="r">#list of cytoscape apps to install
 installation_responses &lt;- c()
 
 #list of app to install
@@ -65,17 +65,14 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
    &amp;&amp; as.numeric(cytoscape_version[2]&gt;=7)){
   for(i in 1:length(cyto_app_toinstall)){
     #check to see if the app is installed.  Only install it if it hasn&#39;t been installed
-    if(!grepl(commandsGET(paste(&quot;apps status app=\&quot;&quot;, cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;)), 
-             pattern = &quot;status: Installed&quot;)){
-      installation_response &lt;-commandsGET(paste(&quot;apps install app=\&quot;&quot;, 
-                                                cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;))
+    if(!grepl(commandsGET(paste(&quot;apps status app=\&quot;&quot;, cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;)), pattern = &quot;status: Installed&quot;)){
+      installation_response &lt;-commandsGET(paste(&quot;apps install app=\&quot;&quot;, cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;))
       installation_responses &lt;- c(installation_responses,installation_response)
-    } else{
+    } else {
       installation_responses &lt;- c(installation_responses,&quot;already installed&quot;)
     }
   }
-  installation_summary &lt;- data.frame(name = cyto_app_toinstall, 
-                                     status = installation_responses)
+  installation_summary &lt;- data.frame(name = cyto_app_toinstall, status = installation_responses)
 
   knitr::kable(list(installation_summary), booktabs = TRUE, caption = &#39;A Summary of automated app installation&#39;
 )
@@ -154,15 +151,16 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                     <div class="slideContent" >
                         <p>Create a Cytoscape network from some basic R objects</p>
 
-                        <pre><code class="r">nodes &lt;- data.frame(id=c(&quot;node 0&quot;,&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;),
-                                   group=c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;), # categorical strings
-                                   score=as.integer(c(20,10,15,5)), # integers
-                                   stringsAsFactors=FALSE)
-                        edges &lt;- data.frame(source=c(&quot;node 0&quot;,&quot;node 0&quot;,&quot;node 0&quot;,&quot;node 2&quot;),
-                                   target=c(&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;,&quot;node 3&quot;),
-                                   interaction=c(&quot;inhibits&quot;,&quot;interacts&quot;,&quot;activates&quot;,&quot;interacts&quot;),  # optional
-                                   weight=c(5.1,3.0,5.2,9.9), # numeric
-                                   stringsAsFactors=FALSE)
+                        <pre><code class="r">
+nodes &lt;- data.frame(id=c(&quot;node 0&quot;,&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;),
+    group=c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;), # categorical strings
+    score=as.integer(c(20,10,15,5)), # integers
+    stringsAsFactors=FALSE)
+edges &lt;- data.frame(source=c(&quot;node 0&quot;,&quot;node 0&quot;,&quot;node 0&quot;,&quot;node 2&quot;),
+    target=c(&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;,&quot;node 3&quot;),
+    interaction=c(&quot;inhibits&quot;,&quot;interacts&quot;,&quot;activates&quot;,&quot;interacts&quot;),  # optional
+    weight=c(5.1,3.0,5.2,9.9), # numeric
+    stringsAsFactors=FALSE)
                         </code></pre>
 
                     </div>
@@ -175,7 +173,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                         
                         <ul style="float: left;list-style-type:none">
                         <p style="text-align:center;"><li><highlight>Nodes table:</highlight></li></p>
-                            <table><thead>
+                            <table style="font-size:90%"><thead>
                                 <tr>
                                     <th align="left">id</th>
                                     <th align="left">group</th>
@@ -207,7 +205,7 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                         </ul>
                             <ul style="float: right;list-style-type:none">
                             <p style="text-align:center;"><li><highlight>Edges table:</highlight></li></p>
-                                <table><thead>
+                                <table style="font-size:90%"><thead>
                                 <tr>
                                 <th align="left">source</th>
                                 <th align="left">target</th>
@@ -249,7 +247,8 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Create Network</h3>
                     <div class="slideContent" >
-                        <pre><code class="r">createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;, collection=&quot;DataFrame Example&quot;)
+                        <pre><code class="r">createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;, 
+    collection=&quot;DataFrame Example&quot;)
                         </code></pre>
 
                         <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_networkload_1.png" /></p>
@@ -263,16 +262,18 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                     <div class="slideContent" >
                         <p>Remember. All networks we make are created in Cytoscape so get an image of the resulting network and include it in your current analysis if desired.</p>
 
-                        <pre><code class="r">initial_network_png_file_name &lt;- file.path(getwd(),&quot;230_Isserlin_RCy3_intro&quot;, &quot;images&quot;,&quot;initial_example_network.png&quot;)
+                        <pre><code class="r">initial_network_png_file_name &lt;- file.path(getwd(),&quot;RCy3_primer&quot;,
+    &quot;images&quot;,&quot;initial_example_network.png&quot;)
                         </code></pre>
 
-                        <pre><code class="r">if(file.exists(initial_network_png_file_name)){
-                          #cytoscape hangs waiting for user response if file already exists.  Remove it first
-                          file.remove(initial_network_png_file_name)
-                          } 
+                        <pre>
+<code class="r">if(file.exists(initial_network_png_file_name)){
+    #cytoscape hangs waiting for user response if file already exists.  Remove it first
+    file.remove(initial_network_png_file_name)
+} 
 
-                        #export the network
-                        exportImage(initial_network_png_file_name, type = &quot;png&quot;)
+#export the network
+exportImage(initial_network_png_file_name, type = &quot;png&quot;)
                         </code></pre>
                     </div>
 
