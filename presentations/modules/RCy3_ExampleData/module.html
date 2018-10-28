@@ -1,0 +1,35 @@
+<section data-transition="linear" data-transition-speed="default">
+	<h1>Example Data Set</h1>
+	<div class="slideContent" >
+			<p>We downloaded gene expression data from the Ovarian Serous Cystadenocarcinoma project of The Cancer Genome Atlas (TCGA)<a href="#refs">(International Genome et al.)</a>, <a href="http://cancergenome.nih.gov">http://cancergenome.nih.gov</a> via the Genomic Data Commons (GDC) portal<a href="#refs">(Grossman et al.)</a> on 2017-06-14 using TCGABiolinks R package<a href="#refs">(Colaprico et al.)</a>. </p>
+					<ul>
+							<li>300 samples available as RNA-seq data</li>
+							<li>79 classified as Immunoreactive, 72 classified as Mesenchymal, 69 classified as Differentiated, and 80 classified as Proliferative samples</li>
+							<li>RNA-seq read counts were converted to CPM values and genes with CPM &gt; 1 in at least 50 of the samples are retained for further study </li>
+							<li>The data was normalized and differential expression was calculated for each cancer class relative to the rest of the samples. </li>
+			</ul>
+			</div>
+	</section>
+	<section>
+			<p>There are two data files:</p>
+
+					<ol>
+						<li><a href="modules/RCy3_ExampleData/data/TCGA_OV_RNAseq_expression.txt">Expression matrix</a> - containing the normalized expression for each gene across all 300 samples.</li>
+						<li><a href="modules/RCy3_ExampleData/data/TCGA_OV_RNAseq_All_edgeR_scores.txt">Gene ranks</a> - containing the p-values, FDR and foldchange values for the 4 comparisons (mesenchymal vs rest, differential vs rest, proliferative vs rest and immunoreactive vs rest)</li>
+					</ol>
+
+			<pre><code class="r">
+# Make sure we have RCurl
+tryCatch(expr = { suppressPackageStartupMessages(library("RCurl"))},
+          error = function(e) {  install.packages("RCurl")},
+          finally = library("RCurl"))
+
+matrix &lt;- getURL("https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/bioc2018_Rcy3_intro/230_Isserlin_RCy3_intro/data/TCGA_OV_RNAseq_expression.txt?raw=true")
+RNASeq_expression_matrix &lt;- read.table(text=matrix, header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
+
+RNASeq_gene_scores &lt;- read.table( 
+    file.path(getwd(),&quot;path&quot;,&quot;TCGA_OV_RNAseq_All_edgeR_scores.txt&quot;),  
+    header = TRUE, sep = &quot;\t&quot;, quote=&quot;\&quot;&quot;, stringsAsFactors = FALSE)
+			</code></pre>
+
+	</section>
