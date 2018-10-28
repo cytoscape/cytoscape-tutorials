@@ -72,14 +72,41 @@
 
 <section>
 <h3>STRING</h3>
-    <highlight>stringApp</highlight><br /><br />
-    <ul>
+<h5><highlight>stringApp</highlight></h5>
+    <div class="column" style="font-size: 80%">
+			<ul>
+      <li>STRING Protein query:
+      <ul>
         <li>Genomic Context Predictions</li>
         <li>High-throughput Lab Experiments</li>
         <li>(Conserved) Co-Expression</li>
         <li>Automated Textmining</li>
         <li>Previous Knowledge in Databases</li>
-    </ul>
+     </ul>
+		</li>
+    <li>STRING compound query
+      <ul>
+				<li>Queries the STITCH database</li>
+				<li>Combines STRING protein with known compound interactions</li>
+			</ul>
+		</li>
+		</ul>
+		</div>
+		<div class="column" style="font-size: 80%">
+			<ul>
+				<li>STRING disease query:
+					<ul>
+						<li>Queries the DISEASES database</li>
+						<li>Interactions of disease-associated proteins</li>
+					</ul>
+				</li>
+				<li>STRING Pubmed query:
+					<ul>
+						<li>Extracts protein-protein interactions from pubmed</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
 </section>
 
 <section>
@@ -102,17 +129,25 @@
 
 <section>
     <h3>STRING Results</h3>
-        <img style="width:50%;" src="modules/finding-network-data/STRING-options.png"><br />
-    The STRING App has options to: <br />
-    <ul>
+        <img style="width:50%;float:right" src="modules/finding-network-data/STRING-options.png"><br />
+		<div style="font-size:80%">
+		<p>The STRING App has options to:
+		<ul>
         <li>Change confidence level of interactions</li>
         <li>Expand network</li>
         <li>Functional Enrichment</li>
     </ul>
+		</p>
+		</div>
     
 </section>
 
-<!-- TODO: Update once new GeneMANIA app is released; now using network search bar
+<section>
+    <h3>STRING Enrichment</h3>
+        <img style="width:70%;" src="modules/finding-network-data/STRING-enrichment.png">
+</section>
+
+<!--- TODO: redo this for GeneMANIA 3.5
 <section>
 <h3>GeneMANIA</h3>
     
@@ -151,6 +186,7 @@
         
 </section>
 -->
+
 <section>
     <h3>NDEx</h3>
     
