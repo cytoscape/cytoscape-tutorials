@@ -1,0 +1,162 @@
+<section>
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<h2>(Tips & tricks)</h2>
+</section>
+<section id="top">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p style="font-size:80%">Typically, we don't have enough time to discuss all of the capabilities of Cytoscape visualizations.  
+	This module tries to fill in some of the gaps.  Here are the topics we're going to cover:
+	<ul style="font-size:80%">
+		<li><a href="#more_styles">More about styles</a></li>
+		<li><a href="#node_position">Controlling node position</a></li>
+		<li><a href="#layout_tools">Adjusting the view (Node Position Tools)</a></li>
+		<li><a href="#layout_tuning">Tuning layouts</a></li>
+		<li><a href="#annotation">Graphical annotations (marks)</a></li>
+		<li><a href="#color">Working with palettes</a></li>
+		<li><a href="#node_graphics">Add graphics to nodes</a></li>
+		<li><a href="#animation">Animations made easy</a></li>
+	</ul>
+</section>
+
+<section id="more_styles">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>More about styles</highlight></p>
+	<ul style="font-size:80%">
+		<li>There are many styles that are not shown by default</li>
+		<li class="fragment" data-fragment-index="1">Style columns are <highlight>Def.</highlight> (default), 
+			<highlight>Map.</highlight> (mapping), and <highlight>Byp.</highlight> (bypass)</li>
+		<li class="fragment" data-fragment-index="3">Bypass is used to override (bypass) both the mapping (if any) and the default</li>
+		<li class="fragment" data-fragment-index="3">To set a node or edge bypass
+			<ol>
+				<li>select the nodes or edges you want to set the visual property</li>
+				<li>click on the bypass column for the visual property you want to set</li>
+				<li>set the value as appropriate</li>
+			</ol>
+		</li>
+		<li class="fragment" data-fragment-index="8">Now, those properties will be permanently set for those nodes or edges</li>
+		<li class="fragment" data-fragment-index="8">To clear the value, select the nodes or edgges again, right-click on the bypass column and select <b>Remove Bypass</b></li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:0px;left:150px">
+		<img class="fragment fade-out plain" data-fragment-index="1" src="modules/advanced-visualization/NodeStyleProperties.png" height="800px"/>
+		<img class="fragment fade-out plain" data-fragment-index="1" src="modules/advanced-visualization/EdgeStyleProperties.png" height="800px"/>
+	</div>
+	<div class="fragment" data-fragment-index="2" style="position:absolute;top:400px;left:500px">
+		<img class="fragment fade-out plain" data-fragment-index="3" src="modules/advanced-visualization/StyleColumns.png" height="200px"/>
+	</div>
+
+	<div class="fragment" data-fragment-index="4" style="position:absolute;top:200px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="6" src="modules/advanced-visualization/FillColorMapped.png"/>
+	</div>
+	<div class="fragment" data-fragment-index="5" style="position:absolute;top:300px;left:300px">
+		<img class="fragment fade-out plain" data-fragment-index="6" src="modules/advanced-visualization/ColorChooser.png" />
+	</div>
+	<div class="fragment" data-fragment-index="6" style="position:absolute;top:200px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="7" src="modules/advanced-visualization/BypassColor1.png" />
+	</div>
+	<div class="fragment" data-fragment-index="7" style="position:absolute;top:200px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="8" src="modules/advanced-visualization/BypassColor2.png" />
+	</div>
+	<!-- Defaults, mappings, and bypasses
+	 Missing visual properties -->
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section id="node_position">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Controlling node position (depth)
+	</highlight></p>
+	<ul>
+		<li>Nodes with the same Z order are drawn at the same time</li>
+		<li>This can lead to important information being obscured</li>
+		<li>Z order can be set by the <b>Z Location</b> visual property</li>
+		<li>Nodes with larger Z are drawn closer to the viewer (on top)</li>
+		<li>Setting lots of different <b>Z Location</b> values can slow down graphics performance</li>
+		<li>Best approach is to use a few different <b>Z Location</b> values or to set it manually using a <b>Bypass</b></li>
+	</ul>
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section id="layout_tools">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>Adjusting the view</highlight></p>
+	<ul>
+		<li style="list-style-type:none">Node layout tools (<b>Layout&rarr;Node Layout Tools</b>) provide important
+			tools to help "tweak" the final look of a network</li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:100px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="1" src="modules/advanced-visualization/NodeLayoutTools.png"/>
+	</div>
+	<div class="fragment fade-in" data-fragment-index="1" style="position:absolute;top:100px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="2" src="modules/advanced-visualization/NodeTools1.png"/>
+	</div>
+	<div class="fragment fade-in" data-fragment-index="2" style="position:absolute;top:100px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="3" src="modules/advanced-visualization/NodeToolsRotate.png"/>
+	</div>
+	<div class="fragment fade-in" data-fragment-index="3" style="position:absolute;top:100px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="4" src="modules/advanced-visualization/NodeToolsScaled.png"/>
+	</div>
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+	<aside class="notes" data-markdown>
+* Talk through individual parts.
+* Make sure to mention the <b>selected</b> checkboxes
+* Note selected nodes
+* Rotated and moved -- rotation can help switch a network from portrait to landscape
+* Scaled down -- note: particularly useful for scaling entire network to make more space
+
+	</aside>
+</section>
+
+<section id="layout_tuning">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Tuning layouts
+	</highlight></p>
+	<p>In general, most layouts can be "tuned" to improve the aesthetics<p>
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section id="annotations">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Working with annotations (marks)
+	</highlight></p>
+	Adding shapes, text, and images
+	Adding arrows
+	Grouping annotations
+	Background/forground canvases
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section id="color">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Palettes
+	</highlight></p>
+	Different palette types
+	Cytoscape palette system
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section id="node_graphics">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Adding graphics to nodes
+	</highlight></p>
+	Node charts
+	enhanced graphics
+	Apps that add graphics
+		stringApp
+		chemViz
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section id="animation">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Animations made easy
+	</highlight></p>
+	CyAnimator
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
