@@ -1,0 +1,262 @@
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>Rule 1: Determine first the network specifics: purpose, data, scale, salient aspects</highlight></p>
+	<p class="fragment" data-fragment-index="0">Must decide:
+	<ul class="fragment" data-fragment-index="0" style="margin-left:-100px">
+		<li> the purpose of the figure</li>
+		<li>the data components of the network</li>
+		<li>any additional constraints on the figure</li>
+		<li>the relative weight of these requirements</li>
+	</ul>
+	<br/><br/>
+	<span class="fragment" data-fragment-index="1"><i>What is the story you want to tell?</i></span><br/>
+	<span class="fragment" data-fragment-index="2"><i>What is your evidence to support it?</i></span></p>
+
+	<!-- Add figure 1 and 2 side-by-side -->
+	<div class="fragment" data-fragment-index="3" style="position: absolute; top: 0px; left: -100px">
+		<img src="modules/ten-simple-rules/rule11.png" width="700px"/>
+	</div>
+	<div class="fragment" data-fragment-index="4" style="position: absolute; top: 0px; left: 600px">
+		<img src="modules/ten-simple-rules/rule12.png" width="750px"/>
+	</div>
+
+	<aside class="notes" data-markdown>
+proteins known to be involved in glioblastoma
+1. Colors in this network show the variance of expression across all patients. Edges are arrows indicating function.
+2. The colors show the differential expression for one of the subtypes of GBM. The edges indicate structure.
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 2: Depending on scale, consider alternative layouts to node-link diagrams
+	</highlight></p>
+	<ul>
+		<li>Node-link diagrams aren't always the best representation for a network</li>
+		<li>In particular, with lots of nodes and edges, they tend to turn into "hairballs"</li>
+		<li>Alternative representations include:
+			<ul>
+				<li>matrices</li>
+				<li>hive plots</li>
+				<li>biofabric</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment" style="position: absolute; top: 150px; left: -100px">
+		<img src="modules/ten-simple-rules/rule21.png" width="700px"/>
+	</div>
+	<div class="fragment" style="position: absolute; top: 150px; left: 600px">
+		<img src="modules/ten-simple-rules/rule22.png" width="750px"/>
+	</div>
+	<div class="fragment" style="position: absolute; top: 150px; left: 600px">
+		<img src="modules/ten-simple-rules/rule23.png" width="750px"/>
+	</div>
+	<aside class="notes" data-markdown>
+1. Adjacency matrix representation of the data from Collins
+et al. Highlighted
+region shows the tight cluster of U3 proteins involved in Inucleolar processing of pre-18S
+ribosomal RNA
+1.  The same data represented as a node-link diagram with the same set of
+proteins highlighted.
+1. A close-up on the yellow nodes of the adjacency matrix
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 3: Beware of unintended spatial interpretations
+	</highlight></p>
+	<p>Whether intended or not, viewers will interpret spatial relationships:
+	<ul>
+		<li><highlight>proximity</highlight>: things that are closer are more similar/related</li>
+		<li><highlight>centrality</highlight>: things in the center are more relevant than those on the periphery</li>
+		<li><highlight>direction</highlight>: up is good, down is bad, and information flows horizontally (left to right in western cultures)</i>
+	</ul></p>
+	<div class="fragment" data-fragment-index="0" style="position: absolute; top: 0px; left: 200px">
+		<img class="fragment fade-out" data-fragment-index="1" src="modules/ten-simple-rules/rule31.png" width="750px"/>
+	</div>
+	<div class="fragment" data-fragment-index="1" style="position: absolute; top: 150px; left: 200px">
+		<img src="modules/ten-simple-rules/rule32.png" width="750px"/>
+	</div>
+	<aside class="notes" data-markdown>
+1. node-link diagram of mouse brain connectivity that uses underlying spaciality as a force function
+1. node-link diagram of a social network that shows a "black hole" of knowledge
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 4: Provide readable labels and captions
+	</highlight></p>
+	<ul>
+		<li>Any text in the figure should support the purpose of the figure (see Rule #1)</li>
+		<li>Not all nodes/edges need to be labeled.  If it can't be read, it isn't useful.</li>
+		<li>Rule of thumb: Font sizes for labels should be no smaller than the caption font.</li>
+		<li>Labels should be properly placed in close proximity to the subject.</li>
+	</ul>
+	<div class="fragment" style="position: absolute; top: 0px; left: 0px">
+		<img src="modules/ten-simple-rules/rule41.png" />
+	</div>
+	<aside class="notes" data-markdown>
+Example of what *not* to do.  Labels are completely useless, but they are critical to understanding the figure
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 5: Consider aggregation to show only what is required; choose the right level of detail
+	</highlight></p>
+	<p>One way to reduce the complexity of a network is to use <highlight>aggregation</highlight>. For example:
+	<ul>
+		<li>Group very similar nodes together as a single "metanode"</li>
+		<li>Group nodes based on co-location</li>
+		<li>Combine members of a complex into a single node</li>
+		<li>Ceate multiple figures showing different node sets</li>
+		<li>Use dimensionality reduction (e.g. PCA) to remove nodes</li>
+	</ul>
+	<div class="fragment" style="position: absolute; top: 0px; left: 0px">
+		<img src="modules/ten-simple-rules/rule51.png" />
+	</div>
+	<aside class="notes" data-markdown>
+Figure shows a PPI with more than 400 proteins.  By extracting nodes of interest and grouping the nodes into 
+complexes, we're able to significantly improve the visualization.
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 6: Use color responsibly
+	</highlight></p>
+	<p style="font-size: 90%">Color is a <strong>big</strong> topic, too complex to address completely now.  However, some key ponts
+	are:
+	<ul style="font-size: 80%">
+		<li>Color is <highlight>perceived</highlight>, so might be slightly different for each individual</li>
+		<li>Color blindness effects a significant (8%) population, so avoid red-green color scales</li>
+		<li>Intensity (luminance) is more readily perceived than hue or saturation (chromaticity).</li>
+		<li>Saturated colors draw attention</li>
+		<li>Palettes have been designed to "do the right thing" -- use them (e.g. Brewer color palettes, Viridis, etc.).</li>
+		<li>Three different types of palettes:
+			<ul style="font-size: 90%">
+				<li><highlight>Divergent</highlight>: color gradients with a natural midpoint (e.g. log2 fold change values)</li>
+				<li><highlight>Qualitative</highlight>: categorical data (e.g. protein family)</li>
+				<li><highlight>Sequential</highlight>: color gradients from low to high values (e.g. node degree)</li>
+			</ul>
+		</li>
+	</ul>
+	</p>
+	<div class="fragment" data-fragment-index="0" style="position: absolute; top: 150px; left: 0px">
+		<img class="fragment fade-out" data-fragment-index="1" src="modules/ten-simple-rules/rule61.png" width="1200px"/>
+	</div>
+	<div class="fragment" data-fragment-index="1" style="position: absolute; top: 150px; left: 0px">
+		<img class="fragment fade-out" data-fragment-index="2" src="modules/ten-simple-rules/rule62.png" width="1200px"/>
+	</div>
+	<div class="fragment" data-fragment-index="2" style="position: absolute; top: 150px; left: 150px">
+		<img class="fragment fade-out" data-fragment-index="3" src="modules/ten-simple-rules/rule63.png" width="800px"/>
+	</div>
+	<div class="fragment" data-fragment-index="3" style="position: absolute; top: 150px; left: 0px">
+		<img src="modules/ten-simple-rules/rule64.png" width="550px" />
+	</div>
+	<div class="fragment" data-fragment-index="4" style="position: absolute; top: 150px; left: 550px">
+		<img src="modules/ten-simple-rules/rule65.png" width="700px" />
+	</div>
+	<aside class="notes" data-markdown>
+1. Effects of color blindness.
+1. The power of luminance.  The 3's are easy to pick out when they are high luminance
+1. Low luminance difference.  The actual difference between colors is hard to perceive
+1. Two networks with the same data.  The network on the right uses a sequential palette to show the strength of 
+the variable.  Note how much esier it is to see that APOD is larger than Inc-IFRD2-3.1.
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 7: Use other visual marks and channels appropriately: dots and arrows, size, shape, position
+	</highlight></p>
+	<ul style="font-size:90%">
+		<li><highlight>Marks</highlight> are geographical elements (dots, shapes, and lines)
+			<ul>
+				<li>Dots and glyphs should be used to represent items</li>
+				<li>lines and arrows should be used to represent relationships</li>
+				<li>Blobs are used to represent regions or grouping</li>
+			</ul>
+		</li>
+		<li><highlight>Channels</highlight> define how those are rendered (position, color, shape, size, tilt, area, and volume).
+			<ul>
+				<li>Position, color, and shape are used for identity or categorization</li>
+				<li>Size, area, color (with caveats -- see rule #6), and volume are used to distinguish quantities or attribute strength</li>
+				<li>Channels can be combined to overcome encoding limitations (e.g. color "red" + shape "stop sign")</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment" style="position: absolute; top: 0px; left: 200px">
+		<img src="modules/ten-simple-rules/rule71.png" />
+	</div>
+	<aside class="notes" data-markdown>
+Note the combination of color and shape
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 8: Use layering and separation
+	</highlight></p>
+	<p>The goal is to increase the prominence of the important information by imagining it as sitting on a higher layer.  We do this by:
+	<ul>
+		<li>Adjusting the weight, luminance, saturation, opacity, or size of the layers (e.g. decrease the liminance and opacity of the unimportant parts of the figure)</li>
+		<li>Using spatial cues (e.g. grouping) to highlight relationships</li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position: absolute; top: 200px; left: 0px">
+		<img class="fragment fade-out" data-fragment-index="2" src="modules/ten-simple-rules/rule81jpg.jpg" width="600px"/>
+	</div>
+	<div class="fragment" data-fragment-index="1" style="position: absolute; top: 200px; left: 600px">
+		<img class="fragment fade-out" data-fragment-index="2" src="modules/ten-simple-rules/rule82.png" width="600px" />
+	</div>
+	<div class="fragment" data-fragment-index="2" style="position: absolute; top: 0px; left: 100px">
+		<img src="modules/ten-simple-rules/rule83.jpg" height="850px"/>
+	</div>
+	<aside class="notes" data-markdown>
+1. Original figure with inappropriate coloring and callouts of questionable utility
+1. Revised figure with a different, colorblind-friendly color scheme, and using grouping to emphasize the areas of import
+1. Figure that shows effective use of layering.  Note how the large colored nodes stand out from the rest of the nodes.  Also note the effective use of a callout, which is showing a different network layout of the same data.
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 9: Use multiple figures instead of one
+	</highlight></p>
+	<p>Sometimes its difficuult to adhere to all of the above rules in a single figure.  So, use multiple figures!</p>
+	<div class="fragment" style="position: absolute; top: 150px; left: 0px">
+		<img src="modules/ten-simple-rules/rule91.png" width="500px"/>
+	</div>
+	<div class="fragment" style="position: absolute; top: 150px; left: 500px">
+		<img src="modules/ten-simple-rules/rule92.png" width="700px"/>
+	</div>
+	<aside class="notes" data-markdown>
+1. A single image showing node degree (size), cluster membership (square), first neighbors of cluster members (border)
+1. Original image, which uses multiple figures to show the overview of the network, the cluster nodes, and the cluster nodes with their first neighbors.
+	</aside>
+</section>
+
+<section style="height: 860px">
+	<h1>Ten Simple Rules</h1>
+	<p><highlight>
+		Rule 10: Do not use unjustified 3D 
+	</highlight></p>
+	<p>Three dimensions can be very helpful for perceiving data which corresponds directly to 3-dimensional objects 
+	(animals, organs, molecules, physical space), but can be distracting and difficult to perceive correctly when 
+	applied to other data sets</p>
+	<div class="fragment" style="position: absolute; top: 150px; left: 0px">
+		<img src="modules/ten-simple-rules/rule101.png" />
+	</div>
+	<aside class="notes" data-markdown>
+	</aside>
+</section>
