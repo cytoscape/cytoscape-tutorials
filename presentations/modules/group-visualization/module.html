@@ -1,0 +1,143 @@
+<section>
+	<h1>Working with Groups in Cytoscape</h1>
+	<div>
+		<img src="modules/group-visualization/galFilteredGroup.png"/>
+	</div>
+</section>
+
+<section style="height=850px">
+	<h1>Working with Groups in Cytoscape</h1>
+	<p><highlight>Manipulating groups</highlight></p>
+	<ul>
+		<li>Create a group:
+			<ul>
+				<li>Highlight a group of nodes</li>
+				<li>Right-click over a node or empty space</li>
+				<li>Select <b>Group&rarr;Group selected nodes</b></li>
+			</ul>
+		</li>
+		<li>Collapse a group:
+			<ul>
+				<li>Double-click on any member of the group</li>
+			</ul>
+		</li>
+		<li class="fragment" data-fragment-index="2">Expand a group:
+			<ul>
+				<li>Double-click on the collapsed group node</li>
+			</ul>
+		</li>
+		<li class="fragment" data-fragment-index="4">Delete a group:
+			<ul>
+				<li>Right-click on the group, or any node in the group</li>
+				<li>Select <b>Group&rarr;Ungroup Selected Nodes</b></li>
+			</ul>
+		</li>
+	<ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:100px;left:50px">
+		<img class="fragment fade-out" data-fragment-index="2" src="modules/group-visualization/groupCompound.png" height="100%"/>
+	</div>
+	<div class="fragment fade-in" data-fragment-index="1" style="position:absolute;top:100px;left:50px">
+		<img class="fragment fade-out" data-fragment-index="2" src="modules/group-visualization/collapsedGroup.png" height="100%"/>
+	</div>
+	<div class="fragment" data-fragment-index="3" style="position:absolute;top:100px;left:50px">
+		<img class="fragment fade-out" data-fragment-index="4" src="modules/group-visualization/groupCompound.png" height="100%"/>
+	</div>
+</section>
+
+<section>
+	<h1>Working with Groups in Cytoscape</h1>
+	<p><highlight>Some apps that create groups</highlight></p>
+	<ul>
+		<li><a href="http://apps.cytoscape.org/apps/setsapp">setsApp</a>
+			<ul>
+				<li>Define <i>sets</i> of nodes by selection, attribute value, or by importing them</li>
+				<li>Right-click on the set and select <b>Create group from set nodes</b></li>
+			</ul>
+		</li>
+		<li class="fragment" data-fragment-index="1"><a href="http://apps.cytoscape.org/apps/clustermaker2">clusterMaker2</a>
+			<ul>
+				<li>Provides the option to create groups from network clusters</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:0px;left:200px">
+		<img class="fragment fade-out" data-fragment-index="1" src="modules/group-visualization/setsAppGroups.png"/>
+	</div>
+	<div class="fragment" data-fragment-index="2" style="position:absolute;top:0px;left:200px">
+		<img class="plain" src="modules/group-visualization/clusterMakerGroups.png" height="900px"/>
+	</div>
+</section>
+
+
+<section>
+	<h1>Working with Groups in Cytoscape</h1>
+	<p><highlight>Group visualization</highlight></p>
+	<ul style="font-size: 80%">
+		<li><highlight>None</highlight>: no visualization for the group.  Grouped nodes look the same as other nodes.</li>
+		<li class="fragment" data-fragment-index="1"><highlight>Compound Node</highlight>: visualize the group as a <i>compound node</i>, essentially a node 
+			(the group) that contains other nodes (the members of the group).  Individual member nodes can be individually
+		selected and manipulated.</li>
+		<li class="fragment" data-fragment-index="3"><highlight>Show Group Node</highlight>: the group node itself is added to the network and "membership edges" are added between the group node and each group member</li>
+		<li class="fragment" data-fragment-index="5"><highlight>Single Node</highlight>: similar to <i>compound node</i> in that all of the member nodes 
+			are visible, but member nodes can not be individually selected or manipulated.  Essentially, the 
+			entire group is treated as a single node.</li>
+	</ul>
+
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:150px;left:0px">
+		<img class="fragment fade-out" data-fragment-index="1" src="modules/group-visualization/groupNone.png" />
+	</div>
+	<div class="fragment" data-fragment-index="2" style="position:absolute;top:150px;left:0px">
+		<img class="fragment fade-out" data-fragment-index="3" src="modules/group-visualization/groupCompound.png"/>
+	</div>
+	<div class="fragment" data-fragment-index="4" style="position:absolute;top:150px;left:0px">
+		<img class="fragment fade-out" data-fragment-index="5" src="modules/group-visualization/groupGroupNode.png"/>
+	</div>
+	<div class="fragment" data-fragment-index="6" style="position:absolute;top:150px;left:0px">
+		<img  src="modules/group-visualization/groupSingleNode.png"/>
+	</div>
+</section>
+
+<section style="height: 850px">
+	<h1>Working with Groups in Cytoscape</h1>
+	<p><highlight>Group data aggregation</highlight></p>
+	<ul style="font-size:90%">
+		<li>Cytoscape groups can optionally aggregate the data in their member's columns so the corresponding column for the group
+			node will contain the aggregated value.</li>  
+		<li>Aggregations can occur on all columns, or only specified columns</li>
+		<li>Aggregation options:
+			<ul>
+				<li>Numeric columns: <highlight>None</highlight>, 
+						<highlight>Average</highlight>, <highlight>Minimum value</highlight>,
+						<highlight>Maximum value</highlight>,
+						and <highlight>Sum</highlight>
+				</li>
+				<li>String columns: <highlight>None</highlight>,
+						<highlight>Comma-separated Values</highlight>,
+						<highlight>Tab-separated Values</highlight>,
+						<highlight>Most Common Value</highlight>, and
+						<highlight>Unique Values</highlight>
+				</li>
+				<li>Boolean columns:
+						<highlight>None</highlight>,
+						<highlight>Logical AND</highlight>, and
+						<highlight>Logical OR</highlight>
+				</li>
+				<li>List columns:
+					<ul>
+						<li>For numeric lists, same options as numeric columns plus <highlight>Concatenate</highlight> and <highlight>Unique Values</highlight></li>
+						<li>For String lists, <highlight>None</highlight>, <highlight>Unique Values</highlight> and <highlight>Concatenate</highlight></li>
+					</ul>
+				</li>
+			</ul>
+
+</section>
+
+<section>
+	<h1>Working with Groups in Cytoscape</h1>
+	<p><highlight>Configuring Groups</highlight></p>
+	<p>Groups are configured using the <b>Group Preferences</b> dialog (<b>Edit&rarr;Preferences&rarr;Group Preferences</b>)
+	<div class="fragment" style="position:absolute;top:0px;left:200px">
+		<img class="plain" src="modules/group-visualization/GroupPreferences.png" height="900px"/>
+	</div>
+</section>
+
