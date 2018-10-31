@@ -7,6 +7,21 @@
 
 <section style="height=850px">
 	<h1>Working with Groups in Cytoscape</h1>
+	<p>Cytoscape groups are:
+	<ul>
+		<li>Collections of nodes (no additional enforced semantics)</li>
+		<li>May be hierarchical (i.e. a group can be a member of another group)</li>
+		<li>May share nodes, however:
+			<ul>
+				<li>Compound node visualization won't work properly</li>
+				<li>Expand/collapse are not determnistic, so shared nodes might be included or not</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section style="height=850px">
+	<h1>Working with Groups in Cytoscape</h1>
 	<p><highlight>Manipulating groups</highlight></p>
 	<ul>
 		<li>Create a group:
@@ -139,5 +154,12 @@
 	<div class="fragment" style="position:absolute;top:0px;left:200px">
 		<img class="plain" src="modules/group-visualization/GroupPreferences.png" height="900px"/>
 	</div>
+</section>
+
+<section>
+	<h1>Working with Groups in Cytoscape</h1>
+	<p><highlight>Try it out!</highlight></p>
+	<p>Open up Cytoscape, and select the <b>Ivacafto Coauthor</b> network.  Play around with grouping either by 
+	creating groups manually or by installing the setsApp and creating groups based on the node <i>type</i> column.</p>
 </section>
 
