@@ -8,6 +8,7 @@
 	This module tries to fill in some of the gaps.  Here are the topics we're going to cover:
 	<ul style="font-size:80%">
 		<li><a href="#more_styles">More about styles</a></li>
+		<li><a href="#text">Working with text</a></li>
 		<li><a href="#node_position">Controlling node position</a></li>
 		<li><a href="#layout_tools">Adjusting the view (Node Position Tools)</a></li>
 		<li><a href="#layout_tuning">Tuning layouts</a></li>
@@ -61,6 +62,34 @@
 	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
 </section>
 
+<section id="text">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>Working with fonts</highlight></p>
+	<ul style="font-size:80%">
+		<li>Cytoscape has several label/font properties that are not shown by default</li>
+		<li>The following properties are available:
+			<ul>
+				<li><b>Label</b>: usually used to set up a passthrough mapping for the label text</li>
+				<li><b>Label Font Face</b>: this is the font face to use -- usually a very long list</li>
+				<li><b>Label Font Size</b>: the font size, can also be a passthrough mapping</li>
+				<li><b>Label Position</b>: where the font should be placed</li>
+				<li><b>Label Transparency</b>: the transparency of the font</li>
+				<li><b>Label Width</b>: the maximum width of the label.  Labels longer than this will be wrapped</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:100px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="1" src="modules/advanced-visualization/LabelProperties.png"/>
+	</div>
+	<div class="fragment" data-fragment-index="1" style="position:absolute;top:0px;left:250px">
+		<img class="plain" src="modules/advanced-visualization/LabelPosition.png" height="850px"/>
+	</div>
+	<aside class="notes" data-markdown>
+* Show live
+	</aside>
+										
+</section>
+
 <section id="node_position">
 	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
 	<p><highlight>
@@ -103,7 +132,6 @@
 * Note selected nodes
 * Rotated and moved -- rotation can help switch a network from portrait to landscape
 * Scaled down -- note: particularly useful for scaling entire network to make more space
-
 	</aside>
 </section>
 
@@ -112,8 +140,23 @@
 	<p><highlight>
 	Tuning layouts
 	</highlight></p>
-	<p>In general, most layouts can be "tuned" to improve the aesthetics<p>
+	<div style="float:right;margin-top:-100px">
+		<img class="plain" src="modules/advanced-visualization/LayoutSettings.png" width="600px"/>
+	</div>
+	<div style="width: 600px;font-size:80%">
+	<p style="margin-left: -20px">In general, most layouts can be "tuned" to improve the aesthetics.  My approach:
+	<ol style="font-size:80%">
+		<li>Bring up the settings <b>Layout&rarr;Settings</b></li>
+		<li>Select the layout of choice (e.g. <b>Prefuse Force Directed Layout</b>).</li>
+		<li>Change a parameter (e.g. <b>Default Spring Coefficient</b> or <b>Default Spring Length</b>)</li>
+		<li>Click <b>Apply Layout</b></li>
+		<li>Observe results.  If I get the result I want, click <b>Done</b>, otherwise, hit <b>Edit&rarr;Undo</b> and go to step 3</li>
+	</ol>
+	</div>
 	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+	<aside class="notes" data-markdown>
+* After talking through panel, switch to Cytoscape and show
+	</aside>
 </section>
 
 <section id="annotations">
@@ -121,10 +164,31 @@
 	<p><highlight>
 	Working with annotations (marks)
 	</highlight></p>
-	Adding shapes, text, and images
-	Adding arrows
-	Grouping annotations
-	Background/forground canvases
+	<ul style="font-size:80%">
+		<li>Cytoscape has three separate drawing surfaces:
+			<ul>
+				<li>Network canvas (where nodes and edges are drawn)</li>
+				<li>Background canvas (drawing surface behind the nodes and edges</li>
+				<li>Foreground canvas (drawing surface in front of the nodes and edges</li>
+			</ul>
+		</li>
+		<li>Annotations are drawn on either the foreground or background canvases</li>
+		<li>Annotations are exported as <a href="modules/advanced-visualization/AnnotationExample.pdf">objects</a>, so are high quality graphically<sup>*</sup></li>
+		<li>Annotation types:
+			<ul>
+				<li>Shapes, Text, Bounded Text, Images, Arrows</li>
+				<li>Groups, which group annotations together</li>
+			</ul>
+		</li>
+		<li>New in Cytoscape 3.7.0!  Annotation Panel, which means <i>much</i> easier to work with</li>
+	</ul>
+	<p style="font-size:80%"><sup>*</sup><highlight>NOTE</highlight>: There is a bug in 3.7.0 that prevents arrow or group annotations from being exported as images</p>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:0px;left:0px">
+		<img class="plain" data-fragment-index="1" src="modules/advanced-visualization/AnnotationExample.png" height="800px"/>
+	</div>
+	<aside class="notes" data-markdown>
+* Recreate the above example in Cytoscape, starting with galFiltered.cys
+	</aside>
 	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
 </section>
 
@@ -133,8 +197,36 @@
 	<p><highlight>
 	Palettes
 	</highlight></p>
-	Different palette types
-	Cytoscape palette system
+	<ul style="font-size:80%">
+		<li>Cytoscape now supports palettes for choosing colors</li>
+		<li>Three palette types are supported:
+			<ul>
+				<li><b>Sequential</b>: used for gradients with only positive or negative values</li>
+				<li><b>Divergent</b>: used for gradients with both positive and negative values</li>
+				<li><b>Qualitative</b>: used for discrete color mapping</li>
+			</ul>
+		</li>
+		<li>The following palettes are provided by default:
+			<ul>
+				<li><b>ColorBrewer</b>: provides all three palette types</li>
+				<li><b>Viridis</b>: provides sequential palettes</li>
+				<li><b>Built-in</b>: built-in Rainbow, Rainbow OSC, and Random qualitative palettes, and a variety of built-in divergent palettes</li>
+			</ul>
+		</li>
+		<li>Palettes are also used to select colors, when a current palette is defined</li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:100px;left:150px">
+		<img class="fragment fade-out plain" data-fragment-index="2" src="modules/advanced-visualization/ContinuousMapper.png" height="800px"/>
+	</div>
+	<div class="fragment" data-fragment-index="1" style="position:absolute;top:50px;left:0px">
+		<img class="fragment fade-out plain" data-fragment-index="2" src="modules/advanced-visualization/PaletteChooser.png" height="600xp"/>
+	</div>
+	<div class="fragment" data-fragment-index="2" style="position:absolute;top:100px;left:150px">
+		<img class="plain" src="modules/advanced-visualization/ContinuousMapper2.png" height="800px"/>
+	</div>
+	<div class="fragment" data-fragment-index="3" style="position:absolute;top:50px;left:0px">
+		<img class="plain" src="modules/advanced-visualization/ColorChooser.png" height="600xp"/>
+	</div>
 	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
 </section>
 
@@ -143,11 +235,103 @@
 	<p><highlight>
 	Adding graphics to nodes
 	</highlight></p>
-	Node charts
-	enhanced graphics
-	Apps that add graphics
-		stringApp
-		chemViz
+	<ul>
+		<li style="list-style-type: none">Sometimes, we want to map graphics onto nodes</li>
+		<li style="list-style-type: none">This should be done very sparingly</li>
+		<li style="list-style-type: none">Using Cytoscape's built-in charts
+			<ul style="font-size: 80%">
+				<li>In the styles panel Node tab, select <b>Properties&rarr;Paint&rarr;Custom Paint 1&rarr;Image/Chart 1</b></li>
+				<li>Now, look for the <b>Image/Chart 1</b> line in the list of Properties</li>
+				<li>Mappings aren't really supported for charts, so select either the Default, or (if one or more nodes are selected, by Bypass) column.</li>
+				<li>This will bring up the Graphics panel</li>
+				<li>Click on Charts or Gradients as desired</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:100px;left:50px">
+		<img class="plain" src="modules/advanced-visualization/Charts1.png" />
+	</div>
+	<div class="fragment" data-fragment-index="1" style="position:absolute;top:100px;left:50px">
+		<img class="plain" src="modules/advanced-visualization/Charts2.png" />
+	</div>
+	<div class="fragment" data-fragment-index="2" style="position:absolute;top:100px;left:50px">
+		<img class="plain" src="modules/advanced-visualization/Charts3.png" />
+	</div>
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section >
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Adding graphics to nodes
+	</highlight></p>
+	<ul style="font-size:80%">
+		<li style="list-style-type: none"><i>enhancedGraphics</i> was written before Cytoscape charts were added to the core</li>
+		<li style="list-style-type: none">The format is not nearly as convenient, but allows for greater flexibility and specificity</li>
+		<li style="list-style-type: none">Adding a chart to a node is simple:
+			<ol>
+				<li>Create a new text column in the node table</li>
+				<li>Add the chart instructions (see below for samples)</li>
+				<li>Set up a visual style that uses the column you created as a passthrough mapping for one of the CustomGraphics styles.</li>
+			</ol>
+		</li>
+	</ul>
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section >
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Adding graphics to nodes
+	</highlight></p>
+	<ul style="font-size:80%">
+		<li style="list-style-type: none">Some example chart instructions:
+			<ul style="font-size:80%">
+				<li>Basic charts:
+					<ul>
+						<li>linechart: colorlist="up:blue,down:red" attributelist="Values"</li>
+						<li>piechart: attributelist="Values" colorlist="contrasting" labellist="First,Second,Third,Fourth,Fifth"</li>
+						<li>piechart: attributelist="a,b,c,d" colorlist="red,green,blue,yellow"</li>
+						<li>barchart: attributelist="a,b,c,d" colorlist="up:yellow,down:green"</li>
+						<li>stripechart: colorlist="red,white,blue"</li>
+						<li>heatstripchart: separation="1" valuelist=".2,-1,3,1" labellist="cond1,cond2,cond3,cond4"</li>
+					</ul>
+				</li>
+				<li>Circos charts:
+					<ul>
+						<li>circoschart: firstarc=.5 arcwidth=.4 colorlist="red, green, blue, white" showlabels=false attributelist="Circle1,Circle2"</li>
+						<li>circoschart: arcstart=90 firstarc=.5 arcwidth=.3 range="-5,5" colorlist="up:yellow,down:blue,zero:black" valuelist="1,1,1,1" showlabels=false attributelist="Circle1,Circle2"</li>
+					</ul>
+				</li>
+				<li>"Label" charts:
+					<ul>
+						<li>label: attribute=name labelsize=10 outline=true background=true color=white dropShadow=true</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:0px;left:0px">
+		<img class="plain" src="modules/advanced-visualization/enhancedGraphicsScreenshot.png" />
+	</div>
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section>
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Adding graphics to nodes
+	</highlight></p>
+	<ul>
+		<li style="list-style-type: none">Apps that create custom paints:
+			<ul>
+				<li><a href="https://apps.cytoscape.org/apps/chemviz2">chemViz2</a>: draws chemical structure onto nodes</li>
+				<li><a href="https://apps.cytoscape.org/apps/enhancedGraphics">enhancedGraphics</a>: used to draw charts and labels onto nodes</li>
+				<li><a href="https://apps.cytoscape.org/apps/stringApp">stringApp</a>: uses custom paint for the "glass sphere" look, calls chemViz2 for chemical drawings, enhancedGraphics for "fancy" labels</li>
+			</ul>
+		</li>
+	</ul>
+
 	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
 </section>
 
@@ -156,7 +340,38 @@
 	<p><highlight>
 	Animations made easy
 	</highlight></p>
-	CyAnimator
+	<ul>
+		<li>The <i>CyAnimator</i> app is a key frame animation tools for Cytoscape</li>
+		<li>To use, bring up the interface (<b>Apps&rarr;CyAnimator</b>)</li>
+		<li>Add a frame to the animation by clicking the <b>+</b> button</li>
+	</ul>
+	<div class="fragment" data-fragment-index="0" style="position:absolute;top:100px;left:150px">
+		<img class="fragment fade-out plain" data-fragment-index="1" src="modules/advanced-visualization/CyAnimator1.png" />
+	</div>
+	<div class="fragment" data-fragment-index="1" style="position:absolute;top:100px;left:150px">
+		<img class="fragment fade-out plain" data-fragment-index="2" src="modules/advanced-visualization/CyAnimator2.png" />
+	</div>
 	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+</section>
+
+<section>
+	<div style="height:800px">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>
+	Animations made easy
+	</highlight></p>
+	<video height="600px" controls data-autoplay src="modules/advanced-visualization/CyAnimator.mp4" type="video/mp4"/>
+	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
+	</div>
+</section>
+
+<section>
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>Try it out!</highlight></p>
+</section>
+
+<section>
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>Questions?</highlight></p>
 </section>
 
