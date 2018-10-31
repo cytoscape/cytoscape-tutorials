@@ -1,0 +1,2084 @@
+Search Name:	timsTOF_JX_Mouse_10ng_90min_msconvert/results1
+			timsTOF_JX_Mouse_10ng_90min_msconvert/results1					
+Rank	Uniq Pep	Acc #	UniProt ID	Num Unique	% Cov	Best Expect Val	Protein MW	Species	Protein Name
+[1]		Q8VDD5	MYH9_MOUSE	73	29.1	1.3e-9	226374.0	MOUSE	Myosin-9
+[1-1]	64	Q5SX39	MYH4_MOUSE	65	29.6	1.9e-9	222860.7	MOUSE	Myosin-4
+[1-2]	46	Q5SX40	MYH1_MOUSE	47	22.7	2.1e-8	223344.2	MOUSE	Myosin-1
+[1-3]	31	P13542	MYH8_MOUSE	32	16.4	4.4e-8	222709.4	MOUSE	Myosin-8
+[1-4]	20	P13541	MYH3_MOUSE	21	9.6	4.4e-8	223792.5	MOUSE	Myosin-3
+[1-5]	16	Q91Z83	MYH7_MOUSE	17	9.2	1.1e-7	222880.7	MOUSE	Myosin-7
+[1-6]	12	Q02566	MYH6_MOUSE	13	7.1	1.1e-7	223567.2	MOUSE	Myosin-6
+[1-7]	2	A2AQP0	MYH7B_MOUSE	3	1.6	9.2e-5	221498.8	MOUSE	Myosin-7B
+[2]		Q8BTM8	FLNA_MOUSE	65	26.3	1.9e-11	281223.9	MOUSE	Filamin-A
+[2-1]	4	Q80X90	FLNB_MOUSE	7	2.7	1.8e-6	277827.0	MOUSE	Filamin-B
+[2-2]	1	Q8VHX6	FLNC_MOUSE	4	1.1	5.1e-5	291121.7	MOUSE	Filamin-C
+[2-3]	1	Q8VHX6-2	FLNC_MOUSE	4	1.2	5.1e-5	287367.3	MOUSE	Isoform 2 of Filamin-C
+[3]		E9PVX6	KI67_MOUSE	67	25.2	4.0e-14	350867.3	MOUSE	Proliferation marker protein Ki-67
+[4]		P08071	TRFL_MOUSE	46	44.8	9.0e-13	77838.5	MOUSE	Lactotransferrin
+[5]		P26039	TLN1_MOUSE	50	22.4	2.7e-9	269823.6	MOUSE	Talin-1
+[6]		P60710	ACTB_MOUSE	33	67.2	2.5e-13	41737.1	MOUSE	Actin, cytoplasmic 1
+[6-1]	2	P63260	ACTG_MOUSE	31	67.2	2.1e-11	41793.2	MOUSE	Actin, cytoplasmic 2
+[6-2]	8	P68033	ACTC_MOUSE	24	45.1	2.1e-11	42019.4	MOUSE	Actin, alpha cardiac muscle 1
+[6-3]	8	P68134	ACTS_MOUSE	24	45.1	2.1e-11	42051.4	MOUSE	Actin, alpha skeletal muscle
+[6-4]	8	P62737	ACTA_MOUSE	22	42.2	2.1e-11	42009.4	MOUSE	Actin, aortic smooth muscle
+[6-5]	6	P63268	ACTH_MOUSE	20	38.8	2.1e-11	41877.3	MOUSE	Actin, gamma-enteric smooth muscle
+[6-6]	2	Q8BFZ3	ACTBL_MOUSE	10	25.3	2.1e-11	42004.6	MOUSE	Beta-actin-like protein 2
+[7]		P63017	HSP7C_MOUSE	38	47.1	5.9e-11	70871.6	MOUSE	Heat shock cognate 71 kDa protein
+[7-1]	24	P20029	GRP78_MOUSE	28	38.2	3.3e-10	72422.6	MOUSE	78 kDa glucose-regulated protein
+[7-2]	1	P17156	HSP72_MOUSE	16	14.2	5.9e-11	69642.2	MOUSE	Heat shock-related 70 kDa protein 2
+[7-3]	2	P17879	HS71B_MOUSE	5	7.8	3.0e-8	70176.8	MOUSE	Heat shock 70 kDa protein 1B
+[7-4]	2	Q61696	HS71A_MOUSE	5	7.8	3.0e-8	70079.7	MOUSE	Heat shock 70 kDa protein 1A
+[8]		P11499	HS90B_MOUSE	35	39.6	3.5e-10	83281.9	MOUSE	Heat shock protein HSP 90-beta
+[8-1]	12	P07901	HS90A_MOUSE	28	28.8	2.6e-8	84788.6	MOUSE	Heat shock protein HSP 90-alpha
+[8-2]	21	P08113	ENPL_MOUSE	22	25.9	3.0e-8	92476.5	MOUSE	Endoplasmin
+[8-3]	4	Q9CQN1	TRAP1_MOUSE	5	8.4	4.0e-8	80209.6	MOUSE	Heat shock protein 75 kDa, mitochondrial
+[9]		P20152	VIME_MOUSE	27	44.4	8.5e-9	53688.1	MOUSE	Vimentin
+[10]		P13864	DNMT1_MOUSE	24	16.6	5.5e-13	183190.5	MOUSE	DNA (cytosine-5)-methyltransferase 1
+[11]		Q62261	SPTB2_MOUSE	27	14.0	7.0e-10	274225.4	MOUSE	Spectrin beta chain, non-erythrocytic 1
+[11-1]	22	P15508	SPTB1_MOUSE	23	12.1	7.2e-9	245252.3	MOUSE	Spectrin beta chain, erythrocytic
+[12]		Q61233	PLSL_MOUSE	26	36.4	4.8e-10	70149.9	MOUSE	Plastin-2
+[13]		P16546	SPTN1_MOUSE	33	16.9	1.7e-9	284599.7	MOUSE	Spectrin alpha chain, non-erythrocytic 1
+[13-1]	19	P08032	SPTA1_MOUSE	20	10.4	7.6e-10	279867.3	MOUSE	Spectrin alpha chain, erythrocytic 1
+[14]		O08692	NGP_MOUSE	22	57.5	1.3e-11	19331.8	MOUSE	Neutrophilic granule protein
+[15]		P01027	CO3_MOUSE	25	15.8	2.7e-10	186485.5	MOUSE	Complement C3
+[16]		P99024	TBB5_MOUSE	28	56.8	1.9e-8	49671.3	MOUSE	Tubulin beta-5 chain
+[16-1]	2	P68372	TBB4B_MOUSE	23	46.7	1.9e-8	49831.5	MOUSE	Tubulin beta-4B chain
+[16-2]	1	Q7TMM9	TBB2A_MOUSE	22	42.0	1.9e-8	49907.4	MOUSE	Tubulin beta-2A chain
+[16-3]	2	Q9ERD7	TBB3_MOUSE	16	33.3	1.9e-8	50419.1	MOUSE	Tubulin beta-3 chain
+[16-4]	1	Q9D6F9	TBB4A_MOUSE	18	37.4	8.6e-8	49586.2	MOUSE	Tubulin beta-4A chain
+[16-5]	1	Q922F4	TBB6_MOUSE	8	15.7	1.9e-8	50090.8	MOUSE	Tubulin beta-6 chain
+[16-6]	1	A2AQ07	TBB1_MOUSE	3	6.4	3.5e-5	50441.4	MOUSE	Tubulin beta-1 chain
+[17]		P17182	ENOA_MOUSE	21	45.2	3.7e-11	47141.2	MOUSE	Alpha-enolase
+[17-1]	1	P21550	ENOB_MOUSE	11	22.4	1.0e-9	47025.3	MOUSE	Beta-enolase
+[18]		P10107	ANXA1_MOUSE	19	34.4	1.3e-11	38734.6	MOUSE	Annexin A1
+[19]		P11835	ITB2_MOUSE	21	24.4	1.0e-14	85026.7	MOUSE	Integrin beta-2
+[20]		P57780	ACTN4_MOUSE	26	32.7	4.6e-10	104978.0	MOUSE	Alpha-actinin-4
+[20-1]	12	Q7TPR4	ACTN1_MOUSE	22	27.9	1.6e-8	103069.4	MOUSE	Alpha-actinin-1
+[20-2]	7	O88990	ACTN3_MOUSE	12	15.3	1.6e-8	103043.6	MOUSE	Alpha-actinin-3
+[20-3]	3	Q9JI91	ACTN2_MOUSE	9	10.1	1.6e-8	103834.6	MOUSE	Alpha-actinin-2
+[21]		Q01320	TOP2A_MOUSE	25	17.2	4.6e-10	172791.7	MOUSE	DNA topoisomerase 2-alpha
+[21-1]	6	Q64511	TOP2B_MOUSE	13	8.4	1.6e-8	181910.4	MOUSE	DNA topoisomerase 2-beta
+[22]		Q9JKF1	IQGA1_MOUSE	29	17.8	8.0e-10	188744.0	MOUSE	Ras GTPase-activating-like protein IQGAP1
+[22-1]	7	Q3UQ44	IQGA2_MOUSE	8	5.6	5.8e-6	180529.4	MOUSE	Ras GTPase-activating-like protein IQGAP2
+[23]		P11247	PERM_MOUSE	24	22.0	1.5e-9	81182.4	MOUSE	Myeloperoxidase
+[23-1]	20	P49290	PERE_MOUSE	22	29.2	8.8e-8	81380.8	MOUSE	Eosinophil peroxidase
+[24]		P07724	ALBU_MOUSE	16	27.1	1.4e-17	68693.2	MOUSE	Serum albumin
+[25]		Q9D0E1	HNRPM_MOUSE	19	25.2	6.5e-13	77649.5	MOUSE	Heterogeneous nuclear ribonucleoprotein M
+[26]		P14733	LMNB1_MOUSE	24	35.0	2.3e-8	66786.1	MOUSE	Lamin-B1
+[26-1]	20	P48678	LMNA_MOUSE	22	34.3	3.5e-7	74238.2	MOUSE	Prelamin-A/C
+[26-2]	18	P48678-2	LMNA_MOUSE	20	34.5	3.5e-7	65446.6	MOUSE	Isoform C of Prelamin-A/C
+[26-3]	13	P48678-3	LMNA_MOUSE	15	32.7	3.5e-7	52652.1	MOUSE	Isoform C2 of Prelamin-A/C
+[26-4]	11	P21619	LMNB2_MOUSE	13	21.8	6.9e-12	67318.6	MOUSE	Lamin-B2
+[26-5]	6	P21619-2	LMNB2_MOUSE	8	15.8	6.9e-12	53268.6	MOUSE	Isoform B3 of Lamin-B2
+[27]		P24527	LKHA4_MOUSE	22	38.5	2.8e-11	69051.5	MOUSE	Leukotriene A-4 hydrolase
+[28]		Q7TPV4	MBB1A_MOUSE	17	14.6	3.9e-10	152038.3	MOUSE	Myb-binding protein 1A
+[29]		P58252	EF2_MOUSE	24	24.0	1.7e-9	95314.9	MOUSE	Elongation factor 2
+[29-1]	5	O08810	U5S1_MOUSE	6	7.3	8.5e-7	109361.6	MOUSE	116 kDa U5 small nuclear ribonucleoprotein component
+[30]		Q64727	VINC_MOUSE	20	21.4	1.0e-7	116718.4	MOUSE	Vinculin
+[31]		P16858	G3P_MOUSE	16	40.2	2.1e-11	35810.3	MOUSE	Glyceraldehyde-3-phosphate dehydrogenase
+[32]		O35744	CHIL3_MOUSE	18	32.7	2.4e-10	44458.7	MOUSE	Chitinase-like protein 3
+[33]		Q9ET01	PYGL_MOUSE	19	20.2	2.0e-8	97463.9	MOUSE	Glycogen phosphorylase, liver form
+[34]		Q78PY7	SND1_MOUSE	14	18.1	2.1e-14	102089.0	MOUSE	Staphylococcal nuclease domain-containing protein 1
+[35]		P27773	PDIA3_MOUSE	18	29.5	4.9e-10	56678.8	MOUSE	Protein disulfide-isomerase A3
+[36]		Q68FD5	CLH1_MOUSE	21	14.1	4.9e-8	191558.3	MOUSE	Clathrin heavy chain 1
+[37]		Q9ERU9	RBP2_MOUSE	16	6.3	3.8e-10	341123.8	MOUSE	E3 SUMO-protein ligase RanBP2
+[38]		P29351	PTN6_MOUSE	15	30.1	6.3e-10	67559.5	MOUSE	Tyrosine-protein phosphatase non-receptor type 6
+[39]		P62806	H4_MOUSE	15	60.2	5.0e-9	11367.4	MOUSE	Histone H4
+[40]		P50580	PA2G4_MOUSE	15	44.4	1.4e-11	43699.2	MOUSE	Proliferation-associated protein 2G4
+[41]		Q91ZW3	SMCA5_MOUSE	17	14.9	1.3e-10	121628.1	MOUSE	SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily A member 5
+[42]		Q9D154	ILEUA_MOUSE	16	32.5	1.0e-8	42575.3	MOUSE	Leukocyte elastase inhibitor A
+[43]		Q8VEK3	HNRPU_MOUSE	15	15.1	2.3e-11	87918.4	MOUSE	Heterogeneous nuclear ribonucleoprotein U
+[44]		P31725	S10A9_MOUSE	20	76.1	4.9e-10	13049.0	MOUSE	Protein S100-A9
+[45]		P10126	EF1A1_MOUSE	14	38.3	1.0e-10	50114.3	MOUSE	Elongation factor 1-alpha 1
+[46]		P09103	PDIA1_MOUSE	19	32.8	4.4e-8	57059.0	MOUSE	Protein disulfide-isomerase
+[47]		Q8BG05-2	ROA3_MOUSE	12	29.7	6.6e-16	37086.4	MOUSE	Isoform 2 of Heterogeneous nuclear ribonucleoprotein A3
+[47-1]	1	Q8BG05	ROA3_MOUSE	12	28.8	6.6e-16	39652.3	MOUSE	Heterogeneous nuclear ribonucleoprotein A3
+[48]		P29341	PABP1_MOUSE	17	20.8	7.1e-7	70671.5	MOUSE	Polyadenylate-binding protein 1
+[49]		P05213	TBA1B_MOUSE	15	37.3	1.3e-8	50152.1	MOUSE	Tubulin alpha-1B chain
+[49-1]	1	P68369	TBA1A_MOUSE	14	34.1	1.3e-8	50136.1	MOUSE	Tubulin alpha-1A chain
+[49-2]	1	P68373	TBA1C_MOUSE	14	32.7	1.3e-8	49909.8	MOUSE	Tubulin alpha-1C chain
+[49-3]	1	P05214	TBA3_MOUSE	11	24.2	1.3e-8	49960.0	MOUSE	Tubulin alpha-3 chain
+[49-4]	2	P68368	TBA4A_MOUSE	12	27.0	1.3e-6	49924.9	MOUSE	Tubulin alpha-4A chain
+[49-5]	1	Q9JJZ2	TBA8_MOUSE	9	20.7	1.3e-6	50052.0	MOUSE	Tubulin alpha-8 chain
+[50]		O70133	DHX9_MOUSE	17	12.0	1.2e-8	149476.2	MOUSE	ATP-dependent RNA helicase A
+[51]		P61979-3	HNRPK_MOUSE	15	28.7	1.3e-10	48510.9	MOUSE	Isoform 3 of Heterogeneous nuclear ribonucleoprotein K
+[52]		Q9Z1Q9	SYVC_MOUSE	13	12.0	7.9e-11	140216.7	MOUSE	Valine--tRNA ligase
+[53]		Q9JIK5	DDX21_MOUSE	16	19.0	2.3e-12	93551.9	MOUSE	Nucleolar RNA helicase 2
+[54]		P62259	1433E_MOUSE	14	39.2	2.8e-8	29174.2	MOUSE	14-3-3 protein epsilon
+[54-1]	10	P63101	1433Z_MOUSE	12	41.2	8.1e-10	27771.4	MOUSE	14-3-3 protein zeta/delta
+[54-2]	7	P68510	1433F_MOUSE	9	30.9	4.6e-8	28212.0	MOUSE	14-3-3 protein eta
+[54-3]	8	Q9CQV8	1433B_MOUSE	10	39.0	1.5e-7	28086.7	MOUSE	14-3-3 protein beta/alpha
+[54-4]	7	Q9CQV8-2	1433B_MOUSE	9	34.8	1.5e-7	27854.4	MOUSE	Isoform Short of 14-3-3 protein beta/alpha
+[54-5]	5	P68254	1433T_MOUSE	7	22.0	1.5e-8	27778.5	MOUSE	14-3-3 protein theta
+[54-6]	5	P68254-2	1433T_MOUSE	7	22.2	1.5e-8	27700.8	MOUSE	Isoform 2 of 14-3-3 protein theta
+[54-7]	4	P61982	1433G_MOUSE	6	17.8	2.7e-6	28302.8	MOUSE	14-3-3 protein gamma
+[55]		P40124	CAP1_MOUSE	14	23.6	1.5e-15	51565.3	MOUSE	Adenylyl cyclase-associated protein 1
+[56]		Q01853	TERA_MOUSE	17	24.9	2.8e-9	89322.6	MOUSE	Transitional endoplasmic reticulum ATPase
+[57]		P05555	ITAM_MOUSE	15	14.5	1.6e-8	127481.9	MOUSE	Integrin alpha-M
+[58]		F6ZDS4	TPR_MOUSE	18	8.8	4.4e-8	273992.3	MOUSE	Nucleoprotein TPR
+[59]		Q61656	DDX5_MOUSE	15	20.8	9.5e-8	69290.8	MOUSE	Probable ATP-dependent RNA helicase DDX5
+[59-1]	8	Q501J6	DDX17_MOUSE	12	20.6	5.6e-9	72400.1	MOUSE	Probable ATP-dependent RNA helicase DDX17
+[59-2]	6	Q501J6-2	DDX17_MOUSE	10	26.5	9.5e-8	46364.7	MOUSE	Isoform 2 of Probable ATP-dependent RNA helicase DDX17
+[59-3]	6	Q62167	DDX3X_MOUSE	7	11.5	1.1e-9	73102.0	MOUSE	ATP-dependent RNA helicase DDX3X
+[59-4]	5	P16381	DDX3L_MOUSE	6	10.0	1.1e-9	73141.2	MOUSE	Putative ATP-dependent RNA helicase Pl10
+[59-5]	5	Q62095	DDX3Y_MOUSE	6	9.7	1.1e-9	73428.5	MOUSE	ATP-dependent RNA helicase DDX3Y
+[60]		Q9QZQ8	H2AY_MOUSE	13	31.7	2.5e-9	39735.5	MOUSE	Core histone macro-H2A.1
+[61]		Q9WVA4	TAGL2_MOUSE	15	52.3	5.2e-8	22395.6	MOUSE	Transgelin-2
+[62]		P15864	H12_MOUSE	10	27.8	1.7e-10	21266.8	MOUSE	Histone H1.2
+[62-1]	3	P43277	H13_MOUSE	10	24.9	9.3e-10	22099.7	MOUSE	Histone H1.3
+[62-2]	5	P43274	H14_MOUSE	10	25.1	9.3e-10	21977.5	MOUSE	Histone H1.4
+[62-3]	7	P43275	H11_MOUSE	8	30.0	2.7e-14	21785.3	MOUSE	Histone H1.1
+[63]		O35737	HNRH1_MOUSE	10	21.6	2.8e-13	49199.9	MOUSE	Heterogeneous nuclear ribonucleoprotein H
+[63-1]	3	P70333	HNRH2_MOUSE	7	15.8	1.0e-14	49280.0	MOUSE	Heterogeneous nuclear ribonucleoprotein H2
+[63-2]	6	Q9Z2X1	HNRPF_MOUSE	9	24.1	4.7e-10	45730.3	MOUSE	Heterogeneous nuclear ribonucleoprotein F
+[63-3]	6	Q9Z2X1-2	HNRPF_MOUSE	9	25.3	4.7e-10	43685.8	MOUSE	Isoform 2 of Heterogeneous nuclear ribonucleoprotein F
+[64]		P24270	CATA_MOUSE	13	27.3	5.0e-9	59795.8	MOUSE	Catalase
+[65]		P40142	TKT_MOUSE	16	21.2	5.0e-9	67631.1	MOUSE	Transketolase
+[66]		Q61033	LAP2A_MOUSE	11	18.6	1.3e-8	75168.9	MOUSE	Lamina-associated polypeptide 2, isoforms alpha/zeta
+[66-1]	3	Q61029	LAP2B_MOUSE	9	21.9	1.3e-8	50373.1	MOUSE	Lamina-associated polypeptide 2, isoforms beta/delta/epsilon/gamma
+[66-2]	3	Q61029-3	LAP2B_MOUSE	9	24.0	1.3e-8	46050.4	MOUSE	Isoform Epsilon of Lamina-associated polypeptide 2, isoforms beta/delta/epsilon/gamma
+[66-3]	1	Q61029-2	LAP2B_MOUSE	7	18.7	1.3e-8	42650.7	MOUSE	Isoform Delta of Lamina-associated polypeptide 2, isoforms beta/delta/epsilon/gamma
+[66-4]	1	Q61029-4	LAP2B_MOUSE	7	20.7	1.3e-8	38501.9	MOUSE	Isoform Gamma of Lamina-associated polypeptide 2, isoforms beta/delta/epsilon/gamma
+[67]		O88569	ROA2_MOUSE	15	47.3	9.7e-10	37403.0	MOUSE	Heterogeneous nuclear ribonucleoproteins A2/B1
+[67-1]	6	P49312	ROA1_MOUSE	7	26.2	6.7e-14	34196.5	MOUSE	Heterogeneous nuclear ribonucleoprotein A1
+[67-2]	5	P49312-2	ROA1_MOUSE	6	25.4	3.1e-8	28897.9	MOUSE	Isoform Short of Heterogeneous nuclear ribonucleoprotein A1
+[68]		P52480	KPYM_MOUSE	15	27.1	1.9e-7	57845.4	MOUSE	Pyruvate kinase PKM
+[68-1]	1	P53657	KPYR_MOUSE	2	4.7	1.4e-6	62309.2	MOUSE	Pyruvate kinase PKLR
+[69]		P41245	MMP9_MOUSE	11	14.5	1.7e-14	80536.1	MOUSE	Matrix metalloproteinase-9
+[70]		Q922B2	SYDC_MOUSE	16	31.7	1.6e-8	57147.7	MOUSE	Aspartate--tRNA ligase, cytoplasmic
+[71]		P10853	H2B1F_MOUSE	12	35.7	1.7e-10	13936.3	MOUSE	Histone H2B type 1-F/J/L
+[71-1]	2	Q64524	H2B2E_MOUSE	11	35.7	1.7e-10	13993.4	MOUSE	Histone H2B type 2-E
+[71-2]	2	Q8CGP0	H2B3B_MOUSE	11	35.7	1.7e-10	13908.2	MOUSE	Histone H2B type 3-B
+[71-3]	2	Q9D2U9	H2B3A_MOUSE	11	35.7	1.7e-10	13994.3	MOUSE	Histone H2B type 3-A
+[72]		Q60605	MYL6_MOUSE	12	47.7	3.8e-8	16930.2	MOUSE	Myosin light polypeptide 6
+[72-1]	6	P05977	MYL1_MOUSE	12	47.3	3.8e-8	20594.7	MOUSE	Myosin light chain 1/3, skeletal muscle isoform
+[72-2]	5	P05977-2	MYL1_MOUSE	11	46.0	3.8e-8	16599.9	MOUSE	Isoform MLC3 of Myosin light chain 1/3, skeletal muscle isoform
+[72-3]	4	P09542	MYL3_MOUSE	10	34.8	3.8e-8	22421.8	MOUSE	Myosin light chain 3
+[73]		P06745	G6PI_MOUSE	11	21.3	3.9e-11	62767.5	MOUSE	Glucose-6-phosphate isomerase
+[74]		P97311	MCM6_MOUSE	13	17.4	4.2e-8	92867.9	MOUSE	DNA replication licensing factor MCM6
+[75]		Q61881	MCM7_MOUSE	14	22.5	1.0e-8	81211.5	MOUSE	DNA replication licensing factor MCM7
+[76]		Q99JY9	ARP3_MOUSE	11	25.6	2.9e-14	47357.6	MOUSE	Actin-related protein 3
+[77]		Q91YQ5	RPN1_MOUSE	14	22.7	4.6e-7	68528.9	MOUSE	Dolichyl-diphosphooligosaccharide--protein glycosyltransferase subunit 1
+[78]		P30681	HMGB2_MOUSE	12	41.4	1.9e-7	24162.1	MOUSE	High mobility group protein B2
+[78-1]	10	P63158	HMGB1_MOUSE	11	35.8	6.2e-13	24894.0	MOUSE	High mobility group protein B1
+[79]		Q9D8E6	RL4_MOUSE	15	26.7	1.3e-10	47154.1	MOUSE	60S ribosomal protein L4
+[80]		P38647	GRP75_MOUSE	13	21.9	2.4e-8	73461.9	MOUSE	Stress-70 protein, mitochondrial
+[81]		Q9WV32	ARC1B_MOUSE	11	26.6	5.1e-11	41064.3	MOUSE	Actin-related protein 2/3 complex subunit 1B
+[82]		O89053	COR1A_MOUSE	11	26.2	1.6e-12	50989.6	MOUSE	Coronin-1A
+[83]		Q8VIJ6	SFPQ_MOUSE	12	22.7	2.9e-11	75442.3	MOUSE	Splicing factor, proline- and glutamine-rich
+[84]		Q99KI0	ACON_MOUSE	13	20.5	1.3e-11	85464.2	MOUSE	Aconitate hydratase, mitochondrial
+[85]		Q6PDQ2	CHD4_MOUSE	14	9.3	2.2e-9	217752.9	MOUSE	Chromodomain-helicase-DNA-binding protein 4
+[86]		Q8BJ71	NUP93_MOUSE	10	13.6	1.6e-14	93281.9	MOUSE	Nuclear pore complex protein Nup93
+[87]		Q02053	UBA1_MOUSE	13	14.0	2.3e-7	117810.0	MOUSE	Ubiquitin-like modifier-activating enzyme 1
+[88]		Q9CWK8	SNX2_MOUSE	11	24.9	5.2e-12	58471.6	MOUSE	Sorting nexin-2
+[88-1]	6	Q9WV80	SNX1_MOUSE	7	11.9	1.8e-5	58952.7	MOUSE	Sorting nexin-1
+[89]		Q8C3J5	DOCK2_MOUSE	15	8.5	2.6e-8	211705.9	MOUSE	Dedicator of cytokinesis protein 2
+[90]		P14824	ANXA6_MOUSE	13	20.8	4.4e-12	75886.0	MOUSE	Annexin A6
+[91]		P21107-2	TPM3_MOUSE	11	34.7	1.1e-10	29020.9	MOUSE	Isoform 2 of Tropomyosin alpha-3 chain
+[91-1]	8	P58771	TPM1_MOUSE	11	33.8	6.3e-8	32680.8	MOUSE	Tropomyosin alpha-1 chain
+[91-2]	8	P58771-2	TPM1_MOUSE	11	33.8	6.3e-8	32708.9	MOUSE	Isoform 2 of Tropomyosin alpha-1 chain
+[91-3]	8	P58774	TPM2_MOUSE	10	29.6	6.3e-8	32837.0	MOUSE	Tropomyosin beta chain
+[91-4]	6	P58774-2	TPM2_MOUSE	8	22.2	6.3e-8	32958.0	MOUSE	Isoform 2 of Tropomyosin beta chain
+[91-5]	5	Q6IRU2	TPM4_MOUSE	6	22.2	3.6e-10	28468.0	MOUSE	Tropomyosin alpha-4 chain
+[91-6]	1	P21107	TPM3_MOUSE	6	18.6	4.0e-7	32994.3	MOUSE	Tropomyosin alpha-3 chain
+[92]		Q9CY58	PAIRB_MOUSE	10	25.6	5.6e-10	44714.5	MOUSE	Plasminogen activator inhibitor 1 RNA-binding protein
+[93]		P56480	ATPB_MOUSE	11	21.6	1.2e-8	56301.0	MOUSE	ATP synthase subunit beta, mitochondrial
+[94]		P80314	TCPB_MOUSE	12	21.5	6.9e-13	57477.7	MOUSE	T-complex protein 1 subunit beta
+[95]		P08752	GNAI2_MOUSE	9	26.2	1.7e-15	40489.3	MOUSE	Guanine nucleotide-binding protein G(i) subunit alpha-2
+[95-1]	3	Q9DC51	GNAI3_MOUSE	6	18.6	5.4e-8	40538.5	MOUSE	Guanine nucleotide-binding protein G(k) subunit alpha
+[95-2]	1	P63094	GNAS2_MOUSE	2	6.9	2.7e-8	45664.0	MOUSE	Guanine nucleotide-binding protein G(s) subunit alpha isoforms short
+[95-3]	1	P63094-2	GNAS2_MOUSE	2	7.1	2.7e-8	44265.6	MOUSE	Isoform Gnas-2 of Guanine nucleotide-binding protein G(s) subunit alpha isoforms short
+[95-4]	1	Q6R0H7	GNAS1_MOUSE	2	2.4	2.7e-8	121506.2	MOUSE	Guanine nucleotide-binding protein G(s) subunit alpha isoforms XLas
+[95-5]	1	Q6R0H7-4	GNAS1_MOUSE	2	2.4	2.7e-8	120107.8	MOUSE	Isoform XLas-4 of Guanine nucleotide-binding protein G(s) subunit alpha isoforms XLas
+[95-6]	1	P27601	GNA13_MOUSE	2	6.1	6.5e-6	44055.0	MOUSE	Guanine nucleotide-binding protein subunit alpha-13
+[96]		Q922D8	C1TC_MOUSE	10	12.8	2.0e-8	101200.4	MOUSE	C-1-tetrahydrofolate synthase, cytoplasmic
+[97]		Q60710	SAMH1_MOUSE	14	18.5	1.2e-7	72651.0	MOUSE	Deoxynucleoside triphosphate triphosphohydrolase SAMHD1
+[98]		Q6A026	PDS5A_MOUSE	11	11.6	3.1e-10	150328.9	MOUSE	Sister chromatid cohesion protein PDS5 homolog A
+[99]		Q60932	VDAC1_MOUSE	8	29.1	1.8e-12	32351.7	MOUSE	Voltage-dependent anion-selective channel protein 1
+[99-1]	4	Q60931	VDAC3_MOUSE	5	16.3	4.3e-6	30753.0	MOUSE	Voltage-dependent anion-selective channel protein 3
+[100]		P17751	TPIS_MOUSE	10	36.5	4.1e-8	32192.1	MOUSE	Triosephosphate isomerase
+[101]		P17742	PPIA_MOUSE	11	32.3	3.0e-10	17971.5	MOUSE	Peptidyl-prolyl cis-trans isomerase A
+[102]		Q61598	GDIB_MOUSE	10	25.2	9.5e-14	50537.6	MOUSE	Rab GDP dissociation inhibitor beta
+[102-1]	3	P50396	GDIA_MOUSE	6	17.0	5.9e-9	50522.0	MOUSE	Rab GDP dissociation inhibitor alpha
+[103]		Q64518	AT2A3_MOUSE	12	12.4	1.7e-8	113639.1	MOUSE	Sarcoplasmic/endoplasmic reticulum calcium ATPase 3
+[103-1]	6	O55143	AT2A2_MOUSE	10	10.3	1.7e-8	114859.1	MOUSE	Sarcoplasmic/endoplasmic reticulum calcium ATPase 2
+[103-2]	6	O55143-2	AT2A2_MOUSE	10	10.8	1.7e-8	109754.2	MOUSE	Isoform 2 of Sarcoplasmic/endoplasmic reticulum calcium ATPase 2
+[103-3]	9	Q8R429	AT2A1_MOUSE	11	12.0	8.8e-8	109426.5	MOUSE	Sarcoplasmic/endoplasmic reticulum calcium ATPase 1
+[104]		Q62351	TFR1_MOUSE	9	11.1	4.5e-15	85732.1	MOUSE	Transferrin receptor protein 1
+[105]		P24369	PPIB_MOUSE	9	36.1	1.3e-8	23713.7	MOUSE	Peptidyl-prolyl cis-trans isomerase B
+[106]		Q8VDN2	AT1A1_MOUSE	12	13.5	3.6e-8	112983.2	MOUSE	Sodium/potassium-transporting ATPase subunit alpha-1
+[107]		P04919	B3AT_MOUSE	10	13.1	1.7e-10	103136.4	MOUSE	Band 3 anion transport protein
+[108]		P54071	IDHP_MOUSE	11	25.9	2.3e-8	50906.6	MOUSE	Isocitrate dehydrogenase [NADP], mitochondrial
+[109]		P43276	H15_MOUSE	8	22.9	1.3e-9	22576.3	MOUSE	Histone H1.5
+[110]		Q61316	HSP74_MOUSE	11	18.5	1.0e-11	94133.4	MOUSE	Heat shock 70 kDa protein 4
+[111]		P12970	RL7A_MOUSE	10	28.6	9.8e-10	29976.8	MOUSE	60S ribosomal protein L7a
+[112]		Q9DB77	QCR2_MOUSE	11	26.7	2.4e-8	48235.3	MOUSE	Cytochrome b-c1 complex subunit 2, mitochondrial
+[113]		Q921I1	TRFE_MOUSE	13	21.1	2.2e-10	76724.6	MOUSE	Serotransferrin
+[114]		P35550	FBRL_MOUSE	10	27.2	5.1e-9	34307.1	MOUSE	rRNA 2'-O-methyltransferase fibrillarin
+[115]		Q3TRM8	HXK3_MOUSE	10	14.0	1.6e-8	100101.9	MOUSE	Hexokinase-3
+[116]		Q03265	ATPA_MOUSE	11	20.6	3.3e-8	59753.1	MOUSE	ATP synthase subunit alpha, mitochondrial
+[117]		P27659	RL3_MOUSE	9	22.3	8.7e-10	46110.3	MOUSE	60S ribosomal protein L3
+[118]		Q8VBT6	APOBR_MOUSE	11	14.6	3.5e-8	102705.8	MOUSE	Apolipoprotein B receptor
+[119]		Q8R2S8	CD177_MOUSE	9	12.0	1.7e-10	87091.5	MOUSE	CD177 antigen
+[120]		Q62523	ZYX_MOUSE	9	16.7	1.7e-9	60546.5	MOUSE	Zyxin
+[121]		Q61210-5	ARHG1_MOUSE	9	11.1	1.5e-10	109249.7	MOUSE	Isoform 5 of Rho guanine nucleotide exchange factor 1
+[122]		Q9QXS1	PLEC_MOUSE	12	3.0	4.5e-8	534192.0	MOUSE	Plectin
+[123]		Q9Z0N1	IF2G_MOUSE	7	18.6	1.1e-13	51065.9	MOUSE	Eukaryotic translation initiation factor 2 subunit 3, X-linked
+[124]		P14211	CALR_MOUSE	9	18.0	1.9e-12	47994.9	MOUSE	Calreticulin
+[125]		P26040	EZRI_MOUSE	15	21.3	2.5e-6	69407.4	MOUSE	Ezrin
+[125-1]	6	P26043	RADI_MOUSE	14	19.0	1.1e-6	68543.4	MOUSE	Radixin
+[125-2]	14	P26041	MOES_MOUSE	21	26.5	3.4e-8	67767.6	MOUSE	Moesin
+[126]		P61161	ARP2_MOUSE	10	21.1	3.3e-8	44761.2	MOUSE	Actin-related protein 2
+[127]		Q62376	RU17_MOUSE	8	20.1	1.8e-10	51992.5	MOUSE	U1 small nuclear ribonucleoprotein 70 kDa
+[128]		P60843	IF4A1_MOUSE	12	28.3	6.2e-8	46154.4	MOUSE	Eukaryotic initiation factor 4A-I
+[128-1]	9	Q91VC3	IF4A3_MOUSE	11	28.7	2.8e-12	46840.4	MOUSE	Eukaryotic initiation factor 4A-III
+[129]		Q62418	DBNL_MOUSE	10	22.7	1.9e-9	48700.0	MOUSE	Drebrin-like protein
+[130]		O55131	SEPT7_MOUSE	8	16.5	6.7e-10	50550.3	MOUSE	Septin-7
+[131]		P97351	RS3A_MOUSE	11	38.3	5.6e-10	29885.1	MOUSE	40S ribosomal protein S3a
+[132]		P06151	LDHA_MOUSE	10	28.0	2.4e-8	36498.9	MOUSE	L-lactate dehydrogenase A chain
+[132-1]	4	P16125	LDHB_MOUSE	5	17.4	6.9e-7	36572.6	MOUSE	L-lactate dehydrogenase B chain
+[133]		Q3TBD2	HMHA1_MOUSE	9	9.9	3.5e-8	122903.2	MOUSE	Rho GTPase-activating protein 45
+[134]		P10649	GSTM1_MOUSE	9	29.4	6.4e-11	25970.2	MOUSE	Glutathione S-transferase Mu 1
+[134-1]	1	P48774	GSTM5_MOUSE	2	8.9	2.2e-4	26635.2	MOUSE	Glutathione S-transferase Mu 5
+[135]		P20065-2	TYB4_MOUSE	8	77.3	2.2e-8	5052.7	MOUSE	Isoform Short of Thymosin beta-4
+[136]		P23116	EIF3A_MOUSE	10	8.9	5.8e-9	161937.7	MOUSE	Eukaryotic translation initiation factor 3 subunit A
+[137]		P42932	TCPQ_MOUSE	12	24.6	2.1e-9	59556.0	MOUSE	T-complex protein 1 subunit theta
+[138]		Q921M3	SF3B3_MOUSE	11	7.9	3.8e-7	135551.5	MOUSE	Splicing factor 3B subunit 3
+[139]		P18760	COF1_MOUSE	9	29.5	6.4e-12	18559.7	MOUSE	Cofilin-1
+[140]		P05064	ALDOA_MOUSE	11	26.6	1.2e-8	39356.3	MOUSE	Fructose-bisphosphate aldolase A
+[141]		Q8BJS4	SUN2_MOUSE	12	17.4	1.1e-8	81606.0	MOUSE	SUN domain-containing protein 2
+[142]		Q61878	PRG2_MOUSE	7	21.5	1.3e-10	24255.6	MOUSE	Bone marrow proteoglycan
+[143]		Q00612	G6PD1_MOUSE	11	23.5	4.5e-11	59263.1	MOUSE	Glucose-6-phosphate 1-dehydrogenase X
+[144]		Q8VDL4	ADPGK_MOUSE	7	18.5	8.9e-11	53902.9	MOUSE	ADP-dependent glucokinase
+[145]		Q61599	GDIR2_MOUSE	7	23.0	1.5e-11	22851.1	MOUSE	Rho GDP-dissociation inhibitor 2
+[146]		Q8BK67	RCC2_MOUSE	12	18.1	3.3e-8	55983.8	MOUSE	Protein RCC2
+[147]		Q8CGC7	SYEP_MOUSE	14	10.8	1.8e-7	170080.6	MOUSE	Bifunctional glutamate/proline--tRNA ligase
+[148]		P02088	HBB1_MOUSE	7	41.5	3.7e-11	15840.3	MOUSE	Hemoglobin subunit beta-1
+[148-1]	1	P02104	HBE_MOUSE	2	15.6	7.0e-5	16136.7	MOUSE	Hemoglobin subunit epsilon-Y2
+[149]		P45376	ALDR_MOUSE	10	29.1	5.1e-7	35732.6	MOUSE	Aldose reductase
+[149-1]	1	P21300	ALD1_MOUSE	2	5.7	0.0012	35988.7	MOUSE	Aldose reductase-related protein 1
+[149-2]	1	P45377	ALD2_MOUSE	2	5.7	0.0012	36120.8	MOUSE	Aldose reductase-related protein 2
+[150]		O88342	WDR1_MOUSE	9	11.7	1.4e-8	66407.3	MOUSE	WD repeat-containing protein 1
+[151]		Q8VDF2	UHRF1_MOUSE	11	15.1	4.1e-8	88304.4	MOUSE	E3 ubiquitin-protein ligase UHRF1
+[152]		Q64737	PUR2_MOUSE	7	6.2	1.6e-9	107504.4	MOUSE	Trifunctional purine biosynthetic protein adenosine-3
+[153]		P0DP26	CALM1_MOUSE	7	38.9	1.1e-11	16837.7	MOUSE	Calmodulin-1
+[154]		P36552	HEM6_MOUSE	9	22.6	1.6e-9	49715.0	MOUSE	Oxygen-dependent coproporphyrinogen-III oxidase, mitochondrial
+[155]		Q921F2	TADBP_MOUSE	8	17.1	7.9e-11	44548.1	MOUSE	TAR DNA-binding protein 43
+[156]		Q60972	RBBP4_MOUSE	8	20.0	4.0e-10	47656.1	MOUSE	Histone-binding protein RBBP4
+[156-1]	1	Q60973	RBBP7_MOUSE	4	10.8	5.0e-8	47790.5	MOUSE	Histone-binding protein RBBP7
+[157]		P01899	HA11_MOUSE	9	27.3	2.4e-7	40836.6	MOUSE	H-2 class I histocompatibility antigen, D-B alpha chain
+[157-1]	1	P01901	HA1B_MOUSE	3	10.3	2.2e-6	41302.2	MOUSE	H-2 class I histocompatibility antigen, K-B alpha chain
+[158]		Q04750	TOP1_MOUSE	10	12.5	3.3e-9	90876.5	MOUSE	DNA topoisomerase 1
+[159]		P57776	EF1D_MOUSE	8	33.8	6.0e-10	31293.3	MOUSE	Elongation factor 1-delta
+[159-1]	2	P57776-2	EF1D_MOUSE	8	31.9	3.3e-8	28729.4	MOUSE	Isoform 2 of Elongation factor 1-delta
+[159-2]	2	O70251	EF1B_MOUSE	4	19.1	2.6e-9	24693.9	MOUSE	Elongation factor 1-beta
+[160]		Q922R8	PDIA6_MOUSE	9	19.8	1.5e-8	48100.8	MOUSE	Protein disulfide-isomerase A6
+[161]		Q3UV74	ITB2L_MOUSE	12	20.9	6.3e-9	81547.5	MOUSE	Integrin beta-2-like protein
+[162]		Q9JHU4	DYHC1_MOUSE	16	3.9	5.8e-8	532050.0	MOUSE	Cytoplasmic dynein 1 heavy chain 1
+[163]		P49710	HCLS1_MOUSE	9	18.9	3.0e-7	54240.6	MOUSE	Hematopoietic lineage cell-specific protein
+[164]		P63242	IF5A1_MOUSE	7	42.9	1.7e-9	16832.4	MOUSE	Eukaryotic translation initiation factor 5A-1
+[165]		Q6ZWX6	IF2A_MOUSE	7	25.1	3.7e-18	36108.5	MOUSE	Eukaryotic translation initiation factor 2 subunit 1
+[166]		P29391	FRIL1_MOUSE	10	41.0	8.8e-8	20802.6	MOUSE	Ferritin light chain 1
+[167]		Q00899	TYY1_MOUSE	6	15.0	4.0e-11	44717.0	MOUSE	Transcriptional repressor protein YY1
+[168]		Q8BTI8	SRRM2_MOUSE	7	3.9	1.8e-8	294842.6	MOUSE	Serine/arginine repetitive matrix protein 2
+[169]		Q01768	NDKB_MOUSE	7	46.7	5.7e-10	17363.2	MOUSE	Nucleoside diphosphate kinase B
+[169-1]	2	P15532	NDKA_MOUSE	7	44.1	5.7e-10	17208.0	MOUSE	Nucleoside diphosphate kinase A
+[170]		Q91WJ8	FUBP1_MOUSE	9	16.4	2.4e-10	68540.2	MOUSE	Far upstream element-binding protein 1
+[171]		Q6ZQ38	CAND1_MOUSE	11	9.8	5.1e-7	136332.9	MOUSE	Cullin-associated NEDD8-dissociated protein 1
+[172]		Q9CW03	SMC3_MOUSE	15	12.7	4.1e-6	141556.9	MOUSE	Structural maintenance of chromosomes protein 3
+[173]		P97310	MCM2_MOUSE	8	11.2	2.7e-8	102078.4	MOUSE	DNA replication licensing factor MCM2
+[174]		Q8K4Z5	SF3A1_MOUSE	8	10.1	1.8e-9	88545.6	MOUSE	Splicing factor 3A subunit 1
+[175]		Q99LX0	PARK7_MOUSE	7	22.8	1.0e-8	20021.5	MOUSE	Protein DJ-1
+[176]		Q91VI7	RINI_MOUSE	7	19.3	2.8e-8	49817.0	MOUSE	Ribonuclease inhibitor
+[177]		P27005	S10A8_MOUSE	5	73.0	1.2e-10	10294.7	MOUSE	Protein S100-A8
+[178]		Q99NB9	SF3B1_MOUSE	13	12.1	1.0e-7	145817.6	MOUSE	Splicing factor 3B subunit 1
+[179]		P09411	PGK1_MOUSE	10	28.5	2.8e-10	44550.9	MOUSE	Phosphoglycerate kinase 1
+[180]		P17918	PCNA_MOUSE	8	27.2	4.1e-9	28785.1	MOUSE	Proliferating cell nuclear antigen
+[181]		Q8CAQ8	MIC60_MOUSE	7	11.4	2.8e-8	83900.8	MOUSE	MICOS complex subunit Mic60
+[182]		Q3U0V1	FUBP2_MOUSE	14	21.3	7.6e-8	76776.1	MOUSE	Far upstream element-binding protein 2
+[183]		Q02357	ANK1_MOUSE	8	6.0	3.1e-8	204228.9	MOUSE	Ankyrin-1
+[184]		Q9QY81	PO210_MOUSE	7	5.3	4.0e-8	204102.4	MOUSE	Nuclear pore membrane glycoprotein 210
+[185]		Q9R111	GUAD_MOUSE	10	21.6	1.1e-9	51013.5	MOUSE	Guanine deaminase
+[186]		Q60864	STIP1_MOUSE	11	21.4	1.9e-6	62582.7	MOUSE	Stress-induced-phosphoprotein 1
+[187]		Q3TEA8	HP1B3_MOUSE	9	19.9	2.9e-8	60867.1	MOUSE	Heterochromatin protein 1-binding protein 3
+[188]		Q8VDM4	PSMD2_MOUSE	10	11.0	1.5e-7	100203.5	MOUSE	26S proteasome non-ATPase regulatory subunit 2
+[189]		P09405	NUCL_MOUSE	9	13.7	2.4e-9	76723.7	MOUSE	Nucleolin
+[190]		Q9CU62	SMC1A_MOUSE	17	13.0	1.1e-6	143236.1	MOUSE	Structural maintenance of chromosomes protein 1A
+[191]		Q6PB66	LPPRC_MOUSE	13	8.5	1.8e-7	156616.1	MOUSE	Leucine-rich PPR motif-containing protein, mitochondrial
+[192]		P47757	CAPZB_MOUSE	7	29.2	6.0e-8	31345.7	MOUSE	F-actin-capping protein subunit beta
+[193]		P26350	PTMA_MOUSE	5	34.2	6.6e-14	12254.2	MOUSE	Prothymosin alpha
+[194]		Q8BMS1	ECHA_MOUSE	8	12.3	1.4e-8	82670.6	MOUSE	Trifunctional enzyme subunit alpha, mitochondrial
+[195]		Q05144	RAC2_MOUSE	7	30.7	8.1e-7	21441.0	MOUSE	Ras-related C3 botulinum toxin substrate 2
+[195-1]	4	P84096	RHOG_MOUSE	5	27.7	1.3e-7	21308.7	MOUSE	Rho-related GTP-binding protein RhoG
+[195-2]	3	P63001	RAC1_MOUSE	5	26.0	8.1e-7	21450.3	MOUSE	Ras-related C3 botulinum toxin substrate 1
+[195-3]	3	P60766	CDC42_MOUSE	4	22.5	5.9e-7	21258.8	MOUSE	Cell division control protein 42 homolog
+[195-4]	2	P60766-1	CDC42_MOUSE	3	17.3	5.9e-7	21310.8	MOUSE	Isoform 1 of Cell division control protein 42 homolog
+[196]		Q9CQA3	SDHB_MOUSE	7	19.9	6.5e-11	31814.2	MOUSE	Succinate dehydrogenase [ubiquinone] iron-sulfur subunit, mitochondrial
+[197]		Q9DCD0	6PGD_MOUSE	10	20.5	2.8e-7	53247.7	MOUSE	6-phosphogluconate dehydrogenase, decarboxylating
+[198]		Q9WTM5	RUVB2_MOUSE	9	24.2	4.3e-8	51113.0	MOUSE	RuvB-like 2
+[199]		P17710	HXK1_MOUSE	8	7.4	2.7e-8	108304.4	MOUSE	Hexokinase-1
+[200]		Q9DBJ1	PGAM1_MOUSE	7	33.5	5.5e-8	28832.2	MOUSE	Phosphoglycerate mutase 1
+[201]		O08749	DLDH_MOUSE	7	17.1	1.1e-8	54272.8	MOUSE	Dihydrolipoyl dehydrogenase, mitochondrial
+[202]		Q99JI6	RAP1B_MOUSE	8	31.0	7.1e-10	20825.0	MOUSE	Ras-related protein Rap-1b
+[202-1]	2	P62835	RAP1A_MOUSE	7	31.0	8.5e-12	20987.4	MOUSE	Ras-related protein Rap-1A
+[202-2, 645-2]	3	P35276	RAB3D_MOUSE	4	20.5	1.5e-5	24416.6	MOUSE	Ras-related protein Rab-3D
+[203]		Q3U9G9	LBR_MOUSE	6	8.0	1.1e-11	71440.8	MOUSE	Lamin-B receptor
+[204]		Q8BFU2	H2A3_MOUSE	7	54.6	7.7e-10	14121.6	MOUSE	Histone H2A type 3
+[204-1]	1	Q64523	H2A2C_MOUSE	6	55.0	7.7e-10	13988.5	MOUSE	Histone H2A type 2-C
+[204-2]	1	Q6GSS7	H2A2A_MOUSE	6	54.6	7.7e-10	14095.6	MOUSE	Histone H2A type 2-A
+[204-3]	2	P0C0S6	H2AZ_MOUSE	4	31.2	1.7e-6	13552.8	MOUSE	Histone H2A.Z
+[204-4]	2	Q3THW5	H2AV_MOUSE	4	31.2	1.7e-6	13508.8	MOUSE	Histone H2A.V
+[204-5]	2	Q64522	H2A2B_MOUSE	4	40.0	3.4e-4	14013.5	MOUSE	Histone H2A type 2-B
+[205]		P63038	CH60_MOUSE	9	16.4	2.5e-7	60956.0	MOUSE	60 kDa heat shock protein, mitochondrial
+[206]		P07356	ANXA2_MOUSE	10	23.6	9.0e-7	38676.5	MOUSE	Annexin A2
+[207]		Q9R190	MTA2_MOUSE	12	19.0	8.8e-7	75030.7	MOUSE	Metastasis-associated protein MTA2
+[208]		Q9D6Z1	NOP56_MOUSE	8	14.0	7.2e-8	64464.9	MOUSE	Nucleolar protein 56
+[209]		Q8BT60	CPNE3_MOUSE	9	17.3	2.1e-8	59585.5	MOUSE	Copine-3
+[209-1]	2	Q8C166	CPNE1_MOUSE	3	5.4	3.9e-4	58887.0	MOUSE	Copine-1
+[210]		Q8C2Q3	RBM14_MOUSE	10	17.2	2.8e-9	69449.2	MOUSE	RNA-binding protein 14
+[211]		P14206	RSSA_MOUSE	6	22.7	3.8e-9	32838.4	MOUSE	40S ribosomal protein SA
+[212]		P25206	MCM3_MOUSE	7	9.5	2.9e-9	91547.1	MOUSE	DNA replication licensing factor MCM3
+[213]		P30416	FKBP4_MOUSE	9	21.8	2.4e-6	51572.8	MOUSE	Peptidyl-prolyl cis-trans isomerase FKBP4
+[214]		P35564	CALX_MOUSE	9	16.1	7.4e-7	67278.5	MOUSE	Calnexin
+[215]		P62960	YBOX1_MOUSE	6	18.0	2.0e-9	35730.2	MOUSE	Nuclease-sensitive element-binding protein 1
+[215-1]	1	Q9JKB3	YBOX3_MOUSE	4	10.5	2.7e-10	38813.9	MOUSE	Y-box-binding protein 3
+[215-2]	1	Q9JKB3-2	YBOX3_MOUSE	4	13.0	2.7e-10	30765.1	MOUSE	Isoform 2 of Y-box-binding protein 3
+[216]		P70372	ELAV1_MOUSE	6	19.3	6.7e-12	36169.3	MOUSE	ELAV-like protein 1
+[217]		P24547	IMDH2_MOUSE	6	15.6	1.9e-8	55815.5	MOUSE	Inosine-5'-monophosphate dehydrogenase 2
+[218]		Q99KN9	EPN4_MOUSE	7	12.4	2.4e-7	68513.5	MOUSE	Clathrin interactor 1
+[219]		P47738	ALDH2_MOUSE	9	17.5	4.8e-7	56538.0	MOUSE	Aldehyde dehydrogenase, mitochondrial
+[220]		P13020-2	GELS_MOUSE	9	12.4	1.3e-8	80763.2	MOUSE	Isoform 2 of Gelsolin
+[221]		Q9JKR6	HYOU1_MOUSE	10	12.8	1.9e-7	111182.0	MOUSE	Hypoxia up-regulated protein 1
+[222]		O54824	IL16_MOUSE	9	8.9	3.4e-7	141436.1	MOUSE	Pro-interleukin-16
+[223]		Q8K1B8	URP2_MOUSE	10	16.8	2.5e-7	75635.2	MOUSE	Fermitin family homolog 3
+[224]		Q61191	HCFC1_MOUSE	8	4.7	2.7e-8	210438.9	MOUSE	Host cell factor 1
+[225]		P47962	RL5_MOUSE	6	19.2	4.3e-12	34401.0	MOUSE	60S ribosomal protein L5
+[226]		P53996-2	CNBP_MOUSE	5	28.2	6.6e-20	18742.2	MOUSE	Isoform 2 of Cellular nucleic acid-binding protein
+[226-1]	1	P53996	CNBP_MOUSE	5	27.5	1.1e-12	19592.1	MOUSE	Cellular nucleic acid-binding protein
+[227]		P01942	HBA_MOUSE	6	43.0	4.7e-10	15085.3	MOUSE	Hemoglobin subunit alpha
+[228]		P97371	PSME1_MOUSE	7	28.5	5.6e-8	28673.2	MOUSE	Proteasome activator complex subunit 1
+[229]		P10605	CATB_MOUSE	6	10.3	2.8e-8	37280.2	MOUSE	Cathepsin B
+[230]		P62918	RL8_MOUSE	6	23.7	1.2e-11	28024.9	MOUSE	60S ribosomal protein L8
+[231]		P80318	TCPG_MOUSE	13	26.1	1.2e-7	60630.6	MOUSE	T-complex protein 1 subunit gamma
+[232]		P35979	RL12_MOUSE	5	28.5	3.2e-8	17804.7	MOUSE	60S ribosomal protein L12
+[233]		Q93092	TALDO_MOUSE	9	29.1	9.2e-7	37387.3	MOUSE	Transaldolase
+[234]		Q9Z1Q5	CLIC1_MOUSE	9	36.9	1.0e-7	27013.1	MOUSE	Chloride intracellular channel protein 1
+[235]		O08573	LEG9_MOUSE	7	20.1	6.6e-8	40036.3	MOUSE	Galectin-9
+[236]		P83870	PHF5A_MOUSE	3	26.4	5.1e-14	12405.6	MOUSE	PHD finger-like domain-containing protein 5A
+[237]		Q9DCX2	ATP5H_MOUSE	5	23.0	3.1e-10	18749.6	MOUSE	ATP synthase subunit d, mitochondrial
+[238]		P70441	NHRF1_MOUSE	8	25.1	6.2e-9	38600.4	MOUSE	Na(+)/H(+) exchange regulatory cofactor NHE-RF1
+[239]		Q60930	VDAC2_MOUSE	6	24.1	4.9e-13	31733.1	MOUSE	Voltage-dependent anion-selective channel protein 2
+[240]		P62137	PP1A_MOUSE	6	16.1	6.7e-10	37540.4	MOUSE	Serine/threonine-protein phosphatase PP1-alpha catalytic subunit
+[240-1]	1	P62141	PP1B_MOUSE	5	12.8	6.7e-10	37187.2	MOUSE	Serine/threonine-protein phosphatase PP1-beta catalytic subunit
+[240-2]	1	P63087	PP1G_MOUSE	5	13.0	6.7e-10	36984.1	MOUSE	Serine/threonine-protein phosphatase PP1-gamma catalytic subunit
+[240-3]	1	P63087-2	PP1G_MOUSE	5	12.5	6.7e-10	38504.7	MOUSE	Isoform Gamma-2 of Serine/threonine-protein phosphatase PP1-gamma catalytic subunit
+[241]		Q9D2M8	UB2V2_MOUSE	6	31.0	2.6e-9	16366.9	MOUSE	Ubiquitin-conjugating enzyme E2 variant 2
+[241-1]	2	Q9CZY3	UB2V1_MOUSE	5	30.6	4.2e-9	16354.9	MOUSE	Ubiquitin-conjugating enzyme E2 variant 1
+[242]		Q60631	GRB2_MOUSE	7	32.7	1.5e-11	25238.6	MOUSE	Growth factor receptor-bound protein 2
+[243]		O08553	DPYL2_MOUSE	7	15.0	1.1e-8	62278.1	MOUSE	Dihydropyrimidinase-related protein 2
+[244]		P26645	MARCS_MOUSE	4	21.4	3.8e-11	29661.5	MOUSE	Myristoylated alanine-rich C-kinase substrate
+[245]		Q5SQX6	CYFP2_MOUSE	8	6.1	7.2e-10	145660.7	MOUSE	Cytoplasmic FMR1-interacting protein 2
+[246]		Q0VGB7	PP4R2_MOUSE	3	7.9	1.1e-14	46479.1	MOUSE	Serine/threonine-protein phosphatase 4 regulatory subunit 2
+[247]		Q62318	TIF1B_MOUSE	7	10.2	4.4e-7	88847.9	MOUSE	Transcription intermediary factor 1-beta
+[248]		Q61753	SERA_MOUSE	9	21.2	4.9e-7	56586.1	MOUSE	D-3-phosphoglycerate dehydrogenase
+[249]		Q99LF4	RTCB_MOUSE	6	12.9	1.1e-8	55249.8	MOUSE	tRNA-splicing ligase RtcB homolog
+[250]		Q8R081	HNRPL_MOUSE	7	13.8	1.3e-9	63964.2	MOUSE	Heterogeneous nuclear ribonucleoprotein L
+[251]		P70460	VASP_MOUSE	7	24.8	4.2e-10	39666.9	MOUSE	Vasodilator-stimulated phosphoprotein
+[252]		Q76MZ3	2AAA_MOUSE	8	14.3	2.5e-11	65323.2	MOUSE	Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A alpha isoform
+[253]		Q9Z1Z0	USO1_MOUSE	7	9.6	1.7e-8	106984.2	MOUSE	General vesicular transport factor p115
+[254]		Q3UND0	SKAP2_MOUSE	6	17.0	1.1e-11	40712.4	MOUSE	Src kinase-associated phosphoprotein 2
+[255]		Q61646	HPT_MOUSE	9	22.2	1.3e-7	38752.6	MOUSE	Haptoglobin
+[256]		P18653	KS6A1_MOUSE	10	17.4	3.6e-7	81595.4	MOUSE	Ribosomal protein S6 kinase alpha-1
+[257]		Q61207	SAP_MOUSE	8	14.2	1.3e-11	61422.8	MOUSE	Prosaposin
+[258]		Q9Z204-2	HNRPC_MOUSE	11	28.3	9.9e-7	33056.6	MOUSE	Isoform C1 of Heterogeneous nuclear ribonucleoproteins C1/C2
+[259]		P62242	RS8_MOUSE	8	40.4	1.2e-8	24205.4	MOUSE	40S ribosomal protein S8
+[260]		Q9Z183	PADI4_MOUSE	6	9.8	7.8e-10	74415.9	MOUSE	Protein-arginine deiminase type-4
+[261]		Q1HFZ0	NSUN2_MOUSE	8	9.8	1.8e-10	85452.4	MOUSE	tRNA (cytosine(34)-C(5))-methyltransferase
+[262]		P19973	LSP1_MOUSE	5	20.0	1.1e-10	36714.1	MOUSE	Lymphocyte-specific protein 1
+[263]		Q60668	HNRPD_MOUSE	6	16.3	1.8e-7	38354.4	MOUSE	Heterogeneous nuclear ribonucleoprotein D0
+[263-1]	5	Q99020	ROAA_MOUSE	6	17.5	7.1e-8	30831.5	MOUSE	Heterogeneous nuclear ribonucleoprotein A/B
+[263-2]	3	Q9Z130	HNRDL_MOUSE	4	13.0	2.8e-8	33559.1	MOUSE	Heterogeneous nuclear ribonucleoprotein D-like
+[264]		P08003	PDIA4_MOUSE	10	16.6	5.5e-10	71983.0	MOUSE	Protein disulfide-isomerase A4
+[265]		Q8BH61	F13A_MOUSE	6	9.3	1.4e-9	83208.0	MOUSE	Coagulation factor XIII A chain
+[266]		P14148	RL7_MOUSE	10	35.6	5.8e-9	31419.9	MOUSE	60S ribosomal protein L7
+[267]		O35286	DHX15_MOUSE	14	17.1	1.7e-7	91007.7	MOUSE	Pre-mRNA-splicing factor ATP-dependent RNA helicase DHX15
+[268]		Q8R1Q8	DC1L1_MOUSE	6	11.9	9.0e-10	56614.7	MOUSE	Cytoplasmic dynein 1 light intermediate chain 1
+[269]		Q9D0F9	PGM1_MOUSE	7	16.4	2.7e-9	61418.7	MOUSE	Phosphoglucomutase-1
+[270]		P62962	PROF1_MOUSE	6	37.9	4.4e-9	14957.4	MOUSE	Profilin-1
+[271]		Q8VHR5	P66B_MOUSE	5	11.6	7.1e-11	65411.5	MOUSE	Transcriptional repressor p66-beta
+[272]		Q8VE37	RCC1_MOUSE	6	20.0	1.7e-11	44931.4	MOUSE	Regulator of chromosome condensation
+[273]		P35441	TSP1_MOUSE	8	8.8	2.1e-10	129648.5	MOUSE	Thrombospondin-1
+[274]		P14152	MDHC_MOUSE	5	20.1	3.8e-9	36511.5	MOUSE	Malate dehydrogenase, cytoplasmic
+[275]		Q9CVB6	ARPC2_MOUSE	11	32.7	6.9e-7	34357.4	MOUSE	Actin-related protein 2/3 complex subunit 2
+[276]		Q920B9	SP16H_MOUSE	10	10.2	9.7e-8	119825.7	MOUSE	FACT complex subunit SPT16
+[277]		Q05816	FABP5_MOUSE	5	34.1	6.3e-13	15137.6	MOUSE	Fatty acid-binding protein, epidermal
+[278]		Q9ERK4	XPO2_MOUSE	8	10.8	1.2e-8	110455.6	MOUSE	Exportin-2
+[279]		Q9DBG5	PLIN3_MOUSE	7	19.2	2.4e-9	47262.6	MOUSE	Perilipin-3
+[280]		O70145	NCF2_MOUSE	7	14.1	7.7e-9	59485.9	MOUSE	Neutrophil cytosol factor 2
+[281]		Q8BGB5	LIMD2_MOUSE	4	30.5	2.1e-11	14237.3	MOUSE	LIM domain-containing protein 2
+[282]		O70138	MMP8_MOUSE	8	14.6	1.8e-7	53126.3	MOUSE	Neutrophil collagenase
+[283]		Q9Z1N5	DX39B_MOUSE	8	18.7	2.2e-7	49035.8	MOUSE	Spliceosome RNA helicase Ddx39b
+[283-1]	1	Q8VDW0	DX39A_MOUSE	8	18.0	2.2e-7	49067.9	MOUSE	ATP-dependent RNA helicase DDX39A
+[284]		Q9CX34	SGT1_MOUSE	4	13.4	2.8e-11	38159.2	MOUSE	Protein SGT1 homolog
+[285]		P05202	AATM_MOUSE	9	19.5	1.8e-6	47411.8	MOUSE	Aspartate aminotransferase, mitochondrial
+[286]		P62827	RAN_MOUSE	7	26.9	1.7e-7	24423.3	MOUSE	GTP-binding nuclear protein Ran
+[287]		P08249	MDHM_MOUSE	10	31.4	1.3e-7	35611.8	MOUSE	Malate dehydrogenase, mitochondrial
+[288]		P47911	RL6_MOUSE	8	23.0	4.8e-9	33509.9	MOUSE	60S ribosomal protein L6
+[289]		P11672	NGAL_MOUSE	5	12.5	1.5e-9	22875.2	MOUSE	Neutrophil gelatinase-associated lipocalin
+[290]		P00920	CAH2_MOUSE	5	20.8	1.6e-9	29032.8	MOUSE	Carbonic anhydrase 2
+[291]		Q8BWT1	THIM_MOUSE	6	16.6	1.4e-8	41830.2	MOUSE	3-ketoacyl-CoA thiolase, mitochondrial
+[292]		O70310	NMT1_MOUSE	6	13.7	1.2e-8	56888.9	MOUSE	Glycylpeptide N-tetradecanoyltransferase 1
+[293]		P50247	SAHH_MOUSE	7	19.0	4.3e-7	47688.6	MOUSE	Adenosylhomocysteinase
+[294]		P26443	DHE3_MOUSE	8	14.3	2.0e-5	61337.3	MOUSE	Glutamate dehydrogenase 1, mitochondrial
+[295]		Q99K48	NONO_MOUSE	7	16.5	4.5e-10	54541.4	MOUSE	Non-POU domain-containing octamer-binding protein
+[296]		Q8QZT1	THIL_MOUSE	7	18.4	7.1e-9	44816.5	MOUSE	Acetyl-CoA acetyltransferase, mitochondrial
+[297]		O08709	PRDX6_MOUSE	9	32.1	1.2e-6	24870.9	MOUSE	Peroxiredoxin-6
+[298]		O55201	SPT5H_MOUSE	4	5.5	4.3e-10	120665.2	MOUSE	Transcription elongation factor SPT5
+[299]		Q9D1J3	SARNP_MOUSE	5	29.5	4.8e-11	23532.9	MOUSE	SAP domain-containing ribonucleoprotein
+[300]		Q09014	NCF1_MOUSE	5	15.9	1.4e-10	44667.3	MOUSE	Neutrophil cytosol factor 1
+[301]		P11983	TCPA_MOUSE	12	24.6	2.7e-6	60449.2	MOUSE	T-complex protein 1 subunit alpha
+[302]		P16330	CN37_MOUSE	9	19.5	2.4e-8	47123.7	MOUSE	2',3'-cyclic-nucleotide 3'-phosphodiesterase
+[303]		P28063	PSB8_MOUSE	5	22.5	1.6e-11	30260.5	MOUSE	Proteasome subunit beta type-8
+[304]		P49718	MCM5_MOUSE	9	15.6	3.2e-7	82343.6	MOUSE	DNA replication licensing factor MCM5
+[305]		P68040	RACK1_MOUSE	8	24.9	1.0e-6	35077.0	MOUSE	Receptor of activated protein C kinase 1
+[306]		P80315	TCPD_MOUSE	9	17.6	1.2e-7	58066.9	MOUSE	T-complex protein 1 subunit delta
+[306-1]	11	P80316	TCPE_MOUSE	12	21.6	1.2e-5	59624.6	MOUSE	T-complex protein 1 subunit epsilon
+[307]		P32067	LA_MOUSE	8	16.4	1.5e-8	47756.9	MOUSE	Lupus La protein homolog
+[308]		Q99KP6	PRP19_MOUSE	5	9.5	1.4e-9	55239.3	MOUSE	Pre-mRNA-processing factor 19
+[309]		Q9DBG3	AP2B1_MOUSE	8	8.4	3.3e-7	104583.5	MOUSE	AP-2 complex subunit beta
+[309-1]	2	O35643	AP1B1_MOUSE	8	8.2	4.2e-7	103935.8	MOUSE	AP-1 complex subunit beta-1
+[310]		Q02819	NUCB1_MOUSE	7	18.5	2.9e-7	53409.1	MOUSE	Nucleobindin-1
+[311]		Q8JZQ9	EIF3B_MOUSE	9	13.1	4.5e-7	91371.0	MOUSE	Eukaryotic translation initiation factor 3 subunit B
+[312]		P28352	APEX1_MOUSE	5	20.8	6.6e-10	35490.7	MOUSE	DNA-(apurinic or apyrimidinic site) lyase
+[313]		Q9WTQ5	AKA12_MOUSE	5	3.1	2.5e-9	180696.1	MOUSE	A-kinase anchor protein 12
+[314]		P84104	SRSF3_MOUSE	8	26.8	1.9e-7	19329.8	MOUSE	Serine/arginine-rich splicing factor 3
+[315]		O35639	ANXA3_MOUSE	9	27.2	8.9e-8	36384.4	MOUSE	Annexin A3
+[316]		Q3THE2	ML12B_MOUSE	6	29.7	2.3e-8	19779.3	MOUSE	Myosin regulatory light chain 12B
+[317]		P62908	RS3_MOUSE	7	32.1	1.7e-7	26674.5	MOUSE	40S ribosomal protein S3
+[318]		P62911	RL32_MOUSE	6	34.1	2.6e-10	15859.9	MOUSE	60S ribosomal protein L32
+[319]		Q99PV0	PRP8_MOUSE	10	4.6	7.2e-8	273618.8	MOUSE	Pre-mRNA-processing-splicing factor 8
+[320]		Q9CT10	RANB3_MOUSE	4	10.6	1.9e-8	52573.1	MOUSE	Ran-binding protein 3
+[321]		P35293	RAB18_MOUSE	6	23.3	9.4e-8	23035.4	MOUSE	Ras-related protein Rab-18
+[322]		P08228	SODC_MOUSE	4	32.5	4.3e-8	15942.8	MOUSE	Superoxide dismutase [Cu-Zn]
+[323]		Q80X50	UBP2L_MOUSE	4	3.9	4.4e-12	116799.9	MOUSE	Ubiquitin-associated protein 2-like
+[324]		Q8K2B3	SDHA_MOUSE	10	14.9	4.6e-6	72586.1	MOUSE	Succinate dehydrogenase [ubiquinone] flavoprotein subunit, mitochondrial
+[325]		Q8CDN6	TXNL1_MOUSE	7	29.8	1.0e-6	32237.6	MOUSE	Thioredoxin-like protein 1
+[326]		Q6PDM2	SRSF1_MOUSE	10	28.6	2.2e-9	27744.8	MOUSE	Serine/arginine-rich splicing factor 1
+[327]		Q91VM5	RMXL1_MOUSE	5	15.7	2.1e-5	42162.0	MOUSE	RNA binding motif protein, X-linked-like-1
+[328]		Q7TNC4	LC7L2_MOUSE	6	20.7	1.5e-7	46583.3	MOUSE	Putative RNA-binding protein Luc7-like 2
+[328-1]	2	Q9CYI4	LUC7L_MOUSE	5	14.6	8.9e-8	43934.5	MOUSE	Putative RNA-binding protein Luc7-like 1
+[328-2]	2	Q9CYI4-2	LUC7L_MOUSE	5	17.0	8.9e-8	37976.6	MOUSE	Isoform 2 of Putative RNA-binding protein Luc7-like 1
+[329]		P70168	IMB1_MOUSE	8	9.8	4.6e-8	97185.0	MOUSE	Importin subunit beta-1
+[330]		Q9WU78	PDC6I_MOUSE	5	6.6	8.1e-10	96025.0	MOUSE	Programmed cell death 6-interacting protein
+[331]		P35486	ODPA_MOUSE	5	14.1	1.7e-6	43232.1	MOUSE	Pyruvate dehydrogenase E1 component subunit alpha, somatic form, mitochondrial
+[332]		Q61362	CH3L1_MOUSE	9	17.2	1.9e-6	43893.5	MOUSE	Chitinase-3-like protein 1
+[333]		P84099	RL19_MOUSE	4	17.9	2.8e-10	23466.2	MOUSE	60S ribosomal protein L19
+[334]		Q9CWJ9	PUR9_MOUSE	9	19.9	5.7e-7	64217.9	MOUSE	Bifunctional purine biosynthesis protein PURH
+[335]		Q8BV49	IFIX_MOUSE	5	13.6	6.8e-8	46887.2	MOUSE	Pyrin and HIN domain-containing protein 1
+[336]		P62270	RS18_MOUSE	6	31.6	2.5e-8	17718.8	MOUSE	40S ribosomal protein S18
+[337]		B2RY56	RBM25_MOUSE	5	7.9	9.0e-11	99552.7	MOUSE	RNA-binding protein 25
+[338]		Q8CG48	SMC2_MOUSE	10	9.2	3.5e-6	134240.3	MOUSE	Structural maintenance of chromosomes protein 2
+[339]		P47963	RL13_MOUSE	7	25.1	4.3e-8	24305.7	MOUSE	60S ribosomal protein L13
+[340]		Q9WV55	VAPA_MOUSE	6	22.1	3.4e-8	27855.5	MOUSE	Vesicle-associated membrane protein-associated protein A
+[340-1]	2	Q9QY76	VAPB_MOUSE	3	15.2	1.8e-5	26946.4	MOUSE	Vesicle-associated membrane protein-associated protein B
+[341]		P97384	ANX11_MOUSE	7	13.7	3.4e-8	54079.8	MOUSE	Annexin A11
+[342]		P62874	GBB1_MOUSE	6	15.9	3.2e-8	37377.3	MOUSE	Guanine nucleotide-binding protein G(I)/G(S)/G(T) subunit beta-1
+[342-1]	2	P62880	GBB2_MOUSE	5	15.9	5.8e-8	37331.4	MOUSE	Guanine nucleotide-binding protein G(I)/G(S)/G(T) subunit beta-2
+[342-2]	1	P29387	GBB4_MOUSE	2	7.1	5.5e-5	37379.4	MOUSE	Guanine nucleotide-binding protein subunit beta-4
+[343]		Q9Z315	SNUT1_MOUSE	4	6.9	5.0e-10	90886.1	MOUSE	U4/U6.U5 tri-snRNP-associated protein 1
+[344]		P70429	EVL_MOUSE	3	7.5	4.3e-11	44337.7	MOUSE	Ena/VASP-like protein
+[345]		Q61686	CBX5_MOUSE	5	26.2	2.2e-8	22186.2	MOUSE	Chromobox protein homolog 5
+[346]		P60122	RUVB1_MOUSE	7	16.9	2.6e-7	50214.4	MOUSE	RuvB-like 1
+[347]		P18572	BASI_MOUSE	5	14.9	3.7e-6	42445.1	MOUSE	Basigin
+[348]		P62983	RS27A_MOUSE	6	35.9	2.3e-9	17951.1	MOUSE	Ubiquitin-40S ribosomal protein S27a
+[349]		O35841	API5_MOUSE	5	12.7	1.6e-8	56785.7	MOUSE	Apoptosis inhibitor 5
+[350]		Q9JLV6	PNKP_MOUSE	6	12.8	2.0e-7	57223.9	MOUSE	Bifunctional polynucleotide phosphatase/kinase
+[351]		P62814	VATB2_MOUSE	7	15.9	2.7e-8	56551.3	MOUSE	V-type proton ATPase subunit B, brain isoform
+[352]		Q80X41	VRK1_MOUSE	8	16.4	1.2e-9	49741.2	MOUSE	Serine/threonine-protein kinase VRK1
+[353]		Q8BFY9	TNPO1_MOUSE	4	5.3	6.3e-10	102358.0	MOUSE	Transportin-1
+[354]		P70248	MYO1F_MOUSE	6	6.2	2.3e-9	125948.5	MOUSE	Unconventional myosin-If
+[355]		Q60597	ODO1_MOUSE	9	9.8	2.2e-8	116450.0	MOUSE	2-oxoglutarate dehydrogenase, mitochondrial
+[356]		D3Z6Q9	BIN2_MOUSE	5	15.7	2.0e-11	52554.4	MOUSE	Bridging integrator 2
+[357]		P48025	KSYK_MOUSE	6	11.1	1.0e-9	71377.0	MOUSE	Tyrosine-protein kinase SYK
+[358]		Q6P4T2	U520_MOUSE	13	6.6	2.5e-5	244548.8	MOUSE	U5 small nuclear ribonucleoprotein 200 kDa helicase
+[359]		O88844	IDHC_MOUSE	8	18.6	1.2e-6	46674.9	MOUSE	Isocitrate dehydrogenase [NADP] cytoplasmic
+[360]		Q9CZ13	QCR1_MOUSE	5	9.4	1.5e-11	52852.2	MOUSE	Cytochrome b-c1 complex subunit 1, mitochondrial
+[361]		O35598	ADA10_MOUSE	4	6.3	2.5e-12	83968.9	MOUSE	Disintegrin and metalloproteinase domain-containing protein 10
+[362]		Q99MR6	SRRT_MOUSE	8	8.3	6.4e-8	100453.1	MOUSE	Serrate RNA effector molecule homolog
+[363]		Q9EQH3	VPS35_MOUSE	5	7.7	1.1e-7	91713.8	MOUSE	Vacuolar protein sorting-associated protein 35
+[364]		P16045	LEG1_MOUSE	3	27.4	2.3e-12	14866.0	MOUSE	Galectin-1
+[365]		P42225	STAT1_MOUSE	8	11.6	3.5e-6	87198.2	MOUSE	Signal transducer and activator of transcription 1
+[366]		P62702	RS4X_MOUSE	9	21.3	1.4e-5	29598.0	MOUSE	40S ribosomal protein S4, X isoform
+[367]		Q61937	NPM_MOUSE	6	18.5	4.8e-8	32560.3	MOUSE	Nucleophosmin
+[368]		Q8BGD9	IF4B_MOUSE	3	4.9	1.9e-11	68840.5	MOUSE	Eukaryotic translation initiation factor 4B
+[369]		Q99L45	IF2B_MOUSE	5	13.0	4.1e-10	38092.4	MOUSE	Eukaryotic translation initiation factor 2 subunit 2
+[370]		P24452	CAPG_MOUSE	5	13.9	1.8e-9	39240.7	MOUSE	Macrophage-capping protein
+[371]		Q8C1B7	SEP11_MOUSE	3	9.3	6.3e-12	49695.1	MOUSE	Septin-11
+[372]		Q3UW53	NIBAN_MOUSE	10	12.0	5.1e-6	102649.9	MOUSE	Protein Niban
+[373]		P11103	PARP1_MOUSE	7	9.7	2.9e-6	113100.8	MOUSE	Poly [ADP-ribose] polymerase 1
+[374]		P99029	PRDX5_MOUSE	5	30.5	1.6e-8	21897.7	MOUSE	Peroxiredoxin-5, mitochondrial
+[375]		P26638	SYSC_MOUSE	3	5.7	2.7e-11	58389.2	MOUSE	Serine--tRNA ligase, cytoplasmic
+[376]		P49717	MCM4_MOUSE	8	10.2	1.9e-7	96737.0	MOUSE	DNA replication licensing factor MCM4
+[377]		Q9D6R2	IDH3A_MOUSE	5	12.3	2.9e-7	39639.1	MOUSE	Isocitrate dehydrogenase [NAD] subunit alpha, mitochondrial
+[378]		P29758	OAT_MOUSE	5	12.8	8.8e-8	48355.0	MOUSE	Ornithine aminotransferase, mitochondrial
+[379]		Q9DCL9	PUR6_MOUSE	4	12.0	2.4e-12	47006.5	MOUSE	Multifunctional protein ADE2
+[380]		Q8R1B4	EIF3C_MOUSE	13	14.3	1.3e-6	105531.9	MOUSE	Eukaryotic translation initiation factor 3 subunit C
+[381]		Q99JY0	ECHB_MOUSE	9	16.2	2.1e-5	51386.8	MOUSE	Trifunctional enzyme subunit beta, mitochondrial
+[382]		Q9D6Y9	GLGB_MOUSE	4	6.6	4.4e-10	80364.4	MOUSE	1,4-alpha-glucan-branching enzyme
+[383]		Q91VR5	DDX1_MOUSE	6	11.4	1.6e-8	82500.9	MOUSE	ATP-dependent RNA helicase DDX1
+[384]		P23198	CBX3_MOUSE	6	21.3	2.7e-6	20855.6	MOUSE	Chromobox protein homolog 3
+[385]		Q9CZ44	NSF1C_MOUSE	5	16.2	1.9e-7	40710.3	MOUSE	NSFL1 cofactor p47
+[386]		Q61081	CDC37_MOUSE	5	16.4	4.7e-7	44593.8	MOUSE	Hsp90 co-chaperone Cdc37
+[387]		Q7TNV0	DEK_MOUSE	5	15.5	8.1e-8	43158.9	MOUSE	Protein DEK
+[388]		P03958	ADA_MOUSE	4	14.5	2.3e-8	39992.0	MOUSE	Adenosine deaminase
+[389]		Q9ERZ0	HEMGN_MOUSE	7	18.5	1.0e-6	55043.5	MOUSE	Hemogen
+[390]		O35350	CAN1_MOUSE	5	7.6	5.0e-10	82107.0	MOUSE	Calpain-1 catalytic subunit
+[391]		Q08093	CNN2_MOUSE	5	19.7	5.9e-9	33155.8	MOUSE	Calponin-2
+[391-1]	1	Q9DAW9	CNN3_MOUSE	2	7.6	1.2e-5	36429.0	MOUSE	Calponin-3
+[392]		Q9D2V7	CORO7_MOUSE	9	12.3	8.2e-7	100813.1	MOUSE	Coronin-7
+[393]		Q8CG47	SMC4_MOUSE	8	7.0	1.4e-6	146896.0	MOUSE	Structural maintenance of chromosomes protein 4
+[394]		P10518	HEM2_MOUSE	3	13.3	8.0e-12	36023.9	MOUSE	Delta-aminolevulinic acid dehydratase
+[395]		P23492	PNPH_MOUSE	7	23.9	1.1e-8	32277.4	MOUSE	Purine nucleoside phosphorylase
+[396]		Q9DBG6	RPN2_MOUSE	6	7.9	1.4e-8	69063.5	MOUSE	Dolichyl-diphosphooligosaccharide--protein glycosyltransferase subunit 2
+[397]		Q91W90	TXND5_MOUSE	2	7.7	4.8e-13	46415.9	MOUSE	Thioredoxin domain-containing protein 5
+[398]		Q99MD9	NASP_MOUSE	5	9.2	1.1e-7	83954.5	MOUSE	Nuclear autoantigenic sperm protein
+[399]		P16110	LEG3_MOUSE	8	24.6	5.2e-6	27515.1	MOUSE	Galectin-3
+[400]		P62751	RL23A_MOUSE	5	27.6	3.3e-6	17695.2	MOUSE	60S ribosomal protein L23a
+[401]		Q9DBH5	LMAN2_MOUSE	6	14.5	3.5e-8	40430.1	MOUSE	Vesicular integral-membrane protein VIP36
+[402]		Q8K310	MATR3_MOUSE	6	9.6	5.9e-8	94631.1	MOUSE	Matrin-3
+[403]		Q9WUM5	SUCA_MOUSE	4	15.6	1.3e-8	36155.1	MOUSE	Succinate--CoA ligase [ADP/GDP-forming] subunit alpha, mitochondrial
+[404]		P62264	RS14_MOUSE	4	22.5	6.7e-7	16272.9	MOUSE	40S ribosomal protein S14
+[405]		Q9D554	SF3A3_MOUSE	7	16.0	1.5e-5	58842.4	MOUSE	Splicing factor 3A subunit 3
+[406]		Q6P5E4	UGGG1_MOUSE	9	6.8	5.7e-6	176435.1	MOUSE	UDP-glucose:glycoprotein glucosyltransferase 1
+[407]		P14869	RLA0_MOUSE	6	21.5	2.2e-7	34216.7	MOUSE	60S acidic ribosomal protein P0
+[408]		P97457	MLRS_MOUSE	6	33.7	1.8e-8	18955.6	MOUSE	Myosin regulatory light chain 2, skeletal muscle isoform
+[409]		Q6ZWR6	SYNE1_MOUSE	9	1.2	7.5e-6	1009934.5	MOUSE	Nesprin-1
+[410]		Q6NZJ6	IF4G1_MOUSE	9	7.9	3.4e-6	176078.3	MOUSE	Eukaryotic translation initiation factor 4 gamma 1
+[410-1]	1	Q80XI3	IF4G3_MOUSE	3	2.1	1.9e-4	174891.6	MOUSE	Eukaryotic translation initiation factor 4 gamma 3
+[410-2]	1	Q80XI3-2	IF4G3_MOUSE	3	2.1	1.9e-4	172866.3	MOUSE	Isoform 2 of Eukaryotic translation initiation factor 4 gamma 3
+[410-3]	1	Q80XI3-3	IF4G3_MOUSE	3	2.1	1.9e-4	176061.9	MOUSE	Isoform 3 of Eukaryotic translation initiation factor 4 gamma 3
+[410-4]	1	Q80XI3-4	IF4G3_MOUSE	3	2.1	1.9e-4	174792.5	MOUSE	Isoform 4 of Eukaryotic translation initiation factor 4 gamma 3
+[411]		O08784	TCOF_MOUSE	7	6.9	1.1e-7	135002.3	MOUSE	Treacle protein
+[412]		P47753	CAZA1_MOUSE	4	13.3	9.4e-9	32940.0	MOUSE	F-actin-capping protein subunit alpha-1
+[412-1]	1	P47754	CAZA2_MOUSE	2	8.0	3.1e-6	32967.3	MOUSE	F-actin-capping protein subunit alpha-2
+[413]		P62307	RUXF_MOUSE	3	24.4	2.2e-12	9725.3	MOUSE	Small nuclear ribonucleoprotein F
+[414]		Q9CZE3	RAB32_MOUSE	3	9.0	3.2e-9	25068.7	MOUSE	Ras-related protein Rab-32
+[415]		Q9Z2W0	DNPEP_MOUSE	4	8.9	2.3e-7	52207.3	MOUSE	Aspartyl aminopeptidase
+[416]		P84228	H32_MOUSE	5	40.4	4.0e-9	15388.2	MOUSE	Histone H3.2
+[417]		O09044	SNP23_MOUSE	3	23.8	1.2e-9	23261.1	MOUSE	Synaptosomal-associated protein 23
+[418]		O09159	MA2B1_MOUSE	6	5.2	5.3e-7	114649.3	MOUSE	Lysosomal alpha-mannosidase
+[419]		Q9R112	SQRD_MOUSE	4	11.1	4.2e-7	50282.9	MOUSE	Sulfide:quinone oxidoreductase, mitochondrial
+[420]		Q9D8Y0	EFHD2_MOUSE	5	23.8	8.6e-7	26791.4	MOUSE	EF-hand domain-containing protein D2
+[421]		Q3THK7	GUAA_MOUSE	7	7.4	7.3e-7	76724.1	MOUSE	GMP synthase [glutamine-hydrolyzing]
+[422]		Q60953	PML_MOUSE	7	9.9	9.8e-7	98243.0	MOUSE	Protein PML
+[423]		Q8BHD7	PTBP3_MOUSE	4	5.5	6.8e-10	56701.6	MOUSE	Polypyrimidine tract-binding protein 3
+[424]		Q00PI9	HNRL2_MOUSE	11	15.2	3.2e-6	84940.9	MOUSE	Heterogeneous nuclear ribonucleoprotein U-like protein 2
+[425]		P80313	TCPH_MOUSE	8	14.5	1.1e-5	59652.7	MOUSE	T-complex protein 1 subunit eta
+[426]		P13634	CAH1_MOUSE	4	18.8	4.1e-8	28330.8	MOUSE	Carbonic anhydrase 1
+[427]		O35226-2	PSMD4_MOUSE	5	19.0	3.8e-7	41046.4	MOUSE	Isoform Rpn10B of 26S proteasome non-ATPase regulatory subunit 4
+[428]		Q9JI39	ABCBA_MOUSE	5	8.4	2.5e-8	77188.7	MOUSE	ATP-binding cassette sub-family B member 10, mitochondrial
+[429]		P10639	THIO_MOUSE	5	41.0	7.2e-8	11675.6	MOUSE	Thioredoxin
+[430]		Q99PT1	GDIR1_MOUSE	5	22.1	6.6e-7	23407.6	MOUSE	Rho GDP-dissociation inhibitor 1
+[431]		P60335	PCBP1_MOUSE	7	20.8	1.2e-7	37498.2	MOUSE	Poly(rC)-binding protein 1
+[431-1]	3	Q61990	PCBP2_MOUSE	4	13.5	1.2e-7	38222.0	MOUSE	Poly(rC)-binding protein 2
+[431-2]	3	Q61990-2	PCBP2_MOUSE	4	14.8	1.2e-7	34917.4	MOUSE	Isoform 2 of Poly(rC)-binding protein 2
+[431-3]	3	Q61990-3	PCBP2_MOUSE	4	14.0	1.2e-7	36801.5	MOUSE	Isoform 3 of Poly(rC)-binding protein 2
+[431-4]	1	P57722	PCBP3_MOUSE	2	6.7	1.2e-7	39294.5	MOUSE	Poly(rC)-binding protein 3
+[431-5]	1	P57722-2	PCBP3_MOUSE	2	6.8	1.2e-7	39166.4	MOUSE	Isoform 2 of Poly(rC)-binding protein 3
+[432]		Q9Z2U1	PSA5_MOUSE	4	17.4	5.3e-10	26411.3	MOUSE	Proteasome subunit alpha type-5
+[433]		Q9Z2N8	ACL6A_MOUSE	4	12.1	1.6e-9	47448.4	MOUSE	Actin-like protein 6A
+[434]		P54227	STMN1_MOUSE	6	36.2	8.6e-11	17274.6	MOUSE	Stathmin
+[435]		Q99LC5	ETFA_MOUSE	4	17.7	1.3e-9	35009.7	MOUSE	Electron transfer flavoprotein subunit alpha, mitochondrial
+[436]		Q99MN1	SYK_MOUSE	4	9.9	4.6e-8	67840.3	MOUSE	Lysine--tRNA ligase
+[437]		Q9Z277	BAZ1B_MOUSE	7	5.0	1.1e-6	170652.1	MOUSE	Tyrosine-protein kinase BAZ1B
+[438]		Q8BKC5	IPO5_MOUSE	8	7.6	1.0e-6	123592.2	MOUSE	Importin-5
+[439]		Q9D8N0	EF1G_MOUSE	5	13.7	2.3e-7	50061.2	MOUSE	Elongation factor 1-gamma
+[440]		P70670	NACAM_MOUSE	4	2.5	8.7e-7	220501.1	MOUSE	Nascent polypeptide-associated complex subunit alpha, muscle-specific form
+[441]		P61965	WDR5_MOUSE	3	12.6	2.5e-10	36588.8	MOUSE	WD repeat-containing protein 5
+[442]		Q61103	REQU_MOUSE	3	10.5	1.1e-11	44230.0	MOUSE	Zinc finger protein ubi-d4
+[443]		Q6ZWU9	RS27_MOUSE	5	39.3	1.8e-6	9461.2	MOUSE	40S ribosomal protein S27
+[443-1]	1	Q6ZWY3	RS27L_MOUSE	3	38.1	8.7e-6	9477.3	MOUSE	40S ribosomal protein S27-like
+[444]		Q569Z6	TR150_MOUSE	4	4.9	1.5e-6	108179.0	MOUSE	Thyroid hormone receptor-associated protein 3
+[445]		P11438	LAMP1_MOUSE	4	8.4	3.9e-10	43865.5	MOUSE	Lysosome-associated membrane glycoprotein 1
+[446]		P18242	CATD_MOUSE	4	12.0	5.8e-8	44954.2	MOUSE	Cathepsin D
+[447]		P56959	FUS_MOUSE	4	11.4	6.3e-10	52673.5	MOUSE	RNA-binding protein FUS
+[448]		Q8BMK4	CKAP4_MOUSE	8	12.5	2.2e-5	63692.6	MOUSE	Cytoskeleton-associated protein 4
+[449]		P97461	RS5_MOUSE	5	15.7	6.0e-8	22889.6	MOUSE	40S ribosomal protein S5
+[450]		P51437	CAMP_MOUSE	2	19.8	1.7e-11	19453.6	MOUSE	Cathelicidin antimicrobial peptide
+[451]		P28293	CATG_MOUSE	8	26.1	3.9e-7	29095.9	MOUSE	Cathepsin G
+[452]		Q99KH8	STK24_MOUSE	4	12.1	7.0e-8	47954.0	MOUSE	Serine/threonine-protein kinase 24
+[452-1]	2	Q99JT2	STK26_MOUSE	3	7.9	9.7e-9	46614.3	MOUSE	Serine/threonine-protein kinase 26
+[453]		Q9DAR7	DCPS_MOUSE	3	11.2	1.8e-11	38988.5	MOUSE	m7GpppX diphosphatase
+[454]		Q6BCL1	PRAM_MOUSE	4	5.8	1.1e-7	75508.8	MOUSE	PML-RARA-regulated adapter molecule 1
+[455]		P62281	RS11_MOUSE	6	31.6	9.6e-8	18430.9	MOUSE	40S ribosomal protein S11
+[456]		Q99JW4	LIMS1_MOUSE	5	18.5	2.1e-10	37240.7	MOUSE	LIM and senescent cell antigen-like-containing domain protein 1
+[457]		Q569Z5	DDX46_MOUSE	5	6.2	1.1e-7	117449.2	MOUSE	Probable ATP-dependent RNA helicase DDX46
+[458]		Q6P542	ABCF1_MOUSE	6	7.8	1.1e-7	94946.2	MOUSE	ATP-binding cassette sub-family F member 1
+[459]		Q9CYR0	SSBP_MOUSE	2	9.9	2.5e-12	17319.1	MOUSE	Single-stranded DNA-binding protein, mitochondrial
+[460]		Q9CXW4	RL11_MOUSE	3	20.2	1.5e-8	20252.6	MOUSE	60S ribosomal protein L11
+[461]		P19783	COX41_MOUSE	4	18.9	2.9e-8	19530.6	MOUSE	Cytochrome c oxidase subunit 4 isoform 1, mitochondrial
+[462]		Q78ZA7	NP1L4_MOUSE	3	12.3	6.7e-10	42679.7	MOUSE	Nucleosome assembly protein 1-like 4
+[462-1]	1	P28656	NP1L1_MOUSE	2	5.6	5.2e-6	45345.5	MOUSE	Nucleosome assembly protein 1-like 1
+[463]		Q8VEM8	MPCP_MOUSE	7	11.2	9.0e-7	39632.7	MOUSE	Phosphate carrier protein, mitochondrial
+[464]		P14685	PSMD3_MOUSE	6	13.2	2.4e-8	60718.8	MOUSE	26S proteasome non-ATPase regulatory subunit 3
+[465]		Q80VD1	FA98B_MOUSE	3	8.2	1.4e-9	45349.5	MOUSE	Protein FAM98B
+[466]		Q9D0K2	SCOT1_MOUSE	4	8.5	4.4e-10	55989.1	MOUSE	Succinyl-CoA:3-ketoacid coenzyme A transferase 1, mitochondrial
+[467]		Q99KC8	VMA5A_MOUSE	3	5.0	1.3e-9	87143.5	MOUSE	von Willebrand factor A domain-containing protein 5A
+[468]		Q3UYV9	NCBP1_MOUSE	4	5.6	3.3e-9	91927.5	MOUSE	Nuclear cap-binding protein subunit 1
+[469]		Q9QUI0	RHOA_MOUSE	8	23.8	5.7e-6	21782.4	MOUSE	Transforming protein RhoA
+[470]		Q3U7R1	ESYT1_MOUSE	8	7.2	2.8e-5	121554.6	MOUSE	Extended synaptotagmin-1
+[471]		Q8QZS1	HIBCH_MOUSE	5	15.8	1.1e-5	43038.0	MOUSE	3-hydroxyisobutyryl-CoA hydrolase, mitochondrial
+[472]		Q9QZD9	EIF3I_MOUSE	6	21.5	9.5e-7	36461.1	MOUSE	Eukaryotic translation initiation factor 3 subunit I
+[473]		O08788	DCTN1_MOUSE	6	5.5	7.3e-7	141677.0	MOUSE	Dynactin subunit 1
+[474]		Q9CWZ3	RBM8A_MOUSE	4	21.8	6.9e-10	19889.2	MOUSE	RNA-binding protein 8A
+[475]		D3YXK2	SAFB1_MOUSE	7	9.0	4.1e-8	105104.5	MOUSE	Scaffold attachment factor B1
+[475-1]	2	Q80YR5	SAFB2_MOUSE	5	6.7	7.0e-8	111839.2	MOUSE	Scaffold attachment factor B2
+[476]		O08917	FLOT1_MOUSE	4	13.6	1.9e-6	47513.9	MOUSE	Flotillin-1
+[477]		P10711	TCEA1_MOUSE	6	20.6	5.1e-8	33880.8	MOUSE	Transcription elongation factor A protein 1
+[478]		O54941	SMCE1_MOUSE	3	9.2	1.2e-10	46638.8	MOUSE	SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily E member 1
+[479]		Q8K411	PREP_MOUSE	7	8.0	5.3e-6	117372.8	MOUSE	Presequence protease, mitochondrial
+[480]		O89090	SP1_MOUSE	4	4.7	6.7e-9	80732.5	MOUSE	Transcription factor Sp1
+[481]		Q8VDJ3	VIGLN_MOUSE	5	5.1	1.4e-7	141744.1	MOUSE	Vigilin
+[482]		Q9JMH9	MY18A_MOUSE	4	2.5	1.4e-10	232756.9	MOUSE	Unconventional myosin-XVIIIa
+[483]		Q9JMA1	UBP14_MOUSE	5	12.2	8.5e-7	56002.5	MOUSE	Ubiquitin carboxyl-terminal hydrolase 14
+[484]		P62889	RL30_MOUSE	5	51.3	1.7e-6	12784.2	MOUSE	60S ribosomal protein L30
+[485]		Q7TQI3	OTUB1_MOUSE	4	14.4	9.0e-10	31270.3	MOUSE	Ubiquitin thioesterase OTUB1
+[486]		Q8R180	ERO1A_MOUSE	5	11.6	5.8e-8	54084.9	MOUSE	ERO1-like protein alpha
+[487]		P46471	PRS7_MOUSE	3	8.5	1.5e-11	48648.3	MOUSE	26S protease regulatory subunit 7
+[488]		Q9R1P4	PSA1_MOUSE	3	12.9	9.1e-13	29546.8	MOUSE	Proteasome subunit alpha type-1
+[489]		Q91YR7	PRP6_MOUSE	5	6.2	4.1e-7	106722.6	MOUSE	Pre-mRNA-processing factor 6
+[490]		Q9CZW5	TOM70_MOUSE	2	4.4	5.6e-11	67590.8	MOUSE	Mitochondrial import receptor subunit TOM70
+[491]		P27546	MAP4_MOUSE	4	5.2	1.3e-7	117430.2	MOUSE	Microtubule-associated protein 4
+[492]		Q3V3R1	C1TM_MOUSE	8	8.9	6.2e-7	105729.7	MOUSE	Monofunctional C1-tetrahydrofolate synthase, mitochondrial
+[493]		Q9D051	ODPB_MOUSE	5	13.6	7.6e-7	38937.5	MOUSE	Pyruvate dehydrogenase E1 component subunit beta, mitochondrial
+[494]		Q64213	SF01_MOUSE	7	8.6	3.5e-8	70403.6	MOUSE	Splicing factor 1
+[495]		Q9R1T4	SEPT6_MOUSE	3	6.9	1.5e-8	49620.0	MOUSE	Septin-6
+[496]		Q61166	MARE1_MOUSE	4	20.9	2.1e-9	30016.5	MOUSE	Microtubule-associated protein RP/EB family member 1
+[497]		Q8VDM6	HNRL1_MOUSE	6	7.7	2.1e-6	96002.7	MOUSE	Heterogeneous nuclear ribonucleoprotein U-like protein 1
+[498]		P15379	CD44_MOUSE	4	4.9	2.9e-10	85617.8	MOUSE	CD44 antigen
+[499]		Q8BPU7	ELMO1_MOUSE	4	7.3	7.7e-7	83936.4	MOUSE	Engulfment and cell motility protein 1
+[500]		Q6PDG5	SMRC2_MOUSE	5	3.2	6.2e-9	132605.2	MOUSE	SWI/SNF complex subunit SMARCC2
+[501]		Q9EPL8	IPO7_MOUSE	3	3.7	2.6e-10	119487.6	MOUSE	Importin-7
+[502]		P62852	RS25_MOUSE	4	32.8	4.2e-12	13742.2	MOUSE	40S ribosomal protein S25
+[503]		Q8BL97	SRSF7_MOUSE	5	15.0	1.9e-6	30817.8	MOUSE	Serine/arginine-rich splicing factor 7
+[504]		Q61768	KINH_MOUSE	4	5.7	9.2e-9	109552.4	MOUSE	Kinesin-1 heavy chain
+[505]		Q8R317	UBQL1_MOUSE	4	11.7	5.3e-9	61977.0	MOUSE	Ubiquilin-1
+[506]		Q8BHN3	GANAB_MOUSE	8	9.7	5.3e-7	106912.0	MOUSE	Neutral alpha-glucosidase AB
+[507]		P46061	RAGP1_MOUSE	7	13.2	3.3e-6	63531.5	MOUSE	Ran GTPase-activating protein 1
+[508]		Q3TXS7	PSMD1_MOUSE	4	5.8	2.2e-8	105731.1	MOUSE	26S proteasome non-ATPase regulatory subunit 1
+[509]		O89086	RBM3_MOUSE	4	22.9	1.3e-8	16604.8	MOUSE	RNA-binding protein 3
+[510]		Q9CXW3	CYBP_MOUSE	5	17.5	7.6e-9	26510.4	MOUSE	Calcyclin-binding protein
+[511]		O88456	CPNS1_MOUSE	3	14.1	4.4e-9	28463.3	MOUSE	Calpain small subunit 1
+[512]		P80317	TCPZ_MOUSE	5	9.8	9.1e-7	58004.8	MOUSE	T-complex protein 1 subunit zeta
+[513]		P47758	SRPRB_MOUSE	2	7.1	1.7e-11	29579.3	MOUSE	Signal recognition particle receptor subunit beta
+[514]		Q3UZA1	CPZIP_MOUSE	5	15.5	1.4e-7	44114.5	MOUSE	CapZ-interacting protein
+[515]		P25444	RS2_MOUSE	7	24.2	5.9e-6	31231.6	MOUSE	40S ribosomal protein S2
+[516]		Q922V4	PLRG1_MOUSE	3	3.1	1.3e-6	56938.1	MOUSE	Pleiotropic regulator 1
+[517]		O35682	MYADM_MOUSE	2	5.3	4.0e-10	35284.9	MOUSE	Myeloid-associated differentiation marker
+[518]		P35980	RL18_MOUSE	4	18.6	5.3e-7	21644.7	MOUSE	60S ribosomal protein L18
+[519]		Q8CIH5	PLCG2_MOUSE	9	8.1	2.7e-7	147593.2	MOUSE	1-phosphatidylinositol 4,5-bisphosphate phosphodiesterase gamma-2
+[520]		Q5SUF2	LC7L3_MOUSE	2	7.4	1.7e-9	51450.6	MOUSE	Luc7-like protein 3
+[521]		Q80VQ0	AL3B1_MOUSE	5	12.6	1.1e-8	52292.6	MOUSE	Aldehyde dehydrogenase family 3 member B1
+[522]		Q6P069	SORCN_MOUSE	6	20.7	1.9e-7	21627.5	MOUSE	Sorcin
+[523]		P08103	HCK_MOUSE	3	6.5	2.2e-9	59129.9	MOUSE	Tyrosine-protein kinase HCK
+[524]		Q91XV3	BASP1_MOUSE	4	22.6	7.6e-9	22086.8	MOUSE	Brain acid soluble protein 1
+[525]		Q8BP67	RL24_MOUSE	4	25.5	6.8e-7	17779.1	MOUSE	60S ribosomal protein L24
+[526]		P12265	BGLR_MOUSE	3	6.0	2.0e-7	74195.9	MOUSE	Beta-glucuronidase
+[527]		P28658	ATX10_MOUSE	4	11.2	1.1e-7	53707.4	MOUSE	Ataxin-10
+[528]		Q9R0P5	DEST_MOUSE	5	34.5	5.0e-7	18521.8	MOUSE	Destrin
+[529]		Q9WVK4	EHD1_MOUSE	7	14.8	1.1e-5	60603.3	MOUSE	EH domain-containing protein 1
+[530]		Q9D1A2	CNDP2_MOUSE	7	18.1	3.0e-5	52767.8	MOUSE	Cytosolic non-specific dipeptidase
+[531]		P11276	FINC_MOUSE	7	3.3	1.1e-6	272540.4	MOUSE	Fibronectin
+[532]		Q9D6Y7	MSRA_MOUSE	3	11.2	1.0e-8	25988.6	MOUSE	Mitochondrial peptide methionine sulfoxide reductase
+[533]		Q9CZL2	CD032_MOUSE	2	22.9	2.0e-13	14510.8	MOUSE	Uncharacterized protein C4orf32 homolog
+[534]		P17679	GATA1_MOUSE	4	13.8	7.8e-10	42674.4	MOUSE	Erythroid transcription factor
+[535]		Q9D8U8	SNX5_MOUSE	6	15.1	7.3e-6	46797.8	MOUSE	Sorting nexin-5
+[536]		Q9CZ30	OLA1_MOUSE	6	15.2	8.7e-7	44729.9	MOUSE	Obg-like ATPase 1
+[537]		Q8CIE6	COPA_MOUSE	5	4.8	3.3e-6	138433.2	MOUSE	Coatomer subunit alpha
+[538]		Q6GQT1	A2MG_MOUSE	2	1.8	2.9e-9	164354.1	MOUSE	Alpha-2-macroglobulin-P
+[539]		P14131	RS16_MOUSE	4	30.8	2.9e-6	16445.5	MOUSE	40S ribosomal protein S16
+[540]		Q9CZU6	CISY_MOUSE	5	11.2	9.6e-6	51737.1	MOUSE	Citrate synthase, mitochondrial
+[541]		Q6PGH2	HN1L_MOUSE	3	21.1	4.2e-7	20020.3	MOUSE	Hematological and neurological expressed 1-like protein
+[542]		P46978	STT3A_MOUSE	3	4.1	8.2e-10	80598.4	MOUSE	Dolichyl-diphosphooligosaccharide--protein glycosyltransferase subunit STT3A
+[543]		Q9QUM9	PSA6_MOUSE	4	17.9	1.4e-9	27372.7	MOUSE	Proteasome subunit alpha type-6
+[544]		Q9WVA3	BUB3_MOUSE	6	23.0	3.1e-6	36954.8	MOUSE	Mitotic checkpoint protein BUB3
+[545]		P50516	VATA_MOUSE	4	5.5	1.6e-7	68326.7	MOUSE	V-type proton ATPase catalytic subunit A
+[546]		Q9D0T1	NH2L1_MOUSE	4	27.3	1.5e-5	14173.7	MOUSE	NHP2-like protein 1
+[547]		Q8C147	DOCK8_MOUSE	6	3.5	5.3e-6	238980.5	MOUSE	Dedicator of cytokinesis protein 8
+[548]		Q6A0A9	F120A_MOUSE	4	5.4	1.8e-8	121646.8	MOUSE	Constitutive coactivator of PPAR-gamma-like protein 1
+[549]		P43430	MCPT8_MOUSE	5	14.2	1.8e-8	27121.9	MOUSE	Mast cell protease 8
+[550]		A2BH40	ARI1A_MOUSE	2	1.5	2.4e-11	242093.8	MOUSE	AT-rich interactive domain-containing protein 1A
+[551]		Q7TMK9	HNRPQ_MOUSE	7	8.7	2.4e-6	69633.2	MOUSE	Heterogeneous nuclear ribonucleoprotein Q
+[552]		Q62230	SN_MOUSE	6	4.8	3.2e-5	182980.4	MOUSE	Sialoadhesin
+[553]		Q9DBR0	AKAP8_MOUSE	2	3.9	9.1e-10	76294.6	MOUSE	A-kinase anchor protein 8
+[554]		Q8BVY0	RL1D1_MOUSE	4	13.1	9.7e-6	50421.7	MOUSE	Ribosomal L1 domain-containing protein 1
+[555]		Q9WTP6	KAD2_MOUSE	6	19.7	6.7e-8	26469.0	MOUSE	Adenylate kinase 2, mitochondrial
+[556]		P09528	FRIH_MOUSE	4	18.7	2.3e-7	21066.8	MOUSE	Ferritin heavy chain
+[557]		P35700	PRDX1_MOUSE	7	40.7	1.8e-6	22176.7	MOUSE	Peroxiredoxin-1
+[557-1]	2	O08807	PRDX4_MOUSE	4	15.7	7.7e-8	31052.8	MOUSE	Peroxiredoxin-4
+[558]		O55023	IMPA1_MOUSE	4	15.9	6.2e-6	30436.5	MOUSE	Inositol monophosphatase 1
+[559]		P84089	ERH_MOUSE	2	22.1	1.3e-9	12259.1	MOUSE	Enhancer of rudimentary homolog
+[560]		Q91WQ3	SYYC_MOUSE	5	8.5	1.5e-5	59105.9	MOUSE	Tyrosine--tRNA ligase, cytoplasmic
+[561]		Q8R0X7	SGPL1_MOUSE	3	7.4	4.0e-7	63677.8	MOUSE	Sphingosine-1-phosphate lyase 1
+[562]		Q9DB20	ATPO_MOUSE	4	22.1	6.7e-7	23363.8	MOUSE	ATP synthase subunit O, mitochondrial
+[563]		P53994	RAB2A_MOUSE	3	17.5	2.3e-7	23547.7	MOUSE	Ras-related protein Rab-2A
+[564]		Q9Z1F9	SAE2_MOUSE	4	6.6	1.6e-8	70569.5	MOUSE	SUMO-activating enzyme subunit 2
+[565]		P00493	HPRT_MOUSE	3	16.1	2.4e-9	24570.6	MOUSE	Hypoxanthine-guanine phosphoribosyltransferase
+[566]		Q9DCW4	ETFB_MOUSE	5	23.5	2.7e-8	27623.5	MOUSE	Electron transfer flavoprotein subunit beta
+[567]		Q505F5	LRC47_MOUSE	4	8.6	1.7e-7	63590.8	MOUSE	Leucine-rich repeat-containing protein 47
+[568]		Q9JIX8	ACINU_MOUSE	9	7.0	4.2e-8	150720.1	MOUSE	Apoptotic chromatin condensation inducer in the nucleus
+[569]		P06800	PTPRC_MOUSE	8	7.1	7.8e-7	144605.7	MOUSE	Receptor-type tyrosine-protein phosphatase C
+[570]		B2RQC6	PYR1_MOUSE	3	1.8	2.8e-7	243240.6	MOUSE	CAD protein
+[571]		Q3UP87	ELNE_MOUSE	6	16.6	4.2e-7	28648.2	MOUSE	Neutrophil elastase
+[572]		Q8CH18	CCAR1_MOUSE	4	3.4	1.5e-7	132061.3	MOUSE	Cell division cycle and apoptosis regulator protein 1
+[573]		Q99JF8	PSIP1_MOUSE	5	12.1	3.4e-7	59697.3	MOUSE	PC4 and SFRS1-interacting protein
+[573-1]	5	P51859	HDGF_MOUSE	6	20.3	5.2e-9	26268.9	MOUSE	Hepatoma-derived growth factor
+[573-2]	2	Q3UMU9	HDGR2_MOUSE	3	4.5	5.5e-6	74291.2	MOUSE	Hepatoma-derived growth factor-related protein 2
+[573-3]	2	Q3UMU9-2	HDGR2_MOUSE	3	4.5	5.5e-6	74076.0	MOUSE	Isoform 2 of Hepatoma-derived growth factor-related protein 2
+[573-4]	2	Q3UMU9-3	HDGR2_MOUSE	3	4.4	5.5e-6	75246.3	MOUSE	Isoform 3 of Hepatoma-derived growth factor-related protein 2
+[573-5]	2	Q3UMU9-4	HDGR2_MOUSE	3	4.9	5.5e-6	68531.0	MOUSE	Isoform 4 of Hepatoma-derived growth factor-related protein 2
+[574]		P62897	CYC_MOUSE	3	24.8	6.4e-10	11605.5	MOUSE	Cytochrome c, somatic
+[575]		Q60692	PSB6_MOUSE	3	13.9	1.9e-8	25379.0	MOUSE	Proteasome subunit beta type-6
+[576]		Q8CIN4	PAK2_MOUSE	8	18.7	1.0e-5	57930.8	MOUSE	Serine/threonine-protein kinase PAK 2
+[577]		P62754	RS6_MOUSE	4	17.3	3.8e-6	28680.9	MOUSE	40S ribosomal protein S6
+[578]		Q3UZ39	LRRF1_MOUSE	4	7.3	9.5e-8	79249.8	MOUSE	Leucine-rich repeat flightless-interacting protein 1
+[579]		Q99JI4	PSMD6_MOUSE	6	15.7	1.0e-5	45536.8	MOUSE	26S proteasome non-ATPase regulatory subunit 6
+[580]		O54988	SLK_MOUSE	3	3.5	2.6e-9	141457.8	MOUSE	STE20-like serine/threonine-protein kinase
+[581]		Q03267	IKZF1_MOUSE	5	12.0	2.4e-6	57336.6	MOUSE	DNA-binding protein Ikaros
+[582]		Q9CRB2	NHP2_MOUSE	2	24.2	1.4e-11	17247.3	MOUSE	H/ACA ribonucleoprotein complex subunit 2
+[583]		P62774	MTPN_MOUSE	2	14.4	2.4e-8	12860.9	MOUSE	Myotrophin
+[584]		P22315	HEMH_MOUSE	5	14.8	5.6e-6	47130.8	MOUSE	Ferrochelatase, mitochondrial
+[585]		Q61335	BAP31_MOUSE	5	21.6	1.3e-7	27956.8	MOUSE	B-cell receptor-associated protein 31
+[586]		P47791	GSHR_MOUSE	5	13.2	8.4e-7	53663.2	MOUSE	Glutathione reductase, mitochondrial
+[587]		Q922P9	GLYR1_MOUSE	3	7.0	1.2e-8	59716.1	MOUSE	Putative oxidoreductase GLYR1
+[588]		O08756	HCD2_MOUSE	2	6.5	2.1e-9	27418.9	MOUSE	3-hydroxyacyl-CoA dehydrogenase type-2
+[589]		Q8VI36	PAXI_MOUSE	4	9.6	8.6e-9	64476.9	MOUSE	Paxillin
+[590]		Q9DBR7	MYPT1_MOUSE	3	4.1	4.9e-9	114997.2	MOUSE	Protein phosphatase 1 regulatory subunit 12A
+[591]		P32037	GTR3_MOUSE	3	6.9	2.1e-8	53479.4	MOUSE	Solute carrier family 2, facilitated glucose transporter member 3
+[592]		Q8BK64	AHSA1_MOUSE	2	7.4	1.8e-7	38117.4	MOUSE	Activator of 90 kDa heat shock protein ATPase homolog 1
+[593]		P56395	CYB5_MOUSE	2	18.7	5.6e-9	15241.1	MOUSE	Cytochrome b5
+[594]		Q61941	NNTM_MOUSE	8	8.9	3.6e-6	113839.4	MOUSE	NAD(P) transhydrogenase, mitochondrial
+[595]		Q8R323	RFC3_MOUSE	3	11.0	1.7e-6	40526.6	MOUSE	Replication factor C subunit 3
+[596]		P62715	PP2AB_MOUSE	3	13.3	1.6e-9	35575.4	MOUSE	Serine/threonine-protein phosphatase 2A catalytic subunit beta isoform
+[597]		Q4VAA2	CDV3_MOUSE	2	9.3	3.0e-10	29729.2	MOUSE	Protein CDV3
+[598]		Q6P5F9	XPO1_MOUSE	5	4.7	8.5e-7	123093.8	MOUSE	Exportin-1
+[599]		Q91VR2	ATPG_MOUSE	5	18.5	4.1e-8	32886.2	MOUSE	ATP synthase subunit gamma, mitochondrial
+[600]		P52503	NDUS6_MOUSE	3	31.9	8.1e-7	13019.9	MOUSE	NADH dehydrogenase [ubiquinone] iron-sulfur protein 6, mitochondrial
+[601]		Q61164	CTCF_MOUSE	4	6.1	1.1e-8	83746.3	MOUSE	Transcriptional repressor CTCF
+[602]		Q9CR51	VATG1_MOUSE	3	23.7	1.3e-9	13724.5	MOUSE	V-type proton ATPase subunit G 1
+[603]		Q9Z1X4	ILF3_MOUSE	6	7.9	9.0e-6	96021.8	MOUSE	Interleukin enhancer-binding factor 3
+[604]		Q99L47	F10A1_MOUSE	4	9.2	1.9e-6	41656.3	MOUSE	Hsc70-interacting protein
+[605]		P41105	RL28_MOUSE	4	29.9	3.3e-8	15733.6	MOUSE	60S ribosomal protein L28
+[606]		Q8BP47	SYNC_MOUSE	3	6.8	9.7e-9	64279.9	MOUSE	Asparagine--tRNA ligase, cytoplasmic
+[607]		Q6ZWY8	TYB10_MOUSE	3	34.1	5.0e-7	5025.7	MOUSE	Thymosin beta-10
+[608]		Q91V92	ACLY_MOUSE	4	4.0	4.3e-10	119729.1	MOUSE	ATP-citrate synthase
+[609]		P56399	UBP5_MOUSE	4	6.2	2.9e-6	95834.1	MOUSE	Ubiquitin carboxyl-terminal hydrolase 5
+[610]		Q9Z2D6	MECP2_MOUSE	3	7.2	7.9e-6	52307.9	MOUSE	Methyl-CpG-binding protein 2
+[611]		Q61792	LASP1_MOUSE	6	26.2	5.4e-8	29994.7	MOUSE	LIM and SH3 domain protein 1
+[612]		Q9R1P0	PSA4_MOUSE	2	10.0	6.2e-10	29471.0	MOUSE	Proteasome subunit alpha type-4
+[613]		O08582	GTPB1_MOUSE	5	6.9	6.2e-7	72301.3	MOUSE	GTP-binding protein 1
+[614]		P11031	TCP4_MOUSE	3	20.5	2.0e-10	14427.6	MOUSE	Activated RNA polymerase II transcriptional coactivator p15
+[615]		P14901	HMOX1_MOUSE	4	16.3	1.5e-6	32929.0	MOUSE	Heme oxygenase 1
+[616]		O08528	HXK2_MOUSE	4	5.8	6.6e-7	102536.1	MOUSE	Hexokinase-2
+[617]		P25976	UBF1_MOUSE	5	7.8	2.7e-6	89509.7	MOUSE	Nucleolar transcription factor 1
+[618]		Q9Z1Z2	STRAP_MOUSE	3	12.6	1.3e-7	38442.6	MOUSE	Serine-threonine kinase receptor-associated protein
+[619]		Q8BG32	PSD11_MOUSE	5	13.3	2.0e-6	47437.2	MOUSE	26S proteasome non-ATPase regulatory subunit 11
+[620]		Q80W04	TMCC2_MOUSE	2	4.8	1.5e-9	77054.9	MOUSE	Transmembrane and coiled-coil domains protein 2
+[621]		Q9D7G0	PRPS1_MOUSE	3	8.2	3.2e-8	34834.6	MOUSE	Ribose-phosphate pyrophosphokinase 1
+[622]		P61358	RL27_MOUSE	4	30.1	5.1e-7	15797.9	MOUSE	60S ribosomal protein L27
+[623]		P84091	AP2M1_MOUSE	2	5.7	5.4e-11	49655.1	MOUSE	AP-2 complex subunit mu
+[624]		P07309	TTHY_MOUSE	2	19.0	2.0e-9	15776.1	MOUSE	Transthyretin
+[625]		P36371	TAP2_MOUSE	2	3.7	1.2e-7	77445.5	MOUSE	Antigen peptide transporter 2
+[626]		P14234	FGR_MOUSE	3	7.0	5.6e-8	58867.2	MOUSE	Tyrosine-protein kinase Fgr
+[627]		Q3TW96	UAP1L_MOUSE	3	7.3	6.1e-7	56614.3	MOUSE	UDP-N-acetylhexosamine pyrophosphorylase-like protein 1
+[628]		Q3U1J4	DDB1_MOUSE	8	6.5	2.4e-5	126853.9	MOUSE	DNA damage-binding protein 1
+[629]		Q3U0V2	TRADD_MOUSE	2	6.5	2.9e-8	34577.6	MOUSE	Tumor necrosis factor receptor type 1-associated DEATH domain protein
+[630]		P54116	STOM_MOUSE	3	15.1	2.9e-7	31375.5	MOUSE	Erythrocyte band 7 integral membrane protein
+[631]		O35295	PURB_MOUSE	2	8.3	1.3e-8	33901.6	MOUSE	Transcriptional activator protein Pur-beta
+[632]		P50544	ACADV_MOUSE	3	7.0	3.9e-7	70876.1	MOUSE	Very long-chain specific acyl-CoA dehydrogenase, mitochondrial
+[633]		Q9DBC7	KAP0_MOUSE	5	13.6	4.0e-8	43185.5	MOUSE	cAMP-dependent protein kinase type I-alpha regulatory subunit
+[634]		P97855	G3BP1_MOUSE	5	14.8	1.5e-7	51829.2	MOUSE	Ras GTPase-activating protein-binding protein 1
+[634-1]	3	P97379	G3BP2_MOUSE	4	12.4	5.7e-6	54088.5	MOUSE	Ras GTPase-activating protein-binding protein 2
+[634-2]	3	P97379-2	G3BP2_MOUSE	4	13.4	5.7e-6	50784.8	MOUSE	Isoform B of Ras GTPase-activating protein-binding protein 2
+[635]		P10922	H10_MOUSE	3	19.1	3.4e-8	20861.1	MOUSE	Histone H1.0
+[636]		P35459	LY6D_MOUSE	3	21.3	2.2e-7	13395.7	MOUSE	Lymphocyte antigen 6D
+[637]		Q923D4	SF3B5_MOUSE	4	43.0	8.8e-6	10119.4	MOUSE	Splicing factor 3B subunit 5
+[638]		Q08288	LYAR_MOUSE	2	6.7	2.2e-9	43735.9	MOUSE	Cell growth-regulating nucleolar protein
+[639]		Q91WN1	DNJC9_MOUSE	4	16.6	3.1e-7	30059.2	MOUSE	DnaJ homolog subfamily C member 9
+[640]		Q80UU9	PGRC2_MOUSE	2	20.3	1.3e-7	23334.3	MOUSE	Membrane-associated progesterone receptor component 2
+[641]		P46414	CDN1B_MOUSE	2	16.8	6.5e-9	22193.6	MOUSE	Cyclin-dependent kinase inhibitor 1B
+[642]		Q9JL26	FMNL1_MOUSE	8	7.8	8.5e-8	122060.7	MOUSE	Formin-like protein 1
+[643]		O08663	MAP2_MOUSE	4	8.8	6.4e-7	52922.2	MOUSE	Methionine aminopeptidase 2
+[644]		Q9D883	U2AF1_MOUSE	3	15.5	2.5e-6	27815.3	MOUSE	Splicing factor U2AF 35 kDa subunit
+[645]		Q91V41	RAB14_MOUSE	3	14.9	1.1e-6	23897.2	MOUSE	Ras-related protein Rab-14
+[645-1]	2	P55258	RAB8A_MOUSE	3	16.4	4.6e-7	23668.4	MOUSE	Ras-related protein Rab-8A
+[202-2, 645-2]	3	P35276	RAB3D_MOUSE	4	20.5	1.5e-5	24416.6	MOUSE	Ras-related protein Rab-3D
+[645-3]	2	P61027	RAB10_MOUSE	3	17.0	1.6e-5	22541.1	MOUSE	Ras-related protein Rab-10
+[645-4]	2	P61028	RAB8B_MOUSE	3	16.4	4.3e-5	23603.3	MOUSE	Ras-related protein Rab-8B
+[645-5]	2	Q6PHN9	RAB35_MOUSE	3	17.9	3.2e-5	23025.4	MOUSE	Ras-related protein Rab-35
+[645-6]	2	Q9D1G1	RAB1B_MOUSE	3	18.4	9.7e-5	22187.3	MOUSE	Ras-related protein Rab-1B
+[645-7]	1	P62821	RAB1A_MOUSE	2	10.7	9.7e-5	22678.0	MOUSE	Ras-related protein Rab-1A
+[645-8]	1	Q8K386	RAB15_MOUSE	2	10.4	9.7e-5	24318.7	MOUSE	Ras-related protein Rab-15
+[645-9]	1	P62823	RAB3C_MOUSE	2	9.7	9.7e-5	25872.3	MOUSE	Ras-related protein Rab-3C
+[645-10]	1	P63011	RAB3A_MOUSE	2	10.0	9.7e-5	24970.1	MOUSE	Ras-related protein Rab-3A
+[645-11]	1	Q9CZT8	RAB3B_MOUSE	2	10.0	9.7e-5	24757.2	MOUSE	Ras-related protein Rab-3B
+[646]		Q8BXZ1	TMX3_MOUSE	1	3.9	2.7e-12	51848.5	MOUSE	Protein disulfide-isomerase TMX3
+[647]		O35654	DPOD2_MOUSE	2	3.2	2.1e-7	51355.0	MOUSE	DNA polymerase delta subunit 2
+[648]		Q60664	LRMP_MOUSE	3	8.0	7.1e-7	59588.1	MOUSE	Lymphoid-restricted membrane protein
+[649]		Q99P72	RTN4_MOUSE	2	2.3	1.6e-8	126614.5	MOUSE	Reticulon-4
+[650]		O35892	SP100_MOUSE	4	10.0	9.7e-7	54727.0	MOUSE	Nuclear autoantigen Sp-100
+[651]		Q3TYS2	CQ062_MOUSE	4	21.4	8.5e-6	20921.2	MOUSE	Uncharacterized protein C17orf62 homolog
+[652]		P51410	RL9_MOUSE	4	17.7	1.2e-5	21881.6	MOUSE	60S ribosomal protein L9
+[653]		P59328	WDHD1_MOUSE	2	2.7	4.2e-9	124255.5	MOUSE	WD repeat and HMG-box DNA-binding protein 1
+[654]		Q9D1D4	TMEDA_MOUSE	2	10.5	7.2e-6	24911.0	MOUSE	Transmembrane emp24 domain-containing protein 10
+[655]		Q64012	RALY_MOUSE	5	20.5	2.9e-5	33188.2	MOUSE	RNA-binding protein Raly
+[656]		Q6PDI5	ECM29_MOUSE	2	1.5	3.1e-9	203705.1	MOUSE	Proteasome-associated protein ECM29 homolog
+[657]		Q9D8U6	MCEM1_MOUSE	2	13.7	5.9e-9	20648.9	MOUSE	Mast cell-expressed membrane protein 1
+[658]		Q9R0P4	SMAP_MOUSE	2	8.8	1.7e-9	20046.4	MOUSE	Small acidic protein
+[659]		P25911	LYN_MOUSE	4	8.4	8.6e-8	58812.8	MOUSE	Tyrosine-protein kinase Lyn
+[660]		P41216	ACSL1_MOUSE	9	13.9	3.2e-6	77952.2	MOUSE	Long-chain-fatty-acid--CoA ligase 1
+[660-1]	4	Q8JZR0	ACSL5_MOUSE	6	10.2	2.9e-6	76207.1	MOUSE	Long-chain-fatty-acid--CoA ligase 5
+[661]		P15702	LEUK_MOUSE	3	7.1	9.6e-9	40038.7	MOUSE	Leukosialin
+[662]		Q9Z1D1	EIF3G_MOUSE	1	4.4	1.1e-12	35638.3	MOUSE	Eukaryotic translation initiation factor 3 subunit G
+[663]		P51912	AAAT_MOUSE	2	2.7	1.4e-8	58483.5	MOUSE	Neutral amino acid transporter B(0)
+[664]		Q9JLJ2	AL9A1_MOUSE	6	12.8	1.0e-6	53515.2	MOUSE	4-trimethylaminobutyraldehyde dehydrogenase
+[665]		Q64324	STXB2_MOUSE	4	7.6	7.4e-7	66358.0	MOUSE	Syntaxin-binding protein 2
+[666]		O70252	HMOX2_MOUSE	4	13.7	2.3e-8	35738.9	MOUSE	Heme oxygenase 2
+[667]		Q9D2G2	ODO2_MOUSE	3	7.0	5.4e-8	48995.0	MOUSE	Dihydrolipoyllysine-residue succinyltransferase component of 2-oxoglutarate dehydrogenase complex, mitochondrial
+[668]		Q61096	PRTN3_MOUSE	3	13.4	8.3e-8	27626.0	MOUSE	Myeloblastin
+[669]		Q5XJY5	COPD_MOUSE	5	11.4	2.7e-9	57229.9	MOUSE	Coatomer subunit delta
+[670]		Q9QXK7	CPSF3_MOUSE	1	2.2	3.1e-12	77505.7	MOUSE	Cleavage and polyadenylation specificity factor subunit 3
+[671]		Q9Z0J0	NPC2_MOUSE	4	18.8	3.5e-8	16442.2	MOUSE	Epididymal secretory protein E1
+[672]		Q91YR9	PTGR1_MOUSE	4	13.1	1.7e-8	35560.6	MOUSE	Prostaglandin reductase 1
+[673]		Q9EST5	AN32B_MOUSE	3	8.1	1.5e-7	31079.0	MOUSE	Acidic leucine-rich nuclear phosphoprotein 32 family member B
+[673-1]	3	O35381	AN32A_MOUSE	4	9.3	2.9e-5	28537.8	MOUSE	Acidic leucine-rich nuclear phosphoprotein 32 family member A
+[674]		Q61735-2	CD47_MOUSE	2	9.3	9.6e-9	35317.2	MOUSE	Isoform 2 of Leukocyte surface antigen CD47
+[675]		P07742	RIR1_MOUSE	4	6.3	5.1e-8	90211.1	MOUSE	Ribonucleoside-diphosphate reductase large subunit
+[676]		P11087	CO1A1_MOUSE	2	2.3	7.4e-7	138033.5	MOUSE	Collagen alpha-1(I) chain
+[677]		Q99L13	3HIDH_MOUSE	2	8.7	7.7e-8	35440.3	MOUSE	3-hydroxyisobutyrate dehydrogenase, mitochondrial
+[678]		Q9JIF0	ANM1_MOUSE	2	6.7	3.7e-11	42436.0	MOUSE	Protein arginine N-methyltransferase 1
+[679]		B2RXR6	ANR44_MOUSE	4	5.3	8.5e-8	107386.1	MOUSE	Serine/threonine-protein phosphatase 6 regulatory ankyrin repeat subunit B
+[680]		Q9JII6	AK1A1_MOUSE	5	17.2	4.3e-7	36587.2	MOUSE	Alcohol dehydrogenase [NADP(+)]
+[681]		P70296	PEBP1_MOUSE	4	18.2	2.6e-7	20830.6	MOUSE	Phosphatidylethanolamine-binding protein 1
+[682]		O54879	HMGB3_MOUSE	3	20.0	1.7e-7	23010.2	MOUSE	High mobility group protein B3
+[683]		Q8BMD8	SCMC1_MOUSE	4	7.2	2.8e-7	52902.4	MOUSE	Calcium-binding mitochondrial carrier protein SCaMC-1
+[684]		O09061	PSB1_MOUSE	5	26.7	6.6e-6	26372.4	MOUSE	Proteasome subunit beta type-1
+[685]		Q5SUR0	PUR4_MOUSE	3	2.5	1.9e-8	144630.6	MOUSE	Phosphoribosylformylglycinamidine synthase
+[686]		Q6P8I4	PCNP_MOUSE	3	21.9	2.8e-6	18963.1	MOUSE	PEST proteolytic signal-containing nuclear protein
+[687]		Q9CQJ6	DENR_MOUSE	2	9.1	1.8e-8	22166.3	MOUSE	Density-regulated protein
+[688]		Q07076	ANXA7_MOUSE	6	13.8	1.6e-6	49925.7	MOUSE	Annexin A7
+[689]		Q8C0I1	ADAS_MOUSE	3	7.4	7.5e-6	71684.1	MOUSE	Alkyldihydroxyacetonephosphate synthase, peroxisomal
+[690]		Q8BMA6	SRP68_MOUSE	3	5.4	1.4e-6	70574.8	MOUSE	Signal recognition particle subunit SRP68
+[691]		Q9Z0H4-4	CELF2_MOUSE	3	9.8	8.3e-8	52254.9	MOUSE	Isoform 4 of CUGBP Elav-like family member 2
+[692]		Q99P88	NU155_MOUSE	2	2.2	9.5e-10	155119.3	MOUSE	Nuclear pore complex protein Nup155
+[693]		Q08943	SSRP1_MOUSE	5	6.4	7.3e-6	80861.1	MOUSE	FACT complex subunit SSRP1
+[694]		P28650	PURA1_MOUSE	3	8.1	8.5e-8	50254.9	MOUSE	Adenylosuccinate synthetase isozyme 1
+[695]		P59017	B2L13_MOUSE	2	6.0	6.8e-9	46719.8	MOUSE	Bcl-2-like protein 13
+[696]		P51660	DHB4_MOUSE	4	7.9	3.3e-6	79482.5	MOUSE	Peroxisomal multifunctional enzyme type 2
+[697]		Q9D0I9	SYRC_MOUSE	6	10.0	4.6e-6	75674.2	MOUSE	Arginine--tRNA ligase, cytoplasmic
+[698]		P62334	PRS10_MOUSE	4	11.8	1.7e-5	44173.4	MOUSE	26S protease regulatory subunit 10B
+[699]		P62075	TIM13_MOUSE	4	49.5	1.1e-6	10458.1	MOUSE	Mitochondrial import inner membrane translocase subunit Tim13
+[700]		Q9D855	QCR7_MOUSE	2	18.9	7.9e-9	13527.6	MOUSE	Cytochrome b-c1 complex subunit 7
+[701]		P29699	FETUA_MOUSE	3	13.0	1.9e-6	37326.0	MOUSE	Alpha-2-HS-glycoprotein
+[702]		P50172	DHI1_MOUSE	4	15.4	6.3e-6	32364.3	MOUSE	Corticosteroid 11-beta-dehydrogenase isozyme 1
+[703]		Q7TSV4	PGM2_MOUSE	3	5.6	3.5e-7	68748.3	MOUSE	Phosphoglucomutase-2
+[704]		Q52KI8	SRRM1_MOUSE	4	4.7	3.7e-5	106863.0	MOUSE	Serine/arginine repetitive matrix protein 1
+[705]		P49222	EPB42_MOUSE	4	8.0	5.7e-6	76756.4	MOUSE	Erythrocyte membrane protein band 4.2
+[706]		P63323	RS12_MOUSE	6	40.9	1.8e-6	14525.1	MOUSE	40S ribosomal protein S12
+[707]		P97425	ECP2_MOUSE	3	13.5	1.9e-7	17620.6	MOUSE	Eosinophil cationic protein 2
+[708]		P61290	PSME3_MOUSE	3	13.0	3.6e-9	29506.3	MOUSE	Proteasome activator complex subunit 3
+[709]		Q922D4	PP6R3_MOUSE	3	4.0	8.8e-7	94653.7	MOUSE	Serine/threonine-protein phosphatase 6 regulatory subunit 3
+[710]		P63005	LIS1_MOUSE	2	7.6	8.1e-8	46670.5	MOUSE	Platelet-activating factor acetylhydrolase IB subunit alpha
+[711]		Q61687	ATRX_MOUSE	3	1.9	9.0e-9	278589.2	MOUSE	Transcriptional regulator ATRX
+[712]		P83940	ELOC_MOUSE	4	40.2	3.2e-8	12473.3	MOUSE	Elongin-C
+[713]		P62717	RL18A_MOUSE	2	11.9	1.7e-8	20732.5	MOUSE	60S ribosomal protein L18a
+[714]		P67984	RL22_MOUSE	2	18.8	1.5e-6	14759.1	MOUSE	60S ribosomal protein L22
+[715]		Q07417	ACADS_MOUSE	4	11.2	9.5e-6	44890.0	MOUSE	Short-chain specific acyl-CoA dehydrogenase, mitochondrial
+[716]		P34022	RANG_MOUSE	3	15.3	3.6e-6	23596.6	MOUSE	Ran-specific GTPase-activating protein
+[717]		P48771	CX7A2_MOUSE	2	27.7	3.9e-8	9291.0	MOUSE	Cytochrome c oxidase subunit 7A2, mitochondrial
+[718]		P35278	RAB5C_MOUSE	4	21.8	5.0e-6	23412.7	MOUSE	Ras-related protein Rab-5C
+[718-1]	1	P61021	RAB5B_MOUSE	3	16.3	6.4e-6	23707.0	MOUSE	Ras-related protein Rab-5B
+[719]		Q9D8B3	CHM4B_MOUSE	2	11.2	1.3e-7	24936.3	MOUSE	Charged multivesicular body protein 4b
+[720]		Q9ESX5	DKC1_MOUSE	4	10.6	7.0e-7	57402.1	MOUSE	H/ACA ribonucleoprotein complex subunit 4
+[721]		Q9Z127	LAT1_MOUSE	3	8.2	6.1e-8	55872.9	MOUSE	Large neutral amino acids transporter small subunit 1
+[722]		Q9CQI6	COTL1_MOUSE	4	19.7	1.3e-7	15944.0	MOUSE	Coactosin-like protein
+[723]		Q99MK8	ARBK1_MOUSE	4	6.1	5.2e-7	79639.4	MOUSE	Beta-adrenergic receptor kinase 1
+[724]		P48024	EIF1_MOUSE	2	13.3	7.4e-8	12746.6	MOUSE	Eukaryotic translation initiation factor 1
+[725]		Q9WVJ2	PSD13_MOUSE	5	14.1	5.5e-7	42809.8	MOUSE	26S proteasome non-ATPase regulatory subunit 13
+[726]		P57759	ERP29_MOUSE	5	23.3	7.0e-6	28823.5	MOUSE	Endoplasmic reticulum resident protein 29
+[727]		Q6P1F6	2ABA_MOUSE	3	7.6	2.0e-6	51692.5	MOUSE	Serine/threonine-protein phosphatase 2A 55 kDa regulatory subunit B alpha isoform
+[728]		Q8BH43	WASF2_MOUSE	3	7.0	9.2e-6	54074.0	MOUSE	Wiskott-Aldrich syndrome protein family member 2
+[729]		Q7TNP2	2AAB_MOUSE	3	5.7	7.1e-8	65934.9	MOUSE	Serine/threonine-protein phosphatase 2A 65 kDa regulatory subunit A beta isoform
+[730]		Q6DFW4	NOP58_MOUSE	4	8.4	2.2e-7	60343.5	MOUSE	Nucleolar protein 58
+[731]		P08905	LYZ2_MOUSE	1	10.1	3.3e-10	16689.1	MOUSE	Lysozyme C-2
+[732]		P63073	IF4E_MOUSE	4	20.3	4.4e-8	25053.4	MOUSE	Eukaryotic translation initiation factor 4E
+[733]		Q99J77	SIAS_MOUSE	4	13.1	1.5e-6	40024.5	MOUSE	Sialic acid synthase
+[734]		P53026	RL10A_MOUSE	6	28.1	2.7e-6	24916.6	MOUSE	60S ribosomal protein L10a
+[735]		O70439	STX7_MOUSE	3	17.2	1.8e-7	29821.0	MOUSE	Syntaxin-7
+[736]		Q9CYZ2	TPD54_MOUSE	4	21.8	5.0e-7	24043.1	MOUSE	Tumor protein D54
+[737]		Q9R0Q7	TEBP_MOUSE	3	18.8	3.1e-8	18721.6	MOUSE	Prostaglandin E synthase 3
+[738]		Q8BQ47	CNPY4_MOUSE	2	10.2	1.4e-7	28093.9	MOUSE	Protein canopy homolog 4
+[739]		Q9R0P3	ESTD_MOUSE	3	11.0	9.6e-8	31319.9	MOUSE	S-formylglutathione hydrolase
+[740]		P52431	DPOD1_MOUSE	2	2.4	3.3e-10	123791.5	MOUSE	DNA polymerase delta catalytic subunit
+[741]		P28798	GRN_MOUSE	2	4.9	1.7e-7	63459.1	MOUSE	Granulins
+[742]		P19157	GSTP1_MOUSE	3	19.0	1.3e-8	23609.4	MOUSE	Glutathione S-transferase P 1
+[743]		O70435	PSA3_MOUSE	5	16.9	1.5e-5	28405.5	MOUSE	Proteasome subunit alpha type-3
+[744]		Q3UDE2	TTL12_MOUSE	3	4.2	1.2e-5	74043.9	MOUSE	Tubulin--tyrosine ligase-like protein 12
+[745]		Q9Z0P5	TWF2_MOUSE	4	13.5	2.7e-7	39471.3	MOUSE	Twinfilin-2
+[745-1]	1	Q91YR1	TWF1_MOUSE	2	6.0	3.6e-9	40079.8	MOUSE	Twinfilin-1
+[746]		Q3TDQ1	STT3B_MOUSE	3	5.1	4.0e-9	93246.6	MOUSE	Dolichyl-diphosphooligosaccharide--protein glycosyltransferase subunit STT3B
+[747]		P60229	EIF3E_MOUSE	5	11.2	2.2e-5	52221.3	MOUSE	Eukaryotic translation initiation factor 3 subunit E
+[748]		Q9DCN2	NB5R3_MOUSE	2	7.3	2.5e-6	34128.0	MOUSE	NADH-cytochrome b5 reductase 3
+[749]		Q9WUA3	PFKAP_MOUSE	2	3.7	4.5e-8	85455.8	MOUSE	ATP-dependent 6-phosphofructokinase, platelet type
+[750]		P47968	RPIA_MOUSE	2	8.9	4.4e-8	32451.2	MOUSE	Ribose-5-phosphate isomerase
+[751]		Q99JB2	STML2_MOUSE	2	8.8	8.2e-8	38385.2	MOUSE	Stomatin-like protein 2, mitochondrial
+[752]		O88487	DC1I2_MOUSE	2	5.9	1.2e-8	68394.7	MOUSE	Cytoplasmic dynein 1 intermediate chain 2
+[753]		Q8BH95	ECHM_MOUSE	3	11.4	2.1e-7	31474.7	MOUSE	Enoyl-CoA hydratase, mitochondrial
+[754]		Q9JIH2	NUP50_MOUSE	3	8.2	2.2e-6	49485.6	MOUSE	Nuclear pore complex protein Nup50
+[755]		Q8BGQ7	SYAC_MOUSE	5	7.1	9.5e-7	106909.5	MOUSE	Alanine--tRNA ligase, cytoplasmic
+[756]		Q91UZ5	IMPA2_MOUSE	4	15.5	2.9e-6	31716.5	MOUSE	Inositol monophosphatase 2
+[757]		Q8CHY6	P66A_MOUSE	5	10.5	1.5e-6	67334.6	MOUSE	Transcriptional repressor p66 alpha
+[758]		Q9JII5	DAZP1_MOUSE	2	7.6	2.2e-7	43214.6	MOUSE	DAZ-associated protein 1
+[759]		Q9EQU5	SET_MOUSE	3	13.1	2.3e-6	33378.0	MOUSE	Protein SET
+[760]		Q9DCE5	PK1IP_MOUSE	1	4.5	2.3e-11	42116.4	MOUSE	p21-activated protein kinase-interacting protein 1
+[761]		P48193	41_MOUSE	3	4.3	2.0e-5	95912.0	MOUSE	Protein 4.1
+[762]		P19324	SERPH_MOUSE	3	8.2	2.9e-7	46534.0	MOUSE	Serpin H1
+[763]		O70404	VAMP8_MOUSE	4	44.6	3.6e-8	11451.4	MOUSE	Vesicle-associated membrane protein 8
+[764]		Q9JI11	STK4_MOUSE	4	9.9	7.3e-6	55541.6	MOUSE	Serine/threonine-protein kinase 4
+[765]		P24668	MPRD_MOUSE	2	10.1	1.6e-7	31172.7	MOUSE	Cation-dependent mannose-6-phosphate receptor
+[766]		Q9ERU3	ZNF22_MOUSE	2	10.5	1.5e-6	27294.6	MOUSE	Zinc finger protein 22
+[767]		Q9D0R2	SYTC_MOUSE	3	4.7	5.7e-7	83356.7	MOUSE	Threonine--tRNA ligase, cytoplasmic
+[768]		Q9R0N0	GALK1_MOUSE	4	12.0	2.1e-5	42295.6	MOUSE	Galactokinase
+[769]		P46460	NSF_MOUSE	4	6.2	3.2e-6	82614.2	MOUSE	Vesicle-fusing ATPase
+[770]		O55234	PSB5_MOUSE	1	5.3	5.2e-10	28532.7	MOUSE	Proteasome subunit beta type-5
+[771]		P19253	RL13A_MOUSE	3	11.3	8.5e-6	23464.4	MOUSE	60S ribosomal protein L13a
+[772]		P31230	AIMP1_MOUSE	2	9.4	4.5e-9	33997.6	MOUSE	Aminoacyl tRNA synthase complex-interacting multifunctional protein 1
+[773]		Q60854	SPB6_MOUSE	5	13.8	2.0e-6	42599.3	MOUSE	Serpin B6
+[774]		Q9EQP2	EHD4_MOUSE	3	7.0	1.1e-8	61481.1	MOUSE	EH domain-containing protein 4
+[775]		P35585	AP1M1_MOUSE	3	8.0	2.2e-5	48543.3	MOUSE	AP-1 complex subunit mu-1
+[776]		Q8BTV2	CPSF7_MOUSE	3	7.2	2.6e-6	52011.4	MOUSE	Cleavage and polyadenylation specificity factor subunit 7
+[777]		P61255	RL26_MOUSE	6	33.8	2.7e-5	17258.4	MOUSE	60S ribosomal protein L26
+[778]		Q3UM45	PP1R7_MOUSE	4	12.5	1.9e-6	41292.3	MOUSE	Protein phosphatase 1 regulatory subunit 7
+[779]		Q9CR57	RL14_MOUSE	3	16.1	5.6e-6	23564.3	MOUSE	60S ribosomal protein L14
+[780]		P19096	FAS_MOUSE	5	2.4	7.2e-6	272430.7	MOUSE	Fatty acid synthase
+[781]		Q61823	PDCD4_MOUSE	3	7.5	1.9e-6	51702.6	MOUSE	Programmed cell death protein 4
+[782]		Q9JJU8	SH3L1_MOUSE	2	20.2	3.6e-7	12811.4	MOUSE	SH3 domain-binding glutamic acid-rich-like protein
+[783]		P05201	AATC_MOUSE	5	12.8	1.2e-5	46248.0	MOUSE	Aspartate aminotransferase, cytoplasmic
+[784]		O08808	DIAP1_MOUSE	2	1.8	2.4e-9	139344.6	MOUSE	Protein diaphanous homolog 1
+[785]		Q9QUR6	PPCE_MOUSE	3	5.1	3.0e-8	80752.3	MOUSE	Prolyl endopeptidase
+[786]		P28481	CO2A1_MOUSE	3	2.9	2.1e-6	141974.6	MOUSE	Collagen alpha-1(II) chain
+[787]		Q3THS6	METK2_MOUSE	2	6.6	1.5e-7	43689.1	MOUSE	S-adenosylmethionine synthase isoform type-2
+[788]		P51150	RAB7A_MOUSE	4	20.8	2.0e-5	23490.0	MOUSE	Ras-related protein Rab-7a
+[789]		Q3TWW8	SRSF6_MOUSE	3	9.7	8.2e-8	39025.6	MOUSE	Serine/arginine-rich splicing factor 6
+[789-1]	2	Q8VE97	SRSF4_MOUSE	3	7.6	8.2e-8	55979.8	MOUSE	Serine/arginine-rich splicing factor 4
+[790]		P33174	KIF4_MOUSE	4	4.2	1.2e-6	139520.5	MOUSE	Chromosome-associated kinesin KIF4
+[791]		Q3UJB9	EDC4_MOUSE	2	1.1	4.8e-7	152485.0	MOUSE	Enhancer of mRNA-decapping protein 4
+[792]		Q62422	OSTF1_MOUSE	2	12.6	2.1e-6	23782.9	MOUSE	Osteoclast-stimulating factor 1
+[793]		P51174	ACADL_MOUSE	4	10.7	8.7e-6	47908.4	MOUSE	Long-chain specific acyl-CoA dehydrogenase, mitochondrial
+[794]		Q8R5H1	UBP15_MOUSE	4	2.7	1.9e-7	112325.8	MOUSE	Ubiquitin carboxyl-terminal hydrolase 15
+[795]		Q9WUU7	CATZ_MOUSE	6	20.6	1.1e-6	33996.6	MOUSE	Cathepsin Z
+[796]		Q99J45	NRBP_MOUSE	3	7.5	1.6e-7	59866.2	MOUSE	Nuclear receptor-binding protein
+[797]		Q99L04	DHRS1_MOUSE	3	12.1	8.7e-6	34005.6	MOUSE	Dehydrogenase/reductase SDR family member 1
+[798]		P35922	FMR1_MOUSE	1	2.4	2.6e-9	68989.6	MOUSE	Synaptic functional regulator FMR1
+[799]		Q9CPY7	AMPL_MOUSE	3	6.7	1.3e-6	56141.8	MOUSE	Cytosol aminopeptidase
+[800]		P61514	RL37A_MOUSE	1	13.0	1.4e-10	10275.4	MOUSE	60S ribosomal protein L37a
+[801]		P62900	RL31_MOUSE	4	22.4	1.1e-6	14463.0	MOUSE	60S ribosomal protein L31
+[802]		Q6PD03	2A5A_MOUSE	2	5.3	1.6e-8	56347.5	MOUSE	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit alpha isoform
+[803]		Q8BHG9	CGBP1_MOUSE	2	13.8	1.2e-6	18761.5	MOUSE	CGG triplet repeat-binding protein 1
+[804]		Q9QUH0	GLRX1_MOUSE	3	11.2	2.2e-5	11871.0	MOUSE	Glutaredoxin-1
+[805]		P97426	ECP1_MOUSE	2	14.8	1.9e-7	17296.1	MOUSE	Eosinophil cationic protein 1
+[806]		Q9Z1M8	RED_MOUSE	3	7.2	9.3e-8	65616.8	MOUSE	Protein Red
+[807]		Q9D7S7	RL22L_MOUSE	2	19.7	1.7e-6	14467.5	MOUSE	60S ribosomal protein L22-like 1
+[808]		P09671	SODM_MOUSE	3	13.1	1.2e-6	24603.1	MOUSE	Superoxide dismutase [Mn], mitochondrial
+[809]		Q9R062	GLYG_MOUSE	2	8.1	5.0e-7	37402.4	MOUSE	Glycogenin-1
+[810]		Q9CQC6	BZW1_MOUSE	5	11.0	2.1e-5	48043.6	MOUSE	Basic leucine zipper and W2 domain-containing protein 1
+[811]		Q921Z5	TFIP8_MOUSE	2	11.6	1.2e-7	22960.7	MOUSE	Tumor necrosis factor alpha-induced protein 8
+[812]		P0C8K7	SMIM1_MOUSE	1	15.4	8.3e-9	8764.2	MOUSE	Small integral membrane protein 1
+[813]		Q8K363	DDX18_MOUSE	2	5.3	3.9e-9	74181.5	MOUSE	ATP-dependent RNA helicase DDX18
+[814]		O35326	SRSF5_MOUSE	2	9.7	7.8e-7	30891.6	MOUSE	Serine/arginine-rich splicing factor 5
+[815]		Q923D5	WBP11_MOUSE	2	3.7	3.3e-7	69875.1	MOUSE	WW domain-binding protein 11
+[816]		P62301	RS13_MOUSE	4	22.5	1.6e-5	17222.4	MOUSE	40S ribosomal protein S13
+[817]		O35855	BCAT2_MOUSE	2	5.9	2.5e-7	44127.8	MOUSE	Branched-chain-amino-acid aminotransferase, mitochondrial
+[818]		Q61545	EWS_MOUSE	2	4.4	2.5e-7	68462.8	MOUSE	RNA-binding protein EWS
+[819]		Q8BU30	SYIC_MOUSE	2	1.5	2.5e-7	144272.1	MOUSE	Isoleucine--tRNA ligase, cytoplasmic
+[820]		G5E870	TRIPC_MOUSE	2	1.7	4.8e-7	224129.9	MOUSE	E3 ubiquitin-protein ligase TRIP12
+[821]		Q9D3D9	ATPD_MOUSE	1	8.3	7.9e-9	17600.2	MOUSE	ATP synthase subunit delta, mitochondrial
+[822]		Q9D0W5	PPIL1_MOUSE	3	21.1	2.3e-8	18237.0	MOUSE	Peptidyl-prolyl cis-trans isomerase-like 1
+[823]		Q6PE01	SNR40_MOUSE	4	13.7	5.2e-6	39275.9	MOUSE	U5 small nuclear ribonucleoprotein 40 kDa protein
+[824]		P42227	STAT3_MOUSE	2	3.6	5.7e-8	88054.6	MOUSE	Signal transducer and activator of transcription 3
+[825]		Q08879	FBLN1_MOUSE	1	2.4	8.5e-11	78033.6	MOUSE	Fibulin-1
+[826]		Q8BG07	PLD4_MOUSE	2	5.6	9.9e-8	56154.4	MOUSE	Phospholipase D4
+[827]		Q99KQ4	NAMPT_MOUSE	3	5.5	6.1e-8	55447.3	MOUSE	Nicotinamide phosphoribosyltransferase
+[828]		Q8BVK9	SP110_MOUSE	2	5.6	3.9e-7	50140.9	MOUSE	Sp110 nuclear body protein
+[829]		Q9Z172	SUMO3_MOUSE	2	19.1	4.9e-7	12430.1	MOUSE	Small ubiquitin-related modifier 3
+[829-1]	1	P61957	SUMO2_MOUSE	2	23.2	4.9e-7	10871.3	MOUSE	Small ubiquitin-related modifier 2
+[830]		Q9D8W5	PSD12_MOUSE	4	11.4	9.9e-7	52895.7	MOUSE	26S proteasome non-ATPase regulatory subunit 12
+[831]		Q9JHI7	EXOS9_MOUSE	2	3.2	5.5e-7	48937.2	MOUSE	Exosome complex component RRP45
+[832]		P40336	VP26A_MOUSE	2	9.2	3.6e-5	38114.1	MOUSE	Vacuolar protein sorting-associated protein 26A
+[833]		Q8BFR5	EFTU_MOUSE	5	13.5	3.5e-5	49508.8	MOUSE	Elongation factor Tu, mitochondrial
+[834]		Q6P5D8	SMHD1_MOUSE	4	2.8	6.7e-6	225650.1	MOUSE	Structural maintenance of chromosomes flexible hinge domain-containing protein 1
+[835]		Q5SVD0	RFLB_MOUSE	2	10.6	2.4e-7	23379.8	MOUSE	Refilin-B
+[836]		P11680	PROP_MOUSE	3	8.6	1.6e-6	50327.7	MOUSE	Properdin
+[837]		Q8BH04	PCKGM_MOUSE	3	5.0	1.5e-7	70528.6	MOUSE	Phosphoenolpyruvate carboxykinase [GTP], mitochondrial
+[838]		Q80U93	NU214_MOUSE	4	2.3	3.5e-7	212980.5	MOUSE	Nuclear pore complex protein Nup214
+[839]		Q8CGY8	OGT1_MOUSE	1	1.6	5.1e-8	116952.7	MOUSE	UDP-N-acetylglucosamine--peptide N-acetylglucosaminyltransferase 110 kDa subunit
+[840]		P63154	CRNL1_MOUSE	2	3.8	3.2e-7	83416.4	MOUSE	Crooked neck-like protein 1
+[841]		Q5FWK3	RHG01_MOUSE	4	8.2	8.1e-7	50411.1	MOUSE	Rho GTPase-activating protein 1
+[842]		P61205	ARF3_MOUSE	1	8.3	1.3e-8	20600.9	MOUSE	ADP-ribosylation factor 3
+[843]		Q8K1X4	NCKPL_MOUSE	3	2.8	1.6e-5	128906.2	MOUSE	Nck-associated protein 1-like
+[844]		Q6WVG3	KCD12_MOUSE	6	21.7	5.5e-5	35892.3	MOUSE	BTB/POZ domain-containing protein KCTD12
+[845]		P63037	DNJA1_MOUSE	3	9.3	3.0e-5	44868.6	MOUSE	DnaJ homolog subfamily A member 1
+[846]		P20108	PRDX3_MOUSE	3	12.8	8.6e-7	28127.3	MOUSE	Thioredoxin-dependent peroxide reductase, mitochondrial
+[847]		P17047	LAMP2_MOUSE	3	8.0	2.6e-7	45681.4	MOUSE	Lysosome-associated membrane glycoprotein 2
+[848]		Q8QZY9	SF3B4_MOUSE	1	3.3	1.0e-8	44356.1	MOUSE	Splicing factor 3B subunit 4
+[849]		Q61152	PTN18_MOUSE	3	7.5	3.0e-6	50202.3	MOUSE	Tyrosine-protein phosphatase non-receptor type 18
+[850]		P54923	ADPRH_MOUSE	2	8.8	3.3e-7	40068.7	MOUSE	[Protein ADP-ribosylarginine] hydrolase
+[851]		Q8C570	RAE1L_MOUSE	2	6.0	2.7e-8	40965.5	MOUSE	mRNA export factor
+[852]		P97823	LYPA1_MOUSE	2	10.4	5.9e-8	24687.9	MOUSE	Acyl-protein thioesterase 1
+[853]		Q9JKB1	UCHL3_MOUSE	2	10.0	7.8e-8	26151.9	MOUSE	Ubiquitin carboxyl-terminal hydrolase isozyme L3
+[854]		Q99MN9	PCCB_MOUSE	2	5.0	6.6e-8	58409.5	MOUSE	Propionyl-CoA carboxylase beta chain, mitochondrial
+[855]		Q00623	APOA1_MOUSE	4	13.3	9.1e-6	30615.8	MOUSE	Apolipoprotein A-I
+[856]		Q63844	MK03_MOUSE	5	16.1	1.3e-6	43066.9	MOUSE	Mitogen-activated protein kinase 3
+[856-1]	1	P63085	MK01_MOUSE	3	7.8	1.3e-4	41276.0	MOUSE	Mitogen-activated protein kinase 1
+[857]		P62317	SMD2_MOUSE	3	25.4	3.3e-6	13527.0	MOUSE	Small nuclear ribonucleoprotein Sm D2
+[858]		Q9CPR4	RL17_MOUSE	4	19.0	3.8e-8	21423.3	MOUSE	60S ribosomal protein L17
+[859]		Q64433	CH10_MOUSE	2	23.5	2.0e-5	10962.8	MOUSE	10 kDa heat shock protein, mitochondrial
+[860]		P17426	AP2A1_MOUSE	5	5.9	3.0e-6	107665.0	MOUSE	AP-2 complex subunit alpha-1
+[861]		P14115	RL27A_MOUSE	5	31.1	9.7e-6	16605.6	MOUSE	60S ribosomal protein L27a
+[862]		P99027	RLA2_MOUSE	2	24.3	1.1e-6	11651.0	MOUSE	60S acidic ribosomal protein P2
+[863]		Q9CXY6	ILF2_MOUSE	4	11.3	3.9e-6	43062.5	MOUSE	Interleukin enhancer-binding factor 2
+[864]		Q8BRT1	CLAP2_MOUSE	1	1.2	1.7e-8	140740.1	MOUSE	CLIP-associating protein 2
+[865]		Q6A068	CDC5L_MOUSE	3	4.0	1.0e-5	92190.3	MOUSE	Cell division cycle 5-like protein
+[866]		P01837	IGKC_MOUSE	1	13.2	1.4e-8	11778.0	MOUSE	Ig kappa chain C region
+[867]		Q9CPT5	NOP16_MOUSE	1	6.2	7.4e-10	21139.4	MOUSE	Nucleolar protein 16
+[868]		P11440	CDK1_MOUSE	4	16.2	2.1e-5	34106.9	MOUSE	Cyclin-dependent kinase 1
+[869]		Q99KE1	MAOM_MOUSE	2	4.8	8.9e-7	65799.6	MOUSE	NAD-dependent malic enzyme, mitochondrial
+[870]		O08795	GLU2B_MOUSE	5	9.8	1.8e-5	58793.3	MOUSE	Glucosidase 2 subunit beta
+[871]		O54890	ITB3_MOUSE	3	5.2	7.8e-7	86739.3	MOUSE	Integrin beta-3
+[872]		P30993	C5AR1_MOUSE	1	3.4	3.6e-9	39023.5	MOUSE	C5a anaphylatoxin chemotactic receptor 1
+[873]		O08759	UBE3A_MOUSE	1	2.1	8.9e-10	99820.4	MOUSE	Ubiquitin-protein ligase E3A
+[874]		C0HKD8	MFA1A_MOUSE	2	6.2	1.3e-7	51954.9	MOUSE	Microfibrillar-associated protein 1A
+[875]		Q9D0M1	KPRA_MOUSE	2	7.6	3.1e-8	39432.2	MOUSE	Phosphoribosyl pyrophosphate synthase-associated protein 1
+[876]		P21460	CYTC_MOUSE	2	19.3	1.1e-7	15531.0	MOUSE	Cystatin-C
+[877]		P51125	ICAL_MOUSE	2	4.4	1.1e-6	84922.4	MOUSE	Calpastatin
+[878]		Q8CB87	RAB44_MOUSE	2	4.3	7.3e-8	78237.1	MOUSE	Ras-related protein Rab-44
+[879]		P46638	RB11B_MOUSE	3	14.2	2.6e-6	24489.7	MOUSE	Ras-related protein Rab-11B
+[880]		P08775	RPB1_MOUSE	4	2.7	1.7e-6	217178.1	MOUSE	DNA-directed RNA polymerase II subunit RPB1
+[881]		P11352	GPX1_MOUSE	5	23.9	1.1e-5	22329.5	MOUSE	Glutathione peroxidase 1
+[882]		P23591	FCL_MOUSE	2	8.4	1.8e-7	35877.9	MOUSE	GDP-L-fucose synthase
+[883]		Q9JL35	HMGN5_MOUSE	3	9.1	1.4e-6	45344.0	MOUSE	High mobility group nucleosome-binding domain-containing protein 5
+[884]		Q922K7	NOP2_MOUSE	2	3.7	2.9e-7	86752.5	MOUSE	Probable 28S rRNA (cytosine-C(5))-methyltransferase
+[885]		Q8VDP4	CCAR2_MOUSE	6	9.3	4.3e-6	103003.2	MOUSE	Cell cycle and apoptosis regulator protein 2
+[886]		O09167	RL21_MOUSE	4	26.2	2.5e-7	18562.0	MOUSE	60S ribosomal protein L21
+[887]		Q60676	PPP5_MOUSE	1	2.6	1.3e-8	56877.2	MOUSE	Serine/threonine-protein phosphatase 5
+[888]		Q9CYL5	GAPR1_MOUSE	3	27.9	3.9e-6	17090.3	MOUSE	Golgi-associated plant pathogenesis-related protein 1
+[889]		Q8CI59	STEA3_MOUSE	3	6.6	1.7e-6	54749.5	MOUSE	Metalloreductase STEAP3
+[890]		Q9Z0P4	PALM_MOUSE	2	9.4	2.4e-7	41614.7	MOUSE	Paralemmin-1
+[891]		Q4FJU9	TMM40_MOUSE	1	8.0	1.6e-9	24925.7	MOUSE	Transmembrane protein 40
+[892]		Q9QXK3	COPG2_MOUSE	3	3.9	5.8e-7	97681.4	MOUSE	Coatomer subunit gamma-2
+[893]		Q60875	ARHG2_MOUSE	4	5.1	4.4e-6	111975.3	MOUSE	Rho guanine nucleotide exchange factor 2
+[894]		Q9CPV4	GLOD4_MOUSE	3	12.1	2.0e-6	33317.0	MOUSE	Glyoxalase domain-containing protein 4
+[895]		O55222	ILK_MOUSE	3	7.1	7.8e-6	51373.7	MOUSE	Integrin-linked protein kinase
+[896]		Q3UVK0	ERMP1_MOUSE	3	2.7	1.1e-6	100149.2	MOUSE	Endoplasmic reticulum metallopeptidase 1
+[897]		O08579	EMD_MOUSE	3	12.7	1.3e-7	29435.8	MOUSE	Emerin
+[898]		Q8JZX4	SPF45_MOUSE	2	6.2	2.7e-7	45304.2	MOUSE	Splicing factor 45
+[899]		Q9CPW4	ARPC5_MOUSE	4	29.1	5.3e-7	16288.5	MOUSE	Actin-related protein 2/3 complex subunit 5
+[900]		P28867	KPCD_MOUSE	5	7.1	1.0e-5	77548.0	MOUSE	Protein kinase C delta type
+[901]		Q9Z0M6	CD97_MOUSE	2	3.5	2.0e-6	90414.3	MOUSE	CD97 antigen
+[902]		Q9D024	CCD47_MOUSE	2	2.9	2.5e-8	55844.3	MOUSE	Coiled-coil domain-containing protein 47
+[903]		Q8BGH2	SAM50_MOUSE	2	5.1	2.7e-6	51864.4	MOUSE	Sorting and assembly machinery component 50 homolog
+[904]		Q9R007	CLC5A_MOUSE	1	6.3	4.7e-9	21695.8	MOUSE	C-type lectin domain family 5 member A
+[905]		Q9D0F6	RFC5_MOUSE	1	4.4	3.2e-8	38096.5	MOUSE	Replication factor C subunit 5
+[906]		Q62448	IF4G2_MOUSE	3	4.9	1.5e-6	102106.4	MOUSE	Eukaryotic translation initiation factor 4 gamma 2
+[907]		Q9QYB5	ADDG_MOUSE	4	7.8	3.6e-5	78777.7	MOUSE	Gamma-adducin
+[908]		Q9Z110	P5CS_MOUSE	3	4.3	2.6e-6	87267.0	MOUSE	Delta-1-pyrroline-5-carboxylate synthase
+[909]		P17095	HMGA1_MOUSE	2	15.0	2.1e-5	11614.1	MOUSE	High mobility group protein HMG-I/HMG-Y
+[910]		P70349	HINT1_MOUSE	2	17.5	6.4e-7	13777.0	MOUSE	Histidine triad nucleotide-binding protein 1
+[911]		Q3TDN2	FAF2_MOUSE	1	3.6	3.2e-8	52471.8	MOUSE	FAS-associated factor 2
+[912]		Q9WV70	NOC2L_MOUSE	1	2.3	2.4e-9	85424.9	MOUSE	Nucleolar complex protein 2 homolog
+[913]		Q99LC3	NDUAA_MOUSE	3	9.3	4.2e-7	40603.8	MOUSE	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 10, mitochondrial
+[914]		Q8VDP3	MICA1_MOUSE	4	5.6	1.6e-5	116785.7	MOUSE	[F-actin]-methionine sulfoxide oxidase MICAL1
+[915]		Q99PL5	RRBP1_MOUSE	5	3.7	7.3e-6	172880.5	MOUSE	Ribosome-binding protein 1
+[916]		Q6NZB0	DNJC8_MOUSE	2	13.0	1.3e-6	29812.8	MOUSE	DnaJ homolog subfamily C member 8
+[917]		Q9JM76	ARPC3_MOUSE	3	20.2	6.0e-5	20524.9	MOUSE	Actin-related protein 2/3 complex subunit 3
+[918]		Q80VJ3	DNPH1_MOUSE	1	8.1	1.5e-8	18977.7	MOUSE	2'-deoxynucleoside 5'-phosphate N-hydrolase 1
+[919]		P52293	IMA1_MOUSE	2	4.9	2.8e-6	57928.6	MOUSE	Importin subunit alpha-1
+[920]		P51881	ADT2_MOUSE	6	20.1	7.6e-6	32931.6	MOUSE	ADP/ATP translocase 2
+[920-1]	1	P48962	ADT1_MOUSE	3	9.4	9.2e-4	32904.6	MOUSE	ADP/ATP translocase 1
+[921]		Q9CY64	BIEA_MOUSE	4	15.9	6.5e-6	33524.8	MOUSE	Biliverdin reductase A
+[922]		O55098	STK10_MOUSE	2	2.5	2.9e-6	111906.7	MOUSE	Serine/threonine-protein kinase 10
+[923]		P54775	PRS6B_MOUSE	2	2.6	4.2e-6	47408.7	MOUSE	26S protease regulatory subunit 6B
+[924]		Q9EPU0	RENT1_MOUSE	3	3.0	2.0e-6	123967.9	MOUSE	Regulator of nonsense transcripts 1
+[925]		Q9JHS9	CWC15_MOUSE	4	15.7	2.8e-5	26624.5	MOUSE	Spliceosome-associated protein CWC15 homolog
+[926]		Q8CDM1	ATAD2_MOUSE	2	2.9	1.1e-6	117944.3	MOUSE	ATPase family AAA domain-containing protein 2
+[927]		Q921G6	LRCH4_MOUSE	1	2.9	1.8e-7	73163.6	MOUSE	Leucine-rich repeat and calponin homology domain-containing protein 4
+[928]		Q9JHK5	PLEK_MOUSE	1	4.0	9.3e-8	39901.0	MOUSE	Pleckstrin
+[929]		P27612	PLAP_MOUSE	2	4.0	5.1e-7	87221.9	MOUSE	Phospholipase A-2-activating protein
+[930]		O35685	NUDC_MOUSE	5	15.4	4.2e-5	38358.3	MOUSE	Nuclear migration protein nudC
+[931]		P01872	IGHM_MOUSE	3	9.0	7.0e-7	49972.4	MOUSE	Ig mu chain C region
+[932]		P68404	KPCB_MOUSE	2	4.8	1.6e-6	76751.6	MOUSE	Protein kinase C beta type
+[933]		Q9D824	FIP1_MOUSE	2	4.6	1.6e-5	64959.2	MOUSE	Pre-mRNA 3'-end-processing factor FIP1
+[934]		Q9ERL7	GMFG_MOUSE	3	21.1	2.3e-6	16748.5	MOUSE	Glia maturation factor gamma
+[935]		Q3TGF2	F107B_MOUSE	2	17.6	6.7e-7	15571.8	MOUSE	Protein FAM107B
+[936]		P97450	ATP5J_MOUSE	4	39.8	1.4e-5	12496.5	MOUSE	ATP synthase-coupling factor 6, mitochondrial
+[937]		Q8VCF0	MAVS_MOUSE	1	3.0	1.9e-7	53399.3	MOUSE	Mitochondrial antiviral-signaling protein
+[938]		P10852	4F2_MOUSE	5	11.6	1.5e-4	58337.0	MOUSE	4F2 cell-surface antigen heavy chain
+[939]		Q6NV83	SR140_MOUSE	2	2.1	1.3e-6	118261.7	MOUSE	U2 snRNP-associated SURP motif-containing protein
+[940]		Q9DAK9	PHP14_MOUSE	1	9.7	1.7e-8	13996.7	MOUSE	14 kDa phosphohistidine phosphatase
+[941]		P28667	MRP_MOUSE	1	7.5	3.0e-8	20165.6	MOUSE	MARCKS-related protein
+[942]		P61089	UBE2N_MOUSE	3	20.4	2.4e-5	17138.0	MOUSE	Ubiquitin-conjugating enzyme E2 N
+[943]		Q61543	GSLG1_MOUSE	2	1.8	4.0e-6	133735.2	MOUSE	Golgi apparatus protein 1
+[944]		Q91ZA3	PCCA_MOUSE	1	2.1	3.8e-8	79922.5	MOUSE	Propionyl-CoA carboxylase alpha chain, mitochondrial
+[945]		Q99NB1	ACS2L_MOUSE	3	5.0	6.8e-7	74624.0	MOUSE	Acetyl-coenzyme A synthetase 2-like, mitochondrial
+[946]		Q8K1K6	SPB10_MOUSE	3	8.8	5.4e-7	45115.9	MOUSE	Serpin B10
+[947]		Q8JZN5	ACAD9_MOUSE	3	5.3	1.4e-6	68722.7	MOUSE	Acyl-CoA dehydrogenase family member 9, mitochondrial
+[948]		Q91VD9	NDUS1_MOUSE	5	8.0	3.5e-6	79777.6	MOUSE	NADH-ubiquinone oxidoreductase 75 kDa subunit, mitochondrial
+[949]		Q8R4R6	NUP53_MOUSE	3	11.7	4.0e-6	34786.0	MOUSE	Nucleoporin NUP53
+[950]		Q8R4K2	IRAK4_MOUSE	1	3.7	3.6e-8	50872.2	MOUSE	Interleukin-1 receptor-associated kinase 4
+[951]		P11157	RIR2_MOUSE	2	6.4	1.1e-6	45096.1	MOUSE	Ribonucleoside-diphosphate reductase subunit M2
+[952]		Q9JJZ6	KLF13_MOUSE	1	5.9	2.0e-7	31136.2	MOUSE	Krueppel-like factor 13
+[953]		Q9CRB9	MIC19_MOUSE	4	17.6	1.0e-4	26334.7	MOUSE	MICOS complex subunit Mic19
+[954]		Q8BWY3	ERF1_MOUSE	3	8.2	4.1e-6	49031.3	MOUSE	Eukaryotic peptide chain release factor subunit 1
+[955]		P48036	ANXA5_MOUSE	3	9.4	2.2e-6	35752.7	MOUSE	Annexin A5
+[956]		P97814	PPIP1_MOUSE	1	4.6	6.0e-7	47590.6	MOUSE	Proline-serine-threonine phosphatase-interacting protein 1
+[957]		P56376	ACYP1_MOUSE	2	22.2	6.5e-6	11240.8	MOUSE	Acylphosphatase-1
+[958]		Q8CGF7	TCRG1_MOUSE	2	2.2	9.4e-6	123789.0	MOUSE	Transcription elongation regulator 1
+[959]		P32020	NLTP_MOUSE	7	11.5	2.2e-4	59126.2	MOUSE	Non-specific lipid-transfer protein
+[960]		Q61035	SYHC_MOUSE	3	6.7	3.1e-6	57432.8	MOUSE	Histidine--tRNA ligase, cytoplasmic
+[961]		Q5EG47	AAPK1_MOUSE	1	3.0	2.6e-8	63929.8	MOUSE	5'-AMP-activated protein kinase catalytic subunit alpha-1
+[962]		P37913	DNLI1_MOUSE	4	5.0	3.5e-6	102290.4	MOUSE	DNA ligase 1
+[963]		O70325	GPX41_MOUSE	3	17.8	2.3e-6	22228.9	MOUSE	Phospholipid hydroperoxide glutathione peroxidase, mitochondrial
+[964]		Q9JMD0	ZN207_MOUSE	3	8.5	5.6e-6	52793.4	MOUSE	BUB3-interacting and GLEBS motif-containing protein ZNF207
+[965]		Q9JJI8	RL38_MOUSE	1	17.1	4.8e-7	8203.9	MOUSE	60S ribosomal protein L38
+[966]		Q922Q4	P5CR2_MOUSE	3	11.2	2.7e-7	33659.4	MOUSE	Pyrroline-5-carboxylate reductase 2
+[967]		Q8VBT0	TMX1_MOUSE	2	9.0	2.5e-5	31396.1	MOUSE	Thioredoxin-related transmembrane protein 1
+[968]		Q9CRD2	EMC2_MOUSE	1	3.4	8.2e-9	34935.0	MOUSE	ER membrane protein complex subunit 2
+[969]		Q9D0M3	CY1_MOUSE	2	7.7	1.4e-7	35328.0	MOUSE	Cytochrome c1, heme protein, mitochondrial
+[970]		O70194	EIF3D_MOUSE	5	8.2	9.7e-5	63989.3	MOUSE	Eukaryotic translation initiation factor 3 subunit D
+[971]		Q9D787	PPIL2_MOUSE	1	3.1	5.2e-7	59065.1	MOUSE	Peptidyl-prolyl cis-trans isomerase-like 2
+[972]		Q3UEB3	PUF60_MOUSE	3	6.2	1.0e-5	60249.4	MOUSE	Poly(U)-binding-splicing factor PUF60
+[973]		Q99KB8	GLO2_MOUSE	2	9.1	7.6e-7	34084.4	MOUSE	Hydroxyacylglutathione hydrolase, mitochondrial
+[974]		Q6P9R2	OXSR1_MOUSE	2	4.9	6.4e-7	58214.0	MOUSE	Serine/threonine-protein kinase OSR1
+[975]		Q99JX3	GORS2_MOUSE	1	2.7	1.5e-8	47038.7	MOUSE	Golgi reassembly-stacking protein 2
+[976]		O35887	CALU_MOUSE	2	7.3	1.8e-7	37064.0	MOUSE	Calumenin
+[977]		Q8BPB0	MOB1B_MOUSE	3	17.1	7.2e-7	25091.0	MOUSE	MOB kinase activator 1B
+[978]		P70290	EM55_MOUSE	2	6.7	3.5e-7	52227.6	MOUSE	55 kDa erythrocyte membrane protein
+[979]		Q9WTX5	SKP1_MOUSE	1	7.4	5.0e-8	18672.2	MOUSE	S-phase kinase-associated protein 1
+[980]		P26883	FKB1A_MOUSE	2	28.7	1.9e-6	11922.7	MOUSE	Peptidyl-prolyl cis-trans isomerase FKBP1A
+[981]		P97765	WBP2_MOUSE	1	5.4	2.6e-8	28032.3	MOUSE	WW domain-binding protein 2
+[982]		Q9CPQ3	TOM22_MOUSE	1	8.5	1.8e-7	15536.9	MOUSE	Mitochondrial import receptor subunit TOM22 homolog
+[983]		Q62186	SSRD_MOUSE	2	13.4	4.6e-6	18936.7	MOUSE	Translocon-associated protein subunit delta
+[984]		Q62348	TSN_MOUSE	3	11.4	5.3e-5	26201.1	MOUSE	Translin
+[985]		P61082	UBC12_MOUSE	3	17.5	3.7e-6	20900.2	MOUSE	NEDD8-conjugating enzyme Ubc12
+[986]		P97315	CSRP1_MOUSE	2	14.0	4.9e-7	20583.6	MOUSE	Cysteine and glycine-rich protein 1
+[987]		Q9JMH6	TRXR1_MOUSE	3	5.4	6.2e-5	67084.4	MOUSE	Thioredoxin reductase 1, cytoplasmic
+[988]		P47964	RL36_MOUSE	3	18.1	2.0e-6	12215.6	MOUSE	60S ribosomal protein L36
+[989]		P62267	RS23_MOUSE	2	15.4	2.8e-6	15807.7	MOUSE	40S ribosomal protein S23
+[990]		Q9DB91	MED29_MOUSE	2	8.5	9.7e-7	21011.0	MOUSE	Mediator of RNA polymerase II transcription subunit 29
+[991]		P63254	CRIP1_MOUSE	4	59.7	1.1e-6	8549.9	MOUSE	Cysteine-rich protein 1
+[992]		Q9CXL3	CG050_MOUSE	1	7.7	1.4e-8	22168.4	MOUSE	Uncharacterized protein C7orf50 homolog
+[993]		Q60520	SIN3A_MOUSE	3	3.0	7.9e-6	145089.2	MOUSE	Paired amphipathic helix protein Sin3a
+[994]		Q75VT8	HIDE1_MOUSE	1	6.8	5.7e-8	23593.9	MOUSE	Protein HIDE1
+[995]		Q9D1L0	CHCH2_MOUSE	1	8.5	2.6e-7	15660.9	MOUSE	Coiled-coil-helix-coiled-coil-helix domain-containing protein 2
+[996]		Q9ERR7	SEP15_MOUSE	1	7.4	5.3e-8	17806.7	MOUSE	Selenoprotein F
+[997]		Q8CCS6	PABP2_MOUSE	2	8.9	6.7e-8	32296.8	MOUSE	Polyadenylate-binding protein 2
+[998]		Q9Z0L8	GGH_MOUSE	2	7.9	2.9e-5	35469.8	MOUSE	Gamma-glutamyl hydrolase
+[999]		Q3UGC7	EI3JA_MOUSE	2	8.8	1.8e-6	29343.9	MOUSE	Eukaryotic translation initiation factor 3 subunit J-A
+[1000]		Q9CSU0	RPR1B_MOUSE	2	6.7	3.1e-6	36884.0	MOUSE	Regulation of nuclear pre-mRNA domain-containing protein 1B
+[1001]		Q6PZD9	CEBPE_MOUSE	2	8.9	1.1e-5	30616.9	MOUSE	CCAAT/enhancer-binding protein epsilon
+[1002]		P31786	ACBP_MOUSE	2	32.2	7.6e-6	10000.5	MOUSE	Acyl-CoA-binding protein
+[1003]		Q6P2B1	TNPO3_MOUSE	2	2.7	3.2e-7	104171.4	MOUSE	Transportin-3
+[1004]		Q9CYG7	TOM34_MOUSE	3	13.3	2.2e-6	34278.3	MOUSE	Mitochondrial import receptor subunit TOM34
+[1005]		Q9QWR8	NAGAB_MOUSE	3	6.7	3.5e-5	47235.1	MOUSE	Alpha-N-acetylgalactosaminidase
+[1006]		P22907	HEM3_MOUSE	2	8.0	4.5e-7	39344.7	MOUSE	Porphobilinogen deaminase
+[1007]		Q99LE6	ABCF2_MOUSE	2	3.8	1.7e-6	71782.4	MOUSE	ATP-binding cassette sub-family F member 2
+[1008]		Q8VEE4	RFA1_MOUSE	2	3.5	1.4e-8	69037.8	MOUSE	Replication protein A 70 kDa DNA-binding subunit
+[1009]		P70302	STIM1_MOUSE	3	6.7	2.3e-6	77567.3	MOUSE	Stromal interaction molecule 1
+[1010]		O88685	PRS6A_MOUSE	4	9.3	4.7e-7	49549.4	MOUSE	26S protease regulatory subunit 6A
+[1011]		P27048	RSMB_MOUSE	3	9.5	1.9e-6	23656.2	MOUSE	Small nuclear ribonucleoprotein-associated protein B
+[1012]		Q922J3	CLIP1_MOUSE	2	2.3	1.4e-7	155815.2	MOUSE	CAP-Gly domain-containing linker protein 1
+[1013]		O88532	ZFR_MOUSE	3	4.3	7.4e-6	116859.8	MOUSE	Zinc finger RNA-binding protein
+[1014]		Q9QZ23	NFU1_MOUSE	1	6.3	1.5e-8	28567.9	MOUSE	NFU1 iron-sulfur cluster scaffold homolog, mitochondrial
+[1015]		P55194	3BP1_MOUSE	1	2.3	5.0e-8	65285.7	MOUSE	SH3 domain-binding protein 1
+[1016]		P56212	ARP19_MOUSE	2	23.2	2.8e-7	12293.1	MOUSE	cAMP-regulated phosphoprotein 19
+[1016-1]	1	P60840	ENSA_MOUSE	2	20.7	2.8e-7	13335.1	MOUSE	Alpha-endosulfine
+[1016-2]	1	P60840-2	ENSA_MOUSE	2	21.4	2.8e-7	12921.6	MOUSE	Isoform 2 of Alpha-endosulfine
+[1017]		Q4VA53	PDS5B_MOUSE	3	3.0	4.0e-5	164420.5	MOUSE	Sister chromatid cohesion protein PDS5 homolog B
+[1018]		Q8BH59	CMC1_MOUSE	4	6.6	2.5e-4	74570.2	MOUSE	Calcium-binding mitochondrial carrier protein Aralar1
+[1019]		O88271	CFDP1_MOUSE	1	5.4	1.2e-7	32921.5	MOUSE	Craniofacial development protein 1
+[1020]		P09541	MYL4_MOUSE	3	17.1	1.9e-5	21159.2	MOUSE	Myosin light chain 4
+[1021]		Q91VW3	SH3L3_MOUSE	2	26.9	1.3e-6	10476.8	MOUSE	SH3 domain-binding glutamic acid-rich-like protein 3
+[1022]		Q9R0P9	UCHL1_MOUSE	1	8.1	2.0e-7	24838.5	MOUSE	Ubiquitin carboxyl-terminal hydrolase isozyme L1
+[1023]		Q922Q8	LRC59_MOUSE	3	10.7	2.1e-5	34877.7	MOUSE	Leucine-rich repeat-containing protein 59
+[1024]		Q9CXI5	MANF_MOUSE	2	15.1	1.0e-5	20373.9	MOUSE	Mesencephalic astrocyte-derived neurotrophic factor
+[1025]		P63094-3	GNAS2_MOUSE	1	4.4	2.7e-8	41818.7	MOUSE	Isoform Gnas-3 of Guanine nucleotide-binding protein G(s) subunit alpha isoforms short
+[1026]		A3KGF7	PLCB2_MOUSE	2	2.8	7.6e-7	134547.7	MOUSE	1-phosphatidylinositol 4,5-bisphosphate phosphodiesterase beta-2
+[1027]		O09131	GSTO1_MOUSE	3	16.7	1.0e-6	27497.9	MOUSE	Glutathione S-transferase omega-1
+[1028]		P54728	RD23B_MOUSE	2	5.0	1.0e-6	43513.0	MOUSE	UV excision repair protein RAD23 homolog B
+[1029]		Q8WTY4	CPIN1_MOUSE	2	7.8	3.7e-5	33429.2	MOUSE	Anamorsin
+[1030]		Q8BG81	PDIP3_MOUSE	1	4.0	1.3e-7	46132.9	MOUSE	Polymerase delta-interacting protein 3
+[1031]		Q9Z0X1	AIFM1_MOUSE	3	6.0	1.7e-5	66766.1	MOUSE	Apoptosis-inducing factor 1, mitochondrial
+[1032]		Q8R480	NUP85_MOUSE	2	3.8	5.9e-9	74777.0	MOUSE	Nuclear pore complex protein Nup85
+[1033]		Q9D8V0	HM13_MOUSE	3	9.5	9.3e-6	41747.9	MOUSE	Minor histocompatibility antigen H13
+[1034]		P28659	CELF1_MOUSE	1	2.7	5.0e-7	52107.7	MOUSE	CUGBP Elav-like family member 1
+[1035]		Q921T2	TOIP1_MOUSE	2	4.9	1.1e-5	66781.7	MOUSE	Torsin-1A-interacting protein 1
+[1036]		Q8CCF0	PRP31_MOUSE	2	5.2	2.4e-5	55430.4	MOUSE	U4/U6 small nuclear ribonucleoprotein Prp31
+[1037]		O35601	FYB_MOUSE	2	3.2	1.7e-5	90056.1	MOUSE	FYN-binding protein
+[1038]		Q91XI1	DUS3L_MOUSE	1	3.3	4.5e-8	71079.2	MOUSE	tRNA-dihydrouridine(47) synthase [NAD(P)(+)]-like
+[1039]		Q923D2	BLVRB_MOUSE	2	13.1	7.1e-6	22197.5	MOUSE	Flavin reductase (NADPH)
+[1040]		Q9Z2I8	SUCB2_MOUSE	2	5.5	5.1e-6	46840.4	MOUSE	Succinate--CoA ligase [GDP-forming] subunit beta, mitochondrial
+[1041]		P97807	FUMH_MOUSE	3	7.7	5.5e-6	54357.2	MOUSE	Fumarate hydratase, mitochondrial
+[1042]		Q8BJ64	CHDH_MOUSE	2	4.9	1.5e-6	66415.1	MOUSE	Choline dehydrogenase, mitochondrial
+[1043]		Q91ZJ5	UGPA_MOUSE	2	4.7	2.1e-5	56979.8	MOUSE	UTP--glucose-1-phosphate uridylyltransferase
+[1044]		Q9QX47	SON_MOUSE	4	2.0	7.0e-7	265653.7	MOUSE	Protein SON
+[1045]		P63166	SUMO1_MOUSE	2	28.7	3.3e-5	11557.1	MOUSE	Small ubiquitin-related modifier 1
+[1046]		Q8BJW6	EIF2A_MOUSE	3	6.5	5.3e-6	64403.8	MOUSE	Eukaryotic translation initiation factor 2A
+[1047]		Q9ES52	SHIP1_MOUSE	3	3.5	5.1e-6	133543.6	MOUSE	Phosphatidylinositol 3,4,5-trisphosphate 5-phosphatase 1
+[1048]		Q5SUA5	MYO1G_MOUSE	7	6.7	2.4e-5	117228.0	MOUSE	Unconventional myosin-Ig
+[1049]		Q5BLK4	TUT7_MOUSE	2	1.3	2.7e-6	169104.0	MOUSE	Terminal uridylyltransferase 7
+[1050]		Q923G2	RPAB3_MOUSE	2	19.3	3.4e-5	17143.5	MOUSE	DNA-directed RNA polymerases I, II, and III subunit RPABC3
+[1051]		Q63810	CANB1_MOUSE	2	12.9	2.2e-5	19300.1	MOUSE	Calcineurin subunit B type 1
+[1052]		Q8R550	SH3K1_MOUSE	2	4.4	3.6e-7	78170.8	MOUSE	SH3 domain-containing kinase-binding protein 1
+[1053]		O08547	SC22B_MOUSE	1	6.5	3.4e-6	24740.8	MOUSE	Vesicle-trafficking protein SEC22b
+[1054]		Q9JM93	AR6P4_MOUSE	1	7.0	5.4e-8	25524.9	MOUSE	ADP-ribosylation factor-like protein 6-interacting protein 4
+[1055]		Q922S4	PDE2A_MOUSE	2	2.3	7.3e-6	103250.0	MOUSE	cGMP-dependent 3',5'-cyclic phosphodiesterase
+[1056]		P70335	ROCK1_MOUSE	3	2.8	1.4e-6	158171.9	MOUSE	Rho-associated protein kinase 1
+[1057]		Q6A028	SWP70_MOUSE	3	5.0	8.4e-5	68996.5	MOUSE	Switch-associated protein 70
+[1058]		P62878	RBX1_MOUSE	2	18.5	2.2e-6	12274.1	MOUSE	E3 ubiquitin-protein ligase RBX1
+[1059]		Q9D819	IPYR_MOUSE	2	11.8	1.2e-5	32667.4	MOUSE	Inorganic pyrophosphatase
+[1060]		Q62203	SF3A2_MOUSE	2	5.7	1.8e-6	49911.9	MOUSE	Splicing factor 3A subunit 2
+[1061]		Q62425	NDUA4_MOUSE	1	12.2	6.2e-8	9326.9	MOUSE	Cytochrome c oxidase subunit NDUFA4
+[1062]		Q8BYW1	RHG25_MOUSE	3	5.1	4.6e-5	73383.3	MOUSE	Rho GTPase-activating protein 25
+[1063]		Q9CQS8	SC61B_MOUSE	3	38.5	4.0e-5	9958.5	MOUSE	Protein transport protein Sec61 subunit beta
+[1064]		Q64253	LY6E_MOUSE	1	10.8	7.9e-7	13800.4	MOUSE	Lymphocyte antigen 6E
+[1065]		Q8K2F0	BRD3_MOUSE	3	5.4	1.0e-5	79762.3	MOUSE	Bromodomain-containing protein 3
+[1065-1]	2	Q9ESU6	BRD4_MOUSE	3	2.1	5.0e-5	155896.4	MOUSE	Bromodomain-containing protein 4
+[1065-2]	1	Q7JJ13	BRD2_MOUSE	2	2.5	5.0e-5	88067.6	MOUSE	Bromodomain-containing protein 2
+[1065-3]	1	Q7JJ13-2	BRD2_MOUSE	2	2.7	5.0e-5	83272.0	MOUSE	Isoform 2 of Bromodomain-containing protein 2
+[1066]		P22682	CBL_MOUSE	4	5.7	2.2e-5	100564.7	MOUSE	E3 ubiquitin-protein ligase CBL
+[1067]		Q9CQR6	PPP6_MOUSE	2	7.5	3.3e-6	35159.6	MOUSE	Serine/threonine-protein phosphatase 6 catalytic subunit
+[1068]		P59729	RIN3_MOUSE	1	1.5	7.5e-8	107221.4	MOUSE	Ras and Rab interactor 3
+[1069]		Q3V300	KIF22_MOUSE	2	5.9	2.8e-6	73190.4	MOUSE	Kinesin-like protein KIF22
+[1070]		O88543	CSN3_MOUSE	2	4.0	3.2e-6	47832.5	MOUSE	COP9 signalosome complex subunit 3
+[1071]		Q07813	BAX_MOUSE	1	5.7	1.4e-7	21394.8	MOUSE	Apoptosis regulator BAX
+[1072]		Q9CSN1	SNW1_MOUSE	7	15.7	1.9e-5	61476.0	MOUSE	SNW domain-containing protein 1
+[1073]		P21981	TGM2_MOUSE	1	1.9	6.3e-8	77061.7	MOUSE	Protein-glutamine gamma-glutamyltransferase 2
+[1074]		P17225	PTBP1_MOUSE	3	4.4	2.3e-4	56478.6	MOUSE	Polypyrimidine tract-binding protein 1
+[1075]		P06537	GCR_MOUSE	2	4.6	1.7e-6	86053.5	MOUSE	Glucocorticoid receptor
+[1076]		P81117	NUCB2_MOUSE	4	11.4	1.9e-5	50304.9	MOUSE	Nucleobindin-2
+[1077]		Q571I9	A16A1_MOUSE	2	3.1	8.0e-6	84756.5	MOUSE	Aldehyde dehydrogenase family 16 member A1
+[1078]		Q8CBW3	ABI1_MOUSE	4	10.8	5.8e-5	52287.9	MOUSE	Abl interactor 1
+[1079]		P42125	ECI1_MOUSE	2	8.7	2.7e-6	32250.7	MOUSE	Enoyl-CoA delta isomerase 1, mitochondrial
+[1080]		P54823	DDX6_MOUSE	1	2.1	7.9e-9	54192.1	MOUSE	Probable ATP-dependent RNA helicase DDX6
+[1081]		Q8BH58	TIPRL_MOUSE	1	4.1	6.7e-7	31253.9	MOUSE	TIP41-like protein
+[1082]		Q9JLC3	MSRB1_MOUSE	1	9.5	8.3e-8	12788.4	MOUSE	Methionine-R-sulfoxide reductase B1
+[1083]		O35593	PSDE_MOUSE	1	4.2	4.2e-7	34577.4	MOUSE	26S proteasome non-ATPase regulatory subunit 14
+[1084]		Q9ESZ8	GTF2I_MOUSE	2	2.6	1.1e-6	112266.3	MOUSE	General transcription factor II-I
+[1085]		Q64378	FKBP5_MOUSE	1	2.9	1.3e-7	50966.5	MOUSE	Peptidyl-prolyl cis-trans isomerase FKBP5
+[1086]		D0QMC3	MNDAL_MOUSE	2	5.8	7.6e-7	60526.8	MOUSE	Myeloid cell nuclear differentiation antigen-like protein
+[1087]		Q62446	FKBP3_MOUSE	2	9.8	2.7e-7	25148.0	MOUSE	Peptidyl-prolyl cis-trans isomerase FKBP3
+[1088]		P23506	PIMT_MOUSE	2	11.0	3.5e-7	24634.6	MOUSE	Protein-L-isoaspartate(D-aspartate) O-methyltransferase
+[1089]		Q64735	CR1L_MOUSE	2	6.0	4.4e-6	53763.1	MOUSE	Complement component receptor 1-like protein
+[1090]		Q9D880	TIM50_MOUSE	2	6.2	7.5e-5	39776.8	MOUSE	Mitochondrial import inner membrane translocase subunit TIM50
+[1091]		Q9DAA6	EXOS1_MOUSE	1	8.2	1.0e-7	21423.9	MOUSE	Exosome complex component CSL4
+[1092]		Q3TKT4	SMCA4_MOUSE	4	2.1	4.9e-5	181428.7	MOUSE	Transcription activator BRG1
+[1093]		P63276	RS17_MOUSE	3	16.3	3.5e-5	15524.2	MOUSE	40S ribosomal protein S17
+[1094]		Q99M15	PPIP2_MOUSE	1	3.6	8.1e-8	38948.5	MOUSE	Proline-serine-threonine phosphatase-interacting protein 2
+[1095]		Q9Z2U0	PSA7_MOUSE	3	14.5	9.2e-6	27855.1	MOUSE	Proteasome subunit alpha type-7
+[1096]		Q02650	PAX5_MOUSE	1	3.8	2.5e-7	42231.7	MOUSE	Paired box protein Pax-5
+[1097]		Q80WJ7	LYRIC_MOUSE	2	4.1	1.2e-5	63846.5	MOUSE	Protein LYRIC
+[1098]		Q8BJU0	SGTA_MOUSE	2	7.9	6.4e-6	34322.7	MOUSE	Small glutamine-rich tetratricopeptide repeat-containing protein alpha
+[1099]		P04186	CFAB_MOUSE	1	2.2	1.8e-7	85005.3	MOUSE	Complement factor B
+[1100]		P20060	HEXB_MOUSE	4	7.8	1.8e-4	61116.2	MOUSE	Beta-hexosaminidase subunit beta
+[1101]		P63328	PP2BA_MOUSE	4	10.7	1.0e-5	58644.3	MOUSE	Serine/threonine-protein phosphatase 2B catalytic subunit alpha isoform
+[1102]		Q80UP5	AN13A_MOUSE	1	2.2	9.5e-6	67178.0	MOUSE	Ankyrin repeat domain-containing protein 13A
+[1103]		Q9WU62	INCE_MOUSE	3	4.2	3.6e-5	101209.4	MOUSE	Inner centromere protein
+[1104]		P41731	CD63_MOUSE	1	4.6	4.7e-8	25766.9	MOUSE	CD63 antigen
+[1105]		Q9QZ47	TNNT3_MOUSE	2	8.8	1.3e-5	32241.1	MOUSE	Troponin T, fast skeletal muscle
+[1106]		P70315	WASP_MOUSE	1	2.9	7.0e-6	54192.2	MOUSE	Wiskott-Aldrich syndrome protein homolog
+[1107]		Q01405	SC23A_MOUSE	1	2.1	9.4e-7	86162.6	MOUSE	Protein transport protein Sec23A
+[1108]		Q9EQH2	ERAP1_MOUSE	3	3.9	5.8e-5	106600.2	MOUSE	Endoplasmic reticulum aminopeptidase 1
+[1109]		Q8BZ09	ODC_MOUSE	1	4.7	6.0e-7	33229.2	MOUSE	Mitochondrial 2-oxodicarboxylate carrier
+[1110]		P56394	COX17_MOUSE	2	27.0	2.9e-6	6784.1	MOUSE	Cytochrome c oxidase copper chaperone
+[1111]		O88712	CTBP1_MOUSE	3	7.0	3.7e-5	47745.0	MOUSE	C-terminal-binding protein 1
+[1112]		Q6P5B0	RRP12_MOUSE	1	1.2	4.4e-6	143132.3	MOUSE	RRP12-like protein
+[1113]		Q9QZ88	VPS29_MOUSE	4	19.8	1.4e-5	20495.9	MOUSE	Vacuolar protein sorting-associated protein 29
+[1114]		P97821	CATC_MOUSE	1	2.6	2.4e-5	52376.9	MOUSE	Dipeptidyl peptidase 1
+[1115]		P83882	RL36A_MOUSE	2	16.0	2.3e-7	12440.9	MOUSE	60S ribosomal protein L36a
+[1116]		Q8BHG1	NRDC_MOUSE	3	3.7	1.4e-5	132892.4	MOUSE	Nardilysin
+[1117]		Q61550	RAD21_MOUSE	2	3.3	7.7e-6	72083.6	MOUSE	Double-strand-break repair protein rad21 homolog
+[1118]		Q9CQ62	DECR_MOUSE	1	3.0	1.2e-7	36214.1	MOUSE	2,4-dienoyl-CoA reductase, mitochondrial
+[1119]		P58021	TM9S2_MOUSE	1	1.8	4.7e-7	75330.8	MOUSE	Transmembrane 9 superfamily member 2
+[1120]		Q9Z2Q6	SEPT5_MOUSE	1	3.3	2.5e-7	42748.3	MOUSE	Septin-5
+[1121]		Q8CHP8	PGP_MOUSE	3	10.3	1.2e-4	34541.0	MOUSE	Glycerol-3-phosphate phosphatase
+[1122]		Q99J99	THTM_MOUSE	2	8.1	9.1e-7	33023.5	MOUSE	3-mercaptopyruvate sulfurtransferase
+[1123]		Q9CQZ5	NDUA6_MOUSE	1	13.0	6.7e-6	15282.9	MOUSE	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 6
+[1124]		Q3B7Z2	OSBP1_MOUSE	2	3.0	6.2e-7	88797.3	MOUSE	Oxysterol-binding protein 1
+[1125]		Q64674	SPEE_MOUSE	3	11.3	3.4e-5	33995.2	MOUSE	Spermidine synthase
+[1126]		P47811-4	MK14_MOUSE	4	16.6	3.3e-5	32327.2	MOUSE	Isoform 4 of Mitogen-activated protein kinase 14
+[1126-1]	2	P47811	MK14_MOUSE	6	18.1	3.3e-5	41287.6	MOUSE	Mitogen-activated protein kinase 14
+[1126-2]	2	P47811-3	MK14_MOUSE	5	15.0	3.3e-5	41487.8	MOUSE	Isoform 3 of Mitogen-activated protein kinase 14
+[1127]		Q9JJ28	FLII_MOUSE	2	2.0	2.7e-5	144804.4	MOUSE	Protein flightless-1 homolog
+[1128]		P70269	CATE_MOUSE	2	4.5	3.0e-5	42938.0	MOUSE	Cathepsin E
+[1129]		P56812	PDCD5_MOUSE	3	26.2	7.8e-5	14275.2	MOUSE	Programmed cell death protein 5
+[1130]		Q8BSM7	LAT3_MOUSE	1	2.0	1.7e-7	62644.9	MOUSE	Large neutral amino acids transporter small subunit 3
+[1131]		Q6Q899	DDX58_MOUSE	1	1.2	1.0e-6	105976.4	MOUSE	Probable ATP-dependent RNA helicase DDX58
+[1132]		Q5PSV9	MDC1_MOUSE	1	0.9	6.7e-7	184671.8	MOUSE	Mediator of DNA damage checkpoint protein 1
+[1133]		Q5SSI6	UTP18_MOUSE	2	5.6	3.9e-7	61218.7	MOUSE	U3 small nucleolar RNA-associated protein 18 homolog
+[1134]		Q7TPD0	INT3_MOUSE	1	2.6	1.5e-6	117938.7	MOUSE	Integrator complex subunit 3
+[1135]		Q9CQU3	RER1_MOUSE	1	10.2	2.2e-6	22988.3	MOUSE	Protein RER1
+[1136]		P17427	AP2A2_MOUSE	2	2.7	1.2e-4	104017.4	MOUSE	AP-2 complex subunit alpha-2
+[1137]		Q60739	BAG1_MOUSE	2	7.3	7.5e-7	39740.7	MOUSE	BAG family molecular chaperone regulator 1
+[1138]		Q8BXV2	BRI3B_MOUSE	2	5.5	4.4e-7	28263.4	MOUSE	BRI3-binding protein
+[1139]		P62830	RL23_MOUSE	2	16.4	2.7e-6	14865.6	MOUSE	60S ribosomal protein L23
+[1140]		Q64261	CDK6_MOUSE	1	4.3	6.4e-6	37028.7	MOUSE	Cyclin-dependent kinase 6
+[1141]		O89023	TPP1_MOUSE	1	2.5	5.3e-6	61342.8	MOUSE	Tripeptidyl-peptidase 1
+[1142]		Q9CZ15	PSF1_MOUSE	1	7.1	1.9e-6	22893.4	MOUSE	DNA replication complex GINS protein PSF1
+[1143]		O09165	CASQ1_MOUSE	2	4.2	2.6e-5	46378.3	MOUSE	Calsequestrin-1
+[1144]		P70202	LXN_MOUSE	1	8.1	4.5e-7	25492.0	MOUSE	Latexin
+[1145]		Q99JR8	SMRD2_MOUSE	5	8.9	1.8e-4	59085.7	MOUSE	SWI/SNF-related matrix-associated actin-dependent regulator of chromatin subfamily D member 2
+[1146]		P62245	RS15A_MOUSE	4	28.5	1.8e-4	14839.6	MOUSE	40S ribosomal protein S15a
+[1147]		Q9CQR2	RS21_MOUSE	2	22.9	1.0e-5	9141.4	MOUSE	40S ribosomal protein S21
+[1148]		P60670	NPL4_MOUSE	2	4.1	1.8e-5	68017.8	MOUSE	Nuclear protein localization protein 4 homolog
+[1149]		Q9D1Q6	ERP44_MOUSE	2	5.7	3.4e-6	46853.4	MOUSE	Endoplasmic reticulum resident protein 44
+[1150]		O55022	PGRC1_MOUSE	1	10.3	1.7e-7	21694.4	MOUSE	Membrane-associated progesterone receptor component 1
+[1151]		Q60865	CAPR1_MOUSE	4	6.1	3.2e-5	78169.5	MOUSE	Caprin-1
+[1152]		Q11011	PSA_MOUSE	4	5.0	5.5e-5	103326.3	MOUSE	Puromycin-sensitive aminopeptidase
+[1153]		P58058	NADK_MOUSE	2	6.8	6.3e-5	48597.8	MOUSE	NAD kinase
+[1154]		Q8VH51	RBM39_MOUSE	4	6.6	1.0e-5	59407.1	MOUSE	RNA-binding protein 39
+[1155]		P39749	FEN1_MOUSE	3	8.5	1.2e-5	42315.0	MOUSE	Flap endonuclease 1
+[1156]		Q9CXE7	TMED5_MOUSE	2	9.2	1.2e-4	26172.1	MOUSE	Transmembrane emp24 domain-containing protein 5
+[1157]		Q8BLF1	NCEH1_MOUSE	3	8.6	6.7e-6	45740.0	MOUSE	Neutral cholesterol ester hydrolase 1
+[1158]		Q3UKJ7	SMU1_MOUSE	4	7.0	1.3e-4	57544.4	MOUSE	WD40 repeat-containing protein SMU1
+[1159]		O88384	VTI1B_MOUSE	1	5.6	1.4e-6	26713.7	MOUSE	Vesicle transport through interaction with t-SNAREs homolog 1B
+[1160]		P20444	KPCA_MOUSE	1	1.9	1.6e-6	76852.7	MOUSE	Protein kinase C alpha type
+[1161]		O54734	OST48_MOUSE	5	11.3	2.4e-5	49028.3	MOUSE	Dolichyl-diphosphooligosaccharide--protein glycosyltransferase 48 kDa subunit
+[1162]		P61022	CHP1_MOUSE	1	6.2	2.3e-6	22432.3	MOUSE	Calcineurin B homologous protein 1
+[1163]		Q9DCM0	ETHE1_MOUSE	2	8.3	3.3e-5	27739.1	MOUSE	Persulfide dioxygenase ETHE1, mitochondrial
+[1164]		Q8K297	GT251_MOUSE	1	2.3	4.6e-6	71061.1	MOUSE	Procollagen galactosyltransferase 1
+[1165]		Q9JMG1	EDF1_MOUSE	2	10.1	1.3e-4	16368.8	MOUSE	Endothelial differentiation-related factor 1
+[1166]		Q9WVA2	TIM8A_MOUSE	1	11.3	1.7e-6	11042.6	MOUSE	Mitochondrial import inner membrane translocase subunit Tim8 A
+[1167]		Q6ZQI3	MLEC_MOUSE	2	8.6	5.1e-5	32342.4	MOUSE	Malectin
+[1168]		Q9CR68	UCRI_MOUSE	1	2.9	9.7e-7	29367.9	MOUSE	Cytochrome b-c1 complex subunit Rieske, mitochondrial
+[1169]		Q9EPK7	XPO7_MOUSE	1	1.0	1.7e-6	123811.5	MOUSE	Exportin-7
+[1170]		E9Q4P1	WDFY1_MOUSE	1	3.4	4.3e-7	46218.1	MOUSE	WD repeat and FYVE domain-containing protein 1
+[1171]		O55029	COPB2_MOUSE	1	1.1	4.7e-7	102450.1	MOUSE	Coatomer subunit beta'
+[1172]		P46664	PURA2_MOUSE	2	5.3	4.1e-4	50021.5	MOUSE	Adenylosuccinate synthetase isozyme 2
+[1173]		Q3TIX9	SNUT2_MOUSE	1	2.1	2.5e-6	65146.8	MOUSE	U4/U6.U5 tri-snRNP-associated protein 2
+[1174]		O09106	HDAC1_MOUSE	3	6.0	7.6e-6	55075.5	MOUSE	Histone deacetylase 1
+[1174-1]	1	P70288	HDAC2_MOUSE	2	4.3	7.6e-6	55302.6	MOUSE	Histone deacetylase 2
+[1175]		Q8K352	SASH3_MOUSE	2	7.1	2.0e-5	41608.9	MOUSE	SAM and SH3 domain-containing protein 3
+[1176]		Q8R1N0	ZN830_MOUSE	2	9.9	9.5e-6	40658.4	MOUSE	Zinc finger protein 830
+[1177]		Q99KF1	TMED9_MOUSE	1	4.7	1.5e-5	27127.4	MOUSE	Transmembrane emp24 domain-containing protein 9
+[1178]		Q9DBS1	TMM43_MOUSE	2	5.8	8.2e-6	44783.7	MOUSE	Transmembrane protein 43
+[1179]		Q8BX10	PGAM5_MOUSE	1	4.2	2.3e-6	31994.6	MOUSE	Serine/threonine-protein phosphatase PGAM5, mitochondrial
+[1180]		Q91WS0	CISD1_MOUSE	2	25.9	2.8e-6	12097.1	MOUSE	CDGSH iron-sulfur domain-containing protein 1
+[1181]		P34884	MIF_MOUSE	3	24.3	4.0e-5	12504.4	MOUSE	Macrophage migration inhibitory factor
+[1182]		Q91YW3	DNJC3_MOUSE	2	4.2	5.1e-6	57464.5	MOUSE	DnaJ homolog subfamily C member 3
+[1183]		Q99J09	MEP50_MOUSE	1	5.0	1.1e-6	36942.9	MOUSE	Methylosome protein 50
+[1184]		Q06185	ATP5I_MOUSE	1	16.9	9.5e-6	8235.7	MOUSE	ATP synthase subunit e, mitochondrial
+[1185]		P62862	RS30_MOUSE	2	18.6	6.4e-6	6647.9	MOUSE	40S ribosomal protein S30
+[1186]		P26516	PSMD7_MOUSE	3	9.7	3.6e-5	36540.1	MOUSE	26S proteasome non-ATPase regulatory subunit 7
+[1187]		P97822	AN32E_MOUSE	1	5.0	4.3e-6	29622.7	MOUSE	Acidic leucine-rich nuclear phosphoprotein 32 family member E
+[1188]		P40237	CD82_MOUSE	1	4.1	4.9e-7	29628.8	MOUSE	CD82 antigen
+[1189]		Q8CFE2	HPF1_MOUSE	2	6.4	1.5e-6	39291.6	MOUSE	Histone PARylation factor 1
+[1190]		P62274	RS29_MOUSE	2	33.9	5.5e-6	6676.8	MOUSE	40S ribosomal protein S29
+[1191]		P46467	VPS4B_MOUSE	3	8.8	1.1e-6	49419.7	MOUSE	Vacuolar protein sorting-associated protein 4B
+[1192]		Q8VD58	EVI2B_MOUSE	3	5.9	3.5e-5	47993.7	MOUSE	Protein EVI2B
+[1193]		P62849	RS24_MOUSE	2	9.0	1.0e-5	15423.3	MOUSE	40S ribosomal protein S24
+[1194]		P60867	RS20_MOUSE	2	19.3	4.2e-5	13372.8	MOUSE	40S ribosomal protein S20
+[1195]		Q9D287	SPF27_MOUSE	2	9.3	2.8e-5	26131.7	MOUSE	Pre-mRNA-splicing factor SPF27
+[1196]		Q9JHJ0	TMOD3_MOUSE	5	14.8	1.3e-4	39503.0	MOUSE	Tropomodulin-3
+[1197]		Q9JKX6	NUDT5_MOUSE	2	11.9	5.0e-6	23984.5	MOUSE	ADP-sugar pyrophosphatase
+[1198]		P43247	MSH2_MOUSE	3	4.3	2.7e-5	104152.3	MOUSE	DNA mismatch repair protein Msh2
+[1199]		Q99JX4	EIF3M_MOUSE	2	2.9	1.6e-4	42517.4	MOUSE	Eukaryotic translation initiation factor 3 subunit M
+[1200]		Q9CQM9	GLRX3_MOUSE	2	6.5	9.8e-5	37778.7	MOUSE	Glutaredoxin-3
+[1201]		O70400	PDLI1_MOUSE	3	12.5	5.3e-5	35774.7	MOUSE	PDZ and LIM domain protein 1
+[1202]		Q8BQZ5	CPSF4_MOUSE	1	8.5	2.0e-6	23653.7	MOUSE	Cleavage and polyadenylation specificity factor subunit 4
+[1203]		P49586	PCY1A_MOUSE	3	8.7	1.1e-4	41667.2	MOUSE	Choline-phosphate cytidylyltransferase A
+[1204]		Q9Z0S1	BPNT1_MOUSE	1	4.5	6.3e-7	33196.3	MOUSE	3'(2'),5'-bisphosphate nucleotidase 1
+[1205]		Q9EPK2	XRP2_MOUSE	1	2.6	8.6e-7	39377.3	MOUSE	Protein XRP2
+[1206]		Q80UW8	RPAB1_MOUSE	1	6.7	5.5e-6	24570.5	MOUSE	DNA-directed RNA polymerases I, II, and III subunit RPABC1
+[1207]		O88379	BAZ1A_MOUSE	1	0.9	2.5e-6	178460.6	MOUSE	Bromodomain adjacent to zinc finger domain protein 1A
+[1208]		P09242	PPBT_MOUSE	1	2.7	2.4e-5	57514.7	MOUSE	Alkaline phosphatase, tissue-nonspecific isozyme
+[1209]		Q9CWK3	CD2B2_MOUSE	1	4.1	1.4e-5	37694.7	MOUSE	CD2 antigen cytoplasmic tail-binding protein 2
+[1210]		Q80ZV0	RNH2B_MOUSE	2	8.1	1.5e-5	34729.4	MOUSE	Ribonuclease H2 subunit B
+[1211]		Q91XD6	VPS36_MOUSE	1	3.9	8.1e-7	43735.9	MOUSE	Vacuolar protein-sorting-associated protein 36
+[1212]		P01878	IGHA_MOUSE	1	4.4	6.3e-6	36876.2	MOUSE	Ig alpha chain C region
+[1213]		P63168	DYL1_MOUSE	2	24.7	1.7e-5	10366.0	MOUSE	Dynein light chain 1, cytoplasmic
+[1214]		Q9QZL0	RIPK3_MOUSE	1	2.9	3.3e-6	53323.0	MOUSE	Receptor-interacting serine/threonine-protein kinase 3
+[1215]		Q3UX61	NAA11_MOUSE	1	5.5	5.6e-7	24670.9	MOUSE	N-alpha-acetyltransferase 11
+[1216]		O70318	E41L2_MOUSE	2	2.8	1.2e-6	109940.4	MOUSE	Band 4.1-like protein 2
+[1217]		P50429	ARSB_MOUSE	4	8.1	2.8e-5	59647.6	MOUSE	Arylsulfatase B
+[1218]		Q9D7E4	CS025_MOUSE	2	14.7	1.1e-5	12111.6	MOUSE	UPF0449 protein C19orf25 homolog
+[1219]		P23780	BGAL_MOUSE	2	3.4	1.7e-5	73121.6	MOUSE	Beta-galactosidase
+[1220]		E9Q1P8	I2BP2_MOUSE	1	2.6	2.3e-5	59292.2	MOUSE	Interferon regulatory factor 2-binding protein 2
+[1221]		Q91YT0	NDUV1_MOUSE	1	2.8	7.0e-7	50834.7	MOUSE	NADH dehydrogenase [ubiquinone] flavoprotein 1, mitochondrial
+[1222]		Q9CW46	RAVR1_MOUSE	2	2.7	2.7e-5	79382.6	MOUSE	Ribonucleoprotein PTB-binding 1
+[1223]		Q9CQ92	FIS1_MOUSE	2	16.4	2.0e-5	17008.8	MOUSE	Mitochondrial fission 1 protein
+[1224]		Q8BVF2	PDCL3_MOUSE	1	5.4	9.0e-6	27581.4	MOUSE	Phosducin-like protein 3
+[1225]		Q62189	SNRPA_MOUSE	2	9.1	1.2e-4	31835.6	MOUSE	U1 small nuclear ribonucleoprotein A
+[1226]		P22437	PGH1_MOUSE	1	2.0	1.2e-6	69043.0	MOUSE	Prostaglandin G/H synthase 1
+[1227]		Q91WK2	EIF3H_MOUSE	2	8.2	1.4e-4	39832.6	MOUSE	Eukaryotic translation initiation factor 3 subunit H
+[1228]		Q9WUK2	IF4H_MOUSE	1	5.2	8.1e-6	27341.2	MOUSE	Eukaryotic translation initiation factor 4H
+[1229]		P20491	FCERG_MOUSE	1	15.1	2.0e-5	9652.6	MOUSE	High affinity immunoglobulin epsilon receptor subunit gamma
+[1230]		P55264	ADK_MOUSE	1	3.6	3.8e-6	40149.1	MOUSE	Adenosine kinase
+[1231]		Q9R0Q3	TMED2_MOUSE	1	4.5	1.5e-6	22705.3	MOUSE	Transmembrane emp24 domain-containing protein 2
+[1232]		O88855	LT4R1_MOUSE	2	6.8	2.8e-5	38252.6	MOUSE	Leukotriene B4 receptor 1
+[1233]		O70126	AURKB_MOUSE	1	3.5	6.3e-6	39384.6	MOUSE	Aurora kinase B
+[1234]		P57784	RU2A_MOUSE	4	18.4	1.6e-5	28357.7	MOUSE	U2 small nuclear ribonucleoprotein A'
+[1235]		Q9D1C8	VPS28_MOUSE	1	6.3	1.0e-6	25452.4	MOUSE	Vacuolar protein sorting-associated protein 28 homolog
+[1236]		Q8BYC6	TAOK3_MOUSE	2	2.9	7.2e-5	105336.6	MOUSE	Serine/threonine-protein kinase TAO3
+[1237]		O88544	CSN4_MOUSE	2	5.4	1.1e-5	46285.2	MOUSE	COP9 signalosome complex subunit 4
+[1238]		Q8R326	PSPC1_MOUSE	2	4.2	5.5e-6	58759.0	MOUSE	Paraspeckle component 1
+[1239]		P62311	LSM3_MOUSE	1	11.8	9.1e-7	11845.5	MOUSE	U6 snRNA-associated Sm-like protein LSm3
+[1240]		Q8BY89	CTL2_MOUSE	2	4.0	4.4e-5	80110.7	MOUSE	Choline transporter-like protein 2
+[1241]		O35405	PLD3_MOUSE	1	2.5	4.1e-6	54389.5	MOUSE	Phospholipase D3
+[1242]		Q80UM3	NAA15_MOUSE	1	1.3	1.5e-6	100962.0	MOUSE	N-alpha-acetyltransferase 15, NatA auxiliary subunit
+[1243]		P51807	DYLT1_MOUSE	1	14.2	7.0e-5	12483.2	MOUSE	Dynein light chain Tctex-type 1
+[1244]		Q9DBZ5	EIF3K_MOUSE	2	11.5	5.5e-5	25086.9	MOUSE	Eukaryotic translation initiation factor 3 subunit K
+[1245]		Q9WTR1	TRPV2_MOUSE	2	4.0	1.3e-6	85966.2	MOUSE	Transient receptor potential cation channel subfamily V member 2
+[1246]		P35282	RAB21_MOUSE	3	14.4	1.5e-4	24106.5	MOUSE	Ras-related protein Rab-21
+[1247]		Q8R0T6	AGRG3_MOUSE	2	3.0	1.9e-5	60073.0	MOUSE	Adhesion G protein-coupled receptor G3
+[1248]		Q9QVP9	FAK2_MOUSE	3	3.0	6.9e-5	115795.4	MOUSE	Protein-tyrosine kinase 2-beta
+[1249]		Q8BRF7	SCFD1_MOUSE	2	2.2	4.0e-6	72323.5	MOUSE	Sec1 family domain-containing protein 1
+[1250]		Q6P1B1	XPP1_MOUSE	1	1.9	8.0e-7	69591.9	MOUSE	Xaa-Pro aminopeptidase 1
+[1251]		Q9QWF0	CAF1A_MOUSE	2	4.4	9.0e-6	101936.5	MOUSE	Chromatin assembly factor 1 subunit A
+[1252]		Q8BSQ9	PB1_MOUSE	2	1.8	4.0e-5	187189.8	MOUSE	Protein polybromo-1
+[1253]		Q9DBP5	KCY_MOUSE	4	23.5	4.4e-5	22165.5	MOUSE	UMP-CMP kinase
+[1254]		P63325	RS10_MOUSE	1	8.5	8.8e-6	18915.9	MOUSE	40S ribosomal protein S10
+[1255]		Q61830	MRC1_MOUSE	1	0.9	4.5e-7	164982.7	MOUSE	Macrophage mannose receptor 1
+[1256]		Q9CQQ7	AT5F1_MOUSE	1	3.9	6.6e-6	28949.1	MOUSE	ATP synthase F(0) complex subunit B1, mitochondrial
+[1257]		P97352	S10AD_MOUSE	2	23.5	2.0e-4	11157.9	MOUSE	Protein S100-A13
+[1258]		Q9DC48	PRP17_MOUSE	1	2.1	9.8e-6	65461.8	MOUSE	Pre-mRNA-processing factor 17
+[1259]		P39054	DYN2_MOUSE	4	4.6	3.8e-5	98146.1	MOUSE	Dynamin-2
+[1260]		P54822	PUR8_MOUSE	3	6.8	1.1e-5	54866.7	MOUSE	Adenylosuccinate lyase
+[1261]		Q9R0M6	RAB9A_MOUSE	1	7.0	2.7e-6	22909.9	MOUSE	Ras-related protein Rab-9A
+[1262]		O89079	COPE_MOUSE	1	3.9	1.9e-6	34567.4	MOUSE	Coatomer subunit epsilon
+[1263]		Q6ZWQ7	SPCS3_MOUSE	2	11.7	1.7e-5	20313.6	MOUSE	Signal peptidase complex subunit 3
+[1264]		Q8BWG8	ARRB1_MOUSE	2	5.5	2.7e-6	46972.9	MOUSE	Beta-arrestin-1
+[1265]		Q8BHJ5	TBL1R_MOUSE	2	7.0	2.3e-5	55661.4	MOUSE	F-box-like/WD repeat-containing protein TBL1XR1
+[1266]		P58059	RT21_MOUSE	1	16.1	3.1e-6	10561.4	MOUSE	28S ribosomal protein S21, mitochondrial
+[1267]		Q9ERH4	NUSAP_MOUSE	1	3.0	2.6e-4	48573.3	MOUSE	Nucleolar and spindle-associated protein 1
+[1268]		Q9D964	GATM_MOUSE	2	6.9	4.0e-5	48297.7	MOUSE	Glycine amidinotransferase, mitochondrial
+[1269]		P31938	MP2K1_MOUSE	2	6.6	1.8e-4	43474.4	MOUSE	Dual specificity mitogen-activated protein kinase kinase 1
+[1269-1]	1	Q63932	MP2K2_MOUSE	2	6.5	4.5e-4	44402.4	MOUSE	Dual specificity mitogen-activated protein kinase kinase 2
+[1270]		Q7TSG2	CTDP1_MOUSE	1	1.7	4.7e-6	104555.1	MOUSE	RNA polymerase II subunit A C-terminal domain phosphatase
+[1271]		Q8CHT0	AL4A1_MOUSE	1	2.7	1.6e-5	61841.1	MOUSE	Delta-1-pyrroline-5-carboxylate dehydrogenase, mitochondrial
+[1272]		O88593	PGRP1_MOUSE	1	6.6	2.4e-5	20489.4	MOUSE	Peptidoglycan recognition protein 1
+[1273]		O89110	CASP8_MOUSE	1	2.5	2.0e-5	55357.4	MOUSE	Caspase-8
+[1274]		P48428	TBCA_MOUSE	2	15.7	3.3e-4	12757.8	MOUSE	Tubulin-specific chaperone A
+[1275]		Q60749	KHDR1_MOUSE	2	5.2	1.4e-5	48371.0	MOUSE	KH domain-containing, RNA-binding, signal transduction-associated protein 1
+[1276]		P97429	ANXA4_MOUSE	1	4.7	9.7e-6	35916.1	MOUSE	Annexin A4
+[1277]		Q99K85	SERC_MOUSE	4	12.2	6.8e-5	40472.9	MOUSE	Phosphoserine aminotransferase
+[1278]		Q9DC69	NDUA9_MOUSE	4	12.5	2.0e-5	42525.6	MOUSE	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 9, mitochondrial
+[1279]		P01887	B2MG_MOUSE	1	8.4	1.7e-6	13779.1	MOUSE	Beta-2-microglobulin
+[1280]		Q99J95	CDK9_MOUSE	1	3.2	2.3e-5	42762.0	MOUSE	Cyclin-dependent kinase 9
+[1281]		Q9CQX4	PAF15_MOUSE	1	14.5	4.2e-6	11993.6	MOUSE	PCNA-associated factor
+[1282]		Q8C0E2	VP26B_MOUSE	3	11.6	7.1e-5	39124.9	MOUSE	Vacuolar protein sorting-associated protein 26B
+[1283]		Q99J36	THUM1_MOUSE	1	4.3	1.5e-6	38885.3	MOUSE	THUMP domain-containing protein 1
+[1284]		Q6NXN1	SZRD1_MOUSE	1	7.9	2.4e-6	16998.2	MOUSE	SUZ domain-containing protein 1
+[1285]		Q99LB6	MAT2B_MOUSE	2	7.5	6.4e-5	37392.9	MOUSE	Methionine adenosyltransferase 2 subunit beta
+[1286]		Q8BVE3	VATH_MOUSE	2	5.8	7.3e-5	55855.5	MOUSE	V-type proton ATPase subunit H
+[1287]		Q8K4I3	ARHG6_MOUSE	3	4.4	1.7e-5	87052.3	MOUSE	Rho guanine nucleotide exchange factor 6
+[1288]		Q8K0G5	TSSC1_MOUSE	1	3.4	2.4e-4	43127.3	MOUSE	Protein TSSC1
+[1289]		P61087	UBE2K_MOUSE	2	12.5	1.2e-4	22406.8	MOUSE	Ubiquitin-conjugating enzyme E2 K
+[1290]		P61222	ABCE1_MOUSE	3	6.3	5.5e-5	67315.0	MOUSE	ATP-binding cassette sub-family E member 1
+[1291]		Q9ESY9	GILT_MOUSE	1	5.2	2.8e-6	27784.7	MOUSE	Gamma-interferon-inducible lysosomal thiol reductase
+[1292]		Q9D1M4	MCA3_MOUSE	1	6.3	1.1e-5	19858.9	MOUSE	Eukaryotic translation elongation factor 1 epsilon-1
+[1293]		Q9WUP7	UCHL5_MOUSE	3	10.9	3.9e-4	37617.2	MOUSE	Ubiquitin carboxyl-terminal hydrolase isozyme L5
+[1294]		Q62193	RFA2_MOUSE	1	4.4	2.8e-6	29718.8	MOUSE	Replication protein A 32 kDa subunit
+[1295]		Q99P86	RETNB_MOUSE	1	17.1	1.8e-6	11278.3	MOUSE	Resistin-like beta
+[1296]		Q8CI11	GNL3_MOUSE	1	2.6	3.2e-5	60787.0	MOUSE	Guanine nucleotide-binding protein-like 3
+[1297]		P50543	S10AB_MOUSE	1	11.2	1.1e-5	11082.8	MOUSE	Protein S100-A11
+[1298]		Q99JR1	SFXN1_MOUSE	3	10.6	2.6e-4	35649.7	MOUSE	Sideroflexin-1
+[1299]		P53986	MOT1_MOUSE	2	6.7	6.8e-5	53267.7	MOUSE	Monocarboxylate transporter 1
+[1300]		P51175	PPOX_MOUSE	5	11.3	9.3e-5	50871.0	MOUSE	Protoporphyrinogen oxidase
+[1301]		Q99LT0	DPY30_MOUSE	2	11.1	8.2e-5	11212.7	MOUSE	Protein dpy-30 homolog
+[1302]		Q3V1L4	5NTC_MOUSE	1	2.3	1.2e-5	64809.2	MOUSE	Cytosolic purine 5'-nucleotidase
+[1303]		Q9QXA5	LSM4_MOUSE	2	12.4	0.0011	15076.5	MOUSE	U6 snRNA-associated Sm-like protein LSm4
+[1304]		Q9Z1R2	BAG6_MOUSE	1	1.5	2.3e-5	121038.5	MOUSE	Large proline-rich protein BAG6
+[1305]		Q8BFQ4	WDR82_MOUSE	1	3.5	9.8e-6	35079.4	MOUSE	WD repeat-containing protein 82
+[1306]		Q9JHW4	SELB_MOUSE	1	2.7	1.8e-6	63539.3	MOUSE	Selenocysteine-specific elongation factor
+[1307]		Q921H8	THIKA_MOUSE	1	3.8	1.9e-6	43953.7	MOUSE	3-ketoacyl-CoA thiolase A, peroxisomal
+[1308]		P62331	ARF6_MOUSE	2	12.6	1.9e-5	20082.3	MOUSE	ADP-ribosylation factor 6
+[1309]		E9Q6J5	BD1L1_MOUSE	1	0.5	6.8e-6	327455.6	MOUSE	Biorientation of chromosomes in cell division protein 1-like 1
+[1310]		Q9QYB1	CLIC4_MOUSE	2	11.9	1.0e-5	28729.3	MOUSE	Chloride intracellular channel protein 4
+[1311]		Q9D020	5NT3A_MOUSE	1	3.9	1.7e-5	37252.5	MOUSE	Cytosolic 5'-nucleotidase 3A
+[1312]		Q9Z2D8	MBD3_MOUSE	1	4.9	4.3e-5	32168.7	MOUSE	Methyl-CpG-binding domain protein 3
+[1313]		Q8R242	DIAC_MOUSE	1	3.3	7.3e-6	41295.5	MOUSE	Di-N-acetylchitobiase
+[1314]		Q64521	GPDM_MOUSE	2	3.0	2.7e-5	80954.5	MOUSE	Glycerol-3-phosphate dehydrogenase, mitochondrial
+[1315]		Q8VE70	PDC10_MOUSE	2	9.4	6.7e-4	24715.8	MOUSE	Programmed cell death protein 10
+[1316]		O55135	IF6_MOUSE	3	17.1	1.7e-5	26511.3	MOUSE	Eukaryotic translation initiation factor 6
+[1317]		Q9R099	TBL2_MOUSE	1	2.9	5.4e-5	49584.1	MOUSE	Transducin beta-like protein 2
+[1318]		Q921N6	DDX27_MOUSE	1	1.6	4.3e-6	85939.5	MOUSE	Probable ATP-dependent RNA helicase DDX27
+[1319]		Q9DB15	RM12_MOUSE	1	5.5	5.0e-5	21708.6	MOUSE	39S ribosomal protein L12, mitochondrial
+[1320]		Q99LD4	CSN1_MOUSE	3	5.5	7.5e-6	53442.6	MOUSE	COP9 signalosome complex subunit 1
+[1321]		P97808	FXYD5_MOUSE	1	10.7	1.2e-5	19454.2	MOUSE	FXYD domain-containing ion transport regulator 5
+[1322]		Q9CZD3	GARS_MOUSE	1	1.5	2.7e-4	81878.5	MOUSE	Glycine--tRNA ligase
+[1323]		P42209	SEPT1_MOUSE	1	3.0	1.6e-5	42020.2	MOUSE	Septin-1
+[1324]		Q8K0E8	FIBB_MOUSE	1	2.5	5.5e-5	54753.2	MOUSE	Fibrinogen beta chain
+[1325]		Q91X58	ZFN2B_MOUSE	1	5.8	1.1e-5	27895.6	MOUSE	AN1-type zinc finger protein 2B
+[1326]		Q91VU0	FAM3C_MOUSE	1	5.3	5.5e-6	24752.9	MOUSE	Protein FAM3C
+[1327]		P29595	NEDD8_MOUSE	1	17.3	0.0014	8972.5	MOUSE	NEDD8
+[1328]		Q9CQI7	RU2B_MOUSE	4	15.1	1.1e-4	25323.5	MOUSE	U2 small nuclear ribonucleoprotein B''
+[1329]		Q9D1K7	CT027_MOUSE	1	8.0	6.2e-6	19476.4	MOUSE	UPF0687 protein C20orf27 homolog
+[1330]		Q8VBV7	CSN8_MOUSE	1	6.7	6.7e-6	23255.8	MOUSE	COP9 signalosome complex subunit 8
+[1331]		Q61703	ITIH2_MOUSE	2	2.7	7.4e-4	105928.8	MOUSE	Inter-alpha-trypsin inhibitor heavy chain H2
+[1332]		P24063	ITAL_MOUSE	2	2.1	7.1e-5	128329.0	MOUSE	Integrin alpha-L
+[1333]		Q8BH74	NU107_MOUSE	2	2.7	3.5e-6	106718.3	MOUSE	Nuclear pore complex protein Nup107
+[1334]		P97377	CDK2_MOUSE	1	4.0	2.6e-5	38978.6	MOUSE	Cyclin-dependent kinase 2
+[1335]		Q4KML4	ABRAL_MOUSE	1	11.1	1.3e-5	9030.5	MOUSE	Costars family protein ABRACL
+[1336]		Q9EPV8	UBL5_MOUSE	1	12.3	8.7e-6	8547.0	MOUSE	Ubiquitin-like protein 5
+[1337]		Q6NVF9	CPSF6_MOUSE	2	4.9	1.4e-5	59153.2	MOUSE	Cleavage and polyadenylation specificity factor subunit 6
+[1338]		Q9QYI3	DNJC7_MOUSE	2	4.7	1.5e-4	56476.3	MOUSE	DnaJ homolog subfamily C member 7
+[1339]		Q8BUI3	LRWD1_MOUSE	1	2.2	3.1e-5	71594.9	MOUSE	Leucine-rich repeat and WD repeat-containing protein 1
+[1340]		Q9ER69	FL2D_MOUSE	1	3.8	9.8e-6	44177.0	MOUSE	Pre-mRNA-splicing regulator WTAP
+[1341]		Q921M7	FA49B_MOUSE	4	8.6	2.9e-5	36776.3	MOUSE	Protein FAM49B
+[1341-1]	1	Q8BHZ0	FA49A_MOUSE	2	7.1	7.6e-4	37343.2	MOUSE	Protein FAM49A
+[1342]		Q8VCW4	UN93B_MOUSE	1	2.8	2.9e-6	66981.2	MOUSE	Protein unc-93 homolog B1
+[1343]		Q61171	PRDX2_MOUSE	1	5.6	8.1e-5	21778.8	MOUSE	Peroxiredoxin-2
+[1344]		P70353	NFYC_MOUSE	1	3.6	9.6e-6	37254.2	MOUSE	Nuclear transcription factor Y subunit gamma
+[1345]		P51863	VA0D1_MOUSE	1	3.1	3.9e-5	40301.4	MOUSE	V-type proton ATPase subunit d 1
+[1346]		Q8K1I7	WIPF1_MOUSE	1	3.2	1.8e-5	50080.7	MOUSE	WAS/WASL-interacting protein family member 1
+[1347]		P97797	SHPS1_MOUSE	1	3.3	2.3e-5	56425.4	MOUSE	Tyrosine-protein phosphatase non-receptor type substrate 1
+[1348]		P62858	RS28_MOUSE	2	30.4	7.8e-6	7841.1	MOUSE	40S ribosomal protein S28
+[1349]		Q9CQ18	RNH2C_MOUSE	2	12.7	3.8e-5	17823.2	MOUSE	Ribonuclease H2 subunit C
+[1350]		Q6ZWV7	RL35_MOUSE	2	16.3	6.6e-4	14552.7	MOUSE	60S ribosomal protein L35
+[1351]		Q8R311	CTGE5_MOUSE	2	3.3	9.2e-5	87719.1	MOUSE	cTAGE family member 5
+[1352]		Q8K1L5	PP1RB_MOUSE	1	12.2	4.4e-6	14544.2	MOUSE	Protein phosphatase 1 regulatory subunit 11
+[1353]		Q8R0G9	NU133_MOUSE	1	1.0	5.3e-5	128621.3	MOUSE	Nuclear pore complex protein Nup133
+[1354]		Q6P2K6	P4R3A_MOUSE	1	1.7	5.5e-6	93843.3	MOUSE	Serine/threonine-protein phosphatase 4 regulatory subunit 3A
+[1355]		P00405	COX2_MOUSE	1	4.4	4.3e-5	25976.7	MOUSE	Cytochrome c oxidase subunit 2
+[1356]		Q62433	NDRG1_MOUSE	1	3.6	3.9e-5	43009.1	MOUSE	Protein NDRG1
+[1357]		O35129	PHB2_MOUSE	3	7.4	1.6e-4	33296.7	MOUSE	Prohibitin-2
+[1358]		Q04447	KCRB_MOUSE	1	3.9	3.0e-5	42713.6	MOUSE	Creatine kinase B-type
+[1359]		P62196	PRS8_MOUSE	2	5.9	7.4e-5	45626.4	MOUSE	26S protease regulatory subunit 8
+[1360]		Q5SFM8	RBM27_MOUSE	1	1.1	4.3e-5	118552.6	MOUSE	RNA-binding protein 27
+[1361]		Q8K2T8	PAF1_MOUSE	2	4.9	5.3e-4	60518.8	MOUSE	RNA polymerase II-associated factor 1 homolog
+[1362]		Q99JX7	NXF1_MOUSE	2	3.4	2.3e-6	70300.1	MOUSE	Nuclear RNA export factor 1
+[1363]		Q9WUA2	SYFB_MOUSE	2	3.6	1.5e-4	65697.8	MOUSE	Phenylalanine--tRNA ligase beta subunit
+[1364]		P49722	PSA2_MOUSE	2	5.1	3.2e-5	25926.8	MOUSE	Proteasome subunit alpha type-2
+[1365]		P60904	DNJC5_MOUSE	1	7.6	9.0e-5	22100.9	MOUSE	DnaJ homolog subfamily C member 5
+[1366]		Q9D7Z3	NOL7_MOUSE	1	5.5	5.6e-5	28970.2	MOUSE	Nucleolar protein 7
+[1367]		Q6ZPR5	NSMA3_MOUSE	1	1.5	5.0e-6	93276.7	MOUSE	Sphingomyelin phosphodiesterase 4
+[1368]		Q9CR16	PPID_MOUSE	5	11.6	3.4e-5	40742.9	MOUSE	Peptidyl-prolyl cis-trans isomerase D
+[1369]		Q9WUM3	COR1B_MOUSE	3	9.3	3.2e-6	53912.7	MOUSE	Coronin-1B
+[1370]		P36423	THAS_MOUSE	1	2.3	2.1e-5	60391.6	MOUSE	Thromboxane-A synthase
+[1371]		O55128	SAP18_MOUSE	2	8.5	3.5e-5	17595.3	MOUSE	Histone deacetylase complex subunit SAP18
+[1372]		P12787	COX5A_MOUSE	2	6.8	3.2e-4	16101.6	MOUSE	Cytochrome c oxidase subunit 5A, mitochondrial
+[1373]		Q9CY27	TECR_MOUSE	4	12.0	3.7e-5	36090.8	MOUSE	Very-long-chain enoyl-CoA reductase
+[1374]		P22892	AP1G1_MOUSE	2	2.8	1.3e-5	91351.3	MOUSE	AP-1 complex subunit gamma-1
+[1375]		Q3U5Q7	CMPK2_MOUSE	4	11.0	2.4e-5	50036.7	MOUSE	UMP-CMP kinase 2, mitochondrial
+[1376]		Q6A4J8	UBP7_MOUSE	4	4.4	5.3e-6	128476.3	MOUSE	Ubiquitin carboxyl-terminal hydrolase 7
+[1377]		Q9QYC0	ADDA_MOUSE	4	6.0	5.2e-4	80647.2	MOUSE	Alpha-adducin
+[1378]		Q3UIA2	RHG17_MOUSE	2	2.2	6.6e-5	92202.9	MOUSE	Rho GTPase-activating protein 17
+[1379]		P59325	IF5_MOUSE	1	2.6	6.6e-5	48968.8	MOUSE	Eukaryotic translation initiation factor 5
+[1380]		P98083	SHC1_MOUSE	2	4.7	1.4e-5	62608.5	MOUSE	SHC-transforming protein 1
+[1381]		P27870	VAV_MOUSE	5	5.7	5.4e-5	98137.7	MOUSE	Proto-oncogene vav
+[1382]		Q68FL4	SAHH3_MOUSE	1	2.0	2.3e-5	66900.0	MOUSE	Putative adenosylhomocysteinase 3
+[1383]		O88842-2	FGD3_MOUSE	1	1.9	8.7e-6	58758.8	MOUSE	Isoform 2 of FYVE, RhoGEF and PH domain-containing protein 3
+[1383-1]	1	O88842	FGD3_MOUSE	2	2.9	8.7e-6	80624.7	MOUSE	FYVE, RhoGEF and PH domain-containing protein 3
+[1384]		Q8CGK3	LONM_MOUSE	1	1.3	1.2e-4	105843.6	MOUSE	Lon protease homolog, mitochondrial
+[1385]		O88746	TOM1_MOUSE	1	2.6	3.2e-5	54325.6	MOUSE	Target of Myb protein 1
+[1386]		Q5XG71	UTP20_MOUSE	1	0.6	5.0e-5	317747.0	MOUSE	Small subunit processome component 20 homolog
+[1387]		Q8CDG3	VCIP1_MOUSE	2	2.5	4.7e-5	134504.1	MOUSE	Deubiquitinating protein VCIP135
+[1388]		P12815	PDCD6_MOUSE	1	6.3	4.0e-5	21867.6	MOUSE	Programmed cell death protein 6
+[1389]		P14576	SRP54_MOUSE	1	2.4	4.8e-5	55721.3	MOUSE	Signal recognition particle 54 kDa protein
+[1390]		P19536	COX5B_MOUSE	2	10.2	4.6e-5	13813.0	MOUSE	Cytochrome c oxidase subunit 5B, mitochondrial
+[1391]		O08583	THOC4_MOUSE	1	4.3	1.4e-4	26940.2	MOUSE	THO complex subunit 4
+[1392]		Q9QYJ0	DNJA2_MOUSE	2	5.6	2.6e-5	45746.0	MOUSE	DnaJ homolog subfamily A member 2
+[1393]		P31324	KAP3_MOUSE	1	3.8	2.0e-5	46167.5	MOUSE	cAMP-dependent protein kinase type II-beta regulatory subunit
+[1394]		Q9JIW9	RALB_MOUSE	1	6.8	2.8e-5	23349.7	MOUSE	Ras-related protein Ral-B
+[1395]		Q9CY50	SSRA_MOUSE	1	3.8	8.7e-6	32065.3	MOUSE	Translocon-associated protein subunit alpha
+[1396]		Q9WU00	NRF1_MOUSE	1	2.4	3.4e-5	53571.5	MOUSE	Nuclear respiratory factor 1
+[1397]		O88958	GNPI1_MOUSE	1	4.2	7.7e-5	32549.6	MOUSE	Glucosamine-6-phosphate isomerase 1
+[1398]		Q8BIQ5	CSTF2_MOUSE	5	10.0	7.4e-5	61341.8	MOUSE	Cleavage stimulation factor subunit 2
+[1399]		P16254	SRP14_MOUSE	1	13.6	6.8e-5	12509.8	MOUSE	Signal recognition particle 14 kDa protein
+[1400]		Q60780	GAS7_MOUSE	1	3.1	1.1e-4	48173.9	MOUSE	Growth arrest-specific protein 7
+[1401]		P97369	NCF4_MOUSE	4	13.3	9.3e-5	38707.6	MOUSE	Neutrophil cytosol factor 4
+[1402]		Q60634	FLOT2_MOUSE	1	2.8	2.7e-5	47038.4	MOUSE	Flotillin-2
+[1403]		Q9QUG9	GRP2_MOUSE	2	3.8	1.6e-5	69446.2	MOUSE	RAS guanyl-releasing protein 2
+[1404]		Q9R1K9	CETN2_MOUSE	2	12.2	6.6e-4	19796.7	MOUSE	Centrin-2
+[1405]		Q8R050	ERF3A_MOUSE	3	5.2	1.6e-5	68626.1	MOUSE	Eukaryotic peptide chain release factor GTP-binding subunit ERF3A
+[1406]		P22599	A1AT2_MOUSE	3	6.8	3.3e-5	45975.0	MOUSE	Alpha-1-antitrypsin 1-2
+[1406-1]	1	P07758	A1AT1_MOUSE	3	6.8	4.7e-4	46003.0	MOUSE	Alpha-1-antitrypsin 1-1
+[1406-2]	1	Q00896	A1AT3_MOUSE	3	6.8	4.7e-4	45823.7	MOUSE	Alpha-1-antitrypsin 1-3
+[1407]		Q9CZX8	RS19_MOUSE	5	20.7	2.8e-4	16085.6	MOUSE	40S ribosomal protein S19
+[1408]		Q9DCZ4	MIC26_MOUSE	1	5.6	1.1e-4	22604.2	MOUSE	MICOS complex subunit Mic26
+[1409]		O55142	RL35A_MOUSE	2	10.9	5.5e-5	12553.8	MOUSE	60S ribosomal protein L35a
+[1410]		P49935	CATH_MOUSE	1	3.9	1.1e-5	37170.7	MOUSE	Pro-cathepsin H
+[1411]		Q9D868	PPIH_MOUSE	1	4.8	3.3e-5	20463.9	MOUSE	Peptidyl-prolyl cis-trans isomerase H
+[1412]		Q7TNE3	SPAG7_MOUSE	1	5.7	4.9e-5	25921.5	MOUSE	Sperm-associated antigen 7
+[1413]		P67871	CSK2B_MOUSE	1	5.1	1.4e-5	24942.7	MOUSE	Casein kinase II subunit beta
+[1414]		Q8K2T1	NMRL1_MOUSE	2	7.8	7.7e-5	34376.4	MOUSE	NmrA-like family domain-containing protein 1
+[1415]		Q8R146	APEH_MOUSE	2	3.3	9.3e-5	81581.6	MOUSE	Acylamino-acid-releasing enzyme
+[1416]		Q60848	HELLS_MOUSE	3	4.0	4.1e-4	95126.5	MOUSE	Lymphocyte-specific helicase
+[1417]		Q9JIF7	COPB_MOUSE	1	1.5	6.8e-5	107067.1	MOUSE	Coatomer subunit beta
+[1418]		O70172	PI42A_MOUSE	1	3.7	8.7e-4	46151.9	MOUSE	Phosphatidylinositol 5-phosphate 4-kinase type-2 alpha
+[1419]		P84084	ARF5_MOUSE	2	13.9	3.0e-4	20529.8	MOUSE	ADP-ribosylation factor 5
+[1420]		P70697	DCUP_MOUSE	1	2.7	6.1e-6	40692.2	MOUSE	Uroporphyrinogen decarboxylase
+[1421]		Q9CQT1	MTNA_MOUSE	1	3.3	4.1e-5	39411.2	MOUSE	Methylthioribose-1-phosphate isomerase
+[1422]		Q9JLQ2	GIT2_MOUSE	7	10.9	2.0e-5	78766.6	MOUSE	ARF GTPase-activating protein GIT2
+[1423]		Q9R1J0	NSDHL_MOUSE	1	2.8	2.0e-5	40686.3	MOUSE	Sterol-4-alpha-carboxylate 3-dehydrogenase, decarboxylating
+[1424]		Q9CX84	RGS19_MOUSE	1	5.1	4.2e-5	24678.0	MOUSE	Regulator of G-protein signaling 19
+[1425]		Q8BGC0	HTSF1_MOUSE	1	1.5	1.3e-5	86240.6	MOUSE	HIV Tat-specific factor 1 homolog
+[1426]		Q6P5G6	UBXN7_MOUSE	1	3.0	7.2e-5	52164.7	MOUSE	UBX domain-containing protein 7
+[1427]		E9Q394	AKP13_MOUSE	1	0.6	3.1e-5	303978.3	MOUSE	A-kinase anchor protein 13
+[1428]		Q9EQ06	DHB11_MOUSE	1	5.0	3.1e-5	32880.9	MOUSE	Estradiol 17-beta-dehydrogenase 11
+[1429]		Q9DCJ5	NDUA8_MOUSE	2	17.4	2.9e-5	19992.3	MOUSE	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 8
+[1430]		Q8C0C7	SYFA_MOUSE	1	2.2	1.0e-4	57599.4	MOUSE	Phenylalanine--tRNA ligase alpha subunit
+[1431]		P97376	FRG1_MOUSE	4	20.2	1.5e-4	29127.5	MOUSE	Protein FRG1
+[1432]		Q99LD8	DDAH2_MOUSE	1	4.9	6.9e-5	29646.1	MOUSE	N(G),N(G)-dimethylarginine dimethylaminohydrolase 2
+[1433]		P29533	VCAM1_MOUSE	1	1.6	1.5e-5	81318.2	MOUSE	Vascular cell adhesion protein 1
+[1434]		P01921	HB2D_MOUSE	1	6.0	1.1e-4	29954.3	MOUSE	H-2 class II histocompatibility antigen, A-D beta chain
+[1435]		Q62431	ARI3A_MOUSE	1	4.0	2.6e-5	64173.3	MOUSE	AT-rich interactive domain-containing protein 3A
+[1436]		Q9R1Z7	PTPS_MOUSE	1	9.7	1.2e-5	16188.6	MOUSE	6-pyruvoyl tetrahydrobiopterin synthase
+[1437]		Q9JHU9	INO1_MOUSE	1	1.8	4.0e-5	60932.1	MOUSE	Inositol-3-phosphate synthase 1
+[1438]		P97370	AT1B3_MOUSE	1	4.3	8.3e-4	31776.0	MOUSE	Sodium/potassium-transporting ATPase subunit beta-3
+[1439]		O35691	PININ_MOUSE	2	2.8	3.0e-4	82436.3	MOUSE	Pinin
+[1440]		P61759	PFD3_MOUSE	1	4.6	3.9e-5	22435.8	MOUSE	Prefoldin subunit 3
+[1441]		Q7TNG5	EMAL2_MOUSE	1	1.5	6.6e-5	70734.3	MOUSE	Echinoderm microtubule-associated protein-like 2
+[1442]		Q6P9Q6	FKB15_MOUSE	3	2.8	2.5e-4	132962.0	MOUSE	FK506-binding protein 15
+[1443]		Q3U2S8	HVCN1_MOUSE	1	4.1	1.8e-4	31242.6	MOUSE	Voltage-gated hydrogen channel 1
+[1444]		Q8R4V1	NFAM1_MOUSE	1	5.7	1.6e-4	29988.0	MOUSE	NFAT activation molecule 1
+[1445]		Q6PHZ2	KCC2D_MOUSE	1	3.2	2.3e-5	56369.9	MOUSE	Calcium/calmodulin-dependent protein kinase type II subunit delta
+[1446]		P04184	KITH_MOUSE	1	4.3	4.0e-5	25776.1	MOUSE	Thymidine kinase, cytosolic
+[1447]		Q9CQ22	LTOR1_MOUSE	1	7.5	2.2e-4	17749.0	MOUSE	Ragulator complex protein LAMTOR1
+[1448]		Q9CY66	GAR1_MOUSE	1	3.9	1.8e-5	23474.2	MOUSE	H/ACA ribonucleoprotein complex subunit 1
+[1449]		Q9CQ01	RNT2_MOUSE	3	10.0	1.1e-4	29609.1	MOUSE	Ribonuclease T2
+[1450]		P97452	BOP1_MOUSE	1	2.3	8.5e-5	82546.3	MOUSE	Ribosome biogenesis protein BOP1
+[1451]		Q99N16	CP4F3_MOUSE	1	2.1	7.5e-5	59843.3	MOUSE	Leukotriene-B(4) omega-hydroxylase 2
+[1452]		Q9JIM1	S29A1_MOUSE	1	2.6	6.1e-5	50192.8	MOUSE	Equilibrative nucleoside transporter 1
+[1453]		P50518	VATE1_MOUSE	1	4.9	8.2e-5	26157.6	MOUSE	V-type proton ATPase subunit E 1
+[1454]		Q9ET30	TM9S3_MOUSE	1	1.9	2.6e-5	67545.5	MOUSE	Transmembrane 9 superfamily member 3
+[1455]		Q3ULJ0	GPD1L_MOUSE	2	6.0	1.6e-4	38225.9	MOUSE	Glycerol-3-phosphate dehydrogenase 1-like protein
+[1456]		Q8BUK6	HOOK3_MOUSE	2	4.0	3.8e-4	83218.6	MOUSE	Protein Hook homolog 3
+[1457]		Q8BZQ2	CRLD2_MOUSE	3	10.5	3.8e-6	55432.9	MOUSE	Cysteine-rich secretory protein LCCL domain-containing 2
+[1458]		Q9R257	HEBP1_MOUSE	2	15.8	6.8e-4	21067.0	MOUSE	Heme-binding protein 1
+[1459]		Q8K2Z4	CND1_MOUSE	1	0.8	1.1e-5	155666.4	MOUSE	Condensin complex subunit 1
+[1460]		P01843	LAC1_MOUSE	1	16.2	4.8e-4	11574.9	MOUSE	Ig lambda-1 chain C region
+[1461]		P99026	PSB4_MOUSE	2	9.5	1.1e-5	29116.4	MOUSE	Proteasome subunit beta type-4
+[1462]		Q3TLH4	PRC2C_MOUSE	1	0.4	2.5e-4	310894.7	MOUSE	Protein PRRC2C
+[1463]		Q9D172	ES1_MOUSE	1	5.6	3.0e-5	28090.7	MOUSE	ES1 protein homolog, mitochondrial
+[1464]		Q60902	EP15R_MOUSE	1	1.3	5.0e-5	99309.5	MOUSE	Epidermal growth factor receptor substrate 15-like 1
+[1465]		P16879	FES_MOUSE	2	2.8	4.7e-4	93779.4	MOUSE	Tyrosine-protein kinase Fes/Fps
+[1466]		Q6Y7W8	GGYF2_MOUSE	1	1.1	9.0e-5	149193.9	MOUSE	GRB10-interacting GYF protein 2
+[1467]		P41241	CSK_MOUSE	3	7.8	5.6e-4	50716.8	MOUSE	Tyrosine-protein kinase CSK
+[1468]		Q8BMS9	RASF2_MOUSE	3	12.3	6.7e-4	37973.7	MOUSE	Ras association domain-containing protein 2
+[1469]		Q61093	CY24B_MOUSE	4	5.8	9.6e-5	65305.2	MOUSE	Cytochrome b-245 heavy chain
+[1470]		Q62426	CYTB_MOUSE	2	32.7	1.3e-4	11045.7	MOUSE	Cystatin-B
+[1471]		Q7TQH0	ATX2L_MOUSE	1	1.2	1.9e-4	110649.7	MOUSE	Ataxin-2-like protein
+[1472]		Q99LL5	PWP1_MOUSE	1	2.4	1.8e-5	55587.1	MOUSE	Periodic tryptophan protein 1 homolog
+[1473]		Q3V0T4	ITAD_MOUSE	1	1.2	2.1e-5	127829.8	MOUSE	Integrin alpha-D
+[1474]		Q7TT45	RRAGD_MOUSE	1	2.7	3.0e-4	51232.5	MOUSE	Ras-related GTP-binding protein D
+[1475]		Q91YP3	DEOC_MOUSE	1	4.1	7.5e-5	34975.7	MOUSE	Deoxyribose-phosphate aldolase
+[1476]		P97825	HN1_MOUSE	1	9.7	3.9e-5	16080.7	MOUSE	Hematological and neurological expressed 1 protein
+[1477]		Q09200	B4GN1_MOUSE	2	4.7	1.1e-5	59212.4	MOUSE	Beta-1,4 N-acetylgalactosaminyltransferase 1
+[1478]		Q78IK4	MIC27_MOUSE	1	4.2	6.6e-5	29261.0	MOUSE	MICOS complex subunit Mic27
+[1479]		Q62465	VAT1_MOUSE	4	11.8	4.3e-5	43097.0	MOUSE	Synaptic vesicle membrane protein VAT-1 homolog
+[1480]		Q8BYA0	TBCD_MOUSE	1	1.1	1.7e-4	133322.3	MOUSE	Tubulin-specific chaperone D
+[1481]		Q8BYI6	PCAT2_MOUSE	1	2.4	7.0e-5	60254.3	MOUSE	Lysophosphatidylcholine acyltransferase 2
+[1482]		Q60770-2	STXB3_MOUSE	1	2.8	9.6e-5	61678.9	MOUSE	Isoform 2 of Syntaxin-binding protein 3
+[1482-1]	1	Q60770	STXB3_MOUSE	2	5.1	9.6e-5	67943.1	MOUSE	Syntaxin-binding protein 3
+[1483]		P70303	PYRG2_MOUSE	2	3.9	2.7e-5	65515.0	MOUSE	CTP synthase 2
+[1484]		P67778	PHB_MOUSE	2	7.7	4.7e-4	29820.3	MOUSE	Prohibitin
+[1485]		Q8VCM7	FIBG_MOUSE	1	3.0	2.9e-5	49391.9	MOUSE	Fibrinogen gamma chain
+[1486]		Q9DCC4	P5CR3_MOUSE	1	4.7	8.3e-5	28721.5	MOUSE	Pyrroline-5-carboxylate reductase 3
+[1487]		Q9WVE8	PACN2_MOUSE	2	4.7	1.2e-4	55833.3	MOUSE	Protein kinase C and casein kinase substrate in neurons protein 2
+[1488]		O35344	IMA4_MOUSE	1	2.1	1.8e-4	57773.3	MOUSE	Importin subunit alpha-4
+[1489]		Q8BTS4	NUP54_MOUSE	2	5.1	3.8e-5	55732.3	MOUSE	Nuclear pore complex protein Nup54
+[1490]		Q9D0N7	CAF1B_MOUSE	1	2.4	3.8e-5	63132.7	MOUSE	Chromatin assembly factor 1 subunit B
+[1491]		Q6ZQ08	CNOT1_MOUSE	1	0.5	2.9e-5	266810.2	MOUSE	CCR4-NOT transcription complex subunit 1
+[1492]		Q8R5A3	AB1IP_MOUSE	2	2.7	8.6e-5	74319.9	MOUSE	Amyloid beta A4 precursor protein-binding family B member 1-interacting protein
+[1493]		Q9CPT4	MYDGF_MOUSE	1	5.4	3.2e-5	17982.5	MOUSE	Myeloid-derived growth factor
+[1494]		P46062	SIPA1_MOUSE	2	2.6	1.8e-4	112066.9	MOUSE	Signal-induced proliferation-associated protein 1
+[1495]		Q91YI4	ARRB2_MOUSE	3	8.3	3.9e-6	46314.4	MOUSE	Beta-arrestin-2
+[1496]		P62748	HPCL1_MOUSE	2	12.4	5.9e-4	22338.4	MOUSE	Hippocalcin-like protein 1
+[1497]		Q9QZE5	COPG1_MOUSE	1	1.1	4.8e-5	97513.7	MOUSE	Coatomer subunit gamma-1
+[1498]		P58389	PTPA_MOUSE	2	8.0	5.4e-4	36710.5	MOUSE	Serine/threonine-protein phosphatase 2A activator
+[1499]		Q91VY9	ZN622_MOUSE	1	3.2	6.2e-5	53451.6	MOUSE	Zinc finger protein 622
+[1500]		Q9Z0M5	LICH_MOUSE	1	2.5	1.5e-4	45325.9	MOUSE	Lysosomal acid lipase/cholesteryl ester hydrolase
+[1501]		Q80TY0	FNBP1_MOUSE	2	3.7	1.2e-4	71344.4	MOUSE	Formin-binding protein 1
+[1502]		Q8C129	LCAP_MOUSE	1	1.3	2.5e-4	117304.9	MOUSE	Leucyl-cystinyl aminopeptidase
+[1503]		Q9DBR1	XRN2_MOUSE	1	1.2	2.2e-4	108688.4	MOUSE	5'-3' exoribonuclease 2
+[1504]		O88665	BRD7_MOUSE	1	2.3	1.5e-5	74000.5	MOUSE	Bromodomain-containing protein 7
+[1505]		Q8BFZ9	ERLN2_MOUSE	1	3.5	3.5e-4	37872.9	MOUSE	Erlin-2
+[1506]		Q8CFI7	RPB2_MOUSE	1	1.0	9.0e-5	133911.8	MOUSE	DNA-directed RNA polymerase II subunit RPB2
+[1507]		Q03963	E2AK2_MOUSE	1	2.7	1.6e-4	58280.4	MOUSE	Interferon-induced, double-stranded RNA-activated protein kinase
+[1508]		Q9D358	PPAC_MOUSE	1	7.0	1.8e-4	18191.9	MOUSE	Low molecular weight phosphotyrosine protein phosphatase
+[1509]		Q9Z2E1	MBD2_MOUSE	2	3.4	5.9e-6	43501.1	MOUSE	Methyl-CpG-binding domain protein 2
+[1510]		Q9CR26	VTA1_MOUSE	1	3.2	2.2e-5	33913.5	MOUSE	Vacuolar protein sorting-associated protein VTA1 homolog
+[1511]		Q920E5	FPPS_MOUSE	3	9.6	9.6e-5	40581.9	MOUSE	Farnesyl pyrophosphate synthase
+[1512]		Q80VP1	EPN1_MOUSE	1	2.1	3.4e-4	60212.6	MOUSE	Epsin-1
+[1513]		O54692	ZW10_MOUSE	1	1.3	6.6e-5	88063.6	MOUSE	Centromere/kinetochore protein zw10 homolog
+[1514]		Q91VM9-2	IPYR2_MOUSE	1	6.4	8.2e-5	23273.8	MOUSE	Isoform 2 of Inorganic pyrophosphatase 2, mitochondrial
+[1514-1]	1	Q91VM9	IPYR2_MOUSE	2	9.7	8.2e-5	38114.9	MOUSE	Inorganic pyrophosphatase 2, mitochondrial
+[1515]		P70195	PSB7_MOUSE	2	7.6	5.8e-5	29891.7	MOUSE	Proteasome subunit beta type-7
+[1516]		Q9Z2A7	DGAT1_MOUSE	1	2.2	8.6e-5	56790.6	MOUSE	Diacylglycerol O-acyltransferase 1
+[1517]		Q8K0D5	EFGM_MOUSE	1	2.0	4.6e-5	83550.3	MOUSE	Elongation factor G, mitochondrial
+[1518]		Q80W54	FACE1_MOUSE	1	2.3	6.9e-5	54735.0	MOUSE	CAAX prenyl protease 1 homolog
+[1519]		Q9QUM0	ITA2B_MOUSE	3	3.5	2.3e-4	112679.0	MOUSE	Integrin alpha-IIb
+[1520]		decoy	decoy	1	0.3	3.0e-5	579919.4	MOUSE	Zonadhesin
+[1521]		Q9CQY5	MAGT1_MOUSE	1	3.0	2.9e-4	37969.9	MOUSE	Magnesium transporter protein 1
+[1522]		Q61496	DDX4_MOUSE	2	3.0	4.5e-4	76470.9	MOUSE	Probable ATP-dependent RNA helicase DDX4
+[1523]		Q9D662	SC23B_MOUSE	3	5.1	8.3e-5	86437.9	MOUSE	Protein transport protein Sec23B
+[1524]		Q2VLH6	C163A_MOUSE	1	1.4	4.1e-5	120922.5	MOUSE	Scavenger receptor cysteine-rich type 1 protein M130
+[1525]		Q6PGH1	BUD31_MOUSE	1	9.7	5.0e-5	11905.0	MOUSE	Protein BUD31 homolog
+[1526]		Q9ET26	RN114_MOUSE	1	5.7	6.4e-5	25745.6	MOUSE	E3 ubiquitin-protein ligase RNF114
+[1527]		Q99LY9	NDUS5_MOUSE	2	23.6	4.0e-5	12647.8	MOUSE	NADH dehydrogenase [ubiquinone] iron-sulfur protein 5
+[1528]		Q925I1	ATAD3_MOUSE	1	1.9	2.9e-4	66742.5	MOUSE	ATPase family AAA domain-containing protein 3
+[1529]		Q9D958	SPCS1_MOUSE	2	8.1	2.6e-4	18186.3	MOUSE	Signal peptidase complex subunit 1
+[1530]		P32261	ANT3_MOUSE	1	2.2	0.0019	52004.0	MOUSE	Antithrombin-III
+[1531]		P25799	NFKB1_MOUSE	1	1.9	3.8e-5	105616.3	MOUSE	Nuclear factor NF-kappa-B p105 subunit
+[1532]		P11032	GRAA_MOUSE	1	5.0	4.7e-5	28599.5	MOUSE	Granzyme A
+[1533]		Q9EQQ2	YIPF5_MOUSE	1	4.7	3.0e-5	27873.4	MOUSE	Protein YIPF5
+[1534]		P62869	ELOB_MOUSE	2	17.8	3.7e-4	13170.0	MOUSE	Elongin-B
+[1535]		Q8R2U0	SEH1_MOUSE	1	3.9	4.2e-5	39775.1	MOUSE	Nucleoporin SEH1
+[1536]		O88447	KLC1_MOUSE	1	2.6	2.3e-4	61450.6	MOUSE	Kinesin light chain 1
+[1537]		Q8R349	CDC16_MOUSE	1	2.6	1.4e-4	71460.9	MOUSE	Cell division cycle protein 16 homolog
+[1538]		P36536	SAR1A_MOUSE	1	5.6	2.9e-4	22371.1	MOUSE	GTP-binding protein SAR1a
+[1539]		P01831	THY1_MOUSE	4	31.5	1.8e-4	18080.1	MOUSE	Thy-1 membrane glycoprotein
+[1540]		Q9JJA4	WDR12_MOUSE	2	5.9	1.9e-4	47346.9	MOUSE	Ribosome biogenesis protein WDR12
+[1541]		P0CW03	LY6C2_MOUSE	1	13.7	6.5e-5	14090.6	MOUSE	Lymphocyte antigen 6C2
+[1542]		Q61102	ABCB7_MOUSE	2	3.3	1.3e-4	82581.6	MOUSE	ATP-binding cassette sub-family B member 7, mitochondrial
+[1543]		Q9JHW2	NIT2_MOUSE	1	5.4	1.5e-4	30502.0	MOUSE	Omega-amidase NIT2
+[1544]		Q9D906	ATG7_MOUSE	1	2.0	4.8e-5	77520.9	MOUSE	Ubiquitin-like modifier-activating enzyme ATG7
+[1545]		Q9WTK5	NFKB2_MOUSE	1	1.8	1.2e-4	96833.1	MOUSE	Nuclear factor NF-kappa-B p100 subunit
+[1546]		O54864	SUV91_MOUSE	1	2.4	3.6e-5	47754.8	MOUSE	Histone-lysine N-methyltransferase SUV39H1
+[1547]		P97930	KTHY_MOUSE	1	5.7	1.1e-4	23914.7	MOUSE	Thymidylate kinase
+[1548]		Q99ME9	NOG1_MOUSE	2	3.5	2.6e-4	74113.4	MOUSE	Nucleolar GTP-binding protein 1
+[1549]		P15530	CD79B_MOUSE	1	6.1	2.5e-4	25726.7	MOUSE	B-cell antigen receptor complex-associated protein beta chain
+[1550]		Q60766	IRGM1_MOUSE	1	2.4	2.3e-4	46552.2	MOUSE	Immunity-related GTPase family M protein 1
+[1551]		Q8BMJ2	SYLC_MOUSE	1	1.0	4.0e-5	134193.6	MOUSE	Leucine--tRNA ligase, cytoplasmic
+[1552]		Q9CPP6	NDUA5_MOUSE	2	13.8	5.1e-5	13359.8	MOUSE	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 5
+[1553]		O08585	CLCA_MOUSE	1	3.4	5.2e-4	25604.3	MOUSE	Clathrin light chain A
+[1554]		Q91VX2	UBAP2_MOUSE	1	1.3	7.4e-4	117966.9	MOUSE	Ubiquitin-associated protein 2
+[1555]		Q8CHP5	PYM1_MOUSE	1	5.4	3.0e-4	22689.8	MOUSE	Partner of Y14 and mago
+[1556]		P97372	PSME2_MOUSE	5	17.6	2.7e-4	27057.5	MOUSE	Proteasome activator complex subunit 2
+[1557]		Q08024	PEBB_MOUSE	1	5.3	1.0e-4	22030.7	MOUSE	Core-binding factor subunit beta
+[1558]		Q497L8	S22AG_MOUSE	1	1.8	3.6e-5	73933.8	MOUSE	Solute carrier family 22 member 16
+[1559]		Q9QZK7	DOK3_MOUSE	2	6.1	3.5e-4	48027.8	MOUSE	Docking protein 3
+[1560]		Q9CWW6	PIN4_MOUSE	3	16.8	1.6e-4	13815.0	MOUSE	Peptidyl-prolyl cis-trans isomerase NIMA-interacting 4
+[1561]		Q9D8Y7	TP8L2_MOUSE	1	7.6	1.6e-4	20615.0	MOUSE	Tumor necrosis factor alpha-induced protein 8-like protein 2
+[1562]		Q9DB05	SNAA_MOUSE	2	6.8	6.8e-4	33190.0	MOUSE	Alpha-soluble NSF attachment protein
+[1563]		Q3UHX2	HAP28_MOUSE	2	6.1	2.6e-4	20605.0	MOUSE	28 kDa heat- and acid-stable phosphoprotein
+[1564]		Q9JLZ3	AUHM_MOUSE	1	3.5	5.3e-5	33395.3	MOUSE	Methylglutaconyl-CoA hydratase, mitochondrial
+[1565]		P50431	GLYC_MOUSE	2	4.8	1.9e-4	52601.4	MOUSE	Serine hydroxymethyltransferase, cytosolic
+[1566]		E9Q555	RN213_MOUSE	1	0.3	1.5e-4	584789.1	MOUSE	E3 ubiquitin-protein ligase RNF213
+[1567]		A6PWY4	WDR76_MOUSE	1	2.3	4.5e-4	69007.9	MOUSE	WD repeat-containing protein 76
+[1568]		P61620	S61A1_MOUSE	1	2.3	2.3e-4	52265.2	MOUSE	Protein transport protein Sec61 subunit alpha isoform 1
+[1569]		P09055	ITB1_MOUSE	1	1.6	1.3e-4	88232.2	MOUSE	Integrin beta-1
+[1570]		Q8BVA5	LDAH_MOUSE	1	4.0	1.1e-4	37374.3	MOUSE	Lipid droplet-associated hydrolase
+[1571]		Q8BJY1	PSMD5_MOUSE	1	3.0	4.7e-5	55972.6	MOUSE	26S proteasome non-ATPase regulatory subunit 5
+[1572]		Q8VEK0	CC50A_MOUSE	1	4.4	2.0e-4	41061.3	MOUSE	Cell cycle control protein 50A
+[1573]		P35123	UBP4_MOUSE	1	1.1	3.1e-4	108343.8	MOUSE	Ubiquitin carboxyl-terminal hydrolase 4
+[1574]		Q8VDD9	PHIP_MOUSE	1	1.0	9.1e-5	206727.9	MOUSE	PH-interacting protein
+[1575]		P62843	RS15_MOUSE	1	8.3	2.4e-4	17040.3	MOUSE	40S ribosomal protein S15
+[1576]		Q91VS7	MGST1_MOUSE	1	8.4	8.2e-5	17551.8	MOUSE	Microsomal glutathione S-transferase 1
+[1577]		Q9CZM2	RL15_MOUSE	5	18.1	6.1e-5	24146.3	MOUSE	60S ribosomal protein L15
+[1578]		Q8BQ30	PPR18_MOUSE	1	2.0	4.0e-4	65630.1	MOUSE	Phostensin
+[1579]		Q6PDL0	DC1L2_MOUSE	3	8.5	1.1e-5	54218.9	MOUSE	Cytoplasmic dynein 1 light intermediate chain 2
+[1580]		P61924	COPZ1_MOUSE	1	6.2	5.5e-4	20198.4	MOUSE	Coatomer subunit zeta-1
+[1581]		Q8BJ05	ZC3HE_MOUSE	1	1.9	2.4e-4	82409.8	MOUSE	Zinc finger CCCH domain-containing protein 14
+[1582]		Q9D937	CK098_MOUSE	2	19.5	2.0e-5	14098.7	MOUSE	Uncharacterized protein C11orf98 homolog
+[1583]		Q7TSE6	ST38L_MOUSE	1	2.4	1.5e-4	53772.0	MOUSE	Serine/threonine-protein kinase 38-like
+[1584]		Q9EP69	SAC1_MOUSE	2	3.6	7.4e-5	66944.4	MOUSE	Phosphatidylinositide phosphatase SAC1
+[1585]		P39654	LOX15_MOUSE	1	2.3	5.8e-4	75445.4	MOUSE	Arachidonate 15-lipoxygenase
+[1586]		Q80UM7	MOGS_MOUSE	1	1.2	1.0e-4	91832.1	MOUSE	Mannosyl-oligosaccharide glucosidase
+[1587]		Q91W39	NCOA5_MOUSE	1	1.6	4.3e-4	65319.6	MOUSE	Nuclear receptor coactivator 5
+[1588]		Q80UG5	SEPT9_MOUSE	1	1.5	1.6e-4	65575.5	MOUSE	Septin-9
+[1589]		P07091	S10A4_MOUSE	1	8.9	1.4e-4	11721.5	MOUSE	Protein S100-A4
+[1590]		P04117	FABP4_MOUSE	1	9.1	5.8e-5	14650.0	MOUSE	Fatty acid-binding protein, adipocyte
+[1591]		P36993	PPM1B_MOUSE	1	3.1	4.6e-4	42795.4	MOUSE	Protein phosphatase 1B
+[1592]		Q8VBW6	ULA1_MOUSE	1	2.8	4.7e-4	60274.0	MOUSE	NEDD8-activating enzyme E1 regulatory subunit
+[1593]		Q8CIM8	INT4_MOUSE	1	1.0	9.4e-4	108193.6	MOUSE	Integrator complex subunit 4
+[1594]		Q9JHR7	IDE_MOUSE	1	1.1	6.0e-4	117773.1	MOUSE	Insulin-degrading enzyme
+[1595]		O35465	FKBP8_MOUSE	1	3.5	7.9e-5	43529.2	MOUSE	Peptidyl-prolyl cis-trans isomerase FKBP8
+[1596]		Q99J62	RFC4_MOUSE	2	5.8	2.3e-4	39867.1	MOUSE	Replication factor C subunit 4
+[1597]		P62892	RL39_MOUSE	1	19.6	2.7e-4	6406.7	MOUSE	60S ribosomal protein L39
+[1598]		A6X935	ITIH4_MOUSE	1	1.1	2.3e-4	104660.4	MOUSE	Inter alpha-trypsin inhibitor, heavy chain 4
+[1599]		Q9CX11	UTP23_MOUSE	1	4.8	9.1e-5	28380.5	MOUSE	rRNA-processing protein UTP23 homolog
+[1600]		Q9D7P6	ISCU_MOUSE	1	10.1	6.6e-4	18098.2	MOUSE	Iron-sulfur cluster assembly enzyme ISCU, mitochondrial
+[1601]		Q9DCD2	SYF1_MOUSE	1	1.4	1.1e-4	99988.4	MOUSE	Pre-mRNA-splicing factor SYF1
+[1602]		P70336	ROCK2_MOUSE	1	1.0	8.8e-4	160587.0	MOUSE	Rho-associated protein kinase 2
+[1603]		P07214	SPRC_MOUSE	3	10.9	1.1e-4	34450.4	MOUSE	SPARC
+[1604]		Q7M6Y3	PICAL_MOUSE	1	1.5	4.9e-4	71544.0	MOUSE	Phosphatidylinositol-binding clathrin assembly protein
+[1605]		P19788	MGP_MOUSE	1	10.6	1.4e-4	12359.2	MOUSE	Matrix Gla protein
+[1606]		Q91WG0	EST2C_MOUSE	1	2.7	9.4e-5	62470.2	MOUSE	Acylcarnitine hydrolase
+[1607]		Q8R016	BLMH_MOUSE	2	7.9	4.3e-4	52511.6	MOUSE	Bleomycin hydrolase
+[1608]		Q9JKP7	DPOE3_MOUSE	1	7.6	1.3e-4	16629.5	MOUSE	DNA polymerase epsilon subunit 3
+[1609]		A2ADY9	DDI2_MOUSE	1	2.3	1.4e-4	44591.0	MOUSE	Protein DDI1 homolog 2
+[1610]		Q8K2C9	HACD3_MOUSE	1	3.0	2.8e-4	43131.8	MOUSE	Very-long-chain (3R)-3-hydroxyacyl-CoA dehydratase 3
+[1611]		Q9EQK5	MVP_MOUSE	2	2.8	9.3e-5	95925.1	MOUSE	Major vault protein
+[1612]		Q8C0L0	TMX4_MOUSE	1	3.6	2.5e-4	37131.6	MOUSE	Thioredoxin-related transmembrane protein 4
+[1613]		Q9CXS4	CENPV_MOUSE	1	5.6	1.7e-4	27541.3	MOUSE	Centromere protein V
+[1614]		P13439	UMPS_MOUSE	2	4.4	0.0011	52292.9	MOUSE	Uridine 5'-monophosphate synthase
+[1615]		Q91XB0	TREX1_MOUSE	1	4.5	5.8e-4	33675.8	MOUSE	Three-prime repair exonuclease 1
+[1616]		P47915	RL29_MOUSE	2	11.9	1.4e-5	17587.1	MOUSE	60S ribosomal protein L29
+[1617]		O88879	APAF_MOUSE	1	0.8	5.9e-4	141004.2	MOUSE	Apoptotic protease-activating factor 1
+[1618]		Q68FL6	SYMC_MOUSE	1	1.1	5.8e-4	101431.5	MOUSE	Methionine--tRNA ligase, cytoplasmic
+[1619]		Q9D2H6	SP2_MOUSE	1	2.6	3.0e-4	64908.7	MOUSE	Transcription factor Sp2
+[1620]		Q61595	KTN1_MOUSE	1	1.0	2.4e-4	152593.7	MOUSE	Kinectin
+[1621]		Q8K2Y9	CCM2_MOUSE	1	4.2	7.4e-5	49917.5	MOUSE	Cerebral cavernous malformations protein 2 homolog
+[1622]		decoy	decoy	1	5.2	1.0e-4	28997.8	MOUSE	Isoform 2 of Kv channel-interacting protein 2
+[1623]		Q78IS1	TMED3_MOUSE	1	4.5	0.0024	25465.1	MOUSE	Transmembrane emp24 domain-containing protein 3
+[1624]		Q8BZR9	NCBP3_MOUSE	2	4.2	7.7e-5	70043.7	MOUSE	Nuclear cap-binding protein subunit 3
+[1625]		Q921E6-3	EED_MOUSE	1	2.6	1.0e-4	48765.6	MOUSE	Isoform 3 of Polycomb protein EED
+[1625-1]	1	Q921E6	EED_MOUSE	2	5.9	1.0e-4	50198.2	MOUSE	Polycomb protein EED
+[1625-2]	1	Q921E6-2	EED_MOUSE	2	5.2	1.0e-4	56194.9	MOUSE	Isoform 2 of Polycomb protein EED
+[1626]		P21958	TAP1_MOUSE	1	1.5	1.6e-4	78864.8	MOUSE	Antigen peptide transporter 1
+[1627]		P70404	IDHG1_MOUSE	1	2.8	2.0e-4	42785.8	MOUSE	Isocitrate dehydrogenase [NAD] subunit gamma 1, mitochondrial
+[1628]		Q8BGT7	SPF30_MOUSE	1	5.0	3.1e-4	26753.4	MOUSE	Survival of motor neuron-related-splicing factor 30
+[1629]		P70698	PYRG1_MOUSE	2	3.7	2.5e-4	66683.0	MOUSE	CTP synthase 1
+[1630]		Q6PIU9	YJ005_MOUSE	1	3.4	6.4e-4	37705.0	MOUSE	Uncharacterized protein FLJ45252 homolog
+[1631]		Q6NXI6	RPRD2_MOUSE	1	1.0	8.7e-4	156587.1	MOUSE	Regulation of nuclear pre-mRNA domain-containing protein 2
+[1632]		Q640M1	UT14A_MOUSE	1	2.1	4.2e-4	87266.0	MOUSE	U3 small nucleolar RNA-associated protein 14 homolog A
+[1633]		P16675	PPGB_MOUSE	3	7.6	2.8e-5	53844.6	MOUSE	Lysosomal protective protein
+[1634]		Q8BQM4	HEAT3_MOUSE	1	2.4	1.1e-4	74306.1	MOUSE	HEAT repeat-containing protein 3
+[1635]		Q9JI44	DMAP1_MOUSE	1	2.6	8.3e-4	53130.2	MOUSE	DNA methyltransferase 1-associated protein 1
+[1636]		Q9CRA8	EXOS5_MOUSE	1	6.8	3.4e-4	25194.2	MOUSE	Exosome complex component RRP46
+[1637]		P70452	STX4_MOUSE	1	3.7	6.7e-4	34165.3	MOUSE	Syntaxin-4
+[1638]		P62082	RS7_MOUSE	3	20.1	4.2e-5	22127.0	MOUSE	40S ribosomal protein S7
+[1639]		Q9EPJ9	ARFG1_MOUSE	1	3.9	1.0e-4	45288.6	MOUSE	ADP-ribosylation factor GTPase-activating protein 1
+[1640]		Q08639	TFDP1_MOUSE	1	4.4	8.4e-5	45231.0	MOUSE	Transcription factor Dp-1
+[1641]		Q8BHG2	CA123_MOUSE	1	7.5	8.4e-4	18020.6	MOUSE	UPF0587 protein C1orf123 homolog
+[1642]		Q9Z2M7	PMM2_MOUSE	1	4.5	3.5e-4	27656.9	MOUSE	Phosphomannomutase 2
+[1643]		P61079	UB2D3_MOUSE	1	7.5	4.5e-4	16687.3	MOUSE	Ubiquitin-conjugating enzyme E2 D3
+[1644]		Q9ERI2	RB27A_MOUSE	2	10.0	1.4e-4	25017.5	MOUSE	Ras-related protein Rab-27A
+[1645]		Q9CXT8	MPPB_MOUSE	2	4.5	8.9e-5	54615.0	MOUSE	Mitochondrial-processing peptidase subunit beta
+[1646]		Q9QYA2	TOM40_MOUSE	1	3.0	0.0058	37895.5	MOUSE	Mitochondrial import receptor subunit TOM40 homolog
+[1647]		Q9D1H7	GET4_MOUSE	1	3.7	1.9e-4	36525.6	MOUSE	Golgi to ER traffic protein 4 homolog
+[1648]		P10923	OSTP_MOUSE	1	6.5	9.4e-5	32459.7	MOUSE	Osteopontin
+[1649]		P45952	ACADM_MOUSE	3	7.8	4.1e-4	46481.6	MOUSE	Medium-chain specific acyl-CoA dehydrogenase, mitochondrial
+[1650]		P63024	VAMP3_MOUSE	1	16.5	4.3e-4	11480.4	MOUSE	Vesicle-associated membrane protein 3
+[1651]		Q9DC23	DJC10_MOUSE	1	1.3	2.8e-4	90583.9	MOUSE	DnaJ homolog subfamily C member 10
+[1652]		Q9CXU1	MED31_MOUSE	1	13.0	2.6e-4	15771.2	MOUSE	Mediator of RNA polymerase II transcription subunit 31
+[1653]		P97868	RBBP6_MOUSE	2	0.9	5.9e-4	199589.0	MOUSE	E3 ubiquitin-protein ligase RBBP6
+[1654]		Q9D735	CS043_MOUSE	1	6.4	3.4e-4	18376.7	MOUSE	Uncharacterized protein C19orf43 homolog
+[1655]		Q9D0B0	SRSF9_MOUSE	3	14.9	6.9e-5	25661.6	MOUSE	Serine/arginine-rich splicing factor 9
+[1656]		decoy	decoy	1	2.3	1.4e-4	59065.1	MOUSE	Peptidyl-prolyl cis-trans isomerase-like 2
+[1657]		Q8C2K1	DEFI6_MOUSE	2	3.3	9.7e-4	73454.6	MOUSE	Differentially expressed in FDCP 6
+[1658]		Q91WD5	NDUS2_MOUSE	1	2.6	7.1e-4	52626.2	MOUSE	NADH dehydrogenase [ubiquinone] iron-sulfur protein 2, mitochondrial
+[1659]		Q9ERD8	PARVG_MOUSE	1	3.6	6.0e-4	37603.6	MOUSE	Gamma-parvin
+[1660]		Q9CWM4	PFD1_MOUSE	1	9.0	0.0015	14254.7	MOUSE	Prefoldin subunit 1
+[1661]		O35130	NEP1_MOUSE	1	3.7	2.4e-4	26974.6	MOUSE	Ribosomal RNA small subunit methyltransferase NEP1
+[1662]		P23611	IRF8_MOUSE	1	3.3	1.9e-4	48237.6	MOUSE	Interferon regulatory factor 8
+[1663]		Q64514	TPP2_MOUSE	1	1.0	9.3e-4	139880.0	MOUSE	Tripeptidyl-peptidase 2
+[1664]		Q9QZ73	DCNL1_MOUSE	2	8.9	2.8e-4	30097.6	MOUSE	DCN1-like protein 1
+[1665]		Q924Z4	CERS2_MOUSE	2	4.2	2.6e-4	45024.8	MOUSE	Ceramide synthase 2
+[1666]		P24788	CD11B_MOUSE	1	1.4	9.3e-4	91514.2	MOUSE	Cyclin-dependent kinase 11B
+[1667]		Q9Z1P6	NDUA7_MOUSE	2	17.7	8.6e-4	12575.7	MOUSE	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 7
+[1668]		P45878	FKBP2_MOUSE	1	8.6	0.0026	15344.1	MOUSE	Peptidyl-prolyl cis-trans isomerase FKBP2
+[1669]		Q6ZWN5	RS9_MOUSE	4	14.4	1.2e-4	22591.6	MOUSE	40S ribosomal protein S9
+[1670]		Q6PGG2	GMIP_MOUSE	1	1.0	3.1e-4	107545.9	MOUSE	GEM-interacting protein
+[1671]		Q9CQ10	CHMP3_MOUSE	1	4.0	0.0013	25219.4	MOUSE	Charged multivesicular body protein 3
+[1672]		P27808	MGAT1_MOUSE	1	3.4	0.0014	51690.6	MOUSE	Alpha-1,3-mannosyl-glycoprotein 2-beta-N-acetylglucosaminyltransferase
+[1673]		Q9WTI7	MYO1C_MOUSE	1	1.3	6.3e-4	121945.2	MOUSE	Unconventional myosin-Ic
+[1674]		Q91X96	MSS4_MOUSE	1	8.9	2.5e-4	13915.0	MOUSE	Guanine nucleotide exchange factor MSS4
+[1675]		Q8R164	BPHL_MOUSE	1	4.1	6.1e-4	32851.2	MOUSE	Valacyclovir hydrolase
+[1676]		P61327	MGN_MOUSE	1	7.5	0.0017	17163.8	MOUSE	Protein mago nashi homolog
+[1677]		Q9D898	ARP5L_MOUSE	1	7.8	0.0014	16980.4	MOUSE	Actin-related protein 2/3 complex subunit 5-like protein
+[1678]		Q99N89	RM43_MOUSE	1	6.0	0.0027	20202.9	MOUSE	39S ribosomal protein L43, mitochondrial
+[1679]		P47739	AL3A1_MOUSE	1	2.0	9.8e-5	50481.3	MOUSE	Aldehyde dehydrogenase, dimeric NADP-preferring
+[1680]		Q99PG2	OGFR_MOUSE	1	3.2	3.8e-4	70679.9	MOUSE	Opioid growth factor receptor
+[1681]		Q9D7N3	RT09_MOUSE	1	3.8	5.5e-4	44929.8	MOUSE	28S ribosomal protein S9, mitochondrial
+[1682]		Q9Z126	PLF4_MOUSE	2	20.0	5.5e-5	11243.6	MOUSE	Platelet factor 4
+[1683]		Q9D0L8	MCES_MOUSE	3	5.8	7.2e-5	53291.8	MOUSE	mRNA cap guanine-N7 methyltransferase
+[1684]		Q9QXT0	CNPY2_MOUSE	4	24.7	0.0025	20767.5	MOUSE	Protein canopy homolog 2
+[1685]		O09117	SYPL1_MOUSE	1	3.4	2.5e-4	28899.7	MOUSE	Synaptophysin-like protein 1
+[1686]		Q8CGZ0	CHERP_MOUSE	2	2.6	0.0019	106169.5	MOUSE	Calcium homeostasis endoplasmic reticulum protein
+[1687]		Q91W50	CSDE1_MOUSE	1	1.6	2.7e-4	88791.3	MOUSE	Cold shock domain-containing protein E1
+[1688]		Q9CY57	CHTOP_MOUSE	2	9.2	4.2e-4	26585.1	MOUSE	Chromatin target of PRMT1 protein
+[1689]		Q9Z2X2	PSD10_MOUSE	1	9.1	1.5e-4	25083.8	MOUSE	26S proteasome non-ATPase regulatory subunit 10
+[1690]		Q8R344	CCD12_MOUSE	1	6.0	0.0012	18891.5	MOUSE	Coiled-coil domain-containing protein 12
+[1691]		P62320	SMD3_MOUSE	1	7.9	0.0046	13916.4	MOUSE	Small nuclear ribonucleoprotein Sm D3
+[1692]		Q8BI72	CARF_MOUSE	2	4.3	4.1e-4	59745.1	MOUSE	CDKN2A-interacting protein
+[1693]		Q05CL8	LARP7_MOUSE	1	2.1	0.0016	64802.8	MOUSE	La-related protein 7
+[1694]		Q9CZU3	SK2L2_MOUSE	1	1.0	8.2e-4	117637.5	MOUSE	Superkiller viralicidic activity 2-like 2
+[1695]		decoy	decoy	1	0.5	2.7e-4	221880.9	MOUSE	Isoform 2 of Tenascin
+[1696]		Q61189	ICLN_MOUSE	1	5.5	0.0014	26021.3	MOUSE	Methylosome subunit pICln
+[1697]		Q91YH5	ATLA3_MOUSE	2	3.9	6.9e-4	60575.6	MOUSE	Atlastin-3
+[1698]		decoy	decoy	1	3.1	0.0025	47878.7	MOUSE	Ig-like V-type domain-containing protein FAM187A
+[1699]		Q6R891	NEB2_MOUSE	1	1.6	0.0088	89521.0	MOUSE	Neurabin-2
+[1700]		decoy	decoy	1	0.8	6.0e-4	192917.0	MOUSE	Complement C4-B
+[1701]		Q4QY64	ATAD5_MOUSE	2	0.9	9.4e-5	203910.5	MOUSE	ATPase family AAA domain-containing protein 5
+[1702]		Q6PAJ1	BCR_MOUSE	1	0.8	1.8e-4	143072.9	MOUSE	Breakpoint cluster region protein
+[1702-1]	1	Q5SSL4	ABR_MOUSE	2	2.7	1.8e-4	97667.8	MOUSE	Active breakpoint cluster region-related protein
+[1702-2]	1	Q5SSL4-2	ABR_MOUSE	2	2.6	1.8e-4	98989.3	MOUSE	Isoform 2 of Active breakpoint cluster region-related protein
+[1702-3]	1	Q5SSL4-3	ABR_MOUSE	2	3.6	1.8e-4	73549.6	MOUSE	Isoform 3 of Active breakpoint cluster region-related protein
+[1702-4]	1	Q5SSL4-4	ABR_MOUSE	2	2.8	1.8e-4	93773.7	MOUSE	Isoform 4 of Active breakpoint cluster region-related protein
+[1703]		Q8BHS3	RBM22_MOUSE	1	2.4	0.0011	46896.0	MOUSE	Pre-mRNA-splicing factor RBM22
+[1704]		Q9JIG7	CCD22_MOUSE	1	2.2	2.4e-4	70844.1	MOUSE	Coiled-coil domain-containing protein 22
+[1705]		Q9CZS1	AL1B1_MOUSE	1	2.7	2.0e-4	57553.4	MOUSE	Aldehyde dehydrogenase X, mitochondrial
+[1706]		Q3U182	CRTC2_MOUSE	1	1.7	3.6e-4	73216.6	MOUSE	CREB-regulated transcription coactivator 2
+[1707]		O35216	CENPA_MOUSE	1	8.2	0.0020	15509.3	MOUSE	Histone H3-like centromeric protein A
+[1708]		Q8K1R7	NEK9_MOUSE	1	1.5	6.3e-4	107144.5	MOUSE	Serine/threonine-protein kinase Nek9
+[1709]		E9Q735	UBE4A_MOUSE	1	1.2	3.8e-4	118199.5	MOUSE	Ubiquitin conjugation factor E4 A
+[1710]		G3X9K3	BIG1_MOUSE	1	1.2	1.3e-4	208501.7	MOUSE	Brefeldin A-inhibited guanine nucleotide-exchange protein 1
+[1711]		P60840-3	ENSA_MOUSE	1	19.4	3.5e-4	8183.3	MOUSE	Isoform 3 of Alpha-endosulfine
+[1712]		O54984	ASNA_MOUSE	2	5.5	5.7e-4	38823.2	MOUSE	ATPase Asna1
+[1713]		Q9D4H8	CUL2_MOUSE	1	1.5	6.9e-4	86877.8	MOUSE	Cullin-2
+[1714]		Q99KJ8	DCTN2_MOUSE	1	2.5	7.7e-4	44117.2	MOUSE	Dynactin subunit 2
+[1715]		P04441	HG2A_MOUSE	1	3.6	0.0023	31557.7	MOUSE	H-2 class II histocompatibility antigen gamma chain
+[1716]		Q60996	2A5G_MOUSE	1	1.5	5.8e-4	60825.0	MOUSE	Serine/threonine-protein phosphatase 2A 56 kDa regulatory subunit gamma isoform
+[1717]		P26369	U2AF2_MOUSE	2	3.8	4.4e-4	53517.5	MOUSE	Splicing factor U2AF 65 kDa subunit
+[1718]		Q6ZQ88	KDM1A_MOUSE	2	2.7	1.2e-4	92851.4	MOUSE	Lysine-specific histone demethylase 1A
+[1719]		P07607	TYSY_MOUSE	1	5.2	1.9e-4	34958.4	MOUSE	Thymidylate synthase
+[1720]		decoy	decoy	1	2.8	0.0012	54959.7	MOUSE	CCR4-NOT transcription complex subunit 11
+[1721]		Q8R4X3	RBM12_MOUSE	1	1.4	0.0015	102797.3	MOUSE	RNA-binding protein 12
+[1722]		Q9WVM6	TLL2_MOUSE	1	1.1	5.7e-4	113253.5	MOUSE	Tolloid-like protein 2
+[1723]		P25425	PO2F1_MOUSE	1	2.3	7.9e-4	79547.6	MOUSE	POU domain, class 2, transcription factor 1
+[1724]		Q99ME7	TBX19_MOUSE	1	2.9	0.0022	48037.5	MOUSE	T-box transcription factor TBX19
+[1725]		Q80Y14	GLRX5_MOUSE	1	5.3	0.0015	16292.6	MOUSE	Glutaredoxin-related protein 5, mitochondrial
+[1726]		P18181	CD48_MOUSE	1	6.2	5.6e-4	27383.7	MOUSE	CD48 antigen
+[1727]		P49138	MAPK2_MOUSE	2	6.5	5.0e-4	44050.4	MOUSE	MAP kinase-activated protein kinase 2
+[1728]		Q8K3W0	BRE_MOUSE	1	3.7	3.3e-4	43545.1	MOUSE	BRCA1-A complex subunit BRE
+[1729]		O35143	ATIF1_MOUSE	1	8.5	3.1e-4	12158.8	MOUSE	ATPase inhibitor, mitochondrial
+[1730]		D3Z7P3	GLSK_MOUSE	1	2.2	3.1e-4	73964.4	MOUSE	Glutaminase kidney isoform, mitochondrial
+[1731]		P52912	TIA1_MOUSE	1	2.8	0.0020	42800.3	MOUSE	Nucleolysin TIA-1
+[1732]		O08739	AMPD3_MOUSE	1	1.7	0.0028	88653.1	MOUSE	AMP deaminase 3
+[1733]		Q9JI75	NQO2_MOUSE	1	4.8	0.0020	26248.4	MOUSE	Ribosyldihydronicotinamide dehydrogenase [quinone]
+[1734]		Q60872	IF1A_MOUSE	2	14.6	1.4e-4	16502.6	MOUSE	Eukaryotic translation initiation factor 1A
+[1734-1]	1	Q8BMJ3	IF1AX_MOUSE	3	21.5	1.4e-4	16460.5	MOUSE	Eukaryotic translation initiation factor 1A, X-chromosomal
+[1735]		Q3TBT3	STING_MOUSE	1	4.2	5.6e-4	42830.3	MOUSE	Stimulator of interferon genes protein
+[1736]		O08900	IKZF3_MOUSE	1	2.6	4.0e-4	57968.1	MOUSE	Zinc finger protein Aiolos
+[1737]		A3KMP2	TTC38_MOUSE	1	3.2	0.0027	52224.3	MOUSE	Tetratricopeptide repeat protein 38
+[1738]		Q69ZQ2	ISY1_MOUSE	1	4.6	9.0e-4	32989.5	MOUSE	Pre-mRNA-splicing factor ISY1 homolog
+[1739]		P56542	DNS2A_MOUSE	1	3.1	2.8e-4	38811.1	MOUSE	Deoxyribonuclease-2-alpha
+[1740]		P62855	RS26_MOUSE	2	18.3	1.5e-4	13015.5	MOUSE	40S ribosomal protein S26
+[1741]		Q64G17	AN32C_MOUSE	1	8.9	0.0021	14066.5	MOUSE	Putative acidic leucine-rich nuclear phosphoprotein 32 family member C
+[1742]		P35285	RB22A_MOUSE	1	5.7	0.0011	21802.1	MOUSE	Ras-related protein Rab-22A
+[1743]		Q61235	SNTB2_MOUSE	1	1.9	0.0020	56382.2	MOUSE	Beta-2-syntrophin
+[1744]		Q9Z0K8	VNN1_MOUSE	1	2.5	3.3e-4	57091.9	MOUSE	Pantetheinase
+[1745]		P60898	RPB9_MOUSE	1	9.6	4.7e-4	14523.4	MOUSE	DNA-directed RNA polymerase II subunit RPB9
+[1746]		Q9Z2L7-2	CRLF3_MOUSE	3	7.0	4.0e-4	39153.4	MOUSE	Isoform 2 of Cytokine receptor-like factor 3
+[1746-1]	1	Q9Z2L7	CRLF3_MOUSE	4	7.5	4.0e-4	49559.0	MOUSE	Cytokine receptor-like factor 3
+[1747]		P86048	RL10L_MOUSE	4	18.7	6.5e-5	24558.1	MOUSE	60S ribosomal protein L10-like
+[1748]		Q6PGC1	DHX29_MOUSE	1	1.0	2.8e-4	153976.6	MOUSE	ATP-dependent RNA helicase DHX29
+[1749]		Q8VD62	CK068_MOUSE	1	4.4	0.0035	27539.1	MOUSE	UPF0696 protein C11orf68 homolog
+[1750]		Q9EPE9	AT131_MOUSE	1	1.0	0.0015	132389.3	MOUSE	Manganese-transporting ATPase 13A1
+[1751]		Q9DCH4	EIF3F_MOUSE	1	3.0	8.6e-4	37984.6	MOUSE	Eukaryotic translation initiation factor 3 subunit F
+[1752]		Q05512	MARK2_MOUSE	1	2.2	8.8e-4	86306.7	MOUSE	Serine/threonine-protein kinase MARK2
+[1753]		Q921G7	ETFD_MOUSE	2	3.9	1.8e-4	68091.5	MOUSE	Electron transfer flavoprotein-ubiquinone oxidoreductase, mitochondrial
+[1754]		Q2YFS1	PILB2_MOUSE	1	4.0	8.3e-4	25512.9	MOUSE	Paired immunoglobulin-like type 2 receptor beta-2
+[1755]		decoy	decoy	1	1.3	7.4e-4	95557.3	MOUSE	Isoform 4 of Outer dense fiber protein 2
+[1756]		decoy	decoy	1	0.5	2.0e-4	163116.7	MOUSE	Isoform 2 of Receptor-type tyrosine-protein phosphatase T
+[1757]		Q9WUM4	COR1C_MOUSE	3	6.3	7.7e-5	53121.4	MOUSE	Coronin-1C
+[1758]		O55137	ACOT1_MOUSE	1	2.6	9.9e-4	46136.4	MOUSE	Acyl-coenzyme A thioesterase 1
+[1759]		decoy	decoy	1	2.8	0.0076	57519.5	MOUSE	Angiopoietin-1
+[1760]		Q9DD03	RAB13_MOUSE	1	5.4	0.0030	22770.3	MOUSE	Ras-related protein Rab-13
+[1761]		Q9CQC7	NDUB4_MOUSE	1	7.8	5.1e-4	15081.4	MOUSE	NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 4
+[1762]		Q9CSH3	RRP44_MOUSE	2	2.8	4.3e-4	108838.5	MOUSE	Exosome complex exonuclease RRP44
+[1763]		Q9CR21	ACPM_MOUSE	1	5.8	0.0017	17370.5	MOUSE	Acyl carrier protein, mitochondrial
+[1764]		Q8K4Z3	NNRE_MOUSE	1	5.7	8.3e-4	30973.1	MOUSE	NAD(P)H-hydrate epimerase
+[1765]		Q9JKS4-2	LDB3_MOUSE	1	2.0	3.6e-4	72752.5	MOUSE	Isoform 2 of LIM domain-binding protein 3
+[1766]		Q80T69	RSBN1_MOUSE	1	2.0	0.0013	89252.2	MOUSE	Round spermatid basic protein 1
+[1767]		Q8VCB3	GYS2_MOUSE	1	1.4	0.0020	80871.5	MOUSE	Glycogen [starch] synthase, liver
+[1768]		Q61087	LAMB3_MOUSE	1	0.9	2.8e-4	128901.3	MOUSE	Laminin subunit beta-3
+[1769]		Q8C156	CND2_MOUSE	1	1.4	4.1e-4	82303.3	MOUSE	Condensin complex subunit 2
+[1770]		Q9D6J6	NDUV2_MOUSE	1	4.8	0.0030	27285.6	MOUSE	NADH dehydrogenase [ubiquinone] flavoprotein 2, mitochondrial
+[1771]		P17563	SBP1_MOUSE	1	2.1	0.0081	52514.5	MOUSE	Selenium-binding protein 1
+[1772]		Q61205	PA1B3_MOUSE	1	5.2	0.0014	25853.6	MOUSE	Platelet-activating factor acetylhydrolase IB subunit gamma
+[1773]		Q62241	RU1C_MOUSE	1	7.5	0.0016	17363.9	MOUSE	U1 small nuclear ribonucleoprotein C
+[1774]		P97760	RPB3_MOUSE	1	3.6	3.4e-4	31443.4	MOUSE	DNA-directed RNA polymerase II subunit RPB3
+[1775]		Q9CZ28	SNF8_MOUSE	1	5.4	0.0014	28886.5	MOUSE	Vacuolar-sorting protein SNF8
+[1776]		O54916	REPS1_MOUSE	1	1.5	0.0019	86519.6	MOUSE	RalBP1-associated Eps domain-containing protein 1
+[1777]		Q02013	AQP1_MOUSE	1	3.3	0.0019	28793.7	MOUSE	Aquaporin-1
+[1778]		Q9CPS7	PNO1_MOUSE	1	7.3	6.6e-4	27453.8	MOUSE	RNA-binding protein PNO1
+[1779]		O35144	TERF2_MOUSE	1	3.0	2.4e-4	60263.8	MOUSE	Telomeric repeat-binding factor 2
+[1780]		Q8K296	MTMR3_MOUSE	1	1.2	2.5e-4	133841.4	MOUSE	Myotubularin-related protein 3
+[1781]		Q8C5P5	NT5D1_MOUSE	1	2.4	0.0032	53094.8	MOUSE	5'-nucleotidase domain-containing protein 1
+[1782]		Q8R3G9	TSN8_MOUSE	1	4.3	0.0011	25582.5	MOUSE	Tetraspanin-8
+[1783]		P28474	ADHX_MOUSE	1	2.7	0.0025	39548.1	MOUSE	Alcohol dehydrogenase class-3
+[1784]		P48999	LOX5_MOUSE	1	1.3	0.0017	77967.9	MOUSE	Arachidonate 5-lipoxygenase
+[1785]		Q9DCT8	CRIP2_MOUSE	1	7.7	4.0e-4	22727.2	MOUSE	Cysteine-rich protein 2
+[1786]		Q9JHI9	S40A1_MOUSE	1	2.8	5.3e-4	62703.1	MOUSE	Solute carrier family 40 member 1
+[1787]		Q9D0D5	T2EA_MOUSE	1	2.7	7.5e-4	49593.8	MOUSE	General transcription factor IIE subunit 1
+[1788]		Q920A9	FCRLA_MOUSE	1	3.4	0.0013	38348.8	MOUSE	Fc receptor-like A
+[1789]		Q9JJ80	RPF2_MOUSE	1	4.2	0.0019	35364.0	MOUSE	Ribosome production factor 2 homolog
+[1790]		Q9ES97	RTN3_MOUSE	1	1.1	0.0025	103879.5	MOUSE	Reticulon-3
+[1791]		P32233	DRG1_MOUSE	3	9.8	0.0015	40512.5	MOUSE	Developmentally-regulated GTP-binding protein 1
+[1792]		Q9R1P3	PSB2_MOUSE	1	4.0	0.0051	22906.6	MOUSE	Proteasome subunit beta type-2
+[1793]		O35343	IMA3_MOUSE	1	2.7	0.0014	57923.3	MOUSE	Importin subunit alpha-3
+[1794]		O35638	STAG2_MOUSE	2	1.8	3.2e-4	141282.7	MOUSE	Cohesin subunit SA-2
+[1795]		Q9QYF1	RDH11_MOUSE	1	3.2	0.0065	35148.1	MOUSE	Retinol dehydrogenase 11
+[1796]		Q9R1T2	SAE1_MOUSE	3	10.0	7.2e-4	38620.4	MOUSE	SUMO-activating enzyme subunit 1
+[1797]		P56379	68MP_MOUSE	1	13.8	5.4e-4	6698.0	MOUSE	6.8 kDa mitochondrial proteolipid
+[1798]		decoy	decoy	1	4.4	5.4e-4	23349.7	MOUSE	Ras-related protein Ral-B
+[1799]		P47226	TES_MOUSE	1	2.8	0.0031	47983.8	MOUSE	Testin
+[1800]		decoy	decoy	1	0.3	0.0026	572295.0	MOUSE	E3 ubiquitin-protein ligase UBR4
+[1801]		Q62383	SPT6H_MOUSE	1	0.6	0.0032	199087.4	MOUSE	Transcription elongation factor SPT6
+[1802]		P53810	PIPNA_MOUSE	1	3.3	6.5e-4	31893.7	MOUSE	Phosphatidylinositol transfer protein alpha isoform
+[1803]		decoy	decoy	1	1.0	2.9e-4	97929.6	MOUSE	Isoform 3 of [F-actin]-methionine sulfoxide oxidase MICAL3
+[1804]		O70200	AIF1_MOUSE	1	5.4	5.2e-4	16910.7	MOUSE	Allograft inflammatory factor 1
+[1805]		Q9QYJ3	DNJB1_MOUSE	2	7.4	7.6e-4	38167.6	MOUSE	DnaJ homolog subfamily B member 1
+[1806]		Q9ERS2	NDUAD_MOUSE	1	7.6	0.0020	16859.8	MOUSE	NADH dehydrogenase [ubiquinone] 1 alpha subcomplex subunit 13
+[1807]		Q8K019	BCLF1_MOUSE	2	2.4	2.0e-4	106003.0	MOUSE	Bcl-2-associated transcription factor 1
+[1808]		Q8R4N0	CLYBL_MOUSE	1	3.6	7.6e-4	37548.9	MOUSE	Citrate lyase subunit beta-like protein, mitochondrial
+[1809]		Q8K1M6	DNM1L_MOUSE	2	3.1	1.1e-4	82658.7	MOUSE	Dynamin-1-like protein
+[1810]		O88952	LIN7C_MOUSE	1	5.6	0.0041	21834.2	MOUSE	Protein lin-7 homolog C
+[1811]		Q9JHI5	IVD_MOUSE	1	2.8	0.0013	46325.8	MOUSE	Isovaleryl-CoA dehydrogenase, mitochondrial
+[1812]		Q9CQH3	NDUB5_MOUSE	1	5.8	0.0043	21710.4	MOUSE	NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 5, mitochondrial
+[1813]		E9PV24	FIBA_MOUSE	1	1.5	0.0015	87430.0	MOUSE	Fibrinogen alpha chain
+[1814]		Q9D6T0	NOSIP_MOUSE	1	7.0	6.8e-4	33209.3	MOUSE	Nitric oxide synthase-interacting protein
+[1815]		P62996	TRA2B_MOUSE	1	3.1	0.0028	33665.9	MOUSE	Transformer-2 protein homolog beta
+[1816]		Q99104	MYO5A_MOUSE	1	0.8	8.1e-4	215540.1	MOUSE	Unconventional myosin-Va
+[1817]		Q3TIV5	ZC3HF_MOUSE	1	3.3	0.0016	48327.6	MOUSE	Zinc finger CCCH domain-containing protein 15
+[1818]		Q9D1P4	CHRD1_MOUSE	2	8.8	3.5e-4	37350.9	MOUSE	Cysteine and histidine-rich domain-containing protein 1
+[1819]		Q62393	TPD52_MOUSE	1	4.5	0.0032	24313.2	MOUSE	Tumor protein D52
+[1820]		Q9CQF3	CPSF5_MOUSE	1	5.3	0.0017	26240.5	MOUSE	Cleavage and polyadenylation specificity factor subunit 5
+[1821]		decoy	decoy	1	1.5	0.0085	91292.2	MOUSE	Kinesin-associated protein 3
+[1822]		O35943	FRDA_MOUSE	1	5.8	0.0031	22924.1	MOUSE	Frataxin, mitochondrial
+[1823]		P70677	CASP3_MOUSE	2	7.2	2.0e-4	31475.1	MOUSE	Caspase-3
+[1824]		Q9QUT0	RHAG_MOUSE	1	2.1	5.8e-4	47837.8	MOUSE	Ammonium transporter Rh type A
+[1825]		P35821	PTN1_MOUSE	4	9.0	6.4e-6	49593.8	MOUSE	Tyrosine-protein phosphatase non-receptor type 1
+[1826]		P28665	MUG1_MOUSE	1	0.5	7.3e-4	165299.1	MOUSE	Murinoglobulin-1
+[1827]		Q8BSU7	MOB3A_MOUSE	1	6.9	6.8e-4	25552.6	MOUSE	MOB kinase activator 3A
+[1828]		P40630	TFAM_MOUSE	1	4.5	9.1e-4	27987.8	MOUSE	Transcription factor A, mitochondrial
+[1829]		O88783	FA5_MOUSE	3	1.5	7.7e-4	247232.4	MOUSE	Coagulation factor V
+[1830]		Q8C181	MBNL2_MOUSE	1	2.4	0.0021	40156.7	MOUSE	Muscleblind-like protein 2
+[1831]		Q3TUH1	TAM41_MOUSE	1	4.2	0.0012	37828.1	MOUSE	Phosphatidate cytidylyltransferase, mitochondrial
+[1832]		P70398	USP9X_MOUSE	2	1.0	5.1e-4	290713.7	MOUSE	Probable ubiquitin carboxyl-terminal hydrolase FAF-X
+[1833]		A2AGT5	CKAP5_MOUSE	1	0.6	0.0041	225636.7	MOUSE	Cytoskeleton-associated protein 5
+[1834]		Q9EQG9	C43BP_MOUSE	1	1.9	7.2e-4	71111.8	MOUSE	Collagen type IV alpha-3-binding protein
+[1835]		Q8VC88	GRAN_MOUSE	1	5.0	0.0021	24663.1	MOUSE	Grancalcin
+[1836]		decoy	decoy	1	4.3	7.4e-4	41928.1	MOUSE	Platelet-derived growth factor receptor-like protein
+[1837]		P17433	SPI1_MOUSE	1	3.7	0.0061	31349.5	MOUSE	Transcription factor PU.1
+[1838]		Q62093	SRSF2_MOUSE	1	3.6	0.0038	25476.5	MOUSE	Serine/arginine-rich splicing factor 2
+[1839]		Q8K157	GALM_MOUSE	1	4.1	0.0012	37798.9	MOUSE	Aldose 1-epimerase
+[1840]		decoy	decoy	1	0.5	0.0022	199687.3	MOUSE	Retinitis pigmentosa 1-like 1 protein
+[1841]		Q61334	BAP29_MOUSE	1	6.2	0.0026	27964.1	MOUSE	B-cell receptor-associated protein 29
+[1842]		decoy	decoy	1	0.3	7.4e-4	575181.4	MOUSE	Isoform 5 of E3 ubiquitin-protein ligase UBR4
+[1843]		Q9CYA6	ZCHC8_MOUSE	1	1.3	0.0012	78026.5	MOUSE	Zinc finger CCHC domain-containing protein 8
+[1844]		P62627	DLRB1_MOUSE	1	10.4	0.0067	10989.8	MOUSE	Dynein light chain roadblock-type 1
+[1845]		Q9DAW6	PRP4_MOUSE	3	6.9	5.0e-4	58370.6	MOUSE	U4/U6 small nuclear ribonucleoprotein Prp4
+[1846]		Q80SY5	PR38B_MOUSE	1	2.2	0.0034	63753.4	MOUSE	Pre-mRNA-splicing factor 38B
+[1847]		Q8BFV2	PCID2_MOUSE	1	3.0	0.0027	46132.5	MOUSE	PCI domain-containing protein 2
+[1848]		Q61074	PPM1G_MOUSE	1	2.0	0.0019	58728.6	MOUSE	Protein phosphatase 1G
+[1849]		P42208	SEPT2_MOUSE	1	4.4	9.7e-4	41525.9	MOUSE	Septin-2
+[1850]		P31809	CEAM1_MOUSE	1	3.3	5.6e-4	57016.3	MOUSE	Carcinoembryonic antigen-related cell adhesion molecule 1
+[1851]		Q9WTJ8	FA50B_MOUSE	1	3.9	0.010	39594.2	MOUSE	Protein FAM50B
+[1852]		P59326	YTHD1_MOUSE	1	2.0	8.6e-4	60879.1	MOUSE	YTH domain-containing family protein 1
+[1853]		P83917	CBX1_MOUSE	1	5.9	8.7e-4	21418.0	MOUSE	Chromobox protein homolog 1
+[1854]		Q9CQJ8	NDUB9_MOUSE	1	5.0	7.4e-4	21984.3	MOUSE	NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 9
+[1855]		Q9JKV1	ADRM1_MOUSE	1	3.9	0.0011	42060.5	MOUSE	Proteasomal ubiquitin receptor ADRM1
+[1856]		Q80WQ2	VAC14_MOUSE	1	1.5	0.0011	88048.4	MOUSE	Protein VAC14 homolog
+[1857]		Q7M6Z4	KIF27_MOUSE	1	0.8	0.0026	158957.2	MOUSE	Kinesin-like protein KIF27
+[1858]		Q8K003	TMA7_MOUSE	1	15.6	0.0027	7066.4	MOUSE	Translation machinery-associated protein 7
+[1859]		Q99LU0	CH1B1_MOUSE	1	4.5	0.0044	22124.6	MOUSE	Charged multivesicular body protein 1b-1
+[1860]		O70591	PFD2_MOUSE	1	7.8	0.0046	16533.8	MOUSE	Prefoldin subunit 2
+[1861]		P37040	NCPR_MOUSE	2	3.1	2.3e-4	77044.6	MOUSE	NADPH--cytochrome P450 reductase
+[1862]		Q91Z38	TTC1_MOUSE	2	6.2	1.8e-4	33263.2	MOUSE	Tetratricopeptide repeat protein 1
+[1863]		Q8BU04	UBR7_MOUSE	1	2.1	0.0041	48065.2	MOUSE	Putative E3 ubiquitin-protein ligase UBR7
+[1864]		P63280	UBC9_MOUSE	2	8.2	5.1e-4	18007.0	MOUSE	SUMO-conjugating enzyme UBC9
+[1865]		Q61749	EI2BD_MOUSE	1	2.1	0.0029	57624.7	MOUSE	Translation initiation factor eIF-2B subunit delta
+[1866]		decoy	decoy	1	1.9	9.3e-4	57202.9	MOUSE	Carcinoembryonic antigen-related cell adhesion molecule 2
+[1867]		decoy	decoy	1	0.3	8.2e-4	268881.7	MOUSE	Centriolin
+[1868]		Q8K1J6	TRNT1_MOUSE	1	2.3	0.0045	49895.7	MOUSE	CCA tRNA nucleotidyltransferase 1, mitochondrial
+[1869]		Q8BZW8	NHLC2_MOUSE	1	1.7	0.0012	78430.8	MOUSE	NHL repeat-containing protein 2
+[1870]		decoy	decoy	1	1.9	5.4e-4	46477.0	MOUSE	Trafficking protein particle complex subunit 13
+[1871]		Q2TB54	FCAMR_MOUSE	1	3.0	0.0037	57823.6	MOUSE	High affinity immunoglobulin alpha and immunoglobulin mu Fc receptor
+[1872]		Q9WVH4	FOXO3_MOUSE	1	2.8	0.0013	71065.1	MOUSE	Forkhead box protein O3
+[1873]		P43025	TETN_MOUSE	1	5.4	0.0050	22257.7	MOUSE	Tetranectin
+[1874]		Q80VM8	PNML1_MOUSE	1	3.5	8.9e-4	48062.3	MOUSE	PNMA-like protein 1
