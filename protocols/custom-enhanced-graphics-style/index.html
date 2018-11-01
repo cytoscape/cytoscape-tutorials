@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Using Custom Graphics and enhancedGraphics in Cytoscape</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+                
+<!-- For network with data, could use either of the cancer datasets in the "cancer networks and data Rmd" -->
+
+<section>
+	<h1>Custom Paint and enhancedGraphics in Cytoscape</h1>
+	<p>This tutorial outlines how to use Cytoscape's Custom Paint and the <a href="http://apps.cytoscape.org/apps/enhancedgraphics">enhancedGraphics app</a> together in Cytoscape to create
+        visualizations.</p>
+    <ul>
+        <li>Install the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
+        <li>Install the <b>enhancedGraphics app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
+        <li>Download the <a href="http://nrnb.org/data/CustomGraphicsExample.cys">example data</a>.</li>
+    </ul>
+</section>
+                
+<section>
+	<p>The nodes in the network are labeled with the corresponding protein names (yeast), but there is additional information in the
+    <b>Data Node Table</b> that could be useful to display on the nodes. Take a look in the Data Node Table and locate the <b>MC</b> column.
+    We are going to use a combination of Cytoscape's support for Custom Paint, and the enhancedGraphics app to create a second node label with the information from this column.</p>
+        <img plain src="NetworkNodeTable.png" style="width:55%">
+
+</section>
+                
+<section>
+<h2>Create a new column</h2>
+    <ul>
+    <li>In the <highlight>Data Node Table</highlight>, click the plus sign <img plain src="AddColumnIcon.png" > to add a new column. In the drop-down menu, select
+        <highlight>New Single Column &rarr; String</highlight>.</li>
+        <li>In the <highlight>Create New String Column</highlight> dialog, enter a name for your new column, in this case <b>Label 2</b>.</li>
+        <li>This creates a new empty column in the <highlight>Data Node Table</highlight>.</li>
+    </ul>
+</section>
+                
+<section>
+<h2>Fill new column</h2>
+<p>The new column will define a new attribute that we will use for mapping to the <highlight>Custom Paint</highlight> property. This new 
+attribute has to be in the form of mappings recognized by the enhancedGraphics app. For more details on the enhancedGraphics format,
+    see the <a href="http://www.cgl.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml">manual</a>.</p>
+    <p>For our purposes, we will define a new mapping for a label based on the column <b>MC</b>:</p>
+    <p><b>label: attribute=MC labelsize=10 outline=false background=false color=black</b></p>
+
+<ul>
+    <li>In the first cell of the <b>Label 2</b> column, enter the new mapping and click enter. Your new entry may "disappear" to the bottom of the column; just click on the column header once or twice to resort.</li>
+    <li>Right-click on the new entry and select <highlight>Apply to entire column</highlight>. This will fill the column with the same mapping.</li>
+</ul>   <br />     <br />  
+    <img plain src="NewColumnAdded.png" style="width:75%">
+    
+</section>
+                
+<section>
+<h2>Create a mapping for new column</h2>
+<p>We now have a new attribute that we can use for the mapping.</p>
+<ul>
+    <li>In the <highlight>Style</highlight> panel, locate the <highlight>Image/Chart 1</highlight> entry in the list of properties. Click on the <highlight>Map.</highlight> entry for it to begin creating a mapping.</li>
+    <li>In the <highlight>Column</highlight> field, select the new <b>Label 2</b> column.</li>
+    <li>In the <highlight>Mapping Type</highlight>, select <b>Passthrough Mapping</b>.</li>
+<p>You should now see two labels per node that are partially overlapping. We are going to fix the overlap next.....</p>
+</ul>
+</section>
+              
+<section>
+  <h2>Positioning the custom paint property</h2>
+<ul>
+    <li>In the <highlight>Properties</highlight> menu at the top of the <highlight>Style</highlight> interface, select the <highlight>Paint &rarr; Custom Paint 1 &rarr; Image/Chart Position 1</highlight>. This will add this property to the list.</li>
+    <li>Click on the <highlight>Def.</highlight> column of this new entry to bring up a position editor.</li>
+    <li>Drag the darker blue <b>Object</b> to the upper left corner of the <b>Node</b>. Click <highlight>OK</highlight> to continue. You may have to adjust this positioning a few times to achieve an optimal visualization.</li>
+</ul>     <br /><br />
+    <img plain src="PositionEditor.png">
+    
+</section>
+
+<section>
+    <p>The second label we created is now visible in the upper left for each node.</p>
+    <img plain src="TwoLabelsFinal.png">
+    
+                
+</section>            
+
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
