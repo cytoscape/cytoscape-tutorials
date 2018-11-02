@@ -31,13 +31,12 @@
 <!-- For network with data, could use either of the cancer datasets in the "cancer networks and data Rmd" -->
 
 <section>
-	<h1>Custom Paint and enhancedGraphics in Cytoscape</h1>
-	<p>This tutorial outlines how to use Cytoscape's Custom Paint and the <a href="http://apps.cytoscape.org/apps/enhancedgraphics">enhancedGraphics app</a> together in Cytoscape to create
-        visualizations.</p>
+	<h1>Using Custom Graphics and enhancedGraphics in Cytoscape</h1>
+	<p>This tutorial illustrates how Cytoscape's Custom Graphics can be used to add graphs, charts and other graphics to node, and how to combine Custom Graphics with the <a href="http://apps.cytoscape.org/apps/enhancedgraphics">enhancedGraphics app</a> for specialized visualizations. </p>
+    <p>To get started:</p>
     <ul>
         <li>Install the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
         <li>Install the <b>enhancedGraphics app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
-        <li>Download the <a href="http://nrnb.org/data/CustomGraphicsExample.cys">example data</a>.</li>
     </ul>
 <div class="footer" style="position: absolute;left: 0em;bottom: -10em; ">
     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
@@ -46,11 +45,101 @@
 </section>
                 
 <section>
-	<p>The nodes in the network are labeled with the corresponding protein names (yeast), but there is additional information in the
-    <b>Data Node Table</b> that could be useful to display on the nodes. Take a look in the Data Node Table and locate the <b>MC</b> column.
-    We are going to use a combination of Cytoscape's support for Custom Paint, and the enhancedGraphics app to create a second node label with the information from this column.</p>
-        <img plain src="NetworkNodeTable.png" style="width:55%">
+<p>For this tutorial, we will be using the <b>galFiltered</b> sample session file, avialable as the <b>Yeast Perturbation</b> sample session in the Cytoscape Starter Panel, and in the <b>sampleData</b> directory in your Cytoscape installation.</p>
+<ul>
+    <li>Launch Cytoscape and open the <highlight>galFiltered</highlight> session file, or open the <highlight>Yeast Perturbation</highlight> sample session from the Cytoscape Starter Panel.</li>
+    <li>In the <highlight>Style</highlight> interface, switch to the default style in the drop-down at the top.</li>
+    <li>Switch the default node fill color to a light grey.</li>
+    <li>Zoom in to see a few nodes clearly. The nodes are labeled with yeast ORF identifiers.</li>
+</ul>               <br /><br />
+<img plain src="NetworkLoaded.png" style="width:40%">
+</section>
+                
+<section>
+<h2>Custom Graphics Bar Chart</h2>
+    <p>In this example, we will create a bar chart with the three expression values, <b>gal1RGexp</b>, <b>gal4RGexp</b> and <b>gal80Rexp</b>, available as attributes in the session file.</p>
+    <ul>
+    <li>In the <highlight>Style</highlight> interface, click on default (<highlight>Def.</highlight>) for the <highlight>Image/Chart 1</highlight> property.</li>
+    <li>In the <highlight>Graphics</highlight> interface, select the <highlight>Chart</highlight> tab.</li>
+    <li>We are going to use the default selected graph type, Grouped Bar Chart.</li>
+    <li>In the <highlight>Available Columns</highlight> list, select the three columns with expression data: <b>gal1RGexp</b>, <b>gal4RGexp</b> and <b>gal80Rexp</b>. You may need to remove columns selected by default from the <highlight>Selected Columns</highlight> list, this should only list our three columns of interest.</li>
+    <li>Uncheck the <hightlight>Network-Wide Axis Range</hightlight> option.</li>
+    <li>Click <highlight>Apply</highlight>.</li>
+    </ul>
+                
+</section>
 
+<section>
+    <ul>
+    <li>The chart is now centered on the node. To move it, select <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart Position 1</highlight> from the <highlight>Properties</highlight> drop-down menu.</li>
+    <li>Click on the <highlight>Def.</highlight> column of this new entry to bring up a position editor.</li>
+    <li>Drag the darker blue <b>Object</b> to right below the node. Click <highlight>OK</highlight> to continue. You may have to adjust this positioning a few times to achieve an optimal visualization.</li>
+    </ul>
+    <p>The nodes in your network should now look like this:</p>
+    <img plain src="BarChart1.png" style="width:40%">
+                
+</section>
+
+<section>
+<h2>Custom Graphics Heatmap</h2>
+    <p>Next we are going to create a horizontal heatmap of the same three data columns.</p>
+    <ul>
+        <li>Add another Custom Graphic by selecting <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart 2</highlight> from the <highlight>Properties</highlight> drop-down menu.</li>
+        <li>Click on the <highlight>Def.</highlight> column of <highlight>Image/Chart 2</highlight>.</li>
+        <li>Under <highlight>Charts</highlight> select <highlight>Heatmap</highlight> option (third icon from the left). Again, select the three columns containing expression data; <b>gal1RGexp</b>, <b>gal4RGexp</b> and <b>gal80Rexp</b>.</li>
+        <li>Uncheck the <hightlight>Network-Wide Axis Range</hightlight> option.</li>
+        <li>Under <highlight>Options</highlight>, select a <b>Cyan-White-Yellow</b> color scheme.</li>
+        <li>Select <highlight>Horizontal Orientation</highlight>.</li>
+        <li>Click <highlight>Apply</highlight>.</li>
+    </ul>      
+</section>
+                
+<section>
+    <ul>
+        <li>Again, we need to adjust the position of the heatmap. Select <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart Position 2</highlight> from the <highlight>Properties</highlight> drop-down menu.</li>
+        <li>This time, position the chart above the node.</li>
+        <p>The nodes in your network should now look like this:</p>
+    </ul>
+        <img plain src="HeatMap1.png" style="width:40%">
+        
+</section>
+                
+<section>
+    <h2>Custom Graphics Pie Chart</h2>
+    <p>Finally, we will create a pie chart with the same three columns.</p>
+    <ul>
+        <li>Add a third Custom Graphic under <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart 3</highlight>.</li>
+        <li>Define a Pie Chart with the same three columns as before.</li>
+        <li>Keep the rest of the settings default and click Apply.</li>
+        <li>Add the <highlight>Image/Chart Position 3</highlight> property and position the chart in the top left.</li>
+    </ul>
+    <br /> <br />
+        <img plain src="PieChart.png" style="width:40%"> 
+</section>
+                
+<section>
+    <h2>Additional Custom Graphics</h2>
+    <p>There are several other graphics available through the default Custom Graphics in Cytoscape:</p>
+    <ul>
+        <li>Bar chart subtypes: Grouped, Stacked, Heat Strips and Up-Down</li>
+        <li>Box charts</li>
+        <li>Line charts</li>
+        <li>Ring charts</li>
+</ul>
+    <p>For more detailed information on how to use Custom Graphics, see the <a href="http://manual.cytoscape.org/en/stable/Styles.html?highlight=graphics#images-charts-and-gradients">Cytoscape Manual</a>.</p>
+                
+</section>
+                
+<section>
+    <h2>Enhanced Graphics Node Label</h2>
+	<p>The nodes in the network are labeled with the corresponding protein names (yeast), but there is additional information in the
+    <b>Data Node Table</b> that could be useful to display on the nodes. We are going to use a combination of Custom Graphics and the enhancedGraphics app to create a second node label for the yeast gene common name, which is available as the node attribute <b>COMMON</b>.</p>
+    <p>This involves three steps:</p>
+    <ul>
+        <li>Creating a new column with information interpreted by the <highlight>EnhancedGraphics App</highlight>.</li>
+        <li>Mapping this new column to a <highlight>Custom Graphic</highlight>.</li>
+        <li>Positioning the new label.</li>
+    </ul>
 </section>
                 
 <section>
@@ -65,48 +154,41 @@
                 
 <section>
 <h2>Fill new column</h2>
-<p>The new column will define a new attribute that we will use for mapping to the <highlight>Custom Paint</highlight> property. This new 
+<p>The new column will define a new attribute that we will use for mapping to the <highlight>Custom Graphics</highlight> property. This new 
 attribute has to be in the form of mappings recognized by the enhancedGraphics app. For more details on the enhancedGraphics format,
     see the <a href="http://www.cgl.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml">manual</a>.</p>
     <p>For our purposes, we will define a new mapping for a label based on the column <b>MC</b>:</p>
-    <p><b>label: attribute=MC labelsize=10 outline=false background=false color=black</b></p>
+    <p><b>label: attribute=COMMON labelsize=11 outline=false background=false color=black</b></p>
 
 <ul>
-    <li>In the first cell of the <b>Label 2</b> column, enter the new mapping and click enter. Your new entry may "disappear" to the bottom of the column; just click on the column header once or twice to resort.</li>
+    <li>In the first cell of the <b>Label 2</b> column, enter the new mapping and click enter. Your new entry may disappear to the bottom of the column; just click on the column header once or twice to resort.</li>
     <li>Right-click on the new entry and select <highlight>Apply to entire column</highlight>. This will fill the column with the same mapping.</li>
 </ul>   <br />     <br />  
-    <img plain src="NewColumnAdded.png" style="width:75%">
+    <img plain src="NewColumnAdded.png" style="width:85%">
     
 </section>
                 
 <section>
-<h2>Create a mapping for new column</h2>
+<h2>Mapping new label to Custom Graphic</h2>
 <p>We now have a new attribute that we can use for the mapping.</p>
 <ul>
-    <li>In the <highlight>Style</highlight> panel, locate the <highlight>Image/Chart 1</highlight> entry in the list of properties. Click on the <highlight>Map.</highlight> entry for it to begin creating a mapping.</li>
+    <li>In the <highlight>Style</highlight> interface, add the <highlight>Image/Chart 4</highlight> property. Click on the <highlight>Map.</highlight> entry for it to begin creating a mapping.</li>
     <li>In the <highlight>Column</highlight> field, select the new <b>Label 2</b> column.</li>
     <li>In the <highlight>Mapping Type</highlight>, select <b>Passthrough Mapping</b>.</li>
-<p>You should now see two labels per node that are partially overlapping. We are going to fix the overlap next.....</p>
+    <p>You should now see two labels per node that are partially overlapping.</p>
 </ul>
 </section>
               
 <section>
-  <h2>Positioning the custom paint property</h2>
+  <h2>Positioning the Custom Graphic</h2>
 <ul>
-    <li>In the <highlight>Properties</highlight> menu at the top of the <highlight>Style</highlight> interface, select the <highlight>Paint &rarr; Custom Paint 1 &rarr; Image/Chart Position 1</highlight>. This will add this property to the list.</li>
-    <li>Click on the <highlight>Def.</highlight> column of this new entry to bring up a position editor.</li>
-    <li>Drag the darker blue <b>Object</b> to the upper left corner of the <b>Node</b>. Click <highlight>OK</highlight> to continue. You may have to adjust this positioning a few times to achieve an optimal visualization.</li>
+    <li>Add the <highlight>Image/Chart Position 4</highlight> property and position the chart in the top left.
+    You may have to adjust this positioning a few times to achieve an optimal visualization.</li>
+    <li>Lets also move the main node label. In the <highlight>Properties</highlight> drop-down, select <highlight>Label Position</highlight> and use the position editor to move the label to the bottom half of the node.</li>
 </ul>     <br /><br />
-    <img plain src="PositionEditor.png">
+    <img plain src="Final.png" style="width:45%">
     
-</section>
-
-<section>
-    <p>The second label we created is now visible in the upper left for each node.</p>
-    <img plain src="TwoLabelsFinal.png">
-    
-                
-</section>            
+</section>           
 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
