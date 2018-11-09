@@ -1,0 +1,138 @@
+<section>
+	<h1 style="font-size:150%;">Enriching PPI networks with complexes</h1>
+	<div style="height: 800px">
+		<p><highlight>Why do we want to add information about complexes to our networks?</highlight></p>
+		<ol>
+			<li class="fragment" data-fragment-index="1">To understand the biology!</li>
+			<li class="fragment" data-fragment-index="2">To import additional proteins that are implicitly relevant</li>
+			<li class="fragment" data-fragment-index="2">To simplify our networks</li>
+		</ol>
+	</div>
+</section>
+
+<section>
+	<h1 style="font-size:150%;">Enriching PPI networks with complexes</h1>
+	<div style="height: 800px">
+		<p><highlight>Sources of data about protein complexes</highlight></p>
+		<ul style="font-size:90%">
+			<li><a href="http://mips.helmholtz-muenchen.de/corum/">Corum: The comprehensive resource of mammalian protein complexes</a>
+				<ul>
+					<li>Richest data set, but no API (that I could find)</li>
+					<li>Data downloaded as <b>PSI-MI, TSV, JSON</b></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="fragment fade-in" style="position: absolute; left:0px; top:0px; height:800px">
+		<img src="modules/complexes/Corum.png" />
+	</div>
+</section>
+
+<section>
+	<h1 style="font-size:150%;">Enriching PPI networks with complexes</h1>
+	<div style="height: 800px">
+		<p><highlight>Sources of data about protein complexes</highlight></p>
+		<ul style="font-size:90%">
+			<li><a href="http://mips.helmholtz-muenchen.de/corum/">Corum: The comprehensive resource of mammalian protein complexes</a></li>
+			<li><a href="https://www.ebi.ac.uk/complexportal/home">EBI Complex Portal</a>
+				<ul>
+					<li>Newer portal -- still adding data</li>
+					<li>Data downloaded as <b>PSI-MI, TSV, JSON</b></li>
+					<li>Sometimes it doesn't quite work (e.g. download button doesn't always work)</li>
+					<li>REST API: https://www.ebi.ac.uk/intact/complex-ws/
+						<ul>
+							<li>Examples:
+								<ul>
+									<li><a href="https://www.ebi.ac.uk/intact/complex-ws/complex/">https://www.ebi.ac.uk/intact/complex-ws/complex/</a> -- view JSON data for a complex </li>
+									<li><a href="https://www.ebi.ac.uk/intact/complex-ws/details/">https://www.ebi.ac.uk/intact/complex-ws/details/</a> -- view JSON data for complexes containing the sequence</li>
+									<li><a href="https://www.ebi.ac.uk/intact/complex-ws/export/">https://www.ebi.ac.uk/intact/complex-ws/export/</a> -- download a complex
+										<ul>
+											<li>append "?format=[xml25|xml30|tsv|json]" to control the file type</li>
+										</ul>
+									</li>
+									<li><a href="https://www.ebi.ac.uk/intact/complex-ws/search/">https://www.ebi.ac.uk/intact/complex-ws/search/</a> -- search for a complex</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="fragment fade-in" style="position: absolute; left:0px; top:0px; height:800px">
+		<img src="modules/complexes/EBI-Complex.png" />
+	</div>
+
+
+</section>
+
+<section>
+	<h1 style="font-size:150%;">Enriching PPI networks with complexes</h1>
+	<div style="height: 800px">
+		<p><highlight>Getting data into Cytoscape</highlight></p>
+		<ol class="fragment">
+			<li>It's not easy...</li>
+			<li>It's kind of clunky and definitely manual...</li>
+			<li>Somebody should write an app...</li>
+			<li>However...</li>
+		</ol>
+	</div>
+</section>
+
+<section>
+	<h1 style="font-size:150%;">Enriching PPI networks with complexes</h1>
+	<div style="height: 800px">
+		<p><highlight>Getting data into Cytoscape</highlight></p>
+		<ul>
+			<li>Actually, it is sort of easy...</li>
+			<li class="fragment" data-fragment-index="1">Cytoscape supports PSI-MI directly (<highlight>File&rarr;Import&rarr;Network from File...</highlight>)</li>
+			<li class="fragment" data-fragment-index="3">Issues:
+				<ul>
+					<li>The central node seems to be somewhat arbitrary</li>
+					<li>Links don't really indicate interaction, but indicate "membership"</li>
+					<li>Might want to group them together</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left:0px; top:0px; height:800px">
+		<img class="fragment fade-out" data-fragment-index="3" src="modules/complexes/prefoldin_import.png" />
+	</div>
+	<div class="fragment fade-in" data-fragment-index="4" style="position: absolute; left:0px; top:0px; height:800px">
+		<img src="modules/complexes/MergedNetwork.png" />
+	</div>
+</section>
+
+<section>
+	<h1 style="font-size:150%;">Enriching PPI networks with complexes</h1>
+	<div style="height: 800px">
+		<p><highlight>Steps</highlight></p>
+		<ol style="font-size: 80%">
+			<li>Import complex from PSI-MI 2.5 (3.0 isn't supported by Cytoscape yet)</li>
+			<li>Add edges between all of the complex nodes (right-click <b>Add&rarr;Edges Connecting Selected Nodes</b>)</li>
+			<li>Import your network of interest</li>
+			<li>Merge the networks (<b>Tools&rarr;Merge&rarr;Networks...</b>)
+				<ul>
+					<li>Need to use the <b>Advanced Merge</b> panel</li>
+					<li>Select the matching columns appropriately</li>
+				</ul>
+			</li>
+			<li class="fragment" data-fragment-index="2">Now, in the merged network, go to the Edge Table and sort the <i>interaction</i> column</li>
+			<li class="fragment" data-fragment-index="2">Select all of the rows that have <i>interacts with</i> and right-click <b>Select edges from selected rows</b></li>
+			<li class="fragment" data-fragment-index="2">Finally, do an <b>Select&rarr;Nodes&rarr;Connected by Selected Edges</b></li>
+			<li class="fragment" data-fragment-index="2">Right click on a node, <b>Group&rarr;Group Selected Nodes</b></li>
+		</ol>
+	</div>
+	<div class="fragment fade-in" data-fragment-index="1" style="position: absolute; left:0px; top:0px; height:800px">
+		<img class="fragment fade-out" data-fragment-index="2" src="modules/complexes/AdvancedMerge.png" />
+	</div>
+</section>
+
+<section>
+	<h1 style="font-size:150%;">Enriching PPI networks with complexes</h1>
+	<div style="height: 800px">
+		<p>See, simple...</p>
+		<p class="fragment">Like I said, somebody should write an app...<p>
+		<p class="fragment">Any takers?</p>
+	</div>
+</section>
