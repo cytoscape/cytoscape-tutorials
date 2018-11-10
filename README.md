@@ -1,4 +1,7 @@
-# Cytoscape Tutorials Using Reveal
+## Main Page
+Visit [tutorials.cytoscape.org](https://github.com/cytoscape/cytoscape-tutorials/wiki) for a curated set of user tutorials
+
+## How to Make and Present Cytoscape Tutorials
 This repo contains a collection of training *modules* for Cytoscape that can be used to compose workshop presentations. The repo also includes a clone of the reveal.js code that enables the presentation mode for these modules and workshops.
 
 ## Presentations, Protocols and Modules
