@@ -70,7 +70,7 @@
                     <li>A gene list (<a href="https://biit.cs.ut.ee/gprofiler/">g:Profiler</a>)
                         <ul><ul>
                             <li><i>A list of genes with frequent somatic single nucleotide variants (SNVs) identified in The Cancer Genome Atlas (TCGA) exome sequencing data of 3,200 tumors of 12 types.The MuSiC cancer driver mutation detection software was used to find 127 cancer driver genes that displayed higher than expected mutation frequencies in cancer samples. Genes are ranked in decreasing order of significance (FDR q-value) and mutation frequency</i></li>
-                            <li><i><a href="Supplementary_Table1_Cancer_drivers.txt">Supplementary_Table1_Cancer_drivers.txt</a></i></li>
+                            <li><i><a href="./results_data_folder/Supplementary_Table1_Cancer_drivers.txt">Supplementary_Table1_Cancer_drivers.txt</a></i></li>
                         </ul></ul>
                     </li>
                 </ul>    
@@ -85,14 +85,14 @@
                         <ul><ul>
                             <li><i>A list of differentially expressed genes in two subtypes of ovarian cancer defined by TCGA.</i></li>
                             <li><i>An RNK file is a two-column text file with gene IDs in the first column and gene scores in the second column. All (or most) genes in the genome need to have a score and the gene IDs need to match those used in the GMT file.</i></li>
-                            <li><i> <a href="Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a></i></li>
+                            <li><i> <a href="./results_data_folder/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a></i></li>
                             </ul></ul></li>
                     
                     <li> Pathway gene set database(<a href="http://download.baderlab.org/EM_Genesets/current_release/">Baderlab genesets</a>)
                         <ul><ul>
                             <li><i>Contains a database of pathway gene sets used for pathway enrichment analysis in the standard GMT format, downloaded from http://baderlab.org/GeneSets. This file contains pathways downloaded on July 1, 2017 from eight data sources: Gene Ontology, Reactome, Panther, NetPath, NCI, MSigDB curated gene sets (C2 collection, excluding Reactome and KEGG), MSigDB Hallmark (H collection) and HumanCyc.</i></li>
                             <li><i>A GMT file is a text file where every line represents a gene set for a single pathway. Each line includes a pathway ID, name and the list of associated genes in a tab-separated format.</i></li>
-                            <li><i><a href="Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</a></i></li>
+                            <li><i><a href="./results_data_folder/Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</a></i></li>
                             </ul></ul></li>
                 </ul>    
             </section>
@@ -168,7 +168,7 @@
                     <h3>6A. g:Profiler -Input data and set parameters</h3>
                     <img style="float:right;width:45%" src="./figures/gprofiler_interface_step1.png">
                     <ol style="list-style-type:lower-roman;width:45%" start = "2">
-                        <li>Paste the gene list (<a href="Supplementary_Table1_Cancer_drivers.txt">gprofiler_genelist_Cancer_drivers.txt</a>) into the Query field in top-left corner of the screen.</li>
+                        <li>Paste the gene list (<a href="./results_data_folder/Supplementary_Table1_Cancer_drivers.txt">gprofiler_genelist_Cancer_drivers.txt</a>) into the Query field in top-left corner of the screen.</li>
                         <li>Check the box next to <b>Ordered query.</b></li>
                         <li>Check the box next to <b>No electronic GO annotations. </b></li>
                         <li>Click on Show Advanced Options </li>
@@ -278,9 +278,9 @@
                     <ol style="list-style-type:lower-roman;width:45%", start = "2">
                         <li>Click on <b>Load Data</b> in the top left corner in the Steps in GSEA Analysis section. </li>
                         <li>In the <b>Load Data</b> tab, click on <b>Browse for files …</b></li>
-                        <li>Find your <b>project data folder</b> and select the file <b><a href="Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">ranked genelist file</a></b>.</li>
+                        <li>Find your <b>project data folder</b> and select the file <b><a href="./results_data_folder/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">ranked genelist file</a></b>.</li>
                         <ul>                 
-                            <li>Also select the pathway gene set definition (GMT) file using a multiple select method such as shift-click (<b><a href="Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">genesets gmt file</a></b>).</li>
+                            <li>Also select the pathway gene set definition (GMT) file using a multiple select method such as shift-click (<b><a href="./results_data_folder/Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">genesets gmt file</a></b>).</li>
                             <li> Click the <b>Choose</b> button to continue.</li>
                             <li> A message box indicates that the files were loaded successfully. Click the <b>OK</b> button to continue.  </li>
                         </ul>
@@ -312,7 +312,7 @@
                                 <ul>
                                     <li>click on the button (…) located to the right and wait a few seconds for the gene set selection window to appear.</li>
                                     <li>Go to the <b>Gene matrix (local gmx/gmt)</b> tab using the top right arrow.</li>
-                                    <li>Click on the downloaded local GMT file <a href="Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</a>(<a href="#data_gsea">click for info on data files</a>) and click on <b>OK</b> at the bottom of the window. </li>
+                                    <li>Click on the downloaded local GMT file <a href="./results_data_folder/Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</a>(<a href="#data_gsea">click for info on data files</a>) and click on <b>OK</b> at the bottom of the window. </li>
                                 </ul>
                             </li>                     
                         </ol>
@@ -321,7 +321,7 @@
                     <ul><li style="list-style-type:none">
                         <ol style="list-style-type:lower-roman", start = "7">
                             <li><font color="green">Number of permutations</font> – number of times that the gene sets will be randomized to create the null distribution to calculate the p-value and FDR q-value. Use the default value of 1000 permutations. </li>
-                            <li><font color="green">Ranked List</font> – select the ranked gene list by clicking on the right-most arrows and highlighting the rank file(<b><a href="Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a></b>)(<a href="#data_gsea">click for info on data files</a>).</li>
+                            <li><font color="green">Ranked List</font> – select the ranked gene list by clicking on the right-most arrows and highlighting the rank file(<b><a href="./results_data_folder/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a></b>)(<a href="#data_gsea">click for info on data files</a>).</li>
                             <li>Click the Show button next to Basic fields to display extra options.</li>
                         </ol>
                     </li></ul>
@@ -505,7 +505,7 @@
                         <ul><font color="red"> TROUBLESHOOTING: Autoload of g:Profiler results creates many datasets with incorrect file specification.</font>
                            <li>Possible reason: There are too many text files within the directory specified.
                            <ul>                        
-                            <li>To simplify loading g:Profiler results into EnrichmentMap and populating the correct fields in the EnrichmentMap interface, place the g:Profiler results file and gene set file (i.e. Supplementary_Table4_gprofiler_results.txt and Supplementary_Table5_hsapiens.pathways.NAME.gmt) into a directory together by themselves. </li>
+                            <li>To simplify loading g:Profiler results into EnrichmentMap and populating the correct fields in the EnrichmentMap interface, place the g:Profiler results file and gene set file (i.e. <b><a href="./results_data_folder/Supplementary_Table4_gprofiler_results.txt">Supplementary_Table4_gprofiler_results.txt</a></b> and <b><a href="./results_data_folder/Supplementary_Table5_hsapiens.pathways.NAME.gmt">Supplementary_Table5_hsapiens.pathways.NAME.gmt</a></b>) into a directory together by themselves. </li>
                           </ul></li>
                         </ul>       
                     </font>
@@ -517,20 +517,20 @@
                     <img style="float:right;width:50%" src="./figures/em_gprofiler2.png">
                      <ol style="list-style-type:lower-roman;width:50%" start="4">
                          <li>
-                            <ul style="list-style-type:none"><li>In the right-hand pane, modify <b>Name</b> of the created data set if desired. By default, EnrichmentMap will use the name of the g:Profiler enrichment results file (e.g. <b>Supplementary_Table4_gprofiler_results.txt</b>).</li></ul>
+                            <ul style="list-style-type:none"><li>In the right-hand pane, modify <b>Name</b> of the created data set if desired. By default, EnrichmentMap will use the name of the g:Profiler enrichment results file (e.g. <b><a href="./results_data_folder/Supplementary_Table4_gprofiler_results.txt">Supplementary_Table4_gprofiler_results.txt</a></b>).</li></ul>
                          </li>
                          <li>
                             <ul style="list-style-type:none"><li>Verify the <b>Analysis Type</b> is set to “Generic/gProfiler”.</li></ul>
                          </li>
                          <li>
-                            <ul style="list-style-type:none"><li>Verify the Enrichments results file is the g:Profiler file downloaded in <a href="#gprofiler_file_download">Step 6Axi</a> (or alternatively, manually specify <b>Supplementary_Table4_gprofiler_results.txt</b>).</li></ul>
+                            <ul style="list-style-type:none"><li>Verify the Enrichments results file is the g:Profiler file downloaded in <a href="#gprofiler_file_download">Step 6Axi</a> (or alternatively, manually specify <b><a href="./results_data_folder/Supplementary_Table4_gprofiler_results.txt">Supplementary_Table4_gprofiler_results.txt</a></b>).</li></ul>
                          </li>
                      </ol>
                     </div>
                     <div class="row">
                         <ol style="list-style-type:lower-roman" start="7">
                             <li>
-                            <ul style="list-style-type:none"><li>Verify the <b>GMT</b> specified is the file retrieved from the g:Profiler website in <a href="#gprofiler_file_download">Step 6Axii</a> . Use the file <b>hsapiens.pathways.NAME.gmt</b> (or alternately manually specify <b>Supplementary_Table5_hsapiens.pathways.NAME.gmt</b>) that contains gene sets corresponding to GO biological processes and Reactome pathways.</li></ul>
+                            <ul style="list-style-type:none"><li>Verify the <b>GMT</b> specified is the file retrieved from the g:Profiler website in <a href="#gprofiler_file_download">Step 6Axii</a> . Use the file <b>hsapiens.pathways.NAME.gmt</b> (or alternately manually specify <b><a href="./results_data_folder/Supplementary_Table5_hsapiens.pathways.NAME.gmt">Supplementary_Table5_hsapiens.pathways.NAME.gmt</a></b>) that contains gene sets corresponding to GO biological processes and Reactome pathways.</li></ul>
                          </li>
                         </ol>
                     </div>
@@ -541,15 +541,15 @@
                     <img style="float:right;width:40%" src="./figures/em_gprofiler3.png">
                      <ol style="list-style-type:lower-roman;width:55%" start="8">
                          <li>
-                             <ul style="list-style-type:none"><li><b>Expressions</b> - <font color="green">(Optional)</font> Upload an expression matrix for the genes analyzed in g:Profiler or alternatively an expression data set of all genes. If the expression data set contains additional genes not used for the g:Profiler search, their expression values will still appear in the heat map of the enrichment map (for example file see <b>Supplementary_Table6_TCGA_OV_RNAseq_expression.txt</b>).</li></ul></li>
+                             <ul style="list-style-type:none"><li><b>Expressions</b> - <font color="green">(Optional)</font> Upload an expression matrix for the genes analyzed in g:Profiler or alternatively an expression data set of all genes. If the expression data set contains additional genes not used for the g:Profiler search, their expression values will still appear in the heat map of the enrichment map (for example file see <b><a href="./results_data_folder/Supplementary_Table6_TCGA_OV_RNAseq_expression.txt">Supplementary_Table6_TCGA_OV_RNAseq_expression.txt</a></b>).</li></ul></li>
                         </ol>
                     </div>
                     <div class="row">
                         <ol style="list-style-type:lower-roman" start="9">
                          <li>
-                             <ul style="list-style-type:none"><li><b>Ranks</b> – <font color="green">(Optional)</font> Ranks for the gene list or the expression data can be specified (for example, see <b>Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</b>).</li></ul></li>
+                             <ul style="list-style-type:none"><li><b>Ranks</b> – <font color="green">(Optional)</font> Ranks for the gene list or the expression data can be specified (for example, see <b><a href="./results_data_folder/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a></b>).</li></ul></li>
                         <li>
-                            <ul style="list-style-type:none"><li><b>Classes</b> – <font color="green">(Optional)</font> GSEA CLS file defining the phenotype (i.e. biological conditions) of each sample in the expression file, for example, see <b>Supplementary_Table7_TCGA_OV_RNAseq_classes.cls. </b>).</li></ul></li>
+                            <ul style="list-style-type:none"><li><b>Classes</b> – <font color="green">(Optional)</font> GSEA CLS file defining the phenotype (i.e. biological conditions) of each sample in the expression file, for example, see <b><a href="./results_data_folder/Supplementary_Table7_TCGA_OV_RNAseq_classes.cls">Supplementary_Table7_TCGA_OV_RNAseq_classes.cls</a></b>. ).</li></ul></li>
                         <li>
                             <ul style="list-style-type:none"><li><b>Phenotypes</b> – <font color="green">(Optional)</font> If there are two different phenotypes in the expression data, update the phenotype labels so that ‘positive’ represents the phenotype associated with positive values (Mesenchymal in this example) and ‘negative’ with negative values (Immunoreactive in this example).</li></ul></li>
 
@@ -660,13 +660,13 @@
                     <div class="row">
                         <ol style="list-style-type:lower-roman" start="6">
                             <li>
-                            <ul style="list-style-type:none"><li><B>Enrichment Pos - </B>Verify that file is set to <b> [your_path_to_gsea_dir]/Mesen_vs_Immuno.GseaPreranked.12345/gsea_report_for_na_pos_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately navigate to the file <b>Supplementary_Table8_gsea_report_for_na_pos.xls.</b></li></ul>
+                            <ul style="list-style-type:none"><li><B>Enrichment Pos - </B>Verify that file is set to <b> [your_path_to_gsea_dir]/Mesen_vs_Immuno.GseaPreranked.12345/gsea_report_for_na_pos_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately navigate to the file <b><a href="./results_data_folder/Supplementary_Table8_gsea_report_for_na_pos.xls">Supplementary_Table8_gsea_report_for_na_pos.xls</a></b>.</li></ul>
                          </li>
                          <li>
-                            <ul style="list-style-type:none"><li><B>Enrichment Neg - </B>Verify that file is set to <b>[your_path_to_gsea_dir]/Mesen_vs_Immuno.GseaPreranked.12345/gsea_report_for_na_neg_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately navigate to the file <b>Supplementary_Table9_gsea_report_for_na_neg.xls.</b></li></ul>
+                            <ul style="list-style-type:none"><li><B>Enrichment Neg - </B>Verify that file is set to <b>[your_path_to_gsea_dir]/Mesen_vs_Immuno.GseaPreranked.12345/gsea_report_for_na_neg_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately navigate to the file <b><a href="./results_data_folder/Supplementary_Table9_gsea_report_for_na_neg.xls">Supplementary_Table9_gsea_report_for_na_neg.xls</a></b>.</li></ul>
                          </li>
                             <li>
-                            <ul style="list-style-type:none"><li>Verify the <b>GMT</b> Verify that the file is set to <b>Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</b>.</li></ul>
+                            <ul style="list-style-type:none"><li>Verify the <b>GMT</b> Verify that the file is set to <b><a href="./results_data_folder/Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt">Supplementary_Table3_Human_GOBP_AllPathways_no_GO_iea_July_01_2017_symbol.gmt</a></b>.</li></ul>
                          </li>
                         </ol>
                     </div>
@@ -689,16 +689,16 @@
                     <img style="float:right;width:35%" src="./figures/em_gsea3.png">
                      <ol style="list-style-type:lower-roman;width:55%" start="9">
                          <li>
-                             <ul style="list-style-type:none"><li><b>Ranks</b> - <font color="green">(Optional)</font> Verify that the file is set to <b>ranked_gene_list_na_pos_versus_na_neg_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately, navigate to the file <b>Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</b>).</li></ul></li>
+                             <ul style="list-style-type:none"><li><b>Ranks</b> - <font color="green">(Optional)</font> Verify that the file is set to <b>ranked_gene_list_na_pos_versus_na_neg_12345.xls</b> where 12345 is a unique number generated by GSEA. Alternately, navigate to the file <b><a href="./results_data_folder/Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk">Supplementary_Table2_MesenvsImmuno_RNASeq_ranks.rnk</a></b>).</li></ul></li>
                          <li>
-                             <ul style="list-style-type:none"><li><b>Expressions</b> - <font color="green">(Optional)</font> <b>Supplementary_Table6_TCGA_OV_RNAseq_expression.txt </b>).</li></ul></li>
+                             <ul style="list-style-type:none"><li><b>Expressions</b> - <font color="green">(Optional)</font> <b><a href="./results_data_folder/Supplementary_Table6_TCGA_OV_RNAseq_expression.txt">Supplementary_Table6_TCGA_OV_RNAseq_expression.txt</a></b>).</li></ul></li>
                         </ol>
                     </div>
                     <div class="row">
                         <ol style="list-style-type:lower-roman" start="11">
                             
                         <li>
-                            <ul style="list-style-type:none"><li><b>Classes</b> – <font color="green">(Optional)</font> GSEA CLS file defining the phenotype (i.e. biological conditions) of each sample in the expression file, for example, see <b>Supplementary_Table7_TCGA_OV_RNAseq_classes.cls. </b>).</li></ul></li>
+                            <ul style="list-style-type:none"><li><b>Classes</b> – <font color="green">(Optional)</font> GSEA CLS file defining the phenotype (i.e. biological conditions) of each sample in the expression file, for example, see <b><a href="./results_data_folder/Supplementary_Table7_TCGA_OV_RNAseq_classes.cls">Supplementary_Table7_TCGA_OV_RNAseq_classes.cls</a></b>).</li></ul></li>
                         <li>
                             <ul style="list-style-type:none"><li><b>Phenotypes</b> – <font color="green">(Optional)</font> In the text boxes replace ‘na_pos’ with ‘Mesenchymal’ and ‘na_neg’ with ‘Immunoreactive’. ‘Mesenchymal’ will be associated with red nodes as it corresponds to the positive phenotype while ‘Immunoreactive’ will be labeled blue.</li></ul></li>
 
