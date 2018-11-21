@@ -80,7 +80,7 @@ Add speaker notes here...
 </section>
 
 <section>
-<p>The filter will be automatically applied. At the bottom of the <b>Select</b> tab, you can see how many edges/nodes where selected. A set of 59 nodes have been selected in your network. The main component of your network should now look like this, notice the yellow highlighted selected nodes:</p>
+<p>The filter will be automatically applied. At the bottom of the <b>Select</b> tab, you can see how many edges/nodes where selected. A set of nodes have been selected in your network, highlighted in yellow:</p>
 
     <img plain src="string-bc-degree.png" style="width:50%">
 		
@@ -94,7 +94,7 @@ Add speaker notes here...
 <h1>Creating a subnetwork from a selection</h1>
     <p>We can now create a new network, or subnetwork, from our selected set of nodes.</p>
 <ul>
-    <li>With the 59 nodes still selected, go to <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
+    <li>With the nodes still selected, go to <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
     <li>The new network will look similar to this:</li>
 </ul><br /><br />
 <img plain src="string-bc-subnet1.png" style="width:60%">
@@ -108,7 +108,7 @@ Add speaker notes here...
         <li>Click on the <highlight>Select</highlight> tab of the <highlight>Control Panel</highlight>.</li>
         <li>Click on the drop-down to the right and select <highlight>Create New Filter</highlight>. Enter a name for your filter, for example "disease score".</li>
         <li>Click the <highlight>+</highlight> (add) button and select <highlight>Column Filter</highlight>. In the <highlight>Choose column...</highlight> drop-down, select <highlight>Node: disease score</highlight>.</li>
-        <li>In the selection slider, select scores between 4.5 and 5.</li>
+        <li>In the selection slider, select scores between 4 and 5.</li>
         <li>Again, select <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges.</highlight></li>
     </ul>
 </section>
@@ -121,6 +121,23 @@ Add speaker notes here...
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
+</section>
+                
+<section>
+<h1>Combining filters</h1>
+<p>But what if we want to combine these two filters? You could apply them sequentially as individual filters, but then you'd need to be careful about the order in which you apply the filters. Alternatively, you can create a composite filter and apply the logic all at once.</p>
+
+<p>Let's combine the two filters "degree filter" and "disease score" to produce one filter, then apply it to the original network to create a final subnetwork:</p>
+
+<ul>
+    <li>In the <highlight>Network</highlight> tab, select the original network from STRING.</li>
+    <li>In the <highlight>Style</highlight> tab, select the "node degree" filter from the drop-down.</li>
+    <li>To add a second filter, click the plus-sign and recreate the "disease score" filter.</li>
+    <li>Note that the drop-down at the top is set for <b>Match all (AND)</b> by default, which is what we want in this case.</li>
+    <li>Now create a new network from the selection, representing the same final network as earlier.</li>
+</ul>
+
+                
 </section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
