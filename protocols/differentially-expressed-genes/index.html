@@ -44,7 +44,7 @@
 
 <section>
     <h1>Setup</h1>
-    <ul>
+    <ul style="margin: 30px">
     <li><b>Launch Cytoscape</b></li>
     <p>Refer the <a href="http://manual.cytoscape.org" target="_blank">manual</a> for an introduction to the Cytoscape interafce and basic features</p>
     <li><b>Load STRINGapp</b></li>
@@ -63,11 +63,6 @@
 <h1>Background</h1>
     <p>Ovarian serous cystadenocarcinoma is a type of epithelial ovarian cancer which accounts for ~90 percent of all ovarian cancers. The data used in this protocol is from the <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a>, in which multiple subtypes of serous cystadenocarcinoma were identified.</p> <p>We will focus on the comparison between two subtypes, <b>Mesenchymal</b> and <b>Immunoreactive</b>.</p>
     <p>For convenience, the data has already been pre-filtered, using log fold change value and associated p-value.</p>
-    <!--<ul>
-    <li>Mutations in TP53 are present in more than 96 percent of ovarian cancer cases</li>
-    <li>Patients with mutations in their BRCA1 and BRCA2 genes have better odds of survival than patients without mutations in those genes</li>
-    <li>Other mutations identified by the TCGA are: NF1, RB1 and CDK12.</li>
-</ul> -->
 </section>
                 
 <section>
@@ -92,7 +87,7 @@
 <section>
 <h4>STRING Protein Query: Up-regulated genes</h4>
 <ul>
-    <li>Open the file containing the list of up-regulated genes, <i>TCGA-Ovairan-MesenvsImmuno_UP.txt</i>, and copy the contents to the clipboard.</li>
+    <li>Open the file containing the list of up-regulated genes, <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovairan-MesenvsImmuno_UP.txt">TCGA-Ovairan-MesenvsImmuno_UP.txt</a>, and copy the contents to the clipboard.</li>
     <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
     <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search.</li>
     <li>A <highlight>Resolve Ambiguous Terms</highlight> interface may open, if some of the search terms map to multiple protein symbols or aliases. For this particular protocol there is only one ambiguous term and the correct option is already chosen; click <highlight>Import</highlight> to continue. The resulting network will load automatically.</li>
@@ -147,8 +142,7 @@
     <h4>Visualization</h4>
     <p>Let's cleanup the visual style a bit. Since the default STRING color is still present for some of the nodes, we need to remove this to see the pie charts more clearly.</p>
     <ul>
-        <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, find the attribute <highlight>Image/Chart 2</highlight></li> and remove the <b>chemViz Passthrough</b> mapping.
-        <li>Similarly, delete the mapping for node <highlight>Fill Color</highlight>.</li>
+        <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, delete the mapping for node <highlight>Fill Color</highlight>.</li>
         <li>Set the node default fill color to light grey.</li>
     </ul>
     
@@ -171,11 +165,11 @@
     <h4>STRING Protein Query: Down-regulated genes</h4>
     <p>Repeat the network search, enrichment analysis and visualization for the set of down-regulated genes:</p>
     <ul>
-    <li>Query STRING protein with the list of symbols in <i>TCGA-Ovairan-MesenvsImmuno_UP.txt</i>.</li>
+    <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovairan-MesenvsImmuno_DOWN.txt">TCGA-Ovairan-MesenvsImmuno_UP.txt</a>.</li>
     <li>Perform STRING Enrichment analysis on the resulting network.</li>
     <li>Filter the analysis results to show GO Process only, add a pie chart for the top 3 terms. To dstinguish between the visualizations of up- and down-regulated results, pick a different color palette under <highlight>Change Color Palette</highlight>.</li>
     <li>With the new network selected, apply the <highlight>yFiles Organic</highlight> layout. The networks should now look something like this:</li>
-    <li>Cleanup the visual style to remove default STRING coloring etc, create a subnetwork for the largest connected component, and perform yFiles Organic layout.</li>
+    <li>Cleanup the visual style to remove default STRING coloring, create a subnetwork for the largest connected component, and perform yFiles Organic layout.</li>
     </ul>
     <div class="fragment">
 <img class="plain" src="string-de-down.png" style="height:450px">    
@@ -201,7 +195,7 @@
     <ul>
         <li>In the <highlight>Table Panel</highlight>, right-click on the column header for <b>display name</b> and select <highlight>Map column...</highlight>. In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as species, <b>HGNC</b> as <highlight>Map from</highlight>, and <b>Entrez</b> as <highlight>To</highlight>. Click <highlight>OK</highlight> to continue.</li>
         <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all down-stream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
-        <li>Next, we can load the data. Go to <highlight>File &rarr; Import &rarr; Table from File...</highlight> and select the data file, <i>TCGA-Ovarian-MesenvsImmuno_data.txt</i>.</li>
+        <li>Next, we can load the data. Go to <highlight>File &rarr; Import &rarr; Table from File...</highlight> and select the data file, <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.txt">TCGA-Ovarian-MesenvsImmuno_data.txt</a>.</li>
     </ul>
 </section>
  
