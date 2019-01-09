@@ -154,7 +154,7 @@
     <ul>
         <li>In the network view, select the largest connected part of the network by clicking and dragging. This should be a set of ~104 nodes.</li>
         <li>Create a new network from the selected part by selecting <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
-        <li>With the new network selected, apply the <highlight>yFiles Organic</highlight> layout. The networks should now look something like this:</li>
+        <li>With the new network selected, apply the <highlight>yFiles Organic</highlight> layout. The yFiles layout algorithms are not installed by default, but can be downloaded from the <a href="http://apps.cytoscape.org/apps/yfileslayoutalgorithms">Cytoscape App Store</a>. The networks should now look something like this:</li>
     </ul>
      <div class="fragment">
 <img class="plain" src="string-de-up.png" style="height:480px">    
@@ -180,7 +180,7 @@
     <h4>STRING Disease Query</h4>
     <p>Next, we will query the <b>STRING disease</b> database to find all connections relevant to ovarian cancer.</p>
     <ul>
-    <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING disease query</highlight> from the drop-down, and type in "Ovarian cancer".</li>
+    <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING disease query</highlight> from the drop-down, and type in <b>Ovarian cancer</b>.</li>
     <li>Click enter, or the search icon, to search.</li>
     </ul>
     <div class="fragment">
@@ -203,8 +203,8 @@
     <h4>Data integration</h4>
     <p>In the <highlight>Import Columns from Table</highlight> interface, there are a few things that need to be changed from the defaults:</p>
             <ul>
-                <li><highlight>Key Column for Network</highlight> should be <highlight>Entrez Gene</highlight></li>
-                <li>In the data preview, <highlight>Gene ID</highlight> should be the key, you can change this by right-clicking on the column header and selecting the key symbl.</li>
+                <li><highlight>Key Column for Network</highlight> should be <highlight>Entrez Gene</highlight>.</li>
+                <li>In the data preview, <highlight>Gene ID</highlight> should be the key, you can change this by right-clicking on the column header and selecting the key symbol.</li>
                 <li>We don't need to import the <highlight>Gene Symbol</highlight> column, so we can hide it by right-clicking and selecting the stop sign. The <highlight>Import Columns from Table</highlight> interface should now look like this:</li>
             </ul><br /><br />
 <img class="plain" src="TableImport.png" style="height:500px">    
@@ -215,7 +215,7 @@
     <p>To complete the import, click <highlight>OK</highlight>. You will notice two new columns in the <highlight>Node Table</highlight>. We can now use this data to create a network visualization.</p>   
     <ul>
         <li>For node <highlight>Fill Color</highlight>, first delete the existing mapping and then create a continuous mapping for <highlight>logFC</highlight>, with the default blue-red gradient.</li>
-        <li>Set the default node <highlight>Border Width</highlight> to 1, and the node <highlight>Border Paint</highlight> to dark grey.</li>
+        <li>Set the default node <highlight>Border Width</highlight> to 1, and the node <highlight>Border Paint</highlight> to dark gray.</li>
         <li>In the edge tab, remove the mapping for edge <highlight>Transparency</highlight>, and then set the default to 50.</li>
         <li>Similarly to the previous steps, create a new network from the selected part by selecting <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
         <li>Apply the <highlight>yFiles Organic</highlight> layout.</li>
@@ -243,10 +243,21 @@
                 
 <section>
     <h4>Exporting Networks</h4>
+    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
+	<ul>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
+	</ul>
 </section>
                 
 <section>
     <h4>Other Analysis Options</h4>
+    <ul>
+        <li>Exploring networks: finding paths, hubs and modules (MCODE, jActiveModules, NetworkAnalyzer, PathFinder)</li>
+        <li>Extending networks with Transcription Factors, miRNAs, etc using CyTargetLinker</li>
+    
+    </ul>
 </section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
