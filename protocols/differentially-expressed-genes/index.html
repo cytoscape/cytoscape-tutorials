@@ -32,7 +32,7 @@
     <p><highlight>Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.</highlight></p>
     <p>This protocol describes a network analysis workflow in Cytoscape for a set of differentially expressed genes. Points covered:</p>
     <ul>
-        <li>Retrieve relevant networks from public databases</li>
+        <li>Retrieving relevant networks from public databases</li>
         <li>Network functional enrichment analysis</li>
         <li>Integration and visualization of experimental data</li>
         <li>Exporting network visualizations</li>
@@ -46,7 +46,7 @@
     <h1>Setup</h1>
     <ul style="margin: 30px">
     <li><b>Launch Cytoscape</b></li>
-    <p>Refer the <a href="http://manual.cytoscape.org" target="_blank">manual</a> for an introduction to the Cytoscape interafce and basic features</p>
+    <p>Refer to the <a href="http://manual.cytoscape.org" target="_blank">manual</a> for an introduction to the Cytoscape interface and basic features.</p>
     <li><b>Load STRINGapp</b></li>
     <p>Go to the app store  to install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">STRINGapp</a>, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
     <li><b>Download data</b></li>
@@ -61,13 +61,13 @@
 
 <section>
 <h1>Background</h1>
-    <p>Ovarian serous cystadenocarcinoma is a type of epithelial ovarian cancer which accounts for ~90 percent of all ovarian cancers. The data used in this protocol is from the <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a>, in which multiple subtypes of serous cystadenocarcinoma were identified.</p> <p>We will focus on the comparison between two subtypes, <b>Mesenchymal</b> and <b>Immunoreactive</b>.</p>
+    <p>Ovarian serous cystadenocarcinoma is a type of epithelial ovarian cancer which accounts for ~90% of all ovarian cancers. The data used in this protocol is from <a href="https://cancergenome.nih.gov/" target="_blank">The Cancer Genome Atlas</a>, in which multiple subtypes of serous cystadenocarcinoma were identified.</p> <p>We will focus on the comparison between two subtypes, <b>Mesenchymal</b> and <b>Immunoreactive</b>.</p>
     <p>For convenience, the data has already been pre-filtered, using log fold change value and associated p-value.</p>
 </section>
                 
 <section>
     <h1>Network Retrieval</h1>
-    <p>Many public databases and multiple Cytoscape apps allow you to retrieve a relevant network or pathway relevant to your data. For this workflow, we will use the STRING app. Some other options include:</p>
+    <p>Many public databases and multiple Cytoscape apps allow you to retrieve a network or pathway relevant to your data. For this workflow, we will use the STRING app. Some other options include:</p>
     <ul>
     <li><a href="https://cytoscape.org/cytoscape-tutorials/protocols/wikipathways-app/" target="_blank">WikiPathways</a></li>
     <li><a href="http://www.ndexbio.org/" target="_blank">NDEx</a></li>
@@ -116,7 +116,7 @@
 <h4>STRING Enrichment</h4>
     <p>To find out which processes are enriched in the resulting network, we will use STRING's built-in enrichment tool.</p>
     <ul>
-    <li>With the STRING results network selected, go to <highlight>Apps &rarr; STRING Enrichment &rarr; Retrieve functional enrichment</highlight>. Keep the default value for p-value, 0.05.</li>
+    <li>With the STRING results network selected, go to <highlight>Apps &rarr; STRING Enrichment &rarr; Retrieve functional enrichment</highlight>. Keep the default value for p-value, <b>0.05</b>.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul><br /><br />
      <div class="fragment">
@@ -130,7 +130,7 @@
     <ul>
         <li>We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box.</li>
         <li>Next, we will add a pie chart to the nodes representing the top three enriched terms. In the top right of the STRING enrichment tab, click the settings icon <img class="plain" src="SettingsIcon.png" style="height:30px">.</li>
-        <li>Select <highlight>Pie Chart</highlight> in the drop-down and enter 3 as the number of terms to chart. This created a </li>
+        <li>Select <highlight>Pie Chart</highlight> in the drop-down and enter <b>3</b> as the number of terms to chart. This created a </li>
     </ul>
     <br /><br />
     <div class="fragment">
@@ -143,16 +143,16 @@
     <p>Let's cleanup the visual style a bit. Since the default STRING color is still present for some of the nodes, we need to remove this to see the pie charts more clearly.</p>
     <ul>
         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, delete the mapping for node <highlight>Fill Color</highlight>.</li>
-        <li>Set the node default fill color to light grey.</li>
+        <li>Set the node default fill color to <b>light gray</b>.</li>
     </ul>
     
 </section>
                 
 <section>
 <h4>Visualization</h4>
-    <p>The full network results from STRING include many unconnected nodes that are not helpful. We will focus on the largest connected part of the network.</p>
+    <p>The full network results from STRING include many unconnected nodes that are not helpful. We will focus on the largest connected component of the network.</p>
     <ul>
-        <li>In the network view, select the largest connected part of the network by clicking and dragging. This should be a set of ~104 nodes.</li>
+        <li>In the network view, select the largest connected component of the network by clicking and dragging. This should be a set of ~104 nodes.</li>
         <li>Create a new network from the selected part by selecting <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
         <li>With the new network selected, apply the <highlight>yFiles Organic</highlight> layout. The yFiles layout algorithms are not installed by default, but can be downloaded from the <a href="http://apps.cytoscape.org/apps/yfileslayoutalgorithms">Cytoscape App Store</a>. The networks should now look something like this:</li>
     </ul>
@@ -191,7 +191,7 @@
                 
 <section>
     <h4>Data integration</h4>
-    <p>For this network, we will bring in the experimental data, log fold chnage and p-value, and use it to create a visualization. Since the network and data use different identifiers, we first have to do some quick identifier mapping using the built-in <b>IDMapper</b> feature. In this case, we will use the gene symbol in the <b>display name</b> column to retrieve <b>Entrez Gene</b> identifiers.</p>
+    <p>For this network, we will bring in the experimental data, log fold change and p-value, and use it to create a visualization. Since the network and data use different identifiers, we first have to do some quick identifier mapping using the built-in <b>IDMapper</b> feature. In this case, we will use the gene symbol in the <b>display name</b> column to retrieve <b>Entrez Gene</b> identifiers.</p>
     <ul>
         <li>In the <highlight>Table Panel</highlight>, right-click on the column header for <b>display name</b> and select <highlight>Map column...</highlight>. In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as species, <b>HGNC</b> as <highlight>Map from</highlight>, and <b>Entrez</b> as <highlight>To</highlight>. Click <highlight>OK</highlight> to continue.</li>
         <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all down-stream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
@@ -215,7 +215,7 @@
     <p>To complete the import, click <highlight>OK</highlight>. You will notice two new columns in the <highlight>Node Table</highlight>. We can now use this data to create a network visualization.</p>   
     <ul>
         <li>For node <highlight>Fill Color</highlight>, first delete the existing mapping and then create a continuous mapping for <highlight>logFC</highlight>, with the default blue-red gradient.</li>
-        <li>Set the default node <highlight>Border Width</highlight> to 1, and the node <highlight>Border Paint</highlight> to dark gray.</li>
+        <li>Set the default node <highlight>Border Width</highlight> to <b>1</b>, and the node <highlight>Border Paint</highlight> to <b>dark gray</b>.</li>
         <li>In the edge tab, remove the mapping for edge <highlight>Transparency</highlight>, and then set the default to 50.</li>
         <li>Similarly to the previous steps, create a new network from the selected part by selecting <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
         <li>Apply the <highlight>yFiles Organic</highlight> layout.</li>
