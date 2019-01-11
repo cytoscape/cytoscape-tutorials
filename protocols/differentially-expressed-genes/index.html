@@ -47,15 +47,9 @@
     <ul style="margin: 30px">
     <li><b>Launch Cytoscape</b></li>
     <p>Refer to the <a href="http://manual.cytoscape.org" target="_blank">manual</a> for an introduction to the Cytoscape interface and basic features.</p>
-    <li><b>Load STRINGapp</b></li>
+    <li><b>Load the STRING app</b></li>
     <p>Go to the app store  to install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">STRINGapp</a>, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
-    <li><b>Download data</b></li>
-    <p>For this tutorial, you will need three data files:</p>
-    <ul>
-        <li><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.txt">List of 193 up-regulated genes</a></li>
-        <li><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt">List of 166 down-regulated genes</a></li>
-        <li><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.txt">Experimental data</a></li>
-    </ul>
+       </ul>
         </ul>
 </section>
 
@@ -145,10 +139,11 @@
     <ul>
     <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt">TCGA-Ovarian-MesenvsImmuno_DOWN.txt</a>.</li>
     <li>Perform STRING Enrichment analysis on the resulting network.</li>
-    <li>Filter the analysis results to show GO Process only, add split donut charts. To dstinguish between the visualizations of up- and down-regulated results, pick a different color palette under <highlight>Change Color Palette</highlight>.</li>
+    <li>Filter the analysis results for non-redundant GO Process terms only, add split donut charts. To dstinguish between the visualizations of up- and down-regulated results, pick a different color palette under <highlight>Change Color Palette</highlight>.</li>
     </ul>
     <div class="fragment">
-<img class="plain" src="string-de-down.png" style="height:450px">    
+	    <p><i>Pro-tip: If you remove the Fill Color mapping from the Style Panel (right-click > Edit > Remove...), set the default to light gray, and then try out some of the layouts (see Layout menu), you can end up with network views like this...</i></p>
+ <img class="plain" src="string-de-down.png" style="height:450px">    
 </div>
 </section>
 
