@@ -62,7 +62,7 @@
 <section>
 <h1>Background</h1>
     <p>Ovarian serous cystadenocarcinoma is a type of epithelial ovarian cancer which accounts for ~90% of all ovarian cancers. The data used in this protocol is from <a href="https://cancergenome.nih.gov/" target="_blank">The Cancer Genome Atlas</a>, in which multiple subtypes of serous cystadenocarcinoma were identified.</p> <p>We will focus on the comparison between two subtypes, <b>Mesenchymal</b> and <b>Immunoreactive</b>.</p>
-    <p>For convenience, the data has already been pre-filtered, using log fold change value and associated p-value.</p>
+    <p>For convenience, the data has already been pre-filtered, using log fold change value and adjusted p-value.</p>
 </section>
                 
 <section>
@@ -101,10 +101,11 @@
                 
 <section>
    <h4>Enrichment Analysis Options</h4> 
-    <p>In addition to the STRING Enrichment used in this tutorial, there are several other options, including:</p>
+    <p>Next, we are going to perform enrichment anlaysis uing the STRING app. Note that there are several other options, including:</p>
     <ul>
-        <li>R</li>
-        <li><a href="http://amp.pharm.mssm.edu/Enrichr/" target="_blank">EnrichR</a>: A gene set enrichment analysis web server</li>
+        <li><a href="http://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html" target="_blank">clusterProfiler</a>: An R package for ORA and GSEA</li>
+        <li><a href="https://biit.cs.ut.ee/gprofiler/" target="_blank">g-Profiler</a>: An enrichment analysis website</li>
+	<li><a href="http://amp.pharm.mssm.edu/Enrichr/" target="_blank">EnrichR</a>: A website that performs enrichment against dozens of ontologies and pathway resources</li>
         <li><a href="http://apps.cytoscape.org/apps/cluego" target="_blank">ClueGO</a>: Creates and visualizes a functionally grouped network of terms/pathways</li>
         <li><a href="http://apps.cytoscape.org/apps/bingo" target="_blank">BiNGO</a>: GO overrepresentation analysis on networks</li>
         <li><a href="https://cytoscape.org/cytoscape-tutorials/protocols/enrichmentmap-pipeline/" target="_blank">EnrichmentMap</a>: Visualize the results of gene-set enrichment as a network</li>
@@ -114,7 +115,7 @@
                 
 <section>
 <h4>STRING Enrichment</h4>
-    <p>To find out which processes are enriched in the resulting network, we will use STRING's built-in enrichment tool.</p>
+    <p>The STRING app has built-in enrichment analysis functionality.</p>
     <ul>
     <li>With the STRING results network selected, go to <highlight>Apps &rarr; STRING Enrichment &rarr; Retrieve functional enrichment</highlight>. Keep the default value for p-value, <b>0.05</b>.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
@@ -128,26 +129,16 @@
     <h4>STRING Enrichment</h4>
     <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab.</p>    
     <ul>
-        <li>We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box.</li>
-        <li>Next, we will add a pie chart to the nodes representing the top three enriched terms. In the top right of the STRING enrichment tab, click the settings icon <img class="plain" src="SettingsIcon.png" style="height:30px">.</li>
-        <li>Select <highlight>Pie Chart</highlight> in the drop-down and enter <b>3</b> as the number of terms to chart. This created a </li>
+        <li>We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
+        <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
+	<li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px">, in the top right of the STRING enrichment tab.</li>
     </ul>
     <br /><br />
     <div class="fragment">
 <img class="plain" src="string-enrichment-chart.png" style="height:400px">    
 </div>    
 </section>
-                
-<section>
-    <h4>Visualization</h4>
-    <p>Let's cleanup the visual style a bit. Since the default STRING color is still present for some of the nodes, we need to remove this to see the pie charts more clearly.</p>
-    <ul>
-        <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, delete the mapping for node <highlight>Fill Color</highlight>.</li>
-        <li>Set the node default fill color to <b>light gray</b>.</li>
-    </ul>
-    
-</section>
-                
+                                
 <section>
 <h4>Visualization</h4>
     <p>The full network results from STRING include many unconnected nodes that are not helpful. We will focus on the largest connected component of the network.</p>
