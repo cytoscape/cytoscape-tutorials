@@ -131,36 +131,21 @@
     <ul>
         <li>We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
-	<li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px">, in the top right of the STRING enrichment tab.</li>
+	<li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
     </ul>
     <br /><br />
     <div class="fragment">
 <img class="plain" src="string-enrichment-chart.png" style="height:400px">    
 </div>    
 </section>
-                                
-<section>
-<h4>Visualization</h4>
-    <p>The full network results from STRING include many unconnected nodes that are not helpful. We will focus on the largest connected component of the network.</p>
-    <ul>
-        <li>In the network view, select the largest connected component of the network by clicking and dragging. This should be a set of ~104 nodes.</li>
-        <li>Create a new network from the selected part by selecting <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
-        <li>With the new network selected, apply the <highlight>yFiles Organic</highlight> layout. The yFiles layout algorithms are not installed by default, but can be downloaded from the <a href="http://apps.cytoscape.org/apps/yfileslayoutalgorithms">Cytoscape App Store</a>. The networks should now look something like this:</li>
-    </ul>
-     <div class="fragment">
-<img class="plain" src="string-de-up.png" style="height:480px">    
-</div>
-</section>
-                
+                                               
 <section>
     <h4>STRING Protein Query: Down-regulated genes</h4>
     <p>Repeat the network search, enrichment analysis and visualization for the set of down-regulated genes:</p>
     <ul>
-    <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovairan-MesenvsImmuno_DOWN.txt">TCGA-Ovairan-MesenvsImmuno_UP.txt</a>.</li>
+    <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovairan-MesenvsImmuno_DOWN.txt">TCGA-Ovairan-MesenvsImmuno_DOWN.txt</a>.</li>
     <li>Perform STRING Enrichment analysis on the resulting network.</li>
-    <li>Filter the analysis results to show GO Process only, add a pie chart for the top 3 terms. To dstinguish between the visualizations of up- and down-regulated results, pick a different color palette under <highlight>Change Color Palette</highlight>.</li>
-    <li>With the new network selected, apply the <highlight>yFiles Organic</highlight> layout. The networks should now look something like this:</li>
-    <li>Cleanup the visual style to remove default STRING coloring, create a subnetwork for the largest connected component, and perform yFiles Organic layout.</li>
+    <li>Filter the analysis results to show GO Process only, add split donut charts. To dstinguish between the visualizations of up- and down-regulated results, pick a different color palette under <highlight>Change Color Palette</highlight>.</li>
     </ul>
     <div class="fragment">
 <img class="plain" src="string-de-down.png" style="height:450px">    
