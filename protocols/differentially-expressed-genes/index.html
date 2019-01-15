@@ -139,10 +139,10 @@
     <ul>
     <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt">TCGA-Ovarian-MesenvsImmuno_DOWN.txt</a>.</li>
     <li>Perform STRING Enrichment analysis on the resulting network.</li>
-    <li>Filter the analysis results for non-redundant GO Process terms only, add split donut charts. To dstinguish between the visualizations of up- and down-regulated results, pick a different color palette under <highlight>Change Color Palette</highlight>.</li>
+    <li>Filter the analysis results for non-redundant GO Process terms only, add split donut charts. To distinguish between the visualizations of up- and down-regulated results, pick a different color palette under <highlight>Change Color Palette</highlight> under <highlight>Settings</highlight>.</li>
     </ul>
     <div class="fragment">
-	    <p><i>Pro-tip: If you remove the Fill Color mapping from the Style Panel (right-click > Edit > Remove...), set the default to light gray, and then try out some of the layouts (see Layout menu), you can end up with network views like this...</i></p>
+	    <p><i>Pro-tip: If you remove the Fill Color mapping from the Style Panel (right-click > Edit > Remove...), set the default to light gray, change the split donut to a Pie Chart in <highlight>Settings</highlight> and then try out some of the layouts (see Layout menu), you can end up with network views like this...</i></p>
  <img class="plain" src="string-de-down.png" style="height:450px">    
 </div>
 </section>
@@ -155,7 +155,7 @@
     <li>Click enter, or the search icon, to search.</li>
     </ul>
     <div class="fragment">
-<p>This will bring in the top 100 ovarian cancer associated genes connected with a confidence scores greater than 0.4.</p>
+<p>This will bring in the top 100 ovarian cancer associated genes connected with a confidence scores greater than 0.4. Note that because we removed the default STRING node fill color in the previous step, we have lost the "glass ball" effect. For this protocol it doesn't matter, but if you want to add back that effect, select <highlight>Apps &rarr; STRING &rarr; Enable STRING glass balls effect</highlight>.</p>
 <img class="plain" src="string-ovarian.png" style="height:530px">    
 </div>
 </section>  
@@ -221,7 +221,7 @@
 <section>
     <h4>Other Analysis Options</h4>
     <ul>
-        <li>Exploring networks: finding paths, hubs and modules (MCODE, jActiveModules, NetworkAnalyzer, PathFinder)</li>
+        <li>Exploring networks: finding paths, hubs and modules (clusterMaker, MCODE, jActiveModules, NetworkAnalyzer, PathFinder)</li>
         <li>Extending networks with Transcription Factors, miRNAs, etc using CyTargetLinker</li>
     
     </ul>
