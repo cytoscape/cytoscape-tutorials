@@ -1,5 +1,5 @@
 ## Main Page
-Visit [tutorials.cytoscape.org](https://github.com/cytoscape/cytoscape-tutorials/wiki) for a curated set of user tutorials
+Visit [tutorials.cytoscape.org](https://github.com/cytoscape/cytoscape-tutorials/wiki) for a curated set of user tutorials.
 
 ## How to Make and Present Cytoscape Tutorials
 This repo contains a collection of training *modules* for Cytoscape that can be used to compose workshop presentations. The repo also includes a clone of the reveal.js code that enables the presentation mode for these modules and workshops.
@@ -16,7 +16,7 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
 - [Cytoscape Custom Style](#style)
   - [Version](#version)
   - [Headings](#headings)
-  - [Slide Links](#slide_links)
+  - [Slide Links](#slide-links)
   - [Ribbons](#ribbons)
   - [Highlight](#highlight)
   - [Code](#code)
@@ -40,7 +40,7 @@ Browse the available training materials already prepared:
 #### Navigating
 Use arrow keys, "space" or the on-screen arrows (lower right) to navigate the slides. Take note of modules that are organized ___vertically___ within a presentation.
 
-[![Overview](assets/images/overview.png)](#null)
+![Overview](assets/images/overview.png)
 
 #### Online
 You can access training materials at any time via a web browser. All content is tested in the latest versions of Firefox and Chrome. Simply navigate to the corresponding url, e.g., 
@@ -66,7 +66,7 @@ decktape automatic https://cytoscape.github.io/cytoscape-tutorials/presentations
 Please feel free to use, share, copy or adapt any of the training materials you find here. They are all implicitly published under the CC0 waiver for maximum reuse potential.
 
 ## Building
-In order to adapt or compose your own tutorial, and you do not already have edit permissions for this repo, you can simply [fork the repo](https://github.com/cytoscape/cytoscape-tutorials). If your content is of general use, please submit a pull request and we'll be happy to acccept it.  
+In order to adapt or compose your own tutorial, and you do not already have edit permissions for this repo, you can simply [fork the repo](https://github.com/cytoscape/cytoscape-tutorials). If your content is of general use, please submit a pull request and we'll be happy to accept it.  
 
 If you have a suggestion to make regarding the content and don't have the time or inclination to do the coding, please [submit your request in the issue tracker](https://github.com/cytoscape/cytoscape-tutorials/issues).
 
@@ -112,19 +112,19 @@ Say you want to present a topic in detail, but it is not covered by any of the e
 In contrast to presentations, protocols are easier to prepare. Since protocols work best as brief, self-guided lessons, they are organized as a single level of subdirectories; one for each protocol. Simply copy one of the existing protocol template directories and rename it. Then you can replace the template ```sections``` with your slide content.
 
 ## Style
-We have developed [custom themes for Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/css/theme). These stylesheets provide settings and features tailored for our content, making it easier to put together (and reuse) training materials in this repo. Review how to use these customizations below...
+We have developed [custom themes for Cytoscape tutorials](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/css/theme). These stylesheets provide settings and features tailored for our content, making it easier to put together (and reuse) training materials in this repo. Review how to use these customizations below.
 
 ### Version
 To help develop training material that is accurate and current, we developed a custom footer and variable to specify the version of Cytoscape that the content pertains to. You can update the version tag in the title slide of your presentation/protocol files within the footer div:
 ```
 <version>3.5.1</version>
 ```
-[![Version](assets/images/version.png)](#null)
+![Version](assets/images/version.png)
 
 ### Headings
 We have customized heading tags for the Cytoscape tutorial styles:
 
-[![Headers](assets/images/headers.png)](#null)
+![Headers](assets/images/headers.png)
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/headers)***
 
@@ -156,7 +156,7 @@ These are ideal for making interactive Agenda or Outline slides. They have a sim
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html#/ribbons)***
 
 ### Highlight
-Use the ```<highlight>``` tag to highlight text with the Cytoscape-orange color
+Use the ```<highlight>``` tag to highlight text with the Cytoscape-orange color.
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/highlight)***
 
@@ -191,7 +191,7 @@ You can also float the image to the left (or right) side by appending ```"float:
 *Pro tip: If you have local copies of the images you want to include, upload them into the same directory as the html file, but include the path in ```src``` relative to the presentation (or protocol) directory, like in the example above. The index.html wrapper includes a base href="../.." so that the paths will work for both modules and presentations. If these images are likely to be used by multiple modules or presentations, you can also upload them to the top level ```assets/images``` dir, in which case the relative path in ```src``` should be "../assets/images".*
 
 ### Citations
-Use the ```<small>``` tag to format citations at the bottom of slides
+Use the ```<small>``` tag to format citations at the bottom of slides.
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/list-image-cit)***
 
@@ -217,7 +217,7 @@ If you want an element to fade-out after fading-in, you can combine fragments li
 		<span class="fragment fade-out">I'll fade in, then out</span>
 </span>
  ```
-And for more precise control over the order and combination of animated fragments, you can explicity specify an index number...
+And for more precise control over the order and combination of animated fragments, you can explicitly specify an index number...
 
 ```
 <p class="fragment" data-fragment-index="3">Appears last</p>
@@ -264,7 +264,7 @@ To include a button, add a div of class "cybrowser". The example below adds a bu
 ```
 
 To hide the "cybrowser" div, and thus the button, outside of CyBrowser, the following javascript should be added to the parent index file. For example, if the automation code was added to a module.hml file, the javascript should be added to the **body** of the index.html file that includes that module.
-Similarly, there is also a "not-cybrowser" div class that can be used to customize content for regular browser vieweing.
+Similarly, there is also a "not-cybrowser" div class that can be used to customize content for regular browser viewing.
 
 ```
 <pre><code data-trim>
