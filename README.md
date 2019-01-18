@@ -40,7 +40,7 @@ Browse the available training materials already prepared:
 #### Navigating
 Use arrow keys, "space" or the on-screen arrows (lower right) to navigate the slides. Take note of modules that are organized ___vertically___ within a presentation.
 
-![Overview](assets/images/overview.png)
+[![Overview](assets/images/overview.png)](#null)
 
 #### Online
 You can access training materials at any time via a web browser. All content is tested in the latest versions of Firefox and Chrome. Simply navigate to the corresponding url, e.g., 
@@ -119,12 +119,12 @@ To help develop training material that is accurate and current, we developed a c
 ```
 <version>3.5.1</version>
 ```
-![Version](assets/images/version.png)
+[![Version](assets/images/version.png)](#null)
 
 ### Headings
 We have customized heading tags for the Cytoscape tutorial styles:
 
-![Headers](assets/images/headers.png)
+[![Headers](assets/images/headers.png)](#null)
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/headers)***
 
@@ -149,7 +149,7 @@ These are ideal for making interactive Agenda or Outline slides. They have a sim
 <a class="inactive"><ribbon>Inactive Ribbon Style</ribbon></a>
 ```
 
-<img src="assets/images/ribbons.png" width="600px" />
+<a href="#null"><img src="assets/images/ribbons.png" width="600px" /></a>
 
 *Pro tip: if you indicate ```class="inactive"``` then you can gray-out a ribbon and disable its link. This is useful for mid-presentation review of the agenda, i.e., to remind the audience know what's been covered already and where you are at in the presentation.*
 
@@ -184,7 +184,7 @@ Images are automatically scaled, centered and given a drop shadow border. Common
 ```
 <img style="width:60%;" src="modules/intro-network-biology/network-example.jpg">
 ```
-<img src="assets/images/image-example.png" width="600px" />
+<a href="#null"><img src="assets/images/image-example.png" width="600px" /></a>
 
 You can also float the image to the left (or right) side by appending ```"float:left"``` to the style.
 
@@ -244,7 +244,7 @@ The Cytoscape stylesheet includes a custom ```column``` class which can be appli
 ### Tables
 The default table style includes a distinct header and background shading on alternating rows. Using ```table```, ```th```, ```tr``` and ```td``` as you normally would, results in a styled table like this...
 
-<img src="assets/images/table.png" width="400px" />
+<a href="#null"><img src="assets/images/table.png" width="400px" /></a>
 
 ***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/table)***
 
