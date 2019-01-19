@@ -108,7 +108,7 @@
                 
 <section>
 <h4>STRING Enrichment</h4>
-    <p>The STRING app has built-in enrichment analysis functionality.</p>
+    <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
     <li>With the STRING results network selected, go to <highlight>Apps &rarr; STRING Enrichment &rarr; Retrieve functional enrichment</highlight>. Keep the default value for p-value, <b>0.05</b>.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
@@ -174,8 +174,8 @@
     <p>In the <highlight>Import Columns from Table</highlight> interface, there are a few things that need to be changed from the defaults:</p>
             <ul>
                 <li><highlight>Key Column for Network</highlight> should be <highlight>Entrez Gene</highlight>.</li>
-                <li>In the data preview, <highlight>Gene ID</highlight> should be the key, you can change this by right-clicking on the column header and selecting the key symbol.</li>
-                <li>We don't need to import the <highlight>Gene Symbol</highlight> column, so we can hide it by right-clicking and selecting the stop sign. The <highlight>Import Columns from Table</highlight> interface should now look like this:</li>
+                <li>In the data preview, <highlight>Gene ID</highlight> should be the key, if not you can set it by right-clicking on the column header and selecting the key symbol.</li>
+                <li>The <highlight>Import Columns from Table</highlight> interface should now look like this:</li>
             </ul><br /><br />
 <img class="plain" src="TableImport.png" style="height:500px">    
 </section>  
@@ -185,8 +185,11 @@
     <p>To complete the import, click <highlight>OK</highlight>. You will notice two new columns in the <highlight>Node Table</highlight>. We can now use this data to create a network visualization.</p>   
     <ul>
         <li>For node <highlight>Fill Color</highlight>, first delete the existing mapping and then create a continuous mapping for <highlight>logFC</highlight>, with the default blue-red gradient.</li>
+        <li>Change the default node <highlight>Fill Color</highlight> to light grey.</li>
+        <li>To make the network easier to interpret, in the <highlight>Edge</highlight> tab of the <highlight>Style</highlight> panel, change the edge <highlight>Transparency</highlight> to 100.</li>
 	</ul>
 	        <div class="fragment">
+                <p><i>Pro-tip: If you apply the <highlight>yFiles Organic</highlight> layout, you can end up with network views like this...</i></p>
 	    <img class="plain" src="string-ovarian-styled.png" style="height:750px">   
 	    </div>
 </section>
