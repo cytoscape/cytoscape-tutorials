@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Variant Data Analysis</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+	<h1>Variant Data Analysis</h1>
+	<p>This protocol will demonstrate network retrieval from the STRING database, basic analysis, <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> data loading and visualization in Cytoscape.
+</p>
+</section>
+                
+<section>
+    <h1>Setup</h1>
+    <ul style="margin: 30px">
+    <li><b>Launch Cytoscape</b></li>
+    <p>Refer to the <a href="http://manual.cytoscape.org" target="_blank">manual</a> for an introduction to the Cytoscape interface and basic features.</p>
+    <li><b>Load the STRING app</b></li>
+    <p>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">STRINGapp</a> from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
+    <li><b>Load the Diffusion app</b></li>
+    <p>Install the <a href="http://apps.cytoscape.org/apps/diffusion">Diffusion</a> app from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
+    </ul>
+</section>
+                
+<section>
+    <h1>Getting Disease Networks</h1>
+    <p>We are going to query the <a href="https://string-db.org/">STRING database</a> from Cytoscape to retrieve networks of genes associated with breast cancer.</p>
+    <ul>
+    <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING disease query</highlight> from the drop-down, and type in <b>breast cancer</b>.</li>
+    <li>Click the <highlight>options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.9</b> and the <highlight>Maximum number of proteins</highlight> to <b>150</b>.</li>
+    <li>Click the <highlight>search</highlight> icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. </li>
+    </ul>
+    <div class="fragment">
+        <img class="plain" src="string-breast.png" style="height:500px">    
+    <div style="position:absolute;left:32em;bottom:1em;">        <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment/#/" target="_blank">Learn more about using STRING</a></b></p>
+        </div>
+    </div>
+</section>
+                
+<section>
+    <h1>Layout Network</h1>
+    <p>We can apply a layout algorithm to help visualize the network. Cytoscape supports a large collection of automatic layout algorithms, available under the <highlight>Layout</highlight> menu. For this layout, we are going to change the default parameters a bit first:</p>
+    <ul>
+    <li>Open the <highlight>Layout Settings</highlight> by selecting <highlight>Layout &rarr; Settings...</highlight>.</li>
+    <li>Under <highlight>Layout Algorithm</highlight>, select <highlight>Prefuse Force Directed</highlight>.</li>
+    <li>Set the <highlight>Default Spring Coefficient</highlight> to <b>0.0000008</b> and the <highlight>Default Spring Length</highlight> to <b>70</b>.</li>
+    <li>Click <highlight>Apply Layout</highlight></li>
+    </ul>
+    
+    <div class="fragment">
+        <p>The largest component of the network will look something like this:</p>
+        <img class="plain" src="string-breast-layout.png" style="height:450px">    
+    <div style="position:absolute;left:35em;bottom:1em;">
+        <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout/#/" target="_blank">Learn more about Layouts</a></b></p>
+    </div>
+</div>
+                
+</section>
+                
+<section>
+    <h1>Generate subnetworks</h1>
+    <p>To explore the network, we can use various parameters of the network to generate relevant subnetworks. Let's start by crearing a network from a <b>subset of nodes with a high disease score</b>:</p>
+    <ul>
+        <li>Click on the <highlight>Select</highlight> tab of the <highlight>Control Panel</highlight>.</li>
+        <li>Click on the drop-down to the right and select <highlight>Create New Filter</highlight>.
+        <li>Click the <highlight>+</highlight> (add) button and select <highlight>Column Filter</highlight>. In the <highlight>Choose column...</highlight> drop-down, select <highlight>Node: disease score</highlight>.</li>
+        <li>In the selection slider, select scores of <b>3.5</b> or higher. This will select a little over 40 nodes.</li>
+        <li>With the nodes still selected, go to <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
+    </ul>
+    <div class="fragment">
+    <p>This will create a subnetwork with a connected component and some unconnected nodes. We can delete the extra nodes by selecting them with click-and-drag and clicking <highlight>Delete</highlight>.</p>
+    <img class="plain" src="string-breast-subnet-connected.png" style="height:450px">
+</div>      
+</section>
+                
+<section>
+    <h1>Generate subnetworks</h1>
+    <p>Another strategy is to create a subnetwork from first neighbors of <b>genes with the highest disease score</b>, using the network connectivity together with the data to direct discovery.</p>
+    <ul>
+        <li>Select the original <b>String breast cancer</b> network to start. </li>
+        <li>In the <highlight>Select</highlight> tab, create a column filter based on disease score, this time selecting nodes with score of 5 and above. This will select about 25 nodes.</li>
+        <li>With the nodes selected, go to <highlight>Select &rarr; Nodes &rarr; Select First Neighbors of Selected Nodes &rarr; Undirected</highlight>.</li>
+        <li>With the nodes still selected, go to <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
+    </ul>
+
+        <div class="fragment">
+    <p></p>
+    <img class="plain" src="string-breast-top-neighbors.png" style="height:450px">
+</div> 
+</section>  
+    
+                
+<section>
+    <h1>Generate subnetworks</h1>
+    <p>The <a href="http://apps.cytoscape.org/apps/diffusion">Diffusion</a> app uses the network connectivity in a more subtle way than just first-degree neighbors. We can combine this with the top scoring genes:</p>
+    <ul>
+        <li>Select the original <b>String breast cancer</b> network to start. </li>
+        <li>In the <highlight>Select</highlight> tab, create a column filter based on disease score, this time selecting nodes with score of 5 and above. This will select about 25 nodes.</li>
+        <li>With the nodes selected, select <highlight>Tools &rarr; Diffuse &rarr; Selected Nodes</highlight>.</li>
+        <li>The Diffusion results will open in the <highlight>Results Panel</highlight>. Click <highlight>Create</highlight> to create a subnetwork.</li>
+        <li>Apply the <highlight>Prefuse Force Directed</highlight> layout.</li>
+    </ul>
+    <div class="fragment">
+    <p></p>
+    <img class="plain" src="string-breast-diffusion.png" style="height:450px">
+        <div style="position:absolute;left:30em;bottom:1em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/filtering-by-selection/#/" target="_blank">Learn more about Filtering by Selection</a></b></p>
+</div>
+</div>   
+</section>
+                
+<section>
+    <h1>Visualizing Data</h1>
+    <p>From the <a href="https://cancergenome.nih.gov/">TCGA</a>, we have access to <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-mut.txt">mutation data</a> and <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-expr.csv">expression data</a> for breast cancer. We can visualize this data on the network, and also use it for analysis.</p>        
+    <ul>
+    <li>Load the <b>mutation data file</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>.</li>
+	<li>For this data, the <highlight>Key Column for Network</highlight> should be set to <b>display name</b> to match the <b>Hugo symbol</b> used in the data.</li>
+    <li>Repeat the import process for the <b>expression data file</b>, again mapping through the <b>display name</b>.</li>
+    </ul>
+<div style="position:absolute;left:25em;bottom:-10em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-omics-data/#/" target="_blank">Learn more about Loading Data</a></b></p>  
+</div>
+</section>
+                
+<section>
+    <h1>Visualizing Data</h1>
+    <p>Let’s create a new style to visualize our imported data.</p>
+    <ul>
+        <li>In the <highlight>Style</highlight> tab in the <highlight>Control Panel</highlight>, click the <highlight>Options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and select <highlight>Create New Style...</highlight>. Name your new style <b>data style</b>.</li>
+        <li>Set the default node <highlight>Size</highlight> to <b>60</b>.</li>
+        <li>Set the default node <highlight>Fill Color</highlight> to <b>gray</b>.</li>
+        <li>Set the default edge <highlight>Width</highlight> to <b>2</b>.</li>
+        <li>Create a <highlight>Passthrough Mapping</highlight> for node <highlight>Label</highlight> to <b>display name</b>.</li>
+    </ul>
+</section>
+   
+                
+<section>
+    <h1>Visualizing Data</h1>
+    <p>Now let’s add a mapping for mean expression.</p>
+    <ul>
+        <li>Create a <highlight>Continuous Mapping</highlight> for node <highlight>Fill Color</highlight> to <b>expr.name</b>, using the default blue-red gradient.</li>    
+    </ul>
+    <br /> <br />
+    <img class="plain" src="string-breast-data.png" style="height:630px">
+                
+</section>
+                
+<section>
+    <h1>Visualizing Data</h1>
+    <p>Finally, we can add a mapping for mutation data.</p>
+    <ul>
+        <li>Create a <highlight>Continuous Mapping</highlight> for node <highlight>Border Width</highlight> to <b>mut_count</b>, with node border width from <b>2</b> to <b>8</b>.</li> 
+        <li>Create a <highlight>Continuous Mapping</highlight> for node <highlight>Border Paint</highlight> to <b>mut_count</b>, using the <b>ColorBrewer Red</b> palette.</li>
+    </ul>
+    <p>This is a useful pair of visual properties to map to a single data column. See why?</p>
+    <img class="plain" src="string-breast-data2.png" style="height:450px">
+<div style="position:absolute;left:35em;bottom:0em;">
+<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Learn more about Styles</a></b></p> </div>
+                
+</section>
+                
+<section>
+    <h1>Subnetwork based on diffusion from heavily mutated nodes</h1>
+    <p>We can now combine our earlier strategy for subnetwork selection with the mutation data, by using the <b>Diffusion</b> algorithm on the top mutated genes.</p>
+    <ul>
+        <li>The top two mutated genes in this network are <b>TP53</b> and <b>PIK3CA</b>. Select these two nodes.</li>
+        <li>With the nodes selected, select <highlight>Tools &rarr; Diffuse &rarr; Selected Nodes</highlight>.</li>
+        <li>The Diffusion results will open in the <highlight>Results Panel</highlight>. Click <highlight>Create</highlight> to create a subnetwork.</li>
+        <li>The subnetwork may open with the default visual style. In the <highlight>Style</highlight> tab, select the <b>data style</b> that we created earlier. </li>
+        <li>Apply the <highlight>Prefuse Force Directed</highlight> layout.</li>
+    </ul>
+</section>
+            
+<section>
+    <h1>Subnetwork based on diffusion from heavily mutated nodes</h1>
+    <p>The top mutated genes are based on TCGA data and the diffusion algorithm is operating based on the network connectivity from STRING data, leading to a focused subnetwork view of critical breast cancer genes with mean patient expression data mapped to fill color. Now that’s data integration!</p>
+    <img class="plain" src="string-breast-final.png" style="height:500px">
+</section>
+                
+<section>
+    <h4>Exporting Networks</h4>
+    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
+	<ul>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
+	</ul>
+</section>
+
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
