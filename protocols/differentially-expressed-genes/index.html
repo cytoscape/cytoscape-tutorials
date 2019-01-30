@@ -44,11 +44,9 @@
 
 <section>
     <h1>Setup</h1>
-    <ul style="margin: 30px">
-    <li><b>Launch Cytoscape</b></li>
-    <p>Refer to the <a href="http://manual.cytoscape.org" target="_blank">manual</a> for an introduction to the Cytoscape interface and basic features.</p>
-    <li><b>Load the STRING app</b></li>
-    <p>Go to the app store  to install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">STRINGapp</a>, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
+    <ul>
+    <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
+    <li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">STRINGapp</a> from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></li>
     </ul>
 </section>
 
@@ -93,7 +91,7 @@
 </section>
                 
 <section>
-   <h4>Enrichment Analysis Options</h4> 
+   <h1>Enrichment Analysis Options</h1> 
     <p>Next, we are going to perform enrichment anlaysis uing the STRING app. Note that there are several other options, including:</p>
     <ul>
         <li><a href="http://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html" target="_blank">clusterProfiler</a>: An R package for ORA and GSEA</li>
@@ -107,7 +105,7 @@
                 
                 
 <section>
-<h4>STRING Enrichment</h4>
+<h1>STRING Enrichment</h1>
     <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
     <li>With the STRING results network selected, go to <highlight>Apps &rarr; STRING Enrichment &rarr; Retrieve functional enrichment</highlight>. Keep the default value for p-value, <b>0.05</b>.</li>
@@ -119,7 +117,7 @@
 </section>
                 
 <section>
-    <h4>STRING Enrichment</h4>
+    <h1>STRING Enrichment</h1>
     <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab.</p>    
     <ul>
         <li>We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
@@ -133,7 +131,7 @@
 </section>
                                                
 <section>
-    <h4>STRING Protein Query: Down-regulated genes</h4>
+    <h1>STRING Protein Query: Down-regulated genes</h1>
     <p>Repeat the network search, enrichment analysis and visualization for the set of down-regulated genes:</p>
     <ul>
     <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt">TCGA-Ovarian-MesenvsImmuno_DOWN.txt</a>.</li>
@@ -147,7 +145,7 @@
 </section>
 
 <section>
-    <h4>STRING Disease Query</h4>
+    <h1>STRING Disease Query</h1>
     <p>Now, we will query the <b>STRING disease</b> database to retrieve a network of ovarian cancer associated genes, completely independent of our dataset.</p>
     <ul>
     <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING disease query</highlight> from the drop-down, and type in <b>ovarian cancer</b>.</li>
@@ -160,7 +158,7 @@
 </section>  
                 
 <section>
-    <h4>Data integration</h4>
+    <h1>Data integration</h1>
     <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Since the network and data use different identifiers, we first have to do some quick identifier mapping. In this case, we will use the gene symbol in the <b>display name</b> column to retrieve <b>Entrez Gene</b> identifiers.</p>
     <ul>
         <li>In the <highlight>Table Panel</highlight>, right-click on the column header for <b>display name</b> and select <highlight>Map column...</highlight>. In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as species, <b>HGNC</b> as <highlight>Map from</highlight>, and <b>Entrez</b> as <highlight>To</highlight>. Click <highlight>OK</highlight> to continue.</li>
@@ -170,7 +168,7 @@
 </section>
  
 <section>
-    <h4>Data integration</h4>
+    <h1>Data integration</h1>
     <p>In the <highlight>Import Columns from Table</highlight> interface, there are a few things that need to be changed from the defaults:</p>
             <ul>
                 <li><highlight>Key Column for Network</highlight> should be <highlight>Entrez Gene</highlight>.</li>
@@ -181,7 +179,7 @@
 </section>  
                 
 <section>
-    <h4>Visualization</h4>
+    <h1>Visualization</h1>
     <p>To complete the import, click <highlight>OK</highlight>. You will notice two new columns in the <highlight>Node Table</highlight>. We can now use this data to create a network visualization.</p>   
     <ul>
         <li>For node <highlight>Fill Color</highlight>, first delete the existing mapping and then create a continuous mapping for <highlight>logFC</highlight>, with the default blue-red gradient.</li>
@@ -195,7 +193,7 @@
                 
                 
 <section>
-    <h4>Visualization</h4>
+    <h1>Visualization</h1>
     <p>The TCGA found several genes that were commonly mutated in ovarian cancer, so called "cancer drivers". We can add information about these genes to the network visualization, by changing the visual style of these nodes. Three of the most important drivers are <b>TP53</b>, <b>BRCA1</b> and <b>BRCA2</b>. We will add a thicker, clored border for these genes in the network.</p>
     <ul>
         <li>Select all three driver genes by holding down the Command key while clicking each of the genes.</li>
@@ -210,22 +208,22 @@
 </section>
                 
 <section>
-    <h4>Exporting Networks</h4>
+    <h1>Other Analysis Options</h1>
+    <ul>
+        <li>Exploring networks: finding paths, hubs and modules (clusterMaker, MCODE, jActiveModules, NetworkAnalyzer, PathFinder)</li>
+        <li>Extending networks with Transcription Factors, miRNAs, etc using CyTargetLinker</li>
+    
+    </ul>
+</section>
+                
+<section>
+    <h1>Exporting Networks</h1>
     <p>Cytoscape provides a number of ways to export results and visualizations:</p>
 	<ul>
         <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
         <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
 		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
 	</ul>
-</section>
-                
-<section>
-    <h4>Other Analysis Options</h4>
-    <ul>
-        <li>Exploring networks: finding paths, hubs and modules (clusterMaker, MCODE, jActiveModules, NetworkAnalyzer, PathFinder)</li>
-        <li>Extending networks with Transcription Factors, miRNAs, etc using CyTargetLinker</li>
-    
-    </ul>
 </section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->

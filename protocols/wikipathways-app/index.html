@@ -30,9 +30,9 @@
 
 <section id='title'>
     <h1>WikiPathways App</h1>
-    <p><a href="https://www.wikipathways.org">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization.</p>
+    <p><a href="https://www.wikipathways.org">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the <a href="http://apps.cytoscape.org/apps/wikipathways">App Store</a>.</p>
      <br />
-    <p>This tutorial presents a basic workflow for visualizing experimental data on pathways in Cytoscape, using the <a href="http://apps.cytoscape.org/apps/wikipathways">WikiPathways App</a>.</p>
+    <p>This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.</p>
     <br />
     
 <div class="footer" style="position: absolute;left: -2em;bottom: -3em; ">
@@ -42,12 +42,13 @@
 </section>
                 
 <section>
-        <h2>Prerequisties</h2>
+        <h1>Setup</h1>
         <ul>
-            <li>Install the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
+            <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
             <li>Install the <b>WikiPathways app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
-            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">data</a> used in this tutorial. The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).</li>
+            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">experimental data</a>.</li>
         </ul>
+        <p>The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).</p>
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -55,7 +56,7 @@
 </section>
          
 <section>
-         <h2>Importing Pathways</h2>
+         <h1>Importing Pathways</h1>
          <ul>
              <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>Statin</b> and click the search icon.</li>
              <li>A list of results for all available species will open. To see results from a select species, click the <b>Only</b> checkbox and select a species from the drop-down.</li>
@@ -67,29 +68,27 @@
          </aside>
 </section>
              
-         <section>
+<section>
+    <h1>Importing Pathways</h1>
          <p>The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:</p>
-             <br />
          <img class="plain" src="Statin-pathway.png" style="width:70%">
              
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
-         </section>
+</section>
              
-         <section>
-        
-         <h2>Pathway Identifiers</h2>
+<section>
+    <h1>Pathway Node Identifiers</h1>
          <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.</p>
-         <img plain src="Statin_mapped.png" style="width:80%">
+         <img src="Statin_mapped2.png" style="width:50%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
          </section>
          
-         <section>
-             
-         <h2>Data Import</h2>
+<section>
+    <h1>Data Import</h1>
          <p>The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:</p>
          <ul>
          <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">WPExpData.txt</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
@@ -101,26 +100,29 @@
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
-         </section>
+</section>
              
-         <section>
-         <p>The data import interface should now look like this:</p>
-         <img class="plain" src="WPDataImport.png" style="width:40%">
+<section>
+    <h1>Data Import</h1>
+         <p>The data import interface should now look like this:</p><br />
          <ul>
+             <div style="width:40%;float:left; margin-right: 40px">
+					<img src="WPDataImport.png">
+				</div>
          <li>Click <highlight>OK</highlight> to import.</li>
          <li>Once import is complete, look for the newly imported data columns in the <highlight>Node Table</highlight> to confirm that it worked.</li>
              
          </ul>
-         <div style="position:absolute;left:28em;bottom:-2em;">
+         <div style="position:absolute;left:28em;bottom:1em;">
              <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-omics-data/#/" target="_blank">Learn more about Loading Data</a></b></p>  
          </div>
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
-         </section>
+</section>
          
-         <section>
-         <h2>Mapping Data to Visual Properties</h2>
+<section>
+         <h1>Mapping Data to Visual Properties</h1>
          <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as <b>Node Fill Color</b>.</p>
          <ul>
          <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Map.</highlight> box for <highlight>Fill Color</highlight>.</li>
@@ -137,7 +139,35 @@
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
-         </section>
+</section>
+                
+<section>
+    <h1>Importing Pathways as Networks</h1>
+    <p>In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.</p>
+        <ul>
+             <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight>. Type in <b>Wnt signaling and pluripotency</b> (or just <b>pluripotency</b>) and click the search icon.</li>
+             <li>In the list of results, select the <b>human</b> version of the pathway and click <highlight>Import as Network</highlight>.</li>   
+         </ul>
+         <img class="plain" src="wnt-pluri-network.png" style="width:55%">
+                
+</section>
+                
+<section>
+    <h1>Downstream Analysis Options</h1>
+    <p>Whether you import pathways as networks or as pathways, there are many different downstream analysis options available in Cytoscape:</p>
+    
+    <ul>
+        <li>Extending pathway with regulatory information using <a href="https://projects.bigcat.unimaas.nl/cytargetlinker/tutorial2/">CyTargetLinker</a></li>
+        <li><a href="http://manual.cytoscape.org/en/stable/Merge.html">Merging networks</a></li>
+<!--
+        <li>Exploring networks: finding paths, hubs and modules (clusterMaker, MCODE, jActiveModules, NetworkAnalyzer, PathFinder)</li>
+-->
+    
+    </ul>
+
+                
+</section>
+                
 <section>
     <h4>Exporting Networks</h4>
     <p>Cytoscape provides a number of ways to export results and visualizations:</p>
