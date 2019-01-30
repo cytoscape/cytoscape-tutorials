@@ -32,9 +32,8 @@
     <h1>WikiPathways App</h1>
     <p><a href="https://www.wikipathways.org">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization.</p>
      <br />
-    <p>This tutorial presents a basic workflow for visualizing experimental data on pathways in Cytoscape, using the <a href="http://apps.cytoscape.org/apps/wikipathways">WikiPathways App</a> and the built-in <a href="http://apps.cytoscape.org/apps/idmapper">ID Mapper</a> functionality.</p>
+    <p>This tutorial presents a basic workflow for visualizing experimental data on pathways in Cytoscape, using the <a href="http://apps.cytoscape.org/apps/wikipathways">WikiPathways App</a>.</p>
     <br />
-
     
 <div class="footer" style="position: absolute;left: -2em;bottom: -3em; ">
     <img class="plain" src="earth-or-pathway_text.png" style="height:80px;opacity:0.5"> 
@@ -47,8 +46,7 @@
         <ul>
             <li>Install the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
             <li>Install the <b>WikiPathways app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
-            <li>The <b>ID Mapper app</b> is installed with Cytoscape by default.</li>
-            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.txt">data</a> used in this tutorial. The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).</li>
+            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">data</a> used in this tutorial. The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).</li>
         </ul>
              
          <aside class="notes" data-markdown>
@@ -63,7 +61,7 @@
              <li>A list of results for all available species will open. To see results from a select species, click the <b>Only</b> checkbox and select a species from the drop-down.</li>
              <li>Select the human <highlight>Statin Pathway</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>   
          </ul>
-         <img plain src="WPApp-results.png" style="width:55%">
+         <img class="plain" src="WPApp-results.png" style="width:55%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -72,7 +70,7 @@
          <section>
          <p>The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:</p>
              <br />
-         <img plain src="Statin-pathway.png" style="width:70%">
+         <img class="plain" src="Statin-pathway.png" style="width:70%">
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -81,8 +79,8 @@
              
          <section>
         
-         <h2>Identifier Mapping</h2>
-         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <b>XrefId</b> column in the <b>Node Table</b>. The Statin pathway is annotated with mostly Entrez Gene identifiers, and our experimental data is annotated with Ensembl identifiers. The ID Mapper automatically maps the identifiers in the pathway to Ensembl, adding a column named <b>Ensembl</b>.</p>
+         <h2>Pathway Identifiers</h2>
+         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.</p>
          <img plain src="Statin_mapped.png" style="width:80%">
          <aside class="notes" data-markdown>
          Notes go here 
@@ -92,17 +90,13 @@
          <section>
              
          <h2>Data Import</h2>
-         <p>We will use the new Ensembl column to map the experimental data:</p>
+         <p>The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:</p>
          <ul>
-         <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.txt">WPExpData.txt</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+         <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">WPExpData.txt</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
          <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down.</li>
          <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <b>Ensembl</b> column.</li>
          <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
          </ul>
-             
-<!--         <div class="cybrowser">
-                <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://rawgit.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/WPExpData.txt KeyColumnForMapping=Ensembl KeyColumnForMappingNetworkList=Ensembl firstRowAsColumnNames=true keyColumnIndex=1 TargetNetworkList=&quot;Statin Pathway - Homo Sapiens&quot; startLoadRow=2');" value="Import Data"/>
-         </div>-->
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -111,12 +105,15 @@
              
          <section>
          <p>The data import interface should now look like this:</p>
-         <img plain src="WPDataImport.png" style="width:40%">
+         <img class="plain" src="WPDataImport.png" style="width:40%">
          <ul>
          <li>Click <highlight>OK</highlight> to import.</li>
-         <li>Once import is complete, look for the newly imported data columns in the <b>Node Table</b> to confirm that it worked.</li>
+         <li>Once import is complete, look for the newly imported data columns in the <highlight>Node Table</highlight> to confirm that it worked.</li>
              
          </ul>
+         <div style="position:absolute;left:28em;bottom:-2em;">
+             <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-omics-data/#/" target="_blank">Learn more about Loading Data</a></b></p>  
+         </div>
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -132,7 +129,7 @@
              
          </ul><br /><br />
         <!-- to-do: Add legend to pathway -->
-         <img plain src="StatinData.png" style="float:left;width:50%">
+         <img class="plain" src="StatinData.png" style="float:left;width:50%">
             <div style="position:absolute;left:25em;bottom:1em;">
             <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/index.html" target="_blank">Learn more about Visualizing Data</a></b></p>  
             </div>
@@ -142,15 +139,12 @@
          </aside>
          </section>
 <section>
-	<h1>Publish Results</h1>
-    <p>Cytoscape provides a number of ways to save publication-quality images:</p>
+    <h4>Exporting Networks</h4>
+    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
 	<ul>
-					<li><highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
-						<ul>
-										<li>PDF</li>
-										<li>SVG</li>
-										<li>PNG (at any custom resolution)</li>
-                        </ul>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
 	</ul>
 </section>
 
