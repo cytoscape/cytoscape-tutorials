@@ -102,14 +102,20 @@
     </div>
 </section>
                 
-<!--<section>
+<section>
     <h1>Protein to Gene Mapping</h1>
     <h4>Importing Data</h4>
-    <p>Now that we have mapped our network nodes to </p>
+    <p>Now that we have mapped our network nodes to Ensembl IDs, we can import data that is annotated with Ensembl IDs.</p>
+    <ul>
+        <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-expr-ens.csv">expression data</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+        <li>Under <highlight>Key Column for Network</highlight>, select the new <highlight>Ensembl</highlight> column.</li>
+        <li>Click <highlight>OK</highlight> to import.</li>
+    </ul> 
+    <p>We can now visualize the expression values on the network as node fill color. If we add a simple <highlight>Continuous Mapping</highlight> for node <highlight>Fill Color</highlight>, remove the STRING glass ball effect, add a darker node border, and apply a force-directed layout, the network will look like this:</p>
     
-    <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-expr.csv">expression data</a> for breast cancer
-                
-</section>-->
+    <img class="plain" src="string-data.png" style="height:400px">  
+    
+</section>
             
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
