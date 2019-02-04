@@ -30,7 +30,7 @@
 
 <section>
 	<h1>Identifier Mapping</h1>
-	<p>This protocol will show you how to map or translate identifiers from one database (e.g., Ensembl) to another (e.g, Entrez Gene). This is a common requirement for data analysis. In the context of Cytoscape, for example, identifier mapping is needed when you want to import data to overlay on a network but the keys in the data dont match those in the network. This protocol includes two distinct examples, highlighting different lessons that may apply to your use case; <b>species-specific mapping</b> and <b>protein to gene mapping</b>. </p>
+	<p>This protocol will show you how to map or translate identifiers from one database (e.g., Ensembl) to another (e.g, Entrez Gene). This is a common requirement for data analysis. In the context of Cytoscape, for example, identifier mapping is needed when you want to import data to overlay on a network but the keys in the data don't match those in the network. This protocol includes two distinct examples highlighting different lessons that may apply to your use case; <highlight>species-specific mapping</highlight> and <highlight>protein to gene mapping</highglight>. </p>
     <p>Detailed information about the Cytoscape ID Mapper tool is available in <a href="https://f1000research.com/articles/7-725/v1">Identifier Mapping in Cytoscape: idmapper (F1000 Research)</a></p>
 </section>
                 
@@ -46,7 +46,7 @@
     <h1>Species-specific Mapping</h1>
     <h4>Background</h4>
     <p>When planning to import data, you need to consider the key columns you have in your <b>network data</b> and in your <b>table data</b>. It is recommended to always use proper identifiers as your keys (from public databases like Ensembl/Uniprot-TrEMBL). Relying on conventional symbols and names is not standard and error prone.</p>
-    <p>For this example, we are going to use the <b>Yeast Perturbation</b> sample network provided with Cytoscape, which can be loaded from the <highlight>Starter Panel</highlight>. This network has identifiers of the form <b>YDL194W</b>, which are Ensembl-supported identifiers for Yeast. </p>       
+    <p>For this example, we are going to use the <highlight>Yeast Perturbation</highlight> sample network provided with Cytoscape, which can be loaded from the <highlight>Starter Panel</highlight>. This network has identifiers of the form <b>YDL194W</b>, which are Ensembl-supported identifiers for Yeast. </p>       
 </section>
                 
 <section>
@@ -61,17 +61,20 @@
 <section>
     <h1>Species-specific Mapping</h1>
     <h4>Identifier Mapping</h4>
-    <p>We are going to use the ID Mapper functionality Cytoscape to use the <b>Yeast Ensembl IDs</b> in the name column to convert to <b>Entrez Gene IDs</b>.</p>
+    <p>We are going to use the ID Mapper functionality in Cytoscape to map the <b>Yeast Ensembl IDs</b> in the <b>name</b> column to <b>Entrez Gene IDs</b>.</p>
     <ul>
         <div style="width:40%;float:right; margin-left: 10px"><img class="plain" src="map-column.png"></div>
         <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>name</highlight> column and click <highlight>Map column...</highlight>.</li>
         <li>In the <highlight>ID Mapping</highlight> interface, select <b>Yeast</b> as <highlight>Species</highlight>, <b>Ensembl</b> as <highlight>Map from</highlight> and <b>Entrez Gene</b> as <highlight>To</highlight>.</li>
     </ul>
-    <p>A new column (all the way to the right) will be added to the <highlight>Node Table</highlight>.</p>
-<!--    <div class="fragment">
-        <img class="plain" src="galfiltered-mapped.png" style="width:35%">
-            
-    </div>-->
+</section>
+                
+<section>
+    <h1>Species-specific Mapping</h1>
+    <p>That's it! A new column (all the way to the right) will be added to the <highlight>Node Table</highlight>. You could now use this column to map data annotated with Entrez Gene IDs to the network.</p>
+    
+    <img class="plain" src="galfiltered-mapped.png" style="width:35%">
+              
 </section>
                 
 <section>
@@ -79,7 +82,7 @@
     <h4>Load Network</h4>
     <p>For this use case, you’ll need the STRING app to access the <a href="https://string-db.org/">STRING database</a>.</p>
     <ul>
-        <li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">STRINGapp</a> from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight>.</li>
+        <li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight>.</li>
         <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING disease query</highlight> from the drop-down, and type in <b>breast cancer</b>.</li>
         <li>Click the <highlight>options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.9</b> and the <highlight>Maximum number of proteins</highlight> to <b>150</b>. Click the <highlight>search</highlight> icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search.</li>
     </ul>
