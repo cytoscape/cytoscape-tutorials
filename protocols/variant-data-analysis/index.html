@@ -38,7 +38,7 @@
     <h1>Setup</h1>
     <ul>
     <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
-    <li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">STRINGapp</a> from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></li>
+    <li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></li>
     <li>Install the <a href="http://apps.cytoscape.org/apps/diffusion">Diffusion</a> app from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></li>
     </ul>
 </section>
@@ -69,9 +69,11 @@
     </ul>
     
     <div class="fragment">
-        <p>The largest component of the network will look something like this:</p>
-        <img class="plain" src="string-breast-layout.png" style="height:450px">    
-    <div style="position:absolute;left:35em;bottom:1em;">
+        <div style="float:right; width:40%">
+        <img class="plain" src="string-breast-layout.png" style="height:450px">    </div><br />
+        <p>The largest component of the network will look like this:</p>
+        
+    <div style="position:absolute;left:5em;bottom:1em;">
         <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout/#/" target="_blank">Learn more about Layouts</a></b></p>
     </div>
 </div>
@@ -80,7 +82,7 @@
                 
 <section>
     <h1>Generate subnetworks</h1>
-    <p>To explore the network, we can use various parameters of the network to generate relevant subnetworks. Let's start by crearing a network from a <b>subset of nodes with a high disease score</b>:</p>
+    <p>To explore the network, we can use various parameters of the network to generate relevant subnetworks. Let's start by creating a network from a <b>subset of nodes with a high disease score</b>:</p>
     <ul>
         <li>Click on the <highlight>Select</highlight> tab of the <highlight>Control Panel</highlight>.</li>
         <li>Click on the drop-down to the right and select <highlight>Create New Filter</highlight>.
@@ -89,8 +91,10 @@
         <li>With the nodes still selected, go to <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
     </ul>
     <div class="fragment">
+        <div style="float:right; width:40%">
+        <img class="plain" src="string-breast-subnet-connected.png" style="height:420px"></div><br />
     <p>This will create a subnetwork with a connected component and some unconnected nodes. We can delete the extra nodes by selecting them with click-and-drag and clicking <highlight>Delete</highlight>.</p>
-    <img class="plain" src="string-breast-subnet-connected.png" style="height:450px">
+   
 </div>      
 </section>
                 
@@ -158,7 +162,7 @@
                 
 <section>
     <h1>Visualizing Data</h1>
-    <p>Now let’s add a mapping for mean expression.</p>
+    <p>Now we can add a mapping for mean expression.</p>
     <ul>
         <li>Create a <highlight>Continuous Mapping</highlight> for node <highlight>Fill Color</highlight> to <b>expr.name</b>, using the default blue-red gradient.</li>    
     </ul>
