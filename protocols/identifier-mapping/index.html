@@ -55,7 +55,7 @@
     <h4>Identifier Mapping</h4>
     <p>We are going to use the ID Mapper functionality in Cytoscape to map the <b>Yeast Ensembl IDs</b> in the <b>name</b> column to <b>Entrez Gene IDs</b>.</p>
     <ul>
-        <div style="width:40%;float:right; margin-left: 10px"><img class="plain" src="map-column.png"></div>
+        <div style="width:40%;float:right; margin-left: 10px"><img class="border" src="map-column.png"></div>
         <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>name</highlight> column and click <highlight>Map column...</highlight>.</li>
         <li>In the <highlight>ID Mapping</highlight> interface, select <b>Yeast</b> as <highlight>Species</highlight>, <b>Ensembl</b> as <highlight>Map from</highlight> and <b>Entrez Gene</b> as <highlight>To</highlight>.</li>
     </ul>
@@ -65,7 +65,7 @@
     <h1>Species-specific Mapping</h1>
     <p>That's it! A new column (all the way to the right) will be added to the <highlight>Node Table</highlight>. You could now use this column to map data annotated with Entrez Gene IDs to the network.</p>
     
-    <img class="plain" src="galfiltered-mapped.png" style="width:35%">
+    <img class="border" src="galfiltered-mapped.png" style="width:35%">
               
 </section>
                 
@@ -95,7 +95,7 @@
     </ul>
 <div class="fragment">
     <p>A new column (all the way to the right) will be added to the <highlight>Node Table</highlight>.</p>
-        <img class="plain" src="string-mapped.png" style="height:400px">    
+        <img class="border" src="string-mapped.png" style="height:400px">    
     </div>
 </section>
                 
@@ -118,9 +118,10 @@
 </section>
                 
 <section>
-    <h1>BridgeDB App</h1>
-    <p>Use for anything more complicated</p>
-                
+    <h1>BridgeDb App</h1>
+    <p>The built-in identifier mapping function is intended to handle the majority of common ID mapping problems, but it has limitations. If you need an ID mapping solution for species or ID types not covered by this tool, or if you want to connect to alternative sources of mappings, check out the <a href="http://apps.cytoscape.org/apps/bridgedb" target="_blank">BridgeDb app</a>.</p>
+    <p>BridgeDb supports ID mapping resources from delimited text, BridgeDb files, BrigeDb web service, and BioMart web service.</p>
+               
 </section>
             
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->

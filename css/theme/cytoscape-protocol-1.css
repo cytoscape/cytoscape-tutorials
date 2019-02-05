@@ -319,6 +319,10 @@ body {
   border: 0;
   box-shadow: none; }
 
+.reveal section img.border {
+  border: 1px solid #696969;
+  box-shadow: none; }
+
 .reveal a img {
   border: 0.5px solid #2a76dd;
   -webkit-transition: all .15s linear;
