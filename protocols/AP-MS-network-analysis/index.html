@@ -35,17 +35,14 @@
                 
 <section>
     <h1>Background</h1>
-    <p>The data used for this protocol represents interactions between the host and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of bait proteins are used to pull down a larger set of prey proteins.</p>
+    <p>The data used for this protocol represents interactions between the host and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of bait proteins are used to pull down a larger set of prey proteins.</p>
     <p>Note that this tutorial does not describe how to pre-process the raw AP-MS data, the data used here is already scored and filtered.</p>
                 
 </section>
 
 <section>
     <h1>Setup</h1>
-    <ul>
-    <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
-    <li>Install the following apps: <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a>, <a href="http://apps.cytoscape.org/apps/enhancedgraphics">enhancedGraphics</a> and <a href="http://apps.cytoscape.org/apps/clustermaker2">clusterMaker2</a>. This can be done from the Cytoscape App Store, or from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></li>
-    </ul>
+    <p>This protocol uses two apps, that can be installed from the <a href="http://apps.cytoscape.org/" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Manager</highlight>: <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> and <a href="http://apps.cytoscape.org/apps/enhancedgraphics" target="_blank">enhancedGraphics</a>.</p>
 </section>
                 
 <section>
@@ -60,21 +57,17 @@
     </ul>
     <img class="plain" src="import-network.png" style="height:400px">
 </section>
-                            
-<!--<section>
-    Note: not sure we need this slide
-    <h1>Mapping Identifiers</h1>
-    <p>We now have a network of HIV proteins (bait) interacting with human proteins (prey). The human proteins are annotated with Entrez Gene IDs, but we need Ensembl IDs. We are going to use Cytoscape's built-in <highlight>ID Mapper</highlight> functionality to map Entrez-Ensembl in one step:</p>
-    <ul>
-        <li>Right-click on the header for the <highlight>Gene ID</highlight> column and select <highlight>Map column...</highlight></li>
-        <li>Set <highlight>Map from</highlight> to <highlight>Entrez</highlight> and <highlight>To</highlight> to <highlight>Ensembl</highlight>.</li>
-    </ul> <br /><br />
-    <img class="plain" src="id-mapper.png" style="height:300px">
-</section>-->
                 
 <section>
-    <h1>Enriching Network with Existing Protein-protein Interaction Data</h1>
-    <p>We are going to use existing protein-protein interaction data to enrich the network, using the <a href="https://string-db.org/">STRING database</a> with the human protein nodes as input.</p>
+    <h1>Import Network and Data</h1> 
+    <p>The imported network consists of multiple smaller subnetworks, each representing a bait node and its associated prey nodes:</p>
+<img class="plain" src="ap-ms-network.png" style="height:600px">
+
+</section>
+                
+<section>
+    <h1>Augmenting Network with Existing Protein-protein Interaction Data</h1>
+    <p>We are going to use existing protein-protein interaction data to enrich the network, using the <a href="https://string-db.org/"  target="_blank">STRING database</a> with the human protein nodes as input.</p>
     
     <ul>
         <li>In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Gene ID</highlight> column by clicking on the header once. This will sort for the human protein nodes, which are the ones with entries for <highlight>Gene ID</highlight>.</li>
@@ -87,7 +80,7 @@
 </section>
                 
 <section>
-    <h1>Enriching network with existing protein-protein interaction data</h1>
+    <h1>Augmenting network with existing protein-protein interaction data</h1>
     <p>The resulting network contains known interactions between the human proteins, with an evidence score of 0.4 or greater.</p>
     <img class="plain" src="string.png" style="height:500px">
 </section>
@@ -107,13 +100,14 @@
                 
 <section>
     <h1>Merge Networks</h1>
+    <p>When the network first loads, it will have the STRING style applied. However, because some of the nodes are not from STRING, they will be white and difficult to see. If we switch to the <highlight>default</highlight> style all nodes become visible.</p>
         <img class="plain" src="merged-network.png" style="height:600px">
                 
 </section>
                 
 <section>
     <h1>Network Visualization</h1>
-    <p>Before we continue, let's change the style of the network a bit.</p>
+    <p>The default style is not so informative in this case, so let's change the style of the network a bit.</p>
     <ul>
         <img class="plain" src="ap-ms-style.png" style="float:right;height:550px">
         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Options</highlight> menu and select <highlight>Create New Style...</highlight>. Name the style <b>AP-MS</b>.</li>
@@ -121,7 +115,7 @@
         <li>Set the node <highlight>Size</highlight> to 50.</li>
         <li>Check the <highlight>Lock node width and height</highlight>.</li>
         <li>Set the default node <highlight>Fill Color</highlight> to light grey.</li>
-        <li>Set the node <highlight>Label</highlight> to <highlight>display name</highlight>.</li>
+        <li>Create a passthrough mapping for the node <highlight>Label</highlight> using the <highlight>display name</highlight>.</li>
     </ul>
     
 </section>
@@ -159,28 +153,11 @@
     </ul><br /><br />
     <img class="plain" src="enrichment.png" style="height:400px">
 </section>
-    
-<section>
-    <h1>Network Topological Analysis</h1>
-    <p></p>
-    <ul>
-        <li>Select <highlight>Tools &rarr; Network Analyzer &rarr; Network Analysis &rarr; Analyze network...</highlight></li>
-        <li>The results will open as a set of tabs in the <highlight>Results Panel</highlight> and new attributes will be created for node degree, closeness centrality, betweenness centrality, stress, and a number of other useful measures</li>
-    </ul>
-</section>
-                
-<!--<section>
-    <h1>Clustering</h1>
-    <p></p>
-</section>
-    
-    
-
-    
+      
 <section>
     <h1>Visualizing results</h1>
                 
-</section>  -->
+</section>
 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->

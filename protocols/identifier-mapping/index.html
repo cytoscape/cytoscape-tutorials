@@ -30,22 +30,14 @@
 
 <section>
 	<h1>Identifier Mapping</h1>
-	<p>This protocol will show you how to map or translate identifiers from one database (e.g., Ensembl) to another (e.g, Entrez Gene). This is a common requirement for data analysis. In the context of Cytoscape, for example, identifier mapping is needed when you want to import data to overlay on a network but the keys in the data don't match those in the network. This protocol includes two distinct examples highlighting different lessons that may apply to your use case; <highlight>species-specific mapping</highlight> and <highlight>protein to gene mapping</highglight>. </p>
-    <p>Detailed information about the Cytoscape ID Mapper tool is available in <a href="https://f1000research.com/articles/7-725/v1">Identifier Mapping in Cytoscape: idmapper (F1000 Research)</a></p>
-</section>
-                
-<section>
-    <h1>Setup</h1>
-    <ul style="margin: 30px">
-    <li>Download the latest <a href="http://www.cytoscape.org/download.php">Cytoscape</a>.</li>
-    <li>Complete the installation wizard and launch Cytoscape.</li>
-    </ul>
+	<p>This protocol will show you how to map or translate identifiers from one database (e.g., Ensembl) to another (e.g, Entrez Gene). This is a common requirement for data analysis. In the context of Cytoscape, for example, identifier mapping is needed when you want to import data to overlay on a network but the keys in the data don't match those in the network. This protocol includes two distinct examples highlighting different lessons that may apply to your use case; <highlight>species-specific mapping</highlight> and <highlight>protein to gene mapping</highlight>. </p>
+    <p>Detailed information about the Cytoscape ID Mapper tool is available in <a href="https://f1000research.com/articles/7-725/v1" target="_blank">Identifier Mapping in Cytoscape: idmapper (F1000 Research)</a></p>
 </section>
                 
 <section>
     <h1>Species-specific Mapping</h1>
     <h4>Background</h4>
-    <p>When planning to import data, you need to consider the key columns you have in your <b>network data</b> and in your <b>table data</b>. It is recommended to always use proper identifiers as your keys (from public databases like Ensembl/Uniprot-TrEMBL). Relying on conventional symbols and names is not standard and error prone.</p>
+    <p>When planning to import data, you need to consider the key columns you have in your <b>network data</b> and in your <b>table data</b>. It is recommended to always use proper identifiers as your keys (from public databases like Ensembl or Uniprot-TrEMBL). Relying on conventional symbols and names is not standard and error prone.</p>
     <p>For this example, we are going to use the <highlight>Yeast Perturbation</highlight> sample network provided with Cytoscape, which can be loaded from the <highlight>Starter Panel</highlight>. This network has identifiers of the form <b>YDL194W</b>, which are Ensembl-supported identifiers for Yeast. </p>       
 </section>
                 
@@ -80,7 +72,7 @@
 <section>
     <h1>Protein to Gene Mapping</h1>
     <h4>Load Network</h4>
-    <p>For this use case, you’ll need the STRING app to access the <a href="https://string-db.org/">STRING database</a>.</p>
+    <p>For this use case, you’ll need the STRING app to access the <a href="https://string-db.org/" target="_blank">STRING database</a>.</p>
     <ul>
         <li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from the Cytoscape App Store, or install from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight>.</li>
         <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING disease query</highlight> from the drop-down, and type in <b>breast cancer</b>.</li>
@@ -123,6 +115,12 @@
         <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-omics-data/#/" target="_blank">Learn more about Loading Data</a></b></p>
         <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Learn more about Styles</a></b></p> </div>
     
+</section>
+                
+<section>
+    <h1>BridgeDB App</h1>
+    <p>Use for anything more complicated</p>
+                
 </section>
             
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
