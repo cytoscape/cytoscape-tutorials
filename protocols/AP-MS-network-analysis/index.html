@@ -51,7 +51,7 @@
         
         <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata.csv">Example data</a>.</li>	
         <li>In the <highlight>Import Network from Table</highlight> dialog, select the <highlight>Bait</highlight> column as <highlight>Source  Node</highlight> and <highlight>Prey</highlight> column as <highlight>Target Node</highlight>.</li>
-        <li>Designate the <highlight>Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
+        <li>Designate the <highlight>AP-MS Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
         <li>For all other data values, change the assignment to <highlight>Target Node Attribute</highlight>. This can be done by clicking in the column header and selecting the red spreadsheet icon.</li>
         <li>Click <highlight>OK</highlight> to import the network.</li>
     </ul>
@@ -71,18 +71,17 @@
     
     <ul>
         <li>In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header once. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.</li>
-        <li>Select all the relevant entries in the <highlight>name</highlight> column by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.</li>
+        <li>Select all the relevant entries in the <highlight>Uniprot</highlight> column by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.</li>
         <li>Paste the list of gene symbols into the <highlight>Network Search</highlight> at the top of the <highlight>Control Panel</highlight>. Select <highlight>String Protein</highlight> from the drop-down.</li>
-        <li>Click the <highlight>options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.9</b>. Keep the default, <b>0</b>, for <highlight>Maximum additional interactors</highlight>.</li>
+        <li>Click the <highlight>options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.99</b>. Keep the default, <b>0</b>, for <highlight>Maximum additional interactors</highlight>.</li>
         <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network will load automatically.</li>
     </ul>
-<!--    Note: String search has ambigous results that need to be resolved.-->
     
 </section>
                 
 <section>
     <h1>Augmenting network with existing protein-protein interaction data</h1>
-    <p>The resulting network contains known interactions between the human proteins, with an evidence score of 0.9 or greater.</p>
+    <p>The resulting network contains known interactions between the human proteins, with an evidence score of 0.99 or greater.</p>
     <img class="plain" src="string.png" style="height:600px">
 </section>
                 
@@ -94,19 +93,34 @@
         <li>Go to <highlight>Tools &rarr; Merge &rarr; Networks...</highlight></li>
         <li>In the <highlight>Available Networks</highlight> list, select both networks and click the right arrow to add then to the <highlight>Networks to Merge</highlight> list.</li>
         <li>Expand the <highlight>Advanced Options</highlight> interface.</li>
-        <li>In the <highlight>Matching Columns</highlight> field, select <highlight>name</highlight> for the AP-MS network and <highlight>canonical name</highlight> for the string network.</li>
+        <li>In the <highlight>Matching Columns</highlight> field, select <highlight>Uniprot</highlight> for the AP-MS network and <highlight>query term</highlight> for the string network.</li>
+        <li>In the <highlight>How to merge columns</highlight> section, find the entry for <highlight>display name</highlight> for the string network. Click on the column for the ap-ms network for that same row and select <highlight>name</highlight> from the drop-down.</li>
     </ul>
     <img class="border" src="merge-interface.png" style="height:450px">
 </section>
                 
 <section>
     <h1>Merge Networks</h1>
-    <p>When the network first loads, it will have the STRING style applied. However, because some of the nodes are not from STRING, they will be white and difficult to see. If we switch to the <highlight>default</highlight> style all nodes become visible.</p>
-        <img class="plain" src="merged-network.png" style="height:600px">
+    <p>When the network first loads, it will have the STRING style applied. However, because some of the nodes are not from STRING, they will be white and difficult to see. The layout also makes the network hard to interpret.</p>
+    <ul>
+        <div style="float:right">
+                <img class="plain" src="merged-network.png" style="height:570px"></div>
+        <li>Switch the style to <highlight>default</highlight> to make all nodes visible.</li>
+        <li>Under <highlight>Layout &rarr; Settings...</highlight>, select the <highlight>Prefuse Force Directed Layout</highlight> and change the settings as follows:
+            <ul> 
+                <li>Set <highlight>Number of Iterations</highlight> to <b>100</b>.</li>
+                <li>Set <highlight>Default Spring Coefficient</highlight> to <b>5E-5</b></li>
+                <li>Set <highlight>Default Spring Length</highlight> to <b>100</b>.</li>
+                <li>Set <highlight>Default Spring Length</highlight> to <b>100</b></li>
+            </ul>
+        <li>Click <highlight>Apply</highlight> to apply the layout.</li>
+    </ul>
+    
+        
                 
 </section>
                 
-<section>
+<!--<section>
     <h1>Filtering the Network</h1>
     <p>The merged network contains some nodes from the STRING network that didn't match our network. We can remove these by filtering the network. We will take advantage of the fact that only the STRING noded have the attribute <highlight>STRING style</highlight>, and only our original AP-MS nodes have the attribute <highlight>JurkatScore</highlight>.</p>
     <ul>
@@ -119,7 +133,7 @@
     </ul>
     <p>The resulting network should have about 453 nodes.</p>
                 
-</section>
+</section>-->
              
                 
 <section>
@@ -128,8 +142,8 @@
     <ul>
         <img class="border" src="ap-ms-style.png" style="float:right;height:550px">
         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Options</highlight> menu and select <highlight>Create New Style...</highlight>. Name the style <b>AP-MS</b>.</li>
-        <li>Set the node <highlight>Size</highlight> to 50.</li>
         <li>Check the <highlight>Lock node width and height</highlight>.</li>
+        <li>Set the node <highlight>Size</highlight> to 50.</li>
         <li>Set the default node <highlight>Fill Color</highlight> to light grey.</li>
         <li>Create a passthrough mapping for the node <highlight>Label</highlight> using the <highlight>display name</highlight>.</li>
     </ul>
@@ -165,7 +179,7 @@
 <!--        <li>Likewise, remove the STRING glass ball effect by selecting <highlight>Apps &rarr; STRING &rarr; Disable STRING glass ball effect</highlight>.</li>-->
 	   <li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
     </ul><br /><br />
-    <img class="border" src="enrichment.png" style="height:440px">
+    <img class="border" src="enrichment.png" style="height:400px">
 </section>
       
 <section>
@@ -174,9 +188,9 @@
     <ul>
         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, create a new style named <b>AP-MS Jurkat Score</b>.</li>
         <li>Create a passthrough mapping for the node <highlight>Fill Color</highlight> using the <highlight>JurkatScore</highlight> column. Select a purple gradient from the <highlight>ColorBrewer</highlight> palettes.</li>
-        <li>Switch the deafult node <highlight>Fill Color</highlight> to <highlight>red</highlight> to highlight the HIV proteins.</li>
+        <li>Switch the deafult node <highlight>Fill Color</highlight> to <highlight>yellow</highlight> to highlight the HIV proteins.</li>
         <li>Create a passthrough mapping for node <highlight>Label</highlight> using the <highlight>display name</highlight> column.</li>
-        <li>In the <highlight>Edge</highlight>, create a continuous mapping for edge <highlight>Width</highlight> using the <highlight>Score</highlight> column.</li>
+        <li>In the <highlight>Edge</highlight>, create a continuous mapping for edge <highlight>Width</highlight> using the <highlight>AP-MS Score</highlight> column.</li>
         <li>Set the width values to a range from <b>1</b> to <b>5</b>.</li>
         <li>Create a <highlight>Discrete</highlight> mapping for edge <highlight>Stroke Color</highlight> using the <highlight>interaction</highlight> column. Choose a <b>green</b> color for all interactions of type <b>interacts with</b>. This will color all the interactions in the original AP-MS dataset.</li>
     </ul>
@@ -210,7 +224,17 @@
         <li>In the <highlight>Style</highlight> panel, select <highlight>Copy Style...</highlight> and name your new style <highlight>AP-MS CombinedScore</highlight>.</li>
         <li>Create a passthrough mapping for <highlight>Image/Chart 1</highlight> using the new <highlight>CombinedScore</highlight> attribute.</li>
     </ul>
-        <img class="plain" src="network-combinedscore.png" style="height:600px">
+    <div style="float:right">
+    <img class="plain" src="network-combinedscore.png" style="height:650px"></div><br /><br />
+    <p>The network is now showing the Jurkat score (purple gradient on the right-hand side of the nodes) and HEK293 scores (blue gradient on the left) and interactions from the AP-MS experiment are shown as green lines in which the thickness of the line reflects the average score and interactions merged from STRING are shown as gray lines.</p>
+<!--        <img class="plain" src="network-combinedscore.png" style="height:650px">-->
+</section>
+                
+<section>
+    <h1>Visualizing Results</h1>
+    <p>Zooming in on the network, specifically the Pol and PR HIV nodes, we can see a set of interactions found in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">original paper</a>, which represents binding Pol and PR with the translational initiation complex eIF3, a 13-subunit complex.</p>
+    
+    <img class="plain" src="final-module.png" style="height:500px">
 
                 
 </section>
