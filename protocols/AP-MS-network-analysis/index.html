@@ -30,12 +30,12 @@
 
 <section>
 	<h1>Affinity purification-mass spectrometry network analysis</h1>
-	<p>This protocol describes how to use affinity purification-mass spectrometry data to to generate relevant interaction networks, enriching the networks with information from public resources, analyzing the networks and creating effective visualizations.</p>
+	<p>This protocol describes how to use data from an affinity purification-mass spectrometry experiment to to generate relevant interaction networks, enriching the networks with information from public resources, analyzing the networks and creating effective visualizations.</p>
 </section>
                 
 <section>
     <h1>Background</h1>
-    <p>The data used for this protocol represents interactions between the host and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of bait proteins are used to pull down a larger set of prey proteins.</p>
+    <p>The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of bait proteins are used to pull down a larger set of prey proteins.</p>
     <p>Note that this tutorial does not describe how to pre-process the raw AP-MS data, the data used here is already scored and filtered.</p>
                 
 </section>
@@ -101,7 +101,7 @@
                 
 <section>
     <h1>Merge Networks</h1>
-    <p>When the network first loads, it will have the STRING style applied. However, because some of the nodes are not from STRING, they will be white and difficult to see. The layout also makes the network hard to interpret.</p>
+    <p>When the network first loads, it will have the STRING style applied. However, because the HIV nodes are not from STRING, they will be white and difficult to see. The layout also makes the network hard to interpret.</p>
     <ul>
         <div style="float:right">
                 <img class="plain" src="merged-network.png" style="height:570px"></div>
@@ -178,7 +178,7 @@
         <li>To make the visualization clearer, we can also remove the structure images from the nodes by selecting <highlight>Apps &rarr; STRING &rarr; Don't show structure images</highlight>.</li>
 <!--        <li>Likewise, remove the STRING glass ball effect by selecting <highlight>Apps &rarr; STRING &rarr; Disable STRING glass ball effect</highlight>.</li>-->
 	   <li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
-    </ul><br /><br />
+    </ul>
     <img class="border" src="enrichment.png" style="height:400px">
 </section>
       
@@ -199,7 +199,7 @@
                 
 <section>
     <h1>Visualizing Results</h1>
-    <p>We now have a visualization of the network highlighting the original data (green edges), as well as additional known interactions (grey edges), with node color indicating the Jurkat Score from the data:</p>
+    <p>We now have a visualization of the network highlighting the <b>ap-ms experimental data</b> (green edges), as well as <b>additional known interactions</b> (grey edges), with node color indicating the <b>Jurkat Score</b> from the data:</p>
     
     <img class="plain" src="network-jurkat.png" style="height:650px">
                 
@@ -208,7 +208,7 @@
 <section>
     <h1>Visualizing Results</h1>
     <p>We could create a similar kind of style for the HEK score, but that only allows for viewing each style seperately. Instead, we can create a combined style, using the <a href="http://www.cgl.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml" target="_blank">enhancedGraphics</a> app.</p>
-    <p>The new column will define a new attribute that we will use for mapping to the <highlight>Custom Graphics</highlight> property. This new attribute has to be in the form of mappings recognized by the enhancedGraphics app.</p> 
+    <p>For this, we will need a new column defining a new attribute that will be used for mapping to the <highlight>Custom Graphics</highlight> property via the <highlight>enhancedGraphics</highlight> app. This new attribute has to be in the form of mappings recognized by the enhancedGraphics app.</p> 
     <ul>
         <li>In the <highlight>Table Panel</highlight>, click the button for <highlight>Create New Column</highlight>, then select <highlight>New Single Column &rarr; String</highlight> and name it <highlight>CombinedScore</highlight>.</li>
         <li>In the first cell of the <highlight>CombinedScore</highlight> column, enter the mapping below and click enter.</li>
@@ -226,17 +226,24 @@
     </ul>
     <div style="float:right">
     <img class="plain" src="network-combinedscore.png" style="height:650px"></div><br /><br />
-    <p>The network is now showing the Jurkat score (purple gradient on the right-hand side of the nodes) and HEK293 scores (blue gradient on the left) and interactions from the AP-MS experiment are shown as green lines in which the thickness of the line reflects the average score and interactions merged from STRING are shown as gray lines.</p>
-<!--        <img class="plain" src="network-combinedscore.png" style="height:650px">-->
+    <p>The network is now showing the <b>Jurkat score</b> (purple gradient on the right-hand side of the nodes) and <b>HEK</b> scores (blue gradient on the left). <b>AP-MS experiment interactions</b> are shown as green lines in which the thickness of the line reflects the <b>average score</b>, and <b>interactions from STRING</b> are shown as gray lines.</p>
 </section>
                 
 <section>
     <h1>Visualizing Results</h1>
-    <p>Zooming in on the network, specifically the Pol and PR HIV nodes, we can see a set of interactions found in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">original paper</a>, which represents binding Pol and PR with the translational initiation complex eIF3, a 13-subunit complex.</p>
+    <p>Zooming in on the network, specifically the <b>Pol</b> and <b>PR</b> HIV nodes, we can see a set of interactions found in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">original paper</a>, which represent binding of Pol and PR with the translational initiation complex eIF3.</p>
     
-    <img class="plain" src="final-module.png" style="height:500px">
-
+    <img class="plain" src="final-module.png" style="height:500px">      
+</section>
                 
+<section>
+    <h1>Exporting Networks</h1>
+    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
+	<ul>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
+	</ul>
 </section>
 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
