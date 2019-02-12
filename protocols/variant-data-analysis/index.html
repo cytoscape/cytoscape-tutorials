@@ -51,7 +51,7 @@
     <li>Click the <highlight>search</highlight> icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. </li>
     </ul>
     <div class="fragment">
-        <img class="plain" src="string-breast.png" style="height:500px">    
+        <img class="plain" src="string-breast.png" style="height:475px">    
     <div style="position:absolute;left:32em;bottom:1em;">        <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment/#/" target="_blank">Learn more about using STRING</a></b></p>
         </div>
     </div>
@@ -63,7 +63,7 @@
     <ul>
     <li>Open the <highlight>Layout Settings</highlight> by selecting <highlight>Layout &rarr; Settings...</highlight>.</li>
     <li>Under <highlight>Layout Algorithm</highlight>, select <highlight>Prefuse Force Directed</highlight>.</li>
-    <li>Set the <highlight>Default Spring Coefficient</highlight> to <b>0.0000008</b> and the <highlight>Default Spring Length</highlight> to <b>70</b>.</li>
+    <li>Set the <highlight>Default Spring Coefficient</highlight> to <b>8E-7</b> and the <highlight>Default Spring Length</highlight> to <b>70</b>.</li>
     <li>Click <highlight>Apply Layout</highlight></li>
     </ul>
     
@@ -125,7 +125,6 @@
         <li>Apply the <highlight>Prefuse Force Directed</highlight> layout.</li>
     </ul>
     <div class="fragment">
-    <p></p>
     <img class="plain" src="string-breast-diffusion.png" style="height:450px">
         <div style="position:absolute;left:30em;bottom:1em;">
 <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/filtering-by-selection/#/" target="_blank">Learn more about Filtering by Selection</a></b></p>
@@ -135,16 +134,19 @@
                 
 <section>
     <h1>Visualizing Data</h1>
-    <p>From the <a href="https://cancergenome.nih.gov/">TCGA</a>, we have access to <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-mut.txt">mutation data</a> and <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-expr.csv">expression data</a> for breast cancer. We can visualize this data on the network, and also use it for analysis.</p>        
+    <p>From the <a href="https://cancergenome.nih.gov/">TCGA</a>, we have access to <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-mut.csv">mutation data</a> and <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-expr.csv">expression data</a> for breast cancer. We can visualize this data on the network, and also use it for analysis.</p>        
     <ul>
     <li>Load the <b>mutation data file</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>.</li>
 	<li>For this data, the <highlight>Key Column for Network</highlight> should be set to <b>display name</b> to match the <b>Hugo symbol</b> used in the data.</li>
     <li>Repeat the import process for the <b>expression data file</b>, again mapping through the <b>display name</b>.</li>
     </ul>
-<div style="position:absolute;left:25em;bottom:-10em;">
-<p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-omics-data/#/" target="_blank">Learn more about Loading Data</a></b></p>  
-</div>
+    <img class="border" src="import-mut-data.png" style="height:500px">
+        <div style="position:absolute;left:25em;bottom:-10em;">
+            <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-omics-data/#/" target="_blank">Learn more about Loading Data</a></b></p>  
+        </div>
 </section>
+                
+
                 
 <section>
     <h1>Visualizing Data</h1>
