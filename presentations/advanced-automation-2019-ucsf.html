@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cytoscape Workshop: Advanced Automation</title>
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/cytoscape-presentation-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides"> 
+				<!-- Customizable title slide -->
+				<section>
+				<img class="plain" src="../assets/images/Cytoscape.png" style="height:100%;margin-bottom:30px;">
+				<h2>Advanced Topic: <highlight>Automation</highlight></h2>
+				<h5><span style="font-size: 70%"><a href="https://cytoscape.github.io/cytoscape-tutorials/presen
+tations/advanced-automation-2019-ucsf.html">cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation-2019-ucsf.html</a></span></h5>
+				<br /><br />
+				<h5 style="font-size: 80%">UCSF
+				<br/><span style="font-size: 80%">February 2019</span></h5>
+            <div class="footer" style="position: absolute; left: 0em; bottom: 0em; ">
+                <img class="plain" src="../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+                <version>3.7.1</version>
+            </div>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- General introduction to the goals of the workshop -->
+				<section>
+				<h1>Goals and Motivations</h1>
+				<highlight>By the end of this workshop you should be able to:</highlight>
+				<ul>
+					<li>Command programmatic control over Cytoscape </li>
+					<li>Integrate Cytoscape into your bioinformatics pipelines </li>
+					<li>Publish, share and export networks online </li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>				
+
+
+				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
+				<section>
+				<a href="#" class="navigate-next"><ribbon>Introductions</ribbon></a>
+				<a href="#/automation"><ribbon>Cytoscape Automation</ribbon></a>
+				<a href="#/walkthrough"><ribbon>Guided Walkthrough</ribbon></a>
+				<a href="#/usecases"><ribbon>Automation Use Cases</ribbon></a>
+				<a href="#/exam"><ribbon>Wrap-up and "Exam"</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+
+				<!-- Add introduction slides for all presenters -->
+				<section>
+				<section>
+				<h1>Introductions</h1>
+				<highlight>John "Scooter" Morris, UCSF</highlight><br/>
+                                        <ul style="margin-left:-5em">
+                                                <li>Adjunct Assistant Prof, Pharmaceutical Chemistry</li>
+                                                <li>Executive Director RBVI</li>
+                                                <li>Cytoscape team since 2006</li>
+                                                <li>Author of over a dozen Cytoscape apps</li>
+                                        </ul>
+				</section>
+
+				<!-- Don't forget to survey who your audience is! -->
+				<section>
+                                <h1>Introductions</h1>
+                                        <highlight>Alex Pico, Gladstone Institutes</highlight><br />
+                                        <ul>
+                                                <li>Associate director, Bioinformatics Core</li>
+                                                <li>Executive director, National Resource for Network Biology</li>
+                                                <li>Cytoscape team since 2006</li>
+                                                <li>Author of half a dozen Cytoscape apps</li>
+                                        </ul>
+                                <aside class="notes" data-markdown>
+                                Add speaker notes here...
+                                </aside>
+				</section>
+                           	<section> 
+				<h1>Introductions</h1>
+				<div style="margin-left:200px;">
+					<img class="plain fragment fade-right" style="float:left; height:350px; margin:80px 0  0 0;" src="assets/introduction-distro.png">
+					<p><highlight>What about you?</highlight></p>
+					<ul  style="display:block;margin-left:260px">
+						<li>Clinicians</li>
+						<li>Bench Biologists</li>
+						<li>Bioinformaticians</li>
+						<li>Computer Scientists</li>
+						<li>Chemists</li>
+						<li>Mathematicians</li>
+						<li>Other</li>
+					</ul>
+				</div>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+				</section>
+
+				<section>
+				<a href="#" class="inactive"><ribbon>Introductions</ribbon></a>
+				<a href="#/automation" class="navigate-next"><ribbon>Cytoscape Automation</ribbon></a>
+				<a href="#/walkthrough"><ribbon>Guided Walkthrough</ribbon></a>
+				<a href="#/usecases"><ribbon>Automation Use Cases</ribbon></a>
+				<a href="#/exam"><ribbon>Wrap-up and "Exam"</ribbon></a>
+				</section>
+
+				<section id="automation" data-external="modules/intro-automation/module.html"></section>
+				<section data-external="modules/RCy3_primer/module.html" style="font-size: 80%"></section>
+ 				<!--section data-external="modules/prep-advanced-automation/module.html" style="font-size: 80%"></section-->
+
+				<section>
+				<a href="#" class="inactive"><ribbon>Introductions</ribbon></a>
+				<a href="#/automation" class="inactive"><ribbon>Cytoscape Automation</ribbon></a>
+				<a href="#/walkthrough" class="navigate-next"><ribbon>Guided Walkthrough</ribbon></a>
+				<a href="#/usecases"><ribbon>Automation Use Cases</ribbon></a>
+				<a href="#/exam"><ribbon>Wrap-up and "Exam"</ribbon></a>
+				</section>
+
+				<section id="walkthrough">
+				<section>
+					<h1>Guided Walkthrough</h1>
+<br />
+				<a href="https://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/" target="_blank">Cytoscape Rmd Notebooks</a>
+<br /><br />
+<ul><li>Overview of RCy3</li>
+<li>Cancer networks and data</li></ul>
+				</section>
+				</section>
+
+				<section>
+				<a href="#" class="inactive"><ribbon>Introductions</ribbon></a>
+				<a href="#/automation" class="inactive"><ribbon>Cytoscape Automation</ribbon></a>
+				<a href="#/walkthrough" class="inactive"><ribbon>Guided Walkthrough</ribbon></a>
+				<a href="#/usecases" class="navigate-next"><ribbon>Automation Use Cases</ribbon></a>
+				<a href="#/exam"><ribbon>Wrap-up and "Exam"</ribbon></a>
+				</section>
+
+				<section id="usecases" style="font-size:80%">
+					<h1>Example Use Cases</h1>
+					<ol>
+						<li><b>Omics data</b> - I have a ----------- <i>fill in the blank</i> (microarray, RNASeq, Proteomics, ATACseq, MicroRNA, GWAS …) dataset. I have normalized and scored my data. How do I overlay my data on existing interaction data?</li>
+						<li><b>Coexpression data</b> -I have a dataset that represents relationships. How do I represent it as a network.</li>
+						<li><b>Omics data</b> - I have a -----------<i>fill in the blank</i> (microarray, RNASeq, Proteomics, ATACseq, MicroRNA, GWAS …) dataset. I have normalized and scored my data. I have run my data through a functional enrichment tool and now have a set of enriched terms associated with my dataset. How do I represent my functional enrichments as a network?</li>
+					</ol>
+
+				</section>
+				<section data-external="modules/RCy3_ExampleData/module.html" style="font-size: 80%"></section>
+				<section data-external="modules/RCy3_OmicsUseCase/module.html" style="font-size: 80%"></section>
+				<section data-external="modules/RCy3_ExprUseCase/module.html" style="font-size: 80%"></section>
+				<section data-external="modules/RCy3_FuncEnrUseCase/module.html" style="font-size: 80%"></section>
+				</section>
+                
+
+				<section>
+				<a href="#" class="inactive"><ribbon>Introductions</ribbon></a>
+				<a href="#/automation" class="inactive"><ribbon>Cytoscape Automation</ribbon></a>
+				<a href="#/walkthrough" class="inactive"><ribbon>Guided Walkthrough</ribbon></a>
+				<a href="#/usecases" class="inactive"><ribbon>Automation Use Cases</ribbon></a>
+				<a href="#/exam" class="navigate-next"><ribbon>Wrap-up and "Exam"</ribbon></a>
+				</section>
+
+				<section id="exam">
+				<section>
+					<h1>Wrap-up</h1>
+					<p>Questions and Discussion</p>
+				</section>
+				<section>
+					<h1>"Exam"</h1>
+					<p>To make sure you now have a working knowledge of Cytoscape automation, choose one of the following datasets
+					   to analyze in R and Cytoscape:
+						 <ul>
+							 <li><a href="https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/collins.txt">Colins (2007)</a>: A merged dataset of three yeast APMS experiments.  
+								   Find the putative complexes.
+							 </li>
+							 <li><a href="https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GPL54.txt">GPL54</a>: A yeast heat shock microarray experiment from GEO.  Create a network 
+								 of the most significant genes based on the magnitude of the fold change
+								 and color the nodes by expression.
+							 </li>
+						 </ul>
+					</p>
+				</section>
+
+				<!-- Wrap up with helpful links -->
+				<section>
+				<h1>Thank You!</h1>                                <highlight>Here are additional resources you may find useful:</highlight>
+				<ul>
+					<li><a href="http://manual.cytoscape.org" target="_blank">manual.cytoscape.org</a></li>
+					<li><a href="http://tutorials.cytoscape.org" target="_blank">tutorials.cytoscape.org</a></li>
+					<li><a href="http://automation.cytoscape.org" target-"_blank">automation.cytoscape.org</a></li>
+					<li><a href="http://apps.cytoscape.org" target="_blank">apps.cytoscape.org</a></li>                                        <li><a href="http://cytoscape-publications.tumblr.com/" target="_blank">cytoscape-publications.tumblr.com/</a></li>
+					<li><a href="https://groups.google.com/forum/#!forum/cytoscape-helpdesk" target="_blank">cytoscape-helpdesk@googlegroups.com</a></li>
+					<li><a href="https://groups.google.com/forum/#!forum/cytoscape-app-dev" target="_blank">cytoscape-app-dev@googlegroups.com</a></li>
+					<li><a href="http://nrnb.org/training.html" target="_blank">nrnb.org/training.html</a></li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+				<section>
+                                <h1>Thank You!</h1>  
+				<br /><br /><br />
+				<a href="https://www.surveymonkey.com/r/cytoscape" target="_blank">
+					<h4><font style="color:blue;text-decoration:underline;">surveymonkey.com/r/cytoscape</font></h4></a>
+
+                                <aside class="notes" data-markdown>
+                                Add speaker notes here...
+                                </aside>
+                                </section>
+				</section>                
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: "c",
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../plugin/markdown/marked.js' },
+				{ src: '../plugin/markdown/markdown.js' },
+				
+				{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../plugin/notes/notes.js', async: true },
+				{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>

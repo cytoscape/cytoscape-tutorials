@@ -19,7 +19,8 @@
                             <li><strong>RCy3</strong> - a bioconductor package</li>
                         </ul>
 
-                    <pre><code class="r">if(!&quot;RCy3&quot; %in% installed.packages()){
+                    <pre><code class="r">
+if(!&quot;RCy3&quot; %in% installed.packages()){
 	install.packages(&quot;BiocManager&quot;)
 	BiocManager::install(&quot;RCy3&quot;)
 }
@@ -30,19 +31,11 @@ library(RCy3)
 
                 </section>
                 <section data-transition="linear" data-transition-speed="default">
-                    <h3>Set up - (part 2)</h3>
+                    <h3>Set up (part 2)</h3>
                     <div class="slideContent" >
                         <ul>
-                            <li><strong>Cytoscape</strong> - Download and install <a href="cytoscape.org/download.php">Cytoscape 3.7.0.</a> or higher.  Java 9 is not supported.  Please make sure that Java 8 is installed.
-
-                                <ul>
-                                    <li>Install additional cytoscape apps that will be used in this workshop.  If using cytoscape 3.7.0 or older the apps need to manually installed through the <a href="http://manual.cytoscape.org/en/latest/App_Manager.html#installing-apps">app manager</a> in Cytoscape or through your <a href="https://apps.cytoscape.org/help/getstarted_app_install">web browser</a>.  (click on the method to see detailed instructions)
-
-                                        <ul>
-                                            <li><a href="http://apps.cytoscape.org/apps/functionalenrichmentcollection">Functional Enrichment Collection</a> -a collection of apps to retrieve networks and pathways, integrate and explore the data, perform functional enrichment analysis, and interpret and display your results.</li>
-                                            <li><a href="http://apps.cytoscape.org/apps/enrichmentmappipelinecollection">EnrichmentMap Pipeline Collection</a> - a collection of apps including EnrichmentMap<a href="#refs">(Merico et al.)</a>, AutoAnnotate<a href="#refs">(Kucera et al.)</a>, WordCloud<a href="#refs">(Oesper et al.)</a> and clusterMaker2<a href="#refs">(Morris et al.)</a> used to visualize and analysis enrichment results.</li>
-                                        </ul></li>
-                                </ul></li>
+                            <li><strong>Cytoscape</strong> - Download and install the <a href="cytoscape.org/download.php">latest version of Cytoscape</a>.
+                               </li>
                         </ul>
 
                     </div>
@@ -50,35 +43,16 @@ library(RCy3)
                 </section>
 
                 <section data-transition="linear" data-transition-speed="default">
-                    <h3>Set up - (part 4)</h3>
+                    <h3>Set up (part 3)</h3>
                     <div class="slideContent" >
-                        <p>If you are using Cytoscape 3.7 or higher then apps can be installed directly from R.</p>
+                        <p>You can install apps in Cytoscape directly from R.</p>
 
-<pre style="font-size:60%"><code class="r">#list of cytoscape apps to install
-installation_responses &lt;- c()
+<pre><code class="r">
+installApp("stringApp") 
 
-#list of app to install
-cyto_app_toinstall &lt;- c(&quot;clustermaker2&quot;, &quot;enrichmentmap&quot;, &quot;autoannotate&quot;, &quot;wordcloud&quot;, &quot;stringapp&quot;, &quot;aMatReader&quot;)
-
-cytoscape_version &lt;- unlist(strsplit( cytoscapeVersionInfo()[&#39;cytoscapeVersion&#39;],split = &quot;\\.&quot;))
-if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;=3) 
-   &amp;&amp; as.numeric(cytoscape_version[2]&gt;=7)){
-  for(i in 1:length(cyto_app_toinstall)){
-    #check to see if the app is installed.  Only install it if it hasn&#39;t been installed
-    if(!grepl(commandsGET(paste(&quot;apps status app=\&quot;&quot;, cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;)), pattern = &quot;status: Installed&quot;)){
-      installation_response &lt;-commandsGET(paste(&quot;apps install app=\&quot;&quot;, cyto_app_toinstall[i],&quot;\&quot;&quot;, sep=&quot;&quot;))
-      installation_responses &lt;- c(installation_responses,installation_response)
-    } else {
-      installation_responses &lt;- c(installation_responses,&quot;already installed&quot;)
-    }
-  }
-  installation_summary &lt;- data.frame(name = cyto_app_toinstall, status = installation_responses)
-
-  knitr::kable(list(installation_summary), booktabs = TRUE, caption = &#39;A Summary of automated app installation&#39;
-)
-}
 </code></pre>
-
+<pre>
+[1] "App stringApp installed"</pre>
                     </div>
 
                 </section>
@@ -86,12 +60,14 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Communicating with Cytoscape</h3>
                     <div class="slideContent" >
-                        <p><strong>Make sure that Cytoscape is open</strong></p>
+                        <p>Make sure that Cytoscape is open</p>
 
-<pre><code class="r"> cytoscapePing ()
+<pre><code class="r"> 
+cytoscapePing ()
+
 </code></pre>
 
-                        <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_cytoscapeping.png" /></p>
+<pre>[1] "You are connected to Cytoscape!"</pre>
 
                     </div>
 
@@ -101,7 +77,9 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                     <div class="slideContent" >
                         <p>Confirm that Cytoscape is installed and opened</p>
 
-<pre><code class="r"> cytoscapeVersionInfo ()
+<pre><code class="r"> 
+cytoscapeVersionInfo ()
+
 </code></pre>
 
 <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_cytoscapeversion.png" /></p>
@@ -116,13 +94,16 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
 
                         <p>To see all the functions available in RCy3 package</p>
 
-                        <pre><code class="r">help(package=RCy3)
+                        <pre><code class="r">
+help(package=RCy3)
                         </code></pre>
 
-                        <pre><code class="r">cyrestAPI()  # CyREST API
+                        <pre><code class="r">
+cyrestAPI()  # CyREST API
                         </code></pre>
 
-                        <pre><code class="r">commandsAPI()  # Commands API
+                        <pre><code class="r">
+commandsAPI()  # Commands API
                         </code></pre>
 
                     </div>
@@ -137,7 +118,8 @@ if(length(cytoscape_version) == 3 &amp;&amp; as.numeric(cytoscape_version[1]&gt;
                     <div class="slideContent" >
                         <p>To get information about an individual command from the R environment you can also use the commandsHelp function.  Simply specify what command you would like to get information on by adding its name to the command.  For example &ldquo;commandsHelp(&quot;help string&rdquo;)&ldquo;</p>
 
-                        <pre><code class="r">commandsHelp(&quot;help&quot;)
+                        <pre><code class="r">
+commandsHelp(&quot;help&quot;)
                         </code></pre>
 
                         <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_availablecommands.png" /></p>
@@ -247,7 +229,8 @@ edges &lt;- data.frame(source=c(&quot;node 0&quot;,&quot;node 0&quot;,&quot;node
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Create Network</h3>
                     <div class="slideContent" >
-                        <pre><code class="r">createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;, 
+                        <pre><code class="r">
+createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;, 
     collection=&quot;DataFrame Example&quot;)
                         </code></pre>
 
@@ -262,18 +245,9 @@ edges &lt;- data.frame(source=c(&quot;node 0&quot;,&quot;node 0&quot;,&quot;node
                     <div class="slideContent" >
                         <p>Remember. All networks we make are created in Cytoscape so get an image of the resulting network and include it in your current analysis if desired.</p>
 
-                        <pre><code class="r">initial_network_png_file_name &lt;- file.path(getwd(),&quot;RCy3_primer&quot;,
-    &quot;images&quot;,&quot;initial_example_network.png&quot;)
-                        </code></pre>
-
                         <pre>
-<code class="r">if(file.exists(initial_network_png_file_name)){
-    #cytoscape hangs waiting for user response if file already exists.  Remove it first
-    file.remove(initial_network_png_file_name)
-} 
-
-#export the network
-exportImage(initial_network_png_file_name, type = &quot;png&quot;)
+<code class="r">
+exportImage("my_first_network", type = "png")
                         </code></pre>
                     </div>
 
