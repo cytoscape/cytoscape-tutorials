@@ -84,7 +84,7 @@ The first thing to notice about our repo is the organization. From the top level
 |     |--intro-cytoscape/
 |     |--(other presentation modules)
 |--protocols/
-|  |--loading-omics-data/
+|  |--loading-networks/
 |  |--(other protocols)
 ```
 Each level can contain image assets that are relevant at that level. For example, images that are needed referenced by the html a directory should be kept in that directory. Images that are actively being used across many tutorials are kept in the top level's ```assets/images```. 
