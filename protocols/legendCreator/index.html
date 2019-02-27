@@ -1,0 +1,338 @@
+Skip to content
+ 
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @AdamStuart Sign out
+37
+66 44 cytoscape/cytoscape-tutorials
+ Code  Issues 22  Pull requests 0  Projects 0  Wiki  Insights
+cytoscape-tutorials/protocols/template-app/index.html
+@khanspers khanspers updated tutorial template
+75babb1  on Jun 19, 2018
+@khanspers @AlexanderPico
+194 lines (173 sloc)  8.75 KB
+    
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cytoscape App tutorial template</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+<h1>Template Tutorial</h1>
+<p>The reveal framework includes a large set of features and components. This template reviews a core set of components that are useful for Cytoscape tutorials. See links below for complete documentation.</p>
+<ul>              
+<li><a href="https://github.com/cytoscape/cytoscape-tutorials/blob/gh-pages/README.md">Cytoscape Tutorials Using Reveal</a><ul style="list-style-type:none"><li><i>- Detailed information on all reveal components used for Cytoscape tutorials</i></li></ul></li>
+<li><a href="https://github.com/cytoscape/cytoscape-tutorials/blob/gh-pages/reveal-readme.md">General reveal.js documentation</a><ul style="list-style-type:none"><li><i>- Complete documentation for the reveal framework</i></li></ul></li>
+</ul>
+<p>To get started, open <b>module.html</b> and <b>index.html</b> located in <b>protocols/module/template-app</b>. Review how <b>module.htlm</b> is pulled in from the <b>index.html</b> wrapper.</p>
+</section>
+
+<!-- The section tag defines one slide. The "highlight" tag is used for important text. -->
+<section id='intro'>
+<h1>Template Tutorial</h1>
+<h4>Introduction</h4>
+<p>Use the first slide to introduce your app/workflow and the tutorial content, including links to your <a href="http://apps.cytoscape.org/apps/wikipathways">tool</a>. If you don't have a dedicated setup slide, any <highlight>specific installation instructions</highlight> can be included here.</p>
+</section>
+
+<!-- This slide shows the recommended use of bolding and higlighting -->
+<section id='style'>
+<h1>Template Tutorial</h1>
+<h4>Recommended Style</h4>
+<p>To help make the content as easy as possible to grasp, we are using highlighted and bold text as follows:</p>
+<ul>
+    <li>Use the <highlight>highlight tag</highlight> for any actions you want the user to take. Example: "To open a session file, select <highlight>File  &rarr; Open...</highlight>"</li>
+    <li>Use <b>bold</b> text for any other item you want to emphasize that is <b>not</b> an action. Example: "...data is visible in the <b>Node Table</b>".</li>
+</ul>
+</section>
+ <!-- ========================================================== -->
+<!-- ========================================================== -->
+<!-- ========================================================== -->
+     
+<!--This is a slide with text in the form of a list, a figure and a citation -->
+<section id='introduction'>
+<h1>Introduction</h1>
+
+<p>This documents the app Legend Creator.  Available now at apps.cytoscape.org:</p>
+
+<p>It can generate a legend that illustrates the visual mapping used in your graphs.  :</p>
+
+<p>There is a variety of different features of the Legend Creator, but its primary function is to add a color gradient to quantify the mapping of fill color in a legend.  This is a common function in Cytoscape graphs and hard to recreate accurately if you use downstream programs (e.g., Adobe Illustrator) to annotate graphs for publication.
+</p>
+
+<img style="float:right; width:45%" src="LC1.png">
+
+</section>
+
+<!-- ========================================================== -->
+
+<section id='background'>
+<h1>Background</h1>
+
+<p>First, let's review how Styles are used in a presentation in Cytoscape.  Within a Style, some variables can with be fixed, that is, the same across all nodes, while other are mapped from a variable in the node table to an attribute of the data.  
+</p>
+
+<p>Mappings can be continuous or discrete.  The icon in the center column of the styles shows a double headed arrow for the right side of the icon for continuous mappings, and dots for discrete mappings.
+</p>
+
+<img style="float:right;" src="LC2.png">
+
+
+<p>Continuous legends are made from numerical values, where the range is determined by looking at the node table, such as expression level.  We’ll look at those first.
+</p>
+<p>Note:  If you use Passthrough Mappings, they will not create a legend entry, and are not discussed here.
+</p><br />
+
+<img style="float:right; width:45%" src="LC1.png">
+
+</section>
+
+<!-- ========================================================== -->
+
+
+<section id='setup'>
+<h1>Setup</h1>
+
+<p>
+If you need to download, install or update Cytoscape, you should <a href="http://apps.cytoscape.org/apps/wikipathways">look here</a>.  TODO
+</p>
+
+<p>
+The AppManager is the key to extending Cytoscape.  Open the AppManager, find Legend Creator, and install it.  As you can see, there are hundreds of apps available to extend Cytoscape</p>
+</p>
+
+<img style="float:right;" src="LC4.png">
+</section>
+
+<!-- ========================================================== -->
+
+
+
+<section id='controlpanel'>
+<h1>Control Panel</h1>
+
+<p>
+In the Legend Control Panel, there is a button to scan the network, fields for the legend title and subtitle and then check boxes for the continuous and discrete mappings that are defined in the current style.  </p>
+</p>
+<p>
+The Scan button will tell the program to traverse the style sheet and all of the nodes in the graph to figure out what legends to add and what values exist in the network so it can decide how to build each legend entry.  This scan happens automatically whenever you load or switch networks, so you only have to push the button manually if you edit the styles.  Usually, it will auto scan, and be ready to go, but the phase when you make the legend is when you often start monkeying with the style settings, and in that case you should manually rescan the network after editing the style and before re-creating a legend.  Note that the legends are annotations, and as such, are not updated dynamically 
+</p>
+
+<p>
+The title and subtitle are just text fields.  The name of the network goes into the default title, but you can enter whatever text you want.  You don’t have control over the font, size or alignment at this point, but I’ll show you how to edit those later.
+
+</p>
+
+<p>
+Moving down the control panel, we see the list of mappings.  They show the name of the column in the node table followed by the name of the attribute to which it is mapped.  In this example, we have color mapped to our variable called gal1Rexp, shape is mapped to a column called Function, and the size of a node is mapped to the number of neighbors, or its degree.
+
+</p>
+
+<p>
+Leave off the Vertical Layout option, to position the legend along the bottom of the graph. <br> 
+Check the box Draw Bounding Box to include a rectangle surrounding all the legend entries.
+
+</p>
+
+<p>
+Click Add Legend button on the bottom of the panel.
+</p>
+<p>
+</p>
+<p>
+</p>
+<img style="float:right;" src="LC4.png">
+</section>
+
+<!-- ========================================================== -->
+
+
+
+
+<p>Continuous legends are made from numerical values, where the range is determined by looking at the node table, such as expression level.  We’ll look at those first.
+</p>
+<p>Note:  If you use Passthrough Mappings, they will not create a legend entry, and are not discussed here.
+</p><br />
+
+<img style="float:right; width:45%" src="LC1.png">
+
+</section>
+
+
+
+
+<!-- The figure is placed on the right side using "float:right" and is sized using "width"-->
+<img style="float:right;" src="LC2.png">
+<img style="float:right;" src="LC3.png">
+<img style="float:right;" src="LC4.png">
+<img style="float:right;" src="LC5.png">
+<img style="float:right;" src="LC6.png">
+<img style="float:right;" src="LC7.png">
+<img style="float:right;" src="LC8.png">
+<img style="float:right;width:45%" src="WP-App.png">
+<ul style="width:45%">
+	<li>Search hundreds of pathways directly from Cytoscape</li>
+	<li>Import pathways as pathway or network</li>
+	<li>Visualize data or use for network analysis</li>
+</ul>
+<br />
+<!--Citation is styled in a smaller font -->
+<small style="margin-top:40px;">Kutmon (2014) WikiPathways App for Cytoscape: Making biological pathways amenable to network analysis and visualization. <em>F1000Res</em>, 2014 Jul 1</small>
+</section>
+
+<!-- This is a slide with two-column layout -->
+<section id='two-columns'>
+<h1>Template Tutorial</h1>
+<h4>Two-column slide layout</h4>
+<p>The two-column slide layout is convenient for placing text. This example shows two lists of URLs.</p>
+<div class="column">
+<h5><highlight>Cancer pathways</highlight></h5>
+    <ul>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP4262">Breast cancer pathway</a></li>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP4239">EMT in colon cancer</a></li>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP3972">PDGFR-beta pathway</a></li>
+	</ul>
+</div>
+<div class="column">
+<h5><highlight>Disease pathways</highlight></h5>
+	<ul>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP3569">Fanconi Anemia Pathway</a></li>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP2059">Alzheimers Disease</a></li>
+		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP2447">Amyotrophic lateral sclerosis</a></li>
+	</ul>
+</div> 
+</section>
+
+<!-- This is a slide with animation -->
+<section id='frag-list'>
+<h1>Template Tutorial</h1>
+<h4>Animated List Elements</h4>
+<p>Here's an example of an animated list. Click the down or right arrow to step through the list.</p><br />
+<h5><highlight>WikiPathways App Features</highlight></h5>	
+
+<ul>
+    <li>Search hundreds of pathways directly from Cytoscape</li>
+    <li class="fragment">25 species represented</li>
+	<li class="fragment">Import pathways as pathway or network</li>
+	<li class="fragment">Visualize data or use for network analysis</li>
+</ul>
+</section>
+
+<!-- This slide contains CyBrowser buttons that automate Cytoscape functions in CyBrowser -->
+<section id='cybrowser'>
+<h1>Template Tutorial</h1>
+<h4>CyBrowser and CyCommands interactivity</h4>
+<p><b>CyBrowser</b> allows for viewing any html page in Cytoscape. Together with CyCommands, this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network can be included.</p>
+<p>With some css and javascript included in the <b>Cytoscape tutorial style</b> it is possible to selectively view content exclusively in CyBrowser and regular browser, respectively.</p>
+<div class="not-cybrowser">
+<p><highlight>You are viewing this tutorial outside of CyBrowser, launch Cytoscape, open CyBrowser and navigate to this tutorial to see content visible only in CyBrowser.</highlight></p>
+</div>
+<div class="cybrowser">
+<p><highlight>Click the button to import a simple network!</highlight></p>
+<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
+<br /><br />
+</div>
+</section>
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+                
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Press h to open a hovercard with more details.
