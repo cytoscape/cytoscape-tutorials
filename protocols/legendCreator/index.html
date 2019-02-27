@@ -36,14 +36,14 @@
 <section id='introduction'>
 <h1>Introduction</h1>
 
-<p>This documents the app Legend Creator.  Available now at apps.cytoscape.org:</p>
+<p>This documents the app Legend Creator.  Available now <a href="http://apps.cytoscape.org"> here</a>.
 
-<p>It can generate a legend that illustrates the visual mapping used in your graphs.  :</p>
+<p>It can generate a legend that illustrates the visual mapping used in your graphs.</p>
 
+
+<img style="float:center; width:45%" src="LC1.png">
 <p>There is a variety of different features of the Legend Creator, but its primary function is to add a color gradient to quantify the mapping of fill color in a legend.  This is a common function in Cytoscape graphs and hard to recreate accurately if you use downstream programs (e.g., Adobe Illustrator) to annotate graphs for publication.
 </p>
-
-<img style="float:right; width:45%" src="LC1.png">
 
 </section>
 
@@ -66,7 +66,6 @@
 <p>Note:  If you use Passthrough Mappings, they will not create a legend entry, and are not discussed here.
 </p><br />
 
-<img style="float:right; width:45%" src="LC1.png">
 
 </section>
 
@@ -84,7 +83,7 @@ If you need to download, install or update Cytoscape, you should <a href="http:/
 The AppManager is the key to extending Cytoscape.  Open the AppManager, find Legend Creator, and install it.  As you can see, there are hundreds of apps available to extend Cytoscape</p>
 </p>
 
-<img style="float:right;" src="LC4.png">
+<img style="float:center;" src="LC4.png">
 <br />
 </section>
 
@@ -206,13 +205,13 @@ Important Note:  Because color is such an important attribute perceptually, it i
 <p>
 Not every mapping used will necessitate an entry in the legend, and showing too many entries will distract from the graph. The legend entries to show size, line style, or shape, or color.are separate components and can be included or not on an individual basis. Here is our network with all mappings shown
 </p>
-<img style="float:left;" src="LCC.png">
+<img style="float:left;" src="LCD.png">
 
 <p>
 and here only the color gradient legend is included: 
 </p>
 
-<img style="float:left;" src="LCD.png">
+<img style="float:left;" src="LC1.png">
 </section>
 
 <!-- ========================================================== -->
@@ -224,8 +223,6 @@ and here only the color gradient legend is included:
 <p>
 If you lay out the legend horizontally, it will be placed at the bottom of the graph.  If you lay out the legend vertically, it will be positioned at the right of the graph.  Here I’m going to remove the legend, select only the Degree ramp and set layout vertically, then change to Fill Color and horizontal, and we’ll put the other legend underneath.
 </p>
-<img style="float:left;" src="LCC.png">
-
 <p>
 The legend is placed in a default position outside the bounds of the network.  Much of the time you’ll have to move it from where it shows up to where you want it.  This can be tricky, because the Cytoscape editor distinguishes annotations from nodes and treats them differently.  If I try to click on the legend, it will pan the screen, just like clicking on the background.
 </p>
@@ -242,13 +239,31 @@ To move the legend, I first have to go here to enable annotations to be active i
 
 
 <section id='annotation'>
-<h1>Layout</h1>
+<h1>Annotation Panel</h1>
 
 <p>
 To edit more specific aspects of the legend, such as the fonts or sizes, or the color of the background, you’ll want to go to the Annotation control panel.  There, you’ll see every label and tick of the legend is a list view.  Move items up or down, or move them between the background and foreground layers with these buttons.
 </p>
 
 <img style="float:left;" src="LCH.png">
+</section>
+
+<!-- ========================================================== -->
+
+
+
+<section id='summary'>
+<h1>Summary</h1>
+
+<p>
+It is also reasonable to want to make legends around edge attributes, such as line style, color and thickness, but that is not included in this first release. 
+</p>
+<p>
+Cytoscape will tell you when the update is posted.
+</p>
+<p>
+If you have problems, questions or feature requests, please contact me AdamTreister@gladstone.ucsf.edu</p>
+
 </section>
 
 <!-- ========================================================== -->
