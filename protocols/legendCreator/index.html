@@ -1,21 +1,4 @@
-Skip to content
- 
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- @AdamStuart Sign out
-37
-66 44 cytoscape/cytoscape-tutorials
- Code  Issues 22  Pull requests 0  Projects 0  Wiki  Insights
-cytoscape-tutorials/protocols/template-app/index.html
-@khanspers khanspers updated tutorial template
-75babb1  on Jun 19, 2018
-@khanspers @AlexanderPico
-194 lines (173 sloc)  8.75 KB
-    
 <!doctype html>
 <html>
 	<head>
@@ -46,34 +29,6 @@ cytoscape-tutorials/protocols/template-app/index.html
 <!-- ========================================================== -->
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
-<section>
-<h1>Template Tutorial</h1>
-<p>The reveal framework includes a large set of features and components. This template reviews a core set of components that are useful for Cytoscape tutorials. See links below for complete documentation.</p>
-<ul>              
-<li><a href="https://github.com/cytoscape/cytoscape-tutorials/blob/gh-pages/README.md">Cytoscape Tutorials Using Reveal</a><ul style="list-style-type:none"><li><i>- Detailed information on all reveal components used for Cytoscape tutorials</i></li></ul></li>
-<li><a href="https://github.com/cytoscape/cytoscape-tutorials/blob/gh-pages/reveal-readme.md">General reveal.js documentation</a><ul style="list-style-type:none"><li><i>- Complete documentation for the reveal framework</i></li></ul></li>
-</ul>
-<p>To get started, open <b>module.html</b> and <b>index.html</b> located in <b>protocols/module/template-app</b>. Review how <b>module.htlm</b> is pulled in from the <b>index.html</b> wrapper.</p>
-</section>
-
-<!-- The section tag defines one slide. The "highlight" tag is used for important text. -->
-<section id='intro'>
-<h1>Template Tutorial</h1>
-<h4>Introduction</h4>
-<p>Use the first slide to introduce your app/workflow and the tutorial content, including links to your <a href="http://apps.cytoscape.org/apps/wikipathways">tool</a>. If you don't have a dedicated setup slide, any <highlight>specific installation instructions</highlight> can be included here.</p>
-</section>
-
-<!-- This slide shows the recommended use of bolding and higlighting -->
-<section id='style'>
-<h1>Template Tutorial</h1>
-<h4>Recommended Style</h4>
-<p>To help make the content as easy as possible to grasp, we are using highlighted and bold text as follows:</p>
-<ul>
-    <li>Use the <highlight>highlight tag</highlight> for any actions you want the user to take. Example: "To open a session file, select <highlight>File  &rarr; Open...</highlight>"</li>
-    <li>Use <b>bold</b> text for any other item you want to emphasize that is <b>not</b> an action. Example: "...data is visible in the <b>Node Table</b>".</li>
-</ul>
-</section>
- <!-- ========================================================== -->
 <!-- ========================================================== -->
 <!-- ========================================================== -->
      
@@ -130,6 +85,7 @@ The AppManager is the key to extending Cytoscape.  Open the AppManager, find Leg
 </p>
 
 <img style="float:right;" src="LC4.png">
+<br />
 </section>
 
 <!-- ========================================================== -->
@@ -169,7 +125,74 @@ Click Add Legend button on the bottom of the panel.
 </p>
 <p>
 </p>
-<img style="float:right;" src="LC4.png">
+<img style="float:right;" src="LC7.png">
+<br /></section>
+
+<!-- ========================================================== -->
+
+
+
+<section id='firstDraft'>
+<h1>First Draft</h1>
+
+<p>
+As you see, we got four components because we had all four mappings checked.    The first two are called Ramp Functions that show both node size and font size get bigger for nodes of higher degree, i.e., those with more neighbors.  Third, a color gradient entry shows expression level of our protein of interest.  Finally is a discrete mapping from around a variable called isLink, that was added ad hoc based on a selection filter.
+</p>
+<p>
+This clearly demonstrates the visualization problem know as Too Much Information.  Three of the four legend entries are drab gray, and do an insufficient job of augmenting the information we want to present, which is what is the meaning of the color and size of our nodes.  
+</p>
+
+<p>
+Depending on the story you are trying to tell with your presentation, many mappings don’t add much information. Sometimes mappings are redundant.  So it will often make sense to only show a small number of the possible items.  But the easiest way to decide is to just make the full legend, look at the result, delete the legend and remake it with fewer boxes checked.
+</p>
+
+<p>
+Moving down the control panel, we see the list of mappings.  They show the name of the column in the node table followed by the name of the attribute to which it is mapped.  In this example, we have color mapped to our variable called gal1Rexp, shape is mapped to a column called Function, and the size of a node is mapped to the number of neighbors, or its degree.
+
+</p>
+
+<p>
+Before we delete them let’s look at the mappings in the style menu that generated them.
+
+</p>
+
+</section>
+
+<!-- ========================================================== -->
+
+
+
+<section id='ramps'>
+<h1>Ramp Functions</h1>
+
+<p>
+The first two are associated in that they both map measures of the nodes’ degree to the size of both the nodes and its label.  This is a continuous mapping, meaning there is a function that calculates the size of the node and font from a numerical column in the node table.
+</p>
+
+<p>
+Note:  Although size is a useful attribute to map, showing it in a legend is often not too useful.  Our perception of size is qualitative.  We can tell big from small, but we can’t tell a 50 pixel diameter from 63 pixel diameter if they are not right next to each other and the same shape.  So adding a legend to show the quantitative measure of size tends not to add much to your drawing, and is optional or discouraged in many cases.
+</p>
+
+<img style="float:left;" src="LC8.png">
+<img style="float:right;" src="LC9.png">
+</section>
+<!-- ========================================================== -->
+
+
+
+<section id='gradient'>
+<h1>Color Gradient</h1>
+
+<p>
+The next one is a color gradient.  It should match our continuous mapping for the variable <b>gal1RGexp</b> in the Style menu.   This is clearly the most important entry in our legend.  Perceptually, color attributes are the most powerful mapping and should be used for the strongest message you are trying to convey.  The human eye has very good color perception, even if the nodes are separated across the graph or are different shapes and sizes.  
+</p>
+
+<p>
+Important Note:  Because color is such an important attribute perceptually, it is important to use color with care.  Rather than defining arbitrary colors for minimum and maximum values, it is important to use Palettes of colors that have been curated to make sure they have consistent color saturation across the range.  If you double click on the gradient, an editor will come up, with an button to choose palettes in the top left corner. 
+ It is <i><b>highly recommended</b></i> to use defined palettes over arbitrary colors.</p>
+
+<img style="float:left;" src="LCA.png">
+<img style="float:right;" src="LCB.png">
 </section>
 
 <!-- ========================================================== -->
@@ -177,90 +200,60 @@ Click Add Legend button on the bottom of the panel.
 
 
 
-<p>Continuous legends are made from numerical values, where the range is determined by looking at the node table, such as expression level.  We’ll look at those first.
+<section id='kiss'>
+<h1>Keep it Simple</h1>
+
+<p>
+Not every mapping used will necessitate an entry in the legend, and showing too many entries will distract from the graph. The legend entries to show size, line style, or shape, or color.are separate components and can be included or not on an individual basis. Here is our network with all mappings shown
 </p>
-<p>Note:  If you use Passthrough Mappings, they will not create a legend entry, and are not discussed here.
-</p><br />
+<img style="float:left;" src="LCC.png">
 
-<img style="float:right; width:45%" src="LC1.png">
+<p>
+and here only the color gradient legend is included: 
+</p>
 
+<img style="float:left;" src="LCD.png">
 </section>
 
+<!-- ========================================================== -->
 
 
+<section id='layout'>
+<h1>Layout</h1>
 
-<!-- The figure is placed on the right side using "float:right" and is sized using "width"-->
-<img style="float:right;" src="LC2.png">
-<img style="float:right;" src="LC3.png">
-<img style="float:right;" src="LC4.png">
-<img style="float:right;" src="LC5.png">
-<img style="float:right;" src="LC6.png">
-<img style="float:right;" src="LC7.png">
-<img style="float:right;" src="LC8.png">
-<img style="float:right;width:45%" src="WP-App.png">
-<ul style="width:45%">
-	<li>Search hundreds of pathways directly from Cytoscape</li>
-	<li>Import pathways as pathway or network</li>
-	<li>Visualize data or use for network analysis</li>
-</ul>
-<br />
-<!--Citation is styled in a smaller font -->
-<small style="margin-top:40px;">Kutmon (2014) WikiPathways App for Cytoscape: Making biological pathways amenable to network analysis and visualization. <em>F1000Res</em>, 2014 Jul 1</small>
+<p>
+If you lay out the legend horizontally, it will be placed at the bottom of the graph.  If you lay out the legend vertically, it will be positioned at the right of the graph.  Here I’m going to remove the legend, select only the Degree ramp and set layout vertically, then change to Fill Color and horizontal, and we’ll put the other legend underneath.
+</p>
+<img style="float:left;" src="LCC.png">
+
+<p>
+The legend is placed in a default position outside the bounds of the network.  Much of the time you’ll have to move it from where it shows up to where you want it.  This can be tricky, because the Cytoscape editor distinguishes annotations from nodes and treats them differently.  If I try to click on the legend, it will pan the screen, just like clicking on the background.
+</p>
+
+<p>
+To move the legend, I first have to go here to enable annotations to be active in the editor.   Then hold down the shift key while dragging to select items and the annotations get selected with nodes.  There is a yellow box around selected annotations.  Now they can be dragged.  
+
+</p>
+<img style="float:left;" src="LCG.png">
 </section>
 
-<!-- This is a slide with two-column layout -->
-<section id='two-columns'>
-<h1>Template Tutorial</h1>
-<h4>Two-column slide layout</h4>
-<p>The two-column slide layout is convenient for placing text. This example shows two lists of URLs.</p>
-<div class="column">
-<h5><highlight>Cancer pathways</highlight></h5>
-    <ul>
-		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP4262">Breast cancer pathway</a></li>
-		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP4239">EMT in colon cancer</a></li>
-		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP3972">PDGFR-beta pathway</a></li>
-	</ul>
-</div>
-<div class="column">
-<h5><highlight>Disease pathways</highlight></h5>
-	<ul>
-		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP3569">Fanconi Anemia Pathway</a></li>
-		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP2059">Alzheimers Disease</a></li>
-		<li><a href="https://www.wikipathways.org/index.php/Pathway:WP2447">Amyotrophic lateral sclerosis</a></li>
-	</ul>
-</div> 
+<!-- ========================================================== -->
+
+
+
+<section id='annotation'>
+<h1>Layout</h1>
+
+<p>
+To edit more specific aspects of the legend, such as the fonts or sizes, or the color of the background, you’ll want to go to the Annotation control panel.  There, you’ll see every label and tick of the legend is a list view.  Move items up or down, or move them between the background and foreground layers with these buttons.
+</p>
+
+<img style="float:left;" src="LCH.png">
 </section>
 
-<!-- This is a slide with animation -->
-<section id='frag-list'>
-<h1>Template Tutorial</h1>
-<h4>Animated List Elements</h4>
-<p>Here's an example of an animated list. Click the down or right arrow to step through the list.</p><br />
-<h5><highlight>WikiPathways App Features</highlight></h5>	
+<!-- ========================================================== -->
 
-<ul>
-    <li>Search hundreds of pathways directly from Cytoscape</li>
-    <li class="fragment">25 species represented</li>
-	<li class="fragment">Import pathways as pathway or network</li>
-	<li class="fragment">Visualize data or use for network analysis</li>
-</ul>
-</section>
 
-<!-- This slide contains CyBrowser buttons that automate Cytoscape functions in CyBrowser -->
-<section id='cybrowser'>
-<h1>Template Tutorial</h1>
-<h4>CyBrowser and CyCommands interactivity</h4>
-<p><b>CyBrowser</b> allows for viewing any html page in Cytoscape. Together with CyCommands, this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network can be included.</p>
-<p>With some css and javascript included in the <b>Cytoscape tutorial style</b> it is possible to selectively view content exclusively in CyBrowser and regular browser, respectively.</p>
-<div class="not-cybrowser">
-<p><highlight>You are viewing this tutorial outside of CyBrowser, launch Cytoscape, open CyBrowser and navigate to this tutorial to see content visible only in CyBrowser.</highlight></p>
-</div>
-<div class="cybrowser">
-<p><highlight>Click the button to import a simple network!</highlight></p>
-<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
-<br /><br />
-</div>
-</section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
