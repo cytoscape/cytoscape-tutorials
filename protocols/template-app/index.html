@@ -40,15 +40,13 @@
 
 <!-- The section tag defines one slide. The "highlight" tag is used for important text. -->
 <section id='intro'>
-<h1>Template Tutorial</h1>
-<h4>Introduction</h4>
+<h1>Introduction</h1>
 <p>Use the first slide to introduce your app/workflow and the tutorial content, including links to your <a href="http://apps.cytoscape.org/apps/wikipathways">tool</a>. If you don't have a dedicated setup slide, any <highlight>specific installation instructions</highlight> can be included here.</p>
 </section>
 
 <!-- This slide shows the recommended use of bolding and higlighting -->
 <section id='style'>
-<h1>Template Tutorial</h1>
-<h4>Recommended Style</h4>
+<h1>Recommended Style</h1>
 <p>To help make the content as easy as possible to grasp, we are using highlighted and bold text as follows:</p>
 <ul>
     <li>Use the <highlight>highlight tag</highlight> for any actions you want the user to take. Example: "To open a session file, select <highlight>File  &rarr; Open...</highlight>"</li>
@@ -58,8 +56,7 @@
                 
 <!--This is a slide with text in the form of a list, a figure and a citation -->
 <section id='list-image-cit'>
-<h1>Template Tutorial</h1>
-<h4>List, Image and Citation</h4>
+<h1>List, Image and Citation</h1>
 <p>Here, a brief bullet point list is used to introduce some features of the app, and a citation is provided.</p><br />
 <!-- The figure is placed on the right side using "float:right" and is sized using "width"-->
 <img style="float:right;width:45%" src="WP-App.png">
@@ -72,11 +69,23 @@
 <!--Citation is styled in a smaller font -->
 <small style="margin-top:40px;">Kutmon (2014) WikiPathways App for Cytoscape: Making biological pathways amenable to network analysis and visualization. <em>F1000Res</em>, 2014 Jul 1</small>
 </section>
+                
+<!--This is a slide with different styles of figures -->
+<section id='list-image-cit'>
+<h1>Image styles</h1>
+<p>There are three different styles for images:</p><br />
+<!-- The figure is placed on the right side using "float:right" and is sized using "width"-->
+<p>Plain</p>
+<img class="plain" style="float:right;width:30%" src="WP-App.png">
+<p>Border</p>
+<img class="border" style="float:right;width:30%" src="WP-App.png">
+<p>Default</p>
+<img style="float:right;width:30%" src="WP-App.png">
+</section>
 
 <!-- This is a slide with two-column layout -->
 <section id='two-columns'>
-<h1>Template Tutorial</h1>
-<h4>Two-column slide layout</h4>
+<h1>Two-column slide layout</h1>
 <p>The two-column slide layout is convenient for placing text. This example shows two lists of URLs.</p>
 <div class="column">
 <h5><highlight>Cancer pathways</highlight></h5>
@@ -98,8 +107,7 @@
 
 <!-- This is a slide with animation -->
 <section id='frag-list'>
-<h1>Template Tutorial</h1>
-<h4>Animated List Elements</h4>
+<h1>Animated List Elements</h1>
 <p>Here's an example of an animated list. Click the down or right arrow to step through the list.</p><br />
 <h5><highlight>WikiPathways App Features</highlight></h5>	
 
@@ -113,8 +121,7 @@
 
 <!-- This slide contains CyBrowser buttons that automate Cytoscape functions in CyBrowser -->
 <section id='cybrowser'>
-<h1>Template Tutorial</h1>
-<h4>CyBrowser and CyCommands interactivity</h4>
+<h1>CyBrowser and CyCommands interactivity</h1>
 <p><b>CyBrowser</b> allows for viewing any html page in Cytoscape. Together with CyCommands, this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network can be included.</p>
 <p>With some css and javascript included in the <b>Cytoscape tutorial style</b> it is possible to selectively view content exclusively in CyBrowser and regular browser, respectively.</p>
 <div class="not-cybrowser">
