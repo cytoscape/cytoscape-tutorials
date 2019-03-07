@@ -89,7 +89,7 @@
         <li>Click on the <highlight>Select</highlight> tab of the <highlight>Control Panel</highlight>.</li>
         <li>Click on the drop-down to the right and select <highlight>Create New Filter</highlight>.
         <li>Click the <highlight>+</highlight> (add) button and select <highlight>Column Filter</highlight>. In the <highlight>Choose column...</highlight> drop-down, select <highlight>Node: disease score</highlight>.</li>
-        <li>In the selection slider, select scores of <b>3.5</b> or higher. This will select a little over 40 nodes.</li>
+        <li>In the selection slider, select scores of <b>3.3</b> or higher. This will select around 40 nodes.</li>
         <li>With the nodes still selected, go to <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
     </ul>
     <div class="fragment">
@@ -102,10 +102,9 @@
                 
 <section>
     <h1>Generate subnetworks</h1>
-    <p>Another strategy is to create a subnetwork from first neighbors of <b>genes with the highest disease score</b>, using the network connectivity together with the data to direct discovery.</p>
+    <p>Another strategy is to create a subnetwork from <b>first neighbors of genes with the highest disease score</b>, using the network connectivity together with the data to direct discovery.</p>
     <ul>
-        <li>Select the original <b>String breast cancer</b> network to start. </li>
-        <li>In the <highlight>Select</highlight> tab, create a column filter based on disease score, this time selecting nodes with score of 5 and above. This will select about 25 nodes.</li>
+        <li>In the original <b>String breast cancer</b> network, reapply the <b>disease score > 3.5</b> filter, unless the relevant nodes are still selected.</li>
         <li>With the nodes selected, go to <highlight>Select &rarr; Nodes &rarr; Select First Neighbors of Selected Nodes &rarr; Undirected</highlight>.</li>
         <li>With the nodes still selected, go to <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
     </ul>
@@ -121,9 +120,8 @@
     <h1>Generate subnetworks</h1>
     <p>The <a href="http://apps.cytoscape.org/apps/diffusion" target="_blank">Diffusion</a> app uses the network connectivity in a more subtle way than just first-degree neighbors. We can combine this with the top scoring genes:</p>
     <ul>
-        <li>Select the original <b>String breast cancer</b> network to start. </li>
-        <li>In the <highlight>Select</highlight> tab, create a column filter based on disease score, this time selecting nodes with score of 5 and above. This will select about 25 nodes.</li>
-        <li>With the nodes selected, select <highlight>Tools &rarr; Diffuse &rarr; Selected Nodes</highlight>.</li>
+        <li>Again, select the original <b>String breast cancer</b> network and reapply the <b>disease score > 3.5</b> filter.</li>
+         <li>With the nodes selected, select <highlight>Tools &rarr; Diffuse &rarr; Selected Nodes</highlight>.</li>
         <li>The Diffusion results will open in the <highlight>Results Panel</highlight>. Click <highlight>Create</highlight> to create a subnetwork.</li>
         <li>Apply the <highlight>Prefuse Force Directed</highlight> layout.</li>
     </ul>
