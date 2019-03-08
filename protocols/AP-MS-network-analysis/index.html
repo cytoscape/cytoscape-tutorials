@@ -55,10 +55,11 @@
         <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata.csv">Example data</a>.</li>	
         <li>In the <highlight>Import Network from Table</highlight> dialog, select the <highlight>Bait</highlight> column as <highlight>Source  Node</highlight> and <highlight>Prey</highlight> column as <highlight>Target Node</highlight>.</li>
         <li>Designate the <highlight>AP-MS Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
-        <li>For all other data values, change the assignment to <highlight>Target Node Attribute</highlight>. This can be done by clicking in the column header and selecting the red spreadsheet icon.</li>
+        <li>For all other data values, designate them as <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
         <li>Click <highlight>OK</highlight> to import the network.</li>
     </ul>
-    <img class="border" src="import-network.png" style="height:450px">
+    <p>In this data, the Prey are repeated more than once, representing interactions with more than one Bait node. This means that different values for the same attribute (for example HEKScore) exist for each Prey node. Upon import, Cytoscape will use the last value imported in these cases.</p>
+    <img class="border" src="import-network.png" style="float:right;height:400px">
 </section>
                 
 <section>
