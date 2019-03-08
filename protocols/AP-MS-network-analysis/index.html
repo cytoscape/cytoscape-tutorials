@@ -58,7 +58,7 @@
         <li>For all other data values, designate them as <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
         <li>Click <highlight>OK</highlight> to import the network.</li>
     </ul>
-    <p>In this data, the Prey nodes are repeated for each interactions with a Bait node, so the data contains different values for the same attribute (for example HEKScore), for each Prey node. During import, the last value imported will overwrite prior values and visualizations using this attribute thus only shows the last value.</p>
+    <p style="font-size: 60%">Note: In cases where a Prey node interacts with more than one Bait node, it will have multiple rows of values for the same attribute (for example HEKScore). During import, the last value imported will overwrite prior values and visualizations using this attribute thus only shows the last value.</p>
     
     <img class="border" src="import-network.png" style="height:340px">
 </section>
@@ -222,7 +222,7 @@
 <section>
     <h1>Visualizing Results</h1>
     <p>Zooming in on the network, specifically the <b>POL</b> and <b>PR</b> HIV nodes, we can see a set of interactions found in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">original paper</a>, which represent binding of POL and PR with the translational initiation complex EIF3.</p>
-    <p>Remember that when we imported multiple values for a single node attribute, such as the scores for human nodes interacting with more than one HIV nodes, the last value imported will overwrite prior values and the visualization thus only shows the last value. For <b>EIF3A</b>, which interacts with both <b>PR</b> and <b>POL</b>, only the data relevant to the <b>PR</b> interaction is maintained in the Node Table because our source data was sorted alphabetically by Bait.</p>
+    <p style="font-size: 60%">Note: Remember that when we imported multiple values for a single node attribute, such as the HEKScore for human Prey nodes interacting with more than one HIV Bait node, the last value imported overwrote prior values and the visualization thus only shows the last value. For <b>EIF3A</b>, which interacts with both <b>PR</b> and <b>POL</b>, only the data relevant to the <b>PR</b> interaction is maintained in the Node Table because our source data was sorted alphabetically by Bait.</p>
     
     <img class="plain" src="final-module.png" style="height:440px">      
 </section>
