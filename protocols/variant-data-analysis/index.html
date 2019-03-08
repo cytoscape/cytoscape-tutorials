@@ -120,8 +120,9 @@
     <h1>Generate subnetworks</h1>
     <p>The <a href="http://apps.cytoscape.org/apps/diffusion" target="_blank">Diffusion</a> app uses the network connectivity in a more subtle way than just first-degree neighbors. We can combine this with the top scoring genes:</p>
     <ul>
-        <li>Again, select the original <b>String breast cancer</b> network and reapply the <b>disease score > 3.3</b> filter.</li>
-         <li>With the nodes selected, select <highlight>Tools &rarr; Diffuse &rarr; Selected Nodes</highlight>.</li>
+        <li>Again, select the original <b>String breast cancer</b> network.</li>
+        <li>In the <highlight>Select</highlight> tab, adjust the threshold for the <b>disease score</b> column filter to select nodes with a score of 4.2 and above. This will select a small number of top nodes.</li>
+        <li>With the nodes selected, select <highlight>Tools &rarr; Diffuse &rarr; Selected Nodes</highlight>.</li>
         <li>The Diffusion results will open in the <highlight>Results Panel</highlight>. Click <highlight>Create</highlight> to create a subnetwork.</li>
         <li>Apply the <highlight>Prefuse Force Directed</highlight> layout.</li>
     </ul>
