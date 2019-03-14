@@ -39,40 +39,56 @@
 
 
 <section>
-<h2>Applying a Layout Algorithm</h2>
+<h1>Applying a Layout Algorithm</h1>
 <div style="float:left;width:55%">
     <ul>
-    <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"><i>galFiltered.sif</i></a> network. This sample file is included with your Cytoscape installation, in the <b>sampleData</b> folder.</li>
+    <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sys"><i>galFiltered.cys</i></a> session file. This sample session is included with your Cytoscape installation, in the <b>sampleData/sessions</b> folder.</li>
     <li>To see the whole network, select <highlight>View &rarr; Fit Content</highlight>.</li>
-        <li>Go to <highlight>Layout</highlight> and select <highlight>Circular Layout</highlight>.</li>
     </ul><br /><br />
     <p class="fragment">
-    The <highlight>circular</highlight> algorithm produces layouts that emphasize group and tree structures within a network. It partitions the network by analyzing its connectivity structure, and arranges the partitions as separate circles. The circles themselves are arranged in a radial tree layout fashion.</p>
+    The network layout used in this session file is the <highlight>Prefuse Force Directed Layout</highlight>. This layout is based on the algorithm implemented as part of the <a href="http://www.prefuse.org/">prefuse toolkit</a>. The algorithm is very fast and with the right parameters can provide a very visually pleasing layout. The Force Directed Layout can also use a numeric edge attribute as a weight for the length of the spring.</p>
 </div>
     <div style="float:right;width:45%">
-    <img plain src="circular.png"></div>
+    <img src="prefuse.png"></div>
+</section>
+                
+<section>
+<h1>Layout Menu</h1>
+<div style="float:left;width:55%">
+    <p>Layouts are available from the <highlight>Layout</highlight> menu. In addition to the built-in layout algorithms available by default, a set of yFiles layouts are available for installation. These require a license agreement.</p>
+    <p>Some Cytoscape apps may add additional layout algorithms to the Layout menu.</p>
+    </div>
+    <div style="float:right;width:45%">
+    <img src="LayoutMenu.png"></div>
+</section>
+                
+<section>
+    <h1>Tool Panel</h1>
+    <p>For manual manipulation of the network layout, a <highlight>Tool Panel</highlight> is available from <highlight>View  &rarr;  Show Tool Panel</highlight>. This panel includes a set of tools for scaling,
+    align, distribute, stack and rotating the network. Checking the <highlight>Selected Only</highlight> checkbox will restrict the actions to selected nodes.</p>
+    <img src="ToolPanel.png" style="width:45%">
 </section>
 
 <section>
-<h2>Examples of Layout Algorithms</h2>
+<h1>Examples of Layout Algorithms</h1>
 <p style="float:left;width:55%">The <highlight>Edge-weighted spring-embedded</highlight> layout is based on a “force-directed” paradigm as implemented by Kamada and Kawai (1988). Network nodes are treated like physical objects that repel each other, such as electrons. The connections between nodes are treated like metal springs attached to the pair of nodes. These springs repel or attract their end points according to a force function. The layout algorithm sets the positions of the nodes in a way that minimizes the sum of forces in the network.</p>
-<img plain src="edgeweighted.png" style="float:right;width:40%">
+<img src="edgeweighted.png" style="float:right;width:40%">
 </section>
 
 <section>
-    <h2>Examples of Layout Algorithms</h2>
-<p style="float:left;width:50%">The <highlight>Compound Spring Embedder (CoSE) layout</highlight> is based on the traditional force-directed layout algorithm with extensions to handle multi-level nesting (compound nodes), edges between nodes of arbitrary nesting levels and varying node sizes. It is the suggested Cytoscape layout for compound graphs, although it also works very well with noncompound graphs.</p>
-<img plain src="cose.png" style="float:right;width:48%">
+<h1>Examples of Layout Algorithms</h1>
+<p style="float:left;width:50%">The <highlight>circular</highlight> algorithm produces layouts that emphasize group and tree structures within a network. It partitions the network by analyzing its connectivity structure, and arranges the partitions as separate circles. The circles themselves are arranged in a radial tree layout fashion.</p>
+<img src="circular.png" style="float:right;width:48%">
 </section>
 
 <section>
-<h2>Layout Settings</h2>
+<h1>Layout Settings</h1>
 <ul>
     <li>Select <highlight>Layout &rarr; Settings....</highlight> to open the <b>Layout Settings</b> dialog.</li>
 <li>To change the settings for a particular algorithm, select it from the <highlight>Layout Algorithm></highlight> drop-down. The relevant set of parameters will be displayed.</li>
 <li>When changes are complete, click <highlight>Apply Layout</highlight> to apply to your network.</li>
 </ul><br /><br />
-<img plain src="layout-settings.png" style="width:38%">
+<img src="layout-settings.png" style="width:38%">
 </section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
