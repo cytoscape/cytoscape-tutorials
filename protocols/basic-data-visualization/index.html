@@ -43,10 +43,10 @@
 </section>
 
 <section>
-	<h3>Loading Network</h3>
+	<h1>Loading Network</h1>
     			<ul>
 				<div style="width:40%;float:right; margin-left: 10px">
-					<img src="BasicDataVizDemoLoaded.png">
+					<img class="plain" src="BasicDataVizDemoLoaded.png">
 				</div>
                 <li>To get started, install and launch the latest version of <a href="http://www.cytoscape.org/" target="_blank">Cytoscape</a>.</li>
 				<li>Download the <a href="http://nrnb.org/data/BasicDataVizDemo.cys">demo network session file</a>.</li>
@@ -64,7 +64,7 @@
 
 
 	<section>
-		<h3>Visualizing Expression Data on Networks</h3>
+		<h1>Visualizing Expression Data on Networks</h1>
 		<p>Probably the most common use of expression data in Cytoscape is to set the <b>visual properties</b> of the nodes (color, shape, border) in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will show an example of doing this.</p>
 		<p>The data used in this example is from yeast, and represents an experiment of perturbations of the genes <b>Gal1</b>, <b>Gal4</b>, and <b>Gal80</b>, which are all yeast transcription factors.
             
@@ -99,13 +99,13 @@ Add speaker notes here...
 	</section>
 
         <section>
-	<h3>Set Node Fill Color</h3>
+	<h1>Set Node Fill Color</h1>
     <ul>
     <li>Click on the <highlight>Style</highlight> tab in the <highlight>Control Panel</highlight>.</li>
     <li>Find <highlight>Fill Color</highlight> in the list of properties and expand it to view the mapping options.</li>
 	<li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <b>gal80Rexp</b> in the drop-down.</li>
 	<li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <highlight>Continuous Mapping</highlight> in the drop-down.</li>
-    <li>This produces an initial gradient ranging from blue to red for expression values. Notice that the nodes in the network change color. <br />For our purposes, this default gradient works so we don't need to edit it.</li>
+    <li>This produces an initial gradient ranging from blue to red for expression values. Notice that the nodes in the network change color. For our purposes, this default gradient works so we don't need to edit it.</li>
     </ul><br /><br />
         <img src="NodeFillMapping.png" style="width:40%">
    <br />         
@@ -117,7 +117,7 @@ Add speaker notes here...
     </section>
 
      <section>
-	<h3>Set Default Node Color</h3>
+	<h1>Set Default Node Color</h1>
 	<p>Some nodes in the network don't have any data, and for those nodes, the default color applies. In our case, the default color is blue, which falls within the spectrum of our blue-red gradient. This is not ideal for data visualization, so a useful trick is to choose a color outside the gradient spectrum to distinguish nodes with no defined expression value.</p>
     <ul>
     <li>Still in the <highlight>Style</highlight> tab, under <highlight>Fill Color</highlight>, click the <highlight>Def.</highlight> (leftmost) square next to <highlight>Fill Color</highlight> and choose a dark gray color.</li>
@@ -129,7 +129,7 @@ Add speaker notes here...
     </section>
 
     <section>
-    <h3>Set Node Border Width</h3>
+    <h1>Set Node Border Width</h1>
         <ul>
             <li>Click on the middle square (<highlight>Map.</highlight>) next to the <highlight>Border Width</highlight> row in the <highlight>Style</highlight> panel.</li>
             <li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <b>gal80Rsig</b> in the drop-down.</li>
@@ -140,13 +140,27 @@ Add speaker notes here...
         <ul>
             <li>First, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
             <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>10</b> in the <highlight>Node Border Width</highlight> field. </li>
-        </ul><br /><br />
+        </ul>
+        <br /><br />
         <p>To learn more about <b>visualizing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Expression Data Tutorial</a>.</p>
+    </section>
+                
+    <section>
+        <h1>Creating a Legend</h1>
+        <p>The Cytoscape app Legend Creator allows you to create a customized legend for your visualization. You can install Legend Creator from the <a href="http://apps.cytoscape.org/apps/legendcreator">App Store</a> or via the <highlight>Cytoscape App Manager</highlight>.</p>
+        <ul>
+            <img src="LegendPanel.png" style="float:right;width:50%">
+            <li>In the <highlight>Control Panel</highlight>, go to the <highlight>Legend Panel</highlight>. This is the interface for the Legend Creator app, and will list multiple options for creating a legend.</li>
+            <li>For our purposes, the default settings are satisfactory. Click <highlight>Add Legend</highlight> to continue. The legend will appear in the lower left of the network view.</li>
+            <li>To move the legend, first click the <highlight>Toggle Annotation Selection</highlight> icon <img src="AnnotationSelection.png"> at the bottom of the <highlight>Network View Window</highlight>. You can now select the legend like you would any object, for example by click and drag.</li>
+        </ul>
+        <img class="plain" src="NetworkLegend.png" style="width:50%">
+        <p>To learn more about <b>creating legends</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/legend-creator/#/" target="_blank">Legend Creator</a>.</p>
         
     </section>
 
 	<section>
-    <h3>Layouts</h3>
+    <h1>Layouts</h1>
         <p>An important aspect of network visualization is the layout, meaning the positioning of nodes and edges. Our network had a preset layout in the original file you imported, but this can be changed.</p>
         <ul>
                 <li>Let's change the layout to <b>Degree Sorted Circle Layout</b> by selecting <highlight>Layout &rarr; Degree Sorted Circle Layout</highlight>. In this layout, nodes are sorted by degree (connectedness), with the highest degree node at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on decreasing degree.</li>
@@ -165,7 +179,7 @@ Add speaker notes here...
 	</section>
 
 	<section>
-		<h3>Select Nodes</h3>
+		<h1>Select Nodes</h1>
         <p>Cytoscape allows you to easily filter and select nodes and edges based on data attributes. Next, we will select a subset of nodes with high expression in the gal80 knockout:</p>
 				<ul>
 					<li>Go to the <highlight>Select</highlight> tab in the Cytoscape Control Panel (the leftmost panel).</li>
@@ -183,7 +197,7 @@ Add speaker notes here...
 	</section>
 
 	<section>	
-        <h3>Expand Selection and Create New Network</h3>
+        <h1>Expand Selection and Create New Network</h1>
         <p>We have now selected only the few top expressing nodes. To see the context of these nodes in the larger network, we can expand the selection of nodes to include the nodes connecting to the selected nodes, i.e. the first neighbors. Once we have that larger selection, we can create a new network.</p>
         <ul>
             <li>Select the first neighbors of selected nodes by clicking the <highlight>First Neighbors of Selected Nodes (undirected)</highlight> button <img src="FirstNeighborsButton.png"> in the toolbar.</li>
@@ -199,7 +213,7 @@ Add speaker notes here...
 
 <section>
     <p>Your new network will look similar to this:</p>
-    <img src="FinalNetwork.png" style="width:45%">
+    <img class="plain" src="FinalNetwork.png" style="width:45%">
 </section>
 
 <section>
