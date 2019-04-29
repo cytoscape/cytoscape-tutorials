@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Importing Network From Table</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script> 
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+	<h1>Importing Network From Table</h1>
+    <p>In addition to importing networks in network file formats, such as <b>sif</b> and <b>xgmml</b>, Cytoscape also supports importing networks from tabular data. In this example, the data table represents protein-protein interaction data from a mass-spectrometry experiment.</p>
+<div class="footer" style="position: absolute; left: -5em; bottom: -4em; ">
+<img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+<version>3.7.1</version></div>
+</section>
+                
+<section>
+    <h1>Background</h1>
+    <p>The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of bait proteins were used to pull down a larger set of prey proteins.</p>    
+</section>
+                
+<section>
+    <h1>Import Network</h1>
+    <ul>
+        
+        <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata_simple.csv">Example data</a>.</li>	
+        <li>In the <highlight>Import Network from Table</highlight> dialog, select the <highlight>Bait</highlight> column as <highlight>Source  Node</highlight> and <highlight>Prey</highlight> column as <highlight>Target Node</highlight>.</li>
+        <li>Designate the <highlight>AP-MS Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
+        <li>Designate the <highlight>HEKScore</highlight> as a <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
+        <li>Click <highlight>OK</highlight> to import the network.</li>
+    </ul>
+    <p style="font-size: 60%">Note: In cases where a Prey node interacts with more than one Bait node, it will have multiple rows of values for the same attribute (for example HEKScore). During import, the last value imported will overwrite prior values and visualizations using this attribute thus only shows the last value.</p>
+    
+    <img class="border" src="import-network-from-table.png" style="height:340px">
+</section>
+                
+<section>
+    <h1>Import Network and Data</h1> 
+    <p>The imported network consists of multiple smaller subnetworks, each representing a bait node and its associated prey nodes:</p>
+<img class="plain" src="ap-ms-network.png" style="height:600px">
+
+</section>
+
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
