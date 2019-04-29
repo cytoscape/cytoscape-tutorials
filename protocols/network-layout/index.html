@@ -30,7 +30,7 @@
 
 <section>
 <h1>Network Layout</h1>
-<p>Cytoscape includes many automatic layout algorithms, for organizing the network visually. All available layout algorithms are available in the <b>Layout</b> menu, including any layout aglorithms loaded by apps. This tutorial will describe how to apply a layout to your network, give a few examples of commonly used layout algorithms, and describe how layout algorithm parameters can be adjusted.</p>
+<p>Cytoscape includes many automatic layout algorithms, for organizing the network visually. All available layout algorithms are listed in the <b>Layout</b> menu, including any layout aglorithms loaded by apps. This tutorial will describe how to apply a layout to your network, give a few examples of commonly used layout algorithms, and describe how layout algorithm parameters can be adjusted.</p>
 <div class="footer" style="position: absolute;left: -5em;bottom: -5em; ">
 <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
 <version>3.7.1</version>
@@ -40,16 +40,15 @@
 
 <section>
 <h1>Applying a Layout Algorithm</h1>
-<div style="float:left;width:63%">
     <ul>
+        <div style="width:40%;float:right;margin-left: 50px">
+            <img src="prefuse.png"></div>
     <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sys"><i>galFiltered.cys</i></a> session file. This sample session is included with your Cytoscape installation, in the <b>sampleData/sessions</b> folder.</li>
     <li>To see the whole network, select <highlight>View &rarr; Fit Content</highlight>.</li>
-    </ul><br /><br />
-    <p class="fragment">
+        <p class="fragment">
     The network layout used in this session file is the <highlight>Prefuse Force Directed Layout</highlight>. This layout is based on the algorithm implemented as part of the <a href="http://www.prefuse.org/">prefuse toolkit</a>. The algorithm is very fast and with the right parameters can provide a very visually pleasing layout. The Force Directed Layout can also use a numeric edge attribute as a weight for the length of the spring.</p>
-</div>
-    <div style="float:right;width:40%">
-    <img src="prefuse.png"></div>
+    </ul>
+    
 </section>
                 
 <section>
@@ -59,14 +58,14 @@
     <p>Some Cytoscape apps may add additional layout algorithms to the Layout menu.</p>
     </div>
     <div style="float:right;width:35%">
-    <img class="border" src="LayoutMenu.png"></div>
+    <img src="LayoutMenu.png"></div>
 </section>
                 
 <section>
     <h1>Tool Panel</h1>
-    <p>For manual manipulation of the network layout, a <highlight>Tool Panel</highlight> is available from <highlight>View  &rarr;  Show Tool Panel</highlight>. This panel includes a set of tools for scaling,
-    align, distribute, stack and rotating the network. Checking the <highlight>Selected Only</highlight> checkbox will restrict the actions to selected nodes.</p>
-    <img class="border" src="ToolPanel.png" style="width:45%">
+    <p>For manual manipulation of the network layout, a set of <highlight>Node Layout Tools</highlight> are available under <highlight>View  &rarr;  Show Tool Panel</highlight> or <highlight>Layout &rarr; Node Layout Tools</highlight>. These tools include a set of tools for scaling, aligning, distributing, stacking and rotating the network and nodes. Checking the <highlight>Selected Only</highlight> checkbox will restrict the actions to selected nodes.</p>
+    <br />
+    <img src="ToolPanel.png" style="width:45%">
 </section>
 
 <section>
