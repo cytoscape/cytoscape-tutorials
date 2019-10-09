@@ -35,6 +35,61 @@ body {
 }
 
 /*********************************************
+ * RIBBONS
+ *********************************************/
+
+ .reveal a ribbon {
+	display: block;
+	font-size: $ribbonSize;
+        margin: $ribbonMargin;
+        padding: $ribbonPadding;
+        color: $ribbonColor;
+        font-family: $ribbonFont;
+        font-weight: $ribbonFontWeight;
+        line-height: $ribbonLineHeight;
+        letter-spacing: $ribbonLetterSpacing;
+
+        text-transform: $ribbonTextTransform;
+        text-shadow: $ribbonTextShadow;
+
+        word-wrap: break-word;
+}
+
+.reveal a:nth-of-type(1) ribbon {
+	background-color:$ribbonBackgroundColor1
+}
+.reveal a:nth-of-type(2) ribbon {
+        background-color:$ribbonBackgroundColor2
+}
+.reveal a:nth-of-type(3) ribbon {
+        background-color:$ribbonBackgroundColor3
+}
+.reveal a:nth-of-type(4) ribbon {
+        background-color:$ribbonBackgroundColor4
+}
+.reveal a:nth-of-type(5) ribbon {
+        background-color:$ribbonBackgroundColor5
+}
+.reveal a:nth-of-type(6) ribbon {
+        background-color:$ribbonBackgroundColor6
+}
+.reveal a:nth-of-type(7) ribbon {
+        background-color:$ribbonBackgroundColor7
+}
+
+
+.reveal a:hover ribbon {
+	box-shadow: $ribbonBoxShadowHover;
+}
+
+.reveal a.inactive {
+	opacity: 0.25;
+	pointer-events: none;
+	cursor: default;
+}
+
+
+/*********************************************
  * HEADERS
  *********************************************/
 

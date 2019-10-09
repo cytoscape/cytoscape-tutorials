@@ -40,6 +40,52 @@ body {
   font-weight: inherit; }
 
 /*********************************************
+ * RIBBONS
+ *********************************************/
+.reveal a ribbon {
+  display: block;
+  font-size: 2.2em;
+  margin: 0 0 20px 0;
+  padding: 15px 0 5px 0;
+  color: #fff;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: none;
+  text-shadow: 2px 2px #000;
+  word-wrap: break-word; }
+
+.reveal a:nth-of-type(1) ribbon {
+  background-color: #555; }
+
+.reveal a:nth-of-type(2) ribbon {
+  background-color: #1b9e77; }
+
+.reveal a:nth-of-type(3) ribbon {
+  background-color: #d95f02; }
+
+.reveal a:nth-of-type(4) ribbon {
+  background-color: #7570b3; }
+
+.reveal a:nth-of-type(5) ribbon {
+  background-color: #e7298a; }
+
+.reveal a:nth-of-type(6) ribbon {
+  background-color: #66A61E; }
+
+.reveal a:nth-of-type(7) ribbon {
+  background-color: #E6AB02; }
+
+.reveal a:hover ribbon {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); }
+
+.reveal a.inactive {
+  opacity: 0.25;
+  pointer-events: none;
+  cursor: default; }
+
+/*********************************************
  * HEADERS
  *********************************************/
 .reveal h1,
