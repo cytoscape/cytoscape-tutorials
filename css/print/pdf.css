@@ -72,29 +72,22 @@ ul, ol, div, p {
 	overflow: visible;
 	display: block;
 
-	-webkit-perspective: none;
-	   -moz-perspective: none;
-	    -ms-perspective: none;
-	        perspective: none;
-
-	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
-	   -moz-perspective-origin: 50% 50%;
-	    -ms-perspective-origin: 50% 50%;
-	        perspective-origin: 50% 50%;
+	perspective: none;
+	perspective-origin: 50% 50%;
 }
 
 .reveal .slides .pdf-page {
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
+
+	page-break-after: always;
 }
 
 .reveal .slides section {
-	page-break-after: always !important;
-
 	visibility: visible !important;
 	display: block !important;
-	position: relative !important;
+	position: absolute !important;
 
 	margin: 0 !important;
 	padding: 0 !important;
@@ -103,18 +96,12 @@ ul, ol, div, p {
 
 	opacity: 1 !important;
 
-	-webkit-transform-style: flat !important;
-	   -moz-transform-style: flat !important;
-	    -ms-transform-style: flat !important;
-	        transform-style: flat !important;
-
-	-webkit-transform: none !important;
-	   -moz-transform: none !important;
-	    -ms-transform: none !important;
-	        transform: none !important;
+	transform-style: flat !important;
+	transform: none !important;
 }
 
 .reveal section.stack {
+	position: relative !important;
 	margin: 0 !important;
 	padding: 0 !important;
 	page-break-after: avoid !important;
@@ -143,9 +130,14 @@ ul, ol, div, p {
 }
 
 /* Display slide speaker notes when 'showNotes' is enabled */
+.reveal.show-notes {
+	max-width: none;
+	max-height: none;
+}
 .reveal .speaker-notes-pdf {
 	display: block;
 	width: 100%;
+	height: auto;
 	max-height: none;
 	top: auto;
 	right: auto;
@@ -161,6 +153,7 @@ ul, ol, div, p {
 	background-color: transparent;
 	padding: 20px;
 	page-break-after: always;
+	border: 0;
 }
 
 /* Display slide numbers when 'slideNumber' is enabled */
