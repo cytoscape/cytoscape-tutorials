@@ -93,7 +93,6 @@ body {
  * HEADERS
  *********************************************/
 
-.reveal h1,
 .reveal h2,
 .reveal h3,
 .reveal h4,
@@ -119,7 +118,20 @@ body {
 .reveal h4 {font-size: $heading4Size; }
 
 .reveal h1 {
+	margin: $heading1Margin;
+	padding: $heading1Padding;
+	color: $heading1Color;
+	background-color: $heading1BackgroundColor;
+
+	font-family: $heading1Font;
+	font-weight: $heading1FontWeight;
+	line-height: $heading1LineHeight;
+	letter-spacing: $heading1LetterSpacing;
+
+	text-transform: $heading1TextTransform;
 	text-shadow: $heading1TextShadow;
+
+	word-wrap: break-word;
 }
 
 
