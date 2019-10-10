@@ -8,14 +8,12 @@ $backgroundColor: #2b2b2b;
 $mainFont: 'Lato', sans-serif;
 $mainFontSize: 40px;
 $mainColor: #eee;
-$linkColor: #13DAEC;
-$linkColorHover: lighten( $linkColor, 20% );
 
 // Vertical spacing between blocks of text
 $blockMargin: 20px;
 
 // Headings
-$headingMargin: 0 0 30px 0;
+$headingMargin: 0 0 $blockMargin 0;
 $headingFont: 'League Gothic', Impact, sans-serif;
 $headingColor: #eee;
 $headingLineHeight: 1.2;
@@ -35,10 +33,12 @@ $heading1FontWeight: $headingFontWeight;
 $heading1Padding: 0;
 $heading1BackgroundColor: $backgroundColor;
 
-$heading1Size: 2.2em;
-$heading2Size: 2.2em;
-$heading3Size: 1.9em;
-$heading4Size: 1.6em;
+$heading1Size: 3.77em;
+$heading2Size: 2.11em;
+$heading3Size: 1.55em;
+$heading4Size: 1.00em;
+
+$codeFont: monospace;
 
 // Ribbons
 $ribbonSize: 2.2em;
@@ -50,7 +50,8 @@ $ribbonFont: 'Source Sans Pro', Helvetica, sans-serif;
 $ribbonTextShadow: 2px 2px #000;
 $ribbonTextTransform: none;
 $ribbonFontWeight: 600;
-$ribbonPadding: 15px 0 5px 0;
+$ribbonPadding: 10px 0 10px 0;
+$ribbonBoxShadowHover: 0px 0px 20px rgba(0,0,0,0.5);
 
 $ribbonBackgroundColor1: #555;
 $ribbonBackgroundColor2: #1b9e77;
@@ -60,17 +61,10 @@ $ribbonBackgroundColor5: #e7298a;
 $ribbonBackgroundColor6: #66A61E;
 $ribbonBackgroundColor7: #E6AB02;
 
-$ribbonBoxShadowHover: 0px 0px 20px rgba(0,0,0,0.5);
 
-// Other
-$pTextAlign: center;
-
-//Tables
-$tableHeaderTextColor: #fff;
-$tableHeaderBackgroundColor: #2980b9;
-
-// Images
-$imgBorder: 4px;
+// Links and actions
+$linkColor: #13DAEC;
+$linkColorHover: lighten( $linkColor, 20% );
 
 // Text selection
 $selectionBackgroundColor: #FF5E99;
