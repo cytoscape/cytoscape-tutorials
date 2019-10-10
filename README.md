@@ -287,24 +287,12 @@ Similarly, there is also a "not-cybrowser" div class that can be used to customi
 ```
 
 ### Editing Cytoscape Theme
-We have two customized stylesheets for presentations and protocols (.css). Please do *not* edit the CSS files directly. If you want to make changes to the stylesheets or make your own, you will need to work with source and template files (.scss) and then rebuild the CSS files using grunt.
+We have two customized stylesheets for presentations and protocols (.css). You can edit these CSS files directly, but realize that the changes will affect all presentations and protocols. If you want to make a custom theme for new content, please create a new stylesheet. 
 
 ```
 |--css/theme/
 |  |--cytoscape-presentation-1.css
 |  |--cytoscape-protocol-1.css
-|  |--source/
-|     |--cytoscape-presentation-1.scss
-|     |--cytoscape-protocol-1.scss
-|  |--template
-|     |--theme.scss
-|     |--settings.scss
-|     |--mixins.scss
 ```
-
-For example, if you wanted to change something just in the presentation CSS, then you would make the edit in the corresponding SCSS file in the ```source``` directory and then run ```grunt css-themes```. An updated CSS file will then be automatically built. Grunt requires the installation of node.js (https://nodejs.org) and then grunt ```npm install -g grunt-cli```. Common errors are caused by either an old or outdated version of node.js in which case you'll need to either perform an update ```npm update -g npm``` or install a new one via the [nodejs website](https://nodejs.org). 
-
-### Editing Base Theme
-If you want to make a global edit to all styles, e.g., a bug fix or new feature relevant to both presentations and protocols, then you will need to edit the files in the ```template``` directory. Check ```theme.scss``` and ```settings.scss``` first, unless you are familiar with mixins. After making these edits, you'll need to run ```grunt css-themes``` to rebuild the CSS files, as described above.
 
 If you are not sure where to make an edit, simply [file a issue](https://github.com/cytoscape/cytoscape-tutorials/issues) for the project and we'll advise or make the edit for you.
