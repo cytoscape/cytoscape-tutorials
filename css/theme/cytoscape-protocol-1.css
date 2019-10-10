@@ -57,7 +57,7 @@ body {
  *********************************************/
 .reveal a ribbon {
   display: block;
-  font-size: 1.8em;
+  font-size: 1.4em;
   margin: 0 0 20px 0;
   padding: 10px 0 10px 0;
   color: #fff;
@@ -302,8 +302,8 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #222;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+  border: 0px solid #222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
 
 .reveal section img.plain {
   border: 0;
