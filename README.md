@@ -27,6 +27,7 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
   - [Columns](#columns)
   - [Tables](#tables)
   - [Integration with CyBrowser and CyCommands](#integration-with-cybrowser-and-cycommands)
+  - [Editing the Cytoscape Theme](#editing-cytoscape-theme)
 
 ## Presenting
 Browse the available training materials already prepared:
