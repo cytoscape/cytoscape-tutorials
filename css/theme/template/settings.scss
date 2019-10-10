@@ -1,0 +1,83 @@
+// Base settings for all themes that can optionally be
+// overridden by the super-theme
+
+// Background of the presentation
+$backgroundColor: #2b2b2b;
+
+// Primary/body text
+$mainFont: 'Lato', sans-serif;
+$mainFontSize: 40px;
+$mainColor: #eee;
+$linkColor: #13DAEC;
+$linkColorHover: lighten( $linkColor, 20% );
+
+// Vertical spacing between blocks of text
+$blockMargin: 20px;
+
+// Headings
+$headingMargin: 0 0 30px 0;
+$headingFont: 'League Gothic', Impact, sans-serif;
+$headingColor: #eee;
+$headingLineHeight: 1.2;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingTextShadow: none;
+$headingFontWeight: normal;
+
+$heading1Margin: $headingMargin; 
+$heading1Font: $headingFont; 
+$heading1Color: $headingColor;
+$heading1LineHeight: $headingLineHeight;
+$heading1LetterSpacing: $headingLetterSpacing;
+$heading1TextTransform: $headingTextTransform;
+$heading1TextShadow: $headingTextShadow;
+$heading1FontWeight: $headingFontWeight;
+$heading1Padding: 0;
+$heading1BackgroundColor: $backgroundColor;
+
+$heading1Size: 2.2em;
+$heading2Size: 2.2em;
+$heading3Size: 1.9em;
+$heading4Size: 1.6em;
+
+// Ribbons
+$ribbonSize: 2.2em;
+$ribbonMargin: $headingMargin;
+$ribbonLineHeight: $headingLineHeight;
+$ribbonLetterSpacing: $headingLetterSpacing;
+$ribbonColor: #fff;
+$ribbonFont: 'Source Sans Pro', Helvetica, sans-serif;
+$ribbonTextShadow: 2px 2px #000;
+$ribbonTextTransform: none;
+$ribbonFontWeight: 600;
+$ribbonPadding: 15px 0 5px 0;
+
+$ribbonBackgroundColor1: #555;
+$ribbonBackgroundColor2: #1b9e77;
+$ribbonBackgroundColor3: #d95f02;
+$ribbonBackgroundColor4: #7570b3;
+$ribbonBackgroundColor5: #e7298a;
+$ribbonBackgroundColor6: #66A61E;
+$ribbonBackgroundColor7: #E6AB02;
+
+$ribbonBoxShadowHover: 0px 0px 20px rgba(0,0,0,0.5);
+
+// Other
+$pTextAlign: center;
+
+//Tables
+$tableHeaderTextColor: #fff;
+$tableHeaderBackgroundColor: #2980b9;
+
+// Images
+$imgBorder: 4px;
+
+// Text selection
+$selectionBackgroundColor: #FF5E99;
+$selectionColor: #fff;
+
+// Generates the presentation background, can be overridden
+// to return a background image or gradient
+@mixin bodyBackground() {
+	background: $backgroundColor;
+}
