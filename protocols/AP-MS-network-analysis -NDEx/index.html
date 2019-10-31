@@ -29,7 +29,7 @@
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
 <section>
-	<h1>Affinity purification-mass spectrometry network analysis</h1>
+	<h1>Affinity purification-mass spectrometry network analysis using NDEx</h1>
 	<p>This protocol describes how to use data from an affinity purification-mass spectrometry experiment to to generate relevant interaction networks, enriching the networks with information from public resources, analyzing the networks and creating effective visualizations.</p>
     <div class="footer" style="position: absolute; left: -3em; bottom: -6em; ">
 <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
@@ -40,31 +40,26 @@
     <h1>Background</h1>
     <p>The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of bait proteins are used to pull down a larger set of prey proteins.</p>
     <p>Note that this tutorial does not describe how to pre-process the raw AP-MS data, the data used here is already scored and filtered.</p>
-                
+    <p>In addition, to simplify and speed up the protocol, the "AP-MS Demo Data" have been pre-loaded in NDEx in network format.</p>           
 </section>
 
 <section>
     <h1>Setup</h1>
-    <p>This protocol uses two apps, that can be installed from the <a href="http://apps.cytoscape.org/" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Manager</highlight>: <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> and <a href="http://apps.cytoscape.org/apps/enhancedgraphics" target="_blank">enhancedGraphics</a>.</p>
+    <p>This protocol uses <a href="https://cytoscape.org/download.html" target="_blank">Cytoscape 3.7.2</a> and one additional app, that can be installed from the <a href="http://apps.cytoscape.org/" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Manager</highlight>: <a href="http://apps.cytoscape.org/apps/enhancedgraphics" target="_blank">enhancedGraphics</a>.</p>
 </section>
                 
 <section>
-    <h1>Import Network and Data</h1>
-    <ul>
-        
-        <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata.csv">Example data</a>.</li>	
-        <li>In the <highlight>Import Network from Table</highlight> dialog, select the <highlight>Bait</highlight> column as <highlight>Source  Node</highlight> and <highlight>Prey</highlight> column as <highlight>Target Node</highlight>.</li>
-        <li>Designate the <highlight>AP-MS Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
-        <li>For all other data values, designate them as <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
-        <li>Click <highlight>OK</highlight> to import the network.</li>
+    <h1>Import Network Data</h1>
+    <ul> 
+        <li>Start up Cytoscape 3.7.2.</li>
+        <li>Search the AP-MS Demo Data network in NDEx by typing "ap-ms demo data" in the <highlight>NDEx Search Box</highlight> and clicking the search icon <img class="plain" src="SearchIcon.png" style="height:30px">.</li>
+        <li>A new window will pop up, the cyNDEx Browser... Click the <highlight>Import</highlight> button next to the AP-MS Demo Data, then close the pop up window.</li>
     </ul>
-    <p style="font-size: 60%">Note: In cases where a Prey node interacts with more than one Bait node, it will have multiple rows of values for the same attribute (for example HEKScore). During import, the last value imported will overwrite prior values and visualizations using this attribute thus only shows the last value.</p>
-    
-    <img class="border" src="import-network.png" style="height:340px">
+    <img class="border" src="import-demo-network.png" style="height:500px">
 </section>
                 
 <section>
-    <h1>Import Network and Data</h1> 
+    <h1>Import Network Data</h1> 
     <p>The imported network consists of multiple smaller subnetworks, each representing a bait node and its associated prey nodes:</p>
 <img class="plain" src="ap-ms-network.png" style="height:600px">
 
@@ -72,22 +67,21 @@
                
 <section>
     <h1>Augmenting Network with Existing Protein-protein Interaction Data</h1>
-    <p>We are going to use existing protein-protein interaction data to enrich the network, using the <a href="https://string-db.org/"  target="_blank">STRING database</a> with the human protein nodes as input.</p>
+    <p>Now we are going to capitalize on existing protein-protein interaction data to enrich our network; we will use the new <a href="http://iquery.ndexbio.org/">NDEx Integrated Query</a> (NDEx IQ) with the human protein nodes from our network as query input.</p>
     
     <ul>
         <li>In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header once. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.</li>
-        <li>Select all the relevant entries in the <highlight>Uniprot</highlight> column by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.</li>
-        <li>Paste the list of gene symbols into the <highlight>Network Search</highlight> at the top of the <highlight>Control Panel</highlight>. Select <highlight>String Protein</highlight> from the drop-down.</li>
-        <li>Click the <highlight>options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.999</b>. Keep the default, <b>0</b>, for <highlight>Maximum additional interactors</highlight>.</li>
-        <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network may load automatically or you will see an intermediate dialog to confirm anbiguous query matches (confirm the cutoff and maximum values, then click <b>Import</b>).</li>
+        <li>Select all the genes in the <highlight>name</highlight> column that have a corresponding <highlight>UniProt</highlight> ID by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.</li>
+        <li>Open your browser, go to the <a href="http://iquery.ndexbio.org">NDEx IQ</a> website, paste the list of gene symbols into the <highlight>Query Box</highlight> and click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to run the query.</li> 
+        <li>In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different sources; although you can choose any of the sources available, for the purpose of this protocol let's select the <highlight>STRING (High Confidence)</highlight> result and then click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen.
     </ul>
     
 </section>
                 
 <section>
     <h1>Augmenting network with existing protein-protein interaction data</h1>
-    <p>The resulting network contains known interactions between the human proteins, with an evidence score of 0.999 or greater.</p>
-    <img class="plain" src="string.png" style="height:600px">
+    <p>The NDEx IQ result is automatically imported in Cytoscape and the resulting network contains known interactions between the human query proteins, with an evidence score of 0.7 or greater.</p>
+    <img class="plain" src="string_network.png" style="height:600px">
 </section>
                 
 <section>
