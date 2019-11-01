@@ -4,7 +4,7 @@ Please keep the [issue tracker](https://github.com/cytoscape/cytoscape-tutorials
 
 
 ### Personal Support
-If you have personal support or setup questions the best place to ask those is at our [cytoscape-helpdesk](https://groups.google.com/forum/#!forum/cytoscape-helpdesk).
+If you have personal support or setup questions the best place to look for answers is our [user documentation page](https://cytoscape.org/documentation_users.html).
 
 
 ### Bug Reports
