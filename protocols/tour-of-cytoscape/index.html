@@ -83,7 +83,7 @@
     <img src="sub-layout.png"></div>
 <div class="cybrowser">
 <input style="margin-bottom: 10px" type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network create excludeEdges=false networkName=subnetwork nodeList=selected source=current');" value="Create subnetwork"/><br />
-<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout kamada-kawai m_nodeDistanceRestLengthConstant=70 network=current');" value="Apply Layout"/>
+<input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('layout force-directed defaultSpringCoefficient=0.00001 defaultSpringLength=50 defaultNodeMass=5 network=current');" value="Apply Layout"/>
     
 </div>
 <div style="position:absolute;left:25em;bottom:1em;">
