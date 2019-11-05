@@ -32,14 +32,14 @@
             <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
             <section>
-                <h1>Affinity purification-mass spectrometry network analysis using NDEx</h1>
+                <h1>Affinity Purification-Mass Spectrometry Network Analysis Using Cytoscape and NDEx</h1>
                 <p>This protocol describes how to use data from an affinity purification-mass spectrometry experiment to to generate relevant interaction networks, enriching the networks with information from public resources, analyzing the networks and creating effective visualizations.</p>
-                <div class="footer" style="position: absolute; left: -3em; bottom: -6em; ">
+                <div class="footer" style="position: absolute;  bottom: -6em; ">
                     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5">
                     <version>3.7.2</version>
                 </div>
             </section>
-
+            
             <section>
                 <h1>Background</h1>
                 <p>The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of bait proteins are used to pull down a larger set of prey proteins.</p>
@@ -49,7 +49,12 @@
 
             <section>
                 <h1>Setup</h1>
-                <p>This protocol uses <a href="https://cytoscape.org/download.html" target="_blank">Cytoscape 3.7.2</a> and one additional app, that can be installed from the <a href="http://apps.cytoscape.org/" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Manager</highlight>: <a href="http://apps.cytoscape.org/apps/enhancedgraphics" target="_blank">enhancedGraphics</a>.</p>
+                <p>This protocol requires:</p>
+                <ul>
+                    <li><a href="https://cytoscape.org/download.html" target="_blank">Cytoscape 3.7.2</a></li>
+                    <li>An account on <a href="https://ndexbio.org">NDEx, the Network Data Exchange</a></li>
+                </ul> 
+                <p>If you do not already have an account on NDEx, <br>create one following the <a href="https://home.ndexbio.org/create-an-ndex-account/">Create an NDEx Account</a> tutorial </p>
             </section>
 
             <section>
@@ -70,44 +75,48 @@
             </section>
 
             <section>
-                <h1>Augmenting Network with Existing Protein-protein Interaction Data</h1>
-                <p>Now we are going to capitalize on existing protein-protein interaction data to enrich our network; we will use the new <a href="http://iquery.ndexbio.org/">NDEx Integrated Query</a> (NDEx IQ) with the human protein nodes from our network as query input.</p>
+                <h1>Augmenting the Network with Existing Protein-protein Interaction Data</h1>
+                
+                <p>Now we are going to capitalize on existing protein-protein interaction data to enrich our network; we will use the new <a href="http://iquery.ndexbio.org/" target="_blank">NDEx Integrated Query</a> (IQuery) with the human protein nodes from our network as query input.</p>
 
                 <ul>
                     <li>In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header once. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.</li>
+                    
                     <li>Select all the genes in the <highlight>name</highlight> column that have a corresponding <highlight>UniProt</highlight> ID by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.</li>
-                    <li>Open your browser, go to the <a href="http://iquery.ndexbio.org">NDEx IQ</a> website, paste the list of gene symbols into the <highlight>Query Box</highlight> and click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to run the query.</li>
-                    <li>In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different sources; although you can choose any of the sources available, for the purpose of this protocol let's select the <highlight>STRING (High Confidence)</highlight> result and then click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen.
+                    
+                    <li>Open your browser, go to the <a href="http://iquery.ndexbio.org">IQuery</a> website, paste the list of gene symbols into the <highlight>Query Box</highlight> and click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to run the query.</li>
+                    
+                    <li>In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different sources; although you can choose any of the sources available, for the purpose of this protocol let's select the <highlight>STRING (High Confidence)</highlight> result and then click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen.</li>
                 </ul>
 
             </section>
 
             <section>
-                <h1>Augmenting network with existing protein-protein interaction data</h1>
-                <p>The NDEx IQ result is automatically imported in Cytoscape and the resulting network (named "Direct query result on network - STRING - Human Protein Links - High Confidence (Score >= 0.7)") contains known interactions between the human query proteins, with an evidence score of 0.7 or greater.</p>
+                <h1>Augmenting the Network with Existing Protein-protein Interaction Data</h1>
+                <p>The IQuery result is automatically imported in Cytoscape and the resulting network (named "Direct query result on network - STRING - Human Protein Links - High Confidence (Score >= 0.7)") contains known interactions between the human query proteins, with an evidence score of 0.7 or greater.</p>
                 <img class="plain" src="string_network.png" style="height:600px">
             </section>
 
             <section>
                 <h1>Merge Networks</h1>
-                <p>To incorprate these new information into our AP-MS network, we need merge it with the NDEx IQ result. We can use the official gene symbols available in both networks as mathcing key.</p>
+                <p>To incorprate these new information into our AP-MS network, we need merge it with the IQuery result. We can use the official gene symbols available in both networks as mathcing key.</p>
                 <ul>
 
                     <li>Go to <highlight>Tools &rarr; Merge &rarr; Networks...</highlight>
                     </li>
                     <li>In the <highlight>Available Networks</highlight> list, select both networks and click the right arrow to add then to the <highlight>Networks to Merge</highlight> list.</li>
                     <li>Expand the <highlight>Advanced Options</highlight> interface.</li>
-                    <li>In the <highlight>Matching Columns</highlight> field, select <highlight>name</highlight> for the AP-MS network and <highlight>name</highlight> for the NDEx IQ result network if they are not already pre-set.</li>
-                    
+                    <li>In the <highlight>Matching Columns</highlight> field, select <highlight>name</highlight> for the AP-MS network and <highlight>name</highlight> for the IQuery result network if they are not already pre-set.</li>
+
                 </ul>
                 <img class="border" src="merge-interface.png" style="height:450px">
             </section>
 
             <section>
                 <h1>Merge Networks</h1>
-                <p>When the network first loads, it will have the NDEx IQ result style applied and nodes will be represented differently whether they are human or viral. The layout also makes the network difficult to interpret.</p>
-                    
-                        <img class="plain" src="merged-network.png" style="height:650px">
+                <p>When the network first loads, it will have the IQuery result style applied and nodes will be represented differently whether they are human or viral. The layout also makes the network difficult to interpret.</p>
+
+                <img class="plain" src="merged-network.png" style="height:650px">
             </section>
 
             <section>
@@ -115,7 +124,7 @@
                 <p>Let's reset the style to <highlight>default</highlight> to make all nodes visible and apply a better layout to our new merged network.</p>
                 <ul>
                     <li>Click the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, open the <highlight>Style Presets</highlight> dropdown menu, scroll to the right and select the <highlight>default</highlight> visual style.</li>
-    
+
                     <li>Then, Under <highlight>Layout &rarr; Settings...</highlight>, select the <highlight>Prefuse Force Directed Layout</highlight> and change the settings as follows:
                         <ul>
                             <li>Set <highlight>Default Spring Coefficient</highlight> to <b>5E-5</b></li>
@@ -124,18 +133,19 @@
                         </ul>
                     <li>Click <highlight>Apply</highlight> to apply the layout.</li>
                 </ul>
-                
-                <div style="float:right">    
+
+                <div style="float:right">
                     <img class="border" src="layout-interface.png" style="height:350px"></div><br /><br />
-                        
+
             </section>
-            
+
             <section>
                 <h1>Network Visualization</h1>
                 <p>The default style is not so informative in this case, so let's change the style of the network a bit.</p>
                 <ul>
                     <img class="border" src="ap-ms-style.png" style="float:right;height:550px">
                     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Options</highlight> menu and select <highlight>Create New Style...</highlight>. Name the style <b>AP-MS</b>.</li>
+                    
                     <li>Check the <highlight>Lock node width and height</highlight>.</li>
                     <li>Set the node <highlight>Size</highlight> to 50.</li>
                     <li>Set the default node <highlight>Fill Color</highlight> to light grey.</li>
@@ -152,28 +162,26 @@
             </section>
 
             <section>
-                <h1>Enrichment Analysis</h1>
-                <p>Now that we have a merged network, we can do enrichment analysis on it, using the STRING enrichment tool.</p>
+                <h1>Pathway Enrichment</h1>
+                <p>We can find pathway networks relevant to the host proteins using IQueryuery</p>
                 <ul>
-                    <li>First, designate the merged network as a STRING network by selecting <highlight>Apps &rarr; STRING &rarr; Set as STRING network</highlight>.</li>
-                    <li>Next, click <highlight>Apps &rarr; STRING &rarr; Retreive functional enrichment</highlight>. Use the default value (0.05) for <highlight>Enrichment FDR value cutoff</highlight>.</li>
-                    <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
+                    <li>On the IQuery web page, select the Pathway Enrichment tab to view pathway networks sorted by their enrichment with host proteins.</li>
+                    
+                     <li>There are three ways to sort the enrichment query results, selected the <highlight>sorting menu</highlight>. Click on the "i" icon next to the sorting dropdown menu to see the documentation for each sorting method. By default, the Similarity method is used. Choose the Overlap or p-Value methods and the order of the pathways will change.</li>
+                    
+                    <li>Note that because the example network that we chose is also a member of the set of pathways evaluated by IQuery, it is of course the top-ranked network found.</li>
+                    
+                    <li>Select the nth choice blah blah</li>
+                    
+                               
                 </ul>
 
             </section>
 
 
             <section>
-                <h1>Enrichment Analysis</h1>
-                <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab.</p>
-                <ul>
-                    <li>We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
-                    <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
-                    <li>To make the visualization clearer, we can also remove the structure images from the nodes by selecting <highlight>Apps &rarr; STRING &rarr; Don't show structure images</highlight>.</li>
-                    <!--        <li>Likewise, remove the STRING glass ball effect by selecting <highlight>Apps &rarr; STRING &rarr; Disable STRING glass ball effect</highlight>.</li>-->
-                    <li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
-                </ul>
-                <img class="border" src="enrichment.png" style="height:400px">
+                <h1>Pathway Enrichment</h1>
+                <p></p>
             </section>
 
             <section>
