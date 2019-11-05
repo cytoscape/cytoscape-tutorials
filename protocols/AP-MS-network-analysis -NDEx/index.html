@@ -39,7 +39,7 @@
                     <version>3.7.2</version>
                 </div>
             </section>
-            
+
             <section>
                 <h1>Background</h1>
                 <p>The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of HIV bait proteins are used to pull down a larger set of human prey proteins.</p>
@@ -74,16 +74,16 @@
 
             <section>
                 <h1>Augmenting the Network with Existing Protein-protein Interaction Data</h1>
-                
+
                 <p>Now we are going to capitalize on existing protein-protein interaction data to enrich our network; we will use the new <a href="http://iquery.ndexbio.org/" target="_blank">NDEx Integrated Query</a> (IQuery) with the human prey proteins from our network as query input.</p>
 
                 <ul>
                     <li>In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header once. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.</li>
-                    
+
                     <li>Select all the genes in the <highlight>name</highlight> column that have a corresponding <highlight>UniProt</highlight> ID by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.</li>
-                    
+
                     <li>Open your browser, go to the <a href="http://iquery.ndexbio.org">IQuery</a> website, paste the list of gene symbols into the <highlight>Query Box</highlight> and click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to run the query.</li>
-                    
+
                     <li>In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different sources; although you can choose any of the sources available, for the purpose of this protocol let's select the <highlight>HumanNet - XN</highlight> result and then click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen.</li>
                 </ul>
 
@@ -136,7 +136,7 @@
                     <img class="border" src="layout-interface.png" style="height:350px"></div><br /><br />
 
             </section>
-            
+
             <section>
                 <h1>Visualizing Results</h1>
                 <p>Now, we can create a visualization based on the <highlight>Jurkat Score</highlight> property (associated to all human query nodes) and the different interaction types:</p>
@@ -169,28 +169,102 @@
 
             <section>
                 <h1>Pathway Enrichment</h1>
-                <p>We can find pathway networks relevant to the host proteins using IQueryuery</p>
-                <ul>
-                    <li>On the IQuery web page, select the Pathway Enrichment tab to view pathway networks sorted by their enrichment with host proteins.</li>
-                    
-                     <li>There are three ways to sort the enrichment query results, selected the <highlight>sorting menu</highlight>. Click on the "i" icon next to the sorting dropdown menu to see the documentation for each sorting method. By default, the Similarity method is used. Choose the Overlap or p-Value methods and the order of the pathways will change.</li>
-                    
-                    <li>Note that because the example network that we chose is also a member of the set of pathways evaluated by IQuery, it is of course the top-ranked network found.</li>
-                    
-                    <li>Select the nth choice blah blah</li>
-                    
-                               
-                </ul>
+                <p>We can find pathway networks relevant to the host proteins using IQuery. Go back to the IQuery web page and select the Pathway Enrichment tab. The page should look like this:</p>
+                <img class="plain" src="iquery-enrichment.png" style="height:650px">
+            </section>
+
+            <section>
+                <h1>Pathway Enrichment</h1>
+
+                <p>There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>. Click on the "i" icon next to the sorting dropdown menu to see the documentation for each sorting method. By default, the Similarity method is used. Choose the Overlap or p-Value methods and the order of the pathways will change.</p>
+
+                <img class="plain" src="sorting-menu.png" style="height:150px">
+
+                <p>Each enriched pathway shows its 3 scores</p>
+
+                <img class="plain" src="enrichment-scores.png" style="height:150px">
+
+                <p>Note that because the example network that we chose is also a member of the set of pathways evaluated by IQuery, it is of course the top-ranked network found.</p>
+
+                <p>Select the 5th choice "GO:0006413 (translational initiation)"</p>
 
             </section>
 
 
             <section>
-                <h1>Pathway Enrichment</h1>
+                <h1>Open in Cytoscape</h1>
                 <p></p>
             </section>
 
+            <section>
+                <h1>Save to NDEx from Cytoscape</h1>
+                <p></p>
+            </section>
+
+            <section>
+                <h1>Save to NDEx from IQuery</h1>
+                <p></p>
+            </section>
+
+            <section>
+                <h1>Pathway Networks from Publications</h1>
+                <p></p>
+            </section>
+
+            <section>
+                <h1>Drugs, Diseases, Tissues in IQuery</h1>
+                <p></p>
+            </section>
+
+            <section>
+                <h1>Drugs, Diseases, Tissues in IQuery</h1>
+                <p></p>
+            </section>
+
+            <section>
+                <h1>Sources with Rich Protein Interactions</h1>
+                <p></p>
+            </section>
+
+            <section>
+                <h1>Saving Your Cytoscape Session</h1>
+                <p></p>
+            </section>
+
+            <section>
+                <h1>Sharing Networks via NDEx</h1>
+                <p></p>
+            </section>
             
+            <section>
+                <h1>Exporting Networks as Images From Cytoscape</h1>
+                <p>Cytoscape can export the currently viewed network as an image from the File menu:</p>
+                <p><highlight>File &rarr; Export &rarr; Network to Image...</highlight></p>
+                
+                <p>The file menu also provides an alternative way to export to NDEx</p>
+                <p><highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></p>
+
+            </section>
+
+            <section>
+                <h1>Optional Exercises</h1>
+                <p>Community detection algorithms attempt to expose meaningful within a large network. The most common form of community detection is to separate the nodes of the network into clusters in which nodes are strongly connected to each other. In this optional section, we will bring a large network into Cytoscape, filter it to select relationships of a particular type, and then find clusters within the network.</p>
+
+                <p>We will use the <highlight>Clustermaker</highlight> Cytoscape App to find clusters in the network. Cytoscape Apps can be installed from the <a href="http://apps.cytoscape.org/" target="_blank">Cytoscape App Store</a>. Clustermaker can be found at this App Store <a href="http://apps.cytoscape.org/apps/clustermaker2" target="_blank">page</a>. Apps can also be installed from within Cytoscape using the <highlight>Cytoscape App Manager</highlight>:</p>
+            </section>
+
+            <section>
+                <h1>Filtering a Network</h1>
+                <p></p>
+            </section>
+
+            <section>
+                <h1>Clustering a Network</h1>
+                <p></p>
+            </section>
+
+
+
             <!--
             <section>
                 <h1>Visualizing Results</h1>
@@ -216,18 +290,6 @@
                 <p>The network is now showing the <b>Jurkat score</b> (purple gradient on the right-hand side of the nodes) and <b>HEK</b> scores (blue gradient on the left). <b>AP-MS experiment interactions</b> are shown as green lines in which the thickness of the line reflects the <b>average score</b>, and <b>interactions from STRING</b> are shown as gray lines.</p>
             </section>
             -->
-
-            <section>
-                <h1>Exporting Networks</h1>
-                <p>Cytoscape provides a number of ways to export results and visualizations:</p>
-                <ul>
-                    <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight>
-                    </li>
-                    <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight>
-                    </li>
-                    <li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
-                </ul>
-            </section>
 
             <!-- THIS IS WHERE YOUR CONTENT ENDS -->
             <!-- ========================================================== -->
