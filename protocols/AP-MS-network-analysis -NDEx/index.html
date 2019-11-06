@@ -176,7 +176,14 @@
             <section>
                 <h1>Pathway Enrichment</h1>
 
-                <p>There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>. Click on the "i" icon next to the sorting dropdown menu to see the documentation for each sorting method. By default, the Similarity method is used. Choose the Overlap or p-Value methods and the order of the pathways will change.</p>
+                <ul>
+                    <li>There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>.
+                    </li>
+                    <li>Click on the "i" icon next to the sorting dropdown menu to see the documentation for each sorting method.</li>
+                    <li>By default, the Similarity method is used. Choose the Overlap or p-Value methods and the order of the pathways will change.</li>
+                </ul>
+
+                <p> </p>
 
                 <img class="plain" src="sorting-menu.png" style="height:150px">
 
@@ -184,17 +191,16 @@
 
                 <img class="plain" src="enrichment-scores.png" style="height:150px">
 
-                <p>Note that because the example network that we chose is also a member of the set of pathways evaluated by IQuery, it is of course the top-ranked network found.</p>
+                <ul>
+                    <li>Note: Because the example network that we chose is also a member of the set of pathways evaluated by IQuery, it is of course the top-ranked network found.</li>
+                    <li>Select the 5th choice "GO:0006413 (translational initiation)"</li>
 
-                <p>Select the 5th choice "GO:0006413 (translational initiation)"</p>
-
+                </ul>
             </section>
 
 
             <section>
                 <h1>Open in Cytoscape</h1>
-
-
                 <ul>
                     <li>In the action bar above the network display, click on the Cytoscape icon and the network will be downloaded to the Cytoscape application.</li>
 
@@ -221,7 +227,9 @@
                 <p>Now we will go back to Cytoscape and save the pathway network that you modified.</p>
                 <ul>
                     <li>In Cytoscape, select the "GO:0006413 (translational initiation)" network in the <highlight>Network Tab</highlight> of the left hand panel. </li>
-                    <li>Click the NDEx icon <img class="plain" src="NDExIcon.png" style="height:30px"> in the menubar and choose "Export Network to NDEx"></li>
+                    <li>Click the NDEx icon
+                        <!----<img class="plain" src="NDExIcon.png" style="height:30px"> -->
+                        in the menubar and choose "Export Network to NDEx"></li>
                     <li>The <highlight>NDEx Save Dialog</highlight> will be displayed, but the <highlight>Save Button</highlight> in the lower left corner will be deactivated because Cytoscape is not yet signed in to an NDEx account.</li>
                     <li>Click on the account manager box in the upper right hand corner, and the account manager will open.You may add multiple profiles, which will then be available in a list when hovering over the account manager.</li>
                     <li>Click the <highlight>Add Account</highlight> button and then enter your username (account name) and password. Leave the Server Address box empty, letting it default to the public NDEx server.</li>
@@ -234,7 +242,8 @@
                     <li>When you save a network you can add or edit information about the network or edit its name. Change the network name to "HIV prey involved in translational initiation"</li>
                     <li>Click the <highlight>Save Button</highlight> and after the save is complete, the dialog will update to confirm the save. You can click the <highlight>Go Back</highlight> button to dismiss the confirmation and then click the <highlight>Cancel</highlight> button on the <highlight>Save Dialog</highlight> to dismiss it.</li>
                     <li>Select the browser tab currently displaying the network that you saved directly from IQuery</li>
-                    <li>Click on home icon <img class="plain" src="HomeIcon.png" style="height:30px"> in the menubar and your NDEx account page will be displayed. You will see the network "HIV prey involved in translational initiation" at the top of the list of your networks.</li>
+                    <li>Click on home icon
+                        <!--<img class="plain" src="HomeIcon.png" style="height:30px">--> in the menubar and your NDEx account page will be displayed. You will see the network "HIV prey involved in translational initiation" at the top of the list of your networks.</li>
                     <li>You will also see the network you saved directly from IQuery</li>
                 </ul>
             </section>
@@ -275,18 +284,28 @@
             </section>
 
             <section>
-                <h1>Sources with Rich Protein Interactions</h1>
-                <p></p>
-            </section>
-
-            <section>
                 <h1>Saving Your Cytoscape Session</h1>
-                <p></p>
+                <ul>
+                    <li>In Cytoscape, click the Save icon in the menu bar and select a location to save the session file</li>
+                    <li>The session file is a snapshot of the state of Cytoscape. You can pause in your work, close Cytoscape, and later restore your session to resume.</li>
+                    <li>Note: Any state of the session that relies on a Cytoscape App will only behave as expected if the session is restored to an instance of Cytoscape that has that App loaded.</li>
+                    <li>Note: Any networks downloaded from NDEx are not automatically synced with the original networks on NDEx. Updates to those networks might overwrite a later version on NDEx or fail if the network has been deleted or made read-only on NDEx.</li>
+
+
+                </ul>
             </section>
 
             <section>
                 <h1>Sharing Networks via NDEx</h1>
-                <p></p>
+                <ul>
+                    <li>Upload the Ebola-Human merged network to your NDEx account</li>
+                    <li>View the network in NDEx</li>
+                    <li>Click the "Share" button on the lower right</li>
+                    <li>Click the "Enable Share URL" button </li>
+                    <li>Click the "Copy URL" button.
+                    <li>Paste the URL into an email message. Anyone can use this URL to access your network as a read-only document.</li>
+                    <li>See the <a href="https://home.ndexbio.org/sharing-and-accessing-networks/>NDEx">documentation on sharing</a> to learn how to share with other NDEx users and groups</li>
+                </ul>
             </section>
 
             <section>
@@ -302,25 +321,6 @@
                 </p>
 
             </section>
-
-            <section>
-                <h1>Optional Exercises</h1>
-                <p>Community detection algorithms attempt to expose meaningful within a large network. The most common form of community detection is to separate the nodes of the network into clusters in which nodes are strongly connected to each other. In this optional section, we will bring a large network into Cytoscape, filter it to select relationships of a particular type, and then find clusters within the network.</p>
-
-                <p>We will use the <highlight>Clustermaker</highlight> Cytoscape App to find clusters in the network. Cytoscape Apps can be installed from the <a href="http://apps.cytoscape.org/" target="_blank">Cytoscape App Store</a>. Clustermaker can be found at this App Store <a href="http://apps.cytoscape.org/apps/clustermaker2" target="_blank">page</a>. Apps can also be installed from within Cytoscape using the <highlight>Cytoscape App Manager</highlight>:</p>
-            </section>
-
-            <section>
-                <h1>Filtering a Network</h1>
-                <p></p>
-            </section>
-
-            <section>
-                <h1>Clustering a Network</h1>
-                <p></p>
-            </section>
-
-
 
             <!--
             <section>
