@@ -201,8 +201,6 @@
                     <li>IQuery has added a column "querynode" to nodes in the network to indicate that these are the proteins in the network that match your query. You can use that information to highlight those node.</li>
                     <li>Replace the existing <highlight>Discrete</highlight> mapping for node <highlight>Fill Color</highlight> to instead use the <highlight>querynode</highlight> column. Choose a <highlight>bright green</highlight> for the case where querynode is <highlight>true</highlight>, distinguishing the cluster of EIF3 family proteins that are in common between the human prey proteins and this network related to translation initiation.</li>
                 </ul>
-
-
             </section>
 
             <section>
@@ -220,7 +218,7 @@
 
             <section>
                 <h1>Save to NDEx from Cytoscape</h1>
-                <p>We will now return to Cytoscape and save the pathway network that you modified to NDEx.</p>
+                <p>Now we will go back to Cytoscape and save the pathway network that you modified.</p>
                 <ul>
                     <li>In Cytoscape, select the "GO:0006413 (translational initiation)" network in the <highlight>Network Tab</highlight> of the left hand panel. </li>
                     <li>Click the NDEx icon <img class="plain" src="NDExIcon.png" style="height:30px"> in the menubar and choose "Export Network to NDEx"></li>
@@ -233,7 +231,7 @@
             <section>
                 <h1>Save to NDEx from Cytoscape</h1>
                 <ul>
-                    <li>You can now add additional information about the network or edit its name. Change the network name to "HIV prey involved in translational initiation"</li>
+                    <li>When you save a network you can add or edit information about the network or edit its name. Change the network name to "HIV prey involved in translational initiation"</li>
                     <li>Click the <highlight>Save Button</highlight> and after the save is complete, the dialog will update to confirm the save. You can click the <highlight>Go Back</highlight> button to dismiss the confirmation and then click the <highlight>Cancel</highlight> button on the <highlight>Save Dialog</highlight> to dismiss it.</li>
                     <li>Select the browser tab currently displaying the network that you saved directly from IQuery</li>
                     <li>Click on home icon <img class="plain" src="HomeIcon.png" style="height:30px"> in the menubar and your NDEx account page will be displayed. You will see the network "HIV prey involved in translational initiation" at the top of the list of your networks.</li>
@@ -249,17 +247,31 @@
                     <li>As previously noted, the top scoring pathway is the published network corresponding to this data set.</li>
                     <li>But note that many of the high scoring pathways are also published host-pathogen networks. This highlights the value of published networks in this analysis: they can be more specific to the query and may be more up-to-date than networks from curated collections. </li>
                     <li>In this case, we have found networks that show sub-networks (and potentially mechanisms) shared between HIV and other pathogens</li>
+                    <li>Select the "Ebola-Human" network and download it to Cytoscape</li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>Drugs, Diseases, Tissues in IQuery</h1>
+                <p>Protein-disease, protein-drug/chemical, protein-tissue association networks in NDEx can also be accessed in IQuery. To get more focused example results, we will use a smaller set of proteins: the human prey proteins in common between the HIV and Ebola networks. </p>
+                <ul>
+                    <li>In Cytoscape, view the node table of the Ebola-Human network. For convenience, drag the <highlight>querynode</highlight> column to be next to the <highlight>name</highlight> column.</li>
+                    <li>Sort the table by the <highlight>querynode</highlight> column and copy the names of the nodes that are also query nodes to the clipboard.</li>
+                    <li>Go to the IQuery browser tab, clear the current contents of the search box using the trash can icon at left of the box. Paste the HIV-Ebola common prey gene names into the box and search.</li>
+                    <li>Now select the <highlight>Gene Association</highlight> tab and review the results of querying the HIV-Ebola gene names vs. the available gene (protein) association networks</li>
                 </ul>
             </section>
 
             <section>
                 <h1>Drugs, Diseases, Tissues in IQuery</h1>
                 <p></p>
-            </section>
-
-            <section>
-                <h1>Drugs, Diseases, Tissues in IQuery</h1>
-                <p></p>
+                <ul>
+                    <li>Select the "DrugBank - Combined Network" result and download to Cytoscape.</li>
+                    <li>In Cytoscape, merge the DrugBank network into Ebola-Human</li>
+                    <li>the DrugBank network in the AP-MS data network.</li>
+                    <li>Comparing the merged networks identifies Calnexin (CANX) as a protein that binds both the HIV gp160 and Ebola GP proteins and which has multiple known chemical interactors.</li>
+                    <li>Beyond serving as a demostration of network analysis, the example is motivated by a goal to find interventions that could work across more than one type of retrovirus. In this case, brief literature investigation finds that both the gp160 and GP proteins are involved involved in viral cell attachment, leading to a naive conjecture that chemicals affecting Calnexin could affect cell attachment of both Ebola and HIV.</li>
+                </ul>
             </section>
 
             <section>
