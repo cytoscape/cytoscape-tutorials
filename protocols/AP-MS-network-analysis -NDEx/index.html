@@ -41,9 +41,17 @@
 
             <section>
                 <h1>Background</h1>
-                <p>The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of HIV bait proteins are used to pull down a larger set of human prey proteins.</p>
-                <p>Note that this tutorial does not describe how to pre-process the raw AP-MS data, the data used here is already scored and filtered.</p>
-                <p>In addition, to simplify and speed up the protocol, the tabular "AP-MS Demo Data" have been pre-imported in Cytoscape and uploaded to NDEx in network format.</p>
+                <ul>
+                    <li>
+                        The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of HIV bait proteins are used to pull down a larger set of human prey proteins.
+                    </li>
+                    <li>
+                        <highlight>Note:</highlight> This tutorial does not describe how to pre-process the raw AP-MS data, the data used here is already scored and filtered.
+                    </li>
+                    <li>
+                        <highlight>Note:</highlight> To simplify and speed up this tutorial, the tabular "AP-MS Demo Data" file of interaction data was previously processed using Cytoscape and uploaded to NDEx as a network. We will download that network at the beginning of the tutorial.
+                    </li>
+                </ul>
             </section>
 
             <section>
@@ -294,7 +302,7 @@
                     <img class="plain" src="Ebola-CANX.png">
                 </div>
                 <div style="width:500px; display:inline-block; vertical-align:top; padding:20px">
-                    <img class="plain" src="CyNDEx-save.png">
+                    <img class="plain" src="HIV-CANX.png">
                 </div>
             </section>
 
@@ -302,7 +310,8 @@
                 <h1>Saving Your Cytoscape Session</h1>
                 <ul>
                     <li>In Cytoscape, click the Save icon <img class="plain" src="IconCytoscapeSaveSession.png" style="height:40px"> and select a location to save the session file</li>
-                    <li>The session file is a snapshot of the state of Cytoscape. You can pause in your work, close Cytoscape, and later restore your session to resume your work.</li>
+                    <li>The session file is a <highlight>snapshot of the state of Cytoscape</highlight>. </li>
+                    <li>You can pause in your work, close Cytoscape, and later restore your session to resume your work.</li>
                     <li>
                         <highlight>Note:</highlight> Any state of the session that relies on a Cytoscape App will only behave as expected if the session is restored to an instance of Cytoscape that has that App loaded.
                     </li>
