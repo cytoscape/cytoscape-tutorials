@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Affinity purification-mass spectrometry network analysis</title>
-
+    <title>Affinity Purification-Mass Spectrometry Network Analysis Using Cytoscape and NDEx</title>
     <link rel="stylesheet" href="../../css/reveal.css">
     <link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
 
@@ -168,95 +167,105 @@
             </section>
 
             <section>
-                <h1>Pathway Enrichment</h1>
-                <p>We can find pathway networks relevant to the host proteins using IQuery. Go back to the IQuery web page and select the Pathway Enrichment tab. The page should look like this:</p>
+                <h1>Pathway Enrichment with NDEx IQuery</h1>
+                <p>We can find pathway networks relevant to the host proteins using IQuery. Go back to the IQuery web page and select the <highlight>Pathway Enrichment</highlight> tab. The page should look like this:</p>
                 <img class="plain" src="iquery-enrichment.png" style="height:650px">
             </section>
 
             <section>
-                <h1>Pathway Enrichment</h1>
+                <h1>Pathway Enrichment with NDEx IQuery</h1>
 
                 <ul>
-                    <li>There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>.
-                    </li>
-                    <li>Click on the "i" icon next to the sorting dropdown menu to see the documentation for each sorting method.</li>
-                    <li>By default, the Similarity method is used. Choose the Overlap or p-Value methods and the order of the pathways will change.</li>
+                    <li>There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>.</li>
+                    <li>Click on the information icon next to the sorting dropdown menu to see the documentation for each sorting method.</li>
+                    <li>By default, the <highlight>Similarity</highlight> method is used. Choose the <highlight>Overlap</highlight> or <highlight>p-Value</highlight> methods and the order of the pathways will change.</li>
                 </ul>
-
-                <p> </p>
-
                 <img class="plain" src="sorting-menu.png" style="height:150px">
-
                 <p>Each enriched pathway shows its 3 scores</p>
-
                 <img class="plain" src="enrichment-scores.png" style="height:150px">
-
                 <ul>
                     <li>Note: Because the example network that we chose is also a member of the set of pathways evaluated by IQuery, it is of course the top-ranked network found.</li>
-                    <li>Select the 5th choice "GO:0006413 (translational initiation)"</li>
+                    <li>Select the 5th choice <b>GO:0006413 (translational initiation)</b></li>
 
                 </ul>
             </section>
 
 
             <section>
-                <h1>Open in Cytoscape</h1>
+                <h1>Open in Cytoscape from IQuery</h1>
                 <ul>
-                    <li>In the action bar above the network display, click on the Cytoscape icon and the network will be downloaded to the Cytoscape application.</li>
+                    <li>In the action bar above the network display, click on the Cytoscape icon <img src="IconIQueryOpenInCytoscape.png" class="plain" style="height:40px"> and the network will be downloaded to the Cytoscape application.</li>
 
-                    <li>IQuery has added a column "querynode" to nodes in the network to indicate that these are the proteins in the network that match your query. You can use that information to highlight those node.</li>
-                    <li>Replace the existing <highlight>Discrete</highlight> mapping for node <highlight>Fill Color</highlight> to instead use the <highlight>querynode</highlight> column. Choose a <highlight>bright green</highlight> for the case where querynode is <highlight>true</highlight>, distinguishing the cluster of EIF3 family proteins that are in common between the human prey proteins and this network related to translation initiation.</li>
+                    <li>IQuery has added a column <highlight>querynode</highlight> to nodes in the network to indicate that these are the proteins in the network that match your query. You can use that information to highlight those nodes.</li>
+
+                    <li>Replace the existing <highlight>Discrete</highlight> mapping for node <highlight>Fill Color</highlight> to instead use the <highlight>querynode</highlight> column. Choose a <b>bright green</b> for the case where querynode is <highlight>true</highlight>, distinguishing the cluster of EIF3 family proteins that are in common between the human prey proteins and this network related to translation initiation.</li>
                 </ul>
+                <div>
+                    <img class="plain" src="querynode-fill-color.png" style="height:120px; vertical-align: middle">
+                    <img class="plain" src="translational-initialization.png" style="height:300px; vertical-align: middle">
+                </div>
+
             </section>
 
             <section>
                 <h1>Save to NDEx from IQuery</h1>
-                <p>Returning to IQuery, you can also save this result to NDEx. If you do not have an NDEx account, make one now, following the <a href="https://home.ndexbio.org/create-an-ndex-account/">Creating and Using an NDEx Account</a> tutorial. Please take note of the password generated for you or create your own. You will need it in a subsequent section.</p>
+                <p>Go to IQuery to save the pathway to NDEx in your account. If you do not have an NDEx account, make one now, following the <a href="https://home.ndexbio.org/create-an-ndex-account/">Creating and Using an NDEx Account</a> tutorial. Please take note of the password generated for you or create your own. You will need it in the next section.</p>
                 <ul>
-                    <li>In the action bar above the network panel, click on the black disk icon and the "Sign in to your NDEx Account" dialog will be displayed</li>
+                    <li>In the action bar above the network panel, click on the save icon <img src="IconIQuerySavetoNDEx.png" class="plain" style="height:40px"> and the <highlight>Sign in to your NDEx Account</highlight> dialog will be displayed</li>
                     <li>Sign in with either your Google account or your account name and password. You will now see a dialog showing that you have successfully signed in.</li>
-                    <li>Select "Save to my account" and the dialog will update to give you the option to open the network in NDEx.</li>
-                    <li>Select "Open in NDEx" and the network will be opened in NDEx in a new browser tab.</li>
-                    <li>This is your private copy of the pathway network. (We will explore sharing it in a later section.)</li>
+                    <li>Select <highlight>Save to My Account</highlight> and the dialog will update to give you the option to open the network in NDEx.</li>
+                    <li>Select <highlight>Open in NDEx</highlight> and the network will be opened in NDEx in a new browser tab.</li>
                     <li>When you return to the IQuery browser tab, the dialog will still be open. Click on any part of the window to dismiss the dialog.</li>
                 </ul>
             </section>
 
             <section>
                 <h1>Save to NDEx from Cytoscape</h1>
-                <p>Now we will go back to Cytoscape and save the pathway network that you modified.</p>
-                <ul>
-                    <li>In Cytoscape, select the "GO:0006413 (translational initiation)" network in the <highlight>Network Tab</highlight> of the left hand panel. </li>
-                    <li>Click the NDEx icon
-                        <!----<img class="plain" src="NDExIcon.png" style="height:30px"> -->
-                        in the menubar and choose "Export Network to NDEx"></li>
-                    <li>The <highlight>NDEx Save Dialog</highlight> will be displayed, but the <highlight>Save Button</highlight> in the lower left corner will be deactivated because Cytoscape is not yet signed in to an NDEx account.</li>
-                    <li>Click on the account manager box in the upper right hand corner, and the account manager will open.You may add multiple profiles, which will then be available in a list when hovering over the account manager.</li>
-                    <li>Click the <highlight>Add Account</highlight> button and then enter your username (account name) and password. Leave the Server Address box empty, letting it default to the public NDEx server.</li>
-                </ul>
+                <p>Go to Cytoscape and save the pathway network that you modified.</p>
+                <div style="width:800px; display:inline-block;">
+                    <ul>
+                        <li>In Cytoscape, select the <b>GO:0006413 (translational initiation)</b> network in the <highlight>Network Tab</highlight> of the left hand panel. </li>
+                        <li>
+                            Go to <highlight><img class="plain" src="IconCytoscapeNDEx.png" style="height:40px"> &rarr; Export Network to NDEx</highlight>
+                        </li>
+                        <li>The <highlight>NDEx Save Dialog</highlight> will be displayed, but the <highlight>Save Button</highlight> in the lower left corner will be deactivated because Cytoscape is not yet signed in to an NDEx account.</li>
+                        <li>Click on the account manager box in the upper right hand corner, and the account manager will open.You may add multiple profiles, which will then be available in a list when hovering over the account manager.</li>
+                        <li>Click the <highlight>Add Account</highlight> button and then enter your username (account name) and password. Leave the Server Address box empty, letting it default to the public NDEx server.</li>
+                    </ul>
+                </div>
+                <div style="width:300px; display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="CyNDExAddProfile.png">
+                </div>
             </section>
 
             <section>
                 <h1>Save to NDEx from Cytoscape</h1>
-                <ul>
-                    <li>When you save a network you can add or edit information about the network or edit its name. Change the network name to "HIV prey involved in translational initiation"</li>
-                    <li>Click the <highlight>Save Button</highlight> and after the save is complete, the dialog will update to confirm the save. You can click the <highlight>Go Back</highlight> button to dismiss the confirmation and then click the <highlight>Cancel</highlight> button on the <highlight>Save Dialog</highlight> to dismiss it.</li>
-                    <li>Select the browser tab currently displaying the network that you saved directly from IQuery</li>
-                    <li>Click on home icon
-                        <!--<img class="plain" src="HomeIcon.png" style="height:30px">--> in the menubar and your NDEx account page will be displayed. You will see the network "HIV prey involved in translational initiation" at the top of the list of your networks.</li>
-                    <li>You will also see the network you saved directly from IQuery</li>
-                </ul>
+                <div style="width:600px; display:inline-block;">
+                    <ul>
+                        <li>When you save a network you can add or edit information about the network or edit its name. Change the network name to <b>HIV prey involved in translational initiation</b></li>
+
+                        <li>Click the <highlight>Save Button</highlight> and after the save is complete, the dialog will update to confirm the save. You can click the <highlight>Go Back</highlight> button to dismiss the confirmation and then click the <highlight>Cancel</highlight> button on the <highlight>Save Dialog</highlight> to dismiss it.</li>
+
+                        <li>Select the browser tab currently displaying the network that you saved directly from IQuery</li>
+
+                        <li>Click on home icon <img class="plain" src="IconNDExHome.png" style="height:40px"> in the menubar and your NDEx account page will be displayed. You will see the network <b>HIV prey involved in translational initiation</b> at the top of the list of your networks.</li>
+                        <li>You will also see the network you saved directly from IQuery</li>
+                    </ul>
+                </div>
+                <div style="width:500px; display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="CyNDEx-save.png">
+                </div>
             </section>
 
             <section>
                 <h1>Pathway Networks from Publications</h1>
                 <p>An important function of NDEx is to enable networks in published papers to be available as computable, interactive data. IQuery takes this function a further step, enabling published networks to be discoverable as part of pathway enrichment analysis.</p>
                 <ul>
-                    <li>Select the IQuery browser tab and within that page, select the <highlight>Pathway Enrichment</highlight> tab</li>
+                    <li>Go to IQuery and select the <highlight>Pathway Enrichment</highlight> tab</li>
                     <li>As previously noted, the top scoring pathway is the published network corresponding to this data set.</li>
                     <li>But note that many of the high scoring pathways are also published host-pathogen networks. This highlights the value of published networks in this analysis: they can be more specific to the query and may be more up-to-date than networks from curated collections. </li>
                     <li>In this case, we have found networks that show sub-networks (and potentially mechanisms) shared between HIV and other pathogens</li>
-                    <li>Select the "Ebola-Human" network and download it to Cytoscape</li>
+                    <li>Select the <b>Ebola-Human</b> network and download it to Cytoscape</li>
                 </ul>
             </section>
 
@@ -264,62 +273,78 @@
                 <h1>Drugs, Diseases, Tissues in IQuery</h1>
                 <p>Protein-disease, protein-drug/chemical, protein-tissue association networks in NDEx can also be accessed in IQuery. To get more focused example results, we will use a smaller set of proteins: the human prey proteins in common between the HIV and Ebola networks. </p>
                 <ul>
-                    <li>In Cytoscape, view the node table of the Ebola-Human network. For convenience, drag the <highlight>querynode</highlight> column to be next to the <highlight>name</highlight> column.</li>
+                    <li>In Cytoscape, view the node table of the <b>Ebola-Human</b> network. For convenience, drag the <highlight>querynode</highlight> column to be next to the <highlight>name</highlight> column.</li>
                     <li>Sort the table by the <highlight>querynode</highlight> column and copy the names of the nodes that are also query nodes to the clipboard.</li>
-                    <li>Go to the IQuery browser tab, clear the current contents of the search box using the trash can icon at left of the box. Paste the HIV-Ebola common prey gene names into the box and search.</li>
+                    <li>Go to IQuery, clear the current contents of the search box using the trash icon <img class="plain" src="IconIQueryTrash.png" style="height:40px"> at left of the box. Paste the HIV-Ebola common prey gene names into the box and run the query.</li>
                     <li>Now select the <highlight>Gene Association</highlight> tab and review the results of querying the HIV-Ebola gene names vs. the available gene (protein) association networks</li>
                 </ul>
             </section>
 
             <section>
                 <h1>Drugs, Diseases, Tissues in IQuery</h1>
-                <p></p>
+                <p>In this example we find chemicals that could affect both of these viruses.</p>
                 <ul>
-                    <li>Select the "DrugBank - Combined Network" result and download to Cytoscape.</li>
-                    <li>In Cytoscape, merge the DrugBank network into Ebola-Human</li>
-                    <li>the DrugBank network in the AP-MS data network.</li>
-                    <li>Comparing the merged networks identifies Calnexin (CANX) as a protein that binds both the HIV gp160 and Ebola GP proteins and which has multiple known chemical interactors.</li>
-                    <li>Beyond serving as a demostration of network analysis, the example is motivated by a goal to find interventions that could work across more than one type of retrovirus. In this case, brief literature investigation finds that both the gp160 and GP proteins are involved involved in viral cell attachment, leading to a naive conjecture that chemicals affecting Calnexin could affect cell attachment of both Ebola and HIV.</li>
+                    <li>Select the <b>DrugBank - Combined Network</b> result and download to Cytoscape.</li>
+                    <li>In Cytoscape, merge <b>DrugBank - Combined Network</b> into <b>Ebola-Human</b></li>
+                    <li>Merge <b>DrugBank - Combined Network</b> into the <b>AP-MS data </b>network.</li>
+                    <li>Comparing the merged networks, we see that the Calnexin (CANX) protein binds both the HIV gp160 and Ebola GP proteins and that it has multiple known chemical interactors.</li>
+                    <li> In this case, brief literature investigation finds that both the gp160 and GP proteins are involved involved in viral cell attachment, leading to a naive conjecture that chemicals affecting Calnexin could affect cell attachment of both Ebola and HIV.</li>
                 </ul>
+                <div style="width:500px; display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="Ebola-CANX.png">
+                </div>
+                <div style="width:500px; display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="CyNDEx-save.png">
+                </div>
             </section>
 
             <section>
                 <h1>Saving Your Cytoscape Session</h1>
                 <ul>
-                    <li>In Cytoscape, click the Save icon in the menu bar and select a location to save the session file</li>
-                    <li>The session file is a snapshot of the state of Cytoscape. You can pause in your work, close Cytoscape, and later restore your session to resume.</li>
-                    <li>Note: Any state of the session that relies on a Cytoscape App will only behave as expected if the session is restored to an instance of Cytoscape that has that App loaded.</li>
-                    <li>Note: Any networks downloaded from NDEx are not automatically synced with the original networks on NDEx. Updates to those networks might overwrite a later version on NDEx or fail if the network has been deleted or made read-only on NDEx.</li>
-
-
+                    <li>In Cytoscape, click the Save icon <img class="plain" src="IconCytoscapeSaveSession.png" style="height:40px"> and select a location to save the session file</li>
+                    <li>The session file is a snapshot of the state of Cytoscape. You can pause in your work, close Cytoscape, and later restore your session to resume your work.</li>
+                    <li>
+                        <highlight>Note:</highlight> Any state of the session that relies on a Cytoscape App will only behave as expected if the session is restored to an instance of Cytoscape that has that App loaded.
+                    </li>
+                    <li>
+                        <highlight>Note:</highlight> Networks downloaded from NDEx are not automatically synced with the original networks on NDEx. Updates to those networks might overwrite a later version on NDEx or fail if the network has been deleted or made read-only on NDEx.
+                    </li>
                 </ul>
             </section>
 
             <section>
                 <h1>Sharing Networks via NDEx</h1>
                 <ul>
-                    <li>Upload the Ebola-Human merged network to your NDEx account</li>
+                    <li>Upload the <b>Ebola-Human</b> merged network to your NDEx account</li>
                     <li>View the network in NDEx</li>
-                    <li>Click the "Share" button on the lower right</li>
-                    <li>Click the "Enable Share URL" button </li>
-                    <li>Click the "Copy URL" button.
+                    <li>Click the <highlight>Share</highlight> button on the lower right</li>
+                    <li>On the <highlight>Sharing Page</highlight> click the <highlight>Enable Share URL</highlight>
+                    </li>
+                    <li>Click the <highlight>Copy URL</highlight>.
                     <li>Paste the URL into an email message. Anyone can use this URL to access your network as a read-only document.</li>
                     <li>See the <a href="https://home.ndexbio.org/sharing-and-accessing-networks/>NDEx">documentation on sharing</a> to learn how to share with other NDEx users and groups</li>
                 </ul>
+
             </section>
 
             <section>
                 <h1>Exporting Networks as Images From Cytoscape</h1>
-                <p>Cytoscape can export the currently viewed network as an image from the File menu:</p>
-                <p>
-                    <highlight>File &rarr; Export &rarr; Network to Image...</highlight>
-                </p>
+                <ul>
+                    <li>Cytoscape can export the currently viewed network as an image from the File menu:
+                        <p>
+                            <highlight>File &rarr; Export &rarr; Network to Image...</highlight>
+                        </p>
+                    </li>
 
-                <p>The file menu also provides an alternative way to export to NDEx</p>
-                <p>
-                    <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight>
-                </p>
-
+                    <li>The file menu also provides an alternative way to export to NDEx:
+                        <p>
+                            <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>
+                        </p>
+                        <p>
+                            <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight>
+                        </p>
+                    </li>
+                </ul>
             </section>
 
             <!--
@@ -395,7 +420,8 @@
             history: true,
             controls: true,
             progress: true,
-            slideNumber: false,
+            slideNumber: true,
+            center: false,
             touch: true,
             fragments: true,
             help: true,
