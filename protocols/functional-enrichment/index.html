@@ -57,7 +57,8 @@
 <section>
     <h3>3. Load TCGA data</h3>
     <ul>
-		<highlight>1. Create the network.</highlight>
+	    <li><highlight>Create the network</highlight>
+	    <ul>
         <li>Download
 			<a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.tsv">GBM-TP.all.tsv</a>.</li> 
 		<li>Import the file to create a network using <b>File &rarr; Import &rarr; Network from File...</b>. <br/>This will bring up the <b>Import Network From Table</b> dialog.</li>
@@ -65,20 +66,21 @@
 			<li>Click on <b>Select None</b> to disable all columns.</li>
 			<li>Click only on the <b>GeneName</b> column and set this column as the <b>Source Node</b> column (green circle).</li>
 			<li>Click <b>OK</b>. You’ll see a warning about no edges, but that’s OK. This will create a grid of 1500 unconnected nodes, where each node represents a gene.</li>
-    </ul>
+    </ul></li>
    <!-- <div class="cybrowser">
     <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network import url  url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-nodes.csv indexColumnSourceInteraction=1');" value="Import network"/></div>-->
     <br />
 		
     
-		<highlight>2. Add data to our nodes.</highlight>
+	    <li><highlight>Add data to our nodes</highlight>
+	    <ul>
 			<li>Open the file again, but now use <b>File &rarr; Import &rarr; Table from File...</b>.
 				<br/>This will bring up the <b>Import Columns From Table</b> dialog.</li>
 			<ul>
 				<li>It turns out that all of the defaults are correct for just importing the data, so click on <b>OK</b>.</li>
 				<li>This will import all of the data in the spreadsheet and associate each row with the corresponding node.</li>
 				<li>You should be able to see this in the <b>Table Panel</b>.</li>
-            </ul>
+            </ul></li>
     <!--<div class="cybrowser">
     <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('table import url url=https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/GBM-TP-all.tsv firstRowAsColumnNames=true TargetNetworkList=GBM-TP-nodes.csv keyColumnIndex=1 startLoadRow=1');" value="Load data"/>
     </div>-->
