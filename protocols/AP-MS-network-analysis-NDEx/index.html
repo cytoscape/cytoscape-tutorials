@@ -32,7 +32,15 @@
 
             <section>
                 <h1>Affinity Purification-Mass Spectrometry Network Analysis Using Cytoscape and NDEx</h1>
-                <p>This protocol describes how to use data from an affinity purification-mass spectrometry experiment to to generate relevant interaction networks, enriching the networks with information from public resources, analyzing the networks and creating effective visualizations.</p>
+                <p>This protocol demonstrates an analysis of protein interaction data by:
+                    <ul>
+                        <li>
+                            Generating an interaction network
+                        </li>
+                        <li>
+                            Generating an interaction network
+                        </li>
+                    </ul>, (2) enriching the networks with information from public resources, analyzing the networks and creating effective visualizations.from an affinity purification-mass spectrometry experiment to to </p>
                 <div class="footer" style="position: absolute;  bottom: -6em; ">
                     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5">
                     <version>3.7.2</version>
@@ -43,15 +51,14 @@
                 <h1>Background</h1>
                 <ul>
                     <li>
-                        The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of HIV bait proteins are used to pull down a larger set of human prey proteins.
+                        The data used for this protocol is from an affinity purification-mass spectrometry experiment which identified interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of HIV bait proteins are used to pull down a larger set of human prey proteins.
                     </li>
                     <li>
                         <highlight>Note:</highlight> This tutorial does not describe how to pre-process the raw AP-MS data, the data used here is already scored and filtered.
                     </li>
                     <li>
-                        <highlight>Note:</highlight> To simplify and speed up this tutorial, protein interaction data in the tabular "AP-MS Demo Data" file was previously processed using Cytoscape to create a network and thenuploaded to NDEx. We will download that network at the beginning of the tutorial.
+                        <highlight>Note:</highlight> You can also choose to skip the loading of the data to generate an interaction network, instead downloading a previously created network from NDEx.
                     </li>
-                    <li>The <a href="https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/">Importing Networks From Tables</a> tutorial describes how to create networks in Cytoscape from tabular data.</li>
                 </ul>
             </section>
 
@@ -60,15 +67,32 @@
                 <p>This protocol requires:</p>
                 <ul>
                     <li><a href="https://cytoscape.org/download.html" target="_blank">Cytoscape v3.7.2</a></li>
-                    <li><a href="http://apps.cytoscape.org/apps/cyndex2" target="_blank">cyNDEx2 v2.4.0 App</a> (or higher)</li>
+                    <li><a href="http://apps.cytoscape.org/apps/cyndex2" target="_blank">cyNDEx2 v3.0.0 App</a> (or higher)</li>
                 </ul>
-            </section>
-
-            <section>
-                <h1>Import Network Data</h1>
+                <p>Run Cytoscape</p>
                 <ul>
                     <li>Start up Cytoscape 3.7.2.</li>
                     <li>Update the cyNDEx2 App to the latest version available.</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Option 1:Create the Interaction Network from Tabular Data</h1>
+                <ul>
+                    <li>Click this link to download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata_simple.csv">Example data</a>.</li>
+                    <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the "ap-ms-demodata_simple.csv" file</li>
+                    <li>In the <highlight>Import Network from Table</highlight> dialog, select the <highlight>Bait</highlight> column as <highlight>Source Node</highlight> and <highlight>Prey</highlight> column as <highlight>Target Node</highlight>.</li>
+                    <li>Designate the <highlight>AP-MS Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
+                    <li>Designate the <highlight>HEKScore</highlight> as a <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
+                    <li>Click <highlight>OK</highlight> to import the network.</li>
+                </ul>
+                <p style="font-size: 60%">Note: In cases where a Prey node interacts with more than one Bait node, it will have multiple rows of values for the same attribute (for example HEKScore). During import, the last value imported will overwrite prior values and visualizations using this attribute thus only shows the last value.</p>
+
+                <img class="border" src="import-network-from-table.png" style="height:340px">
+            </section>
+
+            <section>
+                <h1>Option 2: Import the Interaction Network from NDEx</h1>
+                <ul>
                     <li>
                         Search the AP-MS Demo Data network in NDEx by typing "ap-ms demo data" in the <highlight>NDEx Search Box</highlight> and clicking the search icon <img class="plain" src="SearchIcon.png" style="height:30px">.
                     </li>
@@ -78,16 +102,15 @@
             </section>
 
             <section>
-                <h1>Import Network Data</h1>
-                <p>The imported network consists of multiple smaller subnetworks, each representing a bait node and its associated prey nodes:</p>
+                <h1>The Interaction Network</h1>
+                <p>The interaction network consists of multiple smaller subnetworks, each representing an HIV protein (a "bait") node and its associated Human protein ("prey") nodes:</p>
                 <p><img class="plain" src="ap-ms-network.png" style="height:600px"></p>
-
             </section>
 
             <section>
-                <h1>Add Existing Protein-protein Interaction Data</h1>
+                <h1>Add Human Protein-Protein Interactions to the Network</h1>
 
-                <p>We will use existing protein-protein interaction data to enrich our network. The data will be obtained via the <a href="http://iquery.ndexbio.org/" target="_blank">NDEx Integrated Query</a> (IQuery) using the human prey proteins from our network.</p>
+                <p>We will enrich our network by adding known protein-protein interactions between the Human proteins. This interaction data will be obtained via the <a href="http://iquery.ndexbio.org/" target="_blank">NDEx Integrated Query</a> (IQuery) using the human prey proteins from our network.</p>
 
                 <ul>
                     <li>
@@ -101,7 +124,7 @@
 
             </section>
             <section>
-                <h1>Add Existing Protein-protein Interaction Data</h1>
+                <h1>Add Human Protein-Protein Interactions to the Network</h1>
                 <ul>
 
                     <li>
@@ -114,18 +137,19 @@
             </section>
 
             <section>
-                <h1>Add Existing Protein-protein Interaction Data</h1>
+                <h1>Add Human Protein-Protein Interactions to the Network</h1>
                 <ul>
 
-                    <li>In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different sources; although you can choose any of the sources available, for the purpose of this protocol let's select the <highlight>HumanNet - XN</highlight> result and then click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen.
+                    <li>In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different public sources. For the purpose of this protocol we will use the result of querying <highlight>HumanNet - XN</highlight>, a network based on the HumanNet database, filtered to contain only interactions with a LLS score of 3.5 or greater. Note that "LLS" is an interaction score specific to HumanNet.</li>
+                    <li>Select the <highlight>HumanNet - XN</highlight> result.</li>
+                    <li>Click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen to load the result in Cytoscape.
                     </li>
                 </ul>
-
                 <p><img class="plain" src="humannet-query-result.png" style="height:600px"></p>
             </section>
 
             <section>
-                <h1>Add Existing Protein-protein Interaction Data</h1>
+                <h1>Add Human Protein-Protein Interactions to the Network</h1>
                 <div style="width:450px; display:inline-block; vertical-align: top; ">
                     <p>The IQuery result is automatically imported in Cytoscape and the resulting network (named "Direct query result on network - HumanNet - XN (LLS >=3.5)") contains known interactions between human query (prey) proteins, with a LLS score of 3.5 or greater.</p>
                 </div>
@@ -136,7 +160,7 @@
 
             <section>
                 <h1>Merge Networks</h1>
-                <p>To incorprate these new information into our AP-MS network, we will merge it with the IQuery result, matching nodes using the official gene symbols in the <highlight>name</highlight> column.</p>
+                <p>To incorprate these Human protein interactions, we will merge our AP-MS network with the IQuery result, matching nodes using the official gene symbols in the <highlight>name</highlight> column.</p>
                 <div style="width:600px; display:inline-block; vertical-align: top">
                     <ul>
 
@@ -154,7 +178,7 @@
             </section>
 
             <section>
-                <h1>Merge Networks</h1>
+                <h1>The Merged Network</h1>
                 <div style="display:inline-block; vertical-align: top">
                     <p>When the merged network first loads, it will have the default style inherited from the AP-MS network. All nodes look the same and the layout makes it difficult to interpret.</p>
                 </div>
@@ -164,8 +188,8 @@
             </section>
 
             <section>
-                <h1>Visualizing Results</h1>
-                <p>We will apply a better layout to the merged network.</p>
+                <h1>Applying a Layout to the Network</h1>
+                <p>First, we will improve the readability of the network by applying a better layout.</p>
                 <div style="width:600px; display:inline-block; vertical-align: top">
                     <ul>
                         <li>Click the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, open the <highlight>Style Presets</highlight> dropdown menu, scroll to the right and select the <highlight>default</highlight> visual style.</li>
@@ -193,8 +217,8 @@
             </section>
 
             <section>
-                <h1>Visualizing Results</h1>
-                <p>Now, we can create a visualization based on the <highlight>Jurkat Score</highlight> property (associated to all human query nodes) and the different interaction types:</p>
+                <h1>Visual Styling Based on Continuous Numeric Data</h1>
+                <p>We can improve the visualization by coloring the nodes based on their <highlight>Jurkat Score</highlight> property (associated to all human query nodes) and setting the width of edges based on their <highlight>AP-MS Score</highlight> property:</p>
                 <ul>
                     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, create a new style named <b>AP-MS Jurkat Score</b>.</li>
                     <li>Create a continuous mapping for the node <highlight>Fill Color</highlight> using the <highlight>JurkatScore</highlight> column, then select a purple gradient from the <highlight>ColorBrewer</highlight> palettes.</li>
@@ -202,13 +226,23 @@
                     <li>Create a passthrough mapping for node <highlight>Label</highlight> using the <highlight>name</highlight> column.</li>
                     <li>Now switch to the <highlight>Edge</highlight> tab and create a continuous mapping for edge <highlight>Width</highlight> using the <highlight>AP-MS Score</highlight> column.</li>
                     <li>Set the width values to a range from <b>1</b> to <b>5</b>.</li>
-                    <li>Create a <highlight>Discrete</highlight> mapping for edge <highlight>Stroke Color</highlight> using the <highlight>interaction</highlight> column. Choose a <b>green</b> color for all interactions of type <b>interacts with</b>. This will color all the interactions in the original AP-MS dataset.</li>
                 </ul>
+                <p>There is a <a href="https://youtu.be/nwlwSbUZVho">video</a> showing how to perform continuous mapping of data to visual styles.</p>
 
             </section>
 
             <section>
-                <h1>Visualizing Results</h1>
+                <h1>Visual Styling Based on Discrete Data</h1>
+                <p>We can further enhance the network to distinguish HIV-Human interactions from Human-Human interactions by color:</p>
+                <ul>
+                    <li>Create a <highlight>Discrete</highlight> mapping for edge <highlight>Stroke Color</highlight> using the <highlight>interaction</highlight> column. Choose a <b>green</b> color for all interactions of type <b>interacts with</b>. This will color all the interactions in the original AP-MS dataset.</li>
+                </ul>
+                <p>There is a <a href="https://youtu.be/P1IT7GsEp4c">video</a> showing how to perform discrete mapping of data to visual styles.</p>
+
+            </section>
+
+            <section>
+                <h1>The Improved Visualization of the Network</h1>
                 <p>We now have a visualization of the network highlighting the <b>AP-MS experimental data</b> (green edges), as well as <b>additional known interactions from HumanNet</b> (grey edges), with node color indicating the <b>Jurkat Score</b> for our human query genes and a more meaningful layout.</p>
 
                 <img class="plain" src="network_jurkat.png" style="height:550px">
@@ -216,7 +250,7 @@
             </section>
 
             <section>
-                <h1>Visualizing Results</h1>
+                <h1>Inspecting Visualized Interactions</h1>
                 <p>Zooming in on the network, specifically the <b>POL</b> and <b>PR</b> HIV nodes, we can see a set of interactions found in the original paper by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>, which represent binding of POL and PR with the translational initiation complex EIF3.</p>
 
                 <img class="plain" src="final_module.png" style="height:550px">
@@ -348,7 +382,7 @@
 
             <section>
                 <h1>Drugs, Diseases, Tissues in IQuery</h1>
-                <p>In this example we find chemicals that could affect both of these viruses.</p>
+                <p>In this example we find chemicals that could potentially affect the host interactions of both of these viruses.</p>
                 <ul>
                     <li>In IQuery, select the <b>DrugBank - Combined Network</b> result and download to Cytoscape.</li>
                     <li>In Cytoscape, merge <b>DrugBank - Combined Network</b> into <b>Ebola-Human</b></li>
