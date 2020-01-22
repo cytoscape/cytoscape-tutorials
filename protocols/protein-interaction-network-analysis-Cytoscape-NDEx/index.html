@@ -46,7 +46,7 @@
                 <p>In this tutorial, you will:</p>
                 <ul>
                     <li>
-                        Generate an interaction network from protein interaction data.
+                        Generate an protein interaction network from tabular interaction data.
                     </li>
                     <li>
                         Extend the network with protein interactions from public resources.
@@ -56,6 +56,21 @@
                     </li>
                     <li>
                         Find pathways relevant to subsets of the network.
+                    </li>
+                    <li>
+                        Open networks from the web in Cytoscape.
+                    </li>
+                    <li>
+                        Save networks to NDEx.
+                    </li>
+                    <li>
+                        Find drug, gene and tissue associations for a gene set.
+                    </li>
+                    <li>
+                        Share Networks via NDEx.
+                    </li>
+                    <li>
+                        Export networks as images for publication.
                     </li>
                 </ul>
                 <div class="footer" style="position: absolute;  bottom: -6em; ">
@@ -114,7 +129,9 @@
                     </li>
                     <li>A new window will pop up, the cyNDEx Browser... Click the <highlight>Import</highlight> button next to the AP-MS Demo Data network, then close the pop up window.</li>
                 </ul>
-                <img class="plain" src="import-demo-network.png" style="height:500px">
+                <p style="text-align: center">
+                    <img class="plain" src="import-demo-network.png" style="height:500px">
+                </p>
             </section>
 
             <section>
@@ -136,6 +153,9 @@
                     <li>
                         Select all the genes in the <highlight>name</highlight> column that have a corresponding <highlight>UniProt</highlight> ID by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.
                     </li>
+                    <li>
+                        <highlight>Note:</highlight> there is a minor issue with selection in which all of the columns are highlighted, not just the one that is selected. While confusing, the selection works correctly.
+                    </li>
                 </ul>
 
             </section>
@@ -155,7 +175,7 @@
             <section>
                 <h1>Add Human PPI to the Network</h1>
                 <p>
-                    In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different public sources. For the purpose of this protocol we will use the result of querying <highlight>HumanNet - XN</highlight>, a network based on the HumanNet database, filtered to contain only interactions with a LLS score of 3.5 or greater. Note that "LLS" is an interaction score specific to HumanNet.
+                    In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different public sources. For the purpose of this protocol we will use the result of querying <highlight>HumanNet - XN</highlight>, a network based on the HumanNet database, filtered to contain only interactions with a LLS score of 3.5 or greater. <highlight>Note:</highlight> "LLS" is an interaction score <i>specific to HumanNet</i>.
                 </p>
                 <p style="text-align: center">
                     <img class="plain" src="humannet-query-result.png" style="height:500px">
@@ -280,8 +300,8 @@
             <section>
                 <h1>Inspecting Visualized Interactions</h1>
                 <p>Zooming in on the network, specifically the <b>POL</b> and <b>PR</b> HIV nodes, we can see a set of interactions found in the original paper by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>, which represent binding of POL and PR with the translational initiation complex EIF3.</p>
-
-                <img class="plain" src="final_module.png" style="height:550px">
+                <p style="text-align: center">
+                    <img class="plain" src="final_module.png" style="height:550px"></p>
             </section>
 
             <section>
@@ -292,7 +312,12 @@
 
             <section>
                 <h1>Pathway Enrichment with NDEx IQuery</h1>
-                <p>There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>:<img class="plain" src="sorting-menu.png" style="height:150px;"></p>
+                <div style="width:400px; display:inline-block;">
+                    There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>:
+                </div>
+                <div style="width:400px; vertical-align: top; display:inline-block;">
+                    <img class="plain" src="sorting-menu.png" style="height:150px;">
+                </div>
                 <ul>
                     <li>Click on the information icon next to the sorting dropdown menu to see the documentation for each sorting method.</li>
                     <li>By default, the <highlight>Similarity</highlight> method is used. Choose the <highlight>Overlap</highlight> or <highlight>p-Value</highlight> methods and the order of the pathways will change.</li>
