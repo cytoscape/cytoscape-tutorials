@@ -1,0 +1,641 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Protein Interaction Network Analysis Using Cytoscape and NDEx</title>
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+    <style>
+        section {
+            text-align: left
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ========================================================== -->
+            <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+            <section>
+                <h1>Protein Interaction Network Analysis Using Cytoscape and NDEx</h1>
+                <p>In this tutorial, you will:</p>
+                <ul>
+                    <li>
+                        Generate an protein interaction network from tabular interaction data.
+                    </li>
+                    <li>
+                        Extend the network with protein interactions from public resources.
+                    </li>
+                    <li>
+                        Format the network for effective visualization.
+                    </li>
+                    <li>
+                        Find pathways relevant to subsets of the network.
+                    </li>
+                    <li>
+                        Open networks from the web in Cytoscape.
+                    </li>
+                    <li>
+                        Save networks to NDEx.
+                    </li>
+                    <li>
+                        Find drug, gene and tissue associations for a gene set.
+                    </li>
+                    <li>
+                        Share Networks via NDEx.
+                    </li>
+                    <li>
+                        Export networks as images for publication.
+                    </li>
+                </ul>
+                <div class="footer" style="position: absolute;  bottom: -6em; ">
+                    <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5">
+                    <version>3.7.2</version>
+                </div>
+            </section>
+
+            <section>
+                <h1>Background</h1>
+                <p>
+                    The data used for this protocol is from an affinity purification-mass spectrometry experiment which identified interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of HIV bait proteins are used to pull down a larger set of human prey proteins.
+                </p>
+                <p>
+                    <highlight>Note:</highlight> This tutorial does not describe how to pre-process the raw AP-MS data, the data used here is already scored and filtered.
+                </p>
+                <p>
+                    <highlight>Note:</highlight> You can also choose to skip the loading of the data to generate an interaction network, instead downloading a previously created network from NDEx.
+                </p>
+
+            </section>
+
+            <section>
+                <h1>Setup</h1>
+                <p>This protocol requires:</p>
+                <ul>
+                    <li><a href="https://cytoscape.org/download.html" target="_blank">Cytoscape v3.7.2</a></li>
+                    <li><a href="http://apps.cytoscape.org/apps/cyndex2" target="_blank">cyNDEx-2 v3.0.0 App</a> (or higher)</li>
+                </ul>
+                <p>To install CyNDEx-2</p>
+                <ul>
+                    <li>Launch Cytoscape 3.7.2.</li>
+                    <li>Use the App Manager to update the cyNDEx-2 App to the latest version available.</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Option 1:Create the Interaction Network from Tabular Data</h1>
+                <ul>
+                    <li>Click this link to download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata_simple.csv">Example data</a>.</li>
+                    <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the "ap-ms-demodata_simple.csv" file</li>
+                    <li>In the <highlight>Import Network from Table</highlight> dialog, select the <highlight>Bait</highlight> column as <highlight>Source Node</highlight> and <highlight>Prey</highlight> column as <highlight>Target Node</highlight>.</li>
+                    <li>Designate the <highlight>AP-MS Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
+                    <li>Designate the <highlight>HEKScore</highlight> as a <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
+                    <li>Click <highlight>OK</highlight> to import the network.</li>
+                </ul>
+                <p style="font-size: 60%">Note: In cases where a Prey node interacts with more than one Bait node, it will have multiple rows of values for the same attribute (for example HEKScore). During import, the last value imported will overwrite prior values and visualizations using this attribute thus only shows the last value.</p>
+
+                <img class="border" src="import-network-from-table.png" style="height:340px">
+            </section>
+
+            <section>
+                <h1>Option 2: Import the Interaction Network from NDEx</h1>
+                <ul>
+                    <li>
+                        Search the AP-MS Demo Data network in NDEx by typing "ap-ms demo data" in the <highlight>NDEx Search Box</highlight> and clicking the search icon <img class="plain" src="SearchIcon.png" style="height:30px">.
+                    </li>
+                    <li>A new window will pop up, the cyNDEx Browser... Click the <highlight>Import</highlight> button next to the AP-MS Demo Data network, then close the pop up window.</li>
+                </ul>
+                <p style="text-align: center">
+                    <img class="plain" src="import-demo-network.png" style="height:500px">
+                </p>
+            </section>
+
+            <section>
+                <h1>The Interaction Network</h1>
+                <p>The interaction network consists of multiple smaller subnetworks, each representing an HIV protein (a "bait") node and its associated Human protein ("prey") nodes:</p>
+                <p><img class="plain" src="ap-ms-network.png" style="height:600px"></p>
+            </section>
+
+            <section>
+                <h1>Add Human PPI to the Network</h1>
+
+                <p>Now extend the network by adding known protein-protein interactions between the Human proteins. This interaction data will be obtained via the <a href="http://iquery.ndexbio.org/" target="_blank">NDEx Integrated Query</a> (IQuery) using the human prey proteins from our network.</p>
+
+                <ul>
+                    <li>
+                        In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header once. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.
+                    </li>
+
+                    <li>
+                        Select all the genes in the <highlight>name</highlight> column that have a corresponding <highlight>UniProt</highlight> ID by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.
+                    </li>
+                    <li>
+                        <highlight>Note:</highlight> there is a minor issue with selection in which all of the columns are highlighted, not just the one that is selected. While confusing, the selection works correctly.
+                    </li>
+                </ul>
+
+            </section>
+            <section>
+                <h1>Add Human PPI to the Network</h1>
+                <ul>
+
+                    <li>
+                        Open your browser, go to the <a href="http://iquery.ndexbio.org">IQuery</a> website, paste the list of gene symbols into the <highlight>Query Box</highlight> and click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to run the query.
+                    </li>
+                </ul>
+
+                <p style="text-align: center"><img class="plain" src="iquery-apms-query.png" style="height:600px"></p>
+
+            </section>
+
+            <section>
+                <h1>Add Human PPI to the Network</h1>
+                <p>
+                    In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different public sources. For the purpose of this protocol we will use the result of querying <highlight>HumanNet - XN</highlight>, a network based on the HumanNet database, filtered to contain only interactions with a LLS score of 3.5 or greater. <highlight>Note:</highlight> "LLS" is an interaction score <i>specific to HumanNet</i>.
+                </p>
+                <p style="text-align: center">
+                    <img class="plain" src="humannet-query-result.png" style="height:500px">
+                </p>
+            </section>
+
+            <section>
+                <h1>Add Human PPI to the Network</h1>
+                <ul>
+                    <li>Select the <highlight>HumanNet - XN</highlight> result.</li>
+                    <li>Click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen to load the result in Cytoscape.
+                    </li>
+                </ul>
+                <p style="text-align: center"><img class="plain" src="humannet-query-result.png" style="height:600px"></p>
+            </section>
+
+            <section>
+                <h1>Add Human PPI to the Network</h1>
+                <div style="width:550px; display:inline-block; vertical-align: top; ">
+                    <p>The IQuery result is automatically imported in Cytoscape and the resulting network (named "Direct query result on network - HumanNet - XN (LLS >=3.5)") contains known interactions between human query (prey) proteins, with a LLS score of 3.5 or greater.</p>
+                </div>
+                <div style="width:600px; display:inline-block; text-align: center;">
+                    <img class="plain" src="humannet_network.png">
+                </div>
+            </section>
+
+            <section>
+                <h1>Merge Networks</h1>
+                <p>To incorprate these Human protein interactions, merge the AP-MS network with the IQuery result, matching nodes using the official gene symbols in the <highlight>name</highlight> column.</p>
+                <div style="width:600px; display:inline-block; vertical-align: top">
+                    <ul>
+
+                        <li>Go to <highlight>Tools &rarr; Merge &rarr; Networks...</highlight>
+                        </li>
+                        <li>In the <highlight>Available Networks</highlight> list, select both networks and click the right arrow to add them to the list of <highlight>Networks to Merge</highlight>.</li>
+                        <li>Expand the <highlight>Advanced Options</highlight> interface.</li>
+                        <li>In the <highlight>Matching Columns</highlight> field, select <highlight>name</highlight> for the AP-MS network and <highlight>name</highlight> for the IQuery result network if they are not already pre-set, then click <highlight>Merge</highlight>.</li>
+
+                    </ul>
+                </div>
+                <div style="width:500px; display:inline-block; text-align: center;">
+                    <img class="plain" src="merge_interface.png">
+                </div>
+            </section>
+
+            <section>
+                <h1>The Merged Network</h1>
+                <div style="display:inline-block; vertical-align: top">
+                    <p>When the merged network first loads, it will have the default style inherited from the AP-MS network. All nodes look the same and the layout makes it difficult to interpret.</p>
+                </div>
+
+                <div style="text-align: center">
+                    <img style="text-align: center" class="plain" src="merged_network.png" height="650px">
+                </div>
+
+            </section>
+
+            <section>
+                <h1>Apply a Layout to the Network</h1>
+                <p>Improve readability by applying an automated layout:</p>
+                <div style="width:600px; display:inline-block; vertical-align: top">
+                    <ul>
+                        <li>Click the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, open the <highlight>Style Presets</highlight> dropdown menu, scroll to the right and select the <highlight>default</highlight> visual style.</li>
+
+                        <li>Then, Under <highlight>Layout &rarr; Settings...</highlight>, select the <highlight>Prefuse Force Directed Layout</highlight> and change the settings as follows:
+                            <ul>
+                                <li>
+                                    <highlight>Default Spring Coefficient</highlight> = <b>5E-5</b>
+                                </li>
+                                <li>
+                                    <highlight>Default Spring Length</highlight> = <b>100</b>
+                                </li>
+                                <li>
+                                    <highlight>Default Node Mass</highlight> = <b>3</b>.
+                                </li>
+                            </ul>
+                        <li>Click <highlight>Apply</highlight> to apply the layout.</li>
+                    </ul>
+                </div>
+
+                <div style="width:500px; display:inline-block;">
+                    <img class="plain" src="layout-interface.png">
+                </div>
+
+            </section>
+
+            <section>
+                <h1>Visual Styling Based on Continuous Numeric Data</h1>
+                <p>Improve the visualization by coloring the nodes based on their <highlight>Jurkat Score</highlight> property (associated to all human query nodes) and setting the width of edges based on their <highlight>AP-MS Score</highlight> property:</p>
+                <ul>
+                    <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, create a new style named <b>AP-MS Jurkat Score</b>.</li>
+                    <li>Create a continuous mapping for the node <highlight>Fill Color</highlight> using the <highlight>JurkatScore</highlight> column, then select a purple gradient from the <highlight>ColorBrewer</highlight> palettes.</li>
+                    <li>Switch the deafult node <highlight>Fill Color</highlight> to <highlight>yellow</highlight> to highlight the HIV proteins.</li>
+                    <li>Create a passthrough mapping for node <highlight>Label</highlight> using the <highlight>name</highlight> column.</li>
+                    <li>Now switch to the <highlight>Edge</highlight> tab and create a continuous mapping for edge <highlight>Width</highlight> using the <highlight>AP-MS Score</highlight> column.</li>
+                    <li>Set the width values to a range from <b>1</b> to <b>5</b>.</li>
+                </ul>
+                <p>There is a <a href="https://youtu.be/nwlwSbUZVho">video</a> showing how to perform continuous mapping of data to visual styles.</p>
+
+            </section>
+
+            <section>
+                <h1>Visual Styling Based on Discrete Data</h1>
+                <p>Further enhance the network to distinguish HIV-Human interactions from Human-Human interactions by color:</p>
+                <ul>
+                    <li>Create a <highlight>Discrete</highlight> mapping for edge <highlight>Stroke Color</highlight> using the <highlight>interaction</highlight> column. Choose a <b>green</b> color for all interactions of type <b>interacts with</b>. This will color all the interactions in the original AP-MS dataset.</li>
+                </ul>
+                <p>There is a <a href="https://youtu.be/P1IT7GsEp4c">video</a> showing how to perform discrete mapping of data to visual styles.</p>
+
+            </section>
+
+            <section>
+                <h1>The Improved Visualization of the Network</h1>
+                <p>The visualization of the network now has a more understandable layout and highlights the <b>AP-MS experimental data</b> (green edges), as well as <b>additional known interactions from HumanNet</b> (grey edges), with node color indicating the <b>Jurkat Score</b> for our human query genes.</p>
+
+                <p style="text-align: center">
+                    <img class="plain" src="network_jurkat.png" style="height:550px">
+                </p>
+
+            </section>
+
+            <section>
+                <h1>Inspecting Visualized Interactions</h1>
+                <p>Zooming in on the network, specifically the <b>POL</b> and <b>PR</b> HIV nodes, we can see a set of interactions found in the original paper by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>, which represent binding of POL and PR with the translational initiation complex EIF3.</p>
+                <p style="text-align: center">
+                    <img class="plain" src="final_module.png" style="height:550px"></p>
+            </section>
+
+            <section>
+                <h1>Pathway Enrichment with NDEx IQuery</h1>
+                <p>We can find pathways relevant to the host proteins using IQuery. Go back to the IQuery web page, select the <highlight>Pathway Enrichment</highlight> tab, then select the <b>GO:0006413 (translational initiation)</b> pathway</p>
+                <img class="plain" src="iquery-enrichment.png" style="height:650px">
+            </section>
+
+            <section>
+                <h1>Pathway Enrichment with NDEx IQuery</h1>
+                <div style="width:400px; display:inline-block;">
+                    There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>:
+                </div>
+                <div style="width:400px; vertical-align: top; display:inline-block;">
+                    <img class="plain" src="sorting-menu.png" style="height:150px;">
+                </div>
+                <ul>
+                    <li>Click on the information icon next to the sorting dropdown menu to see the documentation for each sorting method.</li>
+                    <li>By default, the <highlight>Similarity</highlight> method is used. Choose the <highlight>Overlap</highlight> or <highlight>p-Value</highlight> methods and the order of the pathways will change.</li>
+                </ul>
+                <p>Each enriched pathway shows its 3 scores</p>
+                <img class="plain" src="enrichment-scores.png" style="height:150px">
+                <ul>
+                    <li>Note: Because the example network that we chose is also a member of the set of pathways evaluated by IQuery, it is of course the top-ranked network found.</li>
+                    <li>Select the 5th choice <b>GO:0006413 (translational initiation)</b></li>
+
+                </ul>
+            </section>
+
+            <section>
+                <h1>Open in Cytoscape from IQuery</h1>
+                <ul>
+                    <li>In the action bar above the network display, click on the Cytoscape icon <img src="IconIQueryOpenInCytoscape.png" class="plain" style="height:40px"> and the network will be downloaded to the Cytoscape application.</li>
+
+                    <li>IQuery has added a column <highlight>querynode</highlight> to nodes in the network to indicate that these are the proteins in the network that match your query. You can use that information to highlight those nodes.</li>
+
+                    <li>Replace the existing <highlight>Discrete</highlight> mapping for node <highlight>Fill Color</highlight> to instead use the <highlight>querynode</highlight> column. Choose a <b>bright green</b> for the case where querynode is <highlight>true</highlight>, distinguishing the cluster of EIF3 family proteins that are in common between the human prey proteins and this network related to translation initiation.</li>
+                </ul>
+                <div>
+                    <img class="plain" src="querynode-fill-color.png" style="height:120px; vertical-align: middle">
+                    <img class="plain" src="translational-initialization.png" style="height:300px; vertical-align: middle">
+                </div>
+
+            </section>
+
+            <section>
+                <h1>Save to NDEx from IQuery</h1>
+                <p>Go to IQuery to save the pathway to NDEx in your account. If you do not have an NDEx account, make one now, following the <a href="https://home.ndexbio.org/create-an-ndex-account/">Creating and Using an NDEx Account</a> tutorial. Please take note of the password generated for you or create your own. You will need it in the next section.</p>
+                <ul>
+                    <li>In the action bar above the network panel, click on the save icon <img src="IconIQuerySavetoNDEx.png" class="plain" style="height:40px"> and the <highlight>Sign in to your NDEx Account</highlight> dialog will be displayed</li>
+                    <li>Sign in with either your Google account or your account name and password. You will now see a dialog showing that you have successfully signed in.</li>
+                    <li>Select <highlight>Save to My Account</highlight> and the dialog will update to give you the option to open the network in NDEx.</li>
+                    <li>Select <highlight>Open in NDEx</highlight> and the network will be opened in NDEx in a new browser tab.</li>
+                    <li>When you return to the IQuery browser tab, the dialog will still be open. Click on any part of the window to dismiss the dialog.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>Save to NDEx from Cytoscape</h1>
+                <p>Go to Cytoscape and save the pathway network that you modified.</p>
+                <div style="width:700px; display:inline-block;">
+                    <ul>
+                        <li>In Cytoscape, select the <b>GO:0006413 (translational initiation)</b> network in the <highlight>Network Tab</highlight> of the left hand panel. </li>
+                        <li>
+                            Go to <highlight><img class="plain" src="IconCytoscapeNDEx.png" style="height:40px"> &rarr; Export Network to NDEx</highlight>
+                        </li>
+                        <li>The <highlight>NDEx Save Dialog</highlight> will be displayed, but the <highlight>Save Button</highlight> in the lower left corner will be deactivated because Cytoscape is not yet signed in to an NDEx account.</li>
+                        <li>Click on the account manager box in the upper right hand corner, and the account manager will open.</li>
+                        <li>Click the <highlight>Add Account</highlight> button and then enter your username (account name) and password. Leave the Server Address box empty, letting it default to the public NDEx server.</li>
+                    </ul>
+                </div>
+                <div style="width:400px; display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="CyNDExAddProfile.png">
+                </div>
+            </section>
+
+            <section>
+                <h1>Save to NDEx from Cytoscape</h1>
+                <div style="width:600px; display:inline-block;">
+                    <ul>
+                        <li>When you save a network you can add or edit information about the network or edit its name. Change the network name to <b>HIV prey involved in translational initiation</b></li>
+
+                        <li>Click the <highlight>Save Button</highlight> and after the save is complete, the dialog will update to confirm the save. You can click the <highlight>Go Back</highlight> button to dismiss the confirmation and then click the <highlight>Cancel</highlight> button on the <highlight>Save Dialog</highlight> to dismiss it.</li>
+
+                    </ul>
+                </div>
+                <div style="width:500px; display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="CyNDEx-save.png">
+                </div>
+            </section>
+
+            <section>
+                <h1>Save to NDEx from Cytoscape</h1>
+                <div style="width:1100px; display:inline-block;">
+                    <ul>
+                        <li>Select the NDEx browser tab displaying the network saved directly from IQuery</li>
+
+                        <li>Click on home icon <img class="plain" src="IconNDExHome.png" style="height:40px"> in the menubar and your NDEx account page will be displayed. You will see the network <b>HIV prey involved in translational initiation</b> at the top of the list of your networks.</li>
+                        <li>You will also see the network you saved directly from IQuery</li>
+                    </ul>
+                </div>
+                <div style=" display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="ndex-homepage-networks.png">
+                </div>
+            </section>
+
+            <section>
+                <h1>Pathway Networks from Publications</h1>
+                <p>An important function of NDEx is to enable networks in published papers to be available as computable, interactive data. IQuery takes this function a further step, enabling published networks to be discoverable as part of pathway enrichment analysis.</p>
+                <ul>
+                    <li>Go to IQuery and select the <highlight>Pathway Enrichment</highlight> tab</li>
+                    <li>As previously noted, the top scoring pathway is the published network corresponding to this data set.</li>
+                    <li>But note that many of the high scoring pathways are also published host-pathogen networks. This highlights the value of published networks in this analysis: they can be more specific to the query and may be more up-to-date than networks from curated collections. </li>
+                    <li>In this case, we have found networks that show sub-networks (and potentially mechanisms) shared between HIV and other pathogens</li>
+                    <li>Select the <b>Ebola-Human</b> network and download it to Cytoscape</li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>Drugs, Diseases, Tissues in IQuery</h1>
+                <p>Protein-disease, protein-drug/chemical, protein-tissue association networks in NDEx can also be accessed in IQuery. To get more focused example results, we will use a smaller set of proteins: the human prey proteins in common between the HIV and Ebola networks. </p>
+
+                <ul>
+                    <li>In Cytoscape, view the node table of the <b>Ebola-Human</b> network. For convenience, drag the <highlight>querynode</highlight> column to be next to the <highlight>name</highlight> column.</li>
+                    <li>Sort the table by the <highlight>querynode</highlight> column and copy the names of the nodes that are also query nodes to the clipboard.</li>
+                    <li>Go to IQuery, clear the current contents of the search box using the trash icon <img class="plain" src="IconIQueryTrash.png" style="height:40px"> at left of the box. Paste the HIV-Ebola common prey gene names into the box and run the query.</li>
+                    <li>Now select the <highlight>Gene Association</highlight> tab and review the results of querying the HIV-Ebola gene names vs. the available gene (protein) association networks</li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>Drugs, Diseases, Tissues in IQuery</h1>
+                <p>In this example we find chemicals that could potentially affect the host interactions of both of these viruses.</p>
+                <ul>
+                    <li>In IQuery, select the <b>DrugBank - Combined Network</b> result and download to Cytoscape.</li>
+                    <li>In Cytoscape, merge <b>DrugBank - Combined Network</b> into <b>Ebola-Human</b></li>
+                    <li>Merge <b>DrugBank - Combined Network</b> into the <b>AP-MS data </b>network.</li>
+                    <li>Comparing the merged networks, we see that the Calnexin (CANX) protein binds both the HIV gp160 and Ebola GP proteins and that it has multiple known chemical interactors.</li>
+                    <li> In this case, brief literature investigation finds that both the gp160 and GP proteins are involved involved in viral cell attachment, leading to a naive conjecture that chemicals affecting Calnexin could affect cell attachment of both Ebola and HIV.</li>
+                </ul>
+                <div style="width:500px; display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="Ebola-CANX.png">
+                </div>
+                <div style="width:500px; display:inline-block; vertical-align:top; padding:20px">
+                    <img class="plain" src="HIV-CANX.png">
+                </div>
+            </section>
+
+            <section>
+                <h1>Saving Your Cytoscape Session</h1>
+                <ul>
+                    <li>In Cytoscape, click the Save icon <img class="plain" src="IconCytoscapeSaveSession.png" style="height:40px"> and select a location to save the session file</li>
+                    <li>The session file is a <highlight>snapshot of the state of Cytoscape</highlight>. </li>
+                    <li>You can pause in your work, close Cytoscape, and later restore your session to resume your work.</li>
+                    <li>
+                        <highlight>Note:</highlight> Any state of the session that relies on a Cytoscape App will only behave as expected if the session is restored to an instance of Cytoscape that has that App loaded.
+                    </li>
+                    <li>
+                        <highlight>Note:</highlight> Networks downloaded from NDEx are not automatically synced with the original networks on NDEx. Updates to those networks might overwrite a later version on NDEx or fail if the network has been deleted or made read-only on NDEx.
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>Sharing Networks via NDEx</h1>
+                <ul>
+                    <li>Upload the <b>Ebola-Human</b> merged network to your NDEx account</li>
+                    <li>View the network in NDEx</li>
+                    <li>Click the <highlight>Share</highlight> button on the lower right</li>
+                    <li>On the <highlight>Sharing Page</highlight> click the <highlight>Enable Share URL</highlight>
+                    </li>
+                    <li>Click the <highlight>Copy URL</highlight>.
+                    <li>Paste the URL into an email message. Anyone can use this URL to access your network as a read-only document.</li>
+                    <li>See the <a href="https://home.ndexbio.org/sharing-and-accessing-networks/>NDEx">documentation on sharing</a> to learn how to share with other NDEx users and groups</li>
+                </ul>
+
+            </section>
+
+            <section>
+                <h1>Exporting Networks as Images From Cytoscape</h1>
+                <ul>
+                    <li>Cytoscape can export the currently viewed network as an image from the File menu:
+                        <p>
+                            <highlight>File &rarr; Export &rarr; Network to Image...</highlight>
+                        </p>
+                    </li>
+
+                    <li>The file menu also provides an alternative way to export to NDEx:
+                        <p>
+                            <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>
+                        </p>
+                        <p>
+                            <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight>
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h1>References</h1>
+                <ul>
+                    <li>
+                        <a href="https://tutorials.cytoscape.org">Cytoscape Tutorials</a>
+                    </li>
+                    <li>
+                        <a href="https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/">Importing Networks From Tables</a>
+                    </li>
+                </ul>
+            </section>
+
+            <!--
+            <section>
+                <h1>Visualizing Results</h1>
+                <p>We could create a similar kind of style for the HEK score, but that only allows for viewing each style seperately. Instead, we can create a combined style, using the <a href="http://www.cgl.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml" target="_blank">enhancedGraphics</a> app.</p>
+                <p>For this, we will need a new column defining a new attribute that will be used for mapping to the <highlight>Custom Graphics</highlight> property via the <highlight>enhancedGraphics</highlight> app. This new attribute has to be in the form of mappings recognized by the enhancedGraphics app.</p>
+                <ul>
+                    <li>In the <highlight>Table Panel</highlight>, click the button for <highlight>Create New Column</highlight>, then select <highlight>New Single Column &rarr; String</highlight> and name it <highlight>CombinedScore</highlight>.</li>
+                    <li>In the first cell of the <highlight>CombinedScore</highlight> column, enter the mapping below and click enter.</li>
+                    <p><b>piechart: showlabels="false" range="0,1" arcstart="90" valuelist=".5,.5" colorlist="up:blue,zero:white,down:white;up:purple,zero:white,down:white" attributelist="HEKScore,JurkatScore" labellist="HEKScore,JurkatScore"</b></p>
+                    <li>Your new entry may disappear to the bottom of the column; just click on the column header once or twice to re-sort. Right-click on the new entry and select <highlight>Apply to entire column</highlight>. This will fill the column with the same mapping.</li>
+                </ul>
+
+            </section>
+
+            <section>
+                <h1>Visualizing Results</h1>
+                <ul>
+                    <li>In the <highlight>Style</highlight> panel, select <highlight>Copy Style...</highlight> and name your new style <highlight>AP-MS CombinedScore</highlight>.</li>
+                    <li>Create a passthrough mapping for <highlight>Image/Chart 1</highlight> using the new <highlight>CombinedScore</highlight> attribute.</li>
+                </ul>
+                <div style="float:right">
+                    <img class="plain" src="network-combinedscore.png" style="height:650px"></div><br /><br />
+                <p>The network is now showing the <b>Jurkat score</b> (purple gradient on the right-hand side of the nodes) and <b>HEK</b> scores (blue gradient on the left). <b>AP-MS experiment interactions</b> are shown as green lines in which the thickness of the line reflects the <b>average score</b>, and <b>interactions from STRING</b> are shown as gray lines.</p>
+            </section>
+
+
+
+
+            -->
+
+            <!-- THIS IS WHERE YOUR CONTENT ENDS -->
+            <!-- ========================================================== -->
+
+        </div>
+    </div>
+
+    <script src="../../lib/js/head.min.js"></script>
+    <script src="../../js/reveal.js"></script>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-155159-15', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script>
+        Reveal.addEventListener('ready', function() {
+            if (!window.navigator.userAgent.includes('CyBrowser')) {
+                var divs = document.getElementsByClassName("cybrowser")
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.display = "none";
+                }
+            } else {
+                var divs = document.getElementsByClassName("not-cybrowser")
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.display = "none";
+                }
+            }
+        });
+
+    </script>
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+            controls: true,
+            progress: true,
+            slideNumber: true,
+            center: false,
+            touch: true,
+            fragments: true,
+            help: true,
+            showNotes: false,
+            previewLinks: false,
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+            width: 1200,
+            height: 860,
+            autoSlide: 0,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [{
+                    src: '../../plugin/markdown/marked.js'
+                },
+                {
+                    src: '../../plugin/markdown/markdown.js'
+                },
+                {
+                    src: '../../plugin/zoom-js/zoom.js',
+                    async: true,
+                    condition: function() {
+                        return !!document.body.classList;
+                    }
+                },
+                {
+                    src: '../../plugin/notes/notes.js',
+                    async: true
+                },
+                {
+                    src: '../../plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                {
+                    src: '../../plugin/external/external.js',
+                    condition: function() {
+                        return !!document.querySelector('[data-external]');
+                    }
+                }
+            ]
+        });
+
+    </script>
+</body>
+
+</html>
