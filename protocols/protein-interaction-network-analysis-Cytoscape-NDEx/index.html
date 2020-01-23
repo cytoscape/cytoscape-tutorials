@@ -109,13 +109,15 @@
             <section>
                 <h1>Option 1:Create the Interaction Network from Tabular Data</h1>
                 <ul>
-                    <li>Click this link to download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata_simple.csv">Example data</a>.</li>
-                    <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the "ap-ms-demodata_simple.csv" file</li>
+                    <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata.csv">Example data</a>.</li>
                     <li>In the <highlight>Import Network from Table</highlight> dialog, select the <highlight>Bait</highlight> column as <highlight>Source Node</highlight> and <highlight>Prey</highlight> column as <highlight>Target Node</highlight>.</li>
                     <li>Designate the <highlight>AP-MS Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
-                    <li>Designate the <highlight>HEKScore</highlight> as a <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
+                    <li>For all other data values, designate them as <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
                     <li>Click <highlight>OK</highlight> to import the network.</li>
                 </ul>
+                <p style="text-align:center">
+                    <img src="ap-ms-import-dialog.png" style="height:350px">
+                </p>
                 <p style="font-size: 60%">Note: In cases where a Prey node interacts with more than one Bait node, it will have multiple rows of values for the same attribute (for example HEKScore). During import, the last value imported will overwrite prior values and visualizations using this attribute thus only shows the last value.</p>
 
                 <img class="border" src="import-network-from-table.png" style="height:340px">
@@ -368,7 +370,7 @@
                         <li>
                             Go to <highlight><img class="plain" src="IconCytoscapeNDEx.png" style="height:40px"> &rarr; Export Network to NDEx</highlight>
                         </li>
-                        <li>The <highlight>NDEx Save Dialog</highlight> will be displayed, but the <highlight>Save Button</highlight> in the lower left corner will be deactivated because Cytoscape is not yet signed in to an NDEx account.</li>
+                        <li>The <highlight>NDEx Save Dialog</highlight> will be displayed, but the <highlight>Export Network to NDEx Button</highlight> in the lower right corner will be deactivated because Cytoscape is not yet signed in to an NDEx account.</li>
                         <li>Click on the account manager box in the upper right hand corner, and the account manager will open.</li>
                         <li>Click the <highlight>Add Account</highlight> button and then enter your username (account name) and password. Leave the Server Address box empty, letting it default to the public NDEx server.</li>
                     </ul>
