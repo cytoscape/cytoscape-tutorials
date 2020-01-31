@@ -129,30 +129,33 @@
                     <li>
                         Search the AP-MS Demo Data network in NDEx by typing "ap-ms demo data" in the <highlight>NDEx Search Box</highlight> and clicking the search icon <img class="plain" src="SearchIcon.png" style="height:30px">.
                     </li>
-                    <li>A new window will pop up, the cyNDEx Browser... Click the <highlight>Import</highlight> button next to the AP-MS Demo Data network, then close the pop up window.</li>
+                    <li>The cyNDEx Browser window will pop up... Click the <highlight>Import</highlight> button next to the AP-MS Demo Data network, then close the pop up window.</li>
                 </ul>
                 <p style="text-align: center">
-                    <img class="plain" src="import-demo-network.png" style="height:500px">
+                    <img class="border" src="import-demo-network.png" style="height:550px">
                 </p>
             </section>
 
             <section>
                 <h1>The Interaction Network</h1>
-                <p>Cytoscape will now display the interaction network with a default style and a grid layout (When loading from tabular data, the layout may be different depending on your Cytoscape settings. Don't worry, this will not matter)</p>
+                <p>Cytoscape will now display the interaction network with a default style and a grid layout (When loading from tabular data as described in Option 1, the layout may be different depending on your Cytoscape settings. Don't worry, this will not matter.)</p>
+                <p style="text-align: center">
+                    <img class="plain" src="ap-ms-network.png" style="height:650px">
+                </p>
             </section>
             <section>
                 <h1>Add Human PPI to the Network</h1>
 
-                <p>Now extend the network by adding known protein-protein interactions between the Human proteins. This interaction data will be obtained via the <a href="http://iquery.ndexbio.org/" target="_blank">NDEx Integrated Query</a> (IQuery) using the human prey proteins from our network.</p>
+                <p>Now extend the network by adding known protein-protein interactions between the human proteins. This interaction data will be obtained via the <a href="http://iquery.ndexbio.org/" target="_blank">NDEx Integrated Query</a> (IQuery) using the <u>human</u> prey proteins from our network.</p>
 
                 <ul>
                     <li>
-                        In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header once. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.
-                    </li>
-
-                    <li>
-                        Select all the genes in the <highlight>name</highlight> column that have a corresponding <highlight>UniProt</highlight> ID by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.
-                    </li>
+                        Click the <highlight>Select</highlight> tab in the <highlight>Control Panel</highlight></li>
+                    <li>Click the "Plus" sign and add a <highlight>Column Filter</highlight></li>
+                    <li>Then, use the <highlight>Dropdown</highlight> element to select the <highlight>Uniprot</highlight> column</li>
+                    <li>Now, select all the genes in the <highlight>name</highlight> column by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry.</li>
+                    <li>Click <highlight>Ctrl+C</highlight> to copy.</li>
+                    <br>
                     <li>
                         <highlight>Note:</highlight> there is a minor issue with selection in which all of the columns are highlighted, not just the one that is selected. While confusing, the selection works correctly.
                     </li>
