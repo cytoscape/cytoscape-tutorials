@@ -146,7 +146,7 @@
             <section>
                 <h1>Add Human PPI to the Network</h1>
 
-                <p>Now extend the network by adding known protein-protein interactions between the human proteins. This interaction data will be obtained via the <a href="http://iquery.ndexbio.org/" target="_blank">NDEx Integrated Query</a> (IQuery) using the <u>human</u> prey proteins from our network.</p>
+                <p>Now extend the network by adding known protein-protein interactions between the human proteins. This interaction data will be obtained via the <highlight>NDEx Integrated Query (IQuery)</highlight> using the <u>human</u> prey proteins from our network.</p>
 
                 <ul>
                     <li>
@@ -154,7 +154,7 @@
                     <li>Click the "Plus" sign and add a <highlight>Column Filter</highlight></li>
                     <li>Then, use the <highlight>Dropdown</highlight> element to select the <highlight>Uniprot</highlight> column</li>
                     <li>Now, select all the genes in the <highlight>name</highlight> column by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry.</li>
-                    <li>Click <highlight>Ctrl+C</highlight> to copy.</li>
+                    <li>Click <highlight>Ctrl+C</highlight> (<highlight>Command+C</highlight> if using a Mac) to copy.</li>
                     <br>
                     <li>
                         <highlight>Note:</highlight> there is a minor issue with selection in which all of the columns are highlighted, not just the one that is selected. While confusing, the selection works correctly.
@@ -165,61 +165,57 @@
             <section>
                 <h1>Add Human PPI to the Network</h1>
                 <ul>
-
                     <li>
-                        Open your browser, go to the <a href="http://iquery.ndexbio.org">IQuery</a> website, paste the list of gene symbols into the <highlight>Query Box</highlight> and click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to run the query.
+                        Open your browser and go to the <a href="http://ndexbio.org">NDEx</a> website</li>
+                    <li>Paste the list of gene symbols into the <highlight>iQuery</highlight> text box</li>
+                    <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to run your query
                     </li>
                 </ul>
 
-                <p style="text-align: center"><img class="plain" src="iquery-apms-query.png" style="height:600px"></p>
+                <p style="text-align: center"><img class="plain" src="iquery-apms-query.png" style="height:650px"></p>
 
             </section>
 
             <section>
                 <h1>Add Human PPI to the Network</h1>
                 <p>
-                    In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view all query results from several different public sources. For the purpose of this protocol we will use the result of querying <highlight>HumanNet - XN</highlight>, a network based on the HumanNet database, filtered to contain only interactions with a LLS score of 3.5 or greater. <highlight>Note:</highlight> "LLS" is an interaction score <i>specific to HumanNet</i>.
-                </p>
-                <p style="text-align: center">
-                    <img class="plain" src="humannet-query-result.png" style="height:500px">
-                </p>
-            </section>
-
-            <section>
-                <h1>Add Human PPI to the Network</h1>
-                <ul>
-                    <li>Select the <highlight>HumanNet - XN</highlight> result.</li>
-                    <li>Click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen to load the result in Cytoscape.
-                    </li>
+                    In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view results from several public sources available in NDEx. We will use the result of querying <highlight>HumanNet - XN</highlight>, pre-filtered to contain only interactions with a LLS score of 3.5 or greater ("LLS" is a score <i>specific to HumanNet</i>).
+                    <ul>
+                        <li>Select the <highlight>HumanNet - XN</highlight> result.</li>
+                        <li>Click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen to load the result in Cytoscape.
+                        </li>
                 </ul>
-                <p style="text-align: center"><img class="plain" src="humannet-query-result.png" style="height:600px"></p>
+                    
+                <p style="text-align: center">
+                    <img class="border" src="humannet-query-result.png" style="height:500px">
+                </p>
             </section>
 
             <section>
                 <h1>Add Human PPI to the Network</h1>
-                <div style="width:550px; display:inline-block; vertical-align: top; ">
-                    <p>The IQuery result is automatically imported in Cytoscape and the resulting network (named "Direct query result on network - HumanNet - XN (LLS >=3.5)") contains known interactions between human query (prey) proteins, with a LLS score of 3.5 or greater.</p>
-                </div>
-                <div style="width:600px; display:inline-block; text-align: center;">
-                    <img class="plain" src="humannet_network.png">
-                </div>
+                
+                    <p>The <highlight>IQuery</highlight> result is automatically imported in <highlight>Cytoscape</highlight> and the resulting network, named <b>Direct query result on network - HumanNet - XN (LLS >=3.5)</b>, contains known interactions between human query (prey) proteins, with a LLS score of 3.5 or greater.</p>
+                
+                <p style="text-align: center">
+                    <img class="plain" src="humannet_network.png" style="height:650px">
+                </p>
             </section>
 
             <section>
                 <h1>Merge Networks</h1>
-                <p>To incorprate these Human protein interactions, merge the AP-MS network with the IQuery result, matching nodes using the official gene symbols in the <highlight>name</highlight> column.</p>
-                <div style="width:600px; display:inline-block; vertical-align: top">
+                <p>To incorprate these Human protein interactions, we are going to merge the AP-MS network with the IQuery result, matching nodes using the official gene symbols stored in the <highlight>name</highlight> column.</p>
+                <div style="width:550px; display:inline-block; vertical-align: top; float: left">
                     <ul>
 
                         <li>Go to <highlight>Tools &rarr; Merge &rarr; Networks...</highlight>
-                        </li>
-                        <li>In the <highlight>Available Networks</highlight> list, select both networks and click the right arrow to add them to the list of <highlight>Networks to Merge</highlight>.</li>
-                        <li>Expand the <highlight>Advanced Options</highlight> interface.</li>
-                        <li>In the <highlight>Matching Columns</highlight> field, select <highlight>name</highlight> for the AP-MS network and <highlight>name</highlight> for the IQuery result network if they are not already pre-set, then click <highlight>Merge</highlight>.</li>
+                        </li><br>
+                        <li>In the <highlight>Available Networks</highlight> list, select both networks and click the right arrow to add them to the list of <highlight>Networks to Merge</highlight></li><br>
+                        <li>Expand the <highlight>Advanced Options</highlight> interface</li><br>
+                        <li>In the <highlight>Matching Columns</highlight> field, select <highlight>name</highlight> for the AP-MS network and <highlight>name</highlight> for the IQuery result network if they are not already pre-set</li><br><li>Click the <highlight>Merge</highlight> button</li>
 
                     </ul>
                 </div>
-                <div style="width:500px; display:inline-block; text-align: center;">
+                <div style="width:600px; display:inline-block; text-align: center; float: right">
                     <img class="plain" src="merge_interface.png">
                 </div>
             </section>
@@ -227,15 +223,16 @@
             <section>
                 <h1>The Merged Network</h1>
                 <div style="display:inline-block; vertical-align: top">
-                    <p>When the merged network first loads, it will have the default style inherited from the AP-MS network. All nodes look the same and the layout makes it difficult to interpret.</p>
+                    <p>When the merged network first loads, it will have the <b>Cytoscape default style</b> (inherited from the AP-MS network) and the <b>Cytoscape default layout</b> (Prefuse Force Directed Layout). All nodes look the same and this makes it difficult to interpret.</p>
                 </div>
 
                 <div style="text-align: center">
-                    <img style="text-align: center" class="plain" src="merged_network.png" height="650px">
+                    <img style="text-align: center" class="plain" src="merged_network.png" height="600px">
                 </div>
 
             </section>
 
+<!--
             <section>
                 <h1>Apply a Layout to the Network</h1>
                 <p>Improve readability by applying an automated layout:</p>
@@ -264,38 +261,69 @@
                 </div>
 
             </section>
+-->
 
             <section>
                 <h1>Visual Styling Based on Continuous Numeric Data</h1>
-                <p>Improve the visualization by coloring the nodes based on their <highlight>Jurkat Score</highlight> property (associated to all human query nodes) and setting the width of edges based on their <highlight>AP-MS Score</highlight> property:</p>
-                <ul>
-                    <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, create a new style named <b>AP-MS Jurkat Score</b>.</li>
-                    <li>Create a continuous mapping for the node <highlight>Fill Color</highlight> using the <highlight>JurkatScore</highlight> column, then select a purple gradient from the <highlight>ColorBrewer</highlight> palettes.</li>
-                    <li>Switch the deafult node <highlight>Fill Color</highlight> to <highlight>yellow</highlight> to highlight the HIV proteins.</li>
-                    <li>Create a passthrough mapping for node <highlight>Label</highlight> using the <highlight>name</highlight> column.</li>
-                    <li>Now switch to the <highlight>Edge</highlight> tab and create a continuous mapping for edge <highlight>Width</highlight> using the <highlight>AP-MS Score</highlight> column.</li>
-                    <li>Set the width values to a range from <b>1</b> to <b>5</b>.</li>
+                <p>Let's now improve the visualization of our merged network by creating continuous mappings to style nodes and edges based on the data associated with their properties.<br> <highlight>Note:</highlight> if you are not familiar with <highlight>Continuous Mapping</highlight> of data to visual styles in Cytoscape, please review this short (1 min) video before moving forward to the next section.</p>
+                
+                    <p style="text-align: center">
+                        <iframe width="978" height="550" src="https://www.youtube.com/embed/nwlwSbUZVho" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </p>
+            </section>
+            
+            <section>
+                <h1>Visual Styling Based on Continuous Numeric Data</h1>
+                <p>To begin, we will color the nodes based on their <highlight>Jurkat Score</highlight> property (associated to all human query nodes); then we will set the width of the edges based on their <highlight>AP-MS Score</highlight> property:</p>
+                
+                <div style="width:550px; display:inline-block; float:left">
+                    <ul>
+                    <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, create a new style named <b>AP-MS Jurkat Score</b>.</li><br>
+                    <li>Create a continuous mapping for the node <highlight>Fill Color</highlight> using the <highlight>JurkatScore</highlight> column, then select a purple gradient from the <highlight>ColorBrewer</highlight> palettes.</li><br>
+                    <li>Switch the deafult node <highlight>Fill Color</highlight> to <highlight>yellow</highlight> to highlight the HIV proteins.</li><br>
+                    <li>Create a passthrough mapping for node <highlight>Label</highlight> using the <highlight>name</highlight> column.</li><br>
+                    <li>Now switch to the <highlight>Edge</highlight> tab and create a continuous mapping for edge <highlight>Width</highlight> using the <highlight>AP-MS Score</highlight> column and set the width values to a range from <b>1</b> to <b>10</b>.</li>
                 </ul>
-                <p>There is a <a href="https://youtu.be/nwlwSbUZVho">video</a> showing how to perform continuous mapping of data to visual styles.</p>
-
+                </div>
+                
+                <div style="width:650px; display:inline-block; float:right"> <img class="plain" src="merged_netw_cont_map.png" style="height:600px">
+                </div>     
             </section>
 
             <section>
                 <h1>Visual Styling Based on Discrete Data</h1>
-                <p>Further enhance the network to distinguish HIV-Human interactions from Human-Human interactions by color:</p>
-                <ul>
-                    <li>Create a <highlight>Discrete</highlight> mapping for edge <highlight>Stroke Color</highlight> using the <highlight>interaction</highlight> column. Choose a <b>green</b> color for all interactions of type <b>interacts with</b>. This will color all the interactions in the original AP-MS dataset.</li>
-                </ul>
-                <p>There is a <a href="https://youtu.be/P1IT7GsEp4c">video</a> showing how to perform discrete mapping of data to visual styles.</p>
+                <p>Let's now further enhance our network's visualization by applying a discrete mapping to better differentiate its edges.<br><highlight>Note: </highlight>if you are not familiar with <highlight>Discrete Mapping</highlight> of data to visual styles in Cytoscape, please review this short (1 min) video before moving forward to the next section.</p>
+                
+                <p style="text-align: center">
+                        <iframe width="978" height="550" src="https://www.youtube.com/embed/P1IT7GsEp4c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </p>
 
             </section>
 
+             <section>
+                <h1>Visual Styling Based on Discrete Data</h1>
+                <p>We will now create a discrete mapping and color the edges to distinguish HIV-Human interactions from Human-Human interactions:</p><br>
+                
+                 <div style="width:550px; display:inline-block; float:left"> 
+                  
+                 <ul>
+                    <li>Create a <highlight>Discrete</highlight> mapping for the edge <highlight>Stroke Color (unselected)</highlight> property using data from the <highlight>interaction</highlight> column</li><br>
+                    <li>Choose a <b><span style="color:green">GREEN</span></b> color for all interactions of type <u>interacts with</u></li><br>
+                     <li>Then change the default property color to <b><span style="color:red">RED</span></b></li><br>
+                </ul>
+                 </div>
+                 
+                 <div style="width:600px; display:inline-block; float:right"> <img class="plain" src="discr_map_interface.png" style="height:500">
+                </div>     
+
+            </section>
+            
             <section>
                 <h1>The Improved Visualization of the Network</h1>
-                <p>The visualization of the network now has a more understandable layout and highlights the <b>AP-MS experimental data</b> (green edges), as well as <b>additional known interactions from HumanNet</b> (grey edges), with node color indicating the <b>Jurkat Score</b> for our human query genes.</p>
+                <p>The visualization of the network now highlights the <b>AP-MS experimental data</b> (<b><span style="color:green">GREEN</span></b> edges), as well as <b>additional known interactions from HumanNet</b> (<b><span style="color:red">RED</span></b> edges), with a <b><span style="color:rebeccapurple">PURPLE</span></b> gradient node color indicating the <b>Jurkat Score</b> for our human query genes.</p>
 
                 <p style="text-align: center">
-                    <img class="plain" src="network_jurkat.png" style="height:550px">
+                    <img class="plain" src="network_jurkat.png" style="height:600px">
                 </p>
 
             </section>
@@ -304,7 +332,7 @@
                 <h1>Inspecting Visualized Interactions</h1>
                 <p>Zooming in on the network, specifically the <b>POL</b> and <b>PR</b> HIV nodes, we can see a set of interactions found in the original paper by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>, which represent binding of POL and PR with the translational initiation complex EIF3.</p>
                 <p style="text-align: center">
-                    <img class="plain" src="final_module.png" style="height:550px"></p>
+                    <img class="border" src="final_module.png" style="height:575px"></p>
             </section>
 
             <section>
