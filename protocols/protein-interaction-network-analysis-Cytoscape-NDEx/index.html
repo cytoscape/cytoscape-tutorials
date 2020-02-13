@@ -132,7 +132,7 @@
                     <li>The cyNDEx Browser window will pop up... Click the <highlight>Import</highlight> button next to the AP-MS Demo Data network, then close the pop up window.</li>
                 </ul>
                 <p style="text-align: center">
-                    <img class="border" src="import-demo-network.png" style="height:550px">
+                    <img class="plain" src="import-demo-network.png" style="height:550px">
                 </p>
             </section>
 
@@ -202,8 +202,24 @@
             </section>
 
             <section>
+                <h1>Preparing to Merge Networks</h1>
+                <p>Before merging our two networks, we should clear the <highlight>Column Filter</highlight>that was applied previously. To do so:
+                    <div style="width:550px; display:inline-block; vertical-align: top; float: left">
+                        <ul>
+                        <li>Select again the AP-MS network</li>
+                        <li>Click the <highlight>Select</highlight> tab in the <highlight>Control Panel</highlight></li>
+                        <li>Click the "X" sign next to the <highlight>Column Filter</highlight> to remove it</li>
+                </ul>
+                </div>
+                  
+                <div style="width:600px; display:inline-block; text-align: center; float: right">
+                    <img class="plain" src="clear_filter.png">
+                </div>
+            </section>
+                
+                <section>
                 <h1>Merge Networks</h1>
-                <p>To incorprate these Human protein interactions, we are going to merge the AP-MS network with the IQuery result, matching nodes using the official gene symbols stored in the <highlight>name</highlight> column.</p>
+                <p>Now we are ready to incorprate the human protein interactions from the IQuery result: we are going to merge the AP-MS network with the HumanNet XN query result, matching nodes using the official gene symbols stored in the <highlight>name</highlight> column.</p>
                 <div style="width:550px; display:inline-block; vertical-align: top; float: left">
                     <ul>
 
@@ -335,54 +351,69 @@
                     <img class="border" src="final_module.png" style="height:575px"></p>
             </section>
             
-<!-- START HERE -->
+            <section>
+                <h1>Pathway Enrichment with NDEx IQuery</h1>
+                <p>IQuery also lets you find pathways relevant to the host (human) proteins. Go back to the IQuery web page and select the <highlight>Pathway Enrichment</highlight> tab to view a list of relevant pathways from several sources.</p>
+                <p style="text-align: center">
+                    <img class="plain" src="iquery-enrichment.png" style="height:600px"></p>
+            </section>
+
+            <section>
+                <h1>Pathway Enrichment with NDEx IQuery</h1>
+                <div style="width:550px; display:inline-block;">
+                    <p>There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>:</p>
+                    <ul>
+                        <li>By default, pathways are sorted by the <highlight>Similarity</highlight> method</li><br>
+                        <li>Use the sorting dropdown menu to choose the <highlight>Overlap</highlight> or <highlight>p-Value</highlight> methods and the order of the results will change</li><br>
+                        <li>Click on the <highlight>Info Icon</highlight> next to the sorting dropdown menu to see the documentation for each sorting method.</li><br>
+                        <li>Each enriched pathway shows its 3 scores and the one currently used for sorting is shown in <b>bold</b></li>
+                </ul>
+                </div>
+                <div style="width:550px; display:inline-block; float:right">
+                    <img class="border" src="sorting_1.png">
+                    <br>
+                    <br>
+                    <br>
+                    <img class="border" src="sorting_2.png">
+                    <br>
+                    <br>
+                    <br>
+                    <img class="plain" src="enrichment-scores.png">
+                </div>
+            </section>
+
             
             <section>
-                <h1>Pathway Enrichment with NDEx IQuery</h1>
-                <p>We can find pathways relevant to the host proteins using IQuery. Go back to the IQuery web page, select the <highlight>Pathway Enrichment</highlight> tab, then select the <b>GO:0006413 (translational initiation)</b> pathway</p>
-                <img class="plain" src="iquery-enrichment.png" style="height:650px">
-            </section>
-
-            <section>
-                <h1>Pathway Enrichment with NDEx IQuery</h1>
-                <div style="width:400px; display:inline-block;">
-                    There are three ways to sort the enrichment query results, selected by the <highlight>sorting menu</highlight>:
-                </div>
-                <div style="width:400px; vertical-align: top; display:inline-block;">
-                    <img class="plain" src="sorting-menu.png" style="height:150px;">
-                </div>
-                <ul>
-                    <li>Click on the information icon next to the sorting dropdown menu to see the documentation for each sorting method.</li>
-                    <li>By default, the <highlight>Similarity</highlight> method is used. Choose the <highlight>Overlap</highlight> or <highlight>p-Value</highlight> methods and the order of the pathways will change.</li>
-                </ul>
-                <p>Each enriched pathway shows its 3 scores</p>
-                <img class="plain" src="enrichment-scores.png" style="height:150px">
-                <ul>
-                    <li>Note: Because the example network that we chose is also a member of the set of pathways evaluated by IQuery, it is of course the top-ranked network found.</li>
-                    <li>Select the 5th choice <b>GO:0006413 (translational initiation)</b></li>
-
-                </ul>
-            </section>
-
-            <section>
                 <h1>Open in Cytoscape from IQuery</h1>
-                <ul>
-                    <li>In the action bar above the network display, click on the Cytoscape icon <img src="IconIQueryOpenInCytoscape.png" class="plain" style="height:40px"> and the network will be downloaded to the Cytoscape application.</li>
-
-                    <li>IQuery has added a column <highlight>querynode</highlight> to nodes in the network to indicate that these are the proteins in the network that match your query. You can use that information to highlight those nodes.</li>
-
-                    <li>Replace the existing <highlight>Discrete</highlight> mapping for node <highlight>Fill Color</highlight> to instead use the <highlight>querynode</highlight> column. Choose a <b>bright green</b> for the case where querynode is <highlight>true</highlight>, distinguishing the cluster of EIF3 family proteins that are in common between the human prey proteins and this network related to translation initiation.</li>
-                </ul>
                 <div>
-                    <img class="plain" src="querynode-fill-color.png" style="height:120px; vertical-align: middle">
-                    <img class="plain" src="translational-initialization.png" style="height:300px; vertical-align: middle">
+                <ul>
+                    <li>Select the 5th result <b>GO:0006413 (translational initiation)</b>, then click the Cytoscape icon <img src="IconIQueryOpenInCytoscape.png" class="plain" style="height:35px; vertical-align: bottom"> to open the network in Cytoscape as you already did earlier on.</li><br>
+
+                    <li>IQuery has added a column called <highlight>querynode</highlight> to nodes in the network to indicate that these are the proteins in the network that match your query. You can use that information to highlight those nodes.</li><br>
+
+                    <li>Replace the existing <highlight>Discrete</highlight> mapping for node <highlight>Fill Color</highlight> to instead use the <highlight>querynode</highlight> column</li><br>
+                    <li>Choose a <b><span style="color:limegreen">BRIGHT GREEN</span></b> for the case where querynode is <highlight>true</highlight> to distinguish the cluster of EIF3 family proteins that are in common between the original <b>AP-MS network</b> (human prey proteins) and this <b>GO:0006413 (translational initiation)</b> pathway.</li>
+                </ul>
+                </div>
+                <br>
+                
+                <div style="width:550px; display:inline-block; vertical-align:middle">
+                    <img class="plain" src="querynode-fill-color.png">
+                </div>
+            
+                <div style="width:550px; display:inline-block; vertical-align:middle">
+                    <img class="plain" src="translational-initialization.png">
                 </div>
 
             </section>
 
+            <!-- START HERE -->
+            
             <section>
                 <h1>Save to NDEx from IQuery</h1>
-                <p>Go to IQuery to save the pathway to NDEx in your account. If you do not have an NDEx account, make one now, following the <a href="https://home.ndexbio.org/create-an-ndex-account/">Creating and Using an NDEx Account</a> tutorial. Please take note of the password generated for you or create your own. You will need it in the next section.</p>
+                <p>From IQuery is also possible to save any pathways to your NDEx account.<br>
+                    If you do not have an NDEx account, you can create one now following the <a href="https://home.ndexbio.org/create-an-ndex-account/">Creating and Using an NDEx Account</a> tutorial.
+                    <highlight>Note:</highlight> Please take note of the password generated for you or create your own. You will need it in the next section.</p>
                 <ul>
                     <li>In the action bar above the network panel, click on the save icon <img src="IconIQuerySavetoNDEx.png" class="plain" style="height:40px"> and the <highlight>Sign in to your NDEx Account</highlight> dialog will be displayed</li>
                     <li>Sign in with either your Google account or your account name and password. You will now see a dialog showing that you have successfully signed in.</li>
