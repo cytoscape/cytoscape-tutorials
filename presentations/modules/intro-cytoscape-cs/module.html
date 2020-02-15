@@ -1,0 +1,187 @@
+<section>
+<h1>Cytoscape</h1>
+<div style="float: left; width: 60%">
+				<img src="modules/intro-cytoscape/gal-screenshot.png"/>
+</div>
+<ul>
+	<li>Open source</li>
+	<li>Cross platform</li>
+	<li>Consortium
+	</li>
+	<img src="modules/intro-cytoscape/CytoscapeConsortium.png" width="80%"/>
+</ul>
+<aside class="notes" data-markdown>
+Cytoscape is a Cytoscape an open source software platform for
+<ul>
+	<li>visualizing complex networks</li> 
+	<li>integrating networks with data</li> 
+	<li>cross-platform</li> 
+<ul>
+Cytoscape is maintained by a consortium of multiple universities, institutes and non-profits.
+</aside>
+</section>
+
+<!-- All sorts of weirdness to get this to look right -->
+<section data-transition="none">
+<h1>Core Concepts</h1>
+<h4>Networks and Tables</h4>
+<div style="float: left; width: 50%">
+	<img src="modules/intro-cytoscape/SimpleNetwork.png" width="55%" align="center"/>
+	<p style="text-align: center"><b>Networks</b><br/>
+	<span class="fragment fade-out" data-fragment-index=1">e.g., PPIs or pathways</span></p>
+	<!-- Wierd order is so we can get the fragment right -->
+	<img class="fragment" data-fragment-index="2" src="modules/intro-cytoscape/StyledNetwork.png" style="position:relative; top:-470px;left:0;" width="65%" align="center"/>
+</div>
+<div style="float:right; width: 50%">
+	<img src="modules/intro-cytoscape/SpreadSheet.png" width="100%" align="center"/>
+	<p style="text-align: center"><b>Tables</b><br/>
+	<span class="fragment fade-out" data-fragment-index=1">e.g., data or annotations</span></p>
+</div>
+<div class="fragment" data-fragment-index="1" style="width:100%; position:relative; left:-320px; top:-100px">
+<img class="plain" src="modules/intro-cytoscape/Arrow.png" align="center"/>
+<p style="text-align: center"><b>Visual Styles</b></p>
+</div>
+
+<aside class="notes" data-markdown>
+These are the core concepts of Cytoscape that we will come back to over and over. Cytoscape knows about networks and it knows about tables (like your data).
+And Cytoscape allows you to define Visual Styles to map your data values to visualizations like node color, size and dozens of other properties.
+</aside>
+</section>
+
+<section>
+<h1>Core Concepts</h1>
+<h3>Cytoscape Apps!</h3>
+<h4 style="margin-top: 10%"><a href="http://apps.cytoscape.org">apps.cytoscape.org</a></h4>
+<div class="fragment" style="position:absolute; top: 40px; left: 40px">
+	<img class="plain" src="modules/intro-cytoscape/Apps-1.png"/>
+</div>
+<div class="fragment" style="position:absolute; top: 40px; left: 40px">
+	<img class="plain" src="modules/intro-cytoscape/Apps-2.png"/>
+</div>
+<div class="fragment" style="position:absolute; top: 40px; left: 40px">
+	<img class="plain" src="modules/intro-cytoscape/Apps-3.png"/>
+</div>
+<div class="fragment" style="position:absolute; top: 40px; left: 40px">
+	<img class="plain" src="modules/intro-cytoscape/Apps-4.png"/>
+</div>
+<div class="fragment" style="position:absolute; top: 40px; left: 40px">
+	<p style="font-size: 72pt; margin-top: 300px; margin-left: 400px; text-align: center; background-color: #ffffff88;">Over 340 Apps!</p>
+</div>
+	
+<aside class="notes" data-markdown>
+The final core concept in Cytoscape is apps. Beyond the basic functionality, apps provide all the domain specific analyises and visualizations, for example, for genomics or proteomics data.
+</aside>
+</section>
+
+<section>
+<h1>Core Concepts</h1>
+<h3>Cytoscape Apps!</h3>
+<h4 style="margin-top: 10%"><a href="http://apps.cytoscape.org">apps.cytoscape.org</a></h4>
+<div class="fragment" style="position:absolute; top: 40px; left: 40px">
+	<img src="modules/intro-cytoscape/Apps-5.png"/>
+</div>
+<div class="fragment" style="position:absolute; top: 40px; left: 40px">
+	<img src="modules/intro-cytoscape/Apps-6.png"/>
+</div>
+<aside class="notes" data-markdown>
+<ul>
+	<li>The Cytoscape App Store can also be accessed directly from Cytoscape via the App Manager.</li>
+	<li>In the App Manager you can search and browse for Apps and install apps.</li>
+	<li>The App Manager also shows already installed apps and lets you seamlessly update already installed apps.</li>
+</ul>
+</aside>
+</section>
+
+<section>
+<h1>Loading Network Data</h1>
+<ul style="margin-bottom: 0px">
+	<li>Cytoscape can import network data from:
+		<ul>
+			<li>Files (or URLs)
+				<ul> 
+					<li><b>Excel, TSV, CSV</b></li>
+					<li><b>XGMML</b>: eXtensible Graph Markup and Modelling Language</li>
+					<li><b>SBML</b>: Systems Biology Markup Language</li>
+					<li><b>BioPAX</b></li>
+					<li><b>PSI-MI</b></li>
+					<li><b>SIF</b>: Simple Interaction Format</li>
+					<li><b>GML</b>: Graph Markup Language</li>
+					<li>... and others depending on loaded Apps</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section>
+<h1>Loading Network Data</h1>
+<ul style="margin-bottom: 0px">
+	<li>Cytoscape can import network data from:
+		<ul> 
+			<li>Public repositories:
+				<ul>
+					<li><b>PSICQUIC</b></li>
+					<li><b>STRING</b> (via the stringApp)</li>
+					<li><b>Reactome</b> (via the ReactomeFI app)</li>
+					<li><b>WikiPathways</b> (via the WikiPathways app)</li>
+					<li><b>Pathway Commons</b> (via the CyPath2 app)</li>
+					<li><b>NDEx</b></li>
+				</ul>
+			</li>
+			<li>Automation:
+			        <ul>
+					<li><b>Command line scripts</b></li>
+					<li><b>CyREST via R, Python, etc</b></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section>
+<h1>Loading Table Data</h1>
+<ul>
+	<li>Cytoscape can load tables from:
+		<ul>
+			<li>Files (or URLs)
+				<ul>
+					<li><b>Excel, TSV, CSV</b></li>
+				</ul></li>
+                        <li>Automation:
+                                <ul>
+                                        <li><b>Command line scripts</b></li>
+                                        <li><b>CyREST via R, Python, etc</b></li>
+                                </ul>
+                        </li>
+		</ul>
+	</li>
+</ul>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section>
+<h1>Saving and Exporting</h1>
+<ul>
+	<li>Sessions save everything as <highlight>.cys</highlight> files: </br>
+	<span style="font-size: 90%">Networks, Tables, Styles, Screen sizes, etc.</span></li>
+	<li style="margin-top: 30px">Export networks in different formats:  </br>
+	<span style="font-size: 90%">SIF, GML, XGMML, BioPAX, JSON</span></li>
+	<li style="margin-top: 30px">Export tables as CSV files </li>
+	<li style="margin-top: 30px">Publication quality graphics in several formats:</br>
+	<span style="font-size: 90%">PDF, SVG, PNG, and JPEG</span></li>
+</ul>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
