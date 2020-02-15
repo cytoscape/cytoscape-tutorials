@@ -50,7 +50,27 @@ And Cytoscape allows you to define Visual Styles to map your data values to visu
 
 <section>
 <h1>Core Concepts</h1>
-<h3>Cytoscape Apps!</h3>
+<h4>Networks and Tables</h4>
+
+<highlight>CS Perspective</highlight>
+<ul>
+<li>Model-view architecture</li>
+<li>Domain-agnostic</li>
+<li>Core functionality: data IO, table joins, algorithms, renderer</li>
+<li>Java code base using OSGi, Maven, Jenkins, etc</li>
+</ul>
+<aside class="notes" data-markdown>
+Programmatically, here are some of the essential aspects for how Cytoscape is architected and developed.
+
+* OSGi framework (for modularization and dependency management)
+* Maven (for more help with dependencies and project bulding)
+* Jenkins (for continuous integration and automating builds)
+</aside>
+</section>
+
+<section>
+<h1>Core Concepts</h1>
+<h3>Cytoscape Apps</h3>
 <h4 style="margin-top: 10%"><a href="http://apps.cytoscape.org">apps.cytoscape.org</a></h4>
 <div class="fragment" style="position:absolute; top: 40px; left: 40px">
 	<img class="plain" src="modules/intro-cytoscape/Apps-1.png"/>
@@ -66,6 +86,23 @@ And Cytoscape allows you to define Visual Styles to map your data values to visu
 </div>
 <aside class="notes" data-markdown>
 The final core concept in Cytoscape is apps. Beyond the basic functionality, apps provide all the domain specific analyises and visualizations, for example, for genomics or proteomics data. The Cytoscape App Store can also be accessed directly from Cytoscape via the App Manager
+</aside>
+</section>
+
+
+<section>
+<h1>Core Concepts</h1>
+<h4>Cytoscape Apps</h4>
+
+<highlight>CS Perspective</highlight>
+<ul>
+<li>Extensible via public, semantically-versioned API</li>
+<li>Domain-specific features and resources</li>
+<li>Future-proofing for new data types and analyses</li>
+<li>Python/Django code base for App Store</li>
+</ul>
+<aside class="notes" data-markdown>
+The extensible app architecture allows cytoscape to remain completely independent of any particular application (e.g., proteomics, metabolomics, neuronal network, social networks, etc). At the same time, apps allow Cytoscape to remain relevant to each of these applications and any future application.
 </aside>
 </section>
 
@@ -152,7 +189,7 @@ Add speaker notes here...
 	<li>Sessions save everything as <highlight>.cys</highlight> files: </br>
 	<span style="font-size: 90%">Networks, Tables, Styles, Screen sizes, etc.</span></li>
 	<li style="margin-top: 30px">Export networks in different formats:  </br>
-	<span style="font-size: 90%">SIF, GML, XGMML, BioPAX, JSON</span></li>
+	<span style="font-size: 90%">SIF, GML, XGMML, BioPAX, JSON (CX)</span></li>
 	<li style="margin-top: 30px">Export tables as CSV files </li>
 	<li style="margin-top: 30px">Publication quality graphics in several formats:</br>
 	<span style="font-size: 90%">PDF, SVG, PNG, and JPEG</span></li>
