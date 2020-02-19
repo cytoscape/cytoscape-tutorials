@@ -1,0 +1,122 @@
+<section>
+<h1>CyBrowser</h1>
+<h3>Cytoscape's internal web browser</h3>
+<ul style="margin-top: 20px">
+	<li style="list-style-type: none; margin-left: -120px">CyBrowser is useful for:
+	<li>Visualizing App results as HTML</li>
+	<li>Quickly linking and displaying external web pages</li>
+	<li>Developing Javascript/HTML UIs for Cytoscape</li>
+	<li>Developing simple walkthroughs of Cytoscape or Cytoscape apps</li>
+	<li style="list-style-type: none; margin-left: -120px; margin-top: 20px">CyBrowser is not great for:</li>
+	<li>HTML and CSS the use the "bleeding edge" standards</li>
+	<li>WebGL applications</li>
+	<li>Anything that depends on browser plugins or extensions</li>
+</ul>
+<aside class="notes" data-markdown>
+</aside>
+</section>
+
+
+<section>
+<div style="height: 800px">
+<h1>CyBrowser Features</h1>
+<ul>
+	<li>Simple integration with CyCommands:
+		<div style="margin-left: -130px;width: 70%; font-size: 70%">
+		<pre><code style="width: 1200px">
+&lt;div class="cybrowser">
+   &lt;input type="button" onclick="cybrowser.executeCyCommand('network select nodeList=&quot;9606.ENSP00000324856,9606.ENSP00000265433&quot;');" value="Select top genes"/><br />
+   &lt;input type="button" onclick="cybrowser.executeCyCommand('network select firstNeighbors=any network=current');" value="Select first neighbors"/>
+&lt;/div>
+		</code></pre>
+		</div>
+	</li>
+	<li class="fragment" data-fragment-index=4">Can also receive return values from CyCommands:
+		<div style="margin-left: -130px;width: 70%; font-size: 70%">
+		<pre><code style="width: 1200px">
+&lt;html>
+  &lt;head>
+    &lt;script>
+    function getResults(results) {
+      alert(results);
+    }
+    &lt;/script>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Test&lt;/h1>
+    &lt;input type="button" onclick="cybrowser.executeCyCommandWithResults('network select nodeList=YKR026C', 'getResults');" value="Select YkR026C"/>
+  &lt;/body>
+&lt;/html>
+		</code></pre>
+		</div>
+	</li>
+</ul>
+</div>
+<div class="fragment fade-out" data-fragment-index="4" style="position: absolute; top: 100px; left: 10px; width: 1000px; height: 800px">
+	<img class="plain fragment fade-in" data-fragment-index="1" style="position: absolute; top:0px; left: -50px; width: 800px; height: auto" src="/presentations/modules/cybrowser/STRING-Breast-1.png">
+	<img class="plain fragment fade-in" data-fragment-index="1" style="position: absolute; top:0px; left: 650px; width:650px" src="/presentations/modules/cybrowser/CyBrowser-Tour-1.png">
+	<img class="plain fragment fade-in" data-fragment-index="2" style="position: absolute; top:0px; left: 650px; width:650px" src="/presentations/modules/cybrowser/CyBrowser-Tour-2.png">
+	<img class="plain fragment fade-in" data-fragment-index="3" style="position: absolute; top:0px; left: -50px; width: 800px; height: auto" src="/presentations/modules/cybrowser/STRING-Breast-2.png">
+</div>
+<aside class="notes" data-markdown>
+</aside>
+</section>
+
+<section>
+<div style="height: 800px">
+<h1>CyBrowser Features</h1>
+<ul>
+	<li>Receive node and edge selection events from Cytoscape:
+		<div style="margin-left: -130px;width: 70%; font-size: 70%">
+		<pre><code style="width: 1200px">
+&lt;html>
+  &lt;head>
+    &lt;script>
+      function nodeSelectionChanged(selectedNodes) {
+        selectionChanged("Selected Nodes", "nodeSelection", selectedNodes);
+      }
+
+      function edgeSelectionChanged(selectedEdges) {
+        selectionChanged("Selected Edges", "edgeSelection", selectedEdges);
+      }
+
+      function selectionChanged(header, id, selection) {
+        var obj = JSON.parse(selection);
+        var table = "&lt;h3>"+header+"&lt;/h3>&lt;table>&lt;tr>&lt;th>SUID&lt;/th>&lt;th>Name&lt;/th>&lt;/tr>"
+        for (var i = 0; i &lt; obj.length; i++) {
+          table += "&lt;tr>&lt;td>"+obj[i]['suid']+"&lt;/td>&lt;td>"+obj[i]['name']+"&lt;/td>&lt;/tr>";
+        }
+        table += "&lt;/table>";
+        document.getElementById(id).innerHTML = table;
+      }
+    &lt;/script>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>Test&lt;/h1>
+    &lt;input type="button" onclick="cybrowser.registerSelectionListeners('nodeSelection', 'current', 'nodeSelectionChanged');" value="Register node listener"/>
+    &lt;input type="button" onclick="cybrowser.registerSelectionListeners('edgeSelection', 'current', 'edgeSelectionChanged');" value="Register edge listener"/>
+
+    &lt;div id="nodeSelection">
+    &lt;/div>
+    &lt;div id="edgeSelection">
+    &lt;/div>
+  &lt;/body>
+&lt;html>
+		</code></pre>
+		</div>
+	</li>
+	<li>The <code>cybrowser.registerSelectionListeners</code> built-in method takes the selection type, the network, and a Javascript callback method to get called when a selection in Cytoscape occurs</li>
+</ul>
+</div>
+<aside class="notes" data-markdown>
+</aside>
+</section>
+<section>
+	<h1>CyBrowser Summary</h1>
+	<p style="text-align: left">The three Cytoscape interaction features mentioned on the previous slides provide a foundation 
+	that makes interaction between CyBrowser and Cytoscape relatively painless and flexible.  Combined with
+	appropriate Javascript, moderately sophisticated user interfaces can be developed in HTML and
+	Javascript that interact with Cytoscape.</p>
+<aside class="notes" data-markdown>
+</aside>
+</section>
