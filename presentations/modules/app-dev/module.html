@@ -1,0 +1,1551 @@
+﻿<section>
+	<img class="plain" src="modules/app-dev/CyLogo.png" width="70%">
+
+	<h3 style="margin-top: 70px">Cytoscape 3 App Development Tutorial</h3>
+	<h5 style="margin-top: 100px">John "Scooter" Morris, UCSF</h5>
+</section>
+
+<section>
+	<h1>Outline</h1>
+		
+	<ul>
+		<li>Setup</li>
+		<li>"Variations on a theme – Hello World"
+			<ul>
+				<li>Step 1: Cytoscape and OSGi</li>
+				<li>Step 2: Cytoscape network model</li>
+				<li>Step 3: Cytoscape table model</li>
+				<li>Step 4: Cytoscape visual model</li>
+				<li>Step 5: Cytoscape user interface mechanisms</li>
+				<li>Step 6: Events</li>
+			</ul>
+		</li>
+		<li>API tour</li>
+		<li>Discussion: Best Practices</li>
+	</ul>
+</section>
+		
+<section>
+	<h1>Caveats</h1>
+	<ul>
+		<li>I’m assuming you’re all competent Java programmers</li>
+		<li>Can’t cover everything
+			<ul>
+				<li>You would be overwhelmed even if we tried</li>
+			</ul>
+		</li>
+		<li>We’re going to cover Cytoscape 3 Bundled App API</li>
+		<li>We’ll be building on things as we go</li>
+	</ul>
+</section>
+<section>
+	<h1>Setup – Shell</h1>
+	<ul>
+		<li>Download sample files from: 
+ 
+<a href="modules/app-dev/setup.zip" target="_blank">http://tutorials.cytoscape.org/presentations/modules/app-dev/setup.zip</a>
+ 
+		</li>
+		<li>Unpack</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Setup - Eclipse</h1>
+	<ul>
+		<li>Install Eclipse
+			<ul>
+				<li>Also want:
+					<ul>
+						<li>m2e</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Download sample file</li>
+		<li>Unpack</li>
+		<li>In Eclipse:
+			<ul>
+				<li>File&rarr;Import&rarr;Maven&rarr;Existing Maven Projects</li>
+				<li>Navigate to the Setup directory from the download above</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Debugging with Eclipse</h1>
+
+	<p style="text-align: left"><b>Remote Execution for Debugging</b></p>
+	<ul>
+		<li>Run Cytoscape with debug as the first command line argument </li>
+		<li style="list-style-type: none">In Windows:<br/>
+			<code style="margin-left: 40px">cytoscape.bat debug </code>
+		</li>
+		<li style="list-style-type: none">In Linux/Mac: <br/>
+			<code style="margin-left: 40px">./cytoscape.sh debug</code>
+		</li>
+		<li style="list-style-type: none">Make sure you can see the following message in the terminal:<br/>
+			<code style="margin-left: 40px">Listening for transport dt_socket at address: 12345</code>
+		</li>
+ 
+		<li>NOTE: must be in the Cytoscape directory</li>
+	</ul>
+ 
+ </section>
+<section>
+	<h1>Debugging with Eclipse</h1>
+	<p style="text-align:left"><b>Run Debugger From Eclipse </b></p>
+	<ul style="font-size: 80%">
+		<li>Click Run and select Debug Configurations...</li>
+		<li>Select Remote Java Applications and create new configuration</li>
+		<li>Select/Enter the following and press Apply:
+			<ul>
+				<li>Name: Cytoscape3</li>
+				<li>Project: myproject (your project name may be different; so "browse" to find the one you are about to debug )</li>
+				<li>Connection Type: Standard (Socket Attach)</li>
+				<li>Host: localhost</li>
+				<li>Port: 12345 (or the port specified in the cytoscape.sh file)</li>
+			</ul>
+		</li>
+		<li>Press Debug. This starts up Cytoscape 3. After 20-30 seconds, you will see Cytoscape Desktop.</li>
+		<li>Set a breakpoint in Eclipse</li>
+		<li>Switch Perspective to Debug mode: Window → Perspective → Debug</li>
+		<li>Load the bundle into your OSGI container and run</li>
+	</ul>
+ </section>
+
+<section>
+	<h1>Step 1: Cytoscape &amp; OSGi</h1>
+	<ul>
+		<li>Cytoscape 3 design goals
+			<ul>
+				<li>Scalability</li>
+				<li>Performance</li>
+				<li>Stability
+					<ul>
+						<li>Application stability</li>
+						<li>API stability</li>
+						<li>Modularity
+							<ul>
+								<li>Enforced by OSGi</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>OSGi</h1>
+	<ul>
+		<li>Wikipedia:<br/>
+			<i style="font-size: 90%">The OSGi framework is a module system
+and <a href="http://en.wikipedia.org/wiki/Service_(systems_architecture)"
+target="_blank">service</a> platform for the <a
+href="http://en.wikipedia.org/wiki/Java_(programming_language)"
+target="_blank">Java</a> programming language that implements a complete
+and dynamic <a href="http://en.wikipedia.org/wiki/Component_model"
+target="_blank">component model</a>,
+something that does not exist in standalone Java/<a
+href="http://en.wikipedia.org/wiki/Virtual_machine" target="_blank">VM</a>
+environments. <a href="http://en.wikipedia.org/wiki/Application_software"
+target="_blank">Applications</a> or components (coming in the form of <a
+href="http://en.wikipedia.org/wiki/Bundle_(software_distribution)"
+target="_blank">bundles</a> for <a
+href="http://en.wikipedia.org/wiki/Software_deployment"
+target="_blank">deployment</a>) can be remotely installed,
+started, stopped, updated, and uninstalled without requiring
+a <a href="http://en.wikipedia.org/wiki/Reboot_(computer)"
+target="_blank">reboot</a>; management of <a
+href="http://en.wikipedia.org/wiki/Java_package"
+target="_blank">Java packages</a>/<a
+href="http://en.wikipedia.org/wiki/Class_(computer_science)"
+target="_blank">classes</a> is specified in great detail. Application
+life cycle management (start, stop, install, etc.) is done via APIs that
+allow for remote <a href="http://en.wikipedia.org/wiki/Downloading"
+target="_blank">downloading</a> of management policies. The service
+registry allows bundles to detect the addition of new services, or the
+removal of services, and adapt accordingly.
+</i> 
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>OSGi</h1>
+	<ul>
+		<li>Service-oriented</li>
+		<li>A “bundle” is the unit of access
+			<ul>
+				<li>Bundles can be started and stopped independently</li>
+			</ul>
+			<li>Bundles implement services
+				<ul>
+					<li>Can be registered and unregistered</li>
+					<li>Generally, inter-bundle access is through a service</li>
+				</ul>
+			</li>
+			<li>Enforced separation of API and Implementation
+				<ul>
+					<li>Rules are that you can depend on API bundles, but not implementation bundles</li>
+				</ul>
+			</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Anatomy of a Bundle</h1>
+	<img class="plain" src="modules/app-dev/anatomy.png" style="float: right; width: 35%">
+	<div style="width:50%;font-size:90%">
+	<ul>
+		<li>JAR with extra metadata
+			<ul>
+				<li class="fragment">Imports
+					<ul>
+						<li>The Java packages used by the bundle</li>
+					</ul>
+				</li>
+				<li class="fragment">Exports
+					<ul>
+						<li>Java packages in the bundle that other bundles are allowed to use (usually just API)</li>
+					</ul>
+				</li>
+				<li class="fragment">Activator
+					<ul>
+						<li>Triggered when bundle is started/stopped</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	</div>
+</section>
+<section>
+	<h1>Cytoscape 3</h1>
+	<div style="width:50%;float: left">
+
+	<ul>
+		<li>Service-oriented microkernel</li>
+		<li class="fragment">OSGi core
+			<ul>
+				<li>Dynamically loads/unloads modules, a.k.a. bundles</li>
+			</ul>
+		</li>
+		<li class="fragment">Each subsystem in Cy3 has separate OSGi bundle(s)</li>
+		<li class="fragment">Apps can also be packaged as bundles</li>
+	</ul>
+	</div>
+	<img class="plain fragment" src="modules/app-dev/osgi.png" style="width: 35%">
+</section>
+<section>
+	<h1>Example: HelloWorld</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li><code>pom.xml</code>
+					<ul>
+						<li class="fragment">Maven project descriptor</li>
+						<li class="fragment">Maven identifier
+							<ul style="font-size: 80%">
+								<li>Group id</li>
+								<li>Artifact id</li>
+								<li>Version</li>
+							</ul>
+						</li>
+						<li class="fragment">OSGi identifier
+							<ul>
+								<li style="font-size: 80%">Bundle-SymbolicName</li>
+							</ul>
+						</li>
+						<li class="fragment">Describes imports/exports</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="flex:1">
+			<ul>
+				<li class="fragment"><code>Activator.java</code>
+					<ul>
+						<li>Bundle activator</li>
+					</ul>
+				</li>
+			</ul>
+			</div>
+	</div>
+ </section>
+<section>
+	<h1>Maven Project Layout</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li class="fragment"> <code>pom.xml</code>
+					<ul style="font-size:90%">
+						<li>Project descriptor</li>
+					</ul>
+				</li>
+				<li class="fragment" style="margin-top: 60px"><code>src/main/java</code>
+					<ul style="font-size:90%">
+						<li>Bundle code</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="flex:1">
+ 
+			<ul>
+				<li class="fragment"><code>src/test/java</code>
+					<ul style="font-size:90%">
+						<li>Test code</li>
+						<li>Not included in bundle JAR</li>
+					</ul>
+				</li>
+				<li class="fragment" style="margin-top: 60px"><code>src/main/resources</code>
+					<ul style="font-size:90%">
+						<li>Non-code files that should be included in bundle JAR</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section>
+	<h1>Core Bundles</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li>app</li>
+				<li>application</li>
+				<li>command-executor</li>
+				<li>core-task</li>
+				<li>custom-graphics</li>
+				<li>datasource</li>
+				<li>equations</li>
+				<li>event</li>
+				<li>group</li>
+				<li>io</li>
+				<li>layout</li>
+			</ul>
+		</div>
+ 
+		<div style="flex:1">
+			<ul>
+				<li>model</li>
+				<li>presentation</li>
+				<li>property</li>
+				<li>service</li>
+				<li>session</li>
+				<li>swing-util</li>
+				<li>viewmodel</li>
+				<li>vizmap</li>
+				<li>vizmap-gui</li>
+				<li>webservice</li>
+				<li>work</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section>
+	<h1>Core Bundles</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+	<ul>
+		<li class="fragment" data-fragment-index="1">Usually come in sets:
+			<ul>
+				<li class="fragment" data-fragment-index="2">API (optional)
+					<ul style="font-size: 90%">
+						<li>No activator</li>
+					</ul>
+				</li>
+				<li class="fragment" data-fragment-index="3">Implementation
+					<ul style="font-size: 90%">
+						<li>At least one per API bundle</li>
+						<li>No exports</li>
+					</ul>
+				</li>
+				<li class="fragment">Separate API so we can keep implementation modular
+					<ul style="font-size: 90%">
+						<li class="fragment">Desktop application</li>
+						<li class="fragment">Console application, for scripts</li>
+						<li class="fragment">Impl. Bundle</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+		</div>
+		<div style="flex:1; height: 800px">
+			<img class="fragment plain" data-fragment-index="2" src="modules/app-dev/api.png" style="position: absolute;width: 35%;top:195px; left: 795px">
+			<img class="fragment plain" data-fragment-index="3" src="modules/app-dev/bundle.png" style="position: absolute;width: 35%;top:200px; left: 800px">
+		</div>
+	</div>
+</section>
+
+<section>
+	<h1>Core Bundles</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li class="fragment">Nothing should import implementation bundles</li>
+				<li class="fragment"> Unless it’s for unit testing</li>
+			</ul>
+		</div>
+		<div style="flex:1; height: 800px">
+			<img class="plain" data-fragment-index="2" src="modules/app-dev/api.png" style="position: absolute;width: 35%;top:195px; left: 795px">
+			<img class="plain" data-fragment-index="3" src="modules/app-dev/bundle.png" style="position: absolute;width: 35%;top:200px; left: 800px">
+		</div>
+	</div>
+</section>
+
+<section>
+Core Bundles
+Task bundles
+work-api
+work-swing-api
+work-impl
+work-swing-impl
+work-headless-impl
+ 
+VizMapper bundles
+vizmap-api
+vizmap-gui-api
+vizmap-gui-core-impl
+vizmap-gui-impl
+vizmap-impl
+ </section>
+<section>
+OSGi Services
+Service
+An instance of a Java interface
+The glue behind API and implementation bundles
+Usually registered by a BundleActivator
+In Cy3:
+Defined by an API bundle
+Registered by an implementation bundle<svg class="drawing" _id="31" _idx="undefined" _type="undefined" _name="Rounded Rectangle 30" style="top:411.68608923884517px; left:598.5488713910761px;width:207.27979002624673px; height:115.46236220472441px; z-index: 159;"><rect x="0" y="0" width="207.27979002624673" height="115.46236220472441" rx="7" ry="7" fill="rgb(82,132,188)" stroke="#396090" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Impl. Bundle<svg class="drawing" _id="32" _idx="undefined" _type="undefined" _name="Rounded Rectangle 31" style="top:465.92923884514437px; left:611.1872965879265px;width:181.0971128608924px; height:48.49165354330709px; z-index: 197;"><rect x="0" y="0" width="181.0971128608924" height="48.49165354330709" rx="7" ry="7" fill="rgb(57,95,142)" stroke="#4F81BD" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Activator<svg class="drawing" _id="34" _idx="undefined" _type="undefined" _name="Rounded Rectangle 33" style="top:271.17595800524936px; left:596.3202099737533px;width:207.27979002624673px; height:80.63107611548557px; z-index: 260;"><rect x="0" y="0" width="207.27979002624673" height="80.63107611548557" rx="7" ry="7" fill="rgb(82,132,188)" stroke="#396090" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+API Bundle<svg class="drawing" _id="35" _idx="undefined" _type="undefined" _name="Rounded Rectangle 34" style="top:181.9651443569554px; left:635.2620472440944px;width:129.39590551181104px; height:53.62498687664042px; z-index: 300;"><rect x="0" y="0" width="129.39590551181104" height="53.62498687664042" rx="7" ry="7" fill="none" stroke="#254162" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Imports<svg class="drawing" _id="37" _idx="undefined" _type="undefined" _name="Rounded Rectangle 36" style="top:322.7539107611548px; left:639.7195800524935px;width:124.93837270341207px; height:53.62498687664042px; z-index: 369;"><rect x="0" y="0" width="124.93837270341207" height="53.62498687664042" rx="7" ry="7" fill="rgb(128,128,128)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Exports<svg class="drawing" _id="33" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 32" style="top:376.37889763779526px; left:702.1887664041994px;width:0px; height:35.307191601049865px; z-index: 223;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="0" y2="35.307191601049865" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="36" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 35" style="top:235.5901312335958px; left:699.96px;width:0.00010498687664041995px; height:35.585826771653544px; z-index: 326;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0.00010498687664041995" y1="0" x2="0" y2="35.585826771653544" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg></section>
+<section>
+OSGi Services
+Interface
+ 
+ 
+Implementation
+ 
+ 
+Properties
+Arbitrary key-value pairs
+interface MyService  { … }
+ 
+class MyServiceImpl implements MyService { … }
+ 
+(“title”, “My Service”)(“preferredMenu”, “Apps”)</section>
+<section>
+Cytoscape API
+Available as OSGi services
+Two main types:
+API: Application Programming Interface
+<li>Just fetch and use:
+MyService service = getService(context, MyService.class);
+ 
+SPI: Service Provider Interface
+<li>Implement/extend and register:
+registerService(context, new MyServiceImpl(),
+  MyService.class, properties);
+<li> 
+ 
+ </section>
+<section>
+OSGi Services
+Most common types of services:
+Factories
+<li>Create new instances
+Managers
+<li>Track, provide access to, or operate on collections of objects
+Utilities
+<li>Collections of utility functions
+ </section>
+<section>
+Cytoscape TaskFactories
+TaskFactories
+Main unit of work in Cytoscape is a “Task”
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/work/Task.html" target="_blank">Tasks </a>are created by <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/work/TaskFactory.html" target="_blank">TaskFactories</a>
+ </section>
+<section>
+Tasks<svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Rounded Rectangle 7" style="top:193.25826771653544px; left:49.840524934383204px;width:208.366719160105px; height:60.77501312335958px; z-index: 81;"><rect x="0" y="0" width="208.366719160105" height="60.77501312335958" rx="7" ry="7" fill="rgb(236,241,223)" stroke="#9CB95D" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+TaskFactory<svg class="drawing" _id="9" _idx="undefined" _type="undefined" _name="Rounded Rectangle 8" style="top:273.8683464566929px; left:229.47233595800526px;width:209.40241469816272px; height:60.77501312335958px; z-index: 141;"><rect x="0" y="0" width="209.40241469816272" height="60.77501312335958" rx="7" ry="7" fill="rgb(255,255,255)" stroke="#FFFFFF" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+TaskIterator<svg class="drawing" _id="18" _idx="undefined" _type="undefined" _name="Rounded Rectangle 17" style="top:162.87076115485564px; left:267.7409973753281px;width:136.49732283464567px; height:60.77501312335958px; z-index: 206;"><rect x="0" y="0" width="136.49732283464567" height="60.77501312335958" rx="7" ry="7" fill="none" stroke="#4F81BD" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+creates<svg class="drawing" _id="13" _idx="undefined" _type="undefined" _name="Elbow Connector 12" style="top:223.6457742782152px; left:178.89889763779527px;width:155.27464566929135px; height:50.22257217847769px; z-index: 167;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><path d="M 155.27464566929135 0 L 155.27464566929135 50.22257217847769 L 0 50.22257217847769" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" fill="none" marker-end="url(#markerTriangle)"></path></svg><svg class="drawing" _id="10" _idx="undefined" _type="undefined" _name="Rounded Rectangle 9" style="top:447.79286089238843px; left:287.7807874015748px;width:92.78530183727034px; height:60.77501312335958px; z-index: 265;"><rect x="0" y="0" width="92.78530183727034" height="60.77501312335958" rx="7" ry="7" fill="rgb(242,242,242)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Task<svg class="drawing" _id="19" _idx="undefined" _type="undefined" _name="Rounded Rectangle 18" style="top:331.22036745406825px; left:335.98971128608923px;width:225.117375328084px; height:110.82498687664042px; z-index: 348;"><rect x="0" y="0" width="225.117375328084" height="110.82498687664042" rx="7" ry="7" fill="none" stroke="#4F81BD" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+contains
+sequence of<svg class="drawing" _id="17" _idx="undefined" _type="undefined" _name="Elbow Connector 16" style="top:391.21805774278215px; left:277.59884514435697px;width:113.14950131233596px; height:0.00010498687664041995px; z-index: 292;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="113.14950131233596" y2="0.00010498687664041995" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="15" _idx="undefined" _type="undefined" _name="Elbow Connector 14" style="top:259.57417322834647px; left:135.83968503937007px;width:224.14708661417322px; height:213.0651968503937px; z-index: 385;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><path d="M 0 224.14708661417322 L 213.0651968503937 224.14708661417322 L 213.0651968503937 0" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" fill="none" marker-end="url(#markerTriangle)"></path></svg><svg class="drawing" _id="22" _idx="undefined" _type="undefined" _name="Rounded Rectangle 21" style="top:478.18036745406823px; left:73.13186351706037px;width:136.49732283464567px; height:60.77501312335958px; z-index: 424;"><rect x="0" y="0" width="136.49732283464567" height="60.77501312335958" rx="7" ry="7" fill="none" stroke="#4F81BD" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+creates<svg class="drawing" _id="11" _idx="undefined" _type="undefined" _name="Rounded Rectangle 10" style="top:350.23296587926507px; left:649.857217847769px;width:229.8542782152231px; height:60.77501312335958px; z-index: 483;"><rect x="0" y="0" width="229.8542782152231" height="60.77501312335958" rx="7" ry="7" fill="rgb(253,235,221)" stroke="#F2BC8C" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+TaskManager<svg class="drawing" _id="27" _idx="undefined" _type="undefined" _name="Rounded Rectangle 26" style="top:241.27328083989502px; left:654.5902362204724px;width:220.38824146981628px; height:60.77501312335958px; z-index: 548;"><rect x="0" y="0" width="220.38824146981628" height="60.77501312335958" rx="7" ry="7" fill="none" stroke="#4F81BD" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+executed by<svg class="drawing" _id="23" _idx="undefined" _type="undefined" _name="Elbow Connector 22" style="top:304.2558530183727px; left:505.5397375328084px;width:259.24461942257216px; height:45.97711286089239px; z-index: 509;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><path d="M 259.24461942257216 0 L 259.24461942257216 45.97711286089239 L 0 45.97711286089239" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" fill="none" marker-end="url(#markerTriangle)"></path></svg></section>
+<section>
+Cytoscape TaskFactories
+TaskFactories
+Main unit of work in Cytoscape is a “Task”
+Tasks are created by TaskFactories
+TaskFactories are OSGi services
+Can be registered in your CyActivator:
+ 
+TaskFactory factory = 
+ registerService(bc, myFactory, TaskFactory.class, properties);
+where myFactory is the task factory you want to register
+properties provide meta-data about the factory
+<li>Java Properties
+ </section>
+<section>
+Cytoscape TaskFactories
+Cytoscape TaskFactory Properties
+Properties have special meaning in Cytoscape
+Defined in <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/work/ServiceProperties.html" target="_blank">org.cytoscape.work.ServiceProperties</a>
+Key properties
+<li>TITLE – If used as a menu, this is the menu title
+<li>PREFERRED_MENU – Where this will be added
+<li>ENABLE_FOR – When this menu is active
+<li>IN_TOOL_BAR – is it in the tool bar?
+<li>IN_MENU_BAR – is it in the top-level menus?
+<li>MENU_GRAVITY – The specific gravity of this item.</section>
+<section>
+Cytoscape TaskFactories
+Example:
+import org.cytoscape.work.AbstractTaskFactory;
+import org.cytoscape.work.TaskIterator;
+ 
+class MyTaskFactory extends AbstractTaskFactory {
+ public MyTaskFactory() {
+  super();
+ }
+ 
+ public TaskIterator createTaskIterator() {
+  return null; // Fill in
+ }
+ 
+ public boolean isReady() { return true; }
+}
+ </section>
+<section>
+Cytoscape TaskFactories
+Example (in CyActivator):
+MyTaskFactory myFactory = new MyTaskFactory();
+Properties props= new Properties();
+// Note the “.” notation for cascading menus
+props.setProperty(PREFERRED_MENU, "Apps.cddApp");
+props.setProperty(TITLE, "Load CDD Domains for Node");
+// Not all task factories will be commands
+props.setProperty(COMMAND, "loadCDDDomains4node");
+props.setProperty(COMMAND_NAMESPACE, "cddApp");
+props.setProperty(IN_MENU_BAR, "true");
+// Usually means the second menu item
+props.setProperty(MENU_GRAVITY, "2.0");
+registerService(bc, loadCDDDomainNodeView,       
+  NodeViewTaskFactory.class, nodeViewProps);</section>
+<section>
+Step 1: Project
+Add a new Cytoscape App menu
+Menu title: Hello world!
+For now, don’t need a Task
+ </section>
+<section>
+Important Factories
+CyNetworkFactory
+model-api
+CyTableFactory
+model-api
+CyGroupFactory
+group-api
+CyNetworkViewFactory
+viewmodel-api
+VisualMappingFunctionFactory
+vizmap-api
+VisualStyleFactory
+vizmap-api
+ </section>
+<section>
+Important Managers
+CyApplicationManager
+application-api
+Lots of “state” information
+CyNetworkManager
+model-api
+CyTableManager
+model-api
+CyNetworkTableManager
+model-api
+Manages the association between tables and network objects
+ 
+ 
+CyNetworkViewManager
+viewmodel-api
+CyGroupManager
+group-api
+VisualMappingManager
+vizmap-api</section>
+<section>
+Special Task Factories
+core-task-api
+NetworkViewTaskFactory
+<li>Network background context menu
+NodeViewTaskFactory
+<li>Node context menu
+EdgeViewTaskFactory
+<li>Edge context menu</section>
+<section>
+Tasks
+Intended to run in multiple environments
+Desktop application
+Headless, via scripting
+Programmatically, via an app
+Not appropriate to assume task will be run in a particular way
+Only use Swing within tasks if necessary
+ </section>
+<section>
+Step 2: Cytoscape Model
+Two basic concepts in data model:
+CyNetwork
+CyTable</section>
+<section><svg class="drawing" _id="25" _idx="undefined" _type="undefined" _name="Rectangle 24" style="top:146.7117060367454px; left:543.7558005249343px;width:288.4883989501312px; height:248.10855643044619px; z-index: 45;"><rect x="0" y="0" width="288.4883989501312" height="248.10855643044619" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ 
+Concepts: Data Model
+CyNetwork
+Multigraph
+Directed or undirected
+CyNode
+CyEdge
+CyTable
+CyColumn
+<li>Primary key
+CyRow
+SUID
+Session-unique identifier
+ 
+ <svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Oval 7" style="top:183.31758530183728px; left:598.9248293963254px;width:73.55884514435695px; height:73.55884514435695px; z-index: 196;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="9" _idx="undefined" _type="undefined" _name="Oval 8" style="top:295.86950131233596px; left:711.8991076115485px;width:73.55884514435695px; height:73.55884514435695px; z-index: 225;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="15" _idx="undefined" _type="undefined" _name="Internal Storage 14" style="top:467.8348556430446px; left:620.6419947506562px;width:105.75128608923885px; height:105.75128608923885px; z-index: 280;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+ <svg class="drawing" _id="50" _idx="undefined" _type="undefined" _name="Oval 49" style="top:159.0896587926509px; left:688.9111811023622px;width:73.55884514435695px; height:73.55884514435695px; z-index: 386;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="11" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 10" style="top:246.103937007874px; left:661.7111811023622px;width:60.96041994750656px; height:60.53805774278215px; z-index: 254;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="60.96041994750656" y2="60.53805774278215" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="47" _idx="undefined" _type="undefined" _name="Rectangle 46" style="top:496.5714435695538px; left:620.6419947506562px;width:105.75128608923885px; height:17.242099737532808px; z-index: 323;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="48" _idx="undefined" _type="undefined" _name="Rectangle 47" style="top:512.0894488188976px; left:647.1479265091864px;width:105.75128608923885px; height:17.242099737532808px; z-index: 356;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ </section>
+<section><svg class="drawing" _id="25" _idx="undefined" _type="undefined" _name="Rectangle 24" style="top:146.7117060367454px; left:543.7558005249343px;width:288.4883989501312px; height:248.10855643044619px; z-index: 45;"><rect x="0" y="0" width="288.4883989501312" height="248.10855643044619" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ 
+Concepts: Data Model
+CyNetwork
+Multigraph
+Directed or undirected
+CyNode
+CyEdge
+CyTable
+CyColumn
+<li>Primary key
+CyRow
+SUID
+Session-unique identifier
+ 
+ <svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Oval 7" style="top:183.31758530183728px; left:598.9248293963254px;width:73.55884514435695px; height:73.55884514435695px; z-index: 199;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="9" _idx="undefined" _type="undefined" _name="Oval 8" style="top:295.86950131233596px; left:711.8991076115485px;width:73.55884514435695px; height:73.55884514435695px; z-index: 228;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="14" _idx="undefined" _type="undefined" _name="Internal Storage 13" style="top:467.8348556430446px; left:472px;width:105.75128608923885px; height:105.75128608923885px; z-index: 288;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Node<svg class="drawing" _id="15" _idx="undefined" _type="undefined" _name="Internal Storage 14" style="top:467.8348556430446px; left:620.6419947506562px;width:105.75128608923885px; height:105.75128608923885px; z-index: 319;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Edge<svg class="drawing" _id="16" _idx="undefined" _type="undefined" _name="Internal Storage 15" style="top:467.8348556430446px; left:765.8087139107612px;width:105.75128608923885px; height:105.75128608923885px; z-index: 350;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Network<svg class="drawing" _id="26" _idx="undefined" _type="undefined" _name="Oval 25" style="top:159.0896587926509px; left:688.9111811023622px;width:73.55884514435695px; height:73.55884514435695px; z-index: 515;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="11" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 10" style="top:246.103937007874px; left:661.7111811023622px;width:60.96041994750656px; height:60.53805774278215px; z-index: 257;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="60.96041994750656" y2="60.53805774278215" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="24" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 23" style="top:273.57417322834647px; left:673.5176902887139px;width:14.482309711286089px; height:224.05417322834646px; z-index: 384;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="14.482309711286089" y1="0" x2="0" y2="224.05417322834646" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="42" _idx="undefined" _type="undefined" _name="Rectangle 41" style="top:497.6283464566929px; left:620.6419947506562px;width:105.75128608923885px; height:17.242099737532808px; z-index: 417;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="31" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 30" style="top:394.8202624671916px; left:741.3349081364829px;width:77.34950131233596px; height:85.47328083989501px; z-index: 452;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="77.34950131233596" y2="85.47328083989501" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="44" _idx="undefined" _type="undefined" _name="Rectangle 43" style="top:480.2935433070866px; left:765.8087139107612px;width:105.75128608923885px; height:17.242099737532808px; z-index: 485;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="19" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 18" style="top:246.103937007874px; left:524.8756955380577px;width:84.82162729658792px; height:233.22540682414697px; z-index: 551;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="84.82162729658792" y1="0" x2="0" y2="233.22540682414697" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="21" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 20" style="top:358.6558530183727px; left:559.7365879265092px;width:162.93501312335957px; height:195.87107611548555px; z-index: 575;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="162.93501312335957" y1="0" x2="0" y2="195.87107611548555" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="27" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 26" style="top:221.87601049868766px; left:559.7365879265092px;width:139.94708661417323px; height:270.0048293963255px; z-index: 665;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="139.94708661417323" y1="0" x2="0" y2="270.0048293963255" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="38" _idx="undefined" _type="undefined" _name="Rectangle 37" style="top:479.329343832021px; left:472px;width:105.75128608923885px; height:17.242099737532808px; z-index: 608;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="39" _idx="undefined" _type="undefined" _name="Rectangle 38" style="top:554.5269291338583px; left:472px;width:105.75128608923885px; height:17.242099737532808px; z-index: 641;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="28" _idx="undefined" _type="undefined" _name="Rectangle 27" style="top:495.329343832021px; left:472px;width:105.75128608923885px; height:17.242099737532808px; z-index: 698;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ </section>
+<section><svg class="drawing" _id="5" _idx="undefined" _type="undefined" _name="Rectangle 4" style="top:146.7117060367454px; left:543.7558005249343px;width:288.4883989501312px; height:248.10855643044619px; z-index: 55;"><rect x="0" y="0" width="288.4883989501312" height="248.10855643044619" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="6" _idx="undefined" _type="undefined" _name="Oval 5" style="top:183.31758530183728px; left:598.9248293963254px;width:73.55884514435695px; height:73.55884514435695px; z-index: 89;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+A<svg class="drawing" _id="7" _idx="undefined" _type="undefined" _name="Oval 6" style="top:295.86950131233596px; left:711.8991076115485px;width:73.55884514435695px; height:73.55884514435695px; z-index: 123;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+C<svg class="drawing" _id="18" _idx="undefined" _type="undefined" _name="Oval 17" style="top:159.0896587926509px; left:688.9111811023622px;width:73.55884514435695px; height:73.55884514435695px; z-index: 186;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+B<svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 7" style="top:246.103937007874px; left:661.7111811023622px;width:60.96041994750656px; height:60.53805774278215px; z-index: 152;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="60.96041994750656" y2="60.53805774278215" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="26" _idx="undefined" _type="undefined" _name="Rectangle 25" style="top:355.2750656167979px; left:50.62866141732283px;width:288.4883989501312px; height:248.10855643044619px; z-index: 744;"><rect x="0" y="0" width="288.4883989501312" height="248.10855643044619" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="27" _idx="undefined" _type="undefined" _name="Oval 26" style="top:391.8809448818898px; left:105.79769028871391px;width:73.55884514435695px; height:73.55884514435695px; z-index: 781;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+A<svg class="drawing" _id="28" _idx="undefined" _type="undefined" _name="Oval 27" style="top:504.4328608923885px; left:218.77196850393702px;width:73.55884514435695px; height:73.55884514435695px; z-index: 818;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+C<svg class="drawing" _id="29" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 28" style="top:454.6672965879265px; left:168.58404199475066px;width:60.96041994750656px; height:60.53805774278215px; z-index: 847;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="60.96041994750656" y2="60.53805774278215" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg>
+Concepts: Data Model
+CyNetwork
+Can have multiple networks in a “collection”
+<li>Essentially a single-level hierarchy
+CyRootNetwork
+<li>Top CyNetwork in the collection
+<li>Contains all nodes and edges
+<li><a href="file://localhost/usr/src/contrib/Cytoscape/cytoscape3/cy3/project/app-developer/target/API/org/cytoscape/model/subnetwork/package-summary.html" target="_blank">org.cytoscape.model.subnetwor</a><a href="file://localhost/usr/src/contrib/Cytoscape/cytoscape3/cy3/project/app-developer/target/API/org/cytoscape/model/subnetwork/package-summary.html" target="_blank">k</a>
+CySubNetwork
+<li>Projection of part of CyRootNetwork
+<li>Possibly multiple subnetworks
+<li>Nodes and edges have the same SUIDs as in CyRootNetwork
+<li>All CyNetworks not explicitly CyRootNetworks are CySubNetworks
+ <svg class="drawing" _id="9" _idx="undefined" _type="undefined" _name="Internal Storage 8" style="top:467.8348556430446px; left:538.6708661417323px;width:105.75128608923885px; height:105.75128608923885px; z-index: 371;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Node<svg class="drawing" _id="10" _idx="undefined" _type="undefined" _name="Internal Storage 9" style="top:467.8348556430446px; left:687.3128608923885px;width:105.75128608923885px; height:105.75128608923885px; z-index: 402;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Edge<svg class="drawing" _id="11" _idx="undefined" _type="undefined" _name="Internal Storage 10" style="top:467.8348556430446px; left:832.4795800524935px;width:105.75128608923885px; height:105.75128608923885px; z-index: 433;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Network<svg class="drawing" _id="14" _idx="undefined" _type="undefined" _name="Rectangle 13" style="top:497.6283464566929px; left:687.3128608923885px;width:105.75128608923885px; height:17.242099737532808px; z-index: 466;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="17" _idx="undefined" _type="undefined" _name="Rectangle 16" style="top:480.2935433070866px; left:832.4795800524935px;width:105.75128608923885px; height:17.242099737532808px; z-index: 547;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="22" _idx="undefined" _type="undefined" _name="Rectangle 21" style="top:479.329343832021px; left:538.6708661417323px;width:105.75128608923885px; height:17.242099737532808px; z-index: 606;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="23" _idx="undefined" _type="undefined" _name="Rectangle 22" style="top:554.5269291338583px; left:538.6708661417323px;width:105.75128608923885px; height:17.242099737532808px; z-index: 639;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="25" _idx="undefined" _type="undefined" _name="Rectangle 24" style="top:495.329343832021px; left:538.6708661417323px;width:105.75128608923885px; height:17.242099737532808px; z-index: 696;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="38" _idx="undefined" _type="undefined" _name="Rectangle 37" style="top:130.66666666666666px; left:511.8203674540682px;width:436.3943307086614px; height:181.7765879265092px; z-index: 886;"><rect x="0" y="0" width="436.3943307086614" height="181.7765879265092" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="43" _idx="undefined" _type="undefined" _name="TextBox 42" style="top:93.37364829396326px; left:507.7236745406824px;width:221.4155380577428px; height:38.77501312335958px; z-index: 911;"><rect x="0" y="0" width="221.4155380577428" height="38.77501312335958" fill="none" stroke="none" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Network Collection<svg class="drawing" _id="44" _idx="undefined" _type="undefined" _name="Rectangle 43" style="top:497.27611548556433px; left:833.1758530183727px;width:105.75128608923885px; height:17.242099737532808px; z-index: 947;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(225,235,206)" stroke="#77933C" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="13" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 12" style="top:226.25207349081364px; left:635.6514435695539px;width:104.53711286089239px; height:271.37627296587925px; z-index: 490;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="104.53711286089239" y2="271.37627296587925" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="16" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 15" style="top:295.86950131233596px; left:682.2203674540682px;width:203.13490813648295px; height:184.42404199475067px; z-index: 514;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="203.13490813648295" y2="184.42404199475067" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="20" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 19" style="top:206.46425196850393px; left:585.5022572178477px;width:6.044304461942257px; height:272.8650918635171px; z-index: 573;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="6.044304461942257" y2="272.8650918635171" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="24" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 23" style="top:191.89889763779527px; left:559.7365879265092px;width:82.73469816272966px; height:299.98194225721784px; z-index: 663;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="82.73469816272966" y1="0" x2="0" y2="299.98194225721784" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="46" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 45" style="top:292.81175853018374px; left:886.0515485564305px;width:9.460787401574803px; height:204.46435695538057px; z-index: 976;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="9.460787401574803" y1="0" x2="0" y2="204.46435695538057" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="50" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 49" style="top:226.25207349081364px; left:740.1885564304462px;width:92.98729658792651px; height:271.37627296587925px; z-index: 1005;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="92.98729658792651" y1="0" x2="0" y2="271.37627296587925" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="21" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 20" style="top:274.12818897637794px; left:559.7365879265092px;width:97.28797900262467px; height:280.3987401574803px; z-index: 1029;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="97.28797900262467" y1="0" x2="0" y2="280.3987401574803" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="53" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 52" style="top:274.12818897637794px; left:559.7365879265092px;width:300.26194225721787px; height:280.3987401574803px; z-index: 1056;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="300.26194225721787" y1="0" x2="0" y2="280.3987401574803" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="56" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 55" style="top:208.98267716535432px; left:591.54656167979px;width:201.51758530183727px; height:270.3466666666667px; z-index: 1085;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="201.51758530183727" y1="0" x2="0" y2="270.3466666666667" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg></section>
+<section>
+Concepts: Data Model
+CyNetwork
+Can have multiple networks in a “collection”
+CyNode and CyEdge attributes can be shared
+Network attributes are not shared
+CyTable
+Actually have three “types” of tables:
+<li>Shared attributes<span style="margin-left: 103.49606299212599px; margin-right: 0px;">Shared within network collection
+<li>Local attributes<span style="margin-left: 103.49606299212599px; margin-right: 0px;">Not shared
+<li>“Façade” table<span style="margin-left: 103.49606299212599px; margin-right: 0px;">A view of the merged local and shared tables
+ <svg class="drawing" _id="49" _idx="undefined" _type="undefined" _name="Internal Storage 48" style="top:480.79937007874014px; left:472px;width:105.75128608923885px; height:105.75128608923885px; z-index: 331;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Node<svg class="drawing" _id="51" _idx="undefined" _type="undefined" _name="Internal Storage 50" style="top:480.79937007874014px; left:620.6419947506562px;width:105.75128608923885px; height:105.75128608923885px; z-index: 362;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Edge<svg class="drawing" _id="52" _idx="undefined" _type="undefined" _name="Internal Storage 51" style="top:480.79937007874014px; left:765.8087139107612px;width:105.75128608923885px; height:105.75128608923885px; z-index: 393;"><rect x="0" y="0" width="105.75128608923885" height="105.75128608923885" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Network<svg class="drawing" _id="54" _idx="undefined" _type="undefined" _name="Rectangle 53" style="top:510.59286089238844px; left:620.6419947506562px;width:105.75128608923885px; height:17.242099737532808px; z-index: 426;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="61" _idx="undefined" _type="undefined" _name="Rectangle 60" style="top:492.29385826771653px; left:472px;width:105.75128608923885px; height:17.242099737532808px; z-index: 577;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="62" _idx="undefined" _type="undefined" _name="Rectangle 61" style="top:567.4914435695538px; left:472px;width:105.75128608923885px; height:17.242099737532808px; z-index: 610;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="64" _idx="undefined" _type="undefined" _name="Rectangle 63" style="top:508.29385826771653px; left:472px;width:105.75128608923885px; height:17.242099737532808px; z-index: 667;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="70" _idx="undefined" _type="undefined" _name="Rectangle 69" style="top:143.6311811023622px; left:511.8203674540682px;width:436.3943307086614px; height:181.7765879265092px; z-index: 857;"><rect x="0" y="0" width="436.3943307086614" height="181.7765879265092" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="71" _idx="undefined" _type="undefined" _name="TextBox 70" style="top:106.33816272965879px; left:507.7236745406824px;width:221.4155380577428px; height:38.77501312335958px; z-index: 882;"><rect x="0" y="0" width="221.4155380577428" height="38.77501312335958" fill="none" stroke="none" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+Network Collection<svg class="drawing" _id="72" _idx="undefined" _type="undefined" _name="Rectangle 71" style="top:510.2406299212598px; left:766.5049868766404px;width:105.75128608923885px; height:17.242099737532808px; z-index: 918;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(225,235,206)" stroke="#77933C" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="41" _idx="undefined" _type="undefined" _name="Rectangle 40" style="top:146.7117060367454px; left:543.7558005249343px;width:288.4883989501312px; height:248.10855643044619px; z-index: 168;"><rect x="0" y="0" width="288.4883989501312" height="248.10855643044619" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="42" _idx="undefined" _type="undefined" _name="Oval 41" style="top:183.31758530183728px; left:598.9248293963254px;width:73.55884514435695px; height:73.55884514435695px; z-index: 202;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+A<svg class="drawing" _id="45" _idx="undefined" _type="undefined" _name="Oval 44" style="top:295.86950131233596px; left:711.8991076115485px;width:73.55884514435695px; height:73.55884514435695px; z-index: 236;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+C<svg class="drawing" _id="48" _idx="undefined" _type="undefined" _name="Oval 47" style="top:159.0896587926509px; left:688.9111811023622px;width:73.55884514435695px; height:73.55884514435695px; z-index: 299;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+B<svg class="drawing" _id="47" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 46" style="top:246.103937007874px; left:661.7111811023622px;width:60.96041994750656px; height:60.53805774278215px; z-index: 265;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="60.96041994750656" y2="60.53805774278215" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="58" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 57" style="top:295.86950131233596px; left:696.7736482939632px;width:121.91076115485565px; height:184.42404199475067px; z-index: 484;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="121.91076115485565" y2="184.42404199475067" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="59" _idx="undefined" _type="undefined" _name="Rectangle 58" style="top:480.2935433070866px; left:765.8087139107612px;width:105.75128608923885px; height:17.242099737532808px; z-index: 517;"><rect x="0" y="0" width="105.75128608923885" height="17.242099737532808" fill="rgb(235,199,198)" stroke="#642523" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="66" _idx="undefined" _type="undefined" _name="Rectangle 65" style="top:355.2750656167979px; left:50.62866141732283px;width:288.4883989501312px; height:248.10855643044619px; z-index: 715;"><rect x="0" y="0" width="288.4883989501312" height="248.10855643044619" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ <svg class="drawing" _id="67" _idx="undefined" _type="undefined" _name="Oval 66" style="top:391.8809448818898px; left:105.79769028871391px;width:73.55884514435695px; height:73.55884514435695px; z-index: 752;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+A<svg class="drawing" _id="68" _idx="undefined" _type="undefined" _name="Oval 67" style="top:504.4328608923885px; left:218.77196850393702px;width:73.55884514435695px; height:73.55884514435695px; z-index: 789;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+C<svg class="drawing" _id="69" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 68" style="top:454.6672965879265px; left:168.58404199475066px;width:60.96041994750656px; height:60.53805774278215px; z-index: 818;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="60.96041994750656" y2="60.53805774278215" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="55" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 54" style="top:239.2165879265092px; left:642.4712860892389px;width:31.046404199475067px; height:271.37627296587925px; z-index: 450;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="31.046404199475067" y2="271.37627296587925" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="60" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 59" style="top:219.42876640419948px; left:524.8756955380577px;width:60.62656167979003px; height:272.8650918635171px; z-index: 544;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="60.62656167979003" y1="0" x2="0" y2="272.8650918635171" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="63" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 62" style="top:204.86341207349082px; left:559.7365879265092px;width:82.73469816272966px; height:299.98194225721784px; z-index: 634;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="82.73469816272966" y1="0" x2="0" y2="299.98194225721784" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="73" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 72" style="top:305.7762729658793px; left:819.3806824146982px;width:9.460787401574803px; height:204.46435695538057px; z-index: 947;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="9.460787401574803" y1="0" x2="0" y2="204.46435695538057" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="74" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 73" style="top:239.2165879265092px; left:673.5176902887139px;width:168.67076115485565px; height:271.37627296587925px; z-index: 976;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="168.67076115485565" y1="0" x2="0" y2="271.37627296587925" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="75" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 74" style="top:287.0927034120735px; left:559.7365879265092px;width:97.28797900262467px; height:280.3987401574803px; z-index: 1000;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="97.28797900262467" y1="0" x2="0" y2="280.3987401574803" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="76" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 75" style="top:287.0927034120735px; left:559.7365879265092px;width:300.26194225721787px; height:280.3987401574803px; z-index: 1027;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="300.26194225721787" y1="0" x2="0" y2="280.3987401574803" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="77" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 76" style="top:221.94719160104987px; left:524.8756955380577px;width:268.9954855643045px; height:270.3466666666667px; z-index: 1056;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="268.9954855643045" y1="0" x2="0" y2="270.3466666666667" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg></section>
+<section>
+Concepts: Data Model
+Creating a network
+Use <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/model/CyNetworkFactory.html" target="_blank">CyNetworkFactory</a> to create the network and <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/model/CyNetworkManager.html" target="_blank">CyNetworkManager</a><a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/model/CyNetworkManager.html" target="_blank"> </a>to add it
+<li>Common pattern
+<li>Need to get them in your CyActivator:
+<li>CyNetworkFactory networkFactory = 
+<li> getService(bc, CyNetworkFactory.class);
+<li>CyNetworkManager networkManager = 
+<li> getService(bc, CyNetworkManager.class);
+<li>Then pass them to your task factory in its constructor
+Then just use them:
+<li>CyNetwork newNetwork = networkFactory.createNetwork();
+<li>networkManager.addNetwork(newNetwork);
+Most operations (including adding nodes and edges) are on <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/model/CyNetwork.html" target="_blank">CyNetwork</a></section>
+<section>
+Step 2: Project
+Add a task to the TaskFactory from Step 1
+Task should add a node to the network
+I recommend that your Task extends AbstractTask
+If you have time, add two nodes and one edge between them
+NOTE: You will have to create a view manually
+HINT: you will need to edit your pom.xml file to include the additional dependency</section>
+<section>
+Step 3: Table Model
+CyTables
+Standard table model:
+<li>Columns are fixed-type:<span style="margin-left: 103.49606299212599px; margin-right: 0px;">Boolean, String, Integer, Long, Double<span style="margin-left: 103.49606299212599px; margin-right: 0px;">List&lt;Boolean&gt;, List&lt;String&gt;, List&lt;Integer&gt;, List&lt;Long&gt;, List&lt;Double&gt;
+<li>Rows are singly indexed by a key
+Columns can be “virtual”
+<li>Essentially functions as a link from one table into another</section>
+<section>
+Tables and Networks
+Creating a CyNetwork creates: 
+<li>Network tables<span style="margin-left: 103.49606299212599px; margin-right: 0px;">LOCAL_ATTRS and HIDDEN_ATTRS for each network
+<li>Node tables<span style="margin-left: 103.49606299212599px; margin-right: 0px;">LOCAL_ATTRS and HIDDEN_ATTRS each network<span style="margin-left: 103.49606299212599px; margin-right: 0px;">DEFAULT_ATTRS for each network<span style="margin-left: 137.99475065616798px; margin-right: 0px;">All columns except key are virtual (Combines LOCAL_ATTRS and SHARED_ATTRS<span style="margin-left: 103.49606299212599px; margin-right: 0px;">SHARED_ATTRS for each collection
+<li>Edge tables<span style="margin-left: 103.49606299212599px; margin-right: 0px;">LOCAL_ATTRS, HIDDEN_ATTRS, and DEFAULT_ATTRS for each network<span style="margin-left: 103.49606299212599px; margin-right: 0px;">SHARED_ATTRS for each collection
+<li> 
+<li> 
+ 
+ 
+ 
+ 
+<li> </section>
+<section>
+Tables and Networks
+ 
+ 
+ 
+ 
+<li> <table style="top:102.05333333333333px; left:24.075380577427822px;width:923.0364304461942px; height:567.0611023622047px; z-index: 1346;"><tbody><tr><td>
+Model Object</td><td>
+Table</td><td>
+Key</td><td>
+Notes</td></tr><tr><td>
+CyNetwork</td><td>
+LOCAL_ATTRS</td><td>
+CyNetwork.SUID</td><td>
+Standard local table</td></tr><tr><td>
+CyNetwork</td><td>
+HIDDEN_ATTRS</td><td>
+CyNetwork.SUID</td><td>
+Not shown to user</td></tr><tr><td>
+CyNode</td><td>
+LOCAL_ATTRS</td><td>
+CyNode.SUID</td><td>
+Local table not shared across networks in the same collection</td></tr><tr><td>
+CyNode</td><td>
+SHARED_ATTRS</td><td>
+CyNode.SUID
+ </td><td>
+Shared table.  One for each network collection.</td></tr><tr><td>
+CyNode</td><td>
+DEFAULT_ATTRS</td><td>
+CyNode.SUID
+ </td><td>
+The façade table.  Essentially all virtual columns pointing to LOCAL_ATTRS and SHARED_ATTRS tables</td></tr><tr><td>
+CyNode</td><td>
+HIDDEN_ATTRS</td><td>
+CyNode.SUID
+ </td><td>
+Local attributes not shown to the user</td></tr><tr><td>
+CyEdge</td><td>
+LOCAL_ATTRS</td><td>
+CyEdge.SUID</td><td>
+Local table not shared across networks in the same collection</td></tr><tr><td>
+CyEdge</td><td>
+SHARED_ATTRS</td><td>
+CyEdge.SUID
+ </td><td>
+Shared table.  One for each network collection.</td></tr><tr><td>
+CyEdge</td><td>
+DEFAULT_ATTRS</td><td>
+CyEdge.SUID
+ </td><td>
+The façade table.  Essentially all virtual columns pointing to LOCAL_ATTRS and SHARED_ATTRS tables</td></tr><tr><td>
+CyEdge</td><td>
+HIDDEN_ATTRS</td><td>
+CyEdge.SUID
+ </td><td>
+Local attributes not shown to the user</td></tr></tbody></table></section>
+<section>
+Table Model
+Standard columns
+CyNetwork.NAME
+<li>Name of the node, edge, or network
+CyNetwork.SELECTED
+<li>If TRUE, this object is selected
+CyRootNetwork.SHARED_NAME
+<li>In the SHARED_ATTRS tables
+<li>Shared (root) name of the object
+ </section>
+<section>
+Table Model
+Can also create your own tables
+Bound to network objects
+<li>Key is always SUID (Long)
+<li>Should be registered with CyNetworkTableManager
+<li>Can be easily pulled from CyNetwork:
+CyNetwork.getTable(<a href="http://download.oracle.com/javase/6/docs/api/java/lang/Class.html?is-external=true" target="_blank">Class</a>&lt;? extends <a href="file://localhost/usr/src/contrib/Cytoscape/cytoscape3/cy3/project/app-developer/target/API/org/cytoscape/model/CyIdentifiable.html" target="_blank">CyIdentifiable</a>&gt; type, <a href="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" target="_blank">String</a> namespace);
+<li>Shortcut to get a row:
+CyNetwork.getRow(<a href="file://localhost/usr/src/contrib/Cytoscape/cytoscape3/cy3/project/app-developer/target/API/org/cytoscape/model/CyIdentifiable.html" target="_blank">CyIdentifiable</a> entry, <a href="http://download.oracle.com/javase/6/docs/api/java/lang/String.html?is-external=true" target="_blank">String</a> namespace);
+Unbound
+<li>Key is any valid type
+<li>Should be registered with CyTableManager</section>
+<section>
+Accessing Tables
+Testing for columns
+Must test for column existence before access
+if (table.getColumn(String columnName) != null)
+Creating new columns
+Columns must be typed
+List columns must include the list type
+Getting rows
+From table: 
+<li>getRow(Object key)
+From a network: 
+<li>getRow(CyIdentifiable entry, String namespace)</section>
+<section>
+Accessing Tables
+Getting data
+All data access is through rows:
+&lt;T&gt; T CyRow.get(String columnName, Class&lt;? extends T&gt; type)
+Integer I = row.get(“clusterNumber”, Integer.class);
+Where “type” is the column type.  It is an error if the type is wrong
+Setting data
+CyRow.set(String columnName, T value)
+Where T is the column type
+Note: adding nodes and edges automatically adds the corresponding rows</section>
+<section>
+Step 3: Project
+In the network you created before:
+Change the name of the node or nodes
+Create two new node columns:
+<li>Hello  List of Strings
+<li>World  Double
+Add data to the new columns</section>
+<section><svg class="drawing" _id="25" _idx="undefined" _type="undefined" _name="Rectangle 24" style="top:146.7117060367454px; left:543.7558005249343px;width:288.4883989501312px; height:248.10855643044619px; z-index: 45;"><rect x="0" y="0" width="288.4883989501312" height="248.10855643044619" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="5"></rect></svg>
+ 
+Step 4: View Model
+CyNetworkView
+View&lt;CyNode&gt;
+View&lt;CyEdge&gt;
+VisualProperty
+Examples:
+<li>NODE_X_LOCATION
+<li>EDGE_WIDTH
+<li>NETWORK_HEIGHT
+ <svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Oval 7" style="top:183.31758530183728px; left:598.9248293963254px;width:73.55884514435695px; height:73.55884514435695px; z-index: 176;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="9" _idx="undefined" _type="undefined" _name="Oval 8" style="top:295.86950131233596px; left:711.8991076115485px;width:73.55884514435695px; height:73.55884514435695px; z-index: 205;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="26" _idx="undefined" _type="undefined" _name="Oval 25" style="top:159.0896587926509px; left:688.9111811023622px;width:73.55884514435695px; height:73.55884514435695px; z-index: 263;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="11" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 10" style="top:246.103937007874px; left:661.7111811023622px;width:60.96041994750656px; height:60.53805774278215px; z-index: 234;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="60.96041994750656" y2="60.53805774278215" stroke="#7F7F7F" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="29" _idx="undefined" _type="undefined" _name="Rectangle 28" style="top:410.8202624671916px; left:504.5675590551181px;width:356.3004724409449px; height:248.10855643044619px; z-index: 308;"><rect x="0" y="0" width="356.3004724409449" height="248.10855643044619" fill="rgb(257,287,312)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+ <svg class="drawing" _id="32" _idx="undefined" _type="undefined" _name="Oval 31" style="top:547.6585826771653px; left:615.3523359580053px;width:73.55884514435695px; height:73.55884514435695px; z-index: 337;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(193,81,78)" stroke="#642523" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ <svg class="drawing" _id="18" _idx="undefined" _type="undefined" _name="Rounded Rectangle 17" style="top:445.2629921259842px; left:743.697217847769px;width:72.0914435695538px; height:72.0914435695538px; z-index: 388;"><rect x="0" y="0" width="72.0914435695538" height="72.0914435695538" rx="7" ry="7" fill="rgb(154,187,88)" stroke="#4e6228" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+ <svg class="drawing" _id="37" _idx="undefined" _type="undefined" _name="Isosceles Triangle 36" style="top:429.90225721784776px; left:563.1845669291339px;width:83.90309711286089px; height:72.33028871391076px; z-index: 415;"></svg>
+ <svg class="drawing" _id="33" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 32" style="top:502.2325459317585px; left:678.138687664042px;width:65.55853018372703px; height:56.19853018372704px; z-index: 361;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="65.55853018372703" y1="0" x2="0" y2="56.19853018372704" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="49" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 48" style="top:221.87601049868766px; left:626.1119160104987px;width:73.57175853018373px; height:244.19139107611548px; z-index: 464;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="73.57175853018373" y1="0" x2="0" y2="244.19139107611548" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="5, 2" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="50" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 49" style="top:256.8764304461942px; left:635.704251968504px;width:107.99296587926509px; height:224.43233595800524px; z-index: 502;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="107.99296587926509" y2="224.43233595800524" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="5, 2" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="53" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 52" style="top:358.6558530183727px; left:652.1317585301837px;width:70.53984251968504px; height:189.00272965879265px; z-index: 540;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="70.53984251968504" y1="0" x2="0" y2="189.00272965879265" stroke="#C0504D" stroke-width="NaN" stroke-dasharray="5, 2" marker-end="url(#markerTriangle)"></line></svg></section>
+<section>
+View Model
+Creating a network view
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/model/CyNetworkViewFactory.html" target="_blank">CyNetworkViewFactory.createNetworkView</a>(CyNetwork network);
+Need to get CyNetworkViewFactory in your CyActivator
+Will create Views for all nodes and edges
+Getting a network view
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/model/CyNetworkViewManager.html" target="_blank">CyNetworkViewManager</a>.getNetworkViews(CyNetwork network);
+Need to get CyNetworkViewManager in your CyActivator
+Note you get a collection of views back – i.e. there can be multiple views per network
+Getting node and edge views
+View&lt;CyEdge&gt; edgeView = <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/model/CyNetworkView.html" target="_blank">CyNetworkView</a>.getNodeView(CyNode node);
+View&lt;CyNode&gt; nodeView = <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/model/CyNetworkView.html" target="_blank">CyNetworkView</a>.getEdgeView(CyEdge edge);
+ </section>
+<section>
+Visual Properties
+VisualLexicon
+VisualProperty hierarchy
+Child properties inherit values from parents
+Node
+NODE_PAINT
+<li>NODE_BORDER_PAINT
+<li>NODE_FILL_COLOR
+ <svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Oval 7" style="top:394.14246719160104px; left:662.7142257217848px;width:73.55884514435695px; height:73.55884514435695px; z-index: 137;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ </section>
+<section>
+Visual Properties
+VisualLexicon
+VisualProperty hierarchy
+Child properties inherit values from parents
+Node
+NODE_PAINT
+<li>NODE_BORDER_PAINT
+<li>NODE_FILL_COLOR
+ <svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Oval 7" style="top:394.14246719160104px; left:662.7142257217848px;width:73.55884514435695px; height:73.55884514435695px; z-index: 141;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(154,187,88)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ </section>
+<section>
+Visual Properties
+VisualLexicon
+VisualProperty hierarchy
+Child properties inherit values from parents
+Node
+NODE_PAINT
+<li>NODE_BORDER_PAINT
+<li>NODE_FILL_COLOR
+ <svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Oval 7" style="top:394.14246719160104px; left:662.7142257217848px;width:73.55884514435695px; height:73.55884514435695px; z-index: 140;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(255,255,255)" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ </section>
+<section>
+Visual Properties
+VisualLexicon
+VisualProperty hierarchy
+Child properties inherit values from parents
+Node
+NODE_PAINT
+<li>NODE_BORDER_PAINT
+<li>NODE_FILL_COLOR
+ <svg class="drawing" _id="8" _idx="undefined" _type="undefined" _name="Oval 7" style="top:394.14246719160104px; left:662.7142257217848px;width:73.55884514435695px; height:73.55884514435695px; z-index: 142;"><ellipse cx="36.779422572178476" cy="36.779422572178476" rx="36.779422572178476" ry="36.779422572178476" fill="rgb(154,187,88)" stroke="#9BBB59" stroke-width="NaN" stroke-dasharray="0"></ellipse></svg>
+ </section>
+<section>
+Setting a Visual Property
+Visual properties can be directly set in <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/model/View.html" target="_blank">View </a>interface: 
+ 
+ view.setLockedValue(VisualProperty&lt;? extends T&gt; vp, V value)
+ 
+…where View is a node view (View&lt;CyNode&gt;) or an edge view (View&lt;CyEdge&gt;)
+ 
+Usually get the VisualProperty from <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/presentation/property/BasicVisualLexicon.html" target="_blank">BasicVisualLexicon</a>
+Types are important.  Need to make sure V is an appropriate type for the VisualProperty
+Example:
+ nodeView.setLockedValue(BasicVisualLexicon.NODE_FILL_COLOR,
+  Color.BLUE);
+ 
+ </section>
+<section>
+Visual Styles
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/vizmap/VisualMappingFunction.html" target="_blank">VisualMappingFunction</a>
+Maps between a CyColumn value and a VisualProperty value<span style="margin-left: 103.49606299212599px; margin-right: 0px;">E.g. “name” column mapped to NODE_LABEL
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/vizmap/VisualStyle.html" target="_blank">VisualStyle</a>
+Collection of VisualMappingFunctions
+ 
+Three mapping types:
+Passthrough
+<li>Usually used for labels
+Discrete
+<li>Categorical data
+Continuous
+<li>Range-to-range mappings
+<li>Node color gradient
+<li>Node size
+ </section>
+<section>
+Building a Visual Mapping
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/vizmap/VisualMappingManager.html" target="_blank">VisualMappingManager</a>
+Manages all visual styles
+Get it in your CyActivator as a service
+Getting the visual style for a network:
+ 
+ VisualStyle style = 
+  vmm.getVisualStyle(CyNetworkView networkView);
+ 
+..where vmm is the VisualMappingManager
+ 
+Create a VisualStyle (usually make a copy)
+Use <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/vizmap/VisualStyleFactory.html" target="_blank">VisualStyleFactory</a>.createVisualStyle(style);
+Get it in your CyActivator as a service
+ </section>
+<section>
+Building a Visual Mapping
+Get the desired <a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/vizmap/VisualMappingFunctionFactory.html" target="_blank">VisualMappingFunctionFactory</a> in your CyActivator:
+ 
+ VisualMappingFunctionFactory vmfFactoryC = 
+ getService(bc,VisualMappingFunctionFactory.class, 
+                           "(mapping.type=continuous)");
+  VisualMappingFunctionFactory vmfFactoryD = 
+ getService(bc,VisualMappingFunctionFactory.class, 
+                           "(mapping.type=discrete)");
+  VisualMappingFunctionFactory vmfFactoryP = 
+ getService(bc,VisualMappingFunctionFactory.class, 
+                           "(mapping.type=passthrough)");
+Note this is a little different.  We’re using the filter argument to getService</section>
+<section>
+Building a Visual Mapping
+Passthrough:
+ 
+//Use pass-through mapping 
+String ctrAttrName1 = "SUID"; 
+PassthroughMapping pMapping = (PassthroughMapping) 
+ vmfFactoryP.createVisualMappingFunction(ctrAttrName1, 
+ String.class, 
+  BasicVisualLexicon.NODE_LABEL); 
+vs.addVisualMappingFunction(pMapping); 
+ 
+// Add the new style to the VisualMappingManager
+vmm.addVisualStyle(vs);
+ 
+// Apply the visual style to the NetworkView
+vs.apply(myNetworkView); 
+myNetworkView.updateView();
+ </section>
+<section>
+Building a Visual Mapping
+Continuous:
+// Set node color map to attribute "Degree”  
+ContinuousMapping mapping = (ContinuousMapping) 
+ vmfFactoryC.createVisualMappingFunction("Degree", 
+ Integer.class,
+    BasicVisualLexicon.NODE_FILL_COLOR);  
+// Define the points 
+Double val1 = 2d;
+BoundaryRangeValues&lt;Paint&gt; brv1 = 
+        new BoundaryRangeValues&lt;Paint&gt;(Color.RED, Color.GREEN, Color.GREEN); 
+Double val2 = 12d; 
+BoundaryRangeValues&lt;Paint&gt; brv2 = 
+        new BoundaryRangeValues&lt;Paint&gt;(Color.YELLOW, Color.YELLOW, Color.BLACK); 
+// Set the points 
+mapping.addPoint(val1, brv1); 
+mapping.addPoint(val2, brv2); 
+ 
+// add the mapping to visual style
+vs.addVisualMappingFunction(mapping); </section>
+<section>
+Visual Property Precedence
+How VisualProperty is determined for a View:
+Locked value from View (a.k.a. bypass)
+Mapped value from VisualStyle
+Default value for VisualStyle
+Default value for VisualProperty</section>
+<section>
+Step 4: Project
+Modify your application to create an initial view
+Change the shape of your two nodes
+Create a visual style that:
+Uses the first value in the Hello column to label the node
+<li>Will need to use a VisualBypass, not a passthrough mapper
+Uses the value in the World column to set the color using a continuous mapper</section>
+<section>
+Step 5: User Interface
+Tasks should work in both
+Headless (i.e. nongui) mode
+<li>How do tasks get executed?
+GUI mode
+<li>Separate Swing UI?
+Commands: headless mode
+Tunables: argument handling</section>
+<section>
+Commands
+Exports TaskFactories to:
+Command line dialog
+REST interface
+Simple
+Add to your TaskFactory properties:
+<li>COMMAND_NAMESPACE<span style="margin-left: 103.49606299212599px; margin-right: 0px;">Generally the name of your app.  <span style="margin-left: 103.49606299212599px; margin-right: 0px;">All of your commands will be grouped under this
+<li>COMMAND<span style="margin-left: 103.49606299212599px; margin-right: 0px;">The command itself
+Arguments?
+ 
+NOTE: want to be careful about what TaskFactories you export (nongui only)</section>
+<section>
+Tunables
+Tunables:
+are Java Annotations
+automatically generate GUI
+automatically expose command arguments
+Example:
+import org.cytoscape.work.Tunable;
+import org.cytoscape.work.AbstractTask;
+class MyClass extends AbstractTask {
+ @Tunable (description=“My integer value”)
+ public int value;
+}</section>
+<section>
+Tunables
+Basic Types
+int, double, float, String, long, boolean
+File, URL
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/work/util/package-frame.html" target="_blank">Classes for more complicated Tunables </a>
+ListSingleSelection, ListMultipleSelection
+BoundedDouble, BoundedFloat, BoundedInteger, BoundedLong
+Example:
+@Tunable (description=“Choose from the list”)
+public ListSingleSelection color=
+     new ListSingleSelection(“red”, “blue”, “green”);</section>
+<section>
+Tunables
+Command-only Tunables
+Used for selection of nodes, edges, and rows
+CyNetwork
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/command/util/package-frame.html" target="_blank">Utility Classes</a>
+<li>EdgeList, NodeList, RowList</section>
+<section>
+Tunables
+Commonly used tunable parameters
+context: limit tunable to certain context (“gui”, “nongui”, “both”)
+dependsOn: dependency between tunables
+gravity: control order of panels
+groups: group tunable panels together
+listenForChange: list of tunables that will update this tunable
+Tooltip</section>
+<section>
+Tunables
+Getters and Setters approach
+Can also explicitly use getters and setters
+Allows better control over values
+<li>@Tunable (description=“Test”)
+<li>public int getTest() { return value; }
+<li>public void setTest(int v) { value = v; }
+Very useful for initialization values and reacting to changes</section>
+<section>
+Tunables
+Odds and Ends
+Can have context classes with multiple tunables
+<li>ContainsTunables:<span style="margin-left: 103.49606299212599px; margin-right: 0px;">@ContainsTunables<span style="margin-left: 103.49606299212599px; margin-right: 0px;">public MyContext context;
+<li>Resulting UI will include context Tunables
+Providing a title for the dialog
+<li>ProvidesTitle:<span style="margin-left: 103.49606299212599px; margin-right: 0px;">@ProvidesTitle<span style="margin-left: 103.49606299212599px; margin-right: 0px;">public String getTitle() {return “MyTitle”;}
+<li> 
+ </section>
+<section>
+Status Messages
+Two ways to inform users of status:
+org.cytoscape.work.TaskMonitor
+<li>Passed as argument to run() method of Tasks
+<li>setTitle() and showMessage() provide status messages<span style="margin-left: 103.49606299212599px; margin-right: 0px;">Messages are also recorded in the Cytoscape Task History
+<li>setProgress() updates the progress bar
+org.cytoscape.application.CyUserLog
+<li>General logging facility for user messages<span style="margin-left: 103.49606299212599px; margin-right: 0px;">Uses (or can use) Log4J
+<li>Messages are logged into the Cytoscape Task History</section>
+<section>
+Step 5: Project
+Modify your Task:
+Input the shape to make your nodes
+Input the high and low colors for you range
+Export a command for your task</section>
+<section>
+Step 6: Events
+Cytoscape philosophy:
+Effect lower layers by method invocation
+Effect upper layers by event handling
+Lower layers fire events to be handled by upper layers
+Look for “.events” packages:
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/model/events/package-frame.html" target="_blank">org.cytoscape.model.events</a>
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/view/model/events/package-frame.html" target="_blank">org.cytoscape.view.model.events</a>
+<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/application/events/package-frame.html" target="_blank">org.cytoscape.application.events</a></section>
+<section>
+Events
+Register your event listeners as services:
+MyListener listener = new MyListener();
+registerService(listener, NetworkAddedListener.class);
+Your class just needs to implement the appropriate handleEvent:
+ 
+class MyListener implements NetworkAddedListener {
+ public void handleEvent(NetworkAddedEvent ev) {
+<li> // handle your data
+ }
+}</section>
+<section>
+Events (Selection)
+Listening for selection
+(we really didn’t try to make this hard…
+…but we succeeded)
+Programmatically selecting nodes or edges:
+Set CyNetwork.SELECTED to True in the appropriate default table
+Listening for selection:
+Listen for changes to rows (<a href="http://chianti.ucsd.edu/cytoscape-3.1.0/API/org/cytoscape/model/events/RowsSetListener.html" target="_blank">RowsSetListener</a>)</section>
+<section>
+RowsSetListener
+Probably want either
+The networks you care about, or
+CyNetworkTableManager
+…in your constructor
+Implement RowsSetListener
+RowsSetEvent:
+source is the CyTable that contains the changed rows
+getColumnRecords(String column) returns a collection of RowSetRecords
+Finally, the each RowSetRecord has the row, column, and value</section>
+<section>
+RowsSetListener Example
+public class NetworkSelectionLinker implements RowsSetListener {
+    // Define variables
+public NetworkSelectionLinker(CyRootNetwork rootNetwork, CyEventHelper eventHelper) {
+ this.rootNetwork = rootNetwork;
+ this.eventHelper = eventHelper;
+ this.viewManager = clusterManager.getService(CyNetworkViewManager.class);
+  }
+ 
+ public void handleEvent(RowsSetEvent e) {
+ if (!e.containsColumn(CyNetwork.SELECTED) || ignoreSelection)
+ return;
+ CyNetworkView currentNetworkView = clusterManager.getNetworkView();
+ ignoreSelection = true;
+    Map&lt;CyNetwork, Boolean&gt; stateMap = new HashMap&lt;CyNetwork, Boolean&gt;();
+ for (CySubNetwork subNetwork: rootNetwork.getSubNetworkList()) {
+ if (e.getSource().equals(subNetwork.getTable(CyNode.class, CyNetwork.LOCAL_ATTRS))) {
+ for (RowSetRecord record: e.getColumnRecords(CyNetwork.SELECTED)) {
+          Long suid = record.getRow().get(CyIdentifiable.SUID, Long.class);
+          Boolean value = (Boolean)record.getValue();
+ for (CySubNetwork sub2: rootNetwork.getSubNetworkList()) {
+ if (subNetwork.equals(sub2) || sub2.getDefaultNodeTable().getRow(suid) == null)
+ continue;
+            sub2.getDefaultNodeTable().getRow(suid).set(CyNetwork.SELECTED, value);
+          }
+        }
+      }
+ if (viewManager.viewExists(subNetwork)) {
+ for (CyNetworkView view: viewManager.getNetworkViews(subNetwork)) {
+ if (!view.equals(currentNetworkView)) { view.updateView(); }
+        }
+      }
+    }
+ eventHelper.flushPayloadEvents();
+ ignoreSelection = false;
+  }
+}
+ </section>
+<section>
+Step 6: Project
+Add a selection listener to your app
+When a node is selected, change the shape</section>
+<section>
+Step 7: Commands
+Loosely-coupled way to access functionality
+Core
+Apps
+General idea:
+Commands are exported to the Command Tool 
+<li>Tools-&gt;Command Line Dialog
+Other apps can execute those commands using the org.cytoscape.command package</section>
+<section>
+Commands
+Available namespaces:
+cdd
+chemviz
+cluster
+clusterviz
+command
+edge
+gpml
+group
+layout
+network
+node
+rinalyzer
+seqViz
+session
+setsApp
+structureViz
+table
+view
+vizmap
+wikipathways
+ 
+ 
+ </section>
+<section>
+Commands
+ 
+help network
+Available commands:
+ structureViz align  Perform sequence-driven structural superposition on a group of structures.
+ structureViz annotateRIN  Annotate a residue interaction network (RIN) with the attributes of the corresponding residues in Chimera.
+ structureViz close
+ structureViz createRIN Create a residue interaction network (RIN) from the current model(s) in Chimera. 
+ structureViz exit  Close all open models and exit Chimera
+ structureViz launch  Launch Chimera.
+ structureViz list models  List currently open Chimera models.
+ structureViz open  Open new structures in Chimera
+ structureViz send  Send a command to Chimera.
+ structureViz set  Change structureViz settings
+ structureViz showDialog Show the molecular navigator dialog
+ structureViz syncColors Synchronize colors between structure residues and network nodes.
+ 
+help structureViz open
+structureViz open arguments:
+edgeList=[edgeColumn:value|edge name,...]|all|selected|unselected: List of edges to open structures for
+modbaseID=&lt;String&gt;: Modbase models to fetch
+network=current|[column:value|network name]: Network for the selected nodes/edges
+nodeList=[nodeColumn:value|node name,...]|all|selected|unselected: List of nodes to open structures for
+pdbID=&lt;String&gt;: PDB ID to fetch
+showDialog=true|false: Show the Molecular Structure Navigator dialog after opening the structure in Chimera
+structureFile=&lt;File&gt;: Structure file</section>
+<section>
+Commands
+ 
+help network
+Available commands:
+  network add Add nodes and edges to a network (they must be in the current collection)
+ network add edge Add an edge between two nodes
+ network add node Add a new node to a network
+ network clone Make a copy of the current network
+ network create Create a new network
+ network create attribute Create a new attribute (column) in the network table
+ network create empty Create an empty network
+ network delete  Delete nodes or edges from a network
+ network deselect Deselect nodes or edges in a network
+ network destroy Destroy (delete) a network
+ network export Export a network and its view to a file
+ network get  Return a network
+ network get attribute Get the value for a network attribute
+ network get properties Get the visual property value for a network
+ network hide Hide nodes or edges in a network
+ network import file Import a network from a file
+ network import url  Import a network from a URL
+ network list List all of the available networks
+ network list attributes List all of the attributes (columns) for networks
+ network list properties List all of the network visual properties
+ network load file Load a network file (e.g. XGMML)
+ network load url Load a network file (e.g. XGMML) from a url
+ network rename Rename a network
+ network select  Select nodes or edges in a network
+ network set attribute Set a value in the network table
+ network set current Set the current network
+ network set properties Set network visual properties
+ network show Show hidden nodes and edges
+ 
+ 
+ 
+ </section>
+<section>
+Executing Commands
+See if the command is avilable
+Use org.cytoscape.command.AvailableCommands
+Get a TaskManager
+Populate Create a TaskIterator using the CommandExecutorTaskFactory
+Use a TaskObserver to get results</section>
+<section>
+Commands Example
+ <svg class="drawing" _id="4" _idx="undefined" _type="undefined" _name="Content Placeholder 2" style="top:5.556640419947507px; left:0px;width:960px; height:714.4433595800525px; z-index: 1403;"><rect x="0" y="0" width="960" height="714.4433595800525" fill="rgb(255,255,255)" stroke="none" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+// My Manager class
+// From http://github.com/RBVI/StEMAPApp
+public class StEMAPManager {
+ final CyServiceRegistrar serviceRegistrar;
+ final CyEventHelper eventHelper;
+ CommandExecutorTaskFactory commandTaskFactory = null;
+ SynchronousTaskManager taskManager = null;
+ AvailableCommands availableCommands = null;
+ 
+ public StEMAPManager(final CyServiceRegistrar cyRegistrar) {
+ this.serviceRegistrar = cyRegistrar;
+}
+ 
+ public &lt;S&gt; S getService(Class&lt;S&gt; serviceClass) {
+ return serviceRegistrar.getService(serviceClass);
+ }
+ 
+ public void executeCommand(String namespace, String command,
+ Map&lt;String, Object&gt; args, TaskObserver observer) {
+ if (commandTaskFactory == null)
+ commandTaskFactory = getService(CommandExecutorTaskFactory.class);
+  if (availableCommands == null)
+ availableCommands= getService(AvailableCommands.class);
+ if (taskManager == null)
+ taskManager = getService(SynchronousTaskManager.class);
+ if (availableCommands.getNamespace(namespace) == null ||
+        !availableCommands.getCommands(namespace).contains(command))
+  throw new RuntimeException(“Can’t find command “+namespace+” “+command);
+ TaskIterator ti = commandTaskFactory.createTaskIterator(namespace, command, args, observer);
+ taskManager.execute(ti);
+  }
+ 
+ 
+ </section>
+<section>
+Commands Example
+ <svg class="drawing" _id="4" _idx="undefined" _type="undefined" _name="Content Placeholder 2" style="top:5.556640419947507px; left:0px;width:960px; height:714.4433595800525px; z-index: 822;"><rect x="0" y="0" width="960" height="714.4433595800525" fill="rgb(255,255,255)" stroke="none" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
+// Load a PDB file into UCSF Chimer
+// From http://github.com/RBVI/StEMAPApp
+  public void loadPDB(String pdbPath, String extraCommands) {
+    Map&lt;String, Object&gt; args = new HashMap&lt;&gt;();
+ if (pdbPath != null)
+ args.put("structureFile", pdbPath);
+ else
+ args.put("pdbID", getPDB());
+ 
+ args.put("showDialog", "true");
+    // Assumes that calling class implements TaskObserver
+    // StructureViz will give us a text string containing the
+    // name an number of the opened model
+ executeCommand("structureViz", "open", args, this);
+ 
+ try {
+      // Wait for things to process
+ Thread.sleep(500);
+    } catch (Exception e) {}
+ 
+ if (extraCommands != null) {
+ args = new HashMap&lt;&gt;();
+ args.put("command", extraCommands);
+ executeCommand("structureViz", "send", args, null);
+    }
+  }
+}
+ 
+ 
+ </section>
+<section>
+Step 7: Project
+Write a new app 
+Execute the command you exported in Step 5
+Will need to set the values for the Tunables…</section>
+<section>
+Sample Code
+Sample apps
+<a href="https://github.com/cytoscape/cytoscape-samples" target="_blank">https</a><a href="https://github.com/cytoscape/cytoscape-samples" target="_blank">://github.com/cytoscape/cytoscape-</a><a href="https://github.com/cytoscape/cytoscape-samples" target="_blank">samples</a>
+Can use as template for your own apps
+Real app example:
+SIREN: SIgning of REgulatory Networks
+<a href="http://baderlab.org/PegahKhosravi/SIREN" target="_blank">http://baderlab.org/PegahKhosravi/</a><a href="http://baderlab.org/PegahKhosravi/SIREN" target="_blank">SIREN</a>
+<a href="https://github.com/BaderLab/SirenApp" target="_blank">https://github.com/BaderLab/</a><a href="https://github.com/BaderLab/SirenApp" target="_blank">SirenApp</a>
+Some apps on app store link to their source code (e.g. DynNetwork)
+ </section>
+<section>
+Sample Code
+UCSF RBVI repository
+<a href="https://github.com/RBVI/" target="_blank">https://github.com/RBVI/</a> 
+ </section>
+<section>
+API Tour
+http://chianti.ucsd.edu/cytoscape-3.2.1/API/
+app-api
+Simple app API (to help Cy2 plugin developers; not meant for bundle apps)
+core-task-api
+Commonly used high-level tasks
+e.g. loading networks/styles/tables, applying layouts
+ </section>
+<section>
+API Tour
+model-api
+Network, table model
+event-api
+Event model
+work-api
+Tasks, TaskFactory
+layout-api
+Defining layouts
+ </section>
+<section>
+API Tour
+presentation-api
+Visual property definitions
+viewmodel-api
+Setting visual properties
+vizmap-api
+Visual mapping
+swing-util
+GUI utilities; e.g. file load/save dialog; color chooser dialog
+ 
+ </section>
+<section>
+API Tour
+equations-api
+Defining CyTable equations (like Excel functions)
+group-api
+Working with CyGroups (a.k.a metanodes)
+io-api
+Defining importers/exporters; reading streams
+(swing-)application-api
+Accessing system-level state and events (e.g. UI panels, toolbar, menus, main JFrame)
+ </section>
+<section>
+API Tour
+property-api
+Access/define system properties; Access session-level properties
+service-api
+AbstractCyActivator; service (un)registration; service listener registration
+session-api
+Access current session file name; take snapshot of current session</section>
+<section>
+API Tour
+command-executor-api
+Support for executing commands from tasks
+group-api
+Support for CyGroups, including collapse/expand, attribute aggregation, and visualization options</section>
+<section>
+Best Practices
+Bundles should minimize what they export
+Don’t make something API unless someone asks for it and you’re ready to commit to it long term
+Bundle activators should do as little work as possible
+Ideally, just register services
+Do expensive initialization as lazily as possible
+<li>E.g. during menu activation
+ </section>
+<section>
+Miscellaneous 
+Application state information
+GUI or not
+Dealing with lots and lots of service requests</section>
+<section>
+Getting help
+<a href="mailto:cytoscape-helpdesk@googlegroups.com" target="_blank">c</a><a href="mailto:cytoscape-helpdesk@googlegroups.com" target="_blank">ytoscape-helpdesk@googlegroups.com</a>
+<a href="mailto:cytoscape-discuss@googlegroups.com" target="_blank">cytoscape-discuss@googlegroups.com</a>
+<a href="mailto:scooter@cgl.ucsf.edu" target="_blank">scooter@cgl.ucsf.edu</a>
+ 
+ </section>
+<section>
+Slides and Solutions
+Slides available at
+<a href="http://www.cgl.ucsf.edu/home/scooter/Cytoscape3DevTut/slides.pdf" target="_blank">http://www.cgl.ucsf.edu/home/scooter/Cytoscape3DevTut/ISMBslides.pdf</a>
+My solutions available at:
+<a href="http://www.cgl.ucsf.edu/home/scooter/Cytoscape3DevTut/solutions.zip" target="_blank">http://www.cgl.ucsf.edu/home/scooter/Cytoscape3DevTut/solutions.zip</a>
+ </section>
+<section>
+Conclusions
+You are now ready to write non-trivial Cytoscape apps
+This tutorial is part of the Cytoscape development ladder: <a href="http://wiki.cytoscape.org/Cytoscape_3/AppDeveloper/Cytoscape_App_Ladder" target="_blank">http://wiki.cytoscape.org/Cytoscape_3/AppDeveloper/</a><a href="http://wiki.cytoscape.org/Cytoscape_3/AppDeveloper/Cytoscape_App_Ladder" target="_blank">Cytoscape_App_Ladder</a> 
+You are now ½ of the way through the ladder!
+Many APIs not covered
+Open source community: steal borrow from others
+<li>Always acknowledge the source</section>
+<section>
+Questions?
+ </section><style>section ._css_1{color:#000;font-size:28pt;font-family:Times New Roman;font-weight:initial;font-style:normal;text-decoration:initial;vertical-align:baseline;}
+</style>
