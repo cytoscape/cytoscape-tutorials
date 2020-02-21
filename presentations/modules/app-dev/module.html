@@ -400,37 +400,62 @@ removal of services, and adapt accordingly.
 </section>
 
 <section>
-Core Bundles
-Task bundles
-work-api
-work-swing-api
-work-impl
-work-swing-impl
-work-headless-impl
- 
-VizMapper bundles
-vizmap-api
-vizmap-gui-api
-vizmap-gui-core-impl
-vizmap-gui-impl
-vizmap-impl
- </section>
+	<h1>Core Bundles</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li>Task bundles
+					<ul>
+						<li><highlight>work-api</highlight></li>
+						<li><highlight>work-swing-api</highlight></li>
+						<li>work-impl</li>
+						<li>work-swing-impl</li>
+						<li>work-headless-impl</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="flex:1; height: 800px">
+			<ul>
+				<li>VizMapper bundles
+					<ul>
+						<li><highlight>vizmap-api</highlight></li>
+						<li><highlight>vizmap-gui-api</highlight></li>
+						<li>vizmap-gui-core-impl</li>
+						<li>vizmap-gui-impl</li>
+						<li>vizmap-impl</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+</section>
 <section>
-OSGi Services
-Service
-An instance of a Java interface
-The glue behind API and implementation bundles
-Usually registered by a BundleActivator
-In Cy3:
-Defined by an API bundle
-Registered by an implementation bundle<svg class="drawing" _id="31" _idx="undefined" _type="undefined" _name="Rounded Rectangle 30" style="top:411.68608923884517px; left:598.5488713910761px;width:207.27979002624673px; height:115.46236220472441px; z-index: 159;"><rect x="0" y="0" width="207.27979002624673" height="115.46236220472441" rx="7" ry="7" fill="rgb(82,132,188)" stroke="#396090" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
-Impl. Bundle<svg class="drawing" _id="32" _idx="undefined" _type="undefined" _name="Rounded Rectangle 31" style="top:465.92923884514437px; left:611.1872965879265px;width:181.0971128608924px; height:48.49165354330709px; z-index: 197;"><rect x="0" y="0" width="181.0971128608924" height="48.49165354330709" rx="7" ry="7" fill="rgb(57,95,142)" stroke="#4F81BD" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
-Activator<svg class="drawing" _id="34" _idx="undefined" _type="undefined" _name="Rounded Rectangle 33" style="top:271.17595800524936px; left:596.3202099737533px;width:207.27979002624673px; height:80.63107611548557px; z-index: 260;"><rect x="0" y="0" width="207.27979002624673" height="80.63107611548557" rx="7" ry="7" fill="rgb(82,132,188)" stroke="#396090" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
-API Bundle<svg class="drawing" _id="35" _idx="undefined" _type="undefined" _name="Rounded Rectangle 34" style="top:181.9651443569554px; left:635.2620472440944px;width:129.39590551181104px; height:53.62498687664042px; z-index: 300;"><rect x="0" y="0" width="129.39590551181104" height="53.62498687664042" rx="7" ry="7" fill="none" stroke="#254162" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
-Imports<svg class="drawing" _id="37" _idx="undefined" _type="undefined" _name="Rounded Rectangle 36" style="top:322.7539107611548px; left:639.7195800524935px;width:124.93837270341207px; height:53.62498687664042px; z-index: 369;"><rect x="0" y="0" width="124.93837270341207" height="53.62498687664042" rx="7" ry="7" fill="rgb(128,128,128)" stroke="#000000" stroke-width="NaN" stroke-dasharray="0"></rect></svg>
-Exports<svg class="drawing" _id="33" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 32" style="top:376.37889763779526px; left:702.1887664041994px;width:0px; height:35.307191601049865px; z-index: 223;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0" y1="0" x2="0" y2="35.307191601049865" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg><svg class="drawing" _id="36" _idx="undefined" _type="undefined" _name="Straight Arrow Connector 35" style="top:235.5901312335958px; left:699.96px;width:0.00010498687664041995px; height:35.585826771653544px; z-index: 326;"><defs><marker id="markerTriangle" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M 0 0 L 10 5 L 0 10 z"></path></marker></defs><line x1="0.00010498687664041995" y1="0" x2="0" y2="35.585826771653544" stroke="#000000" stroke-width="NaN" stroke-dasharray="0" marker-end="url(#markerTriangle)"></line></svg></section>
+	<h1>OSGi Services</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li>Service
+					<ul style="font-size: 90%">
+						<li>An instance of a Java interface</li>
+						<li>The glue behind API and implementation bundles</li>
+						<li>Usually registered by a BundleActivator</li>
+					</ul>
+				</li>
+				<li class="fragment">In Cy3:
+					<ul style="font-size: 90%">
+						<li>Defined by an API bundle</li>
+						<li>Registered by an implementation bundle</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="flex:1">
+			<img class="plain" data-fragment-index="3" src="modules/app-dev/bundle.png" style="position: absolute;width: 35%;top:200px; left: 800px">
+		</div>
+	</div>
+</section>
 <section>
-OSGi Services
+	<h1>OSGi Services</h1>
 Interface
  
  
