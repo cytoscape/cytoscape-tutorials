@@ -1,0 +1,651 @@
+﻿<section>
+	<h1>Step 1: Cytoscape &amp; OSGi</h1>
+	<ul>
+		<li>Cytoscape 3 design goals
+			<ul>
+				<li>Scalability</li>
+				<li>Performance</li>
+				<li>Stability
+					<ul>
+						<li>Application stability</li>
+						<li>API stability</li>
+						<li>Modularity
+							<ul>
+								<li>Enforced by OSGi</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>OSGi</h1>
+	<ul>
+		<li>Wikipedia:<br/>
+			<i style="font-size: 90%">The OSGi framework is a module system
+and <a href="http://en.wikipedia.org/wiki/Service_(systems_architecture)"
+target="_blank">service</a> platform for the <a
+href="http://en.wikipedia.org/wiki/Java_(programming_language)"
+target="_blank">Java</a> programming language that implements a complete
+and dynamic <a href="http://en.wikipedia.org/wiki/Component_model"
+target="_blank">component model</a>,
+something that does not exist in standalone Java/<a
+href="http://en.wikipedia.org/wiki/Virtual_machine" target="_blank">VM</a>
+environments. <a href="http://en.wikipedia.org/wiki/Application_software"
+target="_blank">Applications</a> or components (coming in the form of <a
+href="http://en.wikipedia.org/wiki/Bundle_(software_distribution)"
+target="_blank">bundles</a> for <a
+href="http://en.wikipedia.org/wiki/Software_deployment"
+target="_blank">deployment</a>) can be remotely installed,
+started, stopped, updated, and uninstalled without requiring
+a <a href="http://en.wikipedia.org/wiki/Reboot_(computer)"
+target="_blank">reboot</a>; management of <a
+href="http://en.wikipedia.org/wiki/Java_package"
+target="_blank">Java packages</a>/<a
+href="http://en.wikipedia.org/wiki/Class_(computer_science)"
+target="_blank">classes</a> is specified in great detail. Application
+life cycle management (start, stop, install, etc.) is done via APIs that
+allow for remote <a href="http://en.wikipedia.org/wiki/Downloading"
+target="_blank">downloading</a> of management policies. The service
+registry allows bundles to detect the addition of new services, or the
+removal of services, and adapt accordingly.
+</i> 
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>OSGi</h1>
+	<ul>
+		<li>Service-oriented</li>
+		<li>A “bundle” is the unit of access
+			<ul>
+				<li>Bundles can be started and stopped independently</li>
+			</ul>
+			<li>Bundles implement services
+				<ul>
+					<li>Can be registered and unregistered</li>
+					<li>Generally, inter-bundle access is through a service</li>
+				</ul>
+			</li>
+			<li>Enforced separation of API and Implementation
+				<ul>
+					<li>Rules are that you can depend on API bundles, but not implementation bundles</li>
+				</ul>
+			</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Anatomy of a Bundle</h1>
+	<img class="plain" src="modules/app-dev/anatomy.png" style="float: right; width: 35%">
+	<div style="width:50%;font-size:90%">
+	<ul>
+		<li>JAR with extra metadata
+			<ul>
+				<li class="fragment">Imports
+					<ul>
+						<li>The Java packages used by the bundle</li>
+					</ul>
+				</li>
+				<li class="fragment">Exports
+					<ul>
+						<li>Java packages in the bundle that other bundles are allowed to use (usually just API)</li>
+					</ul>
+				</li>
+				<li class="fragment">Activator
+					<ul>
+						<li>Triggered when bundle is started/stopped</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	</div>
+</section>
+<section>
+	<h1>Cytoscape 3</h1>
+	<div style="width:50%;float: left">
+
+	<ul>
+		<li>Service-oriented microkernel</li>
+		<li class="fragment">OSGi core
+			<ul>
+				<li>Dynamically loads/unloads modules, a.k.a. bundles</li>
+			</ul>
+		</li>
+		<li class="fragment">Each subsystem in Cy3 has separate OSGi bundle(s)</li>
+		<li class="fragment">Apps can also be packaged as bundles</li>
+	</ul>
+	</div>
+	<img class="plain fragment" src="modules/app-dev/osgi.png" style="width: 35%">
+</section>
+<section>
+	<h1>Example: HelloWorld</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li><code>pom.xml</code>
+					<ul>
+						<li class="fragment">Maven project descriptor</li>
+						<li class="fragment">Maven identifier
+							<ul style="font-size: 80%">
+								<li>Group id</li>
+								<li>Artifact id</li>
+								<li>Version</li>
+							</ul>
+						</li>
+						<li class="fragment">OSGi identifier
+							<ul>
+								<li style="font-size: 80%">Bundle-SymbolicName</li>
+							</ul>
+						</li>
+						<li class="fragment">Describes imports/exports</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="flex:1">
+			<ul>
+				<li class="fragment"><code>Activator.java</code>
+					<ul>
+						<li>Bundle activator</li>
+					</ul>
+				</li>
+			</ul>
+			</div>
+	</div>
+ </section>
+<section>
+	<h1>Maven Project Layout</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li class="fragment"> <code>pom.xml</code>
+					<ul style="font-size:90%">
+						<li>Project descriptor</li>
+					</ul>
+				</li>
+				<li class="fragment" style="margin-top: 60px"><code>src/main/java</code>
+					<ul style="font-size:90%">
+						<li>Bundle code</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="flex:1">
+ 
+			<ul>
+				<li class="fragment"><code>src/test/java</code>
+					<ul style="font-size:90%">
+						<li>Test code</li>
+						<li>Not included in bundle JAR</li>
+					</ul>
+				</li>
+				<li class="fragment" style="margin-top: 60px"><code>src/main/resources</code>
+					<ul style="font-size:90%">
+						<li>Non-code files that should be included in bundle JAR</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section>
+	<h1>Core Bundles</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li>app</li>
+				<li>application</li>
+				<li>command-executor</li>
+				<li>core-task</li>
+				<li>custom-graphics</li>
+				<li>datasource</li>
+				<li>equations</li>
+				<li>event</li>
+				<li>group</li>
+				<li>io</li>
+				<li>layout</li>
+			</ul>
+		</div>
+ 
+		<div style="flex:1">
+			<ul>
+				<li>model</li>
+				<li>presentation</li>
+				<li>property</li>
+				<li>service</li>
+				<li>session</li>
+				<li>swing-util</li>
+				<li>viewmodel</li>
+				<li>vizmap</li>
+				<li>vizmap-gui</li>
+				<li>webservice</li>
+				<li>work</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section>
+	<h1>Core Bundles</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+	<ul>
+		<li class="fragment" data-fragment-index="1">Usually come in sets:
+			<ul>
+				<li class="fragment" data-fragment-index="2">API (optional)
+					<ul style="font-size: 90%">
+						<li>No activator</li>
+					</ul>
+				</li>
+				<li class="fragment" data-fragment-index="3">Implementation
+					<ul style="font-size: 90%">
+						<li>At least one per API bundle</li>
+						<li>No exports</li>
+					</ul>
+				</li>
+				<li class="fragment">Separate API so we can keep implementation modular
+					<ul style="font-size: 90%">
+						<li class="fragment">Desktop application</li>
+						<li class="fragment">Console application, for scripts</li>
+						<li class="fragment">Impl. Bundle</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+		</div>
+		<div style="flex:1; height: 800px">
+			<img class="fragment plain" data-fragment-index="2" src="modules/app-dev/api.png" style="position: absolute;width: 35%;top:195px; left: 795px">
+			<img class="fragment plain" data-fragment-index="3" src="modules/app-dev/bundle.png" style="position: absolute;width: 35%;top:200px; left: 800px">
+		</div>
+	</div>
+</section>
+
+<section>
+	<h1>Core Bundles</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li class="fragment">Nothing should import implementation bundles</li>
+				<li class="fragment"> Unless it’s for unit testing</li>
+			</ul>
+		</div>
+		<div style="flex:1; height: 800px">
+			<img class="plain" data-fragment-index="2" src="modules/app-dev/api.png" style="position: absolute;width: 35%;top:195px; left: 795px">
+			<img class="plain" data-fragment-index="3" src="modules/app-dev/bundle.png" style="position: absolute;width: 35%;top:200px; left: 800px">
+		</div>
+	</div>
+</section>
+
+<section>
+	<h1>Core Bundles</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li>Task bundles
+					<ul>
+						<li><highlight>work-api</highlight></li>
+						<li><highlight>work-swing-api</highlight></li>
+						<li>work-impl</li>
+						<li>work-swing-impl</li>
+						<li>work-headless-impl</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="flex:1; height: 800px">
+			<ul>
+				<li>VizMapper bundles
+					<ul>
+						<li><highlight>vizmap-api</highlight></li>
+						<li><highlight>vizmap-gui-api</highlight></li>
+						<li>vizmap-gui-core-impl</li>
+						<li>vizmap-gui-impl</li>
+						<li>vizmap-impl</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+</section>
+<section>
+	<h1>OSGi Services</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li>Service
+					<ul style="font-size: 90%">
+						<li>An instance of a Java interface</li>
+						<li>The glue behind API and implementation bundles</li>
+						<li>Usually registered by a BundleActivator</li>
+					</ul>
+				</li>
+				<li class="fragment">In Cy3:
+					<ul style="font-size: 90%">
+						<li>Defined by an API bundle</li>
+						<li>Registered by an implementation bundle</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="flex:1">
+			<img class="plain" data-fragment-index="3" src="modules/app-dev/bundle.png" style="position: absolute;width: 35%;top:200px; left: 800px">
+		</div>
+	</div>
+</section>
+<section>
+	<h1>OSGi Services</h1>
+		<div style="width: 40%">
+			<ul>
+				<li class="fragment" data-fragment-index="1">Interface</li>
+				<li class="fragment" data-fragment-index="2" style="margin-top: 50px">Implementation</li>
+				<li class="fragment" data-fragment-index="3" style="margin-top: 70px">Properties
+					<ul>
+						<li style="font-size: 90%">Arbitrary key-value pairs</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div style="position: absolute; top: 130px; left: 500px; font-size: 80%">
+			<ul>
+				<li class="fragment" data-fragment-index="1"><code class="java">interface MyService  { … }</code></li>
+				<li class="fragment" data-fragment-index="2" style="margin-top:45px"><code>class MyServiceImpl implements MyService { … }</code></li>
+				<li class="fragment" data-fragment-index="3" style="margin-top:50px"><code>(“title”, “My Service”)(“preferredMenu”, “Apps”)</code></li>
+			</ul>
+		</div>
+</section>
+<section>
+	<h1>Cytoscape API</h1>
+	<ul>
+		<li>Available as OSGi services</li>
+		<li class="fragment">Two main types:
+			<ul>
+				<li class="fragment">API: Application Programming Interface
+					<ul>
+						<li>Just fetch and use:</li>
+	<pre style="margin-left: -100px; width: 1000px"><code class="java">MyService service = getService(context, MyService.class);</pre></code>
+					</ul>
+				</li>
+				<li class="fragment">SPI: Service Provider Interface
+					<ul>
+						<li>Implement/extend and register:</li>
+	<pre style="margin-left: -100px; width: 1000px"><code class="java">registerService(context, new MyServiceImpl(), MyService.class, properties);</code></pre>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+ </section>
+<section>
+	<h1>OSGi Services</h1>
+	<ul>
+		<li>Most common types of services:
+			<ul>
+				<li class="fragment">Factories
+					<ul>
+						<li>Create new instances</li>
+					</ul>
+				</li>
+				<li class="fragment">Managers
+					<ul>
+						<li>Track, provide access to, or operate on collections of objects</li>
+					</ul>
+				</li>
+				<li class="fragment">Utilities
+					<ul>
+						<li>Collections of utility functions</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+ </section>
+<section>
+	<h1>Cytoscape TaskFactories</h1>
+	<ul>
+		<li>TaskFactories
+			<ul>
+				<li>Main unit of work in Cytoscape is a “Task”</li>
+				<li>
+<a href="http://chianti.ucsd.edu/cytoscape-3.6.0/API/org/cytoscape/work/Task.html" target="_blank">Tasks </a>are created by <a href="http://chianti.ucsd.edu/cytoscape-3.6.0/API/org/cytoscape/work/TaskFactory.html" target="_blank">TaskFactories</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Tasks</h1>
+	<div style="height: 800px; width: 100%">
+	<img class="fragment plain" style="position:absolute; top:120px; left: 20px; width: 100%; height: 800px" src="modules/app-dev/Task1.png">
+	<img class="fragment plain" style="position:absolute; top:120px; left: 20px; width: 100%; height: 800px" src="modules/app-dev/Task2.png">
+	<img class="fragment plain" style="position:absolute; top:120px; left: 20px; width: 100%; height: 800px" src="modules/app-dev/Task3.png">
+	<img class="fragment plain" style="position:absolute; top:120px; left: 20px; width: 100%; height: 800px" src="modules/app-dev/Task4.png">
+	<img class="fragment plain" style="position:absolute; top:120px; left: 20px; width: 100%; height: 800px" src="modules/app-dev/Task5.png">
+	</div>
+</section>
+<section>
+	<h1>Cytoscape TaskFactories</h1>
+	<ul>
+		<li>TaskFactories
+			<ul>
+				<li style="color: gray">Main unit of work in Cytoscape is a “Task”</li>
+				<li style="color: gray">Tasks >are created by TaskFactories</li>
+				<li>TaskFactories are OSGi services</li>
+				<li>Can be registered in your CyActivator:</li>
+				<pre style="margin-left: -150px; margin-top: 0px; margin-bottom: 0px; width: 1100px"><code class="java">TaskFactory factory = registerService(bc, myFactory, TaskFactory.class, properties);</code></pre>
+				<span style="margin-left: -150px; margin-bottom: 20px;font-size: 80%; text-align:left">where myFactory is the task factory you want to register</span>
+				<li>properties provide meta-data about the factory</li>
+			</ul>
+		</li>
+	</ul>
+ </section>
+<section>
+	<h1>Cytoscape TaskFactories</h1>
+	<ul>
+		<li>Cytoscape TaskFactory Properties
+			<ul>
+				<li>Some properties have special meaning in Cytoscape</li>
+				<li>Defined in <a href="http://chianti.ucsd.edu/cytoscape-3.6.0/API/org/cytoscape/work/ServiceProperties.html" target="_blank">org.cytoscape.work.ServiceProperties</a></li>
+				<li>Key properties
+					<ul>
+						<li>TITLE – If used as a menu, this is the menu title</li>
+						<li>PREFERRED_MENU – Where this will be added</li>
+						<li>ENABLE_FOR – When this menu is active</li>
+						<li>IN_TOOL_BAR – is it in the tool bar?</li>
+						<li>IN_MENU_BAR – is it in the top-level menus?</li>
+						<li>MENU_GRAVITY – The specific gravity of this item.</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Cytoscape TaskFactories</h1>
+	<p style="text-align: left">Example:
+				<pre style="margin-top: 0px; margin-bottom: 0px; width: 1100px"><code class="java">import org.cytoscape.work.AbstractTaskFactory;
+import org.cytoscape.work.TaskIterator;
+ 
+class MyTaskFactory extends AbstractTaskFactory {
+ public MyTaskFactory() {
+  super();
+ }
+ 
+ public TaskIterator createTaskIterator() {
+  return null; // Fill in
+ }
+ 
+ public boolean isReady() { return true; }
+}
+				</code></pre>
+		</p>
+ </section>
+<section>
+	<h1>Cytoscape TaskFactories</h1>
+	<p style="text-align: left">Example (in CyActivator):
+				<pre style="margin-top: 0px; margin-bottom: 0px; width: 1100px"><code class="java">MyTaskFactory myFactory = new MyTaskFactory();
+Properties props= new Properties();
+// Note the “.” notation for cascading menus
+props.setProperty(PREFERRED_MENU, "Apps.cddApp");
+props.setProperty(TITLE, "Load CDD Domains for Node");
+// Not all task factories will be commands
+props.setProperty(COMMAND, "loadCDDDomains4node");
+props.setProperty(COMMAND_NAMESPACE, "cddApp");
+props.setProperty(IN_MENU_BAR, "true");
+// Usually means the second menu item
+props.setProperty(MENU_GRAVITY, "2.0");
+registerService(bc, loadCDDDomainNodeView, NodeViewTaskFactory.class, nodeViewProps);
+				</code></pre>
+		</p>
+</section>
+<section>
+	<h1>Step 1: Project</h1>
+	<ul>
+		<li>Add a new Cytoscape App menu
+			<ul>
+				<li>Menu title: Hello world!</li>
+				<li>For now, don’t need a Task</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+<section>
+	<h1>Important Factories</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li>CyNetworkFactory
+					<ul>
+						<li>model-api</li>
+					</ul>
+				</li>
+				<li>CyTableFactory
+					<ul>
+						<li>model-api</li>
+					</ul>
+				</li>
+				<li>CyGroupFactory
+					<ul>
+						<li>group-api</li>
+					</ul>
+				</li>
+				<li>CyNetworkViewFactory
+					<ul>
+						<li>viewmodel-api</li>
+					</ul>
+				</li>
+		</div>
+		<div style="flex:1">
+			<ul>
+				<li>VisualMappingFunctionFactory
+					<ul>
+						<li>vizmap-api</li>
+					</ul>
+				</li>
+				<li>VisualStyleFactory
+					<ul>
+						<li> vizmap-api</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section>
+	<h1>Important Managers</h1>
+	<div style="display:flex">
+		<div style="flex:1">
+			<ul>
+				<li>CyApplicationManager
+					<ul style="font-size: 90%">
+						<li>application-api</li>
+						<li>Lots of “state” information</li>
+					</ul>
+				</li>
+				<li>CyNetworkManager
+					<ul style="font-size: 90%">
+						<li>model-api</li>
+					</ul>
+				</li>
+				<li>CyTableManager
+					<ul style="font-size: 90%">
+						<li>model-api</li>
+					</ul>
+				</li>
+				<li>CyNetworkTableManager
+					<ul style="font-size: 90%">
+						<li>model-api</li>
+						<li>Manages the association between tables and network objects</li>
+					</ul>
+				</li>
+			</ul>
+ 
+		</div>
+		<div style="flex:1">
+			<ul>
+				<li>CyNetworkViewManager
+					<ul style="font-size: 90%">
+						<li>viewmodel-api</li>
+					</ul>
+				</li>
+				<li>CyGroupManager
+					<ul style="font-size: 90%">
+						<li>group-api</li>
+					</ul>
+				</li>
+				<li>VisualMappingManager
+					<ul style="font-size: 90%">
+						<li>vizmap-api</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+</section>
+<section>
+	<h1>Special Task Factories</h1>
+	<ul>
+		<li>core-task-api
+			<ul>
+				<li>NetworkViewTaskFactory
+					<ul>
+						<li>Network background context menu</li>
+					</ul>
+				</li>
+				<li>NodeViewTaskFactory
+					<ul>
+						<li>Node context menu</li>
+					</ul>
+				</li>
+				<li>EdgeViewTaskFactory
+					<ul>
+						<li>Edge context menu</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+</section>
+<section>
+	<h1>Tasks</h1>
+	<ul>
+		<li>Intended to run in multiple environments
+			<ul>
+				<li>Desktop application</li>
+				<li>Headless, via scripting</li>
+				<li>Programmatically, via an app</li>
+			</ul>
+		</li>
+		<li class="fragment">Not appropriate to assume task will be run in a particular way
+			<ul>
+				<li>Only use Swing within tasks if necessary</li>
+			</ul>
+		</li>
+	</ul>
+ </section>

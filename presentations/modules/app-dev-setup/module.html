@@ -1,0 +1,116 @@
+﻿<section>
+	<img class="plain" src="modules/app-dev/CyLogo.png" width="70%">
+
+	<h3 style="margin-top: 70px">Cytoscape 3 App Development Tutorial</h3>
+	<h5 style="margin-top: 100px">John "Scooter" Morris, UCSF</h5>
+</section>
+
+<section>
+	<h1>Outline</h1>
+		
+	<ul>
+		<li>Setup</li>
+		<li>"Variations on a theme – Hello World"
+			<ul>
+				<li>Step 1: Cytoscape and OSGi</li>
+				<li>Step 2: Cytoscape network model</li>
+				<li>Step 3: Cytoscape table model</li>
+				<li>Step 4: Cytoscape visual model</li>
+				<li>Step 5: Cytoscape user interface mechanisms</li>
+				<li>Step 6: Events</li>
+			</ul>
+		</li>
+		<li>API tour</li>
+		<li>Discussion: Best Practices</li>
+	</ul>
+</section>
+		
+<section>
+	<h1>Caveats</h1>
+	<ul>
+		<li>I’m assuming you’re all competent Java programmers</li>
+		<li>Can’t cover everything
+			<ul>
+				<li>You would be overwhelmed even if we tried</li>
+			</ul>
+		</li>
+		<li>We’re going to cover Cytoscape 3 Bundled App API</li>
+		<li>We’ll be building on things as we go</li>
+	</ul>
+</section>
+<section>
+	<h1>Setup – Shell</h1>
+	<ul>
+		<li>Download sample files from: 
+ 
+<a href="modules/app-dev/setup.zip" target="_blank">http://tutorials.cytoscape.org/presentations/modules/app-dev/setup.zip</a>
+ 
+		</li>
+		<li>Unpack</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Setup - Eclipse</h1>
+	<ul>
+		<li>Install Eclipse
+			<ul>
+				<li>Also want:
+					<ul>
+						<li>m2e</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li>Download sample file</li>
+		<li>Unpack</li>
+		<li>In Eclipse:
+			<ul>
+				<li>File&rarr;Import&rarr;Maven&rarr;Existing Maven Projects</li>
+				<li>Navigate to the Setup directory from the download above</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h1>Debugging with Eclipse</h1>
+
+	<p style="text-align: left"><b>Remote Execution for Debugging</b></p>
+	<ul>
+		<li>Run Cytoscape with debug as the first command line argument </li>
+		<li style="list-style-type: none">In Windows:<br/>
+			<code style="margin-left: 40px">cytoscape.bat debug </code>
+		</li>
+		<li style="list-style-type: none">In Linux/Mac: <br/>
+			<code style="margin-left: 40px">./cytoscape.sh debug</code>
+		</li>
+		<li style="list-style-type: none">Make sure you can see the following message in the terminal:<br/>
+			<code style="margin-left: 40px">Listening for transport dt_socket at address: 12345</code>
+		</li>
+ 
+		<li>NOTE: must be in the Cytoscape directory</li>
+	</ul>
+ 
+ </section>
+<section>
+	<h1>Debugging with Eclipse</h1>
+	<p style="text-align:left"><b>Run Debugger From Eclipse </b></p>
+	<ul style="font-size: 80%">
+		<li>Click Run and select Debug Configurations...</li>
+		<li>Select Remote Java Applications and create new configuration</li>
+		<li>Select/Enter the following and press Apply:
+			<ul>
+				<li>Name: Cytoscape3</li>
+				<li>Project: myproject (your project name may be different; so "browse" to find the one you are about to debug )</li>
+				<li>Connection Type: Standard (Socket Attach)</li>
+				<li>Host: localhost</li>
+				<li>Port: 12345 (or the port specified in the cytoscape.sh file)</li>
+			</ul>
+		</li>
+		<li>Press Debug. This starts up Cytoscape 3. After 20-30 seconds, you will see Cytoscape Desktop.</li>
+		<li>Set a breakpoint in Eclipse</li>
+		<li>Switch Perspective to Debug mode: Window → Perspective → Debug</li>
+		<li>Load the bundle into your OSGI container and run</li>
+	</ul>
+ </section>
