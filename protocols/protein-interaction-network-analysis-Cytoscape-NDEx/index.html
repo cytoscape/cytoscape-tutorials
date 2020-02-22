@@ -353,7 +353,7 @@
             
             <section>
                 <h1>Pathway Enrichment with NDEx IQuery</h1>
-                <p>IQuery also lets you find pathways relevant to the host (human) proteins. Go back to the IQuery web page and select the <highlight>Pathway Enrichment</highlight> tab to view a list of relevant pathways from several sources.</p>
+                <p>IQuery lets you find pathways relevant to the host (human) proteins. Go back to the IQuery web page and select the <highlight>Pathway Enrichment</highlight> tab to view a list of relevant pathways from several sources.</p>
                 <p style="text-align: center">
                     <img class="plain" src="iquery-enrichment.png" style="height:600px"></p>
             </section>
@@ -407,13 +407,13 @@
 
             </section>
 
-            <!-- START HERE -->
             
+<!-- This section can be added back later on when the weird iQuery behavior is patched
             <section>
                 <h1>Save to NDEx from IQuery</h1>
-                <p>From IQuery is also possible to save any pathways to your NDEx account.<br>
-                    If you do not have an NDEx account, you can create one now following the <a href="https://home.ndexbio.org/create-an-ndex-account/">Creating and Using an NDEx Account</a> tutorial.
-                    <highlight>Note:</highlight> Please take note of the password generated for you or create your own. You will need it in the next section.</p>
+                <p>IQuery allows to save any pathways to your own NDEx account.<br>
+                    If you do not have an NDEx account, you can create one now following the <a href="https://home.ndexbio.org/create-an-ndex-account/">Creating and Using an NDEx Account</a> tutorial.<br><br>
+                    <highlight>Important:</highlight> Please take note of the password generated for you or create your own as You will need it in the next section.</p>
                 <ul>
                     <li>In the action bar above the network panel, click on the save icon <img src="IconIQuerySavetoNDEx.png" class="plain" style="height:40px"> and the <highlight>Sign in to your NDEx Account</highlight> dialog will be displayed</li>
                     <li>Sign in with either your Google account or your account name and password. You will now see a dialog showing that you have successfully signed in.</li>
@@ -422,41 +422,28 @@
                     <li>When you return to the IQuery browser tab, the dialog will still be open. Click on any part of the window to dismiss the dialog.</li>
                 </ul>
             </section>
-
+-->
             <section>
                 <h1>Save to NDEx from Cytoscape</h1>
-                <p>Go to Cytoscape and save the pathway network that you modified.</p>
-                <div style="width:700px; display:inline-block;">
+                <p>From Cytoscape, you can easily save the modified pathway network directly to your NDEx account.</p>
+                <div style="width:550px; display:inline-block;">
                     <ul>
-                        <li>In Cytoscape, select the <b>GO:0006413 (translational initiation)</b> network in the <highlight>Network Tab</highlight> of the left hand panel. </li>
+                        <li>To do so, select the <b>GO:0006413 (translational initiation)</b> network in the <highlight>Network Tab</highlight> of the left hand panel. </li>
                         <li>
-                            Go to <highlight><img class="plain" src="IconCytoscapeNDEx.png" style="height:40px"> &rarr; Export Network to NDEx</highlight>
+                            Click the <img class="plain" src="IconCytoscapeNDEx.png" style="height:40px; vertical-align: middle"> button in the top tool bar, then choose <highlight>Export Network to NDEx</highlight>
                         </li>
-                        <li>The <highlight>NDEx Save Dialog</highlight> will be displayed, but the <highlight>Export Network to NDEx Button</highlight> in the lower right corner will be deactivated because Cytoscape is not yet signed in to an NDEx account.</li>
-                        <li>Click on the account manager box in the upper right hand corner, and the account manager will open.</li>
-                        <li>Click the <highlight>Add Account</highlight> button and then enter your username (account name) and password. Leave the Server Address box empty, letting it default to the public NDEx server.</li>
+                        <li>The <highlight>NDEx Save Dialog</highlight> will be displayed, but the <highlight>Export Network to NDEx Button</highlight> in the lower right corner will be deactivated (red oval) because Cytoscape is not yet signed in to an NDEx account.</li>
+                        <li>Click on the account manager box in the upper right hand corner and choose <highlight>Add new profile...</highlight></li>
+                        <li>Enter your NDEx <b>account name</b> and <b>password</b>, then click the <highlight>Sign In</highlight> button. The <highlight>Export Network to NDEx</highlight> button will now be enabled allowing you to complete the save operation.</li>
+                        
                     </ul>
                 </div>
-                <div style="width:400px; display:inline-block; vertical-align:top; padding:20px">
+                <div style="width:600px; display:inline-block; vertical-align:top; padding:20px">
                     <img class="plain" src="CyNDExAddProfile.png">
                 </div>
             </section>
 
-            <section>
-                <h1>Save to NDEx from Cytoscape</h1>
-                <div style="width:600px; display:inline-block;">
-                    <ul>
-                        <li>When you save a network you can add or edit information about the network or edit its name. Change the network name to <b>HIV prey involved in translational initiation</b></li>
-
-                        <li>Click the <highlight>Save Button</highlight> and after the save is complete, the dialog will update to confirm the save. You can click the <highlight>Go Back</highlight> button to dismiss the confirmation and then click the <highlight>Cancel</highlight> button on the <highlight>Save Dialog</highlight> to dismiss it.</li>
-
-                    </ul>
-                </div>
-                <div style="width:500px; display:inline-block; vertical-align:top; padding:20px">
-                    <img class="plain" src="CyNDEx-save.png">
-                </div>
-            </section>
-
+<!-- This section can be added back later on
             <section>
                 <h1>Save to NDEx from Cytoscape</h1>
                 <div style="width:1100px; display:inline-block;">
@@ -471,6 +458,11 @@
                     <img class="plain" src="ndex-homepage-networks.png">
                 </div>
             </section>
+-->
+            
+<!-- START HERE -->
+            
+<!-- This part is removed for now. Must find a better example as the Ebola network displays differently between NDEx/IQuery and Cytoscape.
 
             <section>
                 <h1>Pathway Networks from Publications</h1>
@@ -513,21 +505,10 @@
                     <img class="plain" src="HIV-CANX.png">
                 </div>
             </section>
+-->
 
-            <section>
-                <h1>Saving Your Cytoscape Session</h1>
-                <ul>
-                    <li>In Cytoscape, click the Save icon <img class="plain" src="IconCytoscapeSaveSession.png" style="height:40px"> and select a location to save the session file</li>
-                    <li>The session file is a <highlight>snapshot of the state of Cytoscape</highlight>. </li>
-                    <li>You can pause in your work, close Cytoscape, and later restore your session to resume your work.</li>
-                    <li>
-                        <highlight>Note:</highlight> Any state of the session that relies on a Cytoscape App will only behave as expected if the session is restored to an instance of Cytoscape that has that App loaded.
-                    </li>
-                    <li>
-                        <highlight>Note:</highlight> Networks downloaded from NDEx are not automatically synced with the original networks on NDEx. Updates to those networks might overwrite a later version on NDEx or fail if the network has been deleted or made read-only on NDEx.
-                    </li>
-                </ul>
-            </section>
+
+<!-- This part is removed for now. Must find a better example as the Ebola network displays differently between NDEx/IQuery and Cytoscape.
 
             <section>
                 <h1>Sharing Networks via NDEx</h1>
@@ -544,25 +525,9 @@
 
             </section>
 
-            <section>
-                <h1>Exporting Networks as Images From Cytoscape</h1>
-                <ul>
-                    <li>Cytoscape can export the currently viewed network as an image from the File menu:
-                        <p>
-                            <highlight>File &rarr; Export &rarr; Network to Image...</highlight>
-                        </p>
-                    </li>
+-->
 
-                    <li>The file menu also provides an alternative way to export to NDEx:
-                        <p>
-                            <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>
-                        </p>
-                        <p>
-                            <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight>
-                        </p>
-                    </li>
-                </ul>
-            </section>
+            
 
             <section>
                 <h1>References</h1>
@@ -575,36 +540,6 @@
                     </li>
                 </ul>
             </section>
-
-            <!--
-            <section>
-                <h1>Visualizing Results</h1>
-                <p>We could create a similar kind of style for the HEK score, but that only allows for viewing each style seperately. Instead, we can create a combined style, using the <a href="http://www.cgl.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml" target="_blank">enhancedGraphics</a> app.</p>
-                <p>For this, we will need a new column defining a new attribute that will be used for mapping to the <highlight>Custom Graphics</highlight> property via the <highlight>enhancedGraphics</highlight> app. This new attribute has to be in the form of mappings recognized by the enhancedGraphics app.</p>
-                <ul>
-                    <li>In the <highlight>Table Panel</highlight>, click the button for <highlight>Create New Column</highlight>, then select <highlight>New Single Column &rarr; String</highlight> and name it <highlight>CombinedScore</highlight>.</li>
-                    <li>In the first cell of the <highlight>CombinedScore</highlight> column, enter the mapping below and click enter.</li>
-                    <p><b>piechart: showlabels="false" range="0,1" arcstart="90" valuelist=".5,.5" colorlist="up:blue,zero:white,down:white;up:purple,zero:white,down:white" attributelist="HEKScore,JurkatScore" labellist="HEKScore,JurkatScore"</b></p>
-                    <li>Your new entry may disappear to the bottom of the column; just click on the column header once or twice to re-sort. Right-click on the new entry and select <highlight>Apply to entire column</highlight>. This will fill the column with the same mapping.</li>
-                </ul>
-
-            </section>
-
-            <section>
-                <h1>Visualizing Results</h1>
-                <ul>
-                    <li>In the <highlight>Style</highlight> panel, select <highlight>Copy Style...</highlight> and name your new style <highlight>AP-MS CombinedScore</highlight>.</li>
-                    <li>Create a passthrough mapping for <highlight>Image/Chart 1</highlight> using the new <highlight>CombinedScore</highlight> attribute.</li>
-                </ul>
-                <div style="float:right">
-                    <img class="plain" src="network-combinedscore.png" style="height:650px"></div><br /><br />
-                <p>The network is now showing the <b>Jurkat score</b> (purple gradient on the right-hand side of the nodes) and <b>HEK</b> scores (blue gradient on the left). <b>AP-MS experiment interactions</b> are shown as green lines in which the thickness of the line reflects the <b>average score</b>, and <b>interactions from STRING</b> are shown as gray lines.</p>
-            </section>
-
-
-
-
-            -->
 
             <!-- THIS IS WHERE YOUR CONTENT ENDS -->
             <!-- ========================================================== -->
