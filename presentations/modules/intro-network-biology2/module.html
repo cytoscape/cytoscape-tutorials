@@ -1,0 +1,240 @@
+<section>
+<h1>Introduction to Network Biology</h1>
+<h4><highlight>Why Networks?</highlight></h4>
+<div class="column">
+	Networks are everywhere...<br />
+	<em class="fragment">especially in biology!</em>
+	<ul>
+		<li>Molecular networks</li>
+		<li>Cell-cell communication</li>
+		<li>Nervous systems</li>
+		<li>Social networks</li>
+	</ul>
+</div>
+<div class="column">
+	Networks are powerful tools...<br />
+	<em class="fragment">especially in biology!</em>
+	<ul>
+		<li>Reduce complexity</li>
+		<li>More efficient than tables</li>
+		<li>Great for data integration</li>
+		<li>Intuitive visualization</li>
+	</ul>
+</div>  
+
+<aside class="notes" data-markdown>
+Why are networks a useful way to represent biology and biological research questions?
+They exist everywhere, especially in Biology.
+They are useful tools, especially in Biology.
+</aside>
+</section>
+
+<section>
+<h3>Why Networks - Transcriptomics</h4>
+<p style="float:left">In the early days:<p>
+<img src="modules/intro-network-biology2/RNA_agarose_gel.svg" height="700px">
+
+<aside class="notes" data-markdown>
+	Initially, we detected RNA with northern blots.  This were somewhat laborious and low-throughput
+</aside>
+</section>
+
+<section>
+<h3>Why Networks - Transcriptomics</h4>
+<p style="float:left">Then came microarrays:<p>
+<div style="position: absolute; left: 500px; top: 150px">
+<img data-fragment-index="1" src="modules/intro-network-biology2/oligoArray.png" class="fragment fade-out" height="600px">
+</div>
+<div data-fragment-index="1" class="fragment fade-in" style="position: absolute; left: 500px; top: 150px">
+<img data-fragment-index="2" src="modules/intro-network-biology2/heatmap.jpeg" class="fragment fade-out" height="600px">
+</div>
+<div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 500px; top: 150px">
+<img data-fragment-index="3" src="modules/intro-network-biology2/dendogram.png" class="fragment fade-out" height="600px">
+</div>
+<div data-fragment-index="3" class="fragment fade-in" style="position: absolute; left: 500px; top: 150px">
+<img data-fragment-index="4" src="modules/intro-network-biology2/dendogram2.png" class="fragment fade-out" height="600px">
+</div>
+<div data-fragment-index="4" class="fragment fade-in" style="position: absolute; left: 500px; top: 150px">
+<img data-fragment-index="5" src="modules/intro-network-biology2/dendogram3.png" class="fragment fade-out" height="600px">
+</div>
+<div data-fragment-index="5" class="fragment fade-in" style="position: absolute; left: 500px; top: 150px">
+<img src="modules/intro-network-biology2/dendogram4.png" height="600px">
+</div>
+
+<aside class="notes" data-markdown>
+	Then, in 1995, Pat Brown and colleagues at Stanford ushered in high-throughput approaches using microarrays
+	We typically looked at this data using heatmaps, but finding relevant biology was still difficult and took
+	interactive tools to even see the genes
+</aside>
+</section>
+
+<section>
+<h3>Why Networks - Transcriptomics</h4>
+<aside class="notes" data-markdown>
+	Network image of transcriptomics results, showing interactions between nodes
+</aside>
+</section>
+
+<section>
+<h3>Why Networks - Proteomics</h4>
+<aside class="notes" data-markdown>
+	Spreadsheet of schistosome protease experiment
+</aside>
+</section>
+
+<section>
+<h3>Why Networks - Proteomics</h4>
+<aside class="notes" data-markdown>
+	Network view of the same data
+</aside>
+
+<section>
+<h3>Networks as Tools</h3>
+Transcription factors targeting apoptosis genes that bind MKRN1 in protein-mRNA network in embryonic stem cells.
+<img style="width:80%;" src="modules/intro-network-biology2/network-example.jpg">
+<br />
+One network figure conveys results from multiple techonolgies.  
+<small style="margin:10px 0 0 350px;">Cassar, <em>EMBO Reports</em> 2015, Fig.8</small>
+<aside class="notes" data-markdown>
+Work from Univ. of Toronto! Showing Figure legend: _Seventy‐six apoptosis‐related transcripts identified in the MKRN1–mRNA network are shown as circular nodes. Blue edges denote MKRN1–mRNA associations. Green edges specify occupancy of ESC‐associated transcription factors (blue squares) at the respective gene's promoter based on published data [10], [54]. Circular node color indicates whether the transcript was upregulated (red), downregulated (green), or not differentially expressed (yellow) in ADR‐treated R1 ESCs_.
+</aside>
+</section>
+
+<section>
+<h3>Networks as Tools</h3>
+<div class="column">
+	<ul>
+		<highlight>Analysis</highlight>	
+		<li>Topological properties</li>
+		<li>Hubs and subnetworks</li>
+		<li>Classify, cluster and diffuse</li>
+		<li>Data integration</li>
+	</ul>
+</div>
+<div class="column">
+	<ul>
+		<highlight>Visualization</highlight>
+		<li>Data overlays</li>
+		<li>Layouts and animation</li>
+		<li>Exploratory analysis</li>
+		<li>Context and interpretation</li>
+	</ul>
+</div>
+<img style="width:60%;" src="modules/intro-network-biology2/network-example.jpg">
+<br /><small style="margin:10px 0 0 0;">Cassar, <em>EMBO Reports</em> 2015, Fig.8</small>
+<aside class="notes" data-markdown>
+Figure from UT groups! Legend: _Seventy‐six apoptosis‐related transcripts identified in the MKRN1–mRNA network are shown as circular nodes. Blue edges denote MKRN1–mRNA associations. Green edges specify occupancy of ESC‐associated transcription factors (blue squares) at the respective gene's promoter based on published data [10], [54]. Circular node color indicates whether the transcript was upregulated (red), downregulated (green), or not differentially expressed (yellow) in ADR‐treated R1 ESCs_.
+</aside>
+</section>
+
+<section>
+<h3>Applications in Research</h3>
+<img class="plain" width="85%" target="_blank" src="modules/intro-network-biology2/covers.png">
+<aside class="notes" data-markdown>
+But don't take my word for it...  Networks are used in diverse research contexts. And quite successfully.  
+But as scientists, we don't really care about fancy cover art, so let's look at a few examples in more detail...
+</aside>
+</section>
+
+<section data-transition="fade-out">
+<h3>Applications in Research</h3>
+
+<img style="float:right; width:45%" src="modules/intro-network-biology2/ppi-viz-2010.png">
+<ul style="width:45%">
+	<li>In 2010, a Nature Methods paper introduced major <em>themes</em> of network visualization.</li>
+	<li>(a) Mass spec analysis: 400 PPI in pneumonia microbe.</li>
+	<li>(b) Subnetwork with function annotations.</li>
+	<li>(c) Layout with knowledge of complexes.</li>
+	<li>(d) Collapsed metanodes to reduce complexity.</li>
+</ul>
+<br /><small style="margin:40px 10px 0 0;">Gehlenborg (2010) Visualization of omics data for systems biology. <em>Nature Methods</em>, 7, Fig. 1</small>
+<aside class="notes" data-markdown>
+This was only 7 years ago, but it's actually an early example documenting key network visualization methods in data analysis: starting with a moderately sized "hairball", the authors used functional annotations to define a subnetwork of interest, and then used prior knowledge about complexes to direct layout and to form collapsed group nodes."
+</aside>
+</section>
+
+<section data-transition="fade-in fade-out">
+<h3>Applications in Research</h3>
+<img style="float:right; width:45%" src="modules/intro-network-biology2/bait-asd-2011.png">
+<ul style="width:40%">
+	<li>Study of interactions with ASD-associated proteins.</li>
+	<li>Y2H with human protein fragments of 26 ASD proteins: 848 interacitons with 539 proteins.</li>
+	<li>Merged with known interactions from public datasets.</li>
+</ul>
+<br /><small style="margin:20px 10px 0 0;">Sakai (2011) Protein Interactome Reveals Converging Molecular Pathways Among Autism Disorders.<br /> <em>Science Trans. Med.</em>, 3(86), Fig. 1</small>
+<aside class="notes" data-markdown>
+A year later, we're seeing networks used to summarize larger and larger mass spec datasets. Here they merged 'known interactions" from public databases.
+</aside>
+</section>
+
+<section data-transition="fade-in fade-out">
+<h3>Applications in Research</h3>
+<img style="float:right;width:35%" src="modules/intro-network-biology2/bait-hiv-2011.png">
+<ul style="width:55%">
+	<li>HIV-human interactions.</li>
+	<li>AP-MS with 16 HIV proteins: 497 interactions with 435 human proteins.</li>
+	<li>Merged human-human PPI datasets to identify complexes.</li>
+	<li>Used split gradient fills to show MiST scores for two cell lines.</li>
+</ul>
+<br /><small style="margin:10px 10px 0 0;">Jager (2011) Global landscape of HIV-human protein complexes. <em>Nature</em>, 481(7381), Fig. 3</small>
+<aside class="notes" data-markdown>
+Another example form 2011 (co-authored by Scooter Morris), conveys HIV-host interactions observed in two human cell lines (node fill split color), merged with human PPIs (complexes).
+</aside>
+</section>
+
+<section data-transition="fade-in fade-out">
+<h3>Applications in Research</h3>
+<img style="float:right;width:45%" src="modules/intro-network-biology2/genet-int-global-2010.png">
+<ul style="width:45%">
+	<li>Genetic interactions for the entire yeast genome.</li>
+	<li>Synthetic lethal screen of 1712 genes: 170,000 interactions.</li>
+	<li>Visualization of clustering within and between functional groups annotated by GO.</li>
+	<li>Predict functions and identify regulatory subnetworks.</li>
+</ul>
+<br /><small style="margin:40px 10px 0 0;">Costanzo (2010) The genetic landscape of a cell. <em>Science</em>, 22, Fig. 1</small>
+<aside class="notes" data-markdown>
+Out of the University of Toronto, we got this glorious map of genetic interactions in yeast, nicely annotated by GO terms, and useful ofr functional prediction (e.g., the unannotated white nodes).
+</aside>
+</section>
+
+<section data-transition="fade-in fade-out">
+<h3>Applications in Research</h3>
+<img style="float:right;width:45%" src="modules/intro-network-biology2/func-annot-2011.jpg">
+<ul style="width:45%">
+	<li>Molecular profiling of two types of brain tumors.</li>
+	<li>GSEA to identify distinguishing gene sets (nodes).</li>
+	<li>Functional annotation of a network of gene sets.</li>
+</ul>
+<br /><small style="margin:40px 10px 0 0;">Witt (2011) Delineation of Two Clinically and Molecularly Distinct Subgroups of Posterior Fossa Ependymoma. <em>Cancer Cell</em>, 20(2), Fig. 4</small>
+<aside class="notes" data-markdown>
+In this example, the nodes are SETS of genes (not individual genes or proteins). They performed gene set enrichment analysis to help give functional labels to the sets while using the network connections to show how the sets relate, or overlap, with each other. You can see the relatedness of terms associated with tumor group A (red) vs those associated with tumor group B (blue). Something that would be very difficult to see in a typical table of enriched terms and scores.
+</aside>
+</section>
+
+<section data-transition="fade-in">
+<h3>Applications in Research</h3>
+<img style="float:right;width:40%" src="modules/intro-network-biology2/tcga-renal-2013.png">
+<ul style="width:45%">
+	<li>TCGA's seriers of molecular cancer profiles.</li>
+	<li>Clinical, genomic, methylation, RNA and proteomic signatures.</li>
+	<li>Multiple data types integrated onto signaling network.</li>
+	<li>Includes patient sample-level data.</li>
+</ul>
+<br /><small style="margin:10px 10px 0 0;">TCGA (2013) Comprehensive molecular characterization of clear cell renal cell carcinoma. <em>Nature</em>, 499, Fig. 4</small>
+
+
+<aside class="notes" data-markdown>
+Here, the folks behind TCGA mapped circos plots of patient data onto a cancer signaling pathway. The data types includes clinical parameters, genomic, methylation, transcriptomic and proteomic measurements.  All of these were made using Cytoscape.
+</aside>
+</section>
+
+<section>
+<h3>Applications in Research</h3>
+<a href="https://cytoscape-publications.tumblr.com/tagged/tutorial" target="_blank">
+	<img class="plain" width="85%" target="_blank" src="modules/intro-network-biology2/cytoscape-publications.png">
+</a>
+<aside class="notes" data-markdown>
+Ok. Those landmark examples are great, but what have network done for me recently?... We track a sampling of 
+network research in a Tumblr blog. Each week we post a few Cytoscape examples here...
+</aside>
+</section>
