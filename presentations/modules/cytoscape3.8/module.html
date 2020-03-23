@@ -1,0 +1,111 @@
+<section>
+	<h1>Cytoscape 3.8</h1>
+	<ul>
+		<li style="list-style-type:none">New Features
+			<ul>
+				<li><a href="#3.8-ui">UI improvements</a></li>
+				<li><a href="#3.8-performance">Performance improvements</a></li>
+				<li><a href="#3.8-java">Java upgrade</a></li>
+				<li><a href="#3.8-coreapps">Core app updates</a></li>
+			</ul>
+		</li>
+	</ul>
+	<aside class="notes" data-markdown>
+	Add speaker notes here...
+	</aside>
+</section>
+
+<section id="3.8-ui">
+	<h3><highlight>UI improvements</highlight></h3>
+	<ul>
+		<li>New panel interface</li>
+		<li class="fragment" data-fragment-index="6">Draggable labels</li>
+		<li class="fragment" data-fragment-index="10">Customizable icon bar</li>
+	</ul>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="1">
+		<img data-fragment-index="3" class="fragment plain fade-out" src="modules/cytoscape3.8/OldPanel1.png"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="2">
+		<img data-fragment-index="3" class="fragment plain fade-out" src="modules/cytoscape3.8/OldPanel2.png"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="3">
+		<img data-fragment-index="6" class="fragment plain fade-out" src="modules/cytoscape3.8/NewPanel1.png"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="4">
+		<img data-fragment-index="6" class="fragment plain fade-out" src="modules/cytoscape3.8/NewPanel2.png"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="5">
+		<img data-fragment-index="6" class="fragment plain fade-out" src="modules/cytoscape3.8/NewPanel3.png"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="7">
+		<img data-fragment-index="10" class="fragment plain fade-out" src="modules/cytoscape3.8/MoveLabels1.png"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="8">
+		<img data-fragment-index="10" class="fragment plain fade-out" src="modules/cytoscape3.8/MoveLabels2.png"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="9">
+		<img data-fragment-index="10" class="fragment plain fade-out" src="modules/cytoscape3.8/MoveLabels3.png"/>
+	</div>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="11">
+		<img class="plain" src="modules/cytoscape3.8/IconBar1.png"/>
+	</div>
+	<div style="position: absolute; top: 30px; left: 800px" class="fragment fade-in" data-fragment-index="12">
+		<img class="plain" src="modules/cytoscape3.8/IconBar2.png"/>
+	</div>
+	<aside class="notes" data-markdown>
+	Switch to Cytoscape 3.8 and demo each of these
+	</aside>
+</section>
+
+<section id="3.8-performance">
+	<h3><highlight>Performance improvements</highlight></h3>
+	<ul>
+		<li>Phase 1 of the network renderer rework
+			<ul>
+				<li>Significantly faster, especially for larger networks
+					<ul>
+						<li>Now interactive for networks ~10,000 nodes, ~3,000,000 edges</li>
+					</ul>
+				</li>
+				<li class="fragment" data-fragment-index="2">Annotations behave much, much better</li>
+				<li class="fragment" data-fragment-index="2">Lays the foundation for future enhancements</li>
+			</ul>
+		</li>
+		<li class="fragment" data-fragment-index="2">Performance optimization of some table data</li>
+	</ul>
+	<div style="position: absolute; top: 0px; left: 0px" class="fragment fade-in" data-fragment-index="1">
+		<img data-fragment-index="2" class="fragment fade-out" src="modules/cytoscape3.8/BigNetwork.png"/>
+	</div>
+	<aside class="notes" data-markdown>
+	# Point out that BigNetwork has 9,000 nodes and almost 4 million edges.  It is interactive on a
+	workstation with 32Gb of RAM.
+	</aside>
+</section>
+
+<section id="3.8-java">
+	<h3><highlight>Java upgrade</highlight></h3>
+	<ul>
+		<li>Support for Java 11</li>
+		<li>Specifically tested against OpenJDK 11 (no Oracle license restrictions)</li>
+		<li>Also included JavaFX 13</li>
+	</ul>
+	<aside class="notes" data-markdown>
+		# Mention that this was a *lot* of work
+</section>
+
+<section id="3.8-coreapps">
+	<h3><highlight>Core App Updates</highlight></h3>
+	<dl>
+		<dt>Analyze Network</dt>
+		<dd style="font-size:90%">The old NetworkAnalyzer has been completely rewritten and simplified.  The results may still be
+		found in the node and edge tables as before</dd>
+		<dt>Network Merge</dt>
+		<dd style="font-size:90%">The network merge code has been significantly updated</dd>
+		<dt>CyBrowser</dt>
+		<dd style="font-size:90%">The update to JavaFX 13 has resulted in a significant functionality boost for CyBrowser,
+		fixing many bugs.  It's still not a replacement for your daily browsing, but it's better than before</dd>
+		<dt>CyNDEx</dt>
+		<dd style="font-size:90%">CyNDEx no longer depends on JXBrowser, which should significantly reduce the startup and implementation
+		issues.</dd>
+	</dl>
+</section>
