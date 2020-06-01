@@ -36,23 +36,24 @@
     <p>To get started, install the <b>enhancedGraphics app</b> via <highlight>Apps &rarr; App Manager</highlight>.</p>              
 <div class="footer" style="position: absolute;left: 0em;bottom: -8em; ">
     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.7.2</version>
+<version>3.8</version>
 </div>
 </section>
                 
 <section>
-<p>For this tutorial, we will be using the <b>galFiltered</b> sample session file, avialable as the <b>Yeast Perturbation</b> sample session in the Cytoscape Starter Panel, and in the <b>sampleData</b> directory in your Cytoscape installation.</p>
+<h1>Loading Network</h1>
+<p>For this tutorial, we will be using the <b>Yeast Perturbation</b> sample session in the Cytoscape Starter Panel.</p>
 <ul>
-    <li>Launch Cytoscape and open the <highlight>galFiltered</highlight> session file, or open the <highlight>Yeast Perturbation</highlight> sample session from the <highlight>Cytoscape Starter Panel</highlight>.</li>
+    <li>Launch Cytoscape and open the <highlight>Yeast Perturbation</highlight> session file from the <highlight>Cytoscape Starter Panel</highlight>.</li>
     <li>In the <highlight>Style</highlight> interface, switch to the <b>default</b> style in the drop-down at the top.</li>
     <li>Switch the default node <highlight>Fill Color</highlight> to a light grey.</li>
     <li>Zoom in to see a few nodes clearly. The nodes are labeled with yeast ORF identifiers.</li>
-</ul>               <br /><br />
+</ul><br /><br />
 <img plain src="NetworkLoaded.png" style="width:40%">
 </section>
                 
 <section>
-<h2>Custom Graphics Bar Chart</h2>
+<h1>Custom Graphics Bar Chart</h1>
     <p>In this example, we will create a bar chart with the three expression values, <b>gal1RGexp</b>, <b>gal4RGexp</b> and <b>gal80Rexp</b>, available as attributes in the session file.</p>
     <ul>
     <li>In the <highlight>Style</highlight> interface, click on default (<highlight>Def.</highlight>) for the <highlight>Image/Chart 1</highlight> property.</li>
@@ -76,7 +77,7 @@
 </section>
 
 <section>
-<h2>Custom Graphics Heatmap</h2>
+<h1>Custom Graphics Heatmap</h1>
     <p>Next we are going to create a horizontal heatmap of the same three data columns.</p>
     <ul>
         <li>Add another Custom Graphic by selecting <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart 2</highlight> from the <highlight>Properties</highlight> drop-down menu.</li>
@@ -91,7 +92,7 @@
 </section>
                 
 <section>
-    <h2>Custom Graphics Pie Chart</h2>
+    <h1>Custom Graphics Pie Chart</h1>
     <p>Finally, we will create a pie chart with two columns, <b>Radiality</b> and <b>Degree</b>.</p>
     <ul>
         <li>Add a third Custom Graphic under <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart 3</highlight>.</li>
@@ -104,7 +105,7 @@
 </section>
                 
 <section>
-    <h2>Additional Custom Graphics</h2>
+    <h1>Additional Custom Graphics</h1>
     <p>There are several other graphics available through the default Custom Graphics in Cytoscape:</p>
     <ul>
         <li>Bar chart subtypes: Grouped, Stacked, Heat Strips and Up-Down</li>
@@ -117,7 +118,7 @@
 </section>
                 
 <section>
-    <h2>Enhanced Graphics Node Label</h2>
+    <h1>Enhanced Graphics Node Label</h1>
 	<p>The nodes in the network are labeled with the corresponding protein names (yeast), but there is additional information in the
     <b>Data Node Table</b> that could be useful to display on the nodes. We are going to use a combination of <b>Custom Graphics</b> and the <b>enhancedGraphics</b> app to create a second node label for the yeast gene common name, which is available as the node attribute <b>COMMON</b>.</p>
     <p>This involves three steps:</p>
@@ -139,7 +140,7 @@
 </section>
                 
 <section>
-<h2>Fill new column</h2>
+<h1>Fill new column</h1>
 <p>The new column will define a new attribute that we will use for mapping to the <highlight>Custom Graphics</highlight> property. This new 
 attribute has to be in the form of mappings recognized by the enhancedGraphics app. For more details on the enhancedGraphics format,
     see the <a href="http://www.cgl.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml" target="_blank">manual</a>.</p>
@@ -155,7 +156,7 @@ attribute has to be in the form of mappings recognized by the enhancedGraphics a
 </section>
                 
 <section>
-<h2>Mapping new label to Custom Graphic</h2>
+<h1>Mapping new label to Custom Graphic</h1>
 <p>We now have a new attribute that we can use for the mapping.</p>
 <ul>
     <li>In the <highlight>Style</highlight> interface, add the <highlight>Image/Chart 4</highlight> property. Click on the <highlight>Map.</highlight> entry for it to begin creating a mapping.</li>
@@ -166,7 +167,7 @@ attribute has to be in the form of mappings recognized by the enhancedGraphics a
 </section>
               
 <section>
-  <h2>Positioning the Custom Graphic</h2>
+  <h1>Positioning the Custom Graphic</h1>
 <ul>
     <li>Add the <highlight>Image/Chart Position 4</highlight> property and position the chart in the top right.
     You may have to adjust this positioning a few times to achieve an optimal visualization.</li>
