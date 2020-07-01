@@ -39,26 +39,34 @@
                 <br />
                 <h5 style="font-size: 80%">UCSD and UCSF
                     <br /><span style="font-size: 80%">12 July 2020</span></h5>
-                    <br />
-                    <h5 style="font-size: 60%;font-style: italic;font-weight: bold;">Please proceed to the next slides for important requirements and installation instructions. </h5>
-                    
+                <br />
+                <h5 style="font-size: 60%;font-style: italic;font-weight: bold;">Please proceed to the next slides for
+                    important requirements and installation instructions. </h5>
+
                 <aside class="notes" data-markdown>
                     Add speaker notes here...
                 </aside>
             </section>
             <section>
-                <h1>Requirements and Installation Instructions</h1> 
-                <p style="text-align: left;">You should have the most recent version of Cytoscape downloaded and successfully installed. You can download the appropriate installer here <a href="https://cytoscape.org/download.html">here</a>.</p>
-                <p style="text-align: left;">In addition, you should follow the directions for installing the environments and libraries for the tutorial content you are interested in: </p>
+                <h1>Requirements and Installation Instructions</h1>
+                <p style="text-align: left;">You should have the most recent version of Cytoscape downloaded and
+                    successfully installed. You can download the appropriate installer here <a
+                        href="https://cytoscape.org/download.html">here</a>.</p>
+                <p style="text-align: left;">In addition, you should follow the directions for installing the
+                    environments and libraries for the tutorial content you are interested in: </p>
                 <ul>
-                <li><a href="https://py4cytoscape.readthedocs.io/en/latest/install.html">Python - Jupyter Notebook</a></li>
-                <li><a href="https://cytoscape.org/cytoscape-tutorials/presentations/modules/prep-advanced-automation/index.html#/0/1">R - RMD Script</a></li>
+                    <li><a href="https://py4cytoscape.readthedocs.io/en/latest/install.html">Python - Jupyter
+                            Notebook</a></li>
+                    <li><a
+                            href="https://cytoscape.org/cytoscape-tutorials/presentations/modules/prep-advanced-automation/index.html#/0/1">R
+                            - RMD Script</a></li>
                 </ul>
-                <p style="text-align: left;">For the HTML/JavaScript content, you will require an up-to-date web browser, such as Chrome, Firefox, or Edge.</p>
-              
-                    <aside class="notes" data-markdown>
-                        Add speaker notes here...
-                    </aside>
+                <p style="text-align: left;">For the HTML/JavaScript content, you will require an up-to-date web
+                    browser, such as Chrome, Firefox, or Edge.</p>
+
+                <aside class="notes" data-markdown>
+                    Add speaker notes here...
+                </aside>
             </section>
             <!-- General introduction to the goals of the workshop -->
             <section>
@@ -160,12 +168,16 @@
             <section>
                 <h1>Cytoscape Ecosystem</h1>
                 <p style="font-size: 0.8em;text-align: left;">
-                Cytoscape is a well-known bioinformatics tool for displaying and exploring biological networks. The Cytoscape Ecosytem extends beyond the desktop software to include web apps (like cytoscape.js), community-contributed collections of networks (NDEx) and apps (AppStore), and the CyREST programmatic interface.   
+                    Cytoscape is a well-known bioinformatics tool for displaying and exploring biological networks. The
+                    Cytoscape Ecosytem extends beyond the desktop software to include web apps (like cytoscape.js),
+                    community-contributed collections of networks (NDEx) and apps (AppStore), and the CyREST
+                    programmatic interface.
                 </p>
-                <img src="./assets/ismb-2020-python-environment.png"/>
+                <img src="./assets/ismb-2020-python-environment.png" />
                 <p style="font-size: 0.8em;text-align: left;">
-                    Programmatic access and interactive display via R, Python and JS enable a broad range of applications in network anlaysis and visualization, leveraging the Cytoscape Ecosystem.   
-                    </p>
+                    Programmatic access and interactive display via R, Python and JS enable a broad range of
+                    applications in network anlaysis and visualization, leveraging the Cytoscape Ecosystem.
+                </p>
                 <aside class="notes" data-markdown>
                     Add speaker notes here...
                 </aside>
@@ -274,7 +286,16 @@
             </section>
 
             <section>
-                <h1>What is NDEx?</h1>
+                <h1><img src="./assets/ismb-2020-ndex-logo.png" style="border-width:0;height: 1.6em;vertical-align: middle;box-shadow: none;"> What is NDEx?</h1>
+                <ul>
+                    <li><b>Find</b> networks to use in applications.</li>
+                    <li><b>Store</b> networks in your private account.</li>
+                    <li><b>Share</b> your networks - "DropBox for networks".</li>
+                    <li><b>Disseminate</b> your networks.</li>
+                    <li><b>Publish</b> your networks as computable, actionable data.</li>
+                    <li><b>Work</b> with your networks in <b></b>Cytoscape</li>
+                    <li><b>Integrate</b> networks with your applications.</li>
+                </ul>
                 <aside class="notes" data-markdown>
                     Add speaker notes here...
                 </aside>
@@ -283,19 +304,34 @@
             <section>
                 <h1>Cytoscape Ecosystem Components</h1>
                 <ul style="font-size: 0.8em;">
-                    <li><highlight>Cytoscape Desktop</highlight> (Java)</li>
-                    <li><highlight>Cytoscape Automation via CyREST</highlight></li>
+                    <li>
+                        <highlight>Cytoscape Desktop</highlight> (Java)
+                    </li>
+                    <li>
+                        <highlight>Cytoscape Automation via CyREST</highlight>
+                    </li>
                     <ul>
-                        <li><highlight>From R: RCy3</highlight></li>
-                        <li><highlight>From Python Py4Cytoscape</highlight></li>
+                        <li>
+                            <highlight>From R: RCy3</highlight>
+                        </li>
+                        <li>
+                            <highlight>From Python Py4Cytoscape</highlight>
+                        </li>
                     </ul>
                     <li>Cytoscape Automation via CyCommands</li>
                     <li>CyBrowser: a web browser within Cytoscape that supports CyCommands</li>
                     <li>App Store: the cloud repository where Apps are published.</li>
-                    <li><highlight>NDEx: store, share, and publish networks</highlight></li>
-                    <li><highlight>CX: the JSON Cytoscape network exchange format</highlight></li>
-                    <li><highlight>cytoscape.js: the JavaScript library for interactively viewing and using networks in web
-                        applications.</highlight></li>
+                    <li>
+                        <highlight>NDEx: store, share, and publish networks</highlight>
+                    </li>
+                    <li>
+                        <highlight>CX: the JSON Cytoscape network exchange format</highlight>
+                    </li>
+                    <li>
+                        <highlight>cytoscape.js: the JavaScript library for interactively viewing and using networks in
+                            web
+                            applications.</highlight>
+                    </li>
                     <li>Cloud apps and services</li>
                 </ul>
                 <aside class="notes" data-markdown>
@@ -303,7 +339,8 @@
                 </aside>
             </section>
 
-            <section data-background="./assets/ismb-2020-cytoscape-ecosystem.svg" data-background-size="contain"></section>
+            <section data-background="./assets/ismb-2020-cytoscape-ecosystem.svg" data-background-size="contain">
+            </section>
             <!-- Define upto 5 Ribbons per slide to compose links to a set of modules
             <section>
                 <a href="#" class="navigate-next">
