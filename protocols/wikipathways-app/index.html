@@ -46,9 +46,8 @@
         <ul>
             <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
             <li>Install the <b>WikiPathways app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
-            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">experimental data</a>.</li>
-        </ul>
-        <p>The data has been modified from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads" target="_blank">Expression Atlas</a>, and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).</p>
+            <li>Download the <a href="https://github.com/gladstone-institutes/Bioinformatics-Workshops/blob/master/intro-pathway-analysis-visualization/lung.expr.csv">experimental data</a>.</li>
+	</ul>
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -58,9 +57,9 @@
 <section>
          <h1>Importing Pathways</h1>
          <ul>
-             <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>Statin</b> and click the search icon.</li>
+             <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>"cell cycle"</b> (with quotes) and click the search icon.</li>
              <li>A list of results for all available species will open. To see results from a select species, click the <b>Only</b> checkbox and select a species from the drop-down.</li>
-             <li>Select the human <highlight>Statin Pathway</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>   
+             <li>Select the human <highlight>Cell Cycle</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>   
          </ul>
          <img class="plain" src="WPApp-results.png" style="width:55%">
          <aside class="notes" data-markdown>
@@ -71,7 +70,7 @@
 <section>
     <h1>Importing Pathways</h1>
          <p>The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:</p>
-         <img class="plain" src="Statin-pathway.png" style="width:70%">
+         <img class="plain" src="CellCycle.png" style="width:70%">
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -81,7 +80,7 @@
 <section>
     <h1>Pathway Node Identifiers</h1>
          <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.</p>
-         <img src="Statin_mapped2.png" style="width:50%">
+         <img src="CellCycleMapped.png" style="width:50%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -91,7 +90,7 @@
     <h1>Data Import</h1>
          <p>The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:</p>
          <ul>
-         <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv">WPExpData.txt</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+         <li>Load the <a href="https://github.com/gladstone-institutes/Bioinformatics-Workshops/blob/master/intro-pathway-analysis-visualization/lung.expr.csv">lung.expr.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
          <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down.</li>
          <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <b>Ensembl</b> column.</li>
          <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
@@ -126,12 +125,12 @@
          <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as <b>Node Fill Color</b>.</p>
          <ul>
          <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Map.</highlight> box for <highlight>Fill Color</highlight>.</li>
-         <li>In the <highlight>Column</highlight> drop-down, select <b>"hypercholesterolemia vs normal log2foldchange"</b>.</li>
+         <li>In the <highlight>Column</highlight> drop-down, select <b>"log2FC"</b>.</li>
          <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continous Mapping</highlight>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
              
          </ul><br /><br />
         <!-- to-do: Add legend to pathway -->
-         <img class="plain" src="StatinData.png" style="float:left;width:50%">
+         <img class="plain" src="CellCycleData.png" style="float:left;width:50%">
             <div style="position:absolute;left:25em;bottom:1em;">
             <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/index.html" target="_blank">Learn more about Visualizing Data</a></b></p>  
             </div>
@@ -145,10 +144,11 @@
     <h1>Importing Pathways as Networks</h1>
     <p>In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.</p>
         <ul>
-             <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight>. Type in <b>Wnt signaling and pluripotency</b> (or just <b>pluripotency</b>) and click the search icon.</li>
-             <li>In the list of results, select the <b>human</b> version of the pathway and click <highlight>Import as Network</highlight>.</li>   
+             <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight>. Type in <b>"PPAR signaling pathway"</b> (with the quotes) and click the search icon.</li>
+             <li>In the list of results, select the <b>human</b> pathway and click <highlight>Import as Network</highlight>.</li>  
+	     <li>We can now repeat the data import and style selection to create a visualization like in the previous pathway:</li>
          </ul>
-         <img class="plain" src="wnt-pluri-network.png" style="width:55%">
+         <img class="plain" src="PPARnetwork.png" style="width:55%">
                 
 </section>
                 
