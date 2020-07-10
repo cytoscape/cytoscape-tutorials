@@ -1,364 +1,507 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
     <title>Automation in the Cytoscape Ecosystem</title>
 
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/cytoscape-presentation-1.css">
+    <link rel="stylesheet" href="../css/reveal.css" />
+    <link rel="stylesheet" href="../css/theme/cytoscape-presentation-1.css" />
 
     <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="../lib/css/zenburn.css">
+    <link rel="stylesheet" href="../lib/css/zenburn.css" />
 
     <!-- Printing and PDF exports -->
     <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? '../css/print/pdf.css'
+        : '../css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="reveal">
-        <div class="slides">
-            <!-- Customizable title slide -->
-            <section>
-                <h2>Automation in the Cytoscape Ecosystem<br />
-                </h2>
-                <h5 style="font-size: 60%">Dexter Pratt, Sophie Liu, John "Scooter" Morris and Alex Pico</h5>
-                <br />
-                <h5 style="font-size: 80%">UCSD and UCSF
-                    <br /><span style="font-size: 80%">12 July 2020</span></h5>
-                <br />
-                <h5 style="font-size: 60%;font-style: italic;font-weight: bold;">Please proceed to the next slides for
-                    important requirements and installation instructions. </h5>
+      <div class="slides">
+        <!-- Customizable title slide -->
+        <section>
+          <h2>Automation in the Cytoscape Ecosystem<br /></h2>
+          <h5 style="font-size: 60%;">
+            Dexter Pratt, Sophie Liu, John "Scooter" Morris and Alex Pico
+          </h5>
+          <br />
+          <h5 style="font-size: 80%;">
+            UCSD and UCSF <br /><span style="font-size: 80%;"
+              >12 July 2020</span
+            >
+          </h5>
+          <br />
+          <h5 style="font-size: 60%; font-style: italic; font-weight: bold;">
+            Please proceed to the next slides for important requirements and
+            installation instructions.
+          </h5>
 
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
-            <section>
-                <h1>Requirements and Installation Instructions</h1>
-                <p style="text-align: left;">You should have the most recent version of Cytoscape downloaded and
-                    successfully installed. You can download the appropriate installer <a
-                        href="https://cytoscape.org/download.html">here</a>.</p>
-                <p style="text-align: left;">Here are the directions for installing the
-                    environments and libraries for the tutorial content: </p>
-                <ul>
-                    <li><a href="https://py4cytoscape.readthedocs.io/en/latest/install.html">Python - Jupyter
-                            Notebook</a></li>
-                    <li><a
-                            href="https://cytoscape.org/cytoscape-tutorials/presentations/modules/prep-advanced-automation/index.html#/0/1">R
-                            - RMD Script</a></li>
-                </ul>
-                <p style="text-align: left;">For the HTML/JavaScript content, you will require an up-to-date web
-                    browser, such as Chrome, Firefox, or Edge.</p>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
+        <section>
+          <h1>Requirements and Installation Instructions</h1>
+          <p style="text-align: left;">
+            You should have the most recent version of Cytoscape downloaded and
+            successfully installed. You can download the appropriate installer
+            <a href="https://cytoscape.org/download.html" target="_blank"
+              >here</a
+            >.
+          </p>
+          <p style="text-align: left;">
+            Here are the directions for installing the environments and
+            libraries for the tutorial content:
+          </p>
+          <ul>
+            <li>
+              Python - Jupyter Notebook
+              <ul>
+                <li>
+                  <a
+                    href="https://py4cytoscape.readthedocs.io/en/latest/install.html"
+                    target="_blank"
+                    >py4Cytoscape</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://ndex2.readthedocs.io/en/latest/readme.html#installation"
+                    target="_blank"
+                    >ndex2</a
+                  >
+                </li>
+              </ul>
+            </li>
 
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
-            <section>
-                <h1>Overview</h1>
-                <p style="text-align: left;">The tutorial consists of three Step-by-Step code examples.</p>
-                <ul>
-                    <li><a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/Python/cytoscape-ecosystem-tutorial-ndex2.ipynb">Python - Jupyter Notebook</a></li>
-                    <li><a href="https://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Cytoscape-ecosystem-tutorial.nb.html">R - RMD Script</a></li>
-                    <li><a href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/JavaScript/ismb-2020-webpage-example">HTML/JavaScript - Single-page WebApp</a></li>
-                </ul>
-                <p style="text-align: left;">The code examples are coordinated and demonstrate similar workflow steps.
-                </p>
-                <ul>
-                    <li><b>Part 1</b>: Demonstration of the python workflow.
-                        <ul>
-                            <li>You can follow along in the Jupyter notebook as we present or in the R and Web versions.
-                            </li>
-                        </ul>
-                    </li>
-                    <li><b>Part 2</b>: Questions</li>
-                    <li><b>Part 3</b>: Demonstration of R- and Web-specific examples</li>
-                    <li><b>Part 4</b>: Try it on your own, ask more questions.</li>
-                </ul>
-                <aside class="notes" data-markdown>
-                    For Part 4, we will pose some examples that will apply what you learned or choose your own
-                    adventure.
-                </aside>
-            </section>
-            <!-- General introduction to the goals of the workshop -->
-            <section>
-                <h1>Goals and Motivations</h1>
-                <highlight>By the end of this workshop you should be able to:</highlight>
-                <br /><br />
-                <ul>
-                    <li>Control the Cytoscape desktop application from scripts and web applications in order to:</li>
-                    <li>Get networks from NDEx</li>
-                    <li>Apply layouts and visual styles</li>
-                    <li>Create networks from tabular data</li>
-                    <li>Add tabular data to network</li>
-                    <li>Programmatically access public networks from NDEx</li>
-                    <li>Load data via scripts or via the Cytoscape desktop</li>
-                    <li>Store and share resulting networks with NDEx</li>
-                </ul>
+            <li>
+              <a
+                href="https://cytoscape.org/cytoscape-tutorials/presentations/modules/prep-advanced-automation/index.html#/0/1"
+                target="_blank"
+                >R - RMD Script</a
+              >
+            </li>
+          </ul>
+          <p style="text-align: left;">
+            For the HTML/JavaScript content, you will require an up-to-date web
+            browser, such as Chrome, Firefox, or Edge.
+          </p>
 
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
+        <section>
+          <h1>Overview</h1>
+          <p style="text-align: left;">
+            The tutorial consists of four Step-by-Step code examples.
+          </p>
+          <ul>
+            <li>
+              Python - Jupyter Notebook
+              <ul>
+                <li>
+                  <a
+                    href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/Python/cytoscape-ecosystem-tutorial-py4cytoscape.ipynb"
+                    target="_blank"
+                  >
+                    py4Cytoscape</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/Python/cytoscape-ecosystem-tutorial-ndex2.ipynb"
+                    target="_blank"
+                    >ndex2</a
+                  >
+                </li>
+              </ul>
+            </li>
 
-            <section>
-                <h1>Introductions</h1>
-                <highlight>Dexter Pratt, UCSD</highlight><br />
-                <ul>
-                    <li>Director of Software Development, Ideker lab, UCSD</li>
-                    <li>Started the NDEx Project</li>
-                </ul>
-                <br><br>
-                <highlight>Sophie Liu, UCSD</highlight><br />
-                <ul>
-                    <li>Software Developer, Ideker lab, UCSD</li>
-                </ul>
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
+            <li>
+              <a
+                href="https://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Cytoscape-ecosystem-tutorial.nb.html"
+                >R - RMD Script</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/cytoscape/cytoscape-automation/tree/master/for-scripters/JavaScript/ismb-2020-webpage-example"
+                >HTML/JavaScript - Single-page WebApp</a
+              >
+            </li>
+          </ul>
+          <p style="text-align: left;">
+            The code examples are coordinated and demonstrate similar workflow
+            steps.
+          </p>
+          <ul>
+            <li>
+              <b>Part 1</b>: Demonstration of the python workflow.
+              <ul>
+                <li>
+                  You can follow along in the Jupyter notebook as we present or
+                  in the R and Web versions.
+                </li>
+              </ul>
+            </li>
+            <li><b>Part 2</b>: Questions</li>
+            <li>
+              <b>Part 3</b>: Demonstration of R- and Web-specific examples
+            </li>
+            <li><b>Part 4</b>: Try it on your own, ask more questions.</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            For Part 4, we will pose some examples that will apply what you
+            learned or choose your own adventure.
+          </aside>
+        </section>
+        <!-- General introduction to the goals of the workshop -->
+        <section>
+          <h1>Goals and Motivations</h1>
+          <highlight
+            >By the end of this workshop you should be able to:</highlight
+          >
+          <br /><br />
+          <ul>
+            <li>
+              Control the Cytoscape desktop application from scripts and web
+              applications in order to:
+              <ul>
+                <li>Get networks from NDEx</li>
+                <li>Apply layouts and visual styles</li>
+                <li>Create networks from tabular data</li>
+                <li>Add tabular data to network</li>
+              </ul>
+            </li>
+            <li>Programmatically access public networks from NDEx</li>
+            <li>Load data via scripts or via the Cytoscape desktop</li>
+            <li>Store and share resulting networks with NDEx</li>
+          </ul>
 
-            <section>
-                <h1>Introductions</h1>
-                <highlight>John "Scooter" Morris, UCSF</highlight><br />
-                <ul>
-                    <li>Executive director, Resource for Biocomputing, Visualization, and Informatics</li>
-                    <li>Roving Engineer, National Resource for Network Biology</li>
-                    <li>Cytoscape team since 2006</li>
-                    <li>Author of over a dozen Cytoscape apps</li>
-                </ul>
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
 
-            <section>
-                <h1>Introductions</h1>
-                <highlight>Alex Pico, Gladstone Institutes</highlight><br />
-                <ul>
-                    <li>Associate director, Bioinformatics Core</li>
-                    <li>Executive director, National Resource for Network Biology</li>
-                    <li>Cytoscape team since 2006</li>
-                    <li>Author of a handful of Cytoscape apps and RCy3</li>
-                </ul>
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
-           
+        <section>
+          <h1>Introductions</h1>
+          <highlight>Dexter Pratt, UCSD</highlight><br />
+          <ul>
+            <li>Director of Software Development, Ideker lab, UCSD</li>
+            <li>Started the NDEx Project</li>
+          </ul>
+          <br /><br />
+          <highlight>Sophie Liu, UCSD</highlight><br />
+          <ul style="text-align: left;">
+            <li>Software Developer, Ideker lab, UCSD</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
 
-            <section>
-                <h1>Automating Cytoscape via CyREST</h1>
-                <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Python</th>
-                        <th>R</th>
-                        <th>Web</th>
-                    </tr>
-                    <tr>
-                        <td>Open the NDEx network in Cytoscape</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                    </tr>
-                    <tr>
-                        <td>Apply a visual style</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                    </tr>
-                    <tr>
-                        <td>Apply a layout</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                    </tr>
-                    <tr>
-                        <td>Save the network to NDEx</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                    </tr>
-                    <tr>
-                        <td>Load a PPI Network from a File</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Load Expression Data from a File</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td></td>
-                    </tr>
-                </table>
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
+        <section>
+          <h1>Introductions</h1>
+          <highlight>John "Scooter" Morris, UCSF</highlight><br />
+          <ul>
+            <li>
+              Executive director, Resource for Biocomputing, Visualization, and
+              Informatics
+            </li>
+            <li>Roving Engineer, National Resource for Network Biology</li>
+            <li>Cytoscape team since 2006</li>
+            <li>Author of over a dozen Cytoscape apps</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
 
-            <section>
-                <h1>Working Directly with Networks</h1>
-                <table>
-                    <tr>
-                        <th>Task</th>
-                        <th>Python</th>
-                        <th>R</th>
-                        <th>Web</th>
-                    </tr>
-                    <tr>
-                        <td>Get a Summary of an NDEx Network</td>
-                        <td></td>
-                        <td></td>
-                        <td>&#10003;</td>
-                    </tr>
-                    <tr>
-                        <td>Retrieve a Network from NDEX</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                    </tr>
-                    <tr>
-                        <td>Display the network on a web page</td>
-                        <td></td>
-                        <td></td>
-                        <td>&#10003;</td>
-                    </tr>
-                    <tr>
-                        <td>Query NDEx to Find Networks</td>
-                        <td></td>
-                        <td>&#10003;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Load a PPI Network from a File</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Load Expression Data from a File</td>
-                        <td>&#10003;</td>
-                        <td>&#10003;</td>
-                        <td></td>
-                    </tr>
-                </table>
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
+        <section>
+          <h1>Introductions</h1>
+          <highlight>Alex Pico, Gladstone Institutes</highlight><br />
+          <ul>
+            <li>Associate director, Bioinformatics Core</li>
+            <li>Executive director, National Resource for Network Biology</li>
+            <li>Cytoscape team since 2006</li>
+            <li>Author of a handful of Cytoscape apps and RCy3</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
 
-            <section>
-                <h1><img src="./assets/ismb-2020-ndex-logo.png" style="border-width:0;height: 1.6em;vertical-align: middle;box-shadow: none;"> What is NDEx?</h1>
-                <ul>
-                    <li><b>Find</b> networks to use in applications.</li>
-                    <li><b>Store</b> networks in your private account.</li>
-                    <li><b>Share</b> your networks - "DropBox for networks".</li>
-                    <li><b>Disseminate</b> your networks.</li>
-                    <li><b>Publish</b> your networks as computable, actionable data.</li>
-                    <li><b>Work</b> with your networks in <b>Cytoscape</b></li>
-                    <li><b>Integrate</b> networks with your applications.</li>
-                </ul>
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
+        <section>
+          <h1>Automating Cytoscape via CyREST</h1>
+          <table>
+            <tr>
+              <th>Task</th>
+              <th>Python</th>
+              <th>R</th>
+              <th>Web</th>
+            </tr>
+            <tr>
+              <td>Open the NDEx network in Cytoscape</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+            </tr>
+            <tr>
+              <td>Apply a visual style</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+            </tr>
+            <tr>
+              <td>Apply a layout</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+            </tr>
+            <tr>
+              <td>Save the network to NDEx</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+            </tr>
+            <tr>
+              <td>Load a PPI Network from a File</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Load Expression Data from a File</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td></td>
+            </tr>
+          </table>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
 
-            <section>
-                <h1>Cytoscape Ecosystem Components</h1>
-                <ul style="font-size: 0.8em;">
-                    <li>
-                        <highlight>Cytoscape Desktop</highlight> (Java)
-                    </li>
-                    <li>
-                        <highlight>Cytoscape Automation via CyREST</highlight>
-                    </li>
-                    <ul>
-                        <li>
-                            <highlight>From R: RCy3</highlight>
-                        </li>
-                        <li>
-                            <highlight>From Python Py4Cytoscape</highlight>
-                        </li>
-                    </ul>
-                    <li>Cytoscape Automation via CyCommands</li>
-                    <li>CyBrowser: a web browser within Cytoscape that supports CyCommands</li>
-                    <li>App Store: the cloud repository where Apps are published.</li>
-                    <li>
-                        <highlight>NDEx: store, share, and publish networks</highlight>
-                    </li>
-                    <li>
-                        <highlight>CX: the JSON Cytoscape network exchange format</highlight>
-                    </li>
-                    <li>
-                        <highlight>cytoscape.js: the JavaScript library for interactively viewing and using networks in
-                            web
-                            applications.</highlight>
-                    </li>
-                    <li>Cloud apps and services</li>
-                </ul>
-                <aside class="notes" data-markdown>
-                    Add speaker notes here...
-                </aside>
-            </section>
+        <section>
+          <h1>Working Directly with Networks</h1>
+          <table>
+            <tr>
+              <th>Task</th>
+              <th>Python</th>
+              <th>R</th>
+              <th>Web</th>
+            </tr>
+            <tr>
+              <td>Get a Summary of an NDEx Network</td>
+              <td>&#10003;</td>
+              <td></td>
+              <td>&#10003;</td>
+            </tr>
+            <tr>
+              <td>Retrieve a Network from NDEX</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+            </tr>
+            <tr>
+              <td>Display the network on a web page</td>
+              <td></td>
+              <td></td>
+              <td>&#10003;</td>
+            </tr>
+            <tr>
+              <td>Query NDEx to Find Networks</td>
+              <td></td>
+              <td>&#10003;</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Load a PPI Network from a File</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Load Expression Data from a File</td>
+              <td>&#10003;</td>
+              <td>&#10003;</td>
+              <td></td>
+            </tr>
+          </table>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
 
-            <section data-background="./assets/ismb-2020-cytoscape-ecosystem.svg" data-background-size="contain">
-            </section>
-        </div>
+        <section>
+          <h1>
+            <img
+              src="./assets/ismb-2020-ndex-logo.png"
+              style="
+                border-width: 0;
+                height: 1.6em;
+                vertical-align: middle;
+                box-shadow: none;
+              "
+            />
+            What is NDEx?
+          </h1>
+          <ul>
+            <li><b>Find</b> networks to use in applications.</li>
+            <li><b>Store</b> networks in your private account.</li>
+            <li><b>Share</b> your networks - "DropBox for networks".</li>
+            <li><b>Disseminate</b> your networks.</li>
+            <li>
+              <b>Publish</b> your networks as computable, actionable data.
+            </li>
+            <li><b>Work</b> with your networks in <b>Cytoscape</b></li>
+            <li><b>Integrate</b> networks with your applications.</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
+
+        <section>
+          <h1>Cytoscape Ecosystem Components</h1>
+          <ul style="font-size: 0.8em;">
+            <li><highlight>Cytoscape Desktop</highlight> (Java)</li>
+            <li>
+              <highlight>Cytoscape Automation via CyREST</highlight>
+            </li>
+            <ul>
+              <li>
+                <highlight>From R: RCy3</highlight>
+              </li>
+              <li>
+                <highlight>From Python Py4Cytoscape</highlight>
+              </li>
+            </ul>
+            <li>Cytoscape Automation via CyCommands</li>
+            <li>
+              CyBrowser: a web browser within Cytoscape that supports CyCommands
+            </li>
+            <li>App Store: the cloud repository where Apps are published.</li>
+            <li>
+              <highlight>NDEx: store, share, and publish networks</highlight>
+            </li>
+            <li>
+              <highlight
+                >CX: the JSON Cytoscape network exchange format</highlight
+              >
+            </li>
+            <li>
+              <highlight
+                >cytoscape.js: the JavaScript library for interactively viewing
+                and using networks in web applications.</highlight
+              >
+            </li>
+            <li>Cloud apps and services</li>
+          </ul>
+          <aside class="notes" data-markdown>
+            Add speaker notes here...
+          </aside>
+        </section>
+        <section
+          data-background="./assets/ismb-2020-cytoscape-ecosystem.svg"
+          data-background-size="contain"
+        ></section>
+        <section>
+          <h1>Survey</h1>
+          <ul>
+            <li>
+              <a href="https://forms.gle/PUdqAhiVnFDngV7NA" target="_blank"
+                >https://forms.gle/PUdqAhiVnFDngV7NA</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
     </div>
 
     <script src="../lib/js/head.min.js"></script>
     <script src="../js/reveal.js"></script>
     <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        'script',
+        'https://www.google-analytics.com/analytics.js',
+        'ga'
+      );
 
-        ga('create', 'UA-155159-15', 'auto');
-        ga('send', 'pageview');
-
+      ga('create', 'UA-155159-15', 'auto');
+      ga('send', 'pageview');
     </script>
     <script>
-        // More info https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            history: true,
-            controls: true,
-            progress: true,
-            slideNumber: "c",
-            touch: true,
-            fragments: true,
-            help: true,
-            showNotes: false,
-            previewLinks: false,
-            transition: 'slide', // none/fade/slide/convex/concave/zoom
-            width: 1200,
-            height: 860,
-            autoSlide: 0,
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+        controls: true,
+        progress: true,
+        slideNumber: 'c',
+        touch: true,
+        fragments: true,
+        help: true,
+        showNotes: false,
+        previewLinks: false,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+        width: 1200,
+        height: 860,
+        autoSlide: 0,
 
-            // More info https://github.com/hakimel/reveal.js#dependencies
-            dependencies: [
-                { src: '../plugin/markdown/marked.js' },
-                { src: '../plugin/markdown/markdown.js' },
-                { src: '../plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
-                { src: '../plugin/notes/notes.js', async: true },
-                { src: '../plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
-                { src: '../plugin/external/external.js', condition: function () { return !!document.querySelector('[data-external]'); } }
-            ]
-        });
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: '../plugin/markdown/marked.js' },
+          { src: '../plugin/markdown/markdown.js' },
+          {
+            src: '../plugin/zoom-js/zoom.js',
+            async: true,
+            condition: function () {
+              return !!document.body.classList;
+            },
+          },
+          { src: '../plugin/notes/notes.js', async: true },
+          {
+            src: '../plugin/highlight/highlight.js',
+            async: true,
+            callback: function () {
+              hljs.initHighlightingOnLoad();
+            },
+          },
+          {
+            src: '../plugin/external/external.js',
+            condition: function () {
+              return !!document.querySelector('[data-external]');
+            },
+          },
+        ],
+      });
     </script>
-</body>
-
+  </body>
 </html>
