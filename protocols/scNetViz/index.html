@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>scNetViz - Single-cell RNASeq analysis</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section id='title'>
+    <h1>scNetViz - Single-cell RNASeq analysis</h1>
+    <p><a href="http://www.rbvi.ucsf.edu/cytoscape/scNetViz/index.shtml">scNetViz</a> is a Cytoscape app designed to support the biological interpretation of scRNAseq experiments, it is available from the <a href="http://apps.cytoscape.org/apps/scnetviz" target="_blank">Cytoscape App Store</a>.</p>
+     <br />
+    <p>This tutorial includes a basic workflow starting with browsing a single cell expression atlas from within Cytoscape, exploring a particular dataset, performing differential expression analysis, generating networks from the top genes, and functionally characterizing and visualizing the networks. The workflow also includes alternative instructions for loading an experiment from local files.</p>
+    <br />
+    
+<div class="footer" style="position: absolute;left: -1em;bottom: -3em; ">
+    <img class="plain" src="scnetviz-logo.png" style="height:80px;opacity:0.5"> 
+    <version>1.0.5</version>
+</div>
+</section>
+                
+<section>
+        <h1>Setup</h1>
+        <ul>
+            <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
+            <li>Install the <b>scNetViz app</b> and <b>stringApp</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
+        </ul>
+        <br /><br />
+        <p>It is also possible to load an experiment into scNetViz from local files. To try this, download the <a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/notebooks/scNetViz/E-MTAB-5553-normalised-files.zip">experimental data</a>, and unzip the data into a folder with the name <b>E-MTAB-5553</b>.</p>
+             
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+         
+<section>
+         <h1>Load Data</h1>
+         <ul>
+             <li>Launch Cytoscape. In the <highlight>Apps</highlight> menu, select <highlight>scNetViz &rarr; Load Experiment &rarr; From Single Cell Expression Atlas</highlight>, or click the <img class="plain" src="sc_atlas_logo.png"> icon in the Cytoscape Toolbar.</li>
+             <li>In the <highlight>Single Cell Experiment Atlas</highlight> (SCEA), click on the column header for the <highlight>Accession</highlight> column to sort it.</li>
+             <li>Locate the experiment with acession number <b>E-MTAB-5553</b> and click on the row to highlight it. Click <highlight>View Data</highlight> to load the data.</li>  
+         </ul>
+         <p><img class="plain" src="SCEA-browser.png" style="width:60%"></p>
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+             
+<section>
+    <h1>Calculate Differential Expression</h1>
+        <p>The data opens the <highlight>Experiment Data Table</highlight>, which contains normalized scRNA-seq quantification in transcripts per million in the <highlight>TPM</highlight> tab, metadata like experimental variables etc in the <highlight>Categories</highlight> tab, and for SCEA it also includes the grouping of cells as calculated by unsupervised clustering. The results displayed are for different values of the <b>K</b> parameter.</p>
+        <ul>
+            <li>In the <highlight>Categories Tab</highlight> locate the clustering result with a <b>sel.K</b> value of <b>True</b>. This represents the best clustering result for the data.</li>
+            <li>Click the <highlight>Calculate Diff Exp</highlight> button to calculate differential expression.</li>
+        </ul>         
+         <p><img class="plain" src="SCEA-categories.png" style="width:70%"></p>
+             
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+             
+<section>
+    <h1>Create Networks</h1>
+         <p>The <highlight>DiffExp</highlight> tab will now be populated with data for the chosen cluster result.</p>
+         <img class="plain" src="DiffExp.png" style="width:60%">
+         <ul>
+            <li>Click the <highlight>Create Networks</highlight> button to create networks. This will create networks by querying the <a href="https://string-db.org/">STRING database</a> for the protein products of genes that satisfy the <highlight>Network Analysis</highlight> cutoffs based on <b>FDR</b> and <b>Log2FC</b>, or <b>Max genes</b> count.</li>
+         </ul>
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section> 
+                
+<section>
+    <h1>Create Networks</h1>
+         <p>In this case, 4 networks are created; one for each cluster and one for all the clusters collectively. In the <highlight>Results Panel</highlight>, two tabs will be loaded, for <b>scNetViz</b> and <b>stringApp</b>. We will use the built-in functionailty in the stringApp to calculate functional enrichment.</p>
+         <img class="plain" src="Networks.png" style="width:60%">
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+    
+<section>
+    <h1>Functional Enrichment Analysis</h1>
+         <ul>
+         <li>Click on one of the clusters in the <highlight>Network Panel</highlight> to select it.</li>
+         <li>In the <highlight>Get Enrichment</highlight> section of the <highlight>ScNetViz</highlight> tab, leave the default seletions as-is and click <highlight>Retrieve Table</highlight>.</li>
+         <li>The functional enrichment results will be loaded in a new <highlight>STRING Enrichment</highlight> panel in the <highlight>Table Panel</highlight> below the network.</li>
+         <li>Click the <highlight>Draw charts using default color palette</highlight> button <img class="plain" src="ShowCharts.png">.</li>
+         <li>Repeat these steps for the remaining networks.</li>
+         </ul>
+             
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+           
+<section>
+    <h1>Exporting Networks</h1>
+    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
+	<ul>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
+	</ul>
+</section>
+
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
