@@ -30,9 +30,9 @@
 
 <section id='title'>
     <h1>scNetViz - Single-cell RNASeq analysis</h1>
-    <p><a href="http://www.rbvi.ucsf.edu/cytoscape/scNetViz/index.shtml">scNetViz</a> is a Cytoscape app designed to support the biological interpretation of scRNAseq experiments, it is available from the <a href="http://apps.cytoscape.org/apps/scnetviz" target="_blank">Cytoscape App Store</a>.</p>
+    <p><a href="http://www.rbvi.ucsf.edu/cytoscape/scNetViz/index.shtml">scNetViz</a> is a Cytoscape app designed to support the biological interpretation of scRNAseq experiments. It is available from the <a href="http://apps.cytoscape.org/apps/scnetviz" target="_blank">Cytoscape App Store</a>.</p>
      <br />
-    <p>This tutorial includes two basic use cases, working with data from the EMBL-EBI Single Cell Expression Atlas, or local data. After loading the data into Cytoscape from local files or through the browser, we will perform differential expression analysis, generating networks from the top genes, and functionally characterizing and visualizing the networks, as well as generating plots from the data.</p>
+    <p>This tutorial includes two basic use cases, working with data from the EMBL-EBI Single Cell Expression Atlas, or local data. After loading the data into Cytoscape from local files or through the browser, we will generate plots from the data, perform differential expression analysis, generating networks from the top genes, and functionally characterize and visualize the networks.</p>
     <br />
     
 <div class="footer" style="position: absolute;left: -1em;bottom: -3em; ">
@@ -52,7 +52,8 @@
          Notes go here 
          </aside>
 </section>
-         
+
+<section>
 <section>
          <h1>Use Case 1: Load Data via scNetViz Browser</h1>
          <ul>
@@ -115,11 +116,13 @@
          Notes go here 
          </aside>
 </section>
+</section>
                 
+<section>               
 <section>
     <h1>Use case 2: Load a Local snRNA-Seq Dataset</h1>
                 
-    <p>In this workflow, we will load normalized data and cluster assignmentsnfrom local files. To start, download the <a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/notebooks/scNetViz/E-MTAB-5553-normalised-files.zip">experimental data</a>.</p>b>  
+    <p>In this workflow, we will load normalized data and cluster assignmentsnfrom local files. To start, download the <a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/notebooks/scNetViz/E-MTAB-5553-normalised-files.zip">experimental data</a>.</p>
     
 <aside class="notes" data-markdown>
          Notes go here 
@@ -153,11 +156,22 @@
          Notes go here 
          </aside>
 </section>
+    
+<section>
+    <h1>Load Categories</h1>
+    <p>Once the categories are loaded, the data viewer is updated:</p>
+    
+     <!--
+    <img class="plain" src="Categories.png" style="width:60%"> -->
+    <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
                 
 <section>
     <h1>Create UMAP Plot</h1>
     <ul>
-        <li>Under <highlight>New Cell Plot</highlight>, select <b>UMAP</b>.</li>
+        <li>Under <highlight>New Cell Plot</highlight>, select <b>UMAP</b>. The UMAP (Uniform Manifold Approximation and Projection) is .....</li>
     
     </ul>
     <!--
@@ -174,6 +188,9 @@
     <li>In the <highlight>Categories Tab</highlight> locate the clustering result with a <b>sel.K</b> value of <b>True</b>. This represents the best clustering result for the data.</li>
     <li>Click the <highlight>Calculate Diff Exp</highlight> button to calculate differential expression.</li>
     </ul>
+    
+    <!-- 
+    <img class="plain" src="Categories.png" style="width:60%"> -->
     
     <aside class="notes" data-markdown>
          Notes go here 
@@ -205,6 +222,7 @@
          </aside>
                 
 </section>
+</section> 
            
 <section>
     <h1>Exporting Networks</h1>
