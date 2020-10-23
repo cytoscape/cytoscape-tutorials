@@ -32,7 +32,7 @@
     <h1>scNetViz - Single-cell RNASeq analysis</h1>
     <p><a href="http://www.rbvi.ucsf.edu/cytoscape/scNetViz/index.shtml">scNetViz</a> is a Cytoscape app designed to support the biological interpretation of scRNAseq experiments, it is available from the <a href="http://apps.cytoscape.org/apps/scnetviz" target="_blank">Cytoscape App Store</a>.</p>
      <br />
-    <p>This tutorial includes a basic workflow starting with browsing a single cell expression atlas from within Cytoscape, exploring a particular dataset, performing differential expression analysis, generating networks from the top genes, and functionally characterizing and visualizing the networks. The workflow also includes alternative instructions for loading an experiment from local files.</p>
+    <p>This tutorial includes two basic use cases, working with data from the EMBL-EBI Single Cell Expression Atlas, or local data. After loading the data into Cytoscape from local files or through the browser, we will perform differential expression analysis, generating networks from the top genes, and functionally characterizing and visualizing the networks, as well as generating plots from the data.</p>
     <br />
     
 <div class="footer" style="position: absolute;left: -1em;bottom: -3em; ">
@@ -47,8 +47,6 @@
             <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
             <li>Install the <b>scNetViz app</b> and <b>stringApp</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
         </ul>
-        <br /><br />
-        <p>It is also possible to load an experiment into scNetViz from local files. To try this, download the <a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/notebooks/scNetViz/E-MTAB-5553-normalised-files.zip">experimental data</a>, and unzip the data into a folder with the name <b>E-MTAB-5553</b>.</p>
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -56,9 +54,9 @@
 </section>
          
 <section>
-         <h1>Load Data</h1>
+         <h1>Use Case 1: Load Data via scNetViz Browser</h1>
          <ul>
-             <li>Launch Cytoscape. In the <highlight>Apps</highlight> menu, select <highlight>scNetViz &rarr; Load Experiment &rarr; From Single Cell Expression Atlas</highlight>, or click the <img class="plain" src="sc_atlas_logo.png"> icon in the Cytoscape Toolbar.</li>
+             <li>Launch Cytoscape. In the <highlight>Apps</highlight> menu, select <highlight>scNetViz &rarr; Load Experiment &rarr; From Single Cell Expression Atlas...</highlight>, or click the <img class="plain" src="sc_atlas_logo.png"> icon in the Cytoscape Toolbar.</li>
              <li>In the <highlight>Single Cell Experiment Atlas</highlight> (SCEA), click on the column header for the <highlight>Accession</highlight> column to sort it.</li>
              <li>Locate the experiment with acession number <b>E-MTAB-5553</b> and click on the row to highlight it. Click <highlight>View Data</highlight> to load the data.</li>  
          </ul>
@@ -116,6 +114,96 @@
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
+</section>
+                
+<section>
+    <h1>Use case 2: Load a Local snRNA-Seq Dataset</h1>
+                
+    <p>In this workflow, we will load normalized data and cluster assignmentsnfrom local files. To start, download the <a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/notebooks/scNetViz/E-MTAB-5553-normalised-files.zip">experimental data</a>.</p>b>  
+    
+<aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+                
+<section>
+    <h1>Load data</h1>
+    <ul>
+    <li>Launch Cytoscape. In the <highlight>Apps</highlight> menu, select <highlight>scNetViz &rarr; Load Experiment &rarr; Import from file...</highlight>.</li>
+    <li>Select <b>Mus musculus</b> as the species, by typing directly into the drop-down. Browse to find the <b>E-MTAB-5553</b> zip file under <highlight>File or direcotry with MTX matrix and headers</highlight>. Click <b>OK</b> to load.</li>
+    <li>Leave <highlight>Skip first line of header files</highlight> blank.</li>
+    </ul>
+           
+    <!--
+    <img class="plain" src="Categories.png" style="width:60%"> -->
+<aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+    
+</section>
+                
+<section>
+    <h1>Load Categories</h1>
+    <ul>
+    <li>In the <highlight>Experiment Data Table</highlight>, click the <highlight>Add Category</highlight> drop-down and select <highlight>Import from file...</highlight>.</li>
+    <li>Browse to select the .csv file with category data, and leave remaining selections as the default.</li>
+    </ul>
+    <img class="plain" src="Categories.png" style="width:60%">
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+                
+<section>
+    <h1>Create UMAP Plot</h1>
+    <ul>
+        <li>Under <highlight>New Cell Plot</highlight>, select <b>UMAP</b>.</li>
+    
+    </ul>
+    <!--
+    <img class="plain" src="Categories.png" style="width:60%"> -->
+         <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+
+<section>
+    <h1>Calculate Differential Expression</h1>
+    
+    <ul>
+    <li>In the <highlight>Categories Tab</highlight> locate the clustering result with a <b>sel.K</b> value of <b>True</b>. This represents the best clustering result for the data.</li>
+    <li>Click the <highlight>Calculate Diff Exp</highlight> button to calculate differential expression.</li>
+    </ul>
+    
+    <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+                
+<section>
+    <h1>Create heatmap</h1>
+    <p>Next, we will generate a heatmap for genes that meet the filtering criteria:</p>
+    <ul>
+        <li>Under <highlight>View Plots</highlight>, select <b>Heatmap</b>.</li>
+        <li></li>
+    
+    </ul>
+    
+    <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+</section>
+                
+<section>
+    <h1>Create Networks</h1>
+     <p>The <highlight>DiffExp</highlight> tab is now be populated with data for the cluster result we chose earlier.</p>
+    <ul>
+            <li>Click the <highlight>Create Networks</highlight> button to create networks. This will create networks by querying the <a href="https://string-db.org/">STRING database</a> for the protein products of genes that satisfy the <highlight>Network Analysis</highlight> cutoffs based on <b>FDR</b> and <b>Log2FC</b>, or <b>Max genes</b> count.</li>
+         </ul>
+  <aside class="notes" data-markdown>
+         Notes go here 
+         </aside>
+                
 </section>
            
 <section>
