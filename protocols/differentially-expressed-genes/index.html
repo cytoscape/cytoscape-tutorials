@@ -213,6 +213,7 @@
     <h1>Data Integration</h1>
     <p>Next we will import differential gene expression data from our TCGA dataset to create a visualization. Just like the previous example, we will need to do some identifier mapping to match the data to the network.</p>
     <ul>
+        <li>First, lets focus on the largest connected subset by either deleting the unconnected nodes, or creating a subnetwork of the largest connected component.</li>
         <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>canonical name</highlight> column and click <highlight>Map column...</highlight>.</li>
         <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>Uniprot</b> as <highlight>Map from</highlight> and <b>Entrez Gene</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
         <li>A notification will let you know how many of the nodes were successfully mapped. A new column (all the way to the right) with NCBI Gene identifiers will be added to the <highlight>Node Table</highlight>.</li>
@@ -222,13 +223,12 @@
  
 <section>
     <h1>Data Integration</h1>
-            <ul>
-                <li>Next, we can load the data. Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>. Then go to <highlight>File &rarr; Import &rarr; Table from File...</highlight> and select the data file.</li>
-                <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
-	           <li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
-                <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
-
-            </ul>
+    <ul>
+        <li>Next, we can load the data. Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>. Then go to <highlight>File &rarr; Import &rarr; Table from File...</highlight> and select the data file.</li>
+        <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+	    <li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
+        <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
+    </ul>
 <img class="plain" src="TableImport.png" style="height:450px">    
 </section>  
                 
@@ -246,7 +246,7 @@
 <section>
     <h1>Visualization</h1>
         <p>Applying the <highlight>yFiles Organic</highlight> layout, the network looks something like this:</p>
-	    <img class="plain" src="string-ovarian-styled2.png" style="height:600px">       
+	    <img class="plain" src="string-ovarian-styled2.png" style="height:650px">       
 </section>
                 
                 
@@ -263,7 +263,7 @@
 <section>
     <h1>Visualization: Cancer Drivers</h1>
 <p>The network will now look something like this:</p>
-<img class="plain" src="string-ovarian-drivers.png" style="height:750px">    
+<img class="plain" src="string-ovarian-drivers.png" style="height:700px">    
 </section>
                 
 <section>
