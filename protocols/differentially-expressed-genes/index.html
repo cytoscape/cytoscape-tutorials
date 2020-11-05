@@ -130,16 +130,18 @@
     <h1>Visualization</h1>
     <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
     <ul>
-        <li>For node <highlight>Fill Color</highlight>, first delete the existing mapping and then create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer yellow-green-blue gradient.</li>
+        <li>For node <highlight>Fill Color</highlight>, first delete the existing mapping and then create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer yellow-orange-red gradient.</li>
     <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>
     <li>Remove the mappings for <highlight>Image/Chart 3</highlight> and <highlight>Image/Chart Position 3</highlight>. These define the node label in the STRING style.</li>
     <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
 	</ul>
-	        <div class="fragment">
-                <p><i>Pro-tip: If you apply the <highlight>yFiles Organic</highlight> layout, you can end up with network views like this...</i></p>
-	    <img class="plain" src="string-de-up-viz.png" style="height:420px">   
-	    </div>
-</section>             
+</section>     
+    
+<section>
+     <h1>Visualization</h1>
+        <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
+	    <img class="plain" src="string-de-up-viz.png" style="height:650px">   
+</section>
                 
 <section>
 <h1>STRING Enrichment</h1>
@@ -185,7 +187,7 @@
     <li>As you see, we now have both the pie chart and the node color mapping visible on the nodes. We can remove the node color mapping again and end up with this....</li>
     </ul>
     <div class="fragment">
- <img class="plain" src="string-enrichment-chart-down.png" style="height:500px">    
+ <img class="plain" src="string-enrichment-chart-down.png" style="height:600px">    
 </div>
 </section>
     
@@ -234,38 +236,41 @@
     <h1>Visualization</h1>
     <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
     <ul>
-        <li>For node <highlight>Fill Color</highlight>, first delete the existing mapping and then create a continuous mapping for <highlight>logFC</highlight>, with the default yellow-green-blue gradient.</li>
+        <li>For node <highlight>Fill Color</highlight>, first delete the existing mapping and then create a continuous mapping for <highlight>logFC</highlight>, with the default red-blue gradient.</li>
         <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>
         <li>Remove the mappings for <highlight>Image/Chart 3</highlight> and <highlight>Image/Chart Position 3</highlight>. These define the node label in the STRING style.</li>
         <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
 	</ul>
-	        <div class="fragment">
-                <p><i>Pro-tip: If you apply the <highlight>yFiles Organic</highlight> layout, you can end up with network views like this...</i></p>
-	    <img class="plain" src="string-ovarian-styled2.png" style="height:400px">   
-	    </div>
+</section>
+    
+<section>
+    <h1>Visualization</h1>
+        <p>Applying the <highlight>yFiles Organic</highlight> layout, the network looks something like this:</p>
+	    <img class="plain" src="string-ovarian-styled2.png" style="height:600px">       
 </section>
                 
                 
 <section>
-    <h1>Visualization</h1>
+    <h1>Visualization: Cancer Drivers</h1>
     <p>The TCGA found several genes that were commonly mutated in ovarian cancer, so called "cancer drivers". We can add information about these genes to the network visualization, by changing the visual style of these nodes. Three of the most important drivers are <b>TP53</b>, <b>BRCA1</b> and <b>BRCA2</b>. We will add a thicker, clored border for these genes in the network.</p>
     <ul>
         <li>Select all three driver genes by holding down the Command key while clicking each of the genes.</li>
-        <li>In the <highlight>Style</highlight> panel, add a style bypass for node <highlight>Border Width</highlight> (7) and node <highlight>Border Paint</highlight> (bright purple for example). You can create a style bypass by clicking the <highlight>Bypass</highlight> (<b>Byp.</b>) column for each attribute.</li>
+        <li>In the <highlight>Style</highlight> panel, add a style bypass for node <highlight>Border Width</highlight> (7) and node <highlight>Border Paint</highlight> (bright pink for example). You can create a style bypass by clicking the <highlight>Bypass</highlight> (<b>Byp.</b>) column for each attribute.</li>
     </ul>
 </section>
     
             
 <section>
-<p>The network will now look like this:</p>
+    <h1>Visualization: Cancer Drivers</h1>
+<p>The network will now look something like this:</p>
 <img class="plain" src="string-ovarian-drivers.png" style="height:750px">    
 </section>
                 
 <section>
     <h1>Other Analysis Options</h1>
     <ul>
-        <li>Exploring networks: finding paths, hubs and modules (clusterMaker, MCODE, jActiveModules, NetworkAnalyzer, PathFinder)</li>
-        <li>Extending networks with Transcription Factors, miRNAs, etc using CyTargetLinker</li>
+        <li>Exploring networks: finding paths, hubs and modules (<a href="http://apps.cytoscape.org/apps/clustermaker2">clusterMaker</a>, <a href="http://apps.cytoscape.org/apps/mcode">MCODE</a>, jActiveModules, <a href="http://apps.cytoscape.org/apps/jactivemodules">NetworkAnalyzer</a>)</li>
+        <li>Extending networks with Transcription Factors, miRNAs, etc using <a href="http://apps.cytoscape.org/apps/cytargetlinker">CyTargetLinker</a></li>
     
     </ul>
 </section>
