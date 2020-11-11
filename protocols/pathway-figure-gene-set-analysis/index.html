@@ -107,7 +107,8 @@
     <img class="plain" src="gene-set-final.png" style="width:80%">
 </section>
 </section>
-                
+
+<section>  
 <section>
     <h1>STRING Query</h1>
         <p>So far, we have worked with the gene set as nodes, without edges. Next, we will add <b>known interactions</b> to our nodes from the STRING database by quering the database for all nodes. This will enable further analysis options downstream.</p>
@@ -116,7 +117,7 @@
             <li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING protein query</b> in the drop-down and paste in the contents of the clipboard.</li>
             <li>Click the search icon to search using the default parameters. The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.4 or greater.</li>
         </ul>   
-    <img class="plain" src="pfocr-string.png" style="width:40%">
+    <img class="plain" src="pfocr-string.png" style="width:50%">
 </section>
     
 <!--
@@ -130,7 +131,7 @@
 <img class="plain" src="string-de-up2-sub.png" style="height:600px"> 
 </section>
 -->
-<section>     
+   
 <section>
     <h1>Data Integration</h1>
     <p>Next, we can import the same experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset. The STRING network is annotated with protein identifiers, mainly <b>Uniprot</b> and <b>Ensembl protein</b>, while the data has <b>NCBI Gene</b> identifiers. So before importing the data we are going to use the <b>ID Mapper</b> functionality in Cytoscape to map the network to NCBI Gene.</p>
