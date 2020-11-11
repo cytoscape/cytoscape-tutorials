@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Pathway Figure Gene Set Analysis</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+	<h1>Pathway Figure Gene Set Analysis</h1>
+    <p>By using a combination of optical character recognition, machine learning and manual curation, gene sets have been extracted from <a href="https://doi.org/10.1186/s13059-020-02181-2">published pathway figures</a>. 32,000 of these sets are available in <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf">NDEx</a>, and can be used directly in Cytoscape.</p>
+    
+	<p>This protocol starts with one of these gene sets from a published pathway figure and describes how to create a network, visualize data and perform functional enrichment.</p>
+    
+    <p>If you don't already have the <b>stringApp</b> installed, you can install it from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a> or from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
+    <div class="footer" style="position: absolute; left: -3em; bottom: -4em; ">
+<img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+<version>3.8.0</version></div>
+</section>
+                
+<section>
+    <h1>Import Pathway Figure Gene Set</h1>
+    
+    <ul>
+        <li>Navigate to <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf">Published Pathway Figure Analysis Set</a> at NDEx.</li>
+        <li>Find the network named <b>PMC6678134__cancers-11-01028-g003.jpg</b> and click on it. The page will display the genes in the set on the left and the published figure they were extracted from on the right.</li>
+        <li>Save the figure by right-clicking on it and selecting <highlight>Save Image As..</highlight>.</li>
+        <li>To open the gene set into Cytoscape, click the <highlight>Open in Cytoscape</highlight> button in the lower right.</li>
+    open-in-cytoscape.png
+    </ul>
+                
+</section>
+                
+<!--<section>
+    <h1>Import NDEx Gene Set</h1>
+    <p>We will start by importing a gene set from NDEx.</p>
+    <ul>
+        <li>Click the <highlight>Import Network from NDEx</highlight> <img class="plain" src="NDEx-search.png" style="height:20px"> icon in the control panel.</li>
+        <li>In the NDEx <highlight>Find Networks</highlight> interface, type in the network UUID <b>bcd5afe8-de97-11ea-99da-0ac135e8bacf</b> and click the search icon.</li>
+        <li>When the results load, double-click the corresponding entry to open the network, in this case the network with name <b>PMC5884799__41598_2018_24032_Fig7_HTML.jpg</b>.</li>
+        <li>Close the NDEx interface.</li>
+    </ul>
+    <img class="plain" src="NDEx-results.png" style="width:45%">
+</section>-->
+                
+<section>
+    <h1>STRING Query</h1>
+        <p>The network concists of a set of nodes, but no edges. We will use the STRING database to add edges for the nodes from known interactions.</p>
+        <ul>
+        <li>In the <highlight>Node Table</highlight>, select the top entry in the <highlight>name</highlight> column, hold down the shift key and select the last entry. Copy the contents to the clipboard.</li>
+        <li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING protein query</b> in the drop-down and paste in the contents of the clipboard.</li>
+        <li>Click the search icon to search using the default parameters.</li>
+    </ul>   
+    <p>The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.4 or greater.</p>
+    <img class="plain" src="pfocr-string.png" style="width:50%">
+</section>
+    
+<!--
+<section>
+<h1>STRING Network</h1>
+    <p>The network consists of one large connected component, several smaller networks, and some unconnected nodes. We will use only the largest connected component for the rest of the tutorial.</p>
+    <ul>
+    <li>Using Shift-drag, select all nodes and edges for the largest connected component.</li>
+    <li>Select <highlight>File &rarr; New Network &rarr; From Selected Nodes, Selected Edges</highlight>.</li>
+    </ul>
+<img class="plain" src="string-de-up2-sub.png" style="height:600px"> 
+</section>
+-->
+                
+<section>
+    <h1>Data Integration</h1>
+    <p>Next, we can import experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset, comparing gene expression between two subtypes of ovarian cancer. Since the STRING network is a protein-protein network, it is annotated with protein identifiers, namely <b>Uniprot</b> and <b>Ensembl protein</b>. The data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
+    <ul>
+        <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>display name</highlight> column and click <highlight>Map column...</highlight>.</li>
+        <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Entrez</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
+        <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all downstream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
+    </ul>
+</section>
+                
+<section>
+    <h1>Data Integration</h1>
+    <ul>
+    <li>Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>.</li>
+    <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+	<li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
+    <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
+</ul>
+</section>
+                
+<section>
+    <h1>Visualization</h1>
+    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
+    <ul>
+    <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
+    <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
+    <li>Set the default node fill color to light gray.</li>
+    <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
+    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
+    <li>For <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
+	</ul>
+</section> 
+                
+<section>
+     <h1>Visualization</h1>
+        <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
+	    <img class="plain" src="pfocr-string-style.png" style="height:650px">  
+</section>
+                
+<section>
+    <h1>STRING Enrichment</h1>
+    <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
+    <ul>
+    <li>In the STRING tab of the <hihglight>Results Panel</hihglight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
+    <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
+    </ul>
+</section>
+                
+<section>
+    <h1>STRING Enrichment</h1>
+    <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Process.</p>    
+    <ul>
+        <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
+        <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
+    </ul>
+<img class="plain" src="string-enrichment-chart.png" style="height:550px">    
+</section>
+                
+<!--<section>
+    <h1>Pathway Figure as Annotation</h1>
+    
+</section>
+                
+<section>
+    <h1></h1>
+</section>
+           -->     
+
+            
+            
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>

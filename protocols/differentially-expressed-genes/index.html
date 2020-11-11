@@ -98,10 +98,10 @@
     
 <section id="ex1-data-integration1">
     <h1>Data Integration</h1>
-    <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Since the STRING network is a protein-protein network, it is annotated with protein identifiers, namely <b>Uniprot</b> and <b>Ensembl protein</b>. Our data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
+    <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Our data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
     <ul>
-        <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>canonical name</highlight> column and click <highlight>Map column...</highlight>.</li>
-        <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>Uniprot</b> as <highlight>Map from</highlight> and <b>Entrez</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
+        <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>display name</highlight> column and click <highlight>Map column...</highlight>.</li>
+        <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Entrez</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
         <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all downstream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
     </ul>
 </section>
