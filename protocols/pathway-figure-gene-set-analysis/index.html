@@ -50,7 +50,6 @@
         <li>To open the gene set into Cytoscape, click the <highlight>Open in Cytoscape</highlight> button in the lower right.</li>
     open-in-cytoscape.png
     </ul>
-                
 </section>
                 
 <!--<section>
@@ -64,17 +63,60 @@
     </ul>
     <img class="plain" src="NDEx-results.png" style="width:45%">
 </section>-->
+
+<section>
+<section>
+    <h1>Data Integration and Visualization</h1>
+    <p>We are going to import experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset, comparing gene expression between two subtypes of ovarian cancer. The data is annotated with <b>NCBI Gene</b> identifiers, which is also what the nodes in the gene set are annotated with.</p>
+    <ul>
+        <li>Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>.</li>
+        <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+	   <li>Select the <b>ncbigene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
+        <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
+    </ul>
+</section>   
+                
+<section>
+    <h1>Data Integration and Visualization</h1>
+    <p>We can now add a simple visualization of the data on the set of nodes.</p>
+    <ul>
+        <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
+        <li>Set the default node fill color to light gray.</li>
+    </ul>
+    <img class="plain" src="pfocr-gene-set.png" style="width:60%">
+</section>
+                
+<section>
+    <h1>Visualization</h1>
+    <p>The gene set is already arranged with a grid layout, but we can make it a bit more compact.</p>
+    <ul>
+        <li>Under <highlight>Layout &rarr; Settings...</highlight>, select the <highlight>Grid Layout</highlight>.</li>
+        <li>Set the <highlight>Vertical spacing between nodes</highlight> to <b>50</b> and <highlight>Horizontal spacing between nodes</highlight> to <b>80</b>.</li>
+        <li>....group any nodes that should be grouped.....</li>
+    </ul>
+</section>
+                
+<section>
+    <h1>Add Pathway Figure as Annotation</h1>
+    <p>Finally, we can add the original published figure for this gene set as an annotation, to add context to the nodes.</p>
+    <ul>
+        <li>In the <highlight>Annotations</highlight> tab of the <highlight>Control Panel</highlight>, select the <highlight>Image</highlight> icon at the top and then click anywhere in the network view to place the annotation. The initial placement can easily be changed later.</li>
+        <li>Select the pathway figure you downloaded previously in the file browser.</li>
+        <li>Once the annotation is placed, enable annotation selection by clicking the <highlight>Toggle Annotation Selection</highlight> button <img class="plain" src="toggle-annotation.png" style="height:30px"> in the <highlight>Network View Tools</highlight> under the network.</li>
+    </ul>
+    <img class="plain" src="gene-set-final.png" style="width:80%">
+</section>
+</section>
                 
 <section>
     <h1>STRING Query</h1>
-        <p>The network concists of a set of nodes, but no edges. We will use the STRING database to add edges for the nodes from known interactions.</p>
+        <p>So far, we have worked with the gene set as nodes, without edges. Next, we will add <b>known interactions</b> to our nodes from the STRING database by quering the database for all nodes. This will enable further analysis options downstream.</p>
         <ul>
-        <li>In the <highlight>Node Table</highlight>, select the top entry in the <highlight>name</highlight> column, hold down the shift key and select the last entry. Copy the contents to the clipboard.</li>
-        <li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING protein query</b> in the drop-down and paste in the contents of the clipboard.</li>
-        <li>Click the search icon to search using the default parameters.</li>
-    </ul>   
-    <p>The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.4 or greater.</p>
-    <img class="plain" src="pfocr-string.png" style="width:50%">
+            <li>In the <highlight>Node Table</highlight>, select the top entry in the <highlight>name</highlight> column, hold down the shift key and select the last entry. Copy the contents to the clipboard.</li>
+            <li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING protein query</b> in the drop-down and paste in the contents of the clipboard.</li>
+            <li>Click the search icon to search using the default parameters. The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.4 or greater.</li>
+        </ul>   
+    <img class="plain" src="pfocr-string.png" style="width:40%">
 </section>
     
 <!--
@@ -88,10 +130,10 @@
 <img class="plain" src="string-de-up2-sub.png" style="height:600px"> 
 </section>
 -->
-                
+<section>     
 <section>
     <h1>Data Integration</h1>
-    <p>Next, we can import experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset, comparing gene expression between two subtypes of ovarian cancer. Since the STRING network is a protein-protein network, it is annotated with protein identifiers, namely <b>Uniprot</b> and <b>Ensembl protein</b>. The data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
+    <p>Next, we can import the same experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset. The STRING network is annotated with protein identifiers, mainly <b>Uniprot</b> and <b>Ensembl protein</b>, while the data has <b>NCBI Gene</b> identifiers. So before importing the data we are going to use the <b>ID Mapper</b> functionality in Cytoscape to map the network to NCBI Gene.</p>
     <ul>
         <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>display name</highlight> column and click <highlight>Map column...</highlight>.</li>
         <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Entrez</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
@@ -102,11 +144,10 @@
 <section>
     <h1>Data Integration</h1>
     <ul>
-    <li>Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>.</li>
-    <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
-	<li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
-    <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
-</ul>
+        <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file (downloaded earlier) under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+	   <li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
+        <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
+    </ul>
 </section>
                 
 <section>
@@ -125,7 +166,7 @@
 <section>
      <h1>Visualization</h1>
         <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
-	    <img class="plain" src="pfocr-string-style.png" style="height:650px">  
+	    <img class="plain" src="pfocr-string-style.png" style="height:450px">  
 </section>
                 
 <section>
@@ -135,6 +176,7 @@
     <li>In the STRING tab of the <hihglight>Results Panel</hihglight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul>
+<img class="plain" src="string-enrichment.png" style="height:300px">    
 </section>
                 
 <section>
@@ -144,14 +186,20 @@
         <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
     </ul>
-<img class="plain" src="string-enrichment-chart.png" style="height:550px">    
+<img class="plain" src="string-enrichment-chart.png" style="height:450px">    
 </section>
                 
 <section>
-    <h1>Pathway Figure as Annotation</h1>
-    
+    <h1>Add Pathway Figure as Annotation</h1>
+    <p>Again, we can add the original published figure for this gene set as an annotation.</p>
+    <ul>
+        <li>In the <highlight>Annotations</highlight> tab of the <highlight>Control Panel</highlight>, select the <highlight>Image</highlight> icon at the top and then click anywhere in the network view to place the annotation. The initial placement can easily be changed later.</li>
+        <li>Select the pathway figure you downloaded previously in the file browser.</li>
+        <li>Once the annotation is placed, enable annotation selection by clicking the <highlight>Toggle Annotation Selection</highlight> button <img class="plain" src="toggle-annotation.png" style="height:30px"> in the <highlight>Network View Tools</highlight> under the network.</li>
+    </ul>
+    <img class="plain" src="network-final.png" style="height:450px"> 
 </section>
-        
+</section>          
                 
 
             
