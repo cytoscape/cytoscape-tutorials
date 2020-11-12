@@ -45,7 +45,7 @@
     
     <ul>
         <li>Navigate to <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf">Published Pathway Figure Analysis Set</a> at NDEx.</li>
-        <li>Find the network named <b>PMC6678134__cancers-11-01028-g003.jpg</b> and click on it. The page will display the genes in the set on the left and the published figure they were extracted from on the right.</li>
+        <li>Find the network named <b>PMC5279777__pone.0170958.g003.jpg</b> and click on it. The page will display the genes in the set on the left and the published figure they were extracted from on the right.</li>
         <li>Save the figure by right-clicking on it and selecting <highlight>Save Image As..</highlight>.</li>
         <li>To open the gene set into Cytoscape, click the <highlight>Open in Cytoscape</highlight> button in the lower right.</li>
     open-in-cytoscape.png
@@ -83,16 +83,12 @@
         <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
         <li>Set the default node fill color to light gray.</li>
     </ul>
-    <img class="plain" src="pfocr-gene-set.png" style="width:60%">
-</section>
-                
-<section>
-    <h1>Visualization</h1>
     <p>The gene set is already arranged with a grid layout, but we can make it a bit more compact.</p>
     <ul>
         <li>Under <highlight>Layout &rarr; Settings...</highlight>, select the <highlight>Grid Layout</highlight>.</li>
         <li>Set the <highlight>Vertical spacing between nodes</highlight> to <b>50</b> and <highlight>Horizontal spacing between nodes</highlight> to <b>80</b>.</li>
     </ul>
+    <img class="plain" src="pfocr-gene-set.png" style="width:50%">
 </section>
                 
 <section>
@@ -103,7 +99,7 @@
         <li>Select the pathway figure you downloaded previously in the file browser.</li>
         <li>Once the annotation is placed, enable annotation selection by clicking the <highlight>Toggle Annotation Selection</highlight> button <img class="plain" src="toggle-annotation.png" style="height:30px"> in the <highlight>Network View Tools</highlight> under the network.</li>
     </ul>
-    <img class="plain" src="gene-set-final.png" style="width:80%">
+    <img class="plain" src="gene-set-final.png" style="width:85%">
 </section>
 </section>
 
@@ -114,8 +110,13 @@
         <ul>
             <li>In the <highlight>Node Table</highlight>, select the top entry in the <highlight>name</highlight> column, hold down the shift key and select the last entry. Copy the contents to the clipboard.</li>
             <li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING protein query</b> in the drop-down and paste in the contents of the clipboard.</li>
-            <li>Click the search icon to search using the default parameters. The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.4 or greater.</li>
+            <li>Click the search icon to search using the default parameters.</li>
         </ul>   
+</section>
+    
+<section>
+    <h1>STRING Query</h1>
+    <p>The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.4 or greater.</p>
     <img class="plain" src="pfocr-string.png" style="width:50%">
 </section>
     
@@ -166,7 +167,7 @@
 <section>
      <h1>Visualization</h1>
         <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
-	    <img class="plain" src="pfocr-string-style.png" style="height:450px">  
+	    <img class="plain" src="pfocr-string-style.png" style="height:550px">  
 </section>
                 
 <section>
@@ -186,7 +187,7 @@
         <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
     </ul>
-<img class="plain" src="string-enrichment-chart.png" style="height:450px">    
+<img class="plain" src="string-enrichment-chart.png" style="height:500px">    
 </section>
                 
 <section>
@@ -197,7 +198,7 @@
         <li>Select the pathway figure you downloaded previously in the file browser.</li>
         <li>Once the annotation is placed, enable annotation selection by clicking the <highlight>Toggle Annotation Selection</highlight> button <img class="plain" src="toggle-annotation.png" style="height:30px"> in the <highlight>Network View Tools</highlight> under the network.</li>
     </ul>
-    <img class="plain" src="network-final.png" style="height:450px"> 
+    <img class="plain" src="network-final.png" style="height:480px"> 
 </section>
 </section>          
                 
