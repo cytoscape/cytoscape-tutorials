@@ -32,7 +32,7 @@
 	<h1>Pathway Figure Gene Set Analysis</h1>
     <p>By using a combination of optical character recognition, machine learning and manual curation, gene sets have been extracted from <a href="https://doi.org/10.1186/s13059-020-02181-2">published pathway figures</a>. 32,000 of these sets are available in <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf">NDEx</a>, and can be used directly in Cytoscape.</p>
     
-	<p>This protocol starts with one of these gene sets from a published pathway figure and describes how to create a network, visualize data and perform functional enrichment.</p>
+	<p>This protocol starts with one of these gene sets from a published pathway figure and describes how to visualize data on the set, create a network from it, perform functional enrichment and include the original figure for comparison.</p>
     
     <p>If you don't already have the <b>stringApp</b> installed, you can install it from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a> or from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
     <div class="footer" style="position: absolute; left: -3em; bottom: -4em; ">
@@ -48,7 +48,6 @@
         <li>Find the network named <b>PMC5279777__pone.0170958.g003.jpg</b> and click on it. The page will display the genes in the set on the left and the published figure they were extracted from on the right.</li>
         <li>Save the figure by right-clicking on it and selecting <highlight>Save Image As..</highlight>.</li>
         <li>To open the gene set into Cytoscape, click the <highlight>Open in Cytoscape</highlight> button in the lower right.</li>
-    open-in-cytoscape.png
     </ul>
 </section>
                 
@@ -100,6 +99,15 @@
         <li>Once the annotation is placed, enable annotation selection by clicking the <highlight>Toggle Annotation Selection</highlight> button <img class="plain" src="toggle-annotation.png" style="height:30px"> in the <highlight>Network View Tools</highlight> under the network.</li>
     </ul>
     <img class="plain" src="gene-set-final.png" style="width:85%">
+</section>
+    
+<section>
+    <h1>Add Pathway Figure as Annotation</h1>
+    <p><b>Bonus:</b>If we arrange the nodes in the gene set to approximate their placement in the original figure, we can begin to approximate a pathway layout, and start to interpret the data. Note that the label displayed on the node, <b>name</b>, is is the official gene symbol, and the original figure oftentimes use aliases. Use the <b>word</b> column to match nodes to the figure.</p>
+    
+        <img class="plain" src="gene-set-final-pw.png" style="width:85%">
+
+    
 </section>
 </section>
 
