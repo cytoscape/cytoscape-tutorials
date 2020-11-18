@@ -1,242 +1,249 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Custom Graphics and Labels</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="../../css/reveal.css">
-		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+    <title>Protein Interaction Network Analysis Using Cytoscape and NDEx</title>
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+    <style>
+        section {
+            text-align: left
+        }
 
-<!-- ========================================================== -->
-<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
-                
-<!-- For network with data, could use either of the cancer datasets in the "cancer networks and data Rmd" -->
+        h1 {
+            text-align: center;
+        }
 
-<section>
-	<h1>Custom Graphics and Labels</h1>
-	<p>This tutorial illustrates how Cytoscape's Custom Graphics can be used to add graphs, charts and other graphics to node, and how to combine Custom Graphics with the <a href="http://apps.cytoscape.org/apps/enhancedgraphics" target="_blank">enhancedGraphics app</a> for specialized visualizations. </p>
-    <p>To get started, install the <b>enhancedGraphics app</b> via <highlight>Apps &rarr; App Manager</highlight>.</p>              
-<div class="footer" style="position: absolute;left: 0em;bottom: -8em; ">
-    <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.8</version>
-</div>
-</section>
-                
-<section>
-<h1>Loading Network</h1>
-<p>For this tutorial, we will be using the <b>Yeast Perturbation</b> sample session in the Cytoscape Starter Panel.</p>
-<ul>
-    <li>Launch Cytoscape and open the <highlight>Yeast Perturbation</highlight> session file from the <highlight>Cytoscape Starter Panel</highlight>.</li>
-    <li>In the <highlight>Style</highlight> interface, switch to the <b>default</b> style in the drop-down at the top.</li>
-    <li>Switch the default node <highlight>Fill Color</highlight> to a light grey.</li>
-    <li>Zoom in to see a few nodes clearly. The nodes are labeled with yeast ORF identifiers.</li>
-</ul><br /><br />
-<img plain src="NetworkLoaded.png" style="width:40%">
-</section>
-                
-<section>
-<h1>Custom Graphics Bar Chart</h1>
-    <p>In this example, we will create a bar chart with the three expression values, <b>gal1RGexp</b>, <b>gal4RGexp</b> and <b>gal80Rexp</b>, available as attributes in the session file.</p>
-    <ul>
-    <li>In the <highlight>Style</highlight> interface, click on default (<highlight>Def.</highlight>) for the <highlight>Image/Chart 1</highlight> property.</li>
-    <li>In the <highlight>Graphics</highlight> interface, select the <highlight>Chart</highlight> tab.</li>
-    <li>We are going to use the default selected graph type, Grouped Bar Chart.</li>
-    <li>In the <highlight>Available Columns</highlight> list, select the three columns with expression data: <b>gal1RGexp</b>, <b>gal4RGexp</b> and <b>gal80Rexp</b>. You may need to remove columns selected by default from the <highlight>Selected Columns</highlight> list, this should only list our three columns of interest.</li>
-    <li>Click <highlight>Apply</highlight>.</li>
-    </ul>
-                
-</section>
+    </style>
 
-<section>
-    <ul>
-    <li>The chart is now centered on the node. To move it, select <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart Position 1</highlight> from the <highlight>Properties</highlight> drop-down menu.</li>
-    <li>Click on the <highlight>Def.</highlight> column of this new entry to bring up a position editor.</li>
-    <li>Drag the darker blue <highlight>Object</highlight> to right below the node. Click <highlight>OK</highlight> to continue. You may have to adjust this positioning a few times to achieve an optimal visualization.</li>
-    </ul>
-    <p>The nodes in your network should now look like this:</p>
-    <img plain src="BarChart1.png" style="width:40%">
-                
-</section>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
 
-<section>
-<h1>Custom Graphics Heatmap</h1>
-    <p>Next we are going to create a horizontal heatmap of the same three data columns.</p>
-    <ul>
-        <li>Add another Custom Graphic by selecting <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart 2</highlight> from the <highlight>Properties</highlight> drop-down menu.</li>
-        <li>Click on the <highlight>Def.</highlight> column of <highlight>Image/Chart 2</highlight>.</li>
-        <li>Under <highlight>Charts</highlight> select <highlight>Heatmap</highlight> option (third icon from the left). Again, select the three columns containing expression data; <b>gal1RGexp</b>, <b>gal4RGexp</b> and <b>gal80Rexp</b>, and remove any other columns selected by default.</li>
-        <li>Under <highlight>Options</highlight>, select <highlight>Horizontal Orientation</highlight>.</li>
-        <li>Select the <b>Cyan-White-Yellow</b> color scheme.</li>
-        <li>Click <highlight>Apply</highlight>.</li>
-    </ul>  
-    <p>For the heatmap, we can keep the default placement. The nodes in your network should now look like this:</p>
-    <img plain src="HeatMap1.png" style="width:37%">
-</section>
-                
-<section>
-    <h1>Custom Graphics Pie Chart</h1>
-    <p>Finally, we will create a pie chart with two columns, <b>Radiality</b> and <b>Degree</b>.</p>
-    <ul>
-        <li>Add a third Custom Graphic under <highlight>Paint &rarr; Custom Paint &rarr; Image/Chart 3</highlight>.</li>
-        <li>Define a <highlight>Pie Chart</highlight> with the <b>Radiality</b> and <b>Degree</b> columns.</li>
-        <li>Keep the rest of the settings default and click <highlight>Apply</highlight>.</li>
-        <li>Add the <highlight>Image/Chart Position 3</highlight> property and position the chart to the left of the node.</li>
-    </ul>
-    <br /> <br />
-        <img plain src="PieChart.png" style="width:40%"> 
-</section>
-                
-<section>
-    <h1>Additional Custom Graphics</h1>
-    <p>There are several other graphics available through the default Custom Graphics in Cytoscape:</p>
-    <ul>
-        <li>Bar chart subtypes: Grouped, Stacked, Heat Strips and Up-Down</li>
-        <li>Box charts</li>
-        <li>Line charts</li>
-        <li>Ring charts</li>
-</ul>
-    <p>For more detailed information on how to use Custom Graphics, see the <a href="http://manual.cytoscape.org/en/stable/Styles.html?highlight=graphics#images-charts-and-gradients" target="_blank">Cytoscape Manual</a>.</p>
-                
-</section>
-                
-<section>
-    <h1>Enhanced Graphics Node Label</h1>
-	<p>The nodes in the network are labeled with the corresponding protein names (yeast), but there is additional information in the
-    <b>Data Node Table</b> that could be useful to display on the nodes. We are going to use a combination of <b>Custom Graphics</b> and the <b>enhancedGraphics</b> app to create a second node label for the yeast gene common name, which is available as the node attribute <b>COMMON</b>.</p>
-    <p>This involves three steps:</p>
-    <ul>
-        <li>Creating a new column with information interpreted by the <highlight>EnhancedGraphics App</highlight>.</li>
-        <li>Mapping this new column to a <highlight>Custom Graphic</highlight>.</li>
-        <li>Positioning the new label.</li>
-    </ul>
-</section>
-                
-<section>
-<h1>Create a new column</h1>
-    <ul>
-    <li>In the <highlight>Data Node Table</highlight>, click the plus sign <img plain src="AddColumnIcon.png" > to add a new column. In the drop-down menu, select
-        <highlight>New Single Column &rarr; String</highlight>.</li>
-        <li>In the <highlight>Create New String Column</highlight> dialog, enter a name for your new column, in this case <b>Label 2</b>.</li>
-        <li>This creates a new empty column in the <highlight>Data Node Table</highlight>.</li>
-    </ul>
-</section>
-                
-<section>
-<h1>Fill new column</h1>
-<p>The new column will define a new attribute that we will use for mapping to the <highlight>Custom Graphics</highlight> property. This new 
-attribute has to be in the form of mappings recognized by the enhancedGraphics app. For more details on the enhancedGraphics format,
-    see the <a href="http://www.cgl.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml" target="_blank">manual</a>.</p>
-    <p>For our purposes, we will define a new mapping for a label based on the column <b>COMMON</b>:</p>
-    <p><b>label: attribute=COMMON labelsize=10 outline=false background=false color=red</b></p>
+    </script>
+</head>
 
-<ul>
-    <li>In the first cell of the <b>Label 2</b> column, enter the new mapping and click enter. Your new entry may disappear to the bottom of the column; just click on the column header once or twice to re-sort.</li>
-    <li>Right-click on the new entry and select <highlight>Apply to entire column</highlight>. This will fill the column with the same mapping.</li>
-</ul>   <br />     <br />  
-    <img plain src="NewColumnAdded.png" style="width:85%">
-    
-</section>
-                
-<section>
-<h1>Mapping new label to Custom Graphic</h1>
-<p>We now have a new attribute that we can use for the mapping.</p>
-<ul>
-    <li>In the <highlight>Style</highlight> interface, add the <highlight>Image/Chart 4</highlight> property. Click on the <highlight>Map.</highlight> entry for it to begin creating a mapping.</li>
-    <li>In the <highlight>Column</highlight> field, select the new <b>Label 2</b> column.</li>
-    <li>In the <highlight>Mapping Type</highlight>, select <b>Passthrough Mapping</b>.</li>
-    <p>You should now see two labels per node that are partially overlapping.</p>
-</ul>
-</section>
-              
-<section>
-  <h1>Positioning the Custom Graphic</h1>
-<ul>
-    <li>Add the <highlight>Image/Chart Position 4</highlight> property and position the chart in the top right.
-    You may have to adjust this positioning a few times to achieve an optimal visualization.</li>
-    <li>Lets also move the main node label. In the <highlight>Properties</highlight> drop-down, select <highlight>Label Position</highlight> and use the position editor to move the label to the bottom half of the node.</li>
-</ul>     <br /><br />
-    <img plain src="Final.png" style="width:45%">
-    
-</section>    
+<body>
+    <div class="reveal">
+        <div class="slides">
 
-<!-- THIS IS WHERE YOUR CONTENT ENDS -->
-<!-- ========================================================== -->
+            <!-- ========================================================== -->
+            <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
-			</div>
-		</div>
+            <section>
+                <h1>Cytoscape and NDEx</h1>
+                <p>In this tutorial, you will:</p>
+                <ul>
+                    <li>
+                        Finding networks form NDEx.
+                    </li>
+                    <li>
+                        Viewing networks.
+                    </li>
+                    <li>
+                        Sending networks to NDEx.
+                    </li>
+                </ul>
+                <div class="footer" style="position: absolute;  bottom: -6em; ">
+                    <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5">
+                    <version>3.8</version>
+                </div>
+            </section>
 
-		<script src="../../lib/js/head.min.js"></script>
-		<script src="../../js/reveal.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-155159-15', 'auto');
-  ga('send', 'pageview');
+            <section>
+                <h1>Setup</h1>
+                <p>This protocol requires:</p>
+                <ul>
+                    <li>An <a href="http://ndexbio.org">NDEx Account</a> (instructions <a href="https://home.ndexbio.org/create-an-ndex-account/">HERE</a>)</li>
+                    <li><a href="https://cytoscape.org/download.html" target="_blank">Cytoscape v3.8</a></li>
+                    <li>Latest <a href="http://apps.cytoscape.org/apps/cyndex2" target="_blank">cyNDEx-2 App</a> (v3.0.1 or higher)</li>
+                    <li>Latest <a href="http://apps.cytoscape.org/apps/cyrest" target="_blank">cyREST App</a> (v3.9.1 or higher)</li>
+                    <li>Latest <a href="http://apps.cytoscape.org/apps/cxsupport" target="_blank">CX Support App</a> (v2.3.0 or higher)</li>
+                </ul>
+                <p>To update the required Apps:</p>
+                <ul>
+                    <li>Launch Cytoscape 3.8</li>
+                    <li>Use the App Manager to update all Apps to the latest version available.</li>
+                </ul>
+            </section>
 
-</script>
-<script>
-	Reveal.addEventListener( 'ready', function() {
-	if(!window.navigator.userAgent.includes('CyBrowser')){
-		var divs = document.getElementsByClassName("cybrowser")
-		for (var i=0;i<divs.length;i++){
-			divs[i].style.display = "none";
-		}
-	} else {
-		var divs = document.getElementsByClassName("not-cybrowser")
-		for (var i=0;i<divs.length;i++){
-			divs[i].style.display = "none";
-		}
-	}
-});
-</script>  
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
-				controls: true,
-				progress: true,
-				slideNumber: false,
-				touch: true,
-				fragments: true,
-				help: true,
-				showNotes: false,
-				previewLinks: false,
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-				width: 1200,
-				height: 860,
-				autoSlide: 0,
+            <section>
+                <h1>Finding networks</h1>
+                <ul>
+                    <li>Load the network via <highlight>File &rarr; Import &rarr; Network from NDEx....</highlight></li>
+                    <li>Type "Breast Cancer" in the search bar</li>
+                    <li>Click Enter to start the search.</li>
+                </ul>
+                <p style="text-align:center">
+                    <img src="breast_cancer.jpg" style="height:350px">
+            </section>
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-				{ src: '../../plugin/markdown/marked.js' },
-				{ src: '../../plugin/markdown/markdown.js' },
-				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
-				{ src: '../../plugin/notes/notes.js', async: true },
-				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
-				]
-				});
-			</script>
-		</body>
-	</html>
+            <section>
+                <h1>Finding networks</h1>
+                <ul>
+                  <li>Load the network via <highlight>File &rarr; Import &rarr; Network from NDEx....</highlight></li>
+                  <li>Type "BRCA" in the search bar</li>
+                  <li>Click Enter to start the search.</li>
+
+                </ul>
+                <p style="text-align: center">
+                    <img class="plain" src="brca.jpg" style="height:550px">
+                </p>
+            </section>
+
+            <section>
+                <h1>Viewing networks</h1>
+
+                <p>If we want to visualize and interact with this network, Cytoscape is our best choice. Both NDEx and Cytoscape work with the CX network data format.</p>
+                <p>Ok. We can work with this list. Let’s use the first hit. (name:brca)</p>
+                <p style="text-align: center">
+                    <img class="plain" src="https://cytoscape.github.io/cytoscape-automation/for-scripters/R/notebooks/data/img/NDEx.png" style="height:650px">
+                </p>
+            </section>
+            <section>
+                <h1>Sending networks to NDEx</h1>
+
+                <p>Now say you have a network in Cytoscape and you want to send it to NDEx for storage, sharing or exchange. First, you need to have an NDEx account. Go to http://www.ndexbio.org to create one if you haven’t already. You will need your username and password coming up soon.</p>
+
+
+                <ul>
+                    <li>But first, let’s get a fresh network into Cytoscape. This could be any network, we’re just using the demo igraph network as an example.</li>
+                    <li>Import the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight></li>
+                    <li>Select your igraph txt file or any other network files from your local</li>
+                    <p style="text-align: center">
+                        <img class="plain" src="import.png" style="height:200px">
+                    </p>
+                    <br>
+                </ul>
+
+            </section>
+
+            <section>
+                <h1>Sending networks to NDEx</h1>
+
+
+
+                <ul>
+                    <li>Right click the network and choose Export Network to NDEx...</li>
+                    <li>Sign in to the NDEx and enter your username and password</li>
+                    <li>Type network information and click "Export network to NDEx"</li>
+                    <li>Voila! Now anyone can search or browse to find your network and then use it in their research together with the full history and attribution of your contributions to the network.</li>
+                    <p style="text-align: center">
+                        <img class="plain" src="Export.png" style="height:450px">
+                        <img class="plain" src="NDEx.png" style="height:450px">
+
+                    </p>
+                    <br>
+                </ul>
+
+            </section>
+
+            <!-- THIS IS WHERE YOUR CONTENT ENDS -->
+            <!-- ========================================================== -->
+
+        </div>
+    </div>
+
+    <script src="../../lib/js/head.min.js"></script>
+    <script src="../../js/reveal.js"></script>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-155159-15', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script>
+        Reveal.addEventListener('ready', function() {
+            if (!window.navigator.userAgent.includes('CyBrowser')) {
+                var divs = document.getElementsByClassName("cybrowser")
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.display = "none";
+                }
+            } else {
+                var divs = document.getElementsByClassName("not-cybrowser")
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.display = "none";
+                }
+            }
+        });
+
+    </script>
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+            controls: true,
+            progress: true,
+            slideNumber: true,
+            center: false,
+            touch: true,
+            fragments: true,
+            help: true,
+            showNotes: false,
+            previewLinks: false,
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+            width: 1200,
+            height: 860,
+            autoSlide: 0,
+
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [{
+                    src: '../../plugin/markdown/marked.js'
+                },
+                {
+                    src: '../../plugin/markdown/markdown.js'
+                },
+                {
+                    src: '../../plugin/zoom-js/zoom.js',
+                    async: true,
+                    condition: function() {
+                        return !!document.body.classList;
+                    }
+                },
+                {
+                    src: '../../plugin/notes/notes.js',
+                    async: true
+                },
+                {
+                    src: '../../plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                },
+                {
+                    src: '../../plugin/external/external.js',
+                    condition: function() {
+                        return !!document.querySelector('[data-external]');
+                    }
+                }
+            ]
+        });
+
+    </script>
+</body>
+
+</html>
