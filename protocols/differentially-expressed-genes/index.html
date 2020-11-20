@@ -70,23 +70,23 @@
 </section>
                 
 <section>
-<section id="ex1-string-up">
+<section id="ex1-up-string">
 <h1>Example 1: STRING Protein Query <br />Up-regulated Genes</h1>
 <ul>
-    <li>Open the file containing the list of up-regulated genes, <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno-data-up.csv" target="_blank">TCGA-Ovarian-MesenvsImmuno-data-up.csv</a>, and copy the contents to the clipboard.</li>
+    <li>Open the file containing the list of up-regulated genes, <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.txt" target="_blank">TCGA-Ovarian-MesenvsImmuno-data-up.csv</a>, and copy the contents to the clipboard.</li>
     <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
    <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a cutoff of <b>0.4</b> and <b>0</b> maximum additional interactors.</li>
     <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network will load automatically.</li>
 </ul>
 </section>
 
-<section id="ex1-string-up-result">
+<section id="ex1-up-string-result">
 <h1>STRING Network Up-regulated genes</h1>
     <p>The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.</p>
 <img class="plain" src="string-de-up2.png" style="height:650px"> 
 </section>
     
-<section id="ex1-string-up-sub">
+<section id="ex1-up-string-sub">
 <h1>STRING Network Up-regulated genes</h1>
     <p>The networks consists of one large connected component, several smaller networks, and some unconnected nodes. We will use only the largest connected component for the rest of the tutorial.</p>
     <ul>
@@ -96,7 +96,7 @@
 <img class="plain" src="string-de-up2-sub.png" style="height:600px"> 
 </section>
     
-<section id="ex1-data-integration1">
+<section id="ex1-up-data-integration1">
     <h1>Data Integration</h1>
     <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Our data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
     <ul>
@@ -106,7 +106,7 @@
     </ul>
 </section>
     
-<section id="ex1-data-integration2">
+<section id="ex1-up-data-integration2">
     <h1>Data Integration</h1>
     <p>We can now import the differential gene expression data.</p>
     <ul>
@@ -119,26 +119,28 @@
     
 </section>
     
-<section id="ex1-visualization1">
+<section id="ex1-up-visualization1">
     <h1>Visualization</h1>
     <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
     <ul>
     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
     <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
     <li>Set the default node fill color to light gray.</li>
+    <li>Set the default node size to </li>
     <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
     <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
     <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
+    <li>Save your new visualization under <highlight>Copy Style...</highlight> in the <highlight>Options</highlight> men of the <highlight>Style</highlight> interface, and name it <b>de genes up</b>.</li>
 	</ul>
 </section>     
     
-<section id="ex1-visualization2">
+<section id="ex1-up-visualization2">
      <h1>Visualization</h1>
         <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
 	    <img class="plain" src="string-de-up-viz.png" style="height:650px">   
 </section>
                 
-<section id="ex1-string-enrich1">
+<section id="ex1-up-string-enrich1">
 <h1>STRING Enrichment</h1>
     <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
@@ -151,7 +153,7 @@
 </div>
 </section>
                 
-<section id="ex1-string-enrich2">
+<section id="ex1-up-string-enrich2">
     <h1>STRING Enrichment</h1>
     <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Process.</p>    
     <ul>
@@ -165,21 +167,25 @@
 </div>    
 </section>
                                                
-<section id="ex1-string-down1">
+<section id="ex1-down-string">
     <h1>STRING Protein Query Down-regulated Genes</h1>
     <p>The same workflow (network search, data integration, visualizationcan and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
         <ul>
-            <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno-data-down.csv" target="_blank">TCGA-Ovarian-MesenvsImmuno-data-down.csv</a>.</li>
+            <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt" target="_blank">TCGA-Ovarian-MesenvsImmuno-data-down.csv</a>.</li>
             <li>Create a subnetwork for the largest connected component, then map <b>Uniprot</b> identifiers to <b>NCBI gene</b> and load the data.</li>
-            <li>Create a visualization as described <a href="#/ex1-visualization1">previously</a>. To distinguish between the visualizations of up- and down-regulated results, pick a different node fill color palette, for example ColorBrewer <b>yellow-green shades</b>.</li>
-        </ul>
-    <div class="fragment">
-<img class="plain" src="string-de-down2-sub.png" style="height:420px">    
-</div>  
+            <li>Create a visualization as described <a href="#/ex1-up-visualization1">previously</a>. To distinguish between the visualizations of up- and down-regulated results, pick a different node fill color palette, for example ColorBrewer <b>blue shades</b>. Note that you may have to delete the mapping between <b>Node Fill Color</b> and <b>LogFC</b> and then add it again for the range of values to be recognized properly.</li>
+            <li>Save your new visualization as <b>de genes down</b>.</li>
+        </ul>   
 </section>
     
-<section id="ex1-string-down2">
-    <h1>STRING Protein Query Down-regulated Genes</h1>
+<section id="ex1-down-visualization">
+     <h1>Visualization</h1>
+        <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
+	    <img class="plain" src="string-de-down2-sub.png" style="height:500px">    
+</section>
+    
+<section id="ex1-down-string-enrich">
+    <h1>STRING Enrichment</h1>
         <ul>
             <li>Perform STRING Enrichment analysis on the resulting network. Filter for non-redundant GO Process terms.</li>
             <li>For this use case, we can try a different enrichment chart. Click the <highlight>Settings</highlight> button in the enrichment resluts panel and change the chart type to <highlight>Pie Chart</highlight> with <hihglight>Number of terms to chart</hihglight> set to 3.</li>
