@@ -73,7 +73,7 @@
 <section id="ex1-up-string">
 <h1>Example 1: STRING Protein Query <br />Up-regulated Genes</h1>
 <ul>
-    <li>Open the file containing the list of up-regulated genes, <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.txt" target="_blank">TCGA-Ovarian-MesenvsImmuno-data-up.csv</a>, and copy the contents to the clipboard.</li>
+    <li>Open the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.txt" target="_blank">list of up-regulated genes</a>, and copy the contents to the clipboard.</li>
     <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
    <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a cutoff of <b>0.4</b> and <b>0</b> maximum additional interactors.</li>
     <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network will load automatically.</li>
@@ -148,9 +148,7 @@
     <li></li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul><br /><br />
-     <div class="fragment">
 <img class="plain" src="string-enrichment.png">    
-</div>
 </section>
                 
 <section id="ex1-up-string-enrich2">
@@ -162,16 +160,14 @@
 	<li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
     </ul>
     <br /><br />
-    <div class="fragment">
 <img class="plain" src="string-enrichment-chart-up.png" style="height:450px">    
-</div>    
 </section>
                                                
 <section id="ex1-down-string">
     <h1>STRING Protein Query Down-regulated Genes</h1>
     <p>The same workflow (network search, data integration, visualizationcan and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
         <ul>
-            <li>Query STRING protein with the list of symbols in <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt" target="_blank">TCGA-Ovarian-MesenvsImmuno-data-down.csv</a>.</li>
+            <li>Query STRING protein with the list of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt" target="_blank">down-regulated genes</a>.</li>
             <li>Create a subnetwork for the largest connected component, then map <b>Uniprot</b> identifiers to <b>NCBI gene</b> and load the data.</li>
             <li>Create a visualization as described <a href="#/ex1-up-visualization1">previously</a>. To distinguish between the visualizations of up- and down-regulated results, pick a different node fill color palette, for example ColorBrewer <b>blue shades</b>. Note that you may have to delete the mapping between <b>Node Fill Color</b> and <b>LogFC</b> and then add it again for the range of values to be recognized properly.</li>
             <li>Save your new visualization as <b>de genes down</b>.</li>
@@ -181,7 +177,7 @@
 <section id="ex1-down-visualization">
      <h1>Visualization</h1>
         <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
-	    <img class="plain" src="string-de-down2-sub.png" style="height:500px">    
+	    <img class="plain" src="string-de-down2-sub.png" style="height:600px">    
 </section>
     
 <section id="ex1-down-string-enrich">
@@ -191,9 +187,7 @@
             <li>For this use case, we can try a different enrichment chart. Click the <highlight>Settings</highlight> button in the enrichment resluts panel and change the chart type to <highlight>Pie Chart</highlight> with <hihglight>Number of terms to chart</hihglight> set to 3.</li>
             <li>As you see, we now have both the enrichment results pie chart and the node color mapping visible on the nodes. Remove the node color mapping to see just the enrichment results:</li>
         </ul>
-    <div class="fragment">
- <img class="plain" src="string-enrichment-chart-down.png" style="height:500px">    
-</div>
+ <img class="plain" src="string-enrichment-chart-down.png" style="height:550px">    
 </section>
     
 </section>
@@ -207,10 +201,8 @@
     <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and change the confidence score cutoff to <b>0.95</b>.</li>
     <li>Click enter, or the search icon, to search.</li>
     </ul>
-    <div class="fragment">
 <p>This will bring in the top 100 ovarian cancer associated genes connected with a confidence score greater than 0.95.</p>
 <img class="plain" src="string-ovarian2.png" style="height:370px">    
-</div>
 </section>  
     
 
