@@ -30,7 +30,7 @@
 
 <section>
 	<h1>Pathway Figure Gene Set Analysis</h1>
-    <p>By using a combination of optical character recognition, machine learning and manual curation, gene sets have been extracted from <a href="https://doi.org/10.1186/s13059-020-02181-2">published pathway figures</a>. 32,000 of these sets are available in <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf">NDEx</a>, and can be used directly in Cytoscape.</p>
+    <p>By using a combination of optical character recognition, machine learning and manual curation, gene sets have been extracted from <a href="https://doi.org/10.1186/s13059-020-02181-2" target="_blank">published pathway figures</a>. 32,000 of these sets are available in <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf" target="_blank">NDEx</a>, and can be used directly in Cytoscape.</p>
     
 	<p>This protocol starts with one of these gene sets from a published pathway figure and describes how to visualize data on the set, create a network from it, perform functional enrichment and include the original figure for comparison.</p>
     
@@ -44,7 +44,7 @@
     <h1>Import Pathway Figure Gene Set</h1>
     
     <ul>
-        <li>Navigate to <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf">Published Pathway Figure Analysis Set</a> at NDEx.</li>
+        <li>Navigate to <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf" target="_blank">Published Pathway Figure Analysis Set</a> at NDEx.</li>
         <li>Find the network named <b>PMC5279777__pone.0170958.g003.jpg</b> and click on it. The page will display the genes in the set on the left and the published figure they were extracted from on the right.</li>
         <li>Save the figure by right-clicking on it and selecting <highlight>Save Image As..</highlight>.</li>
         <li>To open the gene set into Cytoscape, click the <highlight>Open in Cytoscape</highlight> button in the lower right.</li>
@@ -68,7 +68,7 @@
     <h1>Data Integration and Visualization</h1>
     <p>We are going to import experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset, comparing gene expression between two subtypes of ovarian cancer. The data is annotated with <b>NCBI Gene</b> identifiers, which is also what the nodes in the gene set are annotated with.</p>
     <ul>
-        <li>Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>.</li>
+        <li>Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv" target="_blank">TCGA-Ovarian-MesenvsImmuno_data.csv</a>.</li>
         <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
 	   <li>Select the <b>ncbigene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
         <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
@@ -118,14 +118,15 @@
         <ul>
             <li>In the <highlight>Node Table</highlight>, select the top entry in the <highlight>name</highlight> column, hold down the shift key and select the last entry. Copy the contents to the clipboard.</li>
             <li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING protein query</b> in the drop-down and paste in the contents of the clipboard.</li>
-            <li>Click the search icon to search using the default parameters.</li>
+            <li>Click the <highlight>More Options...</highlight> button <img class="plain" src="string-options.png" style="height:30px"> and change the <highlight>Confidence score cutoff</highlight> to <b>0.95</b>.</li>
         </ul>   
 </section>
     
 <section>
     <h1>STRING Query</h1>
-    <p>The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.4 or greater.</p>
-    <img class="plain" src="pfocr-string.png" style="width:50%">
+    <p>The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.95 or greater. Adding a force-directed layout we can begin to see two connected subsets:</p>
+    <img class="plain" src="pfocr-string-layout.png" style="width:50%">
+    <!--<img class="plain" src="pfocr-string.png" style="width:55%"> -->
 </section>
     
 <!--
@@ -161,10 +162,11 @@
                 
 <section>
     <h1>Visualization</h1>
-    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
+    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Data</a> tutorial.</p>   
     <ul>
     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
     <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
+    <li>Set the default node size to 50.</li>
     <li>Set the default node fill color to light gray.</li>
     <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
     <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
@@ -174,7 +176,7 @@
                 
 <section>
      <h1>Visualization</h1>
-        <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
+        <p>The network will now look something like this:</p>
 	    <img class="plain" src="pfocr-string-style.png" style="height:550px">  
 </section>
                 
@@ -206,7 +208,13 @@
         <li>Select the pathway figure you downloaded previously in the file browser.</li>
         <li>Once the annotation is placed, enable annotation selection by clicking the <highlight>Toggle Annotation Selection</highlight> button <img class="plain" src="toggle-annotation.png" style="height:30px"> in the <highlight>Network View Tools</highlight> under the network.</li>
     </ul>
+</section>
+
+<section>
+    <p>We can see that the two subsets in the network correspond to the middle and right arm of the pathway, and the unconnected nodes at the bottom correspond roughly to downstream proteins.</p>
+    
     <img class="plain" src="network-final.png" style="height:480px"> 
+    
 </section>
 </section>          
                 
