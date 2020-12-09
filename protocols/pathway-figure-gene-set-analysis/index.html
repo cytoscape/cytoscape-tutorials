@@ -46,7 +46,7 @@
     
     <ul>
         <li>Navigate to <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf" target="_blank">Published Pathway Figure Analysis Set</a> at NDEx.</li>
-        <li>Find the network named <b>PMC5279777__pone.0170958.g003.jpg</b> and click on it. The page will display the genes in the set on the left and the published figure they were extracted from on the right.</li>
+        <li>In the <highlight>Network Name</highlight> search field, type in <b>PMC5279777__pone.0170958.g003.jpg</b> to find the corresponding network. Click on the network. The page will display the genes in the set on the left and the published figure they were extracted from on the right.</li>
         <li>Save the figure by right-clicking on it and selecting <highlight>Save Image As..</highlight>.</li>
         <li>To open the gene set into Cytoscape, click the <highlight>Open in Cytoscape</highlight> button in the lower right.</li>
     </ul>
@@ -80,12 +80,9 @@
     <h1>Data Integration and Visualization</h1>
     <p>We can now add a simple visualization of the data on the set of nodes.</p>
     <ul>
-        <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
+        <li>In the <highlight>Style</highlight> interface, under <highlight>Node Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>Red-Blue</b> gradient.</li>
         <li>Set the default node fill color to light gray.</li>
-    </ul>
-    <p>The gene set is already arranged with a grid layout, but we can make it a bit more compact.</p>
-    <ul>
-        <li>Under <highlight>Layout &rarr; Settings...</highlight>, select the <highlight>Grid Layout</highlight>.</li>
+        <li>The gene set is already arranged with a grid layout, but we can make it a bit more compact. Under <highlight>Layout &rarr; Settings...</highlight>, select the <highlight>Grid Layout</highlight>.</li>
         <li>Set the <highlight>Vertical spacing between nodes</highlight> to <b>50</b> and <highlight>Horizontal spacing between nodes</highlight> to <b>80</b>.</li>
     </ul>
     <img class="plain" src="pfocr-gene-set.png" style="width:50%">
@@ -104,7 +101,7 @@
     
 <section>
     <h1>Add Pathway Figure as Annotation</h1>
-    <p><b>Bonus:</b>If we arrange the nodes in the gene set to approximate their placement in the original figure, we can begin to approximate a pathway layout, and start to interpret the data. Note that the label displayed on the node, <b>name</b>, is is the official gene symbol, and the original figure oftentimes use aliases. Use the <b>word</b> column to match nodes to the figure.</p>
+    <p><b>Bonus:</b> If we arrange the nodes in the gene set to approximate their placement in the original figure, we can begin to approximate a pathway layout, and start to interpret the data. Note that the label displayed on the node, <b>name</b>, is the official gene symbol, whereas the original published figures sometimes use various gene symbol aliases. Use the <b>word</b> column to match nodes to the figure.</p>
     
         <img class="plain" src="gene-set-final-pw.png" style="width:85%">
 
