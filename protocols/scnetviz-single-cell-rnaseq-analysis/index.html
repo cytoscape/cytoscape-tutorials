@@ -123,7 +123,7 @@
 <section>
     <h1>Use case 2: Load a Local snRNA-Seq Dataset</h1>
                 
-    <p>In this workflow, we will load normalized data and cluster assignments from local files. To start, download the <a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/notebooks/scNetViz/E-MTAB-5553-normalised-files.zip?raw=true">experimental data</a>.</p>
+    <p>In this workflow, we will load normalized data and cluster assignments from local files. To start, download the <a href="https://github.com/cytoscape/cytoscape-automation/blob/master/for-scripters/R/notebooks/scNetViz/E-GEOD-109979-normalised-files.zip?raw=true">experimental data</a>.</p>
     
 <aside class="notes" data-markdown>
          Notes go here 
@@ -134,7 +134,7 @@
     <h1>Load data</h1>
     <ul>
     <li>Launch Cytoscape. In the <highlight>Apps</highlight> menu, select <highlight>scNetViz &rarr; Load Experiment &rarr; Import from file...</highlight>.</li>
-    <li>Select <b>Mus musculus</b> as the species, by typing directly into the drop-down. Browse to find the <b>E-MTAB-5553</b> zip file under <highlight>File or direcotry with MTX matrix and headers</highlight>. Click <b>OK</b> to load.</li>
+    <li>Select <b>Mus musculus</b> as the species, by typing directly into the drop-down. Browse to find the <b>E-GEOD-109979</b> zip file under <highlight>File or directory with MTX matrix and headers</highlight>. Click <b>OK</b> to load.</li>
     <li>Leave <highlight>Skip first line of header files</highlight> blank.</li>
     </ul>
            
@@ -152,7 +152,7 @@
     <li>In the <highlight>Experiment Data Table</highlight>, click the <highlight>Add Category</highlight> drop-down and select <highlight>Import from file...</highlight>.</li>
     <li>Browse to select the .csv file with category data, and leave remaining selections as the default.</li>
     </ul>
-    <img class="plain" src="Categories.png" style="width:60%">
+    <img class="plain" src="Categories.png" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -162,8 +162,7 @@
     <h1>Load Categories</h1>
     <p>Once the categories are loaded, the data viewer is updated:</p>
     
-     <!--
-    <img class="plain" src="Categories.png" style="width:60%"> -->
+    <img class="plain" src="Categories-viewer.png" style="width:70%">
     <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -172,11 +171,11 @@
 <section>
     <h1>Create UMAP Plot</h1>
     <ul>
-        <li>Under <highlight>New Cell Plot</highlight>, select <b>UMAP</b>. The UMAP (Uniform Manifold Approximation and Projection) is .....</li>
+        <li>Under <highlight>New Cell Plot</highlight>, select <b>UMAP</b>. Keep the default parameters.</li>
     
     </ul>
-    <!--
-    <img class="plain" src="Categories.png" style="width:60%"> -->
+   
+    <img class="plain" src="Usecase2-UMAP.png" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -190,8 +189,8 @@
     <li>Click the <highlight>Calculate Diff Exp</highlight> button to calculate differential expression.</li>
     </ul>
     
-    <!-- 
-    <img class="plain" src="Categories.png" style="width:60%"> -->
+    
+    <img class="plain" src="Usecase2-diffexp.png" style="width:60%">
     
     <aside class="notes" data-markdown>
          Notes go here 
@@ -203,9 +202,10 @@
     <p>Next, we will generate a heatmap for genes that meet the filtering criteria:</p>
     <ul>
         <li>Under <highlight>View Plots</highlight>, select <b>Heatmap</b>.</li>
-        <li></li>
-    
     </ul>
+    <br /><br />
+    <img class="plain" src="Usecase2-heatmap.png" style="width:70%">
+    
     
     <aside class="notes" data-markdown>
          Notes go here 
@@ -216,8 +216,8 @@
     <h1>Create Networks</h1>
      <p>The <highlight>DiffExp</highlight> tab is now be populated with data for the cluster result we chose earlier.</p>
     <ul>
-            <li>Click the <highlight>Create Networks</highlight> button to create networks. This will create networks by querying the <a href="https://string-db.org/">STRING database</a> for the protein products of genes that satisfy the <highlight>Network Analysis</highlight> cutoffs based on <b>FDR</b> and <b>Log2FC</b>, or <b>Max genes</b> count.</li>
-         </ul>
+        <li>Click the <highlight>Create Networks</highlight> button to create networks. This will create networks by querying the <a href="https://string-db.org/">STRING database</a> for the protein products of genes that satisfy the <highlight>Network Analysis</highlight> cutoffs based on <b>FDR</b> and <b>Log2FC</b>, or <b>Max genes</b> count.</li>
+    </ul>
   <aside class="notes" data-markdown>
          Notes go here 
          </aside>
