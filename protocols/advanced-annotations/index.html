@@ -38,30 +38,71 @@
                 
 <section>
 	<h1>Annotations in Cytoscape</h1>
-    <p>.....</p>
-    <ul>
-        <li>Cytoscape has three separate drawing surfaces:</li>
+    <p>Cytoscape has three separate drawing surfaces on which the network and annotations are drawn:</p>
         <ul>
-            <li>Network canvas: where nodes and edges are drawn.</li>
-            <li>Background canvas (drawing surface behind the nodes and edges.</li>
-            <li>Foreground canvas (drawing surface in front of the nodes and edges.</li>
+            <li><b>Network canvas</b>: where nodes and edges are drawn.</li>
+            <li><b>Background canvas</b>: the drawing surface behind nodes and edges.</li>
+            <li><b>Foreground canvas</b>: the drawing surface in front of nodes and edges.</li>
         </ul>
-        <li>Annotations are drawn on either the foreground or background canvases</li>
-        <li>Annotations are exported as objects, so are high quality graphically</li>
-        <li>Annotation types:</li>
+<p>Annotations are drawn either on the foreground or background canvases, and are exported as objects. They are high quality graphically, allowing for export of images. Annotation types:</p>
         <ul>
-            <li>Shapes, Text, Bounded Text, Images, Arrows</li>
-            <li>Groups, which group annotations together</li>
+            <li>Shapes, Text, Bounded Text, Images and Arrows</li>
+            <li>Groups: to group annotations together</li>
         </ul>
-    </ul>       
 </section>
                 
 <section>
     <h1>Annotations Panel</h1>
-    <p>.....</p>
+    <p>The <highlight>Annotation Panel</highlight> is available in the <highlight>Control Panel</highlight>. In the below example, a label and corresponding arrow has been added to indicate that one of the nodes is mutated, and a rectangle shape has been added to indicate a group.</p>
     
-            <img class="plain" src="../../presentations/modules/advanced-visualization/LayoutSettings.png"/>
+            <img class="plain" src="../../presentations/modules/advanced-visualization/AnnotationExample.png" width="800px"/>        
+</section>
+                
+<section>
+    <h1>Adding a Label Annotation</h1>
+    <ul>
+        <li>To add a label annotation, click the <highlight>Text</highlight> button at the top of the <highlight>Annotation</highlight> panel.</li>
+        <li>Click anywhere on the canvas to place the label, and in the <highlight>Create Text Annotation</highlight> interface, enter the desired label and select font and color. Click <highlight>OK</highlight>.</li>
+        <li>To adjust the location of the annotation, first click the <highlight>Toggle Annotation Selection</highlight> <img class="plain" src="annotation-toggle.png" />. The annotation can now be moved by click and drag. </li>
+    </ul>
 
+    <img class="plain" src="add-label.png" width="700px"/> 
+</section>
+                
+<section>
+    <h1>Adding an Arrow Annotation</h1>
+    <ul>
+        <li>To add an arrow annotation, click the <highlight>Arrow</highlight> button at the top of the <highlight>Annotation</highlight> panel.</li>
+        <li>Instead of clicking on the canvas, first click the annotation you want the arrow to point from, in this case the label added previously.</li>
+        <li>In the <highlight>Create Arrow Annotation</highlight> interface, select line color and arrow style and color. In this case, we will add a red line with a red t-bar end.</li>
+        <li>Click <highlight>OK</highlight>, and then click on the node you want to point the arrow to.</li>
+    
+    </ul>
+    <img class="plain" src="add-arrow.png" width="600px"/>
+   
+</section>
+                
+<section>
+    <h1>Adding a Shape Annotation</h1>
+        <ul>
+            <li>To add a shape annotation, click the <highlight>Shape</highlight> button at the top of the <highlight>Annotation</highlight> panel.</li>
+            <li>Click anywhere on the canvas to place the shape, and in the <highlight>Create Shape Annotation</highlight> interface, select the desired shape, color etc. Click <highlight>OK</highlight>.</li>
+            <li>The new shape will automatically be selected, and you can now size it to your liking and then click on the canvas to set the size.</li>
+            <li>By default the shape will be drawn on the foreground canvas, obstructing any nodes behind it. To move it to the background cavnas, select the shape in the <highlight>Foreground Layer</highlight> list in the <highlight>Annotation Panel</highlight> and click the <highlight>Push Annotations to Background Layer</highlight> arrow just below the list.</li>
+    
+    </ul>
+                
+      <img class="plain" src="annotation-order.png" width="700px"/>            
+</section>
+                
+<section>
+    <h1>Editing Annotations</h1>
+    <p>When the <highlight>Toggle Annotation Selection</highlight> <img class="plain" src="annotation-toggle.png" /> button is enabled, annotations can be selected and edited.</p>
+    <ul>
+        <li>Double-click on an annotation to bring up its editing interface.</li>
+        <li>To delete one or more annotations, select them in the <highlight>Annotations Panel</highlight> and click the delete button at the top.</li>
+        <li>As was described previously, annotations can also be moved between the background and foreground layer in the <highlight>Annotations Panel</highlight>.</li>
+    </ul>
                 
 </section>
                 
