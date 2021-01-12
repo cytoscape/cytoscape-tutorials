@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Advanced Visualization: Adjusting the View</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+                
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+<section>
+    <h1>Advanced Visualization: Adjusting the View</h1>
+    <p>This short protocol reviews how to adjust the network view in Cytoscape.</p>
+<div class="footer" style="position: absolute;left: 0em;bottom: -10em; ">
+    <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
+<version>3.8.0</version>
+    </div>                
+</section>
+<section>
+	<h1>Adjusting the View</h1>
+    <p>Node layout tools provide important tools to help adjust the final look of a network, and are available under <highlight>Layout&rarr;Node Layout Tools</highlight>. The tools include:</p>
+    <div style="float:left; width:55%">
+        <ul>
+            <li>Scaling of <b>width</b>, <b>height</b> for all or selected nodes.</li>
+            <li>Align nodes</li>
+            <li>Distribute nodes</li>
+            <li>Stack nodes</li>
+            <li>Rotate all or selected nodes</li>
+        </ul>
+    </div>
+    
+    <div style="float:right; width:45%"> 
+        <img class="plain" src="layout-tools.png"/>
+    </div>
+       
+</section>
+    
+<section>
+    <h1>Rotate Nodes</h1>
+    <p>For example, we can select a part of the network and rotate it. </p>
+    <ul>
+        <li>Select a set of nodes in the network.</li>
+        <li>In the <hihlight>Layout Tools</hihlight>, make sure the <highlight>Selected Only</highlight> in the <highlight>Rotate</highlight> section.</li>
+		<li>Move the degree slider to <b>90</b>.</li>
+    </ul>
+    <div style="float:left; width:55%">
+		<img class="plain" src="../../presentations/modules/advanced-visualization/NodeTools1.png"/>
+	</div>
+	<div style="float:right; width:45%">
+		<img class="plain" src="../../presentations/modules/advanced-visualization/NodeToolsRotate.png"/>
+	</div>
+</section>
+                
+<section>
+    <h1>Scale Nodes</h1>
+    <p>Similarly, we can scale a set of nodes in a network.</p>
+    <ul>
+		<li>With the same set of nodes selected, make sure the <highlight>Selected Only</highlight> in the <highlight>Scale</highlight> section.</li>
+        <li>Move the degree slider to the left, about 1/4 point.</li>
+    </ul> 
+    
+    <div style="float:left; width:55%">
+		<img class="plain" src="../../presentations/modules/advanced-visualization/NodeToolsRotate.png"/>
+	</div>
+	<div style="float:right; width:45%">
+		<img class="plain" src="../../presentations/modules/advanced-visualization/NodeToolsScaled.png"/>
+	</div>
+    
+</section>
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
