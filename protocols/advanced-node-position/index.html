@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Advanced Visualization: Style Properties</title>
+		<title>Advanced Visualization: Node Position</title>
 
 		<link rel="stylesheet" href="../../css/reveal.css">
 		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
@@ -28,61 +28,39 @@
 <!-- ========================================================== -->
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 <section>
-    <h1>Advanced Visualization: Style Properties</h1>
-    <p>This short protocol reviews advanced style options available.</p>
+    <h1>Advanced Visualization: Node Position</h1>
+    <p>This short protocol reviews the use of node position in Cytoscape.</p>
+
 <div class="footer" style="position: absolute;left: 0em;bottom: -10em; ">
     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
 <version>3.8.0</version>
-    </div>                
+    </div>
 </section>
+
 <section>
-	<h1>Viewing and Adding Properties</h1>
-    <p>Cytoscape has many style properties that are not shown by default.</p>
-	<ul>
-		<li>Go to the <highlight>Style</highlight> interface and then click the <highlight>Properties</highlight> drop-down at the top. This will show all available properties for either <b>Node</b>, <b>Edge</b> or <b>Network</b>.</li> 
-        <li>Properties with a checkmark are those currently displayed in the <highlight>Style</highlight> interface. To add a property in order to use it for visualization, simply select the property in the list.</li>
-        </ul>
-        <img class="plain" src="../../presentations/modules/advanced-visualization/NodeStyleProperties.png"  height="550px"/>
-        <img class="plain" src="../../presentations/modules/advanced-visualization/EdgeStyleProperties.png"  height="550px"/>
-       
-</section>
-    
-<section>
-    <h1>Mapping, Default and Bypass</h1>
-    <p>For each property, styles are defined in columns <highlight>Def.</highlight> (default), 
-			<highlight>Map.</highlight> (mapping), and <highlight>Byp.</highlight> (bypass).</p>
-    <img class="plain" src="../../presentations/modules/advanced-visualization/StyleColumns.png" height="180px"/>
-    <br /><br />
+    <h1>Node Z Location</h1>
+    <p>All nodes in Cytoscape have a <highlight>Z Location</highlight> property that defines ist Z order on the canvas. Nodes with the same Z order are drawn at the same time, which can lead to important information being obscured. Z order can be set by the <highlight>Z Location</highlight> style property. Things to consider:</p>
+
     <ul>
-        <li>Without a specific style mapping, each property will be defined by its <b>Default</b>.</li>
-        <li>Any mappings defined by the user or current style will be shown in the <b>Mapping</b> column.</li>
-		<li><b>Bypass</b> is used to override both the mapping (if any) and the default.</li>
-        
+        <li>Nodes with larger <highlight>Z Location</highlight> are drawn closer to the viewer (on top).</li>
+        <li>Setting lots of different <highlight>Z Location</highlight> values can slow down graphics performance</li>
+        <li>The best approach is to use a few different <highlight>Z Location</highlight> values, or to set it manually using a Bypass.</li>
     </ul>
-</section>
-<section>
-    <h1>Setting a Bypass</h1>
-    <p>To set a node or edge bypass:</p>
-    <ul>
-		<li>Select the nodes or edges in the network for which you want to set the visual property.</li>
-		<li>Click the <highlight>Byp.</highlight> column for the visual property you want to set.</li>
-		<li>In the interface that opens, set the value as desired.</li>
-    </ul>    			
-    <img class="plain" data-fragment-index="7" src="../../presentations/modules/advanced-visualization/BypassColor1.png" height="450px"/>
+                
 </section>
                 
 <section>
-    <p>The resulting style will look like this:</p>
-    <img class="plain" data-fragment-index="8" src="../../presentations/modules/advanced-visualization/BypassColor2.png" height="500px"/>
-
+    <h1>Controlling Node Z Location</h1>
+    <p>For each property, styles are defined in columns <highlight>Def.</highlight> (default), 
+			<highlight>Map.</highlight> (mapping), and <highlight>Byp.</highlight> (bypass).</p>
     <ul>
-    <li>The altered properties will be permanently set for the selected nodes or edges.</li>
-    <li>To clear the value, select the nodes or edges again, right-click on the <highlight>Byp.</highlight>column and select <highlight>Remove Bypass</highlight>.</li>
-    </ul>
+		<li>Go to the <highlight>Style</highlight> interface and then click the <highlight>Properties</highlight> drop-down at the top in the <highlight>Node</highlight> tab. This will show all available properties for <b>Node</b>.</li> 
+        <li>Select the <highlight>Z Location</highlight> to add it to the properties shown.</li>
+        <li>To set a bypass for a selected node, click the <highlight>Byp.</highlight> column and enter a number. To move the node up, choose a value larger than the default.</li>
+        </ul>
+    <p>In the below example, the selected node (yellow) has a <highlight>Z Location</highlight> value of 10.</p>
+        <img class="plain" src="node-z-location.png" />
 </section>
-
-
-
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
