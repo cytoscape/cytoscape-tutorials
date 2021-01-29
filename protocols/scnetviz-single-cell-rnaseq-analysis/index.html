@@ -95,8 +95,8 @@
                 
 <section>
     <h1>Create Networks</h1>
-         <p>In this case, 4 networks are created; one for each cluster and one for all the clusters collectively. In the <highlight>Results Panel</highlight>, two tabs will be loaded, for <b>scNetViz</b> and <b>stringApp</b>. We will use the built-in functionailty in the stringApp to calculate functional enrichment.</p>
-         <img class="plain" src="Networks.png" style="width:60%">
+         <p>In this case, 5 networks are created; one for each cluster and one for all the clusters combined. The <b>Log 2 Fold Change</b> for each cluster is visualized as the node fill color. In the <highlight>Results Panel</highlight>, two tabs will be loaded, for <b>scNetViz</b> and <b>stringApp</b>.</p>
+         <img class="plain" src="Networks.png" style="width:65%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -106,12 +106,13 @@
     <h1>Functional Enrichment Analysis</h1>
          <ul>
          <li>Click on one of the clusters in the <highlight>Network Panel</highlight> to select it.</li>
-         <li>In the <highlight>Get Enrichment</highlight> section of the <highlight>ScNetViz</highlight> tab, leave the default seletions as-is and click <highlight>Retrieve Table</highlight>.</li>
+         <li>In the <highlight>Get Enrichment</highlight> section of the <highlight>ScNetViz</highlight> tab, leave the default selections as-is and click <highlight>Retrieve Table</highlight>.</li>
          <li>The functional enrichment results will be loaded in a new <highlight>STRING Enrichment</highlight> panel in the <highlight>Table Panel</highlight> below the network.</li>
          <li>Click the <highlight>Draw charts using default color palette</highlight> button <img class="plain" src="ShowCharts.png">.</li>
          <li>Repeat these steps for the remaining networks.</li>
          </ul>
-             
+         <img class="plain" src="cluster4.png" style="width:33%">
+
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -139,7 +140,7 @@
     <h1>Load data</h1>
     <ul>
     <li>Launch Cytoscape. In the <highlight>Apps</highlight> menu, select <highlight>scNetViz &rarr; Load Experiment &rarr; Import from file...</highlight>.</li>
-    <li>Select <b>Mus musculus</b> as the species, by typing directly into the drop-down. Browse to find the <b>E-GEOD-109979</b> zip file under <highlight>File or directory with MTX matrix and headers</highlight>. Click <b>OK</b> to load.</li>
+    <li>Select <b>Homo sapiens</b> as the species, by typing directly into the drop-down. Browse to find the <b>E-GEOD-109979</b> zip file under <highlight>File or directory with MTX matrix and headers</highlight>. Click <b>OK</b> to load.</li>
     <li>Leave <highlight>Skip first line of header files</highlight> blank.</li>
     </ul>
            
