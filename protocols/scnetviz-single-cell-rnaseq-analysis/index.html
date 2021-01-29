@@ -95,7 +95,7 @@
                 
 <section>
     <h1>Create Networks</h1>
-         <p>In this case, 5 networks are created; one for each cluster and one for all the clusters combined. The <b>Log 2 Fold Change</b> for each cluster is visualized as the node fill color. In the <highlight>Results Panel</highlight>, two tabs will be loaded, for <b>scNetViz</b> and <b>stringApp</b>.</p>
+         <p>In this case, 6 networks are created; one for each cluster and one for all the clusters combined. The <b>Log 2 Fold Change</b> for each cluster is visualized as the node fill color. In the <highlight>Results Panel</highlight>, two tabs will be loaded, for <b>scNetViz</b> and <b>stringApp</b>.</p>
          <img class="plain" src="Networks.png" style="width:65%">
          <aside class="notes" data-markdown>
          Notes go here 
@@ -122,7 +122,7 @@
 
 <section>               
 <section>
-    <h1>Use case 2: Load a Local snRNA-Seq Dataset</h1>
+    <h1>Use case 2: Load a Local scRNA-Seq Dataset</h1>
                 
     <p>In this workflow, we will load normalized data and cluster assignments from local files. 
     <ul>
@@ -180,8 +180,9 @@
         <li>Under <highlight>New Cell Plot</highlight>, select <b>UMAP</b>. Keep the default parameters.</li>
     
     </ul>
-   
+   <p>
     <img class="plain" src="Usecase2-UMAP.png" style="width:70%">
+    </p>
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -195,9 +196,9 @@
     <li>Click the <highlight>Calculate Diff Exp</highlight> button to calculate differential expression.</li>
     </ul>
     
-    
-    <img class="plain" src="Usecase2-diffexp.png" style="width:60%">
-    
+    <p>
+    <img class="plain" src="Usecase2-diffexp.png" style="width:70%">
+    </p>
     <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -205,14 +206,14 @@
                 
 <section>
     <h1>Create heatmap</h1>
-    <p>Next, we will generate a heatmap for genes that meet the filtering criteria:</p>
+    <p>Next, we will generate a heatmap showing the top differentially expressed genes:</p>
     <ul>
         <li>Under <highlight>View Plots</highlight>, select <b>Heatmap</b>.</li>
     </ul>
-    <br /><br />
+    <p>
     <img class="plain" src="Usecase2-heatmap.png" style="width:70%">
     
-    
+    </p>
     <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -220,10 +221,16 @@
                 
 <section>
     <h1>Create Networks</h1>
-     <p>The <highlight>DiffExp</highlight> tab is now be populated with data for the cluster result we chose earlier.</p>
     <ul>
-        <li>Click the <highlight>Create Networks</highlight> button to create networks. This will create networks by querying the <a href="https://string-db.org/">STRING database</a> for the protein products of genes that satisfy the <highlight>Network Analysis</highlight> cutoffs based on <b>FDR</b> and <b>Log2FC</b>, or <b>Max genes</b> count.</li>
+        <li>In the <highlight>DiffExp</highlight> tab, click the <highlight>Create Networks</highlight> button to create networks from the <a href="https://string-db.org/">STRING database.</a></li>
     </ul>
+    
+    <p>In this case, 5 networks are created; one for each cluster and one for all the clusters combined. The <b>Log 2 Fold Change</b> for each cluster is visualized as the node fill color.</p>
+    
+    <img class=plain src="cluster2-2.png" style="width:42%">
+
+
+    
   <aside class="notes" data-markdown>
          Notes go here 
          </aside>
