@@ -32,7 +32,7 @@
     <p>This short protocol reviews how to tune layout algorithms in Cytoscape.</p>
 <div class="footer" style="position: absolute;left: 0em;bottom: -10em; ">
     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.8.0</version>
+<version>3.8.2</version>
     </div>                
 </section>
                 
@@ -43,8 +43,8 @@
         <ul>
             <li>Go to <highlight>Layout&rarr;Settings</highlight>. Select the layout of choice, for example <b>Prefuse Force Directed Layout</b>.</li>
             <li>Change a parameter, for example <b>Default Spring Coefficient</b> or <b>Default Spring Length</b>.</li>
-            <li>Click <highlight>Apply Layout</highlight></li>
-            <li>Observe the results. If you get the result you want, click <highlight>Done</highlight>, otherwise click <highlight>Edit&rarr;Undo</highlight> and go back to step 3.</li>
+            <li>Click <highlight>Apply Layout</highlight>.</li>
+            <li>Observe the results. If you get the result you want, click <highlight>Done</highlight>, otherwise click <highlight>Edit&rarr;Undo</highlight> and apply the layout again.</li>
         </ul>
     </div>
     
@@ -52,6 +52,20 @@
         <img class="plain" src="../../presentations/modules/advanced-visualization/LayoutSettings.png"/>
     </div>
        
+</section>
+                
+<section>
+    <h1>Example</h1>
+    <p>Let's try this by changing the <b>Spring Coefficient</b> for the <b>Prefuse Force Directed Layout</b>. The network represents a disease-specific network from the STRING database.</p>
+                
+    <div style="float:left; width:45%"> 
+        <p>Prefuse force-directed layout with default settings.</p>
+        <img class="plain" src="prefuse-default.png"/>
+    </div>         
+        <div style="float:right; width:45%"> 
+        <p>Prefuse force-directed layout with a decreased Spring Coefficient .</p>
+        <img class="plain" src="prefuse-custom.png"/>
+    </div>   
 </section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
