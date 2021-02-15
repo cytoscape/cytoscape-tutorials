@@ -33,7 +33,7 @@
 
 <div class="footer" style="position: absolute;left: 0em;bottom: -10em; ">
     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.8.0</version>
+<version>3.8.2</version>
     </div>
 </section>
 <section>
@@ -41,10 +41,10 @@
     <p>Cytoscape has several label/font properties that are not shown by default. The full list of relevant label/font properties is accessible under <highlight>Style&rarr;Properties</highlight>. The following properties are available:</p>
     <div style="float:left; width:55%">
 			<ul>
-				<li><b>Label</b>: often used to create a passthrough mapping for label text</li>
-				<li><b>Label Font Face</b>: this is the font face to used</li>
-				<li><b>Label Font Size</b>: font size, can be a passthrough mapping</li>
-				<li><b>Label Position</b>: where the font should be placed</li>
+				<li><b>Label</b>: defines the label, often used to create a passthrough mapping</li>
+				<li><b>Label Font Face</b>: this is the font face used</li>
+				<li><b>Label Font Size</b>: font size, can be used for continuous mapping</li>
+				<li><b>Label Position</b>: where the font is placed</li>
 				<li><b>Label Transparency</b>: the transparency of the font</li>
 				<li><b>Label Width</b>: maximum width of the label, longer labels will be wrapped</li>
 			</ul>
@@ -55,11 +55,11 @@
     
 <section>
     <h1>Label Mapping</h1>
-    <p>The <highlight>Label</highlight> property is most often used to create a pass-through mapping from a network attribute to the node or edge label. In this example, the <b>COMMON</b> attribute is mapped onto the <b>Node Label</b>.</p>
+    <p>The <highlight>Label</highlight> property is most often used to create a passthrough mapping from a network attribute to the node or edge label. In this example, the <b>COMMON</b> attribute is mapped to the <b>Node Label</b>.</p>
     <ul>
-		<li>Click the <highligth>Label</highligth> property.</li>
-		<li>Under <highligth>Column</highligth>, select the attribute you want to map to, for example a column containing gene or protein symbols.</li>
-		<li>Under <highlight>Mapping Type</highlight>, select <b>Pass-through Mapping</b>.</li>
+		<li>Click the <highlight>Label</highlight> property.</li>
+		<li>Under <highlight>Column</highlight>, select the attribute you want to map to, for example a column containing gene or protein symbols.</li>
+		<li>Under <highlight>Mapping Type</highlight>, select <b>Passthrough Mapping</b>.</li>
     </ul>  
     <br /><br />
     <img class="plain" src="node-label-nw.png"/>
@@ -67,11 +67,11 @@
                 
 <section>
     <h1>Label Font Face and Size</h1>
-    <p>The <highlight>Label Font Face</highlight> is most commonly used to change the look of all labels for nodes, by changing the default. The <highligth>Label Font Size</highligth> is often mapped using the same attribute as the <highlight>Node Size</highlight>.</p>
+    <p>The <highlight>Label Font Face</highlight> is most commonly used to change the look of all labels for nodes, by changing the default. The <highlight>Label Font Size</highlight> is often mapped using the same attribute as the <highlight>Node Size</highlight>.</p>
     <ul>
-        <li>Click the <highligth>Label Font Face</highligth> property.</li>
+        <li>Click the <highlight>Label Font Face</highlight> property.</li>
 		<li>Click on the <highlight>Def.</highlight> column and select a default font for all labels.</li>
-		<li>Click the <highligth>Label Font Size</highligth> property.</li>
+		<li>Click the <highlight>Label Font Size</highlight> property.</li>
 		<li>Setup an approprite mapping, for example using <b>Node Degree</b> as the <highlight>Mapping Column</highlight>, and defining a <b>Continuous Mapping</b>.</li>
     </ul>    			
     <br /><br />
@@ -80,10 +80,11 @@
                 
 <section>
     <h1>Label Position</h1>
-    <p>The position of the label on the node or edge can be manipulated via the <highlight>Label Postition</highlight> property, and this is most often used to set the node/edge label position for the whole network. In the example below, the node label is placed in the upper right corner of the node.</p>
+    <p>The position of the label on the node or edge can be manipulated via the <highlight>Label Position</highlight> property, and this is most often used to set the node/edge label position for the whole network by changing the default. In the example below, the node label is placed in the upper right corner of the node.</p>
     <ul>
-        <li>Click the <highligth>Label Font Face</highligth> property.</li>
+        <li>Click the <highlight>Label Font Face</highlight> property of the <highlight>Node</highlight> tab.</li>
         <li>Click on the <highlight>Def.</highlight> column to bring up the <highlight>Label Position</highlight> interface.</li>
+        <li>Drag the rectangle representing the label to the upper right of the main rectangle representing the node. Click <highlight>OK</highlight> to apply.</li>
     </ul>
     <br /><br />
 <!--    <div class="fragment fade-in-then-out" style="position:absolute;top:300px;left:450px">
@@ -94,20 +95,18 @@
 		<img src="node-label-position.png"/>
 	</div>
     -->    
-<img class="plain" src="node-label-position.png" height="450px"/>
+<img class="plain" src="node-label-position.png" height="430px"/>
 </section>
                 
 <section>
     <h1>Label Transparency</h1>
     <p>The <highlight>Label Transparency</highlight> is most commonly set for the whole network, meaning the default. In the example below, the transparency for edge lables has been decreased.</p>
     <ul>
-        <li>Click the <highligth>Label Transparency</highligth> property.</li>
+        <li>Click the <highlight>Label Transparency</highlight> property.</li>
         <li>Click on the <highlight>Def.</highlight> column and select a new transparency parameter in the interface.</li>
     </ul>
     <br /><br />
     <img class="plain" src="edge-label-transparency.png" />
-
-    
 </section>
 
 
