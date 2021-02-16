@@ -29,22 +29,22 @@
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 <section>
     <h1>Advanced Visualization: Node Position</h1>
-    <p>This short protocol reviews the use of node position in Cytoscape.</p>
+    <p>This short protocol reviews how to use node position in Cytoscape.</p>
 
 <div class="footer" style="position: absolute;left: 0em;bottom: -10em; ">
     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.8.0</version>
+<version>3.8.2</version>
     </div>
 </section>
 
 <section>
     <h1>Node Z Location</h1>
-    <p>All nodes in Cytoscape have a <highlight>Z Location</highlight> property that defines ist Z order on the canvas. Nodes with the same Z order are drawn at the same time, which can lead to important information being obscured. Z order can be set by the <highlight>Z Location</highlight> style property. Things to consider:</p>
+    <p>All nodes in Cytoscape have a <highlight>Z Location</highlight> property that defines its Z order on the canvas. Nodes with the same Z order are drawn at the same time, which can lead to important information being obscured. Z order can be set by the <highlight>Z Location</highlight> style property. Things to consider:</p>
 
     <ul>
         <li>Nodes with larger <highlight>Z Location</highlight> are drawn closer to the viewer (on top).</li>
-        <li>Setting lots of different <highlight>Z Location</highlight> values can slow down graphics performance</li>
-        <li>The best approach is to use a few different <highlight>Z Location</highlight> values, or to set it manually using a Bypass.</li>
+        <li>Setting lots of different <highlight>Z Location</highlight> values can slow down graphics performance.</li>
+        <li>The best approach is to use a few different <highlight>Z Location</highlight> values, or to set it manually using a bypass.</li>
     </ul>
                 
 </section>
@@ -58,7 +58,7 @@
         <li>Select the <highlight>Z Location</highlight> to add it to the properties shown.</li>
         <li>To set a bypass for a selected node, click the <highlight>Byp.</highlight> column and enter a number. To move the node up, choose a value larger than the default.</li>
         </ul>
-    <p>In the below example, the selected node (yellow) has a <highlight>Z Location</highlight> value of 10.</p>
+    <p>In the below example, the selected node (yellow) has a <highlight>Z Location</highlight> value of 10, whereas the default value is 0.</p>
         <img class="plain" src="node-z-location.png" />
 </section>
                 

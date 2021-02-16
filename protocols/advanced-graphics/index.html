@@ -32,7 +32,7 @@
     <p>This short protocol reviews how to add graphics to nodes.</p>
 <div class="footer" style="position: absolute;left: 0em;bottom: -10em; ">
     <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.8.0</version>
+<version>3.8.2</version>
     </div>                
 </section>
                 
@@ -43,10 +43,8 @@
             <li>In the <highlight>Node</highlight> tab of the <highlight>Style</highlight> panel, select <highlight>Properties&rarr;Paint&rarr;Custom Paint 1&rarr;Image/Chart 1</highlight>.</li>
             <li>For the <highlight>Image/Chart 1</highlight> property, click the <highlight>Def.</highlight> (default) column, or if one or more nodes are selected, the <highlight>Byp</highlight> (bypass) column.</li>
             <li>Select <highlight>Charts</highlight> at the top. This will bring up the <highlight>Graphics</highlight> panel:</li>
-        </ul>
-    
+        </ul>   
 		<img class="plain" src="../../presentations/modules/advanced-visualization/Charts1.png" height="450px"/>
-
 </section>
                 
 <section>
@@ -56,12 +54,7 @@
         <li>Using the <highlight>Add Selected</highlight> and <highlight>Remove Selected</highlight> arrows, move the data columns you want to use for your chart to the <highlight>Selected Columns</highlight> list.</li>
         <li>For bar charts, select the type of chart using the radio buttons. For this example, we are choosing <highlight>Up-Down</highlight>.</li>
         <li>Click the <highlight>Options</highlight> tab, and in the <highlight>Color Scheme</highlight> drop-down, select the <b>RdBu</b> color palette.</li>
-        
-    
-    </ul>
-    
-
-                
+    </ul>             
 </section>
                 
 <section>
@@ -70,36 +63,30 @@
         <li>To add axis to the chart, check the three buttons for <highlight>Show Domain Axis</highlight>, <highlight>Show Range Axis</highlight> and <highlight>Show Zero Baseline</highlight>.</li>
         <li>For <highlight>Separation</highlight>, enter <b>0.05</b>. Click <highlight>Apply</highlight>.</li>
     </ul>
-        
-    <img class="plain" src="../../presentations/modules/advanced-visualization/Charts2.png" height="500px"/>
+    <img class="plain" src="../../presentations/modules/advanced-visualization/Charts2.png" height="450px"/>
 </section>
                 
 <section>
     <h1>Adding Graphics to Nodes</h1>
-    <p>By defualt, the charts are placed in the middle of the node. We can adjust the placement of the chart using the <highlight>Image/Chart potision 1</highlight> property.....</p>
-    
+    <p>By defualt, the charts are placed in the middle of the node. We can adjust the placement of the chart using the <highlight>Image/Chart potision 1</highlight> property.</p>
     <img class="plain" src="node-chart.png" height="500px"/>
-    
 </section>
                 
 <section>
     <h1>Adding Graphics to Nodes</h1>    
     <ul>
-        <li>Add the <highlight>Image/Chart potision 1</highlight> property to the list by selecting in the <highlight>Properties</highlight> drop-down in the <highlight>Style</highlight> panel.</li>
+        <li>Add the <highlight>Image/Chart position 1</highlight> property to the list by selecting in the <highlight>Properties</highlight> drop-down in the <highlight>Style</highlight> panel.</li>
         <li>Click the <highlight>Def.</highlight> (default) column and set the chart position to the right of the node.</li>
-    
     </ul>
-    		<img class="plain" src="../../presentations/modules/advanced-visualization/Charts3.png" height="500px"/>
-
-                
+    <img class="plain" src="../../presentations/modules/advanced-visualization/Charts3.png" height="500px"/>        
 </section>
                 
 <section>
     <h1>enhancedGraphics</h1>
-    <p>enhancedGraphics was implemented before Cytoscape charts were added to Cytoscape core. The format is not nearly as convenient, but allows for greater flexibility and specificity. Adding a chart to a node is simple:</p>
+    <p>enhancedGraphics was implemented before Cytoscape charts were added to Cytoscape core. The format is not nearly as convenient, but allows for greater flexibility and specificity. Briefly, adding a chart using enhancedGraphics is done as follows:</p>
     <ul>
     <li>Create a new text column in the node table.</li>
-    <li>Add the chart instructions (see samples on next slide).</li>
+    <li>Add the chart instructions to the new column, see the <a href="http://www.rbvi.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml">manual</a> for details on chart instructions.</li>
     <li>Set up a visual style that uses the column you created as a passthrough mapping for one of the CustomGraphics styles.</li>
     </ul>    
     <p>For a detailed exmaple of enhancedGraphics, see the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/custom-enhanced-graphics-style/#/7" target="_blank">Custom Graphics and Labels</a> protocol.</p>
