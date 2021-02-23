@@ -44,7 +44,7 @@
 
 <section>
 	<h1>Loading Network</h1>
-    			<ul>
+        <ul>
 				<div style="width:40%;float:right; margin-left: 10px">
 					<img class="plain" src="BasicDataVizDemoLoaded.png">
 				</div>
@@ -119,7 +119,7 @@ Add speaker notes here...
 	<h1>Set Default Node Color</h1>
 	<p>Some nodes in the network don't have any data, and for those nodes, the default color applies. In our case, the default color is blue, which falls within the spectrum of our blue-red gradient. This is not ideal for data visualization, so a useful trick is to choose a color outside the gradient spectrum to distinguish nodes with no defined expression value.</p>
     <ul>
-    <li>Still in the <highlight>Style</highlight> tab, under <highlight>Fill Color</highlight>, click the <highlight>Def.</highlight> (leftmost) square next to <highlight>Fill Color</highlight> and choose a dark gray color.</li>
+    <li>Still in the <highlight>Style</highlight> tab, under <highlight>Fill Color</highlight>, click the <highlight>Def.</highlight> (leftmost) square next to <highlight>Fill Color</highlight> and choose a light gray color.</li>
     </ul>
          <img src="NodeFillDefaultMapping.png" style="width:40%">
          <aside class="notes" data-markdown>
@@ -134,13 +134,12 @@ Add speaker notes here...
             <li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section, and select <b>gal80Rsig</b> in the drop-down.</li>
             <li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <highlight>Continuous Mapping</highlight> in the drop-down.</li>
             <li>Double-click on the gradient, which defines the node border width over the range of p values.</li>
-        </ul><br /><br />
-        <img src="NodeBorderGradient.png" style="width:30%"><br /><br />
-        <ul>
             <li>First, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
-            <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>10</b> in the <highlight>Node Border Width</highlight> field. </li>
+            <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>10</b> in the <highlight>Node Border Width</highlight> field.</li>
+            <li>Click the <highlight>Def.</highlight> value for <highlight>Node Border Paint</highlight> and select a dark grey color.</li>
         </ul>
-        <br /><br />
+        <img class="plain" src="NodeBorderGradient.png" style="width:40%">
+        <br />
         <p>To learn more about <b>visualizing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Expression Data Tutorial</a>.</p>
     </section>
                 
