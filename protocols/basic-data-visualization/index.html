@@ -115,7 +115,7 @@ Add speaker notes here...
         </aside>
     </section>
 
-     <section>
+    <section>
 	<h1>Set Default Node Color</h1>
 	<p>Some nodes in the network don't have any data, and for those nodes, the default color applies. In our case, the default color is blue, which falls within the spectrum of our blue-red gradient. This is not ideal for data visualization, so a useful trick is to choose a color outside the gradient spectrum to distinguish nodes with no defined expression value.</p>
     <ul>
@@ -144,19 +144,28 @@ Add speaker notes here...
     </section>
                 
     <section>
+        <h1>Set Node Label</h1>
+        <p>The network nodes are by default labeled with yeast ORF identifiers. We can change the label to something more readible, like the gene symbol.</p>
+        <li>For the <highlight>Node Label</highlight>, change the <highlight>Column</highlight> selection for the mapping from <b>shared name</b> to <b>COMMON</b>.</li>
+        <br /><br />
+        <img class="plain" src="NodeLabel.png" style="width:40%">        
+    </section>
+                
+    <section>
         <h1>Creating a Legend</h1>
         <p>The Cytoscape app Legend Creator allows you to create a customized legend for your visualization. You can install Legend Creator from the <a href="http://apps.cytoscape.org/apps/legendcreator">App Store</a> or via the <highlight>Cytoscape App Manager</highlight>.</p>
         <ul>
             <li>In the <highlight>Control Panel</highlight>, go to the <highlight>Legend Panel</highlight>. This is the interface for the Legend Creator app, and will list multiple options for creating a legend.</li>
-            <li>For our purposes, the default settings are satisfactory. Click <highlight>Add Legend</highlight> to continue. The legend will appear in the lower left of the network view.</li>
-        </ul>
+            <li>Note that the two attributes that we used for mapping, <b>gal80Rexp</b> and <b>gal80Rsig</b>, are selected by default. For our purposes this is actually what we want. Click <highlight>Add Legend</highlight> to continue. The legend will appear in the lower left of the network view.</li>
+        </ul><br /><br />
         <img class="border" src="LegendPanel.png" style="width:40%">
 </section>
 
             
     <section>
+        <h1>Moving a Legend</h1>
         <ul>
-            <li>To move the legend, first click the <highlight>Toggle Annotation Selection</highlight> icon <img class="border" src="AnnotationSelection.png"> at the bottom of the <highlight>Network View Window</highlight>. You can now select the legend like you would any object, for example by click and drag.</li><br /><br />
+            <li>To move the legend, first click the <highlight>Toggle Annotation Selection</highlight> icon <img class="border" src="AnnotationSelection.png"> at the bottom of the <highlight>Network View Window</highlight>. You can now move the legend like you would any object, for example by click and drag.</li><br /><br />
         </ul>
         <img class="plain" src="NetworkLegend.png" style="width:60%">
         <p>To learn more about <b>creating legends</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/legend-creator/#/" target="_blank">Legend Creator</a>.</p>
@@ -168,11 +177,11 @@ Add speaker notes here...
     <h1>Layouts</h1>
         <p>An important aspect of network visualization is the layout, meaning the positioning of nodes and edges. Our network had a preset layout in the original file you imported, but this can be changed.</p>
         <ul>
-                <li>Let's change the layout to <b>Degree Sorted Circle Layout</b> by selecting <highlight>Layout &rarr; Degree Sorted Circle Layout</highlight>. In this layout, nodes are sorted by degree (connectedness), with the highest degree node at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on decreasing degree.</li>
+            <li>Let's change the layout to <b>Degree Sorted Circle Layout</b> by selecting <highlight>Layout &rarr; Degree Sorted Circle Layout</highlight>. In this layout, nodes are sorted by degree (connectedness), with the highest degree node at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on decreasing degree.</li>
         </ul>
-        <p>For this network, a degree-sorted circle layout may not be the most effective. Instead, let's try a force-directed layout instead, which may work better with this network.</p>
+        <p>For this network, a degree-sorted circle layout may not be the most effective. Instead, let's try a force-directed layout instead.</p>
         <ul>
-                <li>An easy way to apply the <b>Prefuse Force-directed Layout</b> is by clicking the <highlight>Preferred Layout</highlight> <img class="border" src="PreferredLayoutButton.png"> in the toolbar. The preferred layout algorithm can be changed under <highlight>Layout &rarr; Settings...</highlight>.</li> 
+            <li>By default, <b>Prefuse Force-directed Layout</b> is set as the <highlight>Preferred Layout</highlight> in Cytoscape, so an easy way to apply the <b>Prefuse Force-directed Layout</b> is by clicking the <highlight>Preferred Layout</highlight> <img class="border" src="PreferredLayoutButton.png"> in the toolbar. The preferred layout algorithm can be changed under <highlight>Layout &rarr; Settings...</highlight>.</li> 
         </ul>
         
 		<p>Cytoscape supports many different layout algorithms, described in detail in the 
@@ -184,15 +193,15 @@ Add speaker notes here...
 	</section>
 
 	<section>
-		<h1>Select Nodes</h1>
+		<h1>Filtering Nodes</h1>
         <p>Cytoscape allows you to easily filter and select nodes and edges based on data attributes. Next, we will select a subset of nodes with high expression in the gal80 knockout:</p>
 				<ul>
-					<li>Go to the <highlight>Select</highlight> tab in the Cytoscape Control Panel (the leftmost panel).</li>
+					<li>Go to the <highlight>Filter</highlight> tab in the Cytoscape Control Panel.</li>
 					<li>Click on the <highlight>+</highlight> button and select <highlight>Column Filter</highlight>.</li>
 					<li>Under <highlight>Choose column...</highlight>, select <highlight>Node: gal80Rexp</highlight>. Notice how all the nodes in the network are selected at first.</li>
 					<li>Using the slider or the input fields, specify values of <b>2</b> or higher by changing the minimum value to 2.</li>
 				</ul>
-			<p>You should now see only a few nodes in the network selected (highlighted yellow).</p>
+			<p>You should now see only a few nodes in the network selected, highlighted yellow.</p>
         <br />
         <p>To learn more about <b>filtering and selection</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/filtering-by-selection/#/" target="_blank">Filtering by Selection Tutorial</a>.</p>
         
@@ -222,11 +231,11 @@ Add speaker notes here...
 </section>
 
 <section>
-	<h3>Exploring Nodes</h3>
+	<h1>Exploring Nodes</h1>
 	<ul>
 		<li>Right-click on any node (for example GAL4).</li>
 		<li>Select the menu <highlight>External Links &rarr; Sequences and Proteins → Ensembl Gene View → yeast</highlight>.</li>
-		<li>This will launch a browser window and search the Ensembl database for the term <b>YPL248C</b>, the name of the node.</li>
+		<li>This will launch a Cytoscape Web Browser window showing the Ensembl database entry for <b>YPL248C</b>, the name of the node.</li>
 	</ul>
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
@@ -234,9 +243,9 @@ Add speaker notes here...
 </section>
 
 <section>
-	<p>Digging into the biology of this network, it turns out that GAL4 is repressed by GAL80. Both nodes (GAL4 and GAL11) show fairly small changes in expression, and neither change is statistically significant: they are pale blue with thin borders. These slight changes in expression suggest that the critical change affecting the red nodes might be somewhere else in the network, and not either of these nodes.
+	<p>Digging into the biology of this network, it turns out that <b>GAL4</b> is repressed by <b>GAL80</b>. Both <b>GAL4</b> and <b>GAL11 </b> show fairly small changes in expression, and neither change is statistically significant: they are pale blue with thin borders. These slight changes in expression suggest that the critical change affecting the red nodes might be somewhere else in the network, and not either of these nodes.
 	GAL4 interacts with GAL80, which shows a significant level of repression: it is medium blue with a thicker border.
-	<p>Note that while GAL80 shows evidence of significant repression, most nodes interacting with GAL4 show significant levels of induction: they are rendered as red rectangles.
+	<p>Note that while <b>GAL80</b> shows evidence of significant repression, most nodes interacting with <b>GAL4</b> show significant levels of induction: they are rendered as red rectangles.
 	GAL11 is a general transcription co-factor with many interactions.</p>
 	<p>Putting all of this together, we see that the <b><i>transcriptional activation activity of Gal4 is repressed by Gal80</i></b>. So, repression of Gal80 increases the transcriptional activation activity of Gal4. Even though the expression of Gal4 itself did not change much, <b><i>the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed</i></b>. This explains why there is so much up-regulation in the vicinity of Gal4.</p>
 </section>
