@@ -42,7 +42,7 @@
 <h1>Applying a Layout Algorithm</h1>
     <ul>
         <div style="width:40%;float:right;margin-left: 50px">
-            <img src="prefuse.png"></div>
+            <img class="plain" src="prefuse.png"></div>
     <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.cys"><i>Yeast Perturbation.cys</i></a> session file from the <highlight>Starter Panel</highlight>.</li>
     <li>To see the whole network, select <highlight>View &rarr; Fit Content</highlight>.</li>
         <p class="fragment">
@@ -58,36 +58,36 @@
     <p>Some Cytoscape apps may add additional layout algorithms to the Layout menu.</p>
     </div>
     <div style="float:right;width:35%">
-    <img src="LayoutMenu.png"></div>
+    <img class="plain" src="LayoutMenu.png"></div>
 </section>
                 
 <section>
     <h1>Tool Panel</h1>
     <p>For manual manipulation of the network layout, a set of <highlight>Node Layout Tools</highlight> are available in the <highlight>Layout Tools</highlight> tab of the Control Panel or via <highlight>Layout &rarr; Node Layout Tools</highlight>. These tools include a set of tools for scaling, aligning, distributing, stacking and rotating the network and nodes. Checking the <highlight>Selected Only</highlight> checkbox will restrict the actions to selected nodes.</p>
     <br />
-    <img src="ToolPanel.png" style="width:45%">
+    <img class="plain" src="ToolPanel.png" style="width:45%">
 </section>
 
 <section>
 <h1>Examples of Layout Algorithms</h1>
 <p style="float:left;width:55%">Similarly to Prefuse Force Directed, the <highlight>Edge-weighted spring-embedded</highlight> layout is also based on a “force-directed” paradigm as implemented by Kamada and Kawai (1988). Network nodes are treated like physical objects that repel each other, such as electrons. The connections between nodes are treated like metal springs attached to the pair of nodes. These springs repel or attract their end points according to a force function. The layout algorithm sets the positions of the nodes in a way that minimizes the sum of forces in the network.</p>
-<img src="edgeweighted.png" style="float:right;width:40%">
+<img class="plain" src="edgeweighted.png" style="float:right;width:50%">
 </section>
 
 <section>
 <h1>Examples of Layout Algorithms</h1>
 <p style="float:left;width:50%">The <highlight>circular</highlight> algorithm produces layouts that emphasize group and tree structures within a network. It partitions the network by analyzing its connectivity structure, and arranges the partitions as separate circles. The circles themselves are arranged in a radial tree layout fashion.</p>
-<img src="circular.png" style="float:right;width:48%">
+<img class="plain" src="circular.png" style="float:right;width:48%">
 </section>
                 
 <section>
 <h1>Examples of Layout Algorithms</h1>
 <p>The <highlight>Compound Spring Embedder (CoSE) layout</highlight> is based on the traditional force-directed layout algorithm with extensions to handle multi-level nesting (compound nodes), edges between nodes of arbitrary nesting levels and varying node sizes. It is the suggested Cytoscape layout for compound graphs, although it also works very well with noncompound graphs.</p>
 <div class="column" style="float:left">
-    <img plain src="cose.png" style="width:90%">
+    <img class="plain" src="cose.png" style="width:90%">
 </div>
 <div class="column" style="float:right">
-    <img plain src="cose_gal.png">
+    <img class="plain" src="cose_gal.png">
 </div>
 </section>
 
@@ -98,7 +98,7 @@
 <li>To change the settings for a particular algorithm, select it from the <highlight>Layout Algorithm:</highlight> drop-down. The relevant set of parameters will be displayed.</li>
 <li>When changes are complete, click <highlight>Apply Layout</highlight> to apply to your network.</li>
 </ul><br /><br />
-<img src="layout-settings.png" style="width:38%">
+<img class="plain" src="layout-settings.png" style="width:38%">
 </section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
