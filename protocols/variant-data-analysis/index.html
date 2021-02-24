@@ -34,7 +34,7 @@
 </p>
     <div class="footer" style="position: absolute; left: -3em; bottom: -8em; ">
 <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.7.2</version></div>
+<version>3.8.2</version></div>
 </section>
                 
 <section>
@@ -83,10 +83,10 @@
 </section>
                 
 <section>
-    <h1>Generate subnetworks</h1>
+    <h1>Generate Subnetworks</h1>
     <p>To explore the network, we can use various parameters of the network to generate relevant subnetworks. Let's start by creating a network from a <b>subset of nodes with a high disease score</b>:</p>
     <ul>
-        <li>Click on the <highlight>Select</highlight> tab of the <highlight>Control Panel</highlight>.</li>
+        <li>Click on the <highlight>Filter</highlight> tab of the <highlight>Control Panel</highlight>.</li>
         <li>Click on the drop-down to the right and select <highlight>Create New Filter</highlight>.
         <li>Click the <highlight>+</highlight> (add) button and select <highlight>Column Filter</highlight>. In the <highlight>Choose column...</highlight> drop-down, select <highlight>Node: disease score</highlight>.</li>
         <li>In the selection slider, select scores of <b>3.3</b> or higher. This will select around 40 nodes.</li>
@@ -101,7 +101,7 @@
 </section>
                 
 <section>
-    <h1>Generate subnetworks</h1>
+    <h1>Generate Subnetworks</h1>
     <p>Another strategy is to create a subnetwork from <b>first neighbors of genes with the highest disease score</b>, using the network connectivity together with the data to direct discovery.</p>
     <ul>
         <li>In the original <b>String breast cancer</b> network, reapply the <b>disease score > 3.3</b> filter, unless the relevant nodes are still selected.</li>
@@ -117,11 +117,11 @@
     
                 
 <section>
-    <h1>Generate subnetworks</h1>
+    <h1>Generate Subnetworks</h1>
     <p>The <a href="http://apps.cytoscape.org/apps/diffusion" target="_blank">Diffusion</a> app uses the network connectivity in a more subtle way than just first-degree neighbors. We can combine this with the top scoring genes:</p>
     <ul>
         <li>Again, select the original <b>String breast cancer</b> network.</li>
-        <li>In the <highlight>Select</highlight> tab, adjust the threshold for the <b>disease score</b> column filter to select nodes with a score of 4.2 and above. This will select a small number of top nodes.</li>
+        <li>In the <highlight>Filter</highlight> tab, adjust the threshold for the <b>disease score</b> column filter to select nodes with a score of 4.2 and above. This will select a small number of top nodes.</li>
         <li>With the nodes selected, select <highlight>Tools &rarr; Diffuse &rarr; Selected Nodes</highlight>.</li>
         <li>The Diffusion results will open in the <highlight>Results Panel</highlight>. Click <highlight>Create</highlight> to create a subnetwork.</li>
         <li>Apply the <highlight>Prefuse Force Directed</highlight> layout.</li>
@@ -189,7 +189,7 @@
 </section>
                 
 <section>
-    <h1>Subnetwork based on diffusion from heavily mutated nodes</h1>
+    <h1>Subnetwork Based on Diffusion from Heavily Mutated Nodes</h1>
     <p>We can now combine our earlier strategy for subnetwork selection with the mutation data, by using the <b>Diffusion</b> algorithm on the top mutated genes.</p>
     <ul>
         <li>The top two mutated genes in this network are <b>TP53</b> and <b>PIK3CA</b>. Select these two nodes.</li>
@@ -201,13 +201,13 @@
 </section>
             
 <section>
-    <h1>Subnetwork based on diffusion from heavily mutated nodes</h1>
+    <h1>Subnetwork Based on Diffusion from Heavily Mutated Nodes</h1>
     <p>The top mutated genes are based on TCGA data and the diffusion algorithm is operating based on the network connectivity from STRING data, leading to a focused subnetwork view of critical breast cancer genes with mean patient expression data mapped to fill color. Now that’s data integration!</p>
     <img class="plain" src="string-breast-final.png" style="height:500px">
 </section>
                 
 <section>
-    <h4>Exporting Networks</h4>
+    <h1>Exporting Networks</h1>
     <p>Cytoscape provides a number of ways to export results and visualizations:</p>
 	<ul>
         <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
