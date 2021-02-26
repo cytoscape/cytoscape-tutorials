@@ -29,7 +29,7 @@
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
 <section>
-<h3>Visualizing Expression Data</h3>
+<h1>Visualizing Expression Data</h1>
 <p>Probably the most common use of expression data in Cytoscape is to set the visual attributes of the nodes in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will walk through the steps for doing this.</p>
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -37,7 +37,7 @@ Add speaker notes here...
 </section>
 
 <section>
-	<h3>Loading Network</h3>
+	<h1>Loading Network</h1>
 			<ul>
 				<li>Start Cytoscape and download the <a href="http://nrnb.org/data/galFilteredSimpleData.cys">demo session.</a></li>
 				<li>Open the demo session using <highlight>File &rarr; Open...</highlight></li>
@@ -49,11 +49,11 @@ Add speaker notes here...
 </section>
 
 <section>
-	<h2>Label the Nodes</h2>
+	<h1>Label the Nodes</h1>
     <ul>
 	<li>Open the <highlight>Style</highlight> interface by selecting its tab in the <highlight>Control Panel</highlight> (the leftmost panel). We are going to use the <b>COMMON</b> name attribute to give the nodes useful names:</li>
 	<li>Zoom in on the network so that node labels are visible.</li>
-	<li>Click the second column of the <highlight>Label</highlight> row in the <highlight>Style</highlight> panel. This should produce a drop-down panel with <b>Column</b> and <b>Mapping Type</b>.</li>
+	<li>Click the second column (<highlight>Map.</highlight>) of the <highlight>Node Label</highlight> row in the <highlight>Style</highlight> panel. This should produce a drop-down panel with <b>Column</b> and <b>Mapping Type</b>.</li>
 	<li>Change the <highlight>Column</highlight> to <highlight>COMMON</highlight> by clicking on the field to the right of the <highlight>Column</highlight> label. This should bring up a list of columns. Select <highlight>COMMON</highlight>.</li>
 	<li>Verify that the node labels on the network have changed to their common names.</li>
 	<li>By default, the <b>Mapping Type</b> is <highlight>Passthrough Mapping</highlight>, which is what we want to use. Other options are <b>Discrete Mapping</b> and <b>Continuous Mapping</b>.</li>
@@ -65,7 +65,7 @@ Add speaker notes here...
 </section>
 
 <section>
-	<h2>Color the nodes</h2>
+	<h1>Color the Nodes</h1>
     <ul>
 	<li>Click on the middle square (<highlight>Map.</highlight>) next to the <highlight>Fill Color</highlight> row in the <highlight>Style</highlight> panel.</li>
 	<li>Click the <highlight>-- select value --</highlight> cell in the <highlight>Column</highlight> section.</li>
@@ -81,23 +81,23 @@ Add speaker notes here...
 </section>
 
 <section>
+    <h1>Color the Nodes</h1>
     <ul>
     <li>Select the first palette listed under the <highlight>ColorBrewer</highlight> tab and click <highlight>OK</highlight> to continue. You will see a warning that the color settings are about to change, click <highlight>Yes</highlight> to continue.</li>
     <li>The pre-defined palettes come from published recommendations for choosing colors in scientific and cartographic applications, for example <a href="http://colorbrewer2.org" target="_blank">BrewerColors</a>.</li>
     <li>The network should now look like this:<br /><br /></li>
-	
-    <img plain src="NetworkBrewer.png" style="width:60%">
     </ul>
+    <img class="plain" src="NetworkBrewer.png" style="width:60%">
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
 <section>
-	<h2>Set the Default Node Color</h2>
+	<h1>Set the Default Node Color</h1>
 	<p>Note that the default node color of pale blue is close to the color range in the selected palette. A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.</p>
     <ul>
-	<li>Click the <highlight>Def.</highlight> (leftmost) square next to <highlight>Fill Color</highlight> and choose a dark gray color.</li>
+	<li>Click the <highlight>Def.</highlight> (leftmost) square next to <highlight>Fill Color</highlight> and choose a light gray color.</li>
 	<li>Zoom out on the network view to verify that a few nodes have been colored gray.</li>
     </ul>
 <aside class="notes" data-markdown>
@@ -106,7 +106,7 @@ Add speaker notes here...
 </section>
 
 <section>
-	<h2>Set the Node Shape</h2>
+	<h1>Set the Node Shape</h1>
 	<p>We imported both expression measurement values and corresponding significance values. We can use the significance values to change the shape of the nodes so that measurements we have confidence in appear as squares while potentially bad measurements appear as circles.</p>
     <ul>
 	<li>Click the <highlight>Map</highlight>. cell next to the <highlight>Shape</highlight> row in the <highlight>Style</highlight> panel.</li>
@@ -123,22 +123,22 @@ Add speaker notes here...
 </section>
 
 <section>
+    <h1>Set the Node Shape</h1>
     <ul>
-	<li>Click the <highlight>Add</highlight> button.</li>
-	<li>This splits the range of values with a slider down the middle with a node shape icon to either side.</li>
+	<li>Click the <highlight>Add</highlight> button. This splits the range of values with a slider down the middle with a node shape icon to either side.</li>
 	<li>Double-click on either of the sides. This will pop-up a node shape selection dialog.</li>
 	<li>In the node shape selection dialog, choose the <highlight>Rectangle</highlight> shape and click the <highlight>Apply</highlight> button.</li>
-	<li>Click the black triangle and move the slider to the left, to slightly lower that 0.05, our threshold for significance.</li>
+	<li>Click the black triangle and move the slider to the left, to slightly lower that <b>0.05</b>, our threshold for significance.</li>
 	<li>Close the continuous shape selection dialog and verify that some nodes now have a square shape.</li>
         </ul><br /><br />
-        <img plain src="Node_shape_editor3.png" style="width:50%">
+        <img class="plain" src="Node_shape_editor3.png" style="width:50%">
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>
 </section>
 
 <section>
-	<h2>Fun with Charts</h2>
+	<h1>Using Charts</h1>
 	<p>In addition to coloring the nodes, Cytoscape also provides the ability to draw charts and graphs on each node. For example, suppose we wanted to display a bar chart showing all of the expression values on each of our nodes?</p>
     <ul>
 	<li>To reset things a little, remove the mapping for <highlight>Fill Color</highlight> by right-clicking over the <highlight>Fill Color</highlight> row and selecting <highlight>Edit &rarr; Remove Mappings from Selected Visual Properties</highlight>.</li>
@@ -152,6 +152,7 @@ Add speaker notes here...
 </section>
 
 <section>
+    <h1>Using Charts</h1>
     <ul>
 	<li>Select the <highlight>Def.</highlight> (leftmost) cell in the <highlight>Image/Chart 1</highlight> row to bring up the <highlight>Graphics</highlight> dialog.</li>
 	<li>Select the <highlight>Charts</highlight> tab.</li>
@@ -159,7 +160,7 @@ Add speaker notes here...
 	<li>Now select <highlight>Heat Strips</highlight> for the type of bar chart.</li>
     </ul>
     <br /><br />
-    <img plain src="600px-ChartDialog.png" style="width:60%">
+    <img class="plain" src="600px-ChartDialog.png" style="width:60%">
 
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -167,12 +168,13 @@ Add speaker notes here...
 </section>
 
 <section>
+    <h1>Using Charts</h1>
     <ul>
 	<li>Click on <highlight>Options</highlight> if you want to add labels to the graphs, change the default coloring, etc.</li>
 	<li>Click <highlight>Apply</highlight> to see the resulting charts.</li>
     </ul>
     <br /><br />
-    <img plain src="1599px-GalWithCharts.png" style="width:60%">
+    <img class="plain" src="1599px-GalWithCharts.png" style="width:60%">
 <aside class="notes" data-markdown>
 Add speaker notes here...
 </aside>

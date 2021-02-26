@@ -34,18 +34,18 @@
     
 <div class="footer" style="position: absolute; left: -5em; bottom: -4em; ">
 <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
-<version>3.8.0</version>
+<version>3.8.2</version>
     </div>
 </section>
 
 <section>
-	<h3>Loading Network</h3>
+	<h1>Loading Network</h1>
 		<ul>
 		<li>Launch Cytoscape</li>
 		<li>We are going to use NDEx to get the network file. In the <highlight>Network Search</highlight> interface in the <highlight>Control Panel</highlight>, select NDEx from the drop-down, and type in "GAL1 GAL4 GAL80".</li>
 		<li>In the search results, find the <b>galFiltered network</b>. Click the <highlight>Import network to Cytoscape</highlight> icon to the left of the network name.</li>
 		<li>When the network first opens, the entire network may not visible because of the default zoom factor used. To see the whole network, select <highlight>View &rarr; Fit Content</highlight>.</li>
-        <li>By default, the "Prefuse Force Directed Layout" is applied to organize the layout of the nodes. The default layout may be changed under <highlight>Layout &rarr; Settings</highlight>.</li>
+        <li>By default, the <b>Prefuse Force Directed Layout</b> is applied to organize the layout of the nodes. The default layout may be changed under <highlight>Layout &rarr; Settings</highlight>.</li>
 		</ul>
 		<aside class="notes" data-markdown>
 		Add speaker notes here...
@@ -53,10 +53,10 @@
 </section>
 
 <section>
-<h3>Loading Expression Data</h3>
+<h1>Experimental Data Background</h1>
 <p>The data you are working with is from yeast, the genes <b>Gal1</b>, <b>Gal4</b>, and <b>Gal80</b> are all yeast transcription factors. Your expression experiments all involve some perturbation of these transcription factor genes.
 
-<br /><br />Gal1, Gal4, and Gal80 are also represented in your interaction network, where they are labeled according to yeast locus tags: <b>Gal1 corresponds to YBR020W, Gal4 to YPL248C, and Gal80 to YML051W</b>.</p>
+<br /><br />Gal1, Gal4, and Gal80 are also represented in your interaction network, where they are labeled according to yeast locus tags: <b>Gal1 </b>corresponds to <b>YBR020W</b>, <b>Gal4</b> to <b>YPL248C</b>, and <b>Gal80</b> to <b>YML051W</b>.</p>
 
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -64,6 +64,7 @@ Add speaker notes here...
 </section>
 
 <section>
+    <h1>Data File Format</h1>
 <ul>
 	<li>Using a text editor, open the file <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galExpData.csv"><i>galExpData.csv</i></a> to view the first few lines. This sample file is also included with your Cytoscape installation directory, under <b>sampleData</b>.</li>
 
@@ -88,12 +89,14 @@ Add speaker notes here...
 </section>
 
 <section>
+    <h1>Loading Data Table</h1>
 <ul>
-    <li>Load the <i><b>galExpData.csv</i></b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+    <li>Load the <b><i>galExpData.csv</i></b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
 	<li>The default settings are usually correct, although you may need to change the <b>Key</b> column to indicate which column will be used to match with the network key column.</li>
-    <br />
-    <img plain src="LoadGalExp3.png" style="width:60%">
-</ul>
+    </ul>
+    <br /><br />
+    <img class="plain" src="LoadGalExp3.png" style="width:60%">
+
 
 <aside class="notes" data-markdown>
 Add speaker notes here...
@@ -102,10 +105,10 @@ Add speaker notes here...
 
 <section>
 	<p>Now you should see expression values listed in new columns in the <highlight>Node Table</highlight>. The <highlight>Table Panel</highlight> has the following features:</p>
-	<img plain src="Galbrowse3.png" style="width:900px" /><br /><br />
+	<img class="plain" src="Galbrowse3.png" style="width:900px" /><br /><br />
     <ul>
 	<li>Select a node in the network and the table will update to show only the corresponding row.</li>
-	<li>You can limit the columns shown by clicking on the <highlight>Show Columns</highlight> button <img plain src="Select3.png" style="height:20px"> and selecting columns.</li>
+	<li>You can limit the columns shown by clicking on the <highlight>Show Columns</highlight> button <img class="plain" src="Select3.png" style="height:20px"> and selecting columns.</li>
     </ul>
     
 <aside class="notes" data-markdown>

@@ -81,16 +81,16 @@
 </section>
 
 <section id="ex1-up-string-result">
-<h1>STRING Network Up-regulated genes</h1>
+<h1>STRING Network Up-Regulated Genes</h1>
     <p>The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.</p>
 <img class="plain" src="string-de-up2.png" style="height:650px"> 
 </section>
     
 <section id="ex1-up-string-sub">
-<h1>STRING Network Up-regulated genes</h1>
+<h1>STRING Network Up-Regulated Genes</h1>
     <p>The networks consists of one large connected component, several smaller networks, and some unconnected nodes. We will use only the largest connected component for the rest of the tutorial.</p>
     <ul>
-    <li>Using Shift-drag, select all nodes and edges for the largest connected component.</li>
+    <li>Using shift-drag, select all nodes and edges for the largest connected component.</li>
     <li>Select <highlight>File &rarr; New Network &rarr; From Selected Nodes, Selected Edges</highlight>.</li>
     </ul>
 <img class="plain" src="string-de-up2-sub.png" style="height:600px"> 
@@ -126,7 +126,7 @@
     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
     <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
     <li>Set the default node fill color to light gray.</li>
-    <li>Set the default node size to </li>
+    <li>Set the default node size to <b>40</b>.</li>
     <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
     <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
     <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
@@ -136,16 +136,15 @@
     
 <section id="ex1-up-visualization2">
      <h1>Visualization</h1>
-        <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
-	    <img class="plain" src="string-de-up-viz.png" style="height:650px">   
+        <p>If we reapply the <highlight>Prefuse Force Directed</highlight> layout, the network will now look something like this:</p>
+	    <img class="plain" src="string-de-up-viz-prefuse.png" style="height:650px">   
 </section>
                 
 <section id="ex1-up-string-enrich1">
 <h1>STRING Enrichment</h1>
     <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
-    <li>In the STRING tab of the <hihglight>Results Panel</hihglight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
-    <li></li>
+    <li>In the STRING tab of the <highlight>Results Panel</highlight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul><br /><br />
 <img class="plain" src="string-enrichment.png">    
@@ -164,7 +163,7 @@
 </section>
                                                
 <section id="ex1-down-string">
-    <h1>STRING Protein Query Down-regulated Genes</h1>
+    <h1>STRING Protein Query Down-Regulated Genes</h1>
     <p>The same workflow (network search, data integration, visualizationcan and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
         <ul>
             <li>Query STRING protein with the list of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt" target="_blank">down-regulated genes</a>.</li>
@@ -176,18 +175,18 @@
     
 <section id="ex1-down-visualization">
      <h1>Visualization</h1>
-        <p>Applying a <highlight>yFiles Organic</highlight> layout, the network will now look something like this:</p>
-	    <img class="plain" src="string-de-down2-sub.png" style="height:600px">    
+        <p>Again, we can reapply the <highlight>Prefuse Force Directed</highlight> layout, and the network will now look something like this:</p>
+	    <img class="plain" src="string-de-down2-sub-prefuse.png" style="height:600px">    
 </section>
     
 <section id="ex1-down-string-enrich">
     <h1>STRING Enrichment</h1>
         <ul>
             <li>Perform STRING Enrichment analysis on the resulting network. Filter for non-redundant GO Process terms.</li>
-            <li>For this use case, we can try a different enrichment chart. Click the <highlight>Settings</highlight> button in the enrichment resluts panel and change the chart type to <highlight>Pie Chart</highlight> with <hihglight>Number of terms to chart</hihglight> set to 3.</li>
+            <li>For this use case, we can try a different enrichment chart. Click the <highlight>Settings</highlight> button in the enrichment resluts panel and change the chart type to <highlight>Pie Chart</highlight> with <highlight>Number of terms to chart</highlight> set to 3.</li>
             <li>As you see, we now have both the enrichment results pie chart and the node color mapping visible on the nodes. Remove the node color mapping to see just the enrichment results:</li>
         </ul>
- <img class="plain" src="string-enrichment-chart-down.png" style="height:550px">    
+ <img class="plain" src="string-enrichment-chart-down2.png" style="height:500px">    
 </section>
     
 </section>
@@ -245,8 +244,8 @@
     
 <section id="ex2-visualization2">
     <h1>Visualization</h1>
-        <p>Applying the <highlight>yFiles Organic</highlight> layout, the network looks something like this:</p>
-	    <img class="plain" src="string-ovarian-styled2.png" style="height:650px">       
+        <p>Using the <highlight>Prefuse Force Directed</highlight> layout, the network looks something like this:</p>
+	    <img class="plain" src="string-ovarian-styled2-prefuse.png" style="height:650px">       
 </section>
                 
                 
@@ -263,7 +262,7 @@
 <section id="ex2-visualization-drivers2">
     <h1>Visualization: Cancer Drivers</h1>
 <p>The network will now look something like this:</p>
-<img class="plain" src="string-ovarian-drivers.png" style="height:700px">    
+<img class="plain" src="string-ovarian-drivers-prefuse.png" style="height:700px">    
 </section>
                 
 <section id="ex2-analysis-options">
