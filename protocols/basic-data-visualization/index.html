@@ -75,12 +75,11 @@ Add speaker notes here...
     
 	<section>
         <h1>Visualizing Expression Data on Networks</h1>
-        <p>For this tutorial, the experimental data was part of the Cytoscape session file you loaded earlier, and is visible in the Node Table:</p>
-        <img class="plain" src="Galbrowse3.png" style="width:80%">
+        <p>For this tutorial, the experimental data was part of the Cytoscape network file you loaded earlier, and is visible in the Node Table:</p>
+        <img class="plain" src="Galbrowse3_combined.png" style="width:65%">
 		<ul>
-            <li>You can select nodes in the network by <highlight>Shift + Click and Drag</highlight> or by <highlight>Shift + clicking on multiple nodes</highlight>.</li>
-			<li>Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s).</li>
-            
+            <li>Selecting nodes in the network (Shift + Click or Click-and-Drag) will update the <highlight>Node Table</highlight> to show only data for those nodes.</li>
+			<li>Similarly, you can select one or more rows in the <highlight>Node Table</highlight>, right-click on the selected rows and click <highlight>Select nodes from selected rows</highlight> to highlight the corresponding nodes in the network.</li>
 		</ul>
     <br />
 		<p>To learn more about <b>importing data</b>, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/" target="_blank">Importing Data From Tables</a>.</p>
@@ -95,7 +94,7 @@ Add speaker notes here...
 		<p>We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:</p>
 		<ul>
 			<li>The <b>gal80Rexp</b> expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red.</li>
-			<li>Significance for expression values will be mapped to Node Border Width, so nodes with significant changes will appear with a thicker border.</li>
+			<li>Significance for expression values will be mapped to <highlight>Node Border Width</highlight>, so nodes with significant changes will appear with a thicker border.</li>
 		</ul>
 	</section>
 
@@ -155,9 +154,9 @@ Add speaker notes here...
                 
     <section>
         <h1>Creating a Legend</h1>
-        <p>The Cytoscape app Legend Creator allows you to create a customized legend for your visualization. You can install Legend Creator from the <a href="http://apps.cytoscape.org/apps/legendcreator">App Store</a> or via the <highlight>Cytoscape App Manager</highlight>.</p>
+        <p>The Cytoscape app <b>Legend Creator</b> allows you to create a customized legend for your visualization. You can install Legend Creator from the <a href="http://apps.cytoscape.org/apps/legendcreator">App Store</a> or via the <highlight>Cytoscape App Manager</highlight>.</p>
         <ul>
-            <li>In the <highlight>Control Panel</highlight>, go to the <highlight>Legend Panel</highlight>. This is the interface for the Legend Creator app, and will list multiple options for creating a legend.</li>
+            <li>In the <highlight>Control Panel</highlight>, go to the <highlight>Legend Panel</highlight>. This is the interface for the <b>Legend Creator</b> app, and will list multiple options for creating a legend.</li>
             <li>Note that the two attributes that we used for mapping, <b>gal80Rexp</b> and <b>gal80Rsig</b>, are selected by default. For our purposes this is actually what we want. Click <highlight>Add Legend</highlight> to continue. The legend will appear in the lower left of the network view.</li>
         </ul><br /><br />
         <img class="plain" src="LegendPanel.png" style="width:40%">
@@ -198,7 +197,7 @@ Add speaker notes here...
 		<h1>Filtering Nodes</h1>
         <p>Cytoscape allows you to easily filter and select nodes and edges based on data attributes. Next, we will select a subset of nodes with high expression in the gal80 knockout:</p>
 				<ul>
-					<li>Go to the <highlight>Filter</highlight> tab in the Cytoscape Control Panel.</li>
+					<li>Go to the <highlight>Filter</highlight> tab in the <highlight>Control Panel</highlight>.</li>
 					<li>Click on the <highlight>+</highlight> button and select <highlight>Column Filter</highlight>.</li>
 					<li>Under <highlight>Choose column...</highlight>, select <highlight>Node: gal80Rexp</highlight>. Notice how all the nodes in the network are selected at first.</li>
 					<li>Using the slider or the input fields, specify values of <b>2</b> or higher by changing the minimum value to 2.</li>
@@ -237,7 +236,7 @@ Add speaker notes here...
 	<ul>
 		<li>Right-click on any node (for example GAL4).</li>
 		<li>Select the menu <highlight>External Links &rarr; Sequences and Proteins → Ensembl Gene View → yeast</highlight>.</li>
-		<li>This will launch a Cytoscape Web Browser window showing the Ensembl database entry for <b>YPL248C</b>, the name of the node.</li>
+		<li>This will launch a <highlight>Cytoscape Web Browser</highlight> window showing the Ensembl database entry for <b>YPL248C</b>, the name of the node.</li>
 	</ul>
 	<aside class="notes" data-markdown>
 	Add speaker notes here...
