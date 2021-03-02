@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>DE Genes Network Analysis</title>
+		<title>RNA-Seq Data Network Analysis</title>
 
 		<link rel="stylesheet" href="../../css/reveal.css">
 		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
@@ -28,10 +28,11 @@
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
 <section>
-    <h1>Differentially Expressed Genes Network Analysis</h1>
+    <h1>RNA-Seq Data Network Analysis</h1>
     <p><highlight>Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.</highlight></p>
-    <p>This protocol describes a network analysis workflow in Cytoscape for a set of differentially expressed genes. Points covered:</p>
+    <p>This protocol describes a network analysis workflow in Cytoscape for differentially expressed genes from an RNA-Seq experiments. Overall workflow:</p>
     <ul>
+        <li>Finding a set of differentially expressed genes</li>
         <li>Retrieving relevant networks from public databases</li>
         <li>Integration and visualization of experimental data</li>
         <li>Network functional enrichment analysis</li>
@@ -42,13 +43,35 @@
 <version>3.8.2</version></div>
 </section>
 
-<section id="background">
-<h1>Background</h1>
-    <p>Ovarian serous cystadenocarcinoma is a type of epithelial ovarian cancer which accounts for ~90% of all ovarian cancers. The data used in this protocol are from <a href="https://cancergenome.nih.gov/" target="_blank">The Cancer Genome Atlas</a>, in which multiple subtypes of serous cystadenocarcinoma were identified and characterized by mRNA expression.</p> <p>We will focus on the differential gene expression between two subtypes: <br /><b>Mesenchymal</b> and <b>Immunoreactive</b>.</p>
-    <p>For convenience, the data has already been analyzed and pre-filtered, using log fold change value and adjusted p-value.</p>
+<section id="setup">
+    <h1>Setup</h1>
+    <p>This protocol uses the stringApp apps, which can be installed from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Manager</highlight>.</p>
 </section>
                 
-<section id="intro1">
+<section id="background">
+<h1>Experimental Data</h1>
+    <p>For this tutorial, we will use a dataset comparing transcriptomic differences between autistic and normal brain. The study has been published in <a href="https://europepmc.org/article/MED/21614001">Voineagu et al.</a>, and we will get a summarized dataset with fold change and p-value from the EBI Gene Expression Atlas.</p> 
+    
+    <ul>
+        <li>Download the data: <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-30573/Results">Transcriptomic analysis of autistic brain reveals convergent molecular pathology</a>.</li>
+        <li>Open the tsv datafile in Excel. The file contains a summary at the top, and has 4 columns of data: <b>Gene ID</b>, <b>Gene Name</b>, <b>fold change</b> and <b>p-value</b>. </li>
+    </ul><br /><br />
+    <img class="plain" src="excel-data.png" style="height:400px">
+</section>
+                
+<section id="de-genes">
+    <h1>Differentially Expressed Genes</h1>
+    <p>We are going to define a set of up-regulated genes from the full dataset by filtering for fold change and p-value.</p>
+    <ul>
+        <li>Select the row containing data value headers (row 4) and select <highlight>Data &rarr; AutoFilter</highlight>.</li>
+        <li>In the drop-down for fold change column, set a filter for <b>fold change greater than 2</b>.</li>
+        <li>Next, set a filter for <b>p-value less than 0.05</b>.</li>
+        <li>With the two filters active, select all the gene names for genes passing the filter.</li>
+    </ul>
+                
+</section>
+                
+<!--<section id="intro1">
     <h1>Network Retrieval</h1>
     <p>Many public databases and multiple Cytoscape apps allow you to retrieve a network or pathway relevant to your data. For this workflow, we will use the STRING app. Some other options include:</p>
     <ul>
@@ -56,79 +79,73 @@
     <li><a href="http://www.ndexbio.org/" target="_blank">NDEx</a></li>
     <li><a href="https://genemania.org/" target="_blank">GeneMANIA </a></li>
     </ul>
-</section>
+</section>-->
                 
 <section id="intro2">
     <h1>Retrieve Networks from STRING</h1>
-    <p>To identify a relevant network, we will use the STRING database in two different ways:</p>
-    <ol>
-        <li>Query <highlight>STRING protein</highlight> with the list of differentially expressed genes.</li>
-        <li>Query <highlight>STRING disease</highlight> for a keyword; <b>ovarian cancer</b>.</li>
-    </ol>
-    <p>The two examples are split into two separate workflows on the following slides.</p><br />
-    <p>If you don't already have the <b>stringApp</b> installed, you can install it from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a> or from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
+    <p>To identify a relevant network, we will use the STRING database to find a network relevant to the list of up-regulated genes.</p>
+    <ul>
+        <li>Launch Cytoscape.</li>
+        <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
+        <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a cutoff of <b>0.4</b> and <b>0</b> maximum additional interactors.</li>
+        <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network will load automatically.</li>
+    </ul>    
 </section>
                 
-<section>
-<section id="ex1-up-string">
-<h1>Example 1: STRING Protein Query <br />Up-regulated Genes</h1>
-<ul>
-    <li>Open the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.txt" target="_blank">list of up-regulated genes</a>, and copy the contents to the clipboard.</li>
-    <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
-   <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a cutoff of <b>0.4</b> and <b>0</b> maximum additional interactors.</li>
-    <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network will load automatically.</li>
-</ul>
-</section>
-
-<section id="ex1-up-string-result">
+<!--<section>-->
+<section id="string-result-up">
 <h1>STRING Network Up-Regulated Genes</h1>
     <p>The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.</p>
-<img class="plain" src="string-de-up2.png" style="height:650px"> 
+    <img class="plain" src="string-up.png" style="height:650px">
 </section>
     
-<section id="ex1-up-string-sub">
+<section id="string-up-sub">
 <h1>STRING Network Up-Regulated Genes</h1>
     <p>The networks consists of one large connected component, several smaller networks, and some unconnected nodes. We will use only the largest connected component for the rest of the tutorial.</p>
     <ul>
     <li>Using shift-drag, select all nodes and edges for the largest connected component.</li>
     <li>Select <highlight>File &rarr; New Network &rarr; From Selected Nodes, Selected Edges</highlight>.</li>
     </ul>
-<img class="plain" src="string-de-up2-sub.png" style="height:600px"> 
+<img class="plain" src="string-up-sub.png" style="height:650px"> 
 </section>
     
-<section id="ex1-up-data-integration1">
+<section id="data-integration1">
     <h1>Data Integration</h1>
-    <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Our data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
+    <p>Next we will import the RNA-Seq data and use them to create a visualization. Our data from EBI has <b>Ensembl</b> identifiers, so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to Ensembl.</p>
     <ul>
         <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>display name</highlight> column and click <highlight>Map column...</highlight>.</li>
-        <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Entrez</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
+        <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Ensembl</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
         <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all downstream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
     </ul>
 </section>
     
-<section id="ex1-up-data-integration2">
+<section id="data-integration2">
     <h1>Data Integration</h1>
     <p>We can now import the differential gene expression data.</p>
     <ul>
-    <li>Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>.</li>
-    <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
-	<li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
-    <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
+    <li>Load the downloaded <b>E-GEOD-30573-query-results.tsv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
+	<li>Select the new <b>Ensembl</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
+    <li>In <highlight>Advanced Options...</highlight>, change the <highlight>Start Import Row</highlight> to <b>4</b>, to exclude the additional information in the data file.</li>
+    <li>Click <highlight>OK</highlight> to import. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
 </ul>
-    <img class="plain" src="DataImport.png" style="width:42%">
-    
+    <div style="width:45%;float:left">
+		<img class="plain" src="import-advanced.png" />
+	</div>
+	<div style="width:45%;float:right">
+		<img class="plain" src="data-import.png" />
+	</div>
 </section>
     
-<section id="ex1-up-visualization1">
+<section id="visualization1-up">
     <h1>Visualization</h1>
-    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
+    <p>Next, we will create a visualization of the imported data on the network. For more detailed information on data visualization, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
     <ul>
     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
     <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
+    <li>Set the default node size to <b>50</b>.</li>
     <li>Set the default node fill color to light gray.</li>
-    <li>Set the default node size to <b>40</b>.</li>
     <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
-    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
+    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>'autism' vs 'normal' .foldChange</highlight>, with the ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
     <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
     <li>Save your new visualization under <highlight>Copy Style...</highlight> in the <highlight>Options</highlight> menu of the <highlight>Style</highlight> interface, and name it <b>de genes up</b>.</li>
 	</ul>
@@ -136,13 +153,13 @@
     
 <section id="ex1-up-visualization2">
      <h1>Visualization</h1>
-        <p>If we reapply the <highlight>Prefuse Force Directed</highlight> layout, the network will now look something like this:</p>
-	    <img class="plain" src="string-de-up-viz-prefuse.png" style="height:650px">   
+        <p>If we apply the <highlight>Prefuse Force Directed</highlight> layout, the network will now look something like this:</p>
+	    <img class="plain" src="string-up-viz.png" style="height:650px">   
 </section>
                 
-<section id="ex1-up-string-enrich1">
+<section id="string-enrich1-up">
 <h1>STRING Enrichment</h1>
-    <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
+    <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for Gene Ontology, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
     <li>In the STRING tab of the <highlight>Results Panel</highlight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
@@ -162,7 +179,7 @@
 <img class="plain" src="string-enrichment-chart-up.png" style="height:450px">    
 </section>
                                                
-<section id="ex1-down-string">
+<!--<section id="ex1-down-string">
     <h1>STRING Protein Query Down-Regulated Genes</h1>
     <p>The same workflow (network search, data integration, visualizationcan and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
         <ul>
@@ -189,9 +206,9 @@
  <img class="plain" src="string-enrichment-chart-down2.png" style="height:500px">    
 </section>
     
-</section>
+</section>-->
 
-<section>
+<!--<section>
 <section id="ex2-string-disease">
     <h1>Example 2: STRING Disease Query</h1>
     <p>So far, we queried the STRING database with a set of genes we knew were differentially expressed. Next, we will query the <b>STRING disease</b> database to retrieve a network genes assocuated with ovarian cancer, which will be completely independent of our dataset.</p>
@@ -273,7 +290,7 @@
     
     </ul>
 </section>
-</section>
+</section>-->
                 
 <section id="exporting">
     <h1>Exporting Networks</h1>
