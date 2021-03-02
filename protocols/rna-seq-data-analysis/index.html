@@ -53,7 +53,7 @@
     <p>For this tutorial, we will use a dataset comparing transcriptomic differences between autistic and normal brain. The study has been published in <a href="https://europepmc.org/article/MED/21614001">Voineagu et al.</a>, and we will get a summarized dataset with fold change and p-value from the EBI Gene Expression Atlas.</p> 
     
     <ul>
-        <li>Download the data: <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-30573/Results">Transcriptomic analysis of autistic brain reveals convergent molecular pathology</a>.</li>
+        <li>Download the data: <a href="https://www.ebi.ac.uk/gxa/experiments-content/E-GEOD-30573/resources/ExperimentDownloadSupplier">Transcriptomic analysis of autistic brain reveals convergent molecular pathology</a>.</li>
         <li>Open the tsv datafile in Excel. The file contains a summary at the top, and has 4 columns of data: <b>Gene ID</b>, <b>Gene Name</b>, <b>fold change</b> and <b>p-value</b>. </li>
     </ul><br /><br />
     <img class="plain" src="excel-data.png" style="height:400px">
@@ -67,8 +67,8 @@
         <li>In the drop-down for fold change column, set a filter for <b>fold change greater than 2</b>.</li>
         <li>Next, set a filter for <b>p-value less than 0.05</b>.</li>
         <li>With the two filters active, <highlight>select and copy</highlight> all the gene names for genes passing the filter.</li>
-    </ul>
-                
+    </ul><br /><br />
+  <img class="plain" src="excel-filter.png" style="height:400px">               
 </section>
                 
 <!--<section id="intro1">
@@ -85,11 +85,16 @@
     <h1>Retrieve Networks from STRING</h1>
     <p>To identify a relevant network, we will use the STRING database to find a network relevant to the list of up-regulated genes.</p>
     <ul>
-        <li>Launch Cytoscape.</li>
-        <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
+        <li>Launch Cytoscape. In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
         <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a cutoff of <b>0.4</b> and <b>0</b> maximum additional interactors.</li>
-        <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network will load automatically.</li>
-    </ul>    
+        <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. If any of the search terms are ambiguous, a <highlight>Resolve Ambiguous Terms</highlight> dialog will appear. Click <highlight>Import</highlight> to continue with the import using the default choices. The resulting network will load automatically.</li>
+    </ul>    <br /><br />
+    <div style="width:40%;float:left">
+		<img class="plain" src="string-search.png" />
+	</div>
+	<div style="width:44%;float:right">
+		<img class="plain" src="string-disambiguation.png" />
+	</div>
 </section>
                 
 <!--<section>-->
@@ -109,29 +114,29 @@
 <img class="plain" src="string-up-sub.png" style="height:600px"> 
 </section>
     
-<section id="data-integration1">
+<!--<section id="data-integration1">
     <h1>Data Integration</h1>
-    <p>Next we will import the RNA-Seq data and use them to create a visualization. Our data from EBI has <b>Ensembl</b> identifiers, so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to Ensembl.</p>
+    <p>Next we will import the RNA-Seq data and use them to create a visualization.</p>
     <ul>
         <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>display name</highlight> column and click <highlight>Map column...</highlight>.</li>
         <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Ensembl</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
         <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all downstream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
     </ul>
-</section>
+</section>-->
     
 <section id="data-integration2">
     <h1>Data Integration</h1>
-    <p>We can now import the differential gene expression data.</p>
+    <p>Next we will import the RNA-Seq data and use them to create a visualization.</p>
     <ul>
     <li>Load the downloaded <b>E-GEOD-30573-query-results.tsv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
-	<li>Select the new <b>Ensembl</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
+	<li>Select the new <b>query term</b> column as the <b>Key column for Network</b> and select the <b>Gene Name</b> column as the key column by clicking on the header and selecting the key symbol.</li>
     <li>In <highlight>Advanced Options...</highlight>, change the <highlight>Start Import Row</highlight> to <b>4</b>, to exclude the additional information in the data file.</li>
     <li>Click <highlight>OK</highlight> to import. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
-</ul>
-    <div style="width:45%;float:left">
+</ul><br /><br />
+    <div style="width:38%;float:left">
 		<img class="plain" src="import-advanced.png" />
 	</div>
-	<div style="width:45%;float:right">
+	<div style="width:43%;float:right">
 		<img class="plain" src="data-import.png" />
 	</div>
 </section>
@@ -141,19 +146,29 @@
     <p>Next, we will create a visualization of the imported data on the network. For more detailed information on data visualization, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
     <ul>
     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
-    <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
-    <li>Set the default node size to <b>50</b>.</li>
-    <li>Set the default node fill color to light gray.</li>
-    <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
-    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>'autism' vs 'normal' .foldChange</highlight>, with the ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
-    <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
-    <li>Save your new visualization under <highlight>Copy Style...</highlight> in the <highlight>Options</highlight> menu of the <highlight>Style</highlight> interface, and name it <b>de genes up</b>.</li>
+    <li>Change the default node <highlight>Shape</highlight> to <b>ellipse</b> and check <highlight>Lock node width and height</highlight>.</li>
+    <li>Set the default node <highlight>Size</highlight> to <b>50</b>.</li>
+    <li>Set the default node <highlight>Fill Color</highlight> to light gray.</li>
+    <li>Set the default <highlight>Border Width</highlight> to <b>2</b>, and make the default <highlight>Border Paint</highlight> dark gray.</li>
 	</ul>
+    <img class="plain" src="style-viz1.png" style="height:450px">
 </section>     
+                
+<section>
+    <h1>Visualization</h1>
+    <ul>
+        <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>'autism' vs 'normal' .foldChange</highlight>.</li>
+        <li>Double-cllick the color mapping to open the <highlight>Continuous Mapping Editor</highlight> and click the <highlight>Current Palette</highlight>. Select the ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
+        <li>Finally, for node <highlight>Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
+        <li>Save your new visualization under <highlight>Copy Style...</highlight> in the <highlight>Options</highlight> menu of the <highlight>Style</highlight> interface, and name it <b>de genes up</b>.</li>
+    </ul>
+    <img class="plain" src="style-viz2.png" style="height:450px">
+      
+</section>
     
 <section id="ex1-up-visualization2">
      <h1>Visualization</h1>
-        <p>If we apply the <highlight>Prefuse Force Directed</highlight> layout, the network will now look something like this:</p>
+        <p>Apply the <highlight>Prefuse Force Directed</highlight> layout by clicking the <highlight>Apply Preferred Layout</highlight> <img class="plain" src="layout.png" style="height:30px"> button in the toolbar. The network will now look something like this:</p>
 	    <img class="plain" src="string-up-viz.png" style="height:650px">   
 </section>
                 
