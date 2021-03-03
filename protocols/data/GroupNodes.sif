@@ -1,0 +1,62 @@
+NPM1 ack K223	interacts with	NPM1 p S218
+NPM1 ack K223	interacts with	NPM1 p S214
+NPM1 ack K154	interacts with	NPM1 p S218
+NPM1	interacts with	NPM1 p S218
+NPM1	interacts with	NPM1 p S214
+NPM1	interacts with	NPM1 ack K223
+NPM1	interacts with	NPM1 ack K154
+IRS1 p Y941	interacts with	IRS1 p Y989
+IRS1	interacts with	NPM1
+IRS1	interacts with	IRS1 p Y989
+IRS1	interacts with	IRS1 p Y941
+IRS1	interacts with	IRS1 p Y632
+CTTN ack K87	interacts with	CTTN p S224
+CTTN ack K390	interacts with	CTTN p Y421
+CTTN ack K235	interacts with	CTTN p Y228
+CTTN ack K235	interacts with	CTTN p S224
+CTTN ack K161	interacts with	CTTN p Y421
+CTTN ack K147	interacts with	CTTN p Y228
+CTTN ack K147	interacts with	CTTN p Y104
+CTTN ack K147	interacts with	CTTN p S113
+CTTN ack K124	interacts with	CTTN p Y228
+CTTN ack K107	interacts with	CTTN p S224
+CTTN	interacts with	NPM1
+CTTN	interacts with	CTTN p Y421
+CTTN	interacts with	CTTN p Y334
+CTTN	interacts with	CTTN p Y228
+CTTN	interacts with	CTTN p Y162
+CTTN	interacts with	CTTN p Y154
+CTTN	interacts with	CTTN p Y104
+CTTN	interacts with	CTTN p S224
+CTTN	interacts with	CTTN p S113
+CTTN	interacts with	CTTN ack K87
+CTTN	interacts with	CTTN ack K390
+CTTN	interacts with	CTTN ack K235
+CTTN	interacts with	CTTN ack K161
+CTTN	interacts with	CTTN ack K147
+CTTN	interacts with	CTTN ack K124
+CTTN	interacts with	CTTN ack K107
+CTNND1 p Y904	interacts with	CTTN p Y154
+CTNND1 p Y248	interacts with	CTTN p Y334
+CTNND1 p Y241	interacts with	CTTN p Y162
+CTNND1 p Y228	interacts with	CTNND1 p Y302
+CTNND1 p Y217	interacts with	CTTN p Y162
+CTNND1 p Y193	interacts with	CTNND1 p Y302
+CTNND1 p Y193	interacts with	CTNND1 p Y228
+CTNND1	interacts with	IRS1
+CTNND1	interacts with	CTTN
+CTNND1	interacts with	CTNND1 p Y904
+CTNND1	interacts with	CTNND1 p Y302
+CTNND1	interacts with	CTNND1 p Y248
+CTNND1	interacts with	CTNND1 p Y241
+CTNND1	interacts with	CTNND1 p Y228
+CTNND1	interacts with	CTNND1 p Y217
+CTNND1	interacts with	CTNND1 p Y193
+ALK p Y1586	interacts with	IRS1 p Y989
+ALK p Y1096	interacts with	IRS1 p Y989
+ALK p Y1096	interacts with	ALK p Y1586
+ALK p Y1078	interacts with	IRS1 p Y632
+ALK	interacts with	IRS1
+ALK	interacts with	ALK p Y1586
+ALK	interacts with	ALK p Y1096
+ALK	interacts with	ALK p Y1078
