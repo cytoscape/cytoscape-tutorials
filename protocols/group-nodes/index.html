@@ -31,7 +31,7 @@
 <section>
 <h1>Group Nodes</h1>
 <p>This protocol shows you how to use node grouping functions to manipulate graphs in Cytoscape.</p>
-<p>The ability to group nodes together into “metanodes” and collapse them to a single node in a graph is useful for simplifying views of a complex network. The example in this protocol describes application of node grouping functions to data that includes protein-protein interactions and clustered correlations of protein post-translational modifications (Grimes, et al., 2018).</p>
+<p>The ability to group nodes together into “metanodes” and collapse them to a single node in a graph is useful for simplifying views of a complex network. The example in this protocol describes application of node grouping functions to data that includes protein-protein interactions and clustered correlations of protein post-translational modifications.</p>
 <p>Adapted from <a href="http://stke.sciencemag.org/content/11/531/eaaq1087">Grimes et al., 2018. Sci. Signal. Vol. 11, Issue 531</a>.</p>
 <div class="footer" style="position: absolute;left: -5em;bottom: -5em; ">
 <img class="plain" src="../../assets/images/Cytoscape.png" style="height:70px;opacity:0.5"> 
@@ -42,7 +42,7 @@
 
 <section>
 <h1>Load Network</h1>
-    <p>First, we will load a simple example network.</p>
+    <p>First, we will load an example network.</p>
     <ul>
     <li>Download <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GroupNodes.sif"><i>GroupNodes.sif</i></a>.</li>
     <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight></li>
@@ -71,7 +71,7 @@
     <p>One of the main motivations for creating groups is to be able to simplify the network view by showing only the group nodes. This is done by collapsing groups.</p>
     <ul>
     <li>Again, right-click on one of the group nodes and select <highlight>Group &rarr; Collapse Group(s)</highlight>.</li>
-    <li>Even though we named the node earlier (as the attribute <b>shared name</b>, the label for the group node is blank. This is because the node label mappping by default uses the <b>name</b> attribute and not <b>shared name</b>. Change the mapping for <highlight>Node Label</highlight> in the <highlight>Style</highlight> tab to <b>shared name</b>.</li>
+    <li>Even though we named the node earlier (as the attribute <b>shared name</b>), the label for the group node is blank. This is because the node label mappping by default uses the <b>name</b> attribute and not <b>shared name</b>. Change the mapping for <highlight>Node Label</highlight> in the <highlight>Style</highlight> tab to <b>shared name</b>.</li>
     </ul>
     <img class="plain" src="network_cttn_collapsed.png" style="width:45%">
 </section>
