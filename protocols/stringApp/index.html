@@ -58,7 +58,7 @@ to allow us to repackage the content for delivery as a Cytoscape tutorial.</p>
 
 
 <section>
-<h2>Prerequisites</h2>
+<h1>Prerequisites</h1>
 <p style="text-align: left">To follow the exercises, please make sure that you have the
 latest version of Cytoscape installed. Then start Cytoscape and go
 to <highlight>Apps → App Manager</highlight> to check for new apps, install
@@ -80,7 +80,7 @@ underlying data before working with them in these exercises.</p>
 
 <section>
 <section>
-<h2 id="exercise-1">Exercise 1</h2>
+<h1 id="exercise-1">Exercise 1</h1>
 
 <p>In this exercise, we will perform some simple queries to retrieve
 molecular networks based on a protein, a small-molecule compound,
@@ -89,22 +89,15 @@ a disease, and a topic in PubMed.</p>
 
 <section>
 
-<h3 id="11-protein-queries">1.1 Protein queries</h3>
+<h1 id="11-protein-queries">1.1 Protein queries</h1>
 
-<p style="text-align: left">Go to the menu <highlight>File &rarr; Import &rarr; Network from Public
-Databases...</highlight>. In the import dialog, choose <highlight>STRING:
-protein query</highlight> as <highlight>Data Source</highlight> and
-type your favorite protein into the <highlight>Enter protein names
-or identifiers</highlight> field (e.g. SORCS2). You can select the
-appropriate organism by typing the name (e.g. Homo sapiens). The
-<highlight>Maximum number of interactors</highlight> determines how
-many interaction partners of your protein(s) of interest will be
-added to the network. By default, if you enter only one protein
-name, the resulting network will contain 10 additional interactors.
-If you enter more than one protein name, the network will contain
-only the interactions among these proteins, unless you explicitly
-ask for additional proteins.</p>
-
+<ol>
+<li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING protein query</b> in the drop-down and type in a protein name, for example <b>SORCS2</b>. Alternatively, use <highlight>File &rarr; Import &rarr; Network from Public Databases...</highlight>.</li>
+<li>Click the <highlight>More Options...</highlight> button ☰ to view settings. Make sure the appropriate organism is selected (e.g. Homo sapiens).</li>
+<li><highlight>Maximum number of interactors</highlight> determines how
+many interaction partners of your protein(s) of interest will be added to the network. The default setting is 10, which we will keep for this example.</li>
+<li>Click the 🔍 button to start the search.</li>
+</ol>
 <p style="text-align: left">Unless the name(s) you entered give unambiguous matches, a
 disambiguation dialog will be shown next. It lists all the matches
 that the stringApp finds for each query term and selects the first
@@ -113,79 +106,82 @@ pressing the <highlight>Import</highlight> button.</p>
 
 <div class="cybrowser">
 <p style="text-align: left"><a href="cycmd:string protein query query=SORCS2 taxonID=9606" class="btn btn-primary">Import SORCS2 network</a></p>
-</div>
-
-<p style="text-align: left"><em>How many nodes are in the resulting network? How does this
-compare to the maximum number of interactors you specified? What
-types of information does the <highlight>Node Table</highlight>
-provide?</em></p> 
+    </div>
 </section>
 
 <section>
-<h3 id="12-compound-queries">1.2 Compound queries</h3>
+<p style="text-align: left"><em>How many nodes are in the resulting network? How does this
+compare to the maximum number of interactors you specified? What
+types of information does the <highlight>Node Table</highlight>
+provide?</em>
+</p> 
+<img class="plain" src="string-protein.png" style="height:500px">   
+</section>
 
-<p style="text-align: left">Go to the menu <highlight>File &rarr; Import &rarr; Network from Public
-Databases...</highlight>. In the import dialog, choose <highlight>STITCH:
-protein/compound query</highlight> as <highlight>Data Source</highlight>
-and type your favorite compound into the <highlight>Enter protein
-or compound names or identifiers</highlight> field (e.g. imatinib).
-You can select the organism and number of additional interactors
-just like for the protein query above, and the disambiguation dialog
-also works the same way.</p>
+<section>
+<h1 id="12-compound-queries">1.2 Compound queries</h1>
+<ol>
+<li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STITCH compound query</b> in the drop-down and type in your favorite compound, for example <b>imatinib</b>.</li>
+<li>You can select the organism and number of additional interactors just like for the protein query above, and the disambiguation dialog also works the same way.</li>
+<li>Click the 🔍 button to start the search.</li>
+</ol>
 
 <div class="cybrowser">
 <p style="text-align: left"><a href="cycmd:string compound query query=imatinib taxonID=9606" class="btn  btn-primary">Import imatinib network</a></p>
 </div>
-
+</section>
+    
+<section>
 <p style="text-align: left"><em>How is this network different from the protein-only network
 with respect to node types and the information provided in the
 <highlight>Node Table</highlight>?</em></p> 
+    
+<img class="plain" src="stitch-compound.png" style="height:550px">   
 </section>
-
+    
 <section>
-<h3 id="13-disease-queries">1.3 Disease queries</h3>
-
-<p style="text-align: left">Go to the menu <highlight>File &rarr; Import &rarr; Network from Public
-Databases...</highlight>. In the import dialog, choose <highlight>STRING:
-disease query</highlight> as <highlight>Data Source</highlight> and
-type a disease of interest into the <highlight>Enter disease
-term</highlight> field (e.g. Alzheimer’s disease). The stringApp
-will retrieve a STRING network for the top-N proteins (by default
-100) associated with the disease.</p>
-
-<p style="text-align: left">The next dialog shows all the matches that the stringApp finds
-for your disease query and selects the first one. Make sure to
-select the intended disease before pressing the
-<highlight>Import</highlight> button to continue.</p>
+<h1 id="13-disease-queries">1.3 Disease queries</h1>
+<ol>
+<li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING
+disease query</b> in the drop-down and type in a disease of interest, for example <b>Alzheimer’s disease</b>. The stringApp will retrieve a STRING network for the top-N proteins (by default 100) associated with the disease.</li>
+<li>Click the 🔍 button to start the search.</li>
+<li>The next dialog shows all the matches that the stringApp finds for your disease query and selects the first one. Make sure to select the intended disease before pressing the <highlight>Import</highlight> button to continue.</li>
+</ol>
 
 <div class="cybrowser">
 <p style="text-align: left"><a href="cycmd:string disease query disease=DOID:10652 taxonID=9606 limit=100" class="btn  btn-primary">Import Alzheimer’s disease network</a></p>
 </div>
+</section>
+    
+<section>
+    <p style="text-align: left"><em>Which additional attribute column do you get in the <highlight>Node Table</highlight> for a disease query compared to a protein query? (Hint: check the last column.)</em></p>
+    
+    <img class="plain" src="string-disease.png" style="height:600px">   
 
-<p style="text-align: left"><em>Which additional attribute column do you get in the <highlight>Node Table</highlight> for a disease query compared to a protein query? (Hint: check the last column.)</em></p>
 </section>
 
 <section>
-<h3 id="14-pubmed-queries">1.4 PubMed queries</h3>
-
-<p style="text-align: left">Go to the menu <highlight>File &rarr; Import &rarr; Network from Public
-Databases...</highlight>. In the import dialog, choose <highlight>STRING:
-PubMed query</highlight> as <highlight>Data Source</highlight> and
-type query representing a topic of interest into the <highlight>PubMed
-Query</highlight> field (e.g. jet-lag). You can use any query that
-would work on the PubMed website, but it should obviously a topic
-with related genes or proteins. The stringApp will query PubMed for
-the abstracts, find the top-N proteins (by default 100) associated
-with these abstracts, and retrieve a STRING network for them.</p>
+<h1 id="14-pubmed-queries">1.4 PubMed queries</h1>
+<ol>
+<li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING
+PubMed query</b> in the drop-down and type in type a query representing a topic or interest, for example <b>jet-lag</b>. You can use any query that would work on the PubMed website, but it should obviously a topic with related genes or proteins. The stringApp will query PubMed for the abstracts, find the top-N proteins (by default 100) associated with these abstracts, and retrieve a STRING network for them.</li>
+<li>Click the 🔍 button to start the search.</li>
+<li>The next dialog shows all the matches that the stringApp finds for your disease query and selects the first one. Make sure to select the intended disease before pressing the <highlight>Import</highlight> button to continue.</li>
+</ol>
 
 <div class="cybrowser">
 <p style="text-align: left"><a href="cycmd:string pubmed query pubmed=jet-lag taxonID=9606 limit=50" class="btn  btn-primary">Import jet-lag network</a></p>
 </div>
-
-<p style="text-align: left"><em>Which attribute column do you get in the <highlight>Node Table</highlight> for a PubMed query compared to a disease query? (Hint: check the last columns.)</em></p>
+</section>
+    
+<section>
+    <p style="text-align: left"><em>Which attribute column do you get in the <highlight>Node Table</highlight> for a PubMed query compared to a disease query? (Hint: check the last columns.)</em></p>
+    
+    <img class="plain" src="string-pubmed.png" style="height:600px">   
+    
 </section>
 
-<section>
+<!--<section>
 <h3 id="15-new-search-interface">1.5 New search interface</h3>
 
 <p style="text-align: left">The types of queries described above can alternatively be performed
@@ -195,31 +191,30 @@ menu with an icon on it. Select one of the four possible STRING queries
 and directly enter your query in the text field. To change settings
 such as organism, click the ☰ button next to the text field. Finally,
 click the 🔍 button to retrieve a STRING network for your query.</p>
-</section> </section>
+</section>-->
+</section>
 
 <section>
 <section>
 
-<h2 id="exercise-2">Exercise 2</h2>
+<h1 id="exercise-2">Exercise 2</h1>
 
 <p>In this exercise, we are going to use the stringApp to query the
 <a href="https://diseases.jensenlab.org">DISEASES</a> database for
 proteins associated with epithelial ovarian cancer (EOC), retrieve a
 STRING network for them, and explore the resulting network.</p>
 </section>
+
 <section>
-
-<h3 id="21-disease-network-retrieval">2.1 Disease network retrieval</h3>
-
-<p style="text-align: left">Close the current session in Cytoscape from the menu <highlight>File →
-Close</highlight>. Use the menu <highlight>File → Import → Network from
-Public Databases</highlight> and the <highlight>STRING: disease query</highlight>
-option from the <highlight>Data Source</highlight> drop-down menu. Insert
-<highlight>ovary epithelial cancer</highlight> into the <highlight>Enter disease
-term</highlight> field, set the <highlight>Maximum number of proteins</highlight>
-option to <highlight>250</highlight> and press the <highlight>Import</highlight>
-button. Once the network appears, go to the menu <highlight>View → Show
-Graphics Details</highlight> to see the individual nodes and edges.</p>
+<h1 id="21-disease-network-retrieval">2.1 Disease network retrieval</h1>
+<ol>
+    <li>Close the current session in Cytoscape from the menu <highlight>File → Close</highlight>.</li>
+    <li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING
+disease query</b> in the drop-down and type in <b>ovary epithelial cancer</b>.</li>
+    <li>Set the <highlight>Maximum number of proteins</highlight> option to <b>250</b>.</li>
+    <li>Click the 🔍 button to start the search.</li>
+    <li>Once the network appears, go to the menu <highlight>View → Always Show Graphics Details</highlight> to see the individual nodes and edges.</li>
+</ol>
 
 <div class="cybrowser">
 <p style="text-align: left"><a href="cycmd:string disease query disease=DOID:2152 taxonID=9606
@@ -229,7 +224,7 @@ network</a></p>
 </section>
 
 <section>
-<h3 id="22-work-with-node-attributes">2.2. Work with node attributes</h3>
+<h1 id="22-work-with-node-attributes">2.2. Work with node attributes</h1>
 
 <p style="text-align: left">Note that the retrieved network contains a lot of additional
 information associated with the nodes and edges, such as the protein
@@ -238,85 +233,80 @@ sequence, tissue expression data, subcellular localization, disease score
 different interaction evidences (<highlight>Edge Table</highlight>). In the
 following, we will explore these data using Cytoscape.</p>
 
-<p style="text-align: left">Find the <highlight>disease score</highlight> column in the node attributes
-table (look at the last columns). Sort it by values to see the highest
-and lowest disease scores. You can highlight the corresponding nodes by
-selecting the rows in the table, bringing up the context menu (right-click
-the selected rows) and choosing the <highlight>Select nodes from selected
-rows</highlight> option. You can also use one of the icons in the menu to
-zoom into the selected node.</p>
+<ol>
+   <li>Find the <highlight>disease score</highlight> column in the node attributes table (look at the last columns). Sort it by values to see the highest and lowest disease scores.</li> 
+   <li>Highlight the corresponding nodes by selecting the rows in the table, bringing up the context menu (right-click
+       the selected rows) and choosing the <highlight>Select nodes from selected rows</highlight> option. Use one of the icons in the menu to zoom into the selected node.</li>
+</ol>
 
 <p style="text-align: left"><em>Give an example for a node with the highest and lowest disease score.</em></p>
 </section>
 
 <section>
-<h3 id="23-inspect-subcellular-localization-data">2.3 Inspect subcellular localization data</h3>
+<h1 id="23-inspect-subcellular-localization-data">2.3 Inspect subcellular localization data</h1>
 
 <p style="text-align: left">The stringApp automatically retrieves information about
 in which compartments the proteins are located from the <a
 href="https://compartments.jensenlab.org/">COMPARTMENTS</a> database,
 which we will take a look at first to better understand the data.</p>
 
-<p style="text-align: left">Go to <a href="https://compartments.jensenlab.org/">COMPARTMENTS</a>
-and enter <highlight>ARID1A</highlight> into the search box. The resulting
-page will show all matches for the query ARID1A.</p>
-
-<p style="text-align: left">After selecting the human gene, you will see a schematic of where
-in the cell it is located and below it tables containing the specific
-lines of evidence that contribute to the overall score.</p>
+<ol>
+<li>Go to <a href="https://compartments.jensenlab.org/">COMPARTMENTS</a> and enter <b>ARID1A</b> into the search box. The resulting page will show all matches for the query ARID1A.</li>
+<li>After selecting the human gene, you will see a schematic of where in the cell it is located and below it tables containing the specific lines of evidence that contribute to the overall score.</li>
+</ol>
 
 <p style="text-align: left"><em>What compartments is ARID1A present in with a confidence
 of 5? What source do these interactions come from? Hint: you can
 see what the abbreviations for different evidence types mean <a
 href="http://geneontology.org/docs/guide-go-evidence-codes/">here</a>.</em></p>
 </section>
+    
 <section>
-<h3 id="24-continuous-color-mapping">2.4 Continuous color mapping</h3>
+<h1 id="24-continuous-color-mapping">2.4 Continuous color mapping</h1>
 
 <p style="text-align: left">Cytoscape allows you to map attributes of the nodes and edges to
 visual properties such as node color and edge width. Here, we will map
 the subcellular localization data for nucleus to the node color.</p>
 
-<p style="text-align: left">From the <highlight>Control Panel</highlight>, select <highlight>Style</highlight>. Click
-on the <highlight>◀</highlight> button to the right of the property
-you want to change, in this case <highlight>Fill Color</highlight> and set
-<highlight>Column</highlight> to the node column containing the data that you
-want to use (<highlight>nucleus</highlight>). Since this is a numeric value, we
-will use the <highlight>Continuous Mapping</highlight> as the <highlight>Mapping
-Type</highlight>, and set a color gradient for how likely each protein
-is located in the nucleus. The default Cytoscape yellow–purple color
-gradient already gives a nice visualization of the confidence of being
-located in this compartment.</p>
+<ol>
+<li>From the <highlight>Control Panel</highlight>, select <highlight>Style</highlight>. Click
+on the <highlight>◀</highlight> button to the right of the property you want to change, in this case <highlight>Fill Color</highlight> and set <highlight>Column</highlight> to the node column containing the data that you want to use (<highlight>nucleus</highlight>).</li>
+<li>Since this is a numeric value, we will use the <highlight>Continuous Mapping</highlight> as the <highlight>Mapping
+Type</highlight>, and set a color gradient for how likely each protein is located in the nucleus. The default Cytoscape yellow–purple color gradient already gives a nice visualization of the confidence of being located in this compartment.</li>
+</ol>
 
 <p style="text-align: left"><em>Many proteins are strongly associated with the nucleus –
-they will be purple. Why are there nodes colored grey, which is not a
-color from the gradient? Hint: look at the column <highlight>compartments
-nucleus</highlight> in the Node Table.</em></p>
+they will be purple.</em></p>
 </section>
 
 <section>
-<h3 id="25-select-proteins-located-in-the-nucleus">2.5 Select proteins located in the nucleus</h3>
+<h1 id="25-select-proteins-located-in-the-nucleus">2.5 Select proteins located in the nucleus</h1>
 
 <p style="text-align: left">Because many proteins are located in the nucleus, we will identify the
 proteins with highest confidence of 5. One way to do this is to use the
 COMPARTMENTS sliders in the <highlight>STRING Results</highlight> panel on the
-right side. Go to the <highlight>Node</highlight> tab and expand the group of
-compartments filter by clicking the small triangle. To hide all nodes with
-a compartments score below 5, find the slider for <highlight>nucleus</highlight>
-and set the low bound to 5 by entering the number.</p>
-
+right side. 
+<ol>
+<li>Go to the <highlight>Node</highlight> tab and expand the group of <highlight>Compartment filters</highlight> by clicking the small triangle.</li>
+<li>To hide all nodes with a compartments score below 5, find the slider for <highlight>nucleus</highlight>
+and set the low bound to 5 by entering the number.</li>
+</ol>
+</section>
+    
+<section>
 <p style="text-align: left"><em>How many proteins are found in the nucleus with a confidence of
 5? And in mitochondrion? Hint: You can see the number of hidden nodes
 in the light grey panel bar on the bottom-right part of the network view
 panel, just above the Table panel.</em></p>
+<img class="plain" src="nucleus-sub.png" style="height:600px">   
 
-<p style="text-align: left">Important: Move the filter back to 0 before continuing with the next exercise.</p>
+<p style="text-align: left"><b>Important: Move the filter back to 0 before continuing with the next exercise.</b></p>
 </section>
 </section>
 
 <section>
 <section>
-<h2 id="exercise-3">Exercise 3</h2>
+<h1 id="exercise-3">Exercise 3</h1>
 
 <p>In this exercise, we will work with a list of 541
 proteins associated with epithelial ovarian cancer (EOC)
@@ -327,7 +317,7 @@ downloaded <a href="https://raw.githubusercontent.com/cytoscape/cytoscape-automa
 </section>
 
 <section>
-<h3 id="31-protein-network-retrieval">3.1 Protein network retrieval</h3>
+<h1 id="31-protein-network-retrieval">3.1 Protein network retrieval</h1>
 
 <p style="text-align: left">Go to the menu <highlight>File → Import → Network from Public
 Databases</highlight>. In the import dialog, choose <highlight>STRING: protein
