@@ -30,12 +30,12 @@
 
 <section>
 	<h1>Pathway Figure Gene Set Analysis</h1>
-    <p>Through a combination of optical character recognition, machine learning and manual curation, gene sets have been extracted from <a href="https://doi.org/10.1186/s13059-020-02181-2" target="_blank">published pathway figures</a>. 32,000 of these sets are available in <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf" target="_blank">NDEx</a>, and can be used directly in Cytoscape.<br />
+    <p style="text-align: left">Through a combination of optical character recognition, machine learning and manual curation, gene sets have been extracted from <a href="https://doi.org/10.1186/s13059-020-02181-2" target="_blank">published pathway figures</a>. 32,000 of these sets are available in <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf" target="_blank">NDEx</a>, and can be used directly in Cytoscape.<br />
     Starting with a gene set, this protocol describes how to visualize data on the set, create a network from it, perform functional enrichment and include the original figure for comparison.</p>
     
-    <img class="plain" src="network-final.png" style="height:320px"> 
+    <img class="plain" src="network-final.png" style="height:380px"> 
     
-    <p>If you don't already have the <b>stringApp</b> installed, you can install it from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a> or from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
+    <p style="text-align: left">If you don't already have the <b>stringApp</b> installed, you can install it from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a> or from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
     <div class="footer" style="bottom: -2em;">
     <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>
 </section>
@@ -45,8 +45,8 @@
     
     <ul>
         <li>Navigate to <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf" target="_blank">Published Pathway Figure Analysis Set</a> at NDEx.</li>
-        <li>In the <highlight>Network Name</highlight> field, type in <b>Possible interaction between PI3K/AKT/mTOR network and PIM in ovarian cancer</b> to find the network by network name.</li>
-        <li>Click on the network. The page will display the genes in the set on the left and the published figure they were extracted from on the right.</li>
+        <li>In the <highlight>Network Name</highlight> field, type in <b>Possible interaction between PI3K/AKT/mTOR network and PIM in ovarian cancer</b> to find the network by name.</li>
+        <li>Click on the network. The page will display the gene set on the left and the published figure they were extracted from on the right.</li>
         <li>Save the figure by right-clicking on it and selecting <highlight>Save Image As..</highlight>.</li>
         <li>To open the gene set into Cytoscape, click the <highlight>Open in Cytoscape</highlight> button in the lower right.</li>
     </ul>
@@ -70,7 +70,7 @@
 <section>
 <section>
     <h1>Data Integration and Visualization</h1>
-    <p>Next, we will import experimental data from the <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a>, comparing gene expression between two molecular subtypes of ovarian cancer (Mesenchymal and Immunoreactive). The data is annotated with <b>NCBI Gene</b> identifiers, which is also what the nodes in the gene set are annotated with.</p>
+    <p style="text-align: left">Next, we will import experimental data from <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a>, comparing gene expression between two molecular subtypes of ovarian cancer (Mesenchymal and Immunoreactive). The data is annotated with <b>NCBI Gene</b> identifiers, which is also what the nodes in the gene set are annotated with.</p>
     <ul>
         <li>Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv" target="_blank">TCGA-Ovarian-MesenvsImmuno_data.csv</a>.</li>
         <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
@@ -81,7 +81,7 @@
                 
 <section>
     <h1>Data Integration and Visualization</h1>
-    <p>We can now add a simple visualization of the data on the set of nodes.</p>
+    <p style="text-align: left">We can now add a simple visualization of the data on the set of nodes.</p>
     <ul>
         <li>In the <highlight>Style</highlight> interface, under <highlight>Node Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>Red-Blue</b> gradient.</li>
         <li>Set the default node fill color to light gray.</li>
@@ -93,7 +93,7 @@
                 
 <section>
     <h1>Add Pathway Figure as Annotation</h1>
-    <p>We can add the original published figure for this gene set as a Cytoscape annotation, to add context to the nodes.</p>
+    <p style="text-align: left">We can add the original published figure for this gene set as a Cytoscape annotation, to add context to the nodes.</p>
     <ul>
         <li>In the <highlight>Annotations</highlight> tab of the <highlight>Control Panel</highlight>, select the <highlight>Image</highlight> icon at the top and then click anywhere in the network view to place the annotation. The initial placement can easily be changed later.</li>
         <li>Select the pathway figure you downloaded previously in the file browser.</li>
@@ -103,8 +103,9 @@
 </section>
     
 <section>
-    <h1>Add Pathway Figure as Annotation</h1>
-    <p><b>Bonus:</b> If we arrange the nodes in the gene set to approximate their placement in the original figure, we can begin to approximate a pathway layout, and start to interpret the data. Note that the label displayed on the node, <b>name</b>, is the official gene symbol, whereas the original published figures sometimes use various gene symbol aliases. Use the <b>word</b> column to match nodes to the figure.</p>
+    <h1>Manually Layout Gene Set Nodes</h1>
+    <p style="text-align: left"><b>Bonus:</b> If we arrange the nodes in the gene set to approximate their placement in the original figure, we can begin to approximate a pathway layout, and start to interpret the data. Note that the label displayed on the node, <b>name</b>, is the official gene symbol, whereas the original published figures sometimes use various gene symbol aliases. Use the <b>word</b> column to match nodes to the figure.</p>
+    <p style="text-align: left">In this example, the original figure contained several complexes and isoform groups that were illustrated as single nodes. In the gene set these have been expanded to include all members of isoforms and complex subunits.</p>
     
         <img class="plain" src="gene-set-final-pw.png" style="width:85%">
 
@@ -115,7 +116,7 @@
 <section>  
 <section>
     <h1>STRING Query</h1>
-        <p>So far, we have worked with the gene set as nodes, without edges. Next, we will add <b>known interactions</b> to our nodes from the <a href="https://string-db.org/">STRING</a> database by quering the database for all nodes. This will enable further analysis options downstream.</p>
+        <p style="text-align: left">So far, we have worked with the gene set as nodes, without edges. Next, we will add <b>known interactions</b> to our nodes from the <a href="https://string-db.org/">STRING</a> database by quering the database for all nodes. This will enable further analysis options downstream.</p>
         <ul>
             <li>In the <highlight>Node Table</highlight>, select the top entry in the <highlight>name</highlight> column, hold down the shift key and select the last entry. Copy the contents to the clipboard.</li>
             <li>In the <highlight>Network tab</highlight> of the <highlight>Contol Panel</highlight>, select <b>STRING protein query</b> in the drop-down and paste in the contents of the clipboard.</li>
@@ -125,7 +126,7 @@
     
 <section>
     <h1>STRING Query</h1>
-    <p>The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.95 or greater. Adding a force-directed layout, the network looks something like this:</p>
+    <p style="text-align: left">The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.95 or greater. Adding a force-directed layout, the network looks something like this:</p>
     <img class="plain" src="pfocr-string-layout.png" >
     <!--<img class="plain" src="pfocr-string.png" style="width:55%"> -->
 </section>
@@ -144,7 +145,7 @@
    
 <section>
     <h1>Data Integration</h1>
-    <p>Next, we can import the same experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset. The STRING network is annotated with protein identifiers, mainly <b>Uniprot</b> and <b>Ensembl protein</b>, while the data has <b>NCBI Gene</b> identifiers. So before importing the data we are going to use the <b>ID Mapper</b> functionality in Cytoscape to map the network to NCBI Gene.</p>
+    <p style="text-align: left">Next, we can import the same experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset. The STRING network is annotated with protein identifiers, mainly <b>Uniprot</b> and <b>Ensembl protein</b>, while the data has <b>NCBI Gene</b> identifiers. So before importing the data we are going to use the <b>ID Mapper</b> functionality in Cytoscape to map the network to NCBI Gene.</p>
     <ul>
         <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>display name</highlight> column and click <highlight>Map column...</highlight>.</li>
         <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Entrez</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
@@ -163,7 +164,7 @@
                 
 <section>
     <h1>Visualization</h1>
-    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Data</a> tutorial.</p>   
+    <p style="text-align: left">Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Data</a> tutorial.</p>   
     <ul>
     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, delete the mappings for <highlight>Image/Chart 1</highlight> and <highlight>Image/Chart 2</highlight> by clicking the <highlight>Delete</highlight> button <img class="plain" src="Delete.png" style="height:30px"> for each.</li>
     <li>Set the default node fill color to light gray.</li>
@@ -174,13 +175,13 @@
                 
 <section>
      <h1>Visualization</h1>
-        <p>The network will now look something like this:</p>
+        <p style="text-align: left">The network will now look something like this:</p>
 	    <img class="plain" src="pfocr-string-style.png" style="height:650px">  
 </section>
                 
 <section>
     <h1>STRING Enrichment</h1>
-    <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
+    <p style="text-align: left">The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
     <li>In the STRING tab of the <highlight>Results Panel</highlight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
@@ -190,7 +191,7 @@
                 
 <section>
     <h1>STRING Enrichment</h1>
-    <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Process.</p>    
+    <p style="text-align: left">The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Process.</p>    
     <ul>
         <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click <b>OK</b>.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
@@ -199,7 +200,7 @@
     
 <section>
     <h1>STRING Enrichment</h1>
-    <p>Not surprisingly, the top two terms are related to the signal transduction, specifically phosphatidylinositol phosphorylation, the enzymatic function of PI3Ks.</p>
+    <p style="text-align: left">Not surprisingly, the top two terms are related to the signal transduction, specifically phosphatidylinositol phosphorylation, the enzymatic function of PI3Ks.</p>
     <img class="plain" src="string-enrichment-chart.png" style="height:450px">    
     <img class="plain" src="string-enrichment2.png" style="width:1100px">    
 
@@ -208,7 +209,7 @@
                 
 <section>
     <h1>Add Pathway Figure as Annotation</h1>
-    <p>Again, we can add the original published figure for this gene set as an annotation.</p>
+    <p style="text-align: left">Again, we can add the original published figure for this gene set as an annotation.</p>
     <ul>
         <li>In the <highlight>Annotations</highlight> tab of the <highlight>Control Panel</highlight>, select the <highlight>Image</highlight> icon at the top and then click anywhere in the network view to place the annotation.</li>
         <li>Select the pathway figure you downloaded previously.</li>
