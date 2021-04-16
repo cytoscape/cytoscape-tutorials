@@ -30,10 +30,10 @@
 
 <section>
 	<h1>Pathway Figure Gene Set Analysis</h1>
-    <p style="text-align: left">Through a combination of optical character recognition, machine learning and manual curation, gene sets have been extracted from <a href="https://doi.org/10.1186/s13059-020-02181-2" target="_blank">published pathway figures</a>. 32,000 of these sets are available in <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf" target="_blank">NDEx</a>, and can be used directly in Cytoscape.<br />
-    Starting with a gene set, this protocol describes how to visualize data on the set, create a network from it, perform functional enrichment and include the original figure for comparison.</p>
+    <p style="text-align: left">Through a combination of optical character recognition, machine learning and manual curation, gene sets have been extracted from <a href="https://doi.org/10.1186/s13059-020-02181-2" target="_blank">published pathway figures</a>. 32,000 of these sets are available in <a href="https://ndexbio.org/#/networkset/85034b42-de8a-11ea-99da-0ac135e8bacf" target="_blank">NDEx</a>, and can be used directly in Cytoscape.<br /><br />
+    This protocol describes how to visualize data on a gene set, create a network from it in two different ways, perform functional enrichment and include the original figure for comparison. <b>The starting point for this kind of analysis is a list of gene sets found to be enriched in an experiment, through functional enrichment analysis against the full set of gene sets.</b></p>
     
-    <img class="plain" src="network-final.png" style="height:380px"> 
+    <img class="plain" src="network-final.png" style="height:300px"> 
     
     <p style="text-align: left">If you don't already have the <b>stringApp</b> installed, you can install it from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a> or from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
     <div class="footer" style="bottom: -2em;">
@@ -104,13 +104,66 @@
     
 <section>
     <h1>Manually Layout Gene Set Nodes</h1>
-    <p style="text-align: left"><b>Bonus:</b> If we arrange the nodes in the gene set to approximate their placement in the original figure, we can begin to approximate a pathway layout, and start to interpret the data. Note that the label displayed on the node, <b>name</b>, is the official gene symbol, whereas the original published figures sometimes use various gene symbol aliases. Use the <b>word</b> column to match nodes to the figure.</p>
+    <p style="text-align: left">Next, we will arrange the gene set nodes and add interaction with the goal of reproducing the information from pathway figure in a computational model. We can start by moving the nodes into the approximate location from the figure. Note that the label displayed on the node, <b>name</b>, is the official gene symbol, whereas the original published figures sometimes use various gene symbol aliases. Use the <b>symbol</b> column to match nodes to the figure.</p>
     <p style="text-align: left">In this example, the original figure contained several complexes and isoform groups that were illustrated as single nodes. In the gene set these have been expanded to include all members of isoforms and complex subunits.</p>
-    
-        <img class="plain" src="gene-set-final-pw.png" style="width:85%">
+    <img class="plain" src="gene-set-layout.png" style="width:85%">
 
+</section>
+    
+<section>
+    <h1>Add Group Nodes to the Gene Set</h1>
+    <p style="text-align: left">Cytoscape allows for grouping of nodes, which we can use to organize complexes and groups.</p>
+    <ul>
+    <li>Select the three IRS nodes by clicking and dragging.</li>
+    <li>Right-click and in the context menu, select <highlight>Group &rarr; Group Selected Nodes</highlight>. Enter <b>IRS</b> as the name of the group.</li>
+    <li>Repeat with the other complexes and groups, naming them <b>PI3K</b> and <b>AKT</b> respectively.</li>
+    </ul>
+    <p style="text-align: left">The gene set now includes three group nodes.</p>
+    <img class="plain" src="gene-set-groups.png" style="width:85%">
+</section>
+    
+<section>
+    <h1>Add Interactions to the Gene Set</h1>
+    <p style="text-align: left">Once the nodes are grouped, we can add and style the interactiosn between them.</p>
+    <ul>
+    <li>Select the IRS and PI3K group nodes by clicking on the group node outline. The outline should be highlighted in yellow.</li>
+    <li>Right-click to access the context menu. Select <highlight>Add &rarr; Edges Connecting Selected Nodes</highlight>.</li>
+    
+    </ul>
+    <img class="plain" src="gene-set-interactions1.png" style="width:85%">
+</section>
+<section>
+    <h1>Style Interactions to the Gene Set</h1>
+    <ul>
+    <li>Select one of the edges. In the <highlight>Style</highlight> interface, select the <highlight>Edge</highlight> tab.</li>
+    <li>For <highlight>Target Arrow Shape</highlight>, click on the <highlight>Bypass</highlight> column and select an arrow. Click <highlight>Apply</highlight>. Note that it is sometimes not clear which node is the source vs target, so for some interactions you may need to edit the <highlight>Source Arrow Shape</highlight>.</li>
+    <li>Repeat this process to add all relevant interactions from the pathway figure to the gene set. </li>
+    </ul>
+    <p style="text-align: left">You may need to move the nodes around for optimal layout.</p>
+    <img class="plain" src="gene-set-interactions2.png" style="width:85%">
     
 </section>
+
+<section>
+	<h1>Saving Results</h1>
+    <p>You now have a cytoscape network representing the original pathway figure, that can be used for further analysis, to  visualiza additional data and to create figures for presentations or publications. Cytoscape provides a number of ways to save results and visualizations:</p>
+	<ul>
+        <li>Save your results as a session file: <highlight>File &rarr; Save</highlight>, <highlight>File &rarr; Save As...</highlight></li>
+        <li>Export as an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+        <li>Export to the web: <highlight>File &rarr; Export &rarr; Network to Web Page...</highlight> (<a href="../saving-results/web_session/index.html" target="_blank">Example</a>)</li>
+        <li>Export to a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a graph format file: <highlight>File &rarr; Export &rarr; Network to File</highlight>. <br/>Formats:
+						<ul>
+										<li>CX JSON</li>
+										<li>Cytoscape.js JSON</li>
+										<li>GraphML</li>
+										<li>PSI-MI</li>
+										<li>XGMML</li>
+										<li>SIF</li>
+                        </ul></li>
+	</ul>
+</section>
+    
 </section>
 
 <section>  
