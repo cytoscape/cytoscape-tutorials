@@ -1,0 +1,204 @@
+<section>
+<h1>Single Cell Network Visualization</h1>
+<h2><highlight>scNetViz and STRING in Cytoscape</highlight></h2>
+<aside class="notes" data-markdown>
+* Go beyond marker genes to using networks to describe/characterize cell populations
+* Digging deeper into the function of genes within a cell population
+</aside>
+</section>
+
+<section>
+  <h1 style="font-size: 90%">Networks in gene expression analysis</h1>
+  <div>
+  <img style="float:left;width:540px;padding-right: 10px" class="plain" src="modules/single-cell/waddington-left.png">
+  <img style="width:640px;padding-left: 10px" class="plain fragment" src="modules/single-cell/waddington-right.png">
+  <p/>
+  </div>
+  <div>
+  <p>Waddington’s Epigenetic Landscape, 1940</p>
+  </div>
+
+<aside class="notes" data-markdown>
+  Why networks?
+
+This is an image that illustrates the nonlinear transitions between types of cell. The reason it looks like an old hand-made wood print, is because it is. It’s an illustration from 1940. Waddington paired this image with another image [CLICK] meant to explain what underlies the undulating surface… It’s a network!... We don’t have the data nor the algorithms to directly infer these networks just from sequencing RNA from cells, but we do have methods to generate reasonable hypothetical networks that might explain the cell type transitions we observe. That’s where scNetViz comes in.
+</aside>
+</section>
+
+<section style="font-size: 90%">
+  <h1>Networks in gene expression analysis</h1>
+  <img style="height:650px" class="plain" src="modules/single-cell/feb212684-fig-0001-m.jpg">
+  <p style="margin-left: 500px;font-size: 50%"><i>Computational approaches for interpreting scRNA‐seq data</i> Rostom, et. al, 2017<p>
+<aside class="notes" data-markdown>
+  You may remember this from Simone's talk
+</aside>
+
+</section>
+
+<section style="font-size: 90%">
+  <h1>Networks in gene expression analysis</h1>
+  <p style="text-align: left">Gene lists + interaction database = networks</p>
+  <img style="width:1200" class="plain" src="modules/single-cell/string1.png">
+</section>
+
+<section style="font-size: 90%">
+  <h1>Networks in gene expression analysis</h1>
+  <p style="text-align: right">Overlay expression data onto network</p>
+  <img style="width:1200" class="plain" src="modules/single-cell/string2.png">
+</section>
+
+<section style="font-size: 90%">
+  <h1>Networks in gene expression analysis</h1>
+  <p style="text-align: left">Weighted interactions by evidence type</p>
+  <img style="width:1200" class="plain" src="modules/single-cell/string3.png">
+</section>
+
+<section style="font-size: 90%">
+  <h1>Networks in gene expression analysis</h1>
+  <p style="text-align: left">GO analysis on relevant parts of the network</p>
+  <img style="width:1200" class="plain" src="modules/single-cell/string4.png">
+</section>
+
+<section style="font-size: 90%">
+  <h1>Networks in gene expression analysis</h1>
+</section>
+
+<section>
+  <h1>scNetViz Features</h1>
+  <ul>
+    <li>Easy access to published scRNA-seq datasets</li>
+    <li>Flexible grouping by clusters and categories</li>
+    <li>tSNE and UMAP cell plots with data overlay</li>
+    <li>One-click differential expression (DE) analysis</li>
+    <br/>
+    <li>Network reconstruction from DE results</li>
+    <li>Expression data overlay on networks</li>
+    <li>Functional enrichment analysis on networks</li>
+  </ul>
+</section>
+
+<section>
+  <h1>scNetViz Overview</h1>
+  <img style="width:1200px" class="plain" src="modules/single-cell/scnetviz-overview.png">
+</section>
+
+<section>
+  <img style="width:1200px;margin-top:-200px" class="plain" src="modules/single-cell/gxa.png">
+</section>
+
+<section>
+  <div style="position:absolute; top: -100px; left: 0px; width: 1200px">
+    <img class="plain" src="modules/single-cell/scnetviz-1-1.png">
+  </div>
+  <div style="position:absolute; top: -100px; left: 0px; width: 1200px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-1-2.png">
+  </div>
+</section>
+
+<section>
+  <div style="position:absolute; top: -100px; left: 0px; width: 1200px">
+    <img class="plain" src="modules/single-cell/scnetviz-2-1.png">
+  </div>
+  <div style="position:absolute; top: -100px; left: 0px; width: 1200px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-2-2.png">
+  </div>
+</section>
+
+<section>
+  <div style="position:absolute; top: -100px; left: 0px; width: 1200px">
+    <img class="plain" src="modules/single-cell/scnetviz-3-1.png">
+  </div>
+  <div style="position:absolute; top: -100px; left: 0px; width: 1200px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-3-2.png">
+  </div>
+</section>
+
+<section>
+  <img style="width:1200px;margin-top:-200px" class="plain" src="modules/single-cell/scnetviz-4.png">
+</section>
+
+<section>
+  <h1 style="font-size: 90%">scNetViz: perform differential expression</h2>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px">
+    <img class="plain" src="modules/single-cell/scnetviz-5-1.png">
+  </div>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-5-2.png">
+  </div>
+</section>
+
+<section>
+  <h1 style="font-size: 90%">scNetViz: perform differential expression</h2>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px">
+    <img class="plain" src="modules/single-cell/scnetviz-6-1.png">
+  </div>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-6-2.png">
+  </div>
+</section>
+
+<section>
+  <h1 style="font-size: 90%">scNetViz: comparative heatmap</h2>
+  <img style="width:1200px" class="plain" src="modules/single-cell/scnetviz-7.png">
+</section>
+
+<section>
+  <h1 style="font-size: 90%">scNetViz: generate networks</h2>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px">
+    <img class="plain" src="modules/single-cell/scnetviz-8-1.png">
+  </div>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-8-2.png">
+  </div>
+</section>
+
+<section>
+  <h1 style="font-size: 90%">scNetViz: explore networks</h2>
+  <img style="width:1200px" class="plain" src="modules/single-cell/scnetviz-9.png">
+</section>
+
+<section>
+  <h1 style="font-size: 90%">scNetViz: explore networks</h2>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px">
+    <img class="plain" src="modules/single-cell/scnetviz-10-1.png">
+  </div>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-10-2.png">
+  </div>
+</section>
+
+<section>
+  <h1 style="font-size: 90%">scNetViz: from atlas to networks</h2>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px">
+    <img class="plain" src="modules/single-cell/scnetviz-11-1.png">
+  </div>
+  <div style="position:absolute; top: 100px; left: 0px; width: 1200px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-11-2.png">
+  </div>
+  <div style="position:absolute; top: 250px; left: 500px; width: 800px" class="fragment">
+    <img class="plain" src="modules/single-cell/scnetviz-11-3.png">
+  </div>
+</section>
+
+<section>
+  <h1 style="font-size: 90%">Summary</h1>
+  <p style="font-size: 90%"><highlight>From normalized scRNA-seq datasets to networks and function</highlight></p>
+  <ul style="font-size: 90%">
+    <li>EBI Single Cell Expression Atlas and CZI Human Cell Atlas</li>
+    <li>scNetViz in Cytoscape
+      <ul style="font-size: 90%">
+        <li>Browse available datasets (or import your own)</li>
+        <li>Select available clusters or categories (or import your own)</li>
+        <li>Perform DE and find top genes</li>
+        <li>Construct networks from STRING interaction database</li>
+        <li>Perform enrichment analysis on gene sets within cell populations</li>
+        <li>Export tables, plots and networks with data overlays</li>
+      </ul>
+    </li>
+    <li>Limitations
+      <ul style="font-size: 90%">
+        <li>Analysis is done locally, so may not scale to large datasets</li>
+      </ul>
+    </li>
+  </ul>
+</section>
