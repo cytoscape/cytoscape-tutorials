@@ -1,0 +1,154 @@
+<section>
+<h1>Script-apps for Cytoscape</h1>
+<h3><highlight>Key Technologies</highlight></h3>
+  <ul>
+    <li>Cytoscape desktop application</li>
+    <li>CyREST</li>
+    <li>RCy3 and py4cytoscape</li>
+    <li>R and Python scripts</li>
+    <li>Jupyter-bridge</li>
+    <li>Java app wrappers</li>
+    <li>App Store</li>
+    <li>JupyterHub</li>
+    <li>CyBrowser</li>
+  </ul>
+</section>
+
+<section>
+  <h3><highlight>Regular apps for Cytoscape</highlight></h3>
+  <div style="float:left;width:65%">
+    <img class="plain" src="modules/script-apps/regular-apps.png">
+  </div>
+  <div style="float:right;width: 35%; font-size: 70%">
+    <p style="text-align:left"><b>Research A</b> publishes a general purpose app for 
+    Cytoscape, e.g., to perform a layout or cluster algorithm.</p>
+    <p style="text-align:left"><b>Research B</b> installs the app and executes it in their
+    local instance of Cytoscape.</p>
+    <p style="text-align:left"><b>Key Points:</b>
+    <ul style="font-size:90%">
+      <li>Submitting a Cytoscape app is trivial.</li>
+      <li>B doesn't have to worry about anything other than having Cytoscape.</li>
+    </ul>
+    </p>
+  </div>
+</section>
+<section>
+  <h3><highlight>Regular scripts for Cytoscape</highlight></h3>
+  <div style="float:left;width:60%">
+    <img class="plain" src="modules/script-apps/automation.png">
+  </div>
+</section>
+
+<section>
+  <h3><highlight>Regular scripts for Cytoscape</highlight></h3>
+  <div style="float:left;width:60%">
+    <img class="plain" src="modules/script-apps/automation.png">
+  </div>
+  <div style="float:right;width:39%;font-size: 70%">
+  <ul style="margin-left: -20px">
+    <li><b>Use Cases</b>
+      <ul style="font-size:90%">
+        <li>Reproducible analysis</li>
+        <li>Repetitive tasks</li>
+        <li>Pipelines and workflows</li>
+      </ul>
+    </li>
+
+    <li><b>Specific Examples</b>
+      <ul style="font-size:90%">
+        <li>Constructing networks from a list of genes (e.g., DEGs, scRNA-seq, AP-MS).</li>
+        <li>Viewing pathway models.</li>
+        <li>Overlay data on networks and pathways (e.g., expression).</li>
+        <li>Calculate degree, centrality, diffusion, paths, hubs and clusters.</li>
+      </ul>
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h3><highlight>Regular scripts for Cytoscape</highlight></h3>
+  <div style="float:left;width:60%">
+    <img class="plain" src="modules/script-apps/automation.png">
+  </div>
+  <div style="float:right;width:35%;font-size: 70%">
+    <img class="plain" src="modules/script-apps/local-local.png">
+  </div>
+</section>
+<section>
+  <h3><highlight>Script-apps for Cytoscape</highlight></h3>
+  <div style="float:left;width:40%;font-size: 70%;margin-left:75px">
+    <img class="plain" src="modules/script-apps/local-local.png">
+  </div>
+  <div style="float:right;width:40%;font-size: 70%;margin-right:75px">
+    <img class="plain" src="modules/script-apps/local-cloud.png">
+  </div>
+</section>
+
+<section>
+  <h3><highlight>Script-apps for Cytoscape</highlight></h3>
+  <img class="plain" src="modules/script-apps/script-apps.png">
+  <p style="text-align:right;font-size:40%">Source: <a href="https://github.com/cytoscape/jupyter-bridge">https://github.com/cytoscape/jupyter-bridge</a></p>
+</section>
+
+<section>
+  <h3><highlight>Script-apps for Cytoscape</highlight></h3>
+  <img class="plain" src="modules/script-apps/technical-details.png">
+  <p style="text-align:right;font-size:40%">Source: <a href="https://github.com/cytoscape/jupyter-bridge">https://github.com/cytoscape/jupyter-bridge</a></p>
+</section>
+
+<section>
+  <h3><highlight>Script-apps for Cytoscape</highlight></h3>
+  <p>Use case #1: Cloud-hosted notebooks</p>
+  <div style="float:left;width:60%">
+    <img class="plain" src="modules/script-apps/use-case-1.png">
+  </div>
+  <div style="float:right;width: 40%; font-size: 60%">
+    <p style="text-align:left"><b>Research A</b> publishes a Cytoscape-ready
+    notebook online via a public URL, e.g., reproducible workflows.</p>
+    <p style="text-align:left"><b>Research B</b> visits the site via their 
+    browser and executes it in coordination with their local instance of Cytoscape.</p>
+    <p style="text-align:left"><b>Key Points:</b>
+    <ul style="font-size:90%">
+      <li>Publishing notebooks is becoming routine.
+      <li>B doesn’t have to worry about R/Python versions or anything other 
+        than having a browser and Cytoscape.</li>
+    </ul>
+    </p>
+    <img class="plain" style="width: 40%" src="modules/script-apps/use-case-1b.png">
+  </div>
+</section>
+
+<section>
+  <h3><highlight>Script-apps for Cytoscape</highlight></h3>
+  <p>Use case #2: Cloud-hosted notebooks</p>
+  <div style="float:left;width:60%">
+    <img class="plain" src="modules/script-apps/use-case-2.png">
+    <ol style="font-size:60%;margin-left: -75px;margin-top:20px">
+      <li>Wrap script in template Java app code
+      <ul>
+        <li>Supports installation via App Store</li>
+        <li>Adds item to Cytoscape GUI menu</li>
+        <li>Points to hosted script</li>
+      </ul>
+      </li>
+      <li>Host script on dedicated Jupyter server</li>
+    </ol>
+  </div>
+  <div style="float:right;width: 40%; font-size: 60%">
+    <p style="text-align:left"><b>Research A</b> publishes a script as a
+    general purpose app for Cytoscape, e.g., to performa layout or cluster
+    algorithm.</p>
+    <p style="text-align:left"><b>Research B</b> installs the script-app and
+    executes it in their local instance of Cytoscape.</p>
+    <p style="text-align:left"><b>Key Points:</b>
+    <ul style="font-size:90%">
+      <li>Submitting a Cytoscape app is trivial. </li>
+      <li>R/Python &gt; Java for bio-devs.</li>
+      <li>B doesn’t have to worry about R/Python versions or anything other 
+        than having Cytoscape. No need to launch browser?</li>
+    </ul>
+    </p>
+    <img class="plain" style="width: 40%" src="modules/script-apps/use-case-2b.png">
+  </div>
+</section>
