@@ -11,8 +11,8 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .footer {
   position: absolute;
-  left: 2em;
-  bottom: 1em; }
+  align-items: left;
+  bottom: -1em;}
 
 .footer version {
   vertical-align: 0.95em;
@@ -313,9 +313,9 @@ body {
   transition: all .15s linear; }
 
 .reveal a:hover img {
-  background: rgba(255, 255, 255, 0.2);
+/*  background: rgba(255, 255, 255, 0.2);
   border-color: #2a76dd;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }*/
 
 /*********************************************
  * NAVIGATION CONTROLS
