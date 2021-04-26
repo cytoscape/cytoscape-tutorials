@@ -19,14 +19,12 @@ Here, we will review some specific databases and decribe how they get their inte
     
 </section>
 
-<!--
 <section>
 <h3>Starting with a gene list......</h3> 
 
 <img style="width:70%;" src="modules/finding-network-data/ListNetworksPathways.png">
 
 </section>
--->
 
 <section>
     <h3>Networks</h3> 
@@ -35,9 +33,10 @@ Here, we will review some specific databases and decribe how they get their inte
 
     <ul>
     <li><b>PSICQUIC</b> (<a href="https://psicquic.github.io/" target="_blank">built-in</a>)</li>
-        <li><b>STRING</b> (<a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a>)</li>
-    <!--<li><b>GeneMANIA</b> (GeneMANIA app)</li> -->
     <li><b>NDEx</b> (<a href="http://www.ndexbio.org/" target="_blank">built-in</a>)</li>
+    <li><b>IntAct</a></b> (<a href="http://apps.cytoscape.org/apps/intactapp" target="_blank">IntAct App</a>)</li>
+    <li><b><a href="#string">STRING</a></b> (<a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a>)</li>
+    <!--<li><b>GeneMANIA</b> (GeneMANIA app)</li> -->
     </ul>
     
 
@@ -69,6 +68,119 @@ Here, we will review some specific databases and decribe how they get their inte
 </section>
 
 <section>
+    <h3>NDEx</h3>
+    
+    <highlight>CyNDEx App</highlight><br /><br />
+    <ul>
+        <li>Repository for biological network knowledge</li>
+        <li>Organisations and individual scientists can deposit</li>
+        <li>Use CyNDEx App to import/export networks</li>
+        <li>Featured collections include:
+        <ul>
+            <li>Pathway Interaction Database (NCI-PID)</li>
+            <li>Cancer Cell Maps Initiative (CCMI)</li>
+            <li>The NDEx Butler</li>
+            <li>NetPath</li>
+            </ul>
+        </li>
+    </ul>
+
+</section>
+
+<section>
+    <h3>NDEx Search Results</h3>
+    
+    <img style="width:75%;" src="modules/finding-network-data/CyNDEx.png">
+
+</section>
+
+<section>
+        <h3>NDEx Network</h3>
+
+    <img style="width:75%;" src="modules/finding-network-data/CyNDEx-network.png">
+</section>
+
+<!--section>
+    <h3>Try it!</h3>
+</section -->
+
+<section>
+<h3>IntAct</h3>
+<h5><highlight>IntAct App</highlight></h5>
+<div class="column">
+			<ul style="font-size:80%">
+      <li>IntAct Fuzzy Search:
+        <ul style="font-size: 80%">
+          <li>Search the terms you gave among interactors data:
+            <ul style="font-size: 80%">
+              <li>id : eg. Q5S007, EBI-5323863, CHEBI:15996</li>
+              <li>name : eg. LRRK2, GTP</li>
+              <li>aliases : eg. Dardarin, Park8, guanosine triphosphate</li>
+              <li>description : eg. Leucine-rich repeat serine/threonine-protein kinase 2</li>
+            </ul>
+          </li>
+          <li>You can use it to search broad thematics like tumor, kinase, cell-cycle…</li>
+          <li>You can also use it to query specific interactors like GTP, but you will also obtain most GTP related proteins like GTPase, because their description contains GTP.</li>
+        </ul>
+      </li>
+      </ul>
+    </div>
+    <div class="column">
+      <ul style="font-size:80%">
+      <li>Exact Query
+        <ul style="font-size: 80%">
+          <li>Query the terms you gave among reduced interactors data :
+            <ul style="font-size:80%">
+              <li>id : eg. Q5S007, EBI-5323863, CHEBI:15996</li>
+              <li>name : eg. LRRK2, GTP</li>
+              <li>aliases : eg. Dardarin, Park8, guanosine triphosphate</li>
+            </ul>
+          </li>
+          <li>You can use it when you have a list of known proteins or gene.</li>
+          <li>Will only ask to choose between several interactors if there is ambiguity on which proteins you meant to select.</li>
+        </ul>
+      </li>
+      </ul>
+    </div>
+</section>
+
+<section>
+<h3>IntAct</h3>
+<h5><highlight>Summary View</highlight></h5>
+<img src="modules/finding-network-data/intActSummary.png">
+</section>
+
+<section>
+<h3>IntAct</h3>
+<h5><highlight>Evidence View</highlight></h5>
+<img src="modules/finding-network-data/intActEvidence.png">
+</section>
+
+<section>
+<h3>IntAct</h3>
+<h5><highlight>Mutation View</highlight></h5>
+<img src="modules/finding-network-data/intActMutation.png">
+</section>
+
+<section>
+<h3>IntAct</h3>
+<h5><highlight>Filters</highlight></h5>
+<ul>
+  <li>Can filter network by:
+    <ul>
+      <li>MI Score</li>
+      <li>Interaction detection method</li>
+      <li>Participant detection method</li>
+      <li>Host organism</li>
+      <li>Expansion (e.g. spoke vs. matrix)</li>
+      <li>Type (interaction type)</li>
+      <li>Mutations (hides unmutated edges)</li>
+    </ul>
+  </li>
+</ul>
+</section>
+
+<section id="string">
 <h3>STRING</h3>
 <h5><highlight>stringApp</highlight></h5>
     <div class="column" style="font-size: 80%">
@@ -127,13 +239,13 @@ Here, we will review some specific databases and decribe how they get their inte
 
 <section>
     <h3>STRING Options</h3>
-		<div style="width:50%;height:550px">
- 		  <img style="width:70%;position:absolute;top:100px;left:200px" src="modules/finding-network-data/STRING-options.png"><br />
- 		  <img class="fragment" data-fragment-index="1" style="width:70%;position:absolute;top:100px;left:200px" src="modules/finding-network-data/STRING-EnrichmentOptions.png">
-	   <img class="fragment" data-fragment-index="2" style="width:70%;position:absolute;top:100px;left:200px" src="modules/finding-network-data/STRING-NodeResults.png">
-	   <img class="fragment" data-fragment-index="3" style="width:70%;position:absolute;top:100px;left:200px" src="modules/finding-network-data/STRING-EdgeResults.png">
+		<div style="width:50%;height:500px;float: left">
+ 		  <img style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-options.png"><br />
+ 		  <img class="fragment" data-fragment-index="1" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-EnrichmentOptions.png">
+	   <img class="fragment" data-fragment-index="2" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-NodeResults.png">
+	   <img class="fragment" data-fragment-index="3" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-EdgeResults.png">
 		</div>
-		<div style="font-size:80%">
+		<div style="font-size:60%;float:right;width:30%">
 		<ul>
         <li>Change confidence level of interactions</li>
         <li>Expand network</li>
@@ -150,9 +262,9 @@ Here, we will review some specific databases and decribe how they get their inte
         <img style="width:70%;" class="plain" src="modules/finding-network-data/STRING-enrichment.png">
 </section>
 
-<section>
+<!--section>
     <h3>Try it!</h3>
-</section>
+</section!-->
 
 <!--- TODO: redo this for GeneMANIA 3.5
 <section>
@@ -193,43 +305,6 @@ Here, we will review some specific databases and decribe how they get their inte
         
 </section>
 -->
-
-<section>
-    <h3>NDEx</h3>
-    
-    <highlight>CyNDEx App</highlight><br /><br />
-    <ul>
-        <li>Repository for biological network knowledge</li>
-        <li>Organisations and individual scientists can deposit</li>
-        <li>Use CyNDEx App to import/export networks</li>
-        <li>Featured collections include:
-        <ul>
-            <li>Pathway Interaction Database (NCI-PID)</li>
-            <li>Cancer Cell Maps Initiative (CCMI)</li>
-            <li>The NDEx Butler</li>
-            <li>NetPath</li>
-            </ul>
-        </li>
-    </ul>
-
-</section>
-
-<section>
-    <h3>NDEx Search Results</h3>
-    
-    <img style="width:75%;" src="modules/finding-network-data/CyNDEx.png">
-
-</section>
-
-<section>
-        <h3>NDEx Network</h3>
-
-    <img style="width:75%;" src="modules/finding-network-data/CyNDEx-network.png">
-</section>
-
-<section>
-    <h3>Try it!</h3>
-</section>
 
 <section>
 <h3>Pathways</h3>
@@ -279,9 +354,9 @@ Here, we will review some specific databases and decribe how they get their inte
 
 </section>
 
-<section>
+<!-- section>
     <h3>Try it!</h3>
-</section>
+</section -->
 
 <section>
 <h3>Pathway Database Apps</h3>
