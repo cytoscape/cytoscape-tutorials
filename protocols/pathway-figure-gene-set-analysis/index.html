@@ -261,7 +261,7 @@
                 
 <section>
 <section>
-    <h1>Retrieving interactions from INDRA</h1>
+    <h1>Retrieving Interactions from INDRA</h1>
     <p></p>
     
     <p style="text-align: left">An alternative source for interactions for the PFOCR gene set is the <a href="http://www.indra.bio/">INDRA</a> database. INDRA contains interactions from multiple sources, with directional information. We will access the network from NDEx.</p>
@@ -275,7 +275,7 @@
 </section>
     
 <section>
-    <h1>Retrieving interactions from INDRA</h1>
+    <h1>Retrieving Interactions from INDRA</h1>
     <ul>
         <li>Once the subnetwork loads, click the <highlight>Download query result as CX</highlight> button <img class="plain" src="ndex-download.png" style="height:30px">.</li>
         <li>In Cytoscape, go to <highlight>File &rarr; Import &rarr; Network from File...</highlight> and select the downloaded CX file.</li>
@@ -285,10 +285,10 @@
 </section>
     
 <section>
-    <h1>Retrieving interactions from INDRA</h1>
+    <h1>Retrieving Interactions from INDRA</h1>
     <p>Let's clean up the network a bit:</p>
     <ul>
-        <li>To remove self-loops and duplicated edges, go to <highlight>Edit &rarr; Remove Self-Loops....</highlight>, selecting the newly created network.</li>
+        <li>Go to <highlight>Edit &rarr; Remove Self-Loops....</highlight>, selecting the newly created network.</li>
         <li>Next, go to <highlight>Edit &rarr; Remove Duplicate Edges....</highlight> and again select the right network. Leave the two options unchecked.</li>
         <li>Finally, delete the two unconnected nodes.</li>
     </ul>
@@ -337,8 +337,10 @@
             <li>For <b>DecreaseAmount</b>, select <b>Cross Delta</b>.</li>
         </ul>
         </li>
+        </ul>
+        <img class="plain" src="pfocr_indra_edgestyle.png" style="height:300px">
         
-	</ul>
+	
 </section> 
     
 <section>
@@ -358,15 +360,15 @@
         <li>In the <highlight>Annotations</highlight> tab of the <highlight>Control Panel</highlight>, select the <highlight>Image</highlight> icon at the top and then click anywhere in the network view to place the annotation.</li>
         <li>Select the pathway figure you downloaded previously.</li>
         <li>Once the annotation is placed, enable annotation selection by clicking the <highlight>Toggle Annotation Selection</highlight> button <img class="plain" src="toggle-annotation.png" style="height:30px"> in the <highlight>Network View Tools</highlight> under the network.</li>
-        <li>To mimic the layout, simple click and drag the nodes around to make the network look somethine like this:</li>
+        <li>To mimic the layout, simple click and drag the nodes around to make the network look something like this:</li>
     </ul>
     
-    <img class="plain" src="pfocr_indra_viz3.png">
+    <img class="plain" src="pfocr_indra_viz3.png" style="height:450px">
 </section>
 
 <section>
     <h1>Manual layout</h1>
-    <p>Once we group the nodes, we can see that there is an extra <b>Akt1</b> node. Since the gene name is not upper-cased (the convention for human), we can assume that this node is for a different species, in this case Drosophila.</p>
+    <p>Once we arrange the nodes in groups, we can see that there is an extra <b>Akt1</b> node. Since the gene name is not upper-cased (the convention for human), we can assume that this node is for a different species, in this case Drosophila.</p>
     <ul>
     <li>Delete the <b>Akt1</b> node by selecting it and clicking the <b>delete</b> key.</li>
     
