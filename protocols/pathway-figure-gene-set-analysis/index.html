@@ -143,32 +143,12 @@
     <img class="plain" src="gene-set-interactions2.png" style="width:85%">
     
 </section>
-
-<section>
-	<h1>Saving Results</h1>
-    <p>You now have a cytoscape network representing the original pathway figure, that can be used for further analysis, to  visualiza additional data and to create figures for presentations or publications. Cytoscape provides a number of ways to save results and visualizations:</p>
-	<ul>
-        <li>Save your results as a session file: <highlight>File &rarr; Save</highlight>, <highlight>File &rarr; Save As...</highlight></li>
-        <li>Export as an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
-        <li>Export to the web: <highlight>File &rarr; Export &rarr; Network to Web Page...</highlight> (<a href="../saving-results/web_session/index.html" target="_blank">Example</a>)</li>
-        <li>Export to a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
-		<li>As a graph format file: <highlight>File &rarr; Export &rarr; Network to File</highlight>. <br/>Formats:
-						<ul>
-										<li>CX JSON</li>
-										<li>Cytoscape.js JSON</li>
-										<li>GraphML</li>
-										<li>PSI-MI</li>
-										<li>XGMML</li>
-										<li>SIF</li>
-                        </ul></li>
-	</ul>
-</section>
     
 </section>
 
 <section>  
 <section>
-    <h1>STRING Query</h1>
+    <h1>Retreiving Interactions from STRING</h1>
         <p style="text-align: left">So far, we have worked with the gene set as nodes, without edges. Next, we will add <b>known interactions</b> to our nodes from the <a href="https://string-db.org/">STRING</a> database by quering the database for all nodes. This will enable further analysis options downstream.</p>
         <ul>
             <li>In the <highlight>Node Table</highlight>, select the top entry in the <highlight>name</highlight> column, hold down the shift key and select the last entry. Copy the contents to the clipboard.</li>
@@ -178,7 +158,7 @@
 </section>
     
 <section>
-    <h1>STRING Query</h1>
+    <h1>Retreiving Interactions from STRING</h1>
     <p style="text-align: left">The resulting network contains the nodes from our pathway gene set, and interactions between them with an evidence score of 0.95 or greater. Adding a force-directed layout, the network looks something like this:</p>
     <img class="plain" src="pfocr-string-layout.png" >
     <!--<img class="plain" src="pfocr-string.png" style="width:55%"> -->
@@ -277,7 +257,144 @@
     <img class="plain" src="network-final.png" style="height:600px"> 
     
 </section>-->
-</section>          
+</section> 
+                
+<section>
+<section>
+    <h1>Retrieving interactions from INDRA</h1>
+    <p></p>
+    
+    <p style="text-align: left">An alternative source for interactions for the PFOCR gene set is the <a href="http://www.indra.bio/">INDRA</a> database. INDRA contains interactions from multiple sources, with directional information. We will access the network from NDEx.</p>
+    <ul>
+        <li>In Cytoscape, select the original PFOCR node set imported from NDEx. In the <highlight>Node Table</highlight>, select the top entry in the <highlight>name</highlight> column, hold down the shift key and select the last entry. Copy the contents to the clipboard.</li>
+        <li>Navigate to the <a href="https://ndexbio.org/viewer/networks/04020c47-4cfd-11e8-a4bf-0ac135e8bacf">INDRA database entry</a> at NDEx. The network is very large, 79,000+ nodes, and will not be displayed at NDEx.</li>
+        <li>In the lower left under the network, in the <highlight>Enter query terms</highlight> field, paste the PFOCR nodes.</li>
+        <li>In the drop-down, change the type of search to <b>Direct</b>.</li>
+        <li>Click the search icon to search. Because the network is large, the search will take some time.</li> 
+    </ul>
+</section>
+    
+<section>
+    <h1>Retrieving interactions from INDRA</h1>
+    <ul>
+        <li>Once the subnetwork loads, click the <highlight>Download query result as CX</highlight> button <img class="plain" src="ndex-download.png" style="height:30px">.</li>
+        <li>In Cytoscape, go to <highlight>File &rarr; Import &rarr; Network from File...</highlight> and select the downloaded CX file.</li>
+        <li>The network will look similar to this:</li>
+    </ul>
+    <img class="plain" src="pfocr_indra.png" style="height:600px">
+</section>
+    
+<section>
+    <h1>Retrieving interactions from INDRA</h1>
+    <p>Let's clean up the network a bit:</p>
+    <ul>
+        <li>To remove self-loops and duplicated edges, go to <highlight>Edit &rarr; Remove Self-Loops....</highlight>, selecting the newly created network.</li>
+        <li>Next, go to <highlight>Edit &rarr; Remove Duplicate Edges....</highlight> and again select the right network. Leave the two options unchecked.</li>
+        <li>Finally, delete the two unconnected nodes.</li>
+    </ul>
+    <img class="plain" src="pfocr_indra_clean.png" style="height:500px">
+</section>
+    
+<section>
+    <h1>Data Integration</h1>
+    <p style="text-align: left">Next, we can import the same experimental data from a <a href="https://cancergenome.nih.gov/" target="_blank">TCGA</a> dataset. The INDRA network, and therefor our new subnetwork, is annotated with Gene symbols, while the data has <b>NCBI Gene</b> identifiers. So before importing the data we are going to use the <b>ID Mapper</b> functionality in Cytoscape to map the network to NCBI Gene.</p>
+    <ul>
+        <li>In the <highlight>Node Table</highlight>, right-click on the column header of the <highlight>name</highlight> column and click <highlight>Map column...</highlight>.</li>
+        <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Entrez</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
+        <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all downstream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
+    </ul>
+</section>
+    
+<section>
+    <h1>Data Integration</h1>
+    <ul>
+        <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file (downloaded earlier) under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
+	   <li>Select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the <b>Gene</b>column of the data.</li>
+        <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
+    </ul>
+</section>
+    
+<section>
+    <h1>Visualization</h1>
+    <p style="text-align: left">Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Data</a> tutorial.</p>   
+    <ul>
+    <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
+    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>red-blue</b> gradient.</li>
+	</ul>
+    
+    <img class="plain" src="pfocr_indra_viz1.png" style="height:500px">
+</section> 
+    
+<section>
+    <h1>Visualization</h1>
+    <p style="text-align: left">We can also add visualization to the edges, since the INDRA database provides information on the type of interaction. We will use a combination of arrow heads and interaction color.</p>   
+    <ul>
+        <li>Navigate to the <highlight>Edge</highlight> tab of the <highlight>Style</highlight> panel.</li>
+        <li>For <highlight>Target Arrow Shape</highlight> create a <b>Discrete</b> mapping for <b>type</b>. This allows you to pick a different arrow head for each interaction type in the network. The selection is done by clicking on a particular entry, for example <b>Activation</b>, and selecting an arrow type in the popup.
+        <ul>
+            <li>For <b>Activation</b>, <b>Modification</b> and <b>IncreaseAmount</b>, select the <b>Delta</b> arrow head.</li>
+            <li>For <b>Inhibition</b>, select the the <b>T</b>.</li>
+            <li>For <b>DecreaseAmount</b>, select <b>Cross Delta</b>.</li>
+        </ul>
+        </li>
+        
+	</ul>
+</section> 
+    
+<section>
+     <h1>Visualization</h1>
+    <ul>
+    <li>For the final interaction type, <b>Complex</b>, go to the <highlight>Stroke Color</highlight> entry in the edge tab, and again create a <b>Discrete</b> mapping for <b>type</b>. Choose a green color for <b>Complex</b>, and leave the others blank.</li>
+    </ul>
+    
+        <img class="plain" src="pfocr_indra_viz2.png" style="height:500px">
+
+</section>
+    
+<section>
+    <h1>Manual layout</h1>
+    <p>We can manually arrange the nodes to match the layout of the original figure. To beging, we can import the figure as an annotation.</p>
+    <ul>
+        <li>In the <highlight>Annotations</highlight> tab of the <highlight>Control Panel</highlight>, select the <highlight>Image</highlight> icon at the top and then click anywhere in the network view to place the annotation.</li>
+        <li>Select the pathway figure you downloaded previously.</li>
+        <li>Once the annotation is placed, enable annotation selection by clicking the <highlight>Toggle Annotation Selection</highlight> button <img class="plain" src="toggle-annotation.png" style="height:30px"> in the <highlight>Network View Tools</highlight> under the network.</li>
+        <li>To mimic the layout, simple click and drag the nodes around to make the network look somethine like this:</li>
+    </ul>
+    
+    <img class="plain" src="pfocr_indra_viz3.png">
+</section>
+
+<section>
+    <h1>Manual layout</h1>
+    <p>Once we group the nodes, we can see that there is an extra <b>Akt1</b> node. Since the gene name is not upper-cased (the convention for human), we can assume that this node is for a different species, in this case Drosophila.</p>
+    <ul>
+    <li>Delete the <b>Akt1</b> node by selecting it and clicking the <b>delete</b> key.</li>
+    
+    </ul>
+    <img class="plain" src="pfocr_indra_viz4.png">
+</section>
+    
+</section>
+                
+<section>
+	<h1>Saving Results</h1>
+    <p>You now have a cytoscape network representing the original pathway figure, that can be used for further analysis, to  visualiza additional data and to create figures for presentations or publications. Cytoscape provides a number of ways to save results and visualizations:</p>
+	<ul>
+        <li>Save your results as a session file: <highlight>File &rarr; Save</highlight>, <highlight>File &rarr; Save As...</highlight></li>
+        <li>Export as an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+        <li>Export to the web: <highlight>File &rarr; Export &rarr; Network to Web Page...</highlight> (<a href="../saving-results/web_session/index.html" target="_blank">Example</a>)</li>
+        <li>Export to a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a graph format file: <highlight>File &rarr; Export &rarr; Network to File</highlight>. <br/>Formats:
+						<ul>
+										<li>CX JSON</li>
+										<li>Cytoscape.js JSON</li>
+										<li>GraphML</li>
+										<li>PSI-MI</li>
+										<li>XGMML</li>
+										<li>SIF</li>
+                        </ul></li>
+	</ul>
+</section>
                 
 
             
