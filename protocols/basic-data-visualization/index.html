@@ -136,7 +136,7 @@ Add speaker notes here...
             <li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <highlight>Continuous Mapping</highlight> in the drop-down.</li>
             <li>Double-click on the gradient, which defines the node border width over the range of p values.</li>
             <li>First, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
-            <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>10</b> in the <highlight>Node Border Width</highlight> field.</li>
+            <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>10</b> in the <highlight>Node Border Width</highlight> field. Click <highlight>OK</highlight> to update the mapping.</li>
             <li>Click the <highlight>Def.</highlight> value for <highlight>Node Border Paint</highlight> and select a dark grey color.</li>
         </ul>
         <img class="plain" src="NodeBorderGradient.png" style="width:40%">
@@ -147,7 +147,8 @@ Add speaker notes here...
     <section>
         <h1>Set Node Label</h1>
         <p>The network nodes are by default labeled with yeast ORF identifiers. We can change the label to something more readible, like the gene symbol.</p>
-        <li>For the <highlight>Node Label</highlight>, change the <highlight>Column</highlight> selection for the mapping from <b>shared name</b> to <b>COMMON</b>.</li>
+        <li>For the <highlight>Node Label</highlight>, change the <highlight>Column</highlight> selection for the mapping from <b>COMMON</b> to <b>COMMON</b>.</li>
+        <li>Click the <highlight>-- select value--</highlight> cell in the <highlight>Mapping Type</highlight> section, and select <highlight>Passthrough Mapping</highlight> in the drop-down.</li>
         <br /><br />
         <img class="plain" src="NodeLabel.png" style="width:40%">        
     </section>
@@ -157,7 +158,7 @@ Add speaker notes here...
         <p>The Cytoscape app <b>Legend Creator</b> allows you to create a customized legend for your visualization. You can install Legend Creator from the <a href="http://apps.cytoscape.org/apps/legendcreator">App Store</a> or via the <highlight>Cytoscape App Manager</highlight>.</p>
         <ul>
             <li>In the <highlight>Control Panel</highlight>, go to the <highlight>Legend Panel</highlight>. This is the interface for the <b>Legend Creator</b> app, and will list multiple options for creating a legend.</li>
-            <li>Note that the two attributes that we used for mapping, <b>gal80Rexp</b> and <b>gal80Rsig</b>, are selected by default. For our purposes this is actually what we want. Click <highlight>Add Legend</highlight> to continue. The legend will appear in the lower left of the network view.</li>
+            <li>Note that the two attributes that we used for mapping, <b>gal80Rexp</b> and <b>gal80Rsig</b>, are selected by default. For our purposes this is actually what we want. Click <highlight>Refresh Legend</highlight> to continue. The legend will appear in the lower left of the network view.</li>
         </ul><br /><br />
         <img class="plain" src="LegendPanel.png" style="width:40%">
 </section>
