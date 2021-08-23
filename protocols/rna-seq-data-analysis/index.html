@@ -62,10 +62,10 @@
     <h1>Differentially Expressed Genes</h1>
     <p>We are going to define a set of up-regulated genes from the full dataset by filtering for fold change and p-value.</p>
     <ul>
-        <li>Select the row containing data value headers (row 4) and select <highlight>Data &rarr; AutoFilter</highlight>.</li>
+        <li>Select the row containing data value headers (row 4) and select <highlight>Data &rarr; Filter</highlight>.</li>
         <li>In the drop-down for fold change column, set a filter for <b>fold change greater than 2</b>.</li>
         <li>Next, set a filter for <b>p-value less than 0.05</b>.</li>
-        <li>With the two filters active, <highlight>select and copy</highlight> all the gene names for genes passing the filter.</li>
+        <li>With the two filters active, select and copy all the gene names for genes passing the filter.</li>
     </ul><br /><br />
   <img class="plain" src="excel-filter.png" style="height:400px">               
 </section>
@@ -128,8 +128,8 @@
     <p>Next we will import the RNA-Seq data and use them to create a visualization.</p>
     <ul>
     <li>Load the downloaded <b>E-GEOD-30573-query-results.tsv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
-	<li>Select the new <b>query term</b> column as the <b>Key column for Network</b> and select the <b>Gene Name</b> column as the key column by clicking on the header and selecting the key symbol.</li>
     <li>In <highlight>Advanced Options...</highlight>, change the <highlight>Start Import Row</highlight> to <b>4</b>, to exclude the additional information in the data file.</li>
+	<li>Select the new <b>query term</b> column as the <b>Key column for Network</b> and select the <b>Gene Name</b> column as the key column by clicking on the header and selecting the key symbol.</li>
     <li>Click <highlight>OK</highlight> to import. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
 </ul><br /><br />
     <div style="width:38%;float:left">
@@ -183,11 +183,11 @@
                 
 <section id="ex1-up-string-enrich2">
     <h1>STRING Enrichment</h1>
-    <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Process.</p>    
+    <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Biological Process.</p>    
     <ul>
-        <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
+        <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click <b>OK</b>.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
-	<li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
+	<li>Explore custom settings via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
     </ul>
     <br /><br />
 <img class="plain" src="string-enrichment-chart-up.png" style="height:400px">    
