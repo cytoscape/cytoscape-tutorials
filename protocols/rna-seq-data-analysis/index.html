@@ -44,7 +44,7 @@
 
 <section id="setup">
     <h1>Setup</h1>
-    <p>This protocol uses the stringApp apps, which can be installed from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Manager</highlight>.</p>
+    <p>This protocol uses the stringApp, which can be installed from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Manager</highlight>.</p>
 </section>
                 
 <section id="background">
@@ -63,8 +63,8 @@
     <p>We are going to define a set of up-regulated genes from the full dataset by filtering for fold change and p-value.</p>
     <ul>
         <li>Select the row containing data value headers (row 4) and select <highlight>Data &rarr; Filter</highlight>.</li>
-        <li>In the drop-down for fold change column, set a filter for <b>fold change greater than 2</b>.</li>
-        <li>Next, set a filter for <b>p-value less than 0.05</b>.</li>
+        <li>In the drop-down for the fold change column, set a filter for <b>fold change > 2</b>.</li>
+        <li>Next, set a filter for <b>p-value < 0.05</b>.</li>
         <li>With the two filters active, select and copy all the gene names for genes passing the filter.</li>
     </ul><br /><br />
   <img class="plain" src="excel-filter.png" style="height:400px">               
@@ -85,7 +85,7 @@
     <p>To identify a relevant network, we will use the STRING database to find a network relevant to the list of up-regulated genes.</p>
     <ul>
         <li>Launch Cytoscape. In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
-        <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a cutoff of <b>0.4</b> and <b>0</b> maximum additional interactors.</li>
+        <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a <b>Confidence cutoff</b> of <b>0.40</b> and <b>0 Maximum additional interactors</b>.</li>
         <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. If any of the search terms are ambiguous, a <highlight>Resolve Ambiguous Terms</highlight> dialog will appear. Click <highlight>Import</highlight> to continue with the import using the default choices. The resulting network will load automatically.</li>
     </ul>    <br /><br />
     <div style="width:40%;float:left">
@@ -99,7 +99,7 @@
 <!--<section>-->
 <section id="string-result-up">
 <h1>STRING Network Up-Regulated Genes</h1>
-    <p>The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.</p>
+    <p>The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an confidence score of 0.4 or greater.</p>
     <img class="plain" src="string-up.png" style="height:650px">
 </section>
     
@@ -127,9 +127,9 @@
     <h1>Data Integration</h1>
     <p>Next we will import the RNA-Seq data and use them to create a visualization.</p>
     <ul>
-    <li>Load the downloaded <b>E-GEOD-30573-query-results.tsv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
+    <li>Load the downloaded <b>E-GEOD-30573-query-results.tsv</b> file under <highlight>File</highlight> menu by selecting <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
     <li>In <highlight>Advanced Options...</highlight>, change the <highlight>Start Import Row</highlight> to <b>4</b>, to exclude the additional information in the data file.</li>
-	<li>Select the new <b>query term</b> column as the <b>Key column for Network</b> and select the <b>Gene Name</b> column as the key column by clicking on the header and selecting the key symbol.</li>
+	<li>Select the <b>query term</b> column as the <b>Key column for Network</b> and select the <b>Gene Name</b> column as the key column by clicking on the header and selecting the key symbol.</li>
     <li>Click <highlight>OK</highlight> to import. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
 </ul><br /><br />
     <div style="width:38%;float:left">
