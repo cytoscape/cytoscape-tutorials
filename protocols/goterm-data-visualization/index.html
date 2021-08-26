@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Gene Ontology Term Data Visualization</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+    <h1>Gene Ontology Term Data Visualization</h1>
+    <p><highlight>Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.</highlight></p>
+    <p>This protocol includes a basic workflow for visualizing experimental data on a Gene Ontology term of interest in Cytoscape:</p>
+    <ul>
+        <li>Retrieve genes associated with a GO term</li>
+        <li>Retrieving relevant interactions from public databases</li>
+        <li>Integration and visualization of experimental data</li>
+        <li>Exporting network visualizations</li>
+    </ul>
+    <div class="footer" style="bottom: -3em;">
+    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div> 
+</section>
+
+<section id="setup">
+    <h1>Setup</h1>
+    <ul>
+        <li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> via <highlight>Apps &rarr; App Manager</highlight>.</li>
+        <li>Download the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/ExampleData/lung.expr.csv">experimental data</a> (follow the link and on the page, right-click and select <b>Save As...</b>).<br /><br />
+		    The data is a lung cancer dataset from <a href="https://www.cancer.gov/types/lung">TCGA</a>, comparing lung cancer biopses versus normal tissue.</li>
+    </ul>
+    
+</section>
+                     
+<section id="go-term">
+    <h1>Retrieveing Gene Ontology Term Genes</h1>
+    <p>From enrichment analysis, we know that some Gene Ontology Biological Process terms are enriched in this data. We will choose one of these terms for visualization, <b>GO:1902850; microtubule cytoskeleton organization involved in mitosis</b>.</p>
+    <ul>
+        <li>Go to <a href="http://amigo.geneontology.org/amigo/landing">AmiGO</a> and search for <b>GO:1902850</b> using the <b>Quick search</b> field.</li>
+        <li>On the results page, click the link for <b>genes and gene products</b>. This is showing associated genes for all organisms.</li>
+        <li>On the left side, click <b>Organism</b> to expand and then click the green plus sign next to <b>Homo sapiens</b>. At the top of the gene list, the number of <b>Total gene products</b> should now be around 148.</li>
+        <li>Click the <b>Custom DL</b> button. In the popup, drag the top entry, <b>Gene/product (bioentity)</b>, to the left, to exclude it from the download. Click <b>Download</b>.</li>
+        <li>On the page that opens, select and copy the list of gene symbols. It is also a good idea to save the list by pasting it into any text editor.</li>
+    </ul><br /><br />
+  <!--<img class="plain" src="excel-filter.png" style="height:400px">               -->
+</section>
+                
+<section id="string-search">
+    <h1>Retrieve Interactions from STRING</h1>
+    <p>We can now use the list of gene symbols for the GO term to search the STRING database.</p>
+    <ul>
+        <li>Launch Cytoscape. In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list genes.</li>
+        <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a <b>Confidence cutoff</b> of <b>0.40</b> and <b>0 Maximum additional interactors</b>.</li>
+        <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. If any of the search terms are ambiguous, a <highlight>Resolve Ambiguous Terms</highlight> dialog will appear. Click <highlight>Import</highlight> to continue with the import using the default choices. The resulting network will load automatically.</li>
+    </ul>    <br /><br />
+    <img class="plain" src="go-string-search.png" style="width:600px">               
+</section>
+                
+<section id="string-result-up">
+<h1>STRING GO Term Network</h1>
+    <p>The resulting network represents genes associated with the GO term, recognized by STRING, and interactions between them with an confidence score of 0.4 or greater.</p>
+    <img class="plain" src="go-network.png" style="height:650px">
+</section>
+    
+<section id="data-integration1">
+    <h1>Data Integration</h1>
+    <p>Next we will import the data to create a visualization.</p>
+    <ul>
+    <li>Load the downloaded <b>lung.expr.csv</b> file under <highlight>File</highlight> menu by selecting <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
+	<li>Select the <b>display</b> column as the <b>Key column for Network</b> and select the <b>GeneName</b> column as the key column by clicking on the header and selecting the key symbol.</li>
+    <li>Click <highlight>OK</highlight> to import. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
+</ul><br /><br />
+<!--    <div style="width:38%;float:left">
+		<img class="plain" src="import-advanced.png" />
+	</div>
+	<div style="width:43%;float:right">
+		<img class="plain" src="data-import.png" />
+	</div>-->
+</section>
+    
+<section id="visualization1-up">
+    <h1>Visualization</h1>
+    <p>Next, we will create a visualization of the imported data on the network. For more detailed information on data visualization, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
+    <ul>
+    <li>Go to the <highlight>STRING Results Panel</highlight> to the right of the network and uncheck <b>Glass ball effect</b> and <b>STRING style colors</b>. This will make the nodes </li>
+    <li>Set the default <highlight>Border Width</highlight> to <b>2</b>, and make the default <highlight>Border Paint</highlight> dark gray.</li>
+    <li>Set the default node <b>Label Font Size</b> to <b>14</b>.</li>
+	</ul>
+    <img class="plain" src="style-viz1.png" style="height:450px">
+</section>     
+                
+<section>
+    <h1>Visualization</h1>
+    <ul>
+        <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>Log2FC</highlight>.</li>
+        <li>Save your new visualization under <highlight>Copy Style...</highlight> in the <highlight>Options</highlight> menu of the <highlight>Style</highlight> interface, and name it <b>de genes up</b>.</li>
+    </ul>
+    <img class="plain" src="style-viz2.png" style="height:700px">
+      
+</section>
+    
+<!--
+<section id="ex1-up-visualization2">
+     <h1>Visualization</h1>
+        <p>Apply the <highlight>Prefuse Force Directed</highlight> layout by clicking the <highlight>Apply Preferred Layout</highlight> <img class="plain" src="layout.png" style="height:30px"> button in the toolbar. The network will now look something like this:</p>
+	    <img class="plain" src="string-up-viz.png" style="height:650px">   
+</section>
+                
+-->
+
+                
+<section id="exporting">
+    <h1>Exporting Networks</h1>
+    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
+	<ul>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+        <li>To NDEx: Click the NDEx button in the toolbar <img class="plain" src="ndex.png"> and select <highlight>Export Network to NDEx</highlight>. Alternatively, select <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
+	</ul>
+</section>
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+            
+            </div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/markdown/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
