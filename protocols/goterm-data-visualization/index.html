@@ -55,13 +55,27 @@
     <h1>Retrieveing Gene Ontology Term Genes</h1>
     <p>From enrichment analysis, we know that some Gene Ontology Biological Process terms are enriched in this data. We will choose one of these terms for visualization, <b>GO:1902850; microtubule cytoskeleton organization involved in mitosis</b>.</p>
     <ul>
-        <li>Go to <a href="http://amigo.geneontology.org/amigo/landing">AmiGO</a> and search for <b>GO:1902850</b> using the <b>Quick search</b> field.</li>
-        <li>On the results page, click the link for <b>genes and gene products</b>. This is showing associated genes for all organisms.</li>
+        <li>Go to the <a href="http://amigo.geneontology.org/amigo/landing">AmiGO</a> browser and search for <b>GO:1902850</b> using the <b>Quick search</b> field.</li>
+        <li>On the results page, click the link for <b>genes and gene products</b>. This will show associated genes for all organisms.</li>
+        </ul><br /><br />
+        <img src="amigo1.png" style="height:250px">
+</section>
+                
+<section>
+    <h1>Retrieveing Gene Ontology Term Genes</h1>
+        <ul>
         <li>On the left side, click <b>Organism</b> to expand and then click the green plus sign next to <b>Homo sapiens</b>. At the top of the gene list, the number of <b>Total gene products</b> should now be around 148.</li>
         <li>Click the <b>Custom DL</b> button. In the popup, drag the top entry, <b>Gene/product (bioentity)</b>, to the left, to exclude it from the download. Click <b>Download</b>.</li>
         <li>On the page that opens, select and copy the list of gene symbols. It is also a good idea to save the list by pasting it into any text editor.</li>
-    </ul><br /><br />
-  <!--<img class="plain" src="excel-filter.png" style="height:400px">               -->
+    </ul>
+    <br /><br />
+    <div style="width:50%;float:left">
+		<img src="amigo2.png" />
+	</div>
+	<div style="width:50%;float:right">
+		<img src="amigo3.png" style="height:500px" />
+	</div>
+
 </section>
                 
 <section id="string-search">
@@ -69,15 +83,15 @@
     <p>We can now use the list of gene symbols for the GO term to search the STRING database.</p>
     <ul>
         <li>Launch Cytoscape. In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list genes.</li>
-        <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a <b>Confidence cutoff</b> of <b>0.40</b> and <b>0 Maximum additional interactors</b>.</li>
+        <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b>, change the <b>Confidence cutoff</b> to <b>0.80</b> and set <b>0 Maximum additional interactors</b>.</li>
         <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. If any of the search terms are ambiguous, a <highlight>Resolve Ambiguous Terms</highlight> dialog will appear. Click <highlight>Import</highlight> to continue with the import using the default choices. The resulting network will load automatically.</li>
     </ul>    <br /><br />
-    <img class="plain" src="go-string-search.png" style="width:600px">               
+    <img src="go-string-search.png" style="width:600px">               
 </section>
                 
 <section id="string-result-up">
 <h1>STRING GO Term Network</h1>
-    <p>The resulting network represents genes associated with the GO term, recognized by STRING, and interactions between them with an confidence score of 0.4 or greater.</p>
+    <p>The resulting network represents genes associated with the GO term, recognized by STRING, and interactions between them with an confidence score of 0.8 or greater.</p>
     <img class="plain" src="go-network.png" style="height:650px">
 </section>
     
@@ -86,7 +100,7 @@
     <p>Next we will import the data to create a visualization.</p>
     <ul>
     <li>Load the downloaded <b>lung.expr.csv</b> file under <highlight>File</highlight> menu by selecting <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
-	<li>Select the <b>display</b> column as the <b>Key column for Network</b> and select the <b>GeneName</b> column as the key column by clicking on the header and selecting the key symbol.</li>
+	<li>Select the <b>display name</b> column as the <b>Key column for Network</b> and select the <b>GeneName</b> column as the key column by clicking on the header and selecting the key symbol.</li>
     <li>Click <highlight>OK</highlight> to import. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
 </ul><br /><br />
 <!--    <div style="width:38%;float:left">
@@ -104,8 +118,8 @@
     <li>Go to the <highlight>STRING Results Panel</highlight> to the right of the network and uncheck <b>Glass ball effect</b> and <b>STRING style colors</b>. This will make the nodes </li>
     <li>Set the default <highlight>Border Width</highlight> to <b>2</b>, and make the default <highlight>Border Paint</highlight> dark gray.</li>
     <li>Set the default node <b>Label Font Size</b> to <b>14</b>.</li>
-	</ul>
-    <img class="plain" src="style-viz1.png" style="height:450px">
+	</ul><br /><br />
+    <img src="style-viz1.png" style="height:450px">
 </section>     
                 
 <section>
@@ -113,19 +127,33 @@
     <ul>
         <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>Log2FC</highlight>.</li>
         <li>Save your new visualization under <highlight>Copy Style...</highlight> in the <highlight>Options</highlight> menu of the <highlight>Style</highlight> interface, and name it <b>de genes up</b>.</li>
+        <li>Looking at only the largest connected component of the network (ignoring unconnected nodes), the network now looks like this:</li>
     </ul>
-    <img class="plain" src="style-viz2.png" style="height:700px">
+    <img class="plain" src="style-viz2.png" style="height:600px">
       
 </section>
-    
-<!--
-<section id="ex1-up-visualization2">
-     <h1>Visualization</h1>
-        <p>Apply the <highlight>Prefuse Force Directed</highlight> layout by clicking the <highlight>Apply Preferred Layout</highlight> <img class="plain" src="layout.png" style="height:30px"> button in the toolbar. The network will now look something like this:</p>
-	    <img class="plain" src="string-up-viz.png" style="height:650px">   
-</section>
                 
--->
+<section>
+    <h1>Layout</h1>
+    <p>We can change the layout of the network to see if we can improve the visualization.</p>
+    <ul>
+        <li>Apply the <highlight>Prefuse Force Directed</highlight> layout by clicking the <highlight>Apply Preferred Layout</highlight> <img class="plain" src="layout.png" style="height:30px"> button in the toolbar. The network will now look something like this:</li>
+    </ul>
+    
+    <img class="plain" src="style-layout.png" style="height:650px">
+</section>
+    
+<section>
+    <h1>Layout</h1>
+    <p>The network has a highly connected group of nodes that appear to be upreuglated. We can alter the layout settings slightly to increase the readability:</p>
+    <ul>
+        <li>Select <highlight>Layout &rarr; Settings</highlight> to open the Layout Settings dialog.</li>
+        <li>Make sure <b>Prefuse Force Directed Layout</b> is selected in the drop-down at the top. Change the <highlight>Default Spring Length</highlight> to <b>80</b>. Click <highlight>Apply Layout</highlight>.</li>    
+    </ul>
+        <img class="plain" src="style-layout2.png" style="height:580px">
+
+                
+</section>
 
                 
 <section id="exporting">
