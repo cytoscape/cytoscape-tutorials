@@ -44,7 +44,7 @@
         <ul>
             <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
             <li>Install the <b>WikiPathways app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
-            <li>Download the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/lung.expr.csv">experimental data</a>.
+            <li>Download the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/ExampleData/lung.expr.csv">experimental data</a>.
 		    The data is a lung cancer dataset from <a href="https://www.cancer.gov/types/lung">TCGA</a>, comparing lung cancer biopses versus normal tissue.</li>
 	</ul>
              
@@ -60,7 +60,7 @@
              <li>A list of results for all available species will open. To see results from a select species, click the <b>Only</b> checkbox and select a species from the drop-down.</li>
              <li>Select the human <highlight>Cell Cycle</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>   
          </ul>
-         <img class="plain" src="WPApp-results.png" style="width:55%">
+         <img src="WPApp-results.png" style="width:55%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -69,7 +69,7 @@
 <section>
     <h1>Importing Pathways</h1>
          <p>The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:</p>
-         <img class="plain" src="CellCycle.png" style="width:70%">
+         <img src="CellCycle.png" style="width:70%">
              
          <aside class="notes" data-markdown>
          Notes go here 
@@ -79,7 +79,7 @@
 <section>
     <h1>Pathway Node Identifiers</h1>
          <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.</p>
-         <img class="outline" src="CellCycleMapped.png" style="width:50%">
+         <img src="CellCycleMapped.png" style="width:50%">
          <aside class="notes" data-markdown>
          Notes go here 
          </aside>
@@ -143,11 +143,11 @@
     <h1>Importing Pathways as Networks</h1>
     <p>In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.</p>
         <ul>
-             <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight>. Type in <b>"PPAR signaling pathway"</b> (with the quotes) and click the search icon.</li>
+             <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight> and search for <b>"cell cycle"</b> (with the quotes) and click the search icon.</li>
              <li>In the list of results, select the <b>human</b> pathway and click <highlight>Import as Network</highlight>.</li>  
 	     <li>We can now repeat the data import and style selection to create a visualization like in the previous pathway:</li>
          </ul>
-         <img class="plain" src="PPARData.png" style="width:55%">
+         <img class="plain" src="CellCycleNetworkData.png" style="width:50%">
                 
 </section>
                 

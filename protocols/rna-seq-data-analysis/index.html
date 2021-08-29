@@ -63,9 +63,9 @@
     <p>We are going to define a set of up-regulated genes from the full dataset by filtering for fold change and p-value.</p>
     <ul>
         <li>Select the row containing data value headers (row 4) and select <highlight>Data &rarr; Filter</highlight>.</li>
-        <li>In the drop-down for the fold change column, set a filter for <b>fold change > 2</b>.</li>
-        <li>Next, set a filter for <b>p-value < 0.05</b>.</li>
-        <li>With the two filters active, select and copy all the gene names for genes passing the filter.</li>
+        <li>In the drop-down for the fold change column, set a filter for <b>fold change</b> greater than <b>2</b>. This should result in <b>263 genes</b>.</li>
+        <li>Next, one would normally filter out non-significant changes by filtering on the <b>p-value</b> as well, for example setting <b>p-value</b> less than <b>0.05</b>. But in this case, all genes with a <b>fold change</b> greater than <b>2</b> already meet that cutoff.</li>
+        <li>With the filter active, select and copy all entries in the <b>Gene Name</b> column.</li>
     </ul><br /><br />
   <img class="plain" src="excel-filter.png" style="height:400px">               
 </section>
@@ -84,16 +84,17 @@
     <h1>Retrieve Networks from STRING</h1>
     <p>To identify a relevant network, we will use the STRING database to find a network relevant to the list of up-regulated genes.</p>
     <ul>
-        <li>Launch Cytoscape. In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
+        <li>Launch Cytoscape. In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of 263 up-regulated genes.</li>
         <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a <b>Confidence cutoff</b> of <b>0.40</b> and <b>0 Maximum additional interactors</b>.</li>
-        <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. If any of the search terms are ambiguous, a <highlight>Resolve Ambiguous Terms</highlight> dialog will appear. Click <highlight>Import</highlight> to continue with the import using the default choices. The resulting network will load automatically.</li>
+        <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. If any of the search terms are ambiguous, a <highlight>Resolve Ambiguous Terms</highlight> dialog will appear. Click <highlight>Import</highlight> to continue with the import using the default choices. The resulting network will load automatically, and should have around 173 nodes.</li>
     </ul>    <br /><br />
-    <div style="width:40%;float:left">
+    <img class="plain" src="string-search.png">               
+<!--<div style="width:40%;float:left">
 		<img class="plain" src="string-search.png" />
 	</div>
-	<div style="width:44%;float:right">
+<div style="width:44%;float:right">
 		<img class="plain" src="string-disambiguation.png" />
-	</div>
+	</div>-->
 </section>
                 
 <!--<section>-->
@@ -128,7 +129,7 @@
     <p>Next we will import the RNA-Seq data and use them to create a visualization.</p>
     <ul>
     <li>Load the downloaded <b>E-GEOD-30573-query-results.tsv</b> file under <highlight>File</highlight> menu by selecting <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
-    <li>In <highlight>Advanced Options...</highlight>, change the <highlight>Start Import Row</highlight> to <b>4</b>, to exclude the additional information in the data file.</li>
+    <li>In <highlight>Advanced Options...</highlight>, in the <highlight>Ignore Lines Starting With</highlight> field, enter <b>#</b>, to exclude the additional lines at the beginning of the data file.</li>
 	<li>Select the <b>query term</b> column as the <b>Key column for Network</b> and select the <b>Gene Name</b> column as the key column by clicking on the header and selecting the key symbol.</li>
     <li>Click <highlight>OK</highlight> to import. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
 </ul><br /><br />
@@ -176,9 +177,17 @@
     <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for Gene Ontology, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
     <li>In the STRING tab of the <highlight>Results Panel</highlight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
+    </ul>   <br /><br /> 
+    <img class="plain" src="string-results-panel.png" style="width:700px"> 
+</section>
+                
+<section>
+    <h1>STRING Enrichment</h1>
+    <ul>    
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul><br /><br />
 <img class="plain" src="string-enrichment.png">    
+                
 </section>
                 
 <section id="ex1-up-string-enrich2">
@@ -311,7 +320,7 @@
     <p>Cytoscape provides a number of ways to export results and visualizations:</p>
 	<ul>
         <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
-        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
+        <li>To NDEx: Click the NDEx button in the toolbar <img class="plain" src="ndex.png"> and select <highlight>Export Network to NDEx</highlight>. Alternatively, select <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
 		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
 	</ul>
 </section>
