@@ -24,7 +24,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-                
+
 <!-- ========================================================== -->
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
@@ -45,11 +45,11 @@
     <li>Load the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.cys"><i>Yeast Perturbation.cys</i></a> session file from the <highlight>Starter Panel</highlight>.</li>
     <li>To see the whole network, select <highlight>View &rarr; Fit Content</highlight>.</li>
     <p class="fragment">
-    The network layout used in this session file is the <highlight>Prefuse Force Directed Layout</highlight>. This layout is based on the algorithm implemented as part of the <a href="http://www.prefuse.org/">prefuse toolkit</a>. The algorithm is very fast and with the right parameters can provide a very visually pleasing layout. The <highlight>Force Directed Layout</highlight> can also use a numeric edge attribute as a weight for the length of the spring.</p>
+    The network layout used in this session file is the <highlight>Prefuse Force Directed Layout</highlight>. This layout is based on the algorithm implemented as part of the <a href="https://github.com/prefuse/Prefuse">prefuse toolkit</a>. The algorithm is very fast and with the right parameters can provide a very visually pleasing layout. The <highlight>Force Directed Layout</highlight> can also use a numeric edge attribute as a weight for the length of the spring.</p>
     </ul>
-    
+
 </section>
-                
+
 <section>
 <h1>Layout Menu</h1>
 <div style="float:left;width:55%">
@@ -60,7 +60,7 @@
     <div style="float:right;width:35%">
     <img class="plain" src="LayoutMenu.png"></div>
 </section>
-                
+
 <section>
     <h1>Tool Panel</h1>
     <p>For manual manipulation of the network layout, a set of <highlight>Node Layout Tools</highlight> are available in the <highlight>Layout Tools</highlight> tab of the Control Panel or via <highlight>Layout &rarr; Node Layout Tools</highlight>. These tools include a set of tools for scaling, aligning, distributing, stacking and rotating the network and nodes. Checking the <highlight>Selected Only</highlight> checkbox will restrict the actions to selected nodes.</p>
@@ -79,7 +79,7 @@
 <p style="float:left;width:50%">The <highlight>circular</highlight> algorithm produces layouts that emphasize group and tree structures within a network. It partitions the network by analyzing its connectivity structure, and arranges the partitions as separate circles. The circles themselves are arranged in a radial tree layout fashion.</p>
 <img class="plain" src="circular.png" style="float:right;width:48%">
 </section>
-                
+
 <section>
 <h1>Examples of Layout Algorithms</h1>
 <p>The <highlight>Compound Spring Embedder (CoSE) layout</highlight> is based on the traditional force-directed layout algorithm with extensions to handle multi-level nesting (compound nodes), edges between nodes of arbitrary nesting levels and varying node sizes. It is the suggested Cytoscape layout for compound graphs, although it also works very well with noncompound graphs.</p>
@@ -100,7 +100,7 @@
 </ul><br /><br />
 <img class="plain" src="layout-settings.png" style="width:38%">
 </section>
-                
+
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
 
@@ -157,7 +157,7 @@
 				dependencies: [
 				{ src: '../../plugin/markdown/marked.js' },
 				{ src: '../../plugin/markdown/markdown.js' },
-                
+
                 { src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
                 { src: '../../plugin/notes/notes.js', async: true },
                 { src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
