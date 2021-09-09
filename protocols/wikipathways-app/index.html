@@ -24,7 +24,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-                
+
 <!-- ========================================================== -->
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
@@ -35,10 +35,10 @@
     <p>This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.</p>
     <br />
 <div class="footer" style="bottom: -3em;">
-    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>     
+    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>
 
 </section>
-                
+
 <section>
         <h1>Setup</h1>
         <ul>
@@ -47,59 +47,59 @@
             <li>Download the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/ExampleData/lung.expr.csv">experimental data</a>.
 		    The data is a lung cancer dataset from <a href="https://www.cancer.gov/types/lung">TCGA</a>, comparing lung cancer biopses versus normal tissue.</li>
 	</ul>
-             
+
          <aside class="notes" data-markdown>
-         Notes go here 
+         Notes go here
          </aside>
 </section>
-         
+
 <section>
          <h1>Importing Pathways</h1>
          <ul>
              <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>"cell cycle"</b> (with quotes) and click the search icon.</li>
              <li>A list of results for all available species will open. To see results from a select species, click the <b>Only</b> checkbox and select a species from the drop-down.</li>
-             <li>Select the human <highlight>Cell Cycle</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>   
+             <li>Select the human <highlight>Cell Cycle</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>
          </ul>
          <img src="WPApp-results.png" style="width:55%">
          <aside class="notes" data-markdown>
-         Notes go here 
+         Notes go here
          </aside>
 </section>
-             
+
 <section>
     <h1>Importing Pathways</h1>
          <p>The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:</p>
          <img src="CellCycle.png" style="width:70%">
-             
+
          <aside class="notes" data-markdown>
-         Notes go here 
+         Notes go here
          </aside>
 </section>
-             
+
 <section>
     <h1>Pathway Node Identifiers</h1>
          <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.</p>
          <img src="CellCycleMapped.png" style="width:50%">
          <aside class="notes" data-markdown>
-         Notes go here 
+         Notes go here
          </aside>
-         </section> 
-         
+         </section>
+
 <section>
     <h1>Data Import</h1>
          <p>The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:</p>
          <ul>
-         <li>Load the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/lung.expr.csv">lung.expr.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
+         <li>Load the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/ExampleData/lung.expr.csv">lung.expr.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
          <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down.</li>
          <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <b>Ensembl</b> column.</li>
          <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
          </ul>
-             
+
          <aside class="notes" data-markdown>
-         Notes go here 
+         Notes go here
          </aside>
 </section>
-             
+
 <section>
     <h1>Data Import</h1>
          <p>The data import interface should now look like this:</p><br />
@@ -109,16 +109,16 @@
 				</div>
          <li>Click <highlight>OK</highlight> to import.</li>
          <li>Once import is complete, look for the newly imported data columns in the <highlight>Node Table</highlight> to confirm that it worked.</li>
-             
+
          </ul>
          <div style="position:absolute;left:28em;bottom:1em;">
-             <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/" target="_blank">Learn more about Importing Data</a></b></p>  
+             <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/" target="_blank">Learn more about Importing Data</a></b></p>
          </div>
          <aside class="notes" data-markdown>
-         Notes go here 
+         Notes go here
          </aside>
 </section>
-         
+
 <section>
          <h1>Mapping Data to Visual Properties</h1>
          <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as <b>Node Fill Color</b>.</p>
@@ -126,43 +126,43 @@
          <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Map.</highlight> box for <highlight>Fill Color</highlight>.</li>
          <li>In the <highlight>Column</highlight> drop-down, select <b>"log2FC"</b>.</li>
          <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
-             
+
          </ul><br /><br />
         <!-- to-do: Add legend to pathway -->
          <img class="plain" src="CellCycleData.png" style="float:left;width:50%">
             <div style="position:absolute;left:25em;bottom:1em;">
-            <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/index.html" target="_blank">Learn more about Visualizing Data</a></b></p>  
+            <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/index.html" target="_blank">Learn more about Visualizing Data</a></b></p>
             </div>
-             
+
          <aside class="notes" data-markdown>
-         Notes go here 
+         Notes go here
          </aside>
 </section>
-                
+
 <section>
     <h1>Importing Pathways as Networks</h1>
     <p>In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.</p>
         <ul>
              <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight> and search for <b>"cell cycle"</b> (with the quotes) and click the search icon.</li>
-             <li>In the list of results, select the <b>human</b> pathway and click <highlight>Import as Network</highlight>.</li>  
+             <li>In the list of results, select the <b>human</b> pathway and click <highlight>Import as Network</highlight>.</li>
 	     <li>We can now repeat the data import and style selection to create a visualization like in the previous pathway:</li>
          </ul>
          <img class="plain" src="CellCycleNetworkData.png" style="width:50%">
-                
+
 </section>
-                
+
 <section>
     <h1>Downstream Analysis Options</h1>
     <p>Whether you import pathways as networks or as pathways, there are many different downstream analysis options available in Cytoscape:</p>
-    
+
     <ul>
         <li>Extending pathways with regulatory information using <a href="https://cytargetlinker.github.io/pages/tutorials/tutorial2" target="_blank">CyTargetLinker</a></li>
-    
+
     </ul>
 
-                
+
 </section>
-                
+
 <section>
     <h1>Exporting Networks</h1>
     <p>Cytoscape provides a number of ways to export results and visualizations:</p>
@@ -173,7 +173,7 @@
 	</ul>
 </section>
 
-                
+
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
 
@@ -197,7 +197,7 @@
 		}
 	}
 });
-</script>  
+</script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -230,7 +230,7 @@
 				dependencies: [
 				{ src: '../../plugin/markdown/marked.js' },
 				{ src: '../../plugin/markdown/markdown.js' },
-				
+
 				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
 				{ src: '../../plugin/notes/notes.js', async: true },
 				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
