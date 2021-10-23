@@ -36,12 +36,11 @@
                 
 <section>
 	<h1>Tuning Layouts</h1>
-    <p>In general, most layouts can be tuned to improve the aesthetics. My approach:</p>
+    <p>In general, most layouts can be tuned to improve the aesthetics. Recommended approach:</p>
     <div style="float:left; width:55%">
         <ul>
-            <li>Go to <highlight>Layout&rarr;Settings</highlight>. Select the layout of choice, for example <b>Prefuse Force Directed Layout</b>.</li>
-            <li>Change a parameter, for example <b>Default Spring Coefficient</b> or <b>Default Spring Length</b>.</li>
-            <li>Click <highlight>Apply Layout</highlight>.</li>
+            <li>Go to <highlight>Layout&rarr;Settings</highlight>. Select a layout of choice, for example <b>Prefuse Force Directed</b> and click <highlight>Apply Layout</highlight>. This will apply the layout with the default settings.</li>
+            <li>Next, change a parameter, for example <b>Default Spring Coefficient</b> or <b>Default Spring Length</b>, and apply the layout again.</li>
             <li>Observe the results. If you get the result you want, click <highlight>Done</highlight>, otherwise click <highlight>Edit&rarr;Undo</highlight> and apply the layout again.</li>
         </ul>
     </div>
@@ -53,16 +52,16 @@
 </section>
                 
 <section>
-    <h1>Example</h1>
-    <p>Let's try this by changing the <b>Spring Coefficient</b> for the <b>Prefuse Force Directed Layout</b>. The network represents a disease-specific network from the STRING database.</p>
+    <h1>Example: Prefuse Force Directed Layout</h1>
+    <p>The below images shows the difference in the <b>Yeast Perturbation</b> network from decreasing the <b>Spring Coefficient</b> for the <b>Prefuse Force Directed Layout</b> by a factor of 10.</p>
                 
     <div style="float:left; width:45%"> 
         <p>Prefuse force-directed layout with default settings.</p>
-        <img class="plain" src="prefuse-default.png"/>
+        <img class="plain" src="PrefuseForceDirectedDefault.png" style="width:90%"/>
     </div>         
         <div style="float:right; width:45%"> 
         <p>Prefuse force-directed layout with a decreased Spring Coefficient .</p>
-        <img class="plain" src="prefuse-custom.png"/>
+        <img class="plain" src="PrefuseForceDirectedTuned.png" style="width:90%"/>
     </div>   
 </section>
                 

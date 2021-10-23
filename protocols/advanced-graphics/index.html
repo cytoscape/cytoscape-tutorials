@@ -36,23 +36,25 @@
                 
 <section>
 	<h1>Adding Graphics to Nodes</h1>
-    <p>Sometimes, we want to add graphics to nodes. This should be done very sparingly, using Cytoscape's built-in charts.</p>
+    <p>Sometimes, we want to add graphics to nodes. This should be done very sparingly, using Cytoscape's built-in charts. This example uses the <b>Yeast Perturbation</b> example session file.</p>
         <ul>
+            <li>Remove the <highlight>Node Fill Color</highlight> mapping and set the default node color to grey.</li>
             <li>In the <highlight>Node</highlight> tab of the <highlight>Style</highlight> panel, select <highlight>Properties&rarr;Paint&rarr;Custom Paint 1&rarr;Image/Chart 1</highlight>.</li>
-            <li>For the <highlight>Image/Chart 1</highlight> property, click the <highlight>Def.</highlight> (default) column, or if one or more nodes are selected, the <highlight>Byp</highlight> (bypass) column.</li>
+            <li>To add a graphic to all nodes, click the <highlight>Def.</highlight> (default) column of the <highlight>Image/Chart 1</highlight> property. To add a graphic to only selected nodes, select the nodes first and then click the <highlight>Byp</highlight> (bypass) column for <highlight>Image/Chart 1</highlight> property.</li>
             <li>Select <highlight>Charts</highlight> at the top. This will bring up the <highlight>Graphics</highlight> panel:</li>
-        </ul>   
-		<img class="plain" src="../../presentations/modules/advanced-visualization/Charts1.png" height="450px"/>
+        </ul> 
+    <br /><br />
+		<img class="plain" src="../../presentations/modules/advanced-visualization/Charts1.png" height="350px"/>
 </section>
                 
 <section>
     <h1>Adding Graphics to Nodes</h1>
     <ul>
         <li>Select the type of chart at the top, in this example we are using the <highlight>Bar Chart</highlight>.</li>
-        <li>Using the <highlight>Add Selected</highlight> and <highlight>Remove Selected</highlight> arrows, move the data columns you want to use for your chart to the <highlight>Selected Columns</highlight> list.</li>
         <li>For bar charts, select the type of chart using the radio buttons. For this example, we are choosing <highlight>Up-Down</highlight>.</li>
-        <li>Click the <highlight>Options</highlight> tab, and in the <highlight>Color Scheme</highlight> drop-down, select the <b>RdBu</b> color palette.</li>
-    </ul>             
+        <li>Using the <highlight>Add Selected</highlight> and <highlight>Remove Selected</highlight> arrows, move the data columns you want to use for your chart to the <highlight>Selected Columns</highlight> list. In this example, we are using <b>gal1RGExp</b> and <b>gal80RExp</b>.</li>
+        <li>Click the <highlight>Customize</highlight> tab, and in the <highlight>Color Palette</highlight> drop-down, select the <b>ColorBrewer Diverging red-blue</b> color palette.</li>
+    </ul>                   
 </section>
                 
 <section>
@@ -61,22 +63,23 @@
         <li>To add axis to the chart, check the three buttons for <highlight>Show Domain Axis</highlight>, <highlight>Show Range Axis</highlight> and <highlight>Show Zero Baseline</highlight>.</li>
         <li>For <highlight>Separation</highlight>, enter <b>0.05</b>. Click <highlight>Apply</highlight>.</li>
     </ul>
-    <img class="plain" src="../../presentations/modules/advanced-visualization/Charts2.png" height="450px"/>
-</section>
+    <br /><br />
+<img class="plain" src="GraphicsInterface.png" height="450px"/> </section>
                 
 <section>
     <h1>Adding Graphics to Nodes</h1>
-    <p>By defualt, the charts are placed in the middle of the node. We can adjust the placement of the chart using the <highlight>Image/Chart potision 1</highlight> property.</p>
-    <img class="plain" src="node-chart.png" height="500px"/>
+    <p>By default, the charts are placed in the middle of the node. We can adjust the placement of the chart using the <highlight>Image/Chart potision 1</highlight> property.</p>
+    <img class="plain" src="NetworkGraphs.png" height="500px"/>
 </section>
                 
 <section>
     <h1>Adding Graphics to Nodes</h1>    
     <ul>
-        <li>Add the <highlight>Image/Chart position 1</highlight> property to the list by selecting in the <highlight>Properties</highlight> drop-down in the <highlight>Style</highlight> panel.</li>
+        <li>Add the <highlight>Image/Chart position 1</highlight> property to the list by selecting it in the <highlight>Properties</highlight> drop-down under <highlight>Paint&rarr;Custom Paint 1&rarr;Image/Chart Position 1</highlight>.</li>
         <li>Click the <highlight>Def.</highlight> (default) column and set the chart position to the right of the node.</li>
     </ul>
-    <img class="plain" src="../../presentations/modules/advanced-visualization/Charts3.png" height="500px"/>        
+    <br /><br />
+    <img class="plain" src="NetworkGraphsPosition.png" height="500px"/>        
 </section>
                 
 <section>
