@@ -29,7 +29,7 @@
 <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 <section>
     <h1>Advanced Visualization: Working with Annotations</h1>
-    <p>This short protocol reviews how to add annotations in Cytoscape.</p>
+    <p>This short protocol reviews how to add an manipulate annotations in Cytoscape.</p>
 <div class="footer" style="bottom: -8em;">
     <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>                 
 </section>
@@ -53,7 +53,7 @@
     <h1>Annotation Panel</h1>
     <p>The <highlight>Annotation Panel</highlight> is available in the <highlight>Control Panel</highlight>. In the below example, a label and corresponding arrow has been added to indicate that one of the nodes is mutated, and a rounded rectangle shape has been added to indicate a group, and a title has been added.</p>
     
-            <img class="plain" src="../../presentations/modules/advanced-visualization/AnnotationExample.png" width="800px"/>        
+            <img class="plain" src="AnnotationExampleNew.png" width="800px"/>        
 </section>
                 
 <section>
@@ -63,6 +63,7 @@
         <li>Click anywhere on the canvas to place the label, and in the <highlight>Appearance</highlight> interface, enter the desired label and select font and color.</li>
         <li>To adjust the location of the annotation, first click the <highlight>Toggle Annotation Selection</highlight> <img class="plain" src="annotation-toggle.png" />. The annotation can now be moved by click and drag.</li>
     </ul>
+    <br /><br />
 
     <img class="plain" src="add-label.png" width="700px"/> 
 </section>
@@ -75,7 +76,17 @@
         <li>Next, click on the node or annotation you want to point the arrow to.</li>
         <li>In the <highlight>Appearance</highlight> tab of the <highlight>Annotations Panel</highlight>, select line color and arrow style and color. In this case, we will add a red line with a red t-bar end.</li>
     </ul>
-    <img class="plain" src="add-arrow.png" width="450px"/>
+    <br /><br />
+<!--
+    <img class="plain" src="add-arrow.png" width="430px"/>
+
+-->
+     <div style="float:left; width:45%">
+        <img class="plain" src="add-arrow.png" style="width:70%"/>
+    </div>
+    <div style="float:right; width:45%">
+        <img class="plain" src="add-arrow-viz.png"/>
+    </div>   
    
 </section>
                 
@@ -85,8 +96,8 @@
             <li>To add a shape annotation, click the <highlight>Shape</highlight> button at the top of the <highlight>Annotation</highlight> panel.</li>
             <li>Click anywhere on the canvas to place the shape, and in the <highlight>Appearance</highlight> interface, select the desired shape, color etc.</li>
             <li>The new shape will automatically be selected, and you can now size it to your liking and then click on the canvas to set the size.</li>
-            <li>By default the shape will be drawn on the foreground canvas, obstructing any nodes behind it. To move it to the background cavnas, select the shape in the <highlight>Layers</highlight> tab in the <highlight>Annotation</highlight> panel and click the <highlight>Push Annotations to Background Layer</highlight> arrow just below the list.</li>
-    </ul>
+            <li>By default the shape will be drawn on the foreground canvas, obstructing any nodes behind it. To move it to the background canvas, select the shape in the <highlight>Layers</highlight> tab in the <highlight>Annotation</highlight> panel and click the <highlight>Push Annotations to Background Layer</highlight> arrow just below the list.</li>
+    </ul><br /><br />
                 
       <img class="plain" src="annotation-order.png" width="700px"/>            
 </section>
@@ -98,11 +109,20 @@
         <li>Click on an annotation to bring activate the <highlight>Appearance</highlight> panel.</li>
         <li>To delete one or more annotations, select them in the <highlight>Annotations Panel</highlight> and click the delete button at the top. Alternatively, select them in the network and click <highlight>Delete</highlight> on the keyboard.</li>
         <li>As was described previously, annotations can also be moved between the background and foreground layer in the <highlight>Layers</highlight> tab in the <highlight>Annotations Panel</highlight>.</li>
+    </ul>      
+</section>
+                
+<section>
+    <h1>Rotating Annotations</h1> 
+    <p>Annotations can also be rotated:</p>
+    <ul>
+        <li>Select the shape annotation we added earlier.</li>
+        <li>In the <highlight>Appearance</highlight> panel, drag the <highlight>Rotation Angle</highlight> to about <b>-20</b>. This will rotate the object 20 degrees counter-clockwise.</li>
     </ul>
     <br /><br />
-    <p>For more information on using annotations in network visualization, see the <a href="https://cytoscape.org/cytoscape-tutorials/presentations/modules/ten-simple-rules/index.html#/0/7" target="_blank">Ten Simple Rules</a> protocol.</p>
-                
-</section>
+    <img class="plain" src="AnnotationExampleRotated.png" width="550px"/>
+    <p>For more information on using annotations in network visualization, see the <a href="https://cytoscape.org/cytoscape-tutorials/presentations/modules/ten-simple-rules/index.html#/0/7" target="_blank">Ten Simple Rules</a> protocol.</p> 
+</section>               
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
