@@ -13,97 +13,82 @@
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Set up</h3>
                     <div class="slideContent" >
-                        <p>In order to create networks in Cytoscape from R you need:</p>
+                        <p>In order to control Cytoscape from R/Python you need either:</p>
 
-                        <ul>
-                            <li><strong>RCy3</strong> - a bioconductor package</li>
-                        </ul>
-
-                    <pre><code class="r">
-if(!&quot;RCy3&quot; %in% installed.packages()){
-	install.packages(&quot;BiocManager&quot;)
-	BiocManager::install(&quot;RCy3&quot;)
-}
-library(RCy3)
-                    </code></pre>
-
+                        <p><strong>RCy3</strong> - a bioconductor package</p>
+                        <pre><code class="r">
+                            #R
+                            if(!&quot;RCy3&quot; %in% installed.packages()){
+                                install.packages(&quot;BiocManager&quot;)
+                                BiocManager::install(&quot;RCy3&quot;)
+                            }
+                            library(RCy3)
+                        </code></pre>
+                        <p><strong>py4cytoscape</strong> - a pip package</p>
+                        
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                            #Python
+                            pip install requests pandas colorbrewer chardet decorator
+                            pip install py4cytoscape
+                            import py4cytoscape as py4
+                        </code></pre>
+                            
                     </div>
 
                 </section>
                 <section data-transition="linear" data-transition-speed="default">
-                    <h3>Set up (part 2)</h3>
+                    <h3>Set up (part 2: Cytoscape)</h3>
                     <div class="slideContent" >
                         <ul>
-                            <li><strong>Cytoscape</strong> - Download and install the <a href="cytoscape.org/download.php">latest version of Cytoscape</a>.
-                               </li>
+                            <li>Download and install the <a href="https://cytoscape.org/download.php" target="_blank">latest version of Cytoscape</a>.
+                            </li>
+                            <li>Then launch Cytoscape and verify communication</li>
                         </ul>
+                        
+                        <pre><code class="r"> 
+                            RCy3::cytoscapePing()                        
+                        </code></pre>
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                            py4.cytoscape_ping()                       
+                        </code></pre>
+                                    
+                        <pre>[1] "You are connected to Cytoscape!"</pre>
 
                     </div>
 
                 </section>
 
                 <section data-transition="linear" data-transition-speed="default">
-                    <h3>Set up (part 3)</h3>
+                    <h3>Set up (part 3: apps)</h3>
                     <div class="slideContent" >
-                        <p>You can install apps in Cytoscape directly from R.</p>
+                        <p>You can install apps in Cytoscape directly from R/Python.</p>
+                        
+                        <pre><code class="r">
+                            installApp("stringApp")                         
+                        </code></pre>
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                            py4.install_app("stringApp")                         
+                        </code></pre>
 
-<pre><code class="r">
-installApp("stringApp") 
-
-</code></pre>
-<pre>
-[1] "App stringApp installed"</pre>
-                    </div>
-
-                </section>
-
-                <section data-transition="linear" data-transition-speed="default">
-                    <h3>Communicating with Cytoscape</h3>
-                    <div class="slideContent" >
-                        <p>Make sure that Cytoscape is open</p>
-
-<pre><code class="r"> 
-cytoscapePing ()
-
-</code></pre>
-
-<pre>[1] "You are connected to Cytoscape!"</pre>
-
+                       <pre>[1] "App stringApp installed"</pre>
                     </div>
 
                 </section>
                 <section data-transition="linear" data-transition-speed="default">
-                    <h3>Getting started</h3>
-                    <div class="slideContent" >
-                        <p>Confirm that Cytoscape is installed and opened</p>
-
-<pre><code class="r"> 
-cytoscapeVersionInfo ()
-
-</code></pre>
-
-<p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_cytoscapeversion.png" /></p>
-
-                    </div>
-
-                </section>
-                <section data-transition="linear" data-transition-speed="default">
-                    <h3>Browse available functions, commands and arguments</h3>
+                    <h3>Browse available functions and arguments</h3>
                     <div class="slideContent" >
                         <p>Depending on what apps you have installed there is different functionality available.  </p>
 
-                        <p>To see all the functions available in RCy3 package</p>
+                        <p>To see all the functions available open the interactive Swagger docs:</p>
 
                         <pre><code class="r">
-help(package=RCy3)
+                            cyrestAPI()  # CyREST API
+                            commandsAPI()  # Commands API
                         </code></pre>
 
-                        <pre><code class="r">
-cyrestAPI()  # CyREST API
-                        </code></pre>
-
-                        <pre><code class="r">
-commandsAPI()  # Commands API
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                            py4.cyrest_api()  # CyREST API
+                            py4.commands_api()  # Commands API
                         </code></pre>
 
                     </div>
@@ -112,39 +97,35 @@ commandsAPI()  # Commands API
                         <p>As mentioned above, there are two ways to interact with Cytoscape, through the Cyrest API or commands.  To see the available commands in swagger similar to the Cyrest API.</p>
                     </aside>
                 </section>
-    
-                <section data-transition="linear" data-transition-speed="default">
-                    <h3>Help on specific cytoscape command</h3>
-                    <div class="slideContent" >
-                        <p>To get information about an individual command from the R environment you can also use the commandsHelp function.  Simply specify what command you would like to get information on by adding its name to the command.  For example &ldquo;commandsHelp(&quot;help string&rdquo;)&ldquo;</p>
-
-                        <pre><code class="r">
-commandsHelp(&quot;help&quot;)
-                        </code></pre>
-
-                        <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_availablecommands.png" /></p>
-
-                    </div>
-
-                </section>
 
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Cytoscape Basics</h3>
                     <div class="slideContent" >
-                        <p>Create a Cytoscape network from some basic R objects</p>
+                        <p>Create a Cytoscape network from data frames</p>
 
                         <pre><code class="r">
 nodes &lt;- data.frame(id=c(&quot;node 0&quot;,&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;),
-    group=c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;), # categorical strings
-    score=as.integer(c(20,10,15,5)), # integers
-    stringsAsFactors=FALSE)
+                    group=c(&quot;A&quot;,&quot;A&quot;,&quot;B&quot;,&quot;B&quot;), # categorical strings
+                    score=as.integer(c(20,10,15,5)), # integers
+                    stringsAsFactors=FALSE)
 edges &lt;- data.frame(source=c(&quot;node 0&quot;,&quot;node 0&quot;,&quot;node 0&quot;,&quot;node 2&quot;),
-    target=c(&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;,&quot;node 3&quot;),
-    interaction=c(&quot;inhibits&quot;,&quot;interacts&quot;,&quot;activates&quot;,&quot;interacts&quot;),  # optional
-    weight=c(5.1,3.0,5.2,9.9), # numeric
-    stringsAsFactors=FALSE)
+                    target=c(&quot;node 1&quot;,&quot;node 2&quot;,&quot;node 3&quot;,&quot;node 3&quot;),
+                    interaction=c(&quot;inhibits&quot;,&quot;interacts&quot;,&quot;activates&quot;,&quot;interacts&quot;),  # optional
+                    weight=c(5.1,3.0,5.2,9.9), # numeric
+                    stringsAsFactors=FALSE)
                         </code></pre>
+                        <pre><code class="Python" style="background-color: darkslategray;">
+import pandas as pd      
+nodes = pd.DataFrame(data={'id': ["node 0", "node1", "node 2", "node 3"],
+                           'group': ["A","A","B","B"]
+                           'age': [20,10,15,5]})
 
+edges = pd.DataFrame(data={'source': ["node 0", "node 0", "node 0", "node 2"],
+                           'target': ["node 1", "node 2", "node 3", "node 3"],
+                           'interaction': ["inhibits","interacts","activates","interacts"],
+                           'weight': [5.1,3.0,5.2,9.9]})                      
+                        </code></pre>
+                            
                     </div>
 
                 </section>
@@ -230,10 +211,15 @@ edges &lt;- data.frame(source=c(&quot;node 0&quot;,&quot;node 0&quot;,&quot;node
                     <h3>Create Network</h3>
                     <div class="slideContent" >
                         <pre><code class="r">
-createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;, 
+createNetworkFromDataFrames(nodes, edges, title=&quot;my first network&quot;, 
     collection=&quot;DataFrame Example&quot;)
                         </code></pre>
 
+                        <pre><code class="Python" style="background-color: darkslategray;">
+py4.create_network_from_data_frames(nodes, edges, title=&quot;my first network&quot;, 
+    collection=&quot;DataFrame Example&quot;)
+                        </code></pre>
+                            
                         <p style="text-align:center;"><img src="./modules/RCy3_primer/screenshot_networkload_1.png" /></p>
 
                     </div>
@@ -243,16 +229,31 @@ createNetworkFromDataFrames(nodes,edges, title=&quot;my first network&quot;,
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Export an image of the network</h3>
                     <div class="slideContent" >
-                        <p>Remember. All networks we make are created in Cytoscape so get an image of the resulting network and include it in your current analysis if desired.</p>
+                        <p>Remember: all networks we make are created in Cytoscape so get an image of the resulting network and include it in your current analysis if desired.</p>
 
-                        <pre>
-<code class="r">
-exportImage("my_first_network", type = "png")
+                        <pre><code class="r">
+                        exportImage("my_first_network", type = "png")
                         </code></pre>
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                        py4.export_image("my_first_network", type = "png")
+                        </code></pre>
+                        <p  style="text-align:center;"><img src="./modules/RCy3_primer/initial_example_network.png" /></p>    
                     </div>
 
                 </section>
-                <section>
-                    <h3>Initial simple network</h3>
-                     <p  style="text-align:center;"><img src="./modules/RCy3_primer/initial_example_network.png" /></p>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Export and embed an image in a notebook</h3>
+                    <div class="slideContent" >
+                        <p>With the new support for notebooks, you can also display exported images inline with notebooks, both offline and online, e.g., Jupyter/Colab.</p>
+
+                        <pre><code class="r">
+                        notebookExportShowImage("my_first_network", type = "png")
+                        </code></pre>
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                        py4.notebook_export_show_image("my_first_network", type = "png")
+                        </code></pre>
+                        </div>
+
                 </section>
+
+                
