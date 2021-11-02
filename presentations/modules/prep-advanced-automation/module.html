@@ -9,36 +9,62 @@
 </section>
 <section>
         <h1>Pre-Workshop Instructions</h1>
-        <h3>STEP 2: Install R, RStudio and Bioconductor</h3> 
-        <ul>
-            <li>You will need <a target="_blank" href="https://cloud.r-project.org/">Get R</a></li>
-            <li>You will need <a target="_blank" href="https://www.rstudio.com/products/rstudio/download/#download">Get RStudio</a></li>
-            <li>You will need Bioconductor. Simply run these R commands:
-<pre>install.packages("BiocManager")
-BiocManager::install()</pre> </li>
-            </ul>
+        <h3>STEP 2: Install the basics</h3>
+        <ol>
+        <p style="text-align: left; margin-left: -40px; color: darkslategray;"><b>R users:</b></p> 
+            <li><a target="_blank" href="https://cloud.r-project.org/">Install R</a>  (update if over a year old)</li>
+            <li><a target="_blank" href="https://www.rstudio.com/products/rstudio/download/#download">Install RStudio</a></li>
+            <li>Install Bioconductor's manager:
+        <pre><code class="r">
+        install.packages("BiocManager")
+        BiocManager::install()
+        </code></pre> </li></ol>
+        <div  style="margin-left: -150px;">
+        <ol>
+        <p style="text-align: left; margin-left: -40px; color: darkslategray;"><b>Python users:</b></p> 
+                <li><a target="_blank" href="https://realpython.com/installing-python/">Install Python 3</a></li>
+                <li><a target="_blank" href="https://pip.pypa.io/en/stable/installation/">Install pip</a> (if not included)</li>
+        </ol>
+        </div>
 </section>
 <section>
         <h1>Pre-Workshop Instructions</h1>
-        <h3>STEP 3: Install the RCy3 package</h3> 
-    <ul><li><b>OPTION 1:</b> Given that you have the latest Bioconductor installed, you can simply run this R command: <pre>BiocManager::install("RCy3")</pre></li>
-        <li><b>OPTION 2:</b> If you run into troubles or want an alternative to Bioconductor, then you can attempt <a target="_blank" href="https://github.com/cytoscape/RCy3#how-to-install">installing the development code</a></li>
-        <li>Additional <a href="https://github.com/cytoscape/RCy3#troubleshooting" target="_blank">troubleshooting tips</a> are also available</li>
-	</ul>
+        <h3>STEP 3: Install the cytoscape automation package</h3> 
+        <pre><code class="r">
+            #R
+            BiocManager::install("RCy3")
+            library(RCy3)
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+             #Python
+             pip install requests pandas colorbrewer chardet decorator
+             pip install py4cytoscape
+             import py4cytoscape as py4
+         </code></pre>
 </section>
 <section>
         <h1>Pre-Workshop Instructions</h1>
         <h3>STEP 4: Take it for a test drive</h3>
-        <ul>
-            <li>Open the vignette called <a href="https://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Overview-of-RCy3.nb.html" target="_blank">
-            Overview of RCy3</a></li>
-            <li>Go through the first few steps. You can stop after "My own style". </li>
-            <br /><em>Pro-tip: You can copy/paste code chunks from the HTML web page into RStudio or save/open the Rmd script provided by the <b>Code</b> link at the top-right of the page.</em>
-        </ul>   
+        <p>Make sure to launch Cytoscape first. Relaunch Cytosacpe if you see a CyREST error.</p>
+        <pre><code class="r">
+                #R
+                cytoscapePing()
+                cytoscapeVersionInfo()
+            </code></pre>
+            <pre><code class="Python" style="background-color: darkslategray;">
+                #Python
+                py4.cytoscape_ping()
+                py4.cytoscape_version_info()
+             </code></pre>
+             <pre>
+                You are connected to Cytoscape!
+                apiVersion': 'v1'
+                cytoscapeVersion': '3.9.0'
+             </pre>
 </section>
 <section>
         <h1>Pre-Workshop Instructions</h1>
-        <b>That's it!</b> If the initial steps of the overview vignette ran without warnings or errors and you ended up a 4-node network in Cytoscape, then you are ready for the workshop. 
+        <b>That's it!</b> If those functions returned results without warnings or errors, then you are ready for the workshop. 
 <br /><br />
 If you ran into any issues along the way, please <a href="mailto:alex.pico@gladstone.ucsf.edu">email me</a> ahead of time.
 <br /><br />
