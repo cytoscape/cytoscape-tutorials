@@ -34,7 +34,9 @@
                         </code></pre>
                             
                     </div>
-
+                    <aside class="notes">
+                       For Python folks: If you're in a noteboook environment, you'll need a bang (or exclamation mark) preceding "pip".</p>
+                    </aside>
                 </section>
                 <section data-transition="linear" data-transition-speed="default">
                     <h3>Set up (part 2: Cytoscape)</h3>
@@ -116,8 +118,8 @@ edges &lt;- data.frame(source=c(&quot;node 0&quot;,&quot;node 0&quot;,&quot;node
                         </code></pre>
                         <pre><code class="Python" style="background-color: darkslategray;">
 import pandas as pd      
-nodes = pd.DataFrame(data={'id': ["node 0", "node1", "node 2", "node 3"],
-                           'group': ["A","A","B","B"]
+nodes = pd.DataFrame(data={'id': ["node 0", "node 1", "node 2", "node 3"],
+                           'group': ["A","A","B","B"],
                            'age': [20,10,15,5]})
 
 edges = pd.DataFrame(data={'source': ["node 0", "node 0", "node 0", "node 2"],
