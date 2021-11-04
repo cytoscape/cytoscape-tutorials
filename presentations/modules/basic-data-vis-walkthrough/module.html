@@ -79,101 +79,89 @@
             #Python
             py4.set_node_border_width_mapping('gal80Rsig',c(0,0.05), c(4,4),style_name="galFiltered Style")
         </code></pre>
+        <img src="./modules/basic-data-vis-walkthrough/styles-done.png" style="height:270px">
     </div>
     <aside class="notes">
     </aside>
 </section>    
 <section data-transition="linear" data-transition-speed="default">
-    <h3>XXX</h3>
+    <h3>Select Nodes</h3>
     <div class="slideContent">
-        <p>xxx:</p>
+        <p>Cytoscape allows you to easily filter and select nodes and edges based on data attributes. Next, we will select a subset of nodes with high expression in the gal80 knockout:</p>
         <pre><code class="r">
             #R
-            XXX
+            createColumnFilter('myFilter', 'gal80Rexp', 2, "GREATER_THAN")
         </code></pre>
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
-            py4.XXX
+            py4.create_column_filter('myFilter', 'gal80Rexp', 2, "GREATER_THAN")
+        </code></pre>
+        <pre>
+            <font color="red">No edges selected.</font>
+            $nodes
+            [1] "YBR019C" "YBR020W" "YBR018C"
+            
+            $edges
+            [1] NA</pre>
+    </div>
+    <aside class="notes">
+    </aside>
+</section>
+<section data-transition="linear" data-transition-speed="default">
+    <h3>Expand Selection </h3>
+    <div class="slideContent">
+        <p>We have now selected only the few top expressing nodes. To see the context of these nodes in the larger network, we can expand the selection to second-degree neighbors. </p>
+        <pre><code class="r">
+            #R
+            selectFirstNeighbors() #first degree
+            selectFirstNeighbors() #second degree
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.select_first_neighbors() #first degree
+            py4.select_first_neighbors() #second degree
         </code></pre>
     </div>
     <aside class="notes">
     </aside>
 </section>
 <section data-transition="linear" data-transition-speed="default">
-    <h3>XXX</h3>
+    <h3>Create New Network</h3>
     <div class="slideContent">
-        <p>xxx:</p>
+        <p>Finally, we can create a subnetwork from this selection and apply a layout algorithm:</p>
         <pre><code class="r">
             #R
-            XXX
+            createSubnetwork(nodes="selected", subnetwork.name='galFiltered sub')
+            layoutNetwork('force-directed')
         </code></pre>
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
-            py4.XXX
+            py4.create_subnetwork(nodes="selected", subnetwork_name='galFiltered sub')
+            py4.layout_network('force-directed')
         </code></pre>
+        <img src="./modules/basic-data-vis-walkthrough/final.png" style="height:270px">
     </div>
     <aside class="notes">
     </aside>
 </section>
 <section data-transition="linear" data-transition-speed="default">
-    <h3>XXX</h3>
+    <h3>Summary</h3>
     <div class="slideContent">
-        <p>xxx:</p>
+             <ul>
+                <li>Explored a yeast interactome from a transcription factor knockout experiment</li>
+                <li>Created a visual style using expression value as node color and with border width mapped to significance</li>
+                <li>Selected high expressing genes and their neighbors and created a new network</li>
+            </ul>
+            <p>Finally, we can now export this network as a publication-quality image....</p>
         <pre><code class="r">
             #R
-            XXX
+            saveSession('./basic-data-visualization.cys')
+            exportImage('./basic-data-visualization', 'PDF')
         </code></pre>
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
-            py4.XXX
-        </code></pre>
-    </div>
-    <aside class="notes">
-    </aside>
-</section>
-<section data-transition="linear" data-transition-speed="default">
-    <h3>XXX</h3>
-    <div class="slideContent">
-        <p>xxx:</p>
-        <pre><code class="r">
-            #R
-            XXX
-        </code></pre>
-        <pre><code class="Python" style="background-color: darkslategray;">
-            #Python
-            py4.XXX
-        </code></pre>
-    </div>
-    <aside class="notes">
-    </aside>
-</section>
-<section data-transition="linear" data-transition-speed="default">
-    <h3>XXX</h3>
-    <div class="slideContent">
-        <p>xxx:</p>
-        <pre><code class="r">
-            #R
-            XXX
-        </code></pre>
-        <pre><code class="Python" style="background-color: darkslategray;">
-            #Python
-            py4.XXX
-        </code></pre>
-    </div>
-    <aside class="notes">
-    </aside>
-</section>
-<section data-transition="linear" data-transition-speed="default">
-    <h3>XXX</h3>
-    <div class="slideContent">
-        <p>xxx:</p>
-        <pre><code class="r">
-            #R
-            XXX
-        </code></pre>
-        <pre><code class="Python" style="background-color: darkslategray;">
-            #Python
-            py4.XXX
+            py4.save_session('./basic-data-visualization.cys')
+            py4.export_image('./basic-data-visualization', 'PDF')
         </code></pre>
     </div>
     <aside class="notes">
