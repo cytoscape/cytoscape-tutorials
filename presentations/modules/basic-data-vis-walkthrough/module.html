@@ -25,8 +25,7 @@
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
             py4.open_session()
-        </code></pre>
-            
+        </code></pre>    
     </div>
     <aside class="notes">
     </aside>
@@ -42,11 +41,141 @@
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
             py4.set_node_color_mapping(**gen_node_color_map('gal80Rexp', palette_color_brewer_d_RdBu(), style_name="galFiltered Style"))
+        </code></pre>    
+        <img src="./modules/basic-data-vis-walkthrough/exp-gradient.png" style="height:270px">
+    </div>
+    <aside class="notes">
+        - note difference between R and Python<br />
+        - palette fxn: finds min/mid/max, provides 3 colors
+    </aside>
+</section>
+<section data-transition="linear" data-transition-speed="default">
+    <h3>Set Node Border Color</h3>
+    <div class="slideContent">
+        <p>To visualize the significance of measurements, let's add a contiuous mapping for 'gal80Rsig' p-values to Node Border Color:</p>
+        <pre><code class="r">
+            #R
+            setNodeBorderColorMapping('gal80Rsig',c(0,0.05), c("#FFFFFF","#FF0000","#FF0000","#FFFFFF"),style.name="galFiltered Style")
         </code></pre>
-            
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.set_node_border_color_mapping('gal80Rsig',c(0,0.05), c("#FFFFFF","#FF0000","#FF0000","#FFFFFF"),style_name="galFiltered Style")
+        </code></pre>
+        <img src="./modules/basic-data-vis-walkthrough/sig-gradient.png" style="height:270px">
+    </div>
+    <aside class="notes">
+        trick: provide 2 points (min/max), provide n+2 colors!
+    </aside>
+</section> 
+<section data-transition="linear" data-transition-speed="default">
+    <h3>Set Node Border Width</h3>
+    <div class="slideContent">
+        <p>...and let's also map the same gal80RSig values to set the Node Border Widths:</p>
+        <pre><code class="r">
+            #R
+            setNodeBorderWidthMapping('gal80Rsig',c(0,0.05),c(4,4),style.name="galFiltered Style")
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.set_node_border_width_mapping('gal80Rsig',c(0,0.05), c(4,4),style_name="galFiltered Style")
+        </code></pre>
+    </div>
+    <aside class="notes">
+    </aside>
+</section>    
+<section data-transition="linear" data-transition-speed="default">
+    <h3>XXX</h3>
+    <div class="slideContent">
+        <p>xxx:</p>
+        <pre><code class="r">
+            #R
+            XXX
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.XXX
+        </code></pre>
     </div>
     <aside class="notes">
     </aside>
 </section>
-
-     
+<section data-transition="linear" data-transition-speed="default">
+    <h3>XXX</h3>
+    <div class="slideContent">
+        <p>xxx:</p>
+        <pre><code class="r">
+            #R
+            XXX
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.XXX
+        </code></pre>
+    </div>
+    <aside class="notes">
+    </aside>
+</section>
+<section data-transition="linear" data-transition-speed="default">
+    <h3>XXX</h3>
+    <div class="slideContent">
+        <p>xxx:</p>
+        <pre><code class="r">
+            #R
+            XXX
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.XXX
+        </code></pre>
+    </div>
+    <aside class="notes">
+    </aside>
+</section>
+<section data-transition="linear" data-transition-speed="default">
+    <h3>XXX</h3>
+    <div class="slideContent">
+        <p>xxx:</p>
+        <pre><code class="r">
+            #R
+            XXX
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.XXX
+        </code></pre>
+    </div>
+    <aside class="notes">
+    </aside>
+</section>
+<section data-transition="linear" data-transition-speed="default">
+    <h3>XXX</h3>
+    <div class="slideContent">
+        <p>xxx:</p>
+        <pre><code class="r">
+            #R
+            XXX
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.XXX
+        </code></pre>
+    </div>
+    <aside class="notes">
+    </aside>
+</section>
+<section data-transition="linear" data-transition-speed="default">
+    <h3>XXX</h3>
+    <div class="slideContent">
+        <p>xxx:</p>
+        <pre><code class="r">
+            #R
+            XXX
+        </code></pre>
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.XXX
+        </code></pre>
+    </div>
+    <aside class="notes">
+    </aside>
+</section>
