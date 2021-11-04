@@ -31,6 +31,22 @@
     <aside class="notes">
     </aside>
 </section>
-
+<section data-transition="linear" data-transition-speed="default">
+    <h3>Set Node Fill Color</h3>
+    <div class="slideContent" >
+        <p>Let’s specify the node fill color as a gradient ranging from blue to red for expression values using a continuous mapping for the ‘gal80Rexp’ column:</p>
+        <pre><code class="r">
+            #R
+            setNodeColorMapping('gal80Rexp', colors=paletteColorBrewerRdBu, style.name="galFiltered Style")
+        </code></pre>      
+        <pre><code class="Python" style="background-color: darkslategray;">
+            #Python
+            py4.set_node_color_mapping(**gen_node_color_map('gal80Rexp', palette_color_brewer_d_RdBu(), style_name="galFiltered Style"))
+        </code></pre>
+            
+    </div>
+    <aside class="notes">
+    </aside>
+</section>
 
      
