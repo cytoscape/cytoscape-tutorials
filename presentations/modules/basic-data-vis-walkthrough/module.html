@@ -55,13 +55,13 @@
         <p>To visualize the significance of measurements, let's add a contiuous mapping for 'gal80Rsig' p-values to Node Border Color:</p>
         <pre><code class="r">
             #R
-            setNodeBorderColorMapping('gal80Rsig',c(0,0.05), c("#FFFFFF","#FF0000","#FF0000","#FFFFFF"),style.name="galFiltered Style")
+            setNodeBorderColorMapping('gal80Rsig',c(0,0.05), c("#FF0000","#FF0000","#FF0000","#555555"),style.name="galFiltered Style")
         </code></pre>
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
-            py4.set_node_border_color_mapping('gal80Rsig',c(0,0.05), c("#FFFFFF","#FF0000","#FF0000","#FFFFFF"),style_name="galFiltered Style")
+            py4.set_node_border_color_mapping('gal80Rsig',[0,0.05], ["#FF0000","#FF0000","#FF0000","#555555"],style_name="galFiltered Style")
         </code></pre>
-        <img src="./modules/basic-data-vis-walkthrough/sig-gradient.png" style="height:270px">
+        <img src="./modules/basic-data-vis-walkthrough/sig-gradient2.png" style="height:270px">
     </div>
     <aside class="notes">
         trick: provide 2 points (min/max), provide n+2 colors!
@@ -77,7 +77,7 @@
         </code></pre>
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
-            py4.set_node_border_width_mapping('gal80Rsig',c(0,0.05), c(4,4),style_name="galFiltered Style")
+            py4.set_node_border_width_mapping('gal80Rsig',[0,0.05], [4,4],style_name="galFiltered Style")
         </code></pre>
         <img src="./modules/basic-data-vis-walkthrough/styles-done.png" style="height:270px">
     </div>
