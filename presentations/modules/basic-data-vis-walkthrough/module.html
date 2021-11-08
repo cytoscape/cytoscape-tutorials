@@ -40,7 +40,7 @@
         </code></pre>      
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
-            py4.set_node_color_mapping(**gen_node_color_map('gal80Rexp', palette_color_brewer_d_RdBu(), style_name="galFiltered Style"))
+            py4.set_node_color_mapping(**py4.gen_node_color_map('gal80Rexp', py4.palette_color_brewer_d_RdBu(), style_name="galFiltered Style"))
         </code></pre>    
         <img src="./modules/basic-data-vis-walkthrough/exp-gradient.png" style="height:270px">
     </div>
@@ -161,8 +161,8 @@
         </code></pre>
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
-            py4.save_session('./basic-data-visualization.cys')
-            py4.export_image('./basic-data-visualization', 'PDF')
+            py4.save_session('basic-data-visualization.cys')
+            py4.export_image('basic-data-visualization', 'PDF')
         </code></pre>
     </div>
     <aside class="notes">
