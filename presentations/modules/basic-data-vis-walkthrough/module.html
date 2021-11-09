@@ -73,11 +73,11 @@
         <p>...and let's also map the same gal80RSig values to set the Node Border Widths:</p>
         <pre><code class="r">
             #R
-            setNodeBorderWidthMapping('gal80Rsig',c(0,0.05),c(4,4),style.name="galFiltered Style")
+            setNodeBorderWidthMapping('gal80Rsig',c(0,0.05),c(4,4,4,1),style.name="galFiltered Style")
         </code></pre>
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
-            py4.set_node_border_width_mapping('gal80Rsig',[0,0.05], [4,4],style_name="galFiltered Style")
+            py4.set_node_border_width_mapping('gal80Rsig',[0,0.05], [4,4,4,1],style_name="galFiltered Style")
         </code></pre>
         <img src="./modules/basic-data-vis-walkthrough/styles-done.png" style="height:270px">
     </div>
@@ -156,8 +156,8 @@
             <p>Finally, we can now export this network as a publication-quality image....</p>
         <pre><code class="r">
             #R
-            saveSession('./basic-data-visualization.cys')
-            exportImage('./basic-data-visualization', 'PDF')
+            saveSession('basic-data-visualization.cys')
+            exportImage('basic-data-visualization', 'PDF')
         </code></pre>
         <pre><code class="Python" style="background-color: darkslategray;">
             #Python
