@@ -72,7 +72,8 @@
 <section id="ex1-up-string">
 <h1>Example 1: STRING Protein Query <br />Up-regulated Genes</h1>
 <ul>
-    <li>Open the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.xlsx" target="_blank">list of up-regulated genes</a>, and copy the contents to the clipboard.</li>
+    <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.xlsx" target="_blank">list of up-regulated genes</a>, and open it in Excel.</li>
+    <li>This file contains the subset of genes that were up-regulated in the experiment. In Excel, copy the entries in the <b>Gene</b> column to the clipboard.</li>
     <li>In the <highlight>Network Search</highlight> bar at the top of the <highlight>Network Panel</highlight>, select <highlight>STRING protein query</highlight> from the drop-down, and paste in the list of up-regulated genes.</li>
    <li>Open the options panel <img class="plain" src="string-options.png" style="height:30px"> and confirm you are searching <b>Homo sapiens</b> with a cutoff of <b>0.4</b> and <b>0</b> maximum additional interactors.</li>
     <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network will load automatically.</li>
@@ -95,7 +96,7 @@
 <img class="plain" src="string-de-up2-sub.png" style="height:600px"> 
 </section>
     
-<section id="ex1-up-data-integration1">
+<!--<section id="ex1-up-data-integration1">
     <h1>Data Integration</h1>
     <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Our data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
     <ul>
@@ -103,15 +104,15 @@
         <li>In the <highlight>ID Mapping</highlight> interface, select <b>Human</b> as <highlight>Species</highlight>, <b>HGNC</b> as <highlight>Map from</highlight> and <b>Entrez</b> as <highlight>To</highlight>. Click <b>OK</b> to continue.</li>
         <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all downstream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
     </ul>
-</section>
+</section>-->
     
 <section id="ex1-up-data-integration2">
     <h1>Data Integration</h1>
-    <p>We can now import the differential gene expression data.</p>
+    <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Our data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
     <ul>
     <li>Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>.</li>
     <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
-	<li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
+	<li>Make sure you select the new <b>query term</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
     <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
 </ul>
     <img class="plain" src="DataImport.png" style="width:42%">
@@ -165,7 +166,7 @@
     <h1>STRING Protein Query Down-Regulated Genes</h1>
     <p>The same workflow (network search, data integration, visualizationcan and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
         <ul>
-            <li>Query STRING protein with the list of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt" target="_blank">down-regulated genes</a>.</li>
+            <li>Query STRING protein with the list of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.xlsx" target="_blank">down-regulated genes</a>.</li>
             <li>Create a subnetwork for the largest connected component, then map <b>Uniprot</b> identifiers to <b>NCBI gene</b> and load the data.</li>
             <li>Create a visualization as described <a href="#/ex1-up-visualization1">previously</a>. To distinguish between the visualizations of up- and down-regulated results, pick a different node fill color palette, for example ColorBrewer <b>blue shades</b>. Note that you may have to delete the mapping between <b>Node Fill Color</b> and <b>LogFC</b> and then add it again for the range of values to be recognized properly.</li>
             <li>Save your new visualization as <b>de genes down</b>.</li>
