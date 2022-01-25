@@ -5,71 +5,126 @@
             <br /><br />
             <span class="fragment">There are hundreds of different interaction databases
             <img style="width:80%;" src="modules/finding-network-data/interaction-dbs.png"></span>
-    
+
 				<aside class="notes" data-markdown>
-				So, the number one question we get is, "which database has THE best network?" Well, tehre is no such thing. 
+				So, the number one question we get is, "which database has THE best network?" Well, tehre is no such thing.
 Here, we will review some specific databases and decribe how they get their interaction data and how they can be accessed from Cytoscape.
 				</aside>
 </section>
 
 <section>
-    It depends on your biological question 
+    It depends on your biological question
     and your analysis plan,<br /><br />
     <em class="fragment"><highlight>But know what you are getting.....</highlight></em>
-    
+
 </section>
 
 <section>
-<h3>Starting with a gene list......</h3> 
+<h3>Starting with a gene list......</h3>
 
 <img style="width:70%;" src="modules/finding-network-data/ListNetworksPathways.png">
 
 </section>
 
 <section>
-    <h3>Networks</h3> 
-       
+    <h3>Networks</h3>
+
     <highlight>Broad coverage / Lower resolution</highlight> <br /> <br />
 
     <ul>
-    <li><b>PSICQUIC</b> (<a href="https://psicquic.github.io/" target="_blank">built-in</a>)</li>
-    <li><b>NDEx</b> (<a href="http://www.ndexbio.org/" target="_blank">built-in</a>)</li>
-    <li><b>IntAct</a></b> (<a href="http://apps.cytoscape.org/apps/intactapp" target="_blank">IntAct App</a>)</li>
     <li><b><a href="#string">STRING</a></b> (<a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a>)</li>
+    <li><b>NDEx</b> (<a href="http://www.ndexbio.org/" target="_blank">built-in</a>)</li>
+    <li><b>PSICQUIC</b> (<a href="https://psicquic.github.io/" target="_blank">built-in</a>)</li>
+    <li><b>IntAct</a></b> (<a href="http://apps.cytoscape.org/apps/intactapp" target="_blank">IntAct App</a>)</li>
     <!--<li><b>GeneMANIA</b> (GeneMANIA app)</li> -->
     </ul>
-    
+
+
+</section>
+<section id="string">
+<h3>STRING</h3>
+<h5><highlight>stringApp</highlight></h5>
+    <div class="column" style="font-size: 80%">
+			<ul>
+      <li>STRING Protein query:
+      <ul>
+        <li>Genomic Context Predictions</li>
+        <li>High-throughput Lab Experiments</li>
+        <li>(Conserved) Co-Expression</li>
+        <li>Automated Textmining</li>
+        <li>Previous Knowledge in Databases</li>
+     </ul>
+		</li>
+    <li>STRING compound query
+      <ul>
+				<li>Queries the STITCH database</li>
+				<li>Combines STRING protein with known compound interactions</li>
+			</ul>
+		</li>
+		</ul>
+		</div>
+		<div class="column" style="font-size: 80%">
+			<ul>
+				<li>STRING disease query:
+					<ul>
+						<li>Queries the DISEASES database</li>
+						<li>Interactions of disease-associated proteins</li>
+					</ul>
+				</li>
+				<li>STRING Pubmed query:
+					<ul>
+						<li>Extracts protein-protein interactions from pubmed</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+</section>
+
+<section>
+    Use the <highlight>Network Search Tool</highlight> to select a resource:<br /><br />
+    <img style="width:30%;" src="modules/finding-network-data/NetworkSearch.png">
+</section>
+
+<section>
+    <h3>STRING Settings</h3>
+
+    <img style="width:75%;" src="modules/finding-network-data/STRING-settings.png">
 
 </section>
 
 <section>
-<h3>PSICQUIC</h3>
-    <highlight>PSI common query interface</highlight><br /><br />
-    PSICQUIC is included in the Cytoscape network search tool: <br /><br />
-    <img style="width:50%;" src="modules/finding-network-data/PSICQUIC-control.png"><br /><br />
-
-   <div class="fragment">
-       <img style="width:50%;" src="modules/finding-network-data/PSICQUIC-interactions.png"><br />
-    </div>
+    <h3>STRING Results</h3>
+        <img style="width:70%;" class="plain" src="modules/finding-network-data/STRING-results.png">
 
 </section>
 
 <section>
-    <h3>PSICQUIC search results</h3>
-
-        <img style="width:60%;" src="modules/finding-network-data/PSICQUIC-results.png">
-    
-    <ul>
-        <li>Select results from multiple sources</li>
-        <li>Interaction type is included</li>
-    </ul>
-   
+    <h3>STRING Options</h3>
+		<div style="width:50%;height:500px;float: left">
+ 		  <img style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-options.png"><br />
+ 		  <img class="fragment" data-fragment-index="1" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-EnrichmentOptions.png">
+	   <img class="fragment" data-fragment-index="2" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-NodeResults.png">
+	   <img class="fragment" data-fragment-index="3" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-EdgeResults.png">
+		</div>
+		<div style="font-size:60%;float:right;width:30%">
+		<ul>
+        <li>Change confidence level of interactions</li>
+        <li>Expand network</li>
+        <li class="fragment" data-fragment-index="1" >Functional Enrichment</li>
+				<li class="fragment" data-fragment-index="2" >Filter by tissue or compartment</li>
+				<li class="fragment" data-fragment-index="3" >Filter by evidence type</li>
+        </ul>
+		</div>
 
 </section>
 
+<section>
+    <h3>STRING Enrichment</h3>
+        <img style="width:70%;" class="plain" src="modules/finding-network-data/STRING-enrichment.png">
+</section>
 <section>
     <h3>NDEx</h3>
-    
+
     <highlight>CyNDEx App</highlight><br /><br />
     <ul>
         <li>Repository for biological network knowledge</li>
@@ -89,7 +144,7 @@ Here, we will review some specific databases and decribe how they get their inte
 
 <section>
     <h3>NDEx Search Results</h3>
-    
+
     <img style="width:75%;" src="modules/finding-network-data/CyNDEx.png">
 
 </section>
@@ -99,6 +154,33 @@ Here, we will review some specific databases and decribe how they get their inte
 
     <img style="width:75%;" src="modules/finding-network-data/CyNDEx-network.png">
 </section>
+
+<section>
+<h3>PSICQUIC</h3>
+    <highlight>PSI common query interface</highlight><br /><br />
+    PSICQUIC is included in the Cytoscape network search tool: <br /><br />
+    <img style="width:50%;" src="modules/finding-network-data/PSICQUIC-control.png"><br /><br />
+
+   <div class="fragment">
+       <img style="width:50%;" src="modules/finding-network-data/PSICQUIC-interactions.png"><br />
+    </div>
+
+</section>
+
+<section>
+    <h3>PSICQUIC search results</h3>
+
+        <img style="width:60%;" src="modules/finding-network-data/PSICQUIC-results.png">
+
+    <ul>
+        <li>Select results from multiple sources</li>
+        <li>Interaction type is included</li>
+    </ul>
+
+
+</section>
+
+
 
 <!--section>
     <h3>Try it!</h3>
@@ -180,87 +262,7 @@ Here, we will review some specific databases and decribe how they get their inte
 </ul>
 </section>
 
-<section id="string">
-<h3>STRING</h3>
-<h5><highlight>stringApp</highlight></h5>
-    <div class="column" style="font-size: 80%">
-			<ul>
-      <li>STRING Protein query:
-      <ul>
-        <li>Genomic Context Predictions</li>
-        <li>High-throughput Lab Experiments</li>
-        <li>(Conserved) Co-Expression</li>
-        <li>Automated Textmining</li>
-        <li>Previous Knowledge in Databases</li>
-     </ul>
-		</li>
-    <li>STRING compound query
-      <ul>
-				<li>Queries the STITCH database</li>
-				<li>Combines STRING protein with known compound interactions</li>
-			</ul>
-		</li>
-		</ul>
-		</div>
-		<div class="column" style="font-size: 80%">
-			<ul>
-				<li>STRING disease query:
-					<ul>
-						<li>Queries the DISEASES database</li>
-						<li>Interactions of disease-associated proteins</li>
-					</ul>
-				</li>
-				<li>STRING Pubmed query:
-					<ul>
-						<li>Extracts protein-protein interactions from pubmed</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-</section>
 
-<section>
-    Use the <highlight>Network Search Tool</highlight> to select a resource:<br /><br />
-    <img style="width:30%;" src="modules/finding-network-data/NetworkSearch.png">
-</section>
-
-<section>
-    <h3>STRING Settings</h3>
-    
-    <img style="width:75%;" src="modules/finding-network-data/STRING-settings.png">
-    
-</section>
-
-<section>
-    <h3>STRING Results</h3>
-        <img style="width:70%;" class="plain" src="modules/finding-network-data/STRING-results.png">
-
-</section>
-
-<section>
-    <h3>STRING Options</h3>
-		<div style="width:50%;height:500px;float: left">
- 		  <img style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-options.png"><br />
- 		  <img class="fragment" data-fragment-index="1" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-EnrichmentOptions.png">
-	   <img class="fragment" data-fragment-index="2" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-NodeResults.png">
-	   <img class="fragment" data-fragment-index="3" style="width:70%;position:absolute;top:100px;left:0px" src="modules/finding-network-data/STRING-EdgeResults.png">
-		</div>
-		<div style="font-size:60%;float:right;width:30%">
-		<ul>
-        <li>Change confidence level of interactions</li>
-        <li>Expand network</li>
-        <li class="fragment" data-fragment-index="1" >Functional Enrichment</li>
-				<li class="fragment" data-fragment-index="2" >Filter by tissue or compartment</li>
-				<li class="fragment" data-fragment-index="3" >Filter by evidence type</li>
-        </ul>
-		</div>
-    
-</section>
-
-<section>
-    <h3>STRING Enrichment</h3>
-        <img style="width:70%;" class="plain" src="modules/finding-network-data/STRING-enrichment.png">
-</section>
 
 <!--section>
     <h3>Try it!</h3>
@@ -269,9 +271,9 @@ Here, we will review some specific databases and decribe how they get their inte
 <!--- TODO: redo this for GeneMANIA 3.5
 <section>
 <h3>GeneMANIA</h3>
-    
+
     <highlight>http://genemania.org</highlight><br /><br />
-    
+
     <ul>
         <li>Co-expression</li>
         <li>Genetic interactions</li>
@@ -280,56 +282,56 @@ Here, we will review some specific databases and decribe how they get their inte
         <li>Pathway co-occurrence</li>
         <li>Shared protein domains</li>
     </ul>
-    
+
 </section>
 
 <section>
     <h3>GeneMANIA Input</h3>
-    
+
     <img style="width:80%;" src="modules/finding-network-data/GeneMANIA.png">
 </section>
 
 <section>
         <h3>GeneMANIA Results</h3>
-    
+
     <img style="box-shadow:none"; src="modules/finding-network-data/GeneMANIA-results.png">
-    
+
 </section>
 
 <section>
         <h3>Import GeneMANIA Network to Cytoscape</h3>
-    
+
    <img style="width:50%;" src="modules/finding-network-data/GeneMANIA-CS-import.png">
-    
+
     <img style="width:40%;" class="fragment" src="modules/finding-network-data/GeneMANIA-network-CS.png">
-        
+
 </section>
 -->
 
 <section>
 <h3>Pathways</h3>
     <highlight>Higher resolution / Limited coverage (~50% of genes)</highlight><br /> <br />
-    
-<ul>   
+
+<ul>
 <li><b>WikiPathways</b> (<a href="http://apps.cytoscape.org/apps/wikipathways" target="_blank">WikiPathways App</a>)</li>
 <li><b>Reactome</b> (<a href="http://apps.cytoscape.org/apps/reactomefiplugin" target="_blank">ReactomeFI App</a>)</li>
 <li><b>Pathway Commons</b> (<a href="http://apps.cytoscape.org/apps/cypath2" target="_blank">CyPath2 App</a>)</li>
 <li><b>KEGG</b> (<a href="http://apps.cytoscape.org/apps/keggscape" target="_blank">KEGGscape App</a>)</li>
 </ul>
-    
+
 </section>
 
 <section>
 <h3>WikiPathways</h3>
-    
+
     <highlight>WikiPathways App</highlight><br /><br />
-    
+
     <ul>
         <li>Handmade pathway models</li>
         <li>Collaborative wiki platform</li>
         <li>Thousands of pathways for dozens of species</li>
     </ul>
-    
+
 </section>
 
 <section>
@@ -340,7 +342,7 @@ Here, we will review some specific databases and decribe how they get their inte
 <section>
     <h3>WikiPathways Search</h3>
     <img style="width:60%;" src="modules/finding-network-data/WikiPathwaysApp-results.png">
-    
+
 </section>
 
 <section>
@@ -363,5 +365,3 @@ Here, we will review some specific databases and decribe how they get their inte
 <img style="width:60%;" src="modules/finding-network-data/Pathway-databases.png">
 
 </section>
-
-
