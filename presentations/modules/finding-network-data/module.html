@@ -16,14 +16,19 @@ Here, we will review some specific databases and decribe how they get their inte
     It depends on your biological question
     and your analysis plan,<br /><br />
     <em class="fragment"><highlight>But know what you are getting.....</highlight></em>
-
+    <aside class="notes" data-markdown>
+    There are hundreds of different interaction databases, each has its unique features.
+    </aside>
 </section>
 
 <section>
 <h3>Starting with a gene list......</h3>
 
 <img style="width:70%;" src="modules/finding-network-data/ListNetworksPathways.png">
-
+<aside class="notes" data-markdown>
+We expect users to have a list of genes. Protein and disease names are also acceptable.
+Differences between network data and pathway data.
+</aside>
 </section>
 
 <section>
@@ -38,7 +43,9 @@ Here, we will review some specific databases and decribe how they get their inte
     <li><b>IntAct</a></b> (<a href="http://apps.cytoscape.org/apps/intactapp" target="_blank">IntAct App</a>)</li>
     <!--<li><b>GeneMANIA</b> (GeneMANIA app)</li> -->
     </ul>
-
+    <aside class="notes" data-markdown>
+        Introduce network data first. Network data has broad coverage (95% human gene) and lower resolution (less details).
+    </aside>
 
 </section>
 <section id="string">
@@ -78,6 +85,12 @@ Here, we will review some specific databases and decribe how they get their inte
 				</li>
 			</ul>
 		</div>
+    <aside class="notes" data-markdown>
+      stringApp imports functional associations or physical interactions between protein-protein and protein-chemical pairs from STRING, Viruses.STRING, STITCH, DISEASES and from PubMed text mining into Cytoscape. Users provide a list of one or more gene, protein, compound, disease, or PubMed queries, the species, the network type, and a confidence score and stringApp queries the database to return the matching network.
+      STRING: protein query -- enter a list of protein names (e.g. gene symbols or UniProt identifiers/accession numbers) to obtain a STRING network for the proteins
+      STRING: PubMed query -- enter a PubMed query and utilize text mining to get a STRING network for the top N proteins associated with the query
+      STRING: disease query -- enter a disease name to retrieve a STRING network of the top N proteins associated with the specified disease
+      STITCH: protein/compound query -- enter a list of protein or compound names to obtain a network for them from STITCH    </aside>
 </section>
 
 <section>
@@ -121,6 +134,8 @@ Here, we will review some specific databases and decribe how they get their inte
 <section>
     <h3>STRING Enrichment</h3>
         <img style="width:70%;" class="plain" src="modules/finding-network-data/STRING-enrichment.png">
+        <aside class="notes" data-markdown>
+          In addition, stringApp can retrieve functional enrichment for Gene Ontology terms, KEGG, Reactome and Wiki Pathways, DISEASES, COMPARTMENTS, TISSUES, and protein domains at a user-specified significance threshold and show the results in a new table in the Table Panel. The app provides several different types of charts to show the enriched terms.  </aside>
 </section>
 <section>
     <h3>NDEx</h3>
@@ -139,7 +154,8 @@ Here, we will review some specific databases and decribe how they get their inte
             </ul>
         </li>
     </ul>
-
+    <aside class="notes" data-markdown>
+      Dropbox or repository for networks. Nice for publish and get DOI links.  </aside>
 </section>
 
 <section>
@@ -224,6 +240,8 @@ Here, we will review some specific databases and decribe how they get their inte
       </li>
       </ul>
     </div>
+    <aside class="notes" data-markdown>
+      intAct unique features. Three views in side panels.  </aside>
 </section>
 
 <section>
@@ -331,6 +349,8 @@ Here, we will review some specific databases and decribe how they get their inte
         <li>Collaborative wiki platform</li>
         <li>Thousands of pathways for dozens of species</li>
     </ul>
+    <aside class="notes" data-markdown>
+      WikiPathways is a community resource for contributing and maintaining content dedicated to biological pathways. Any registered WikiPathways user can contribute, and anybody can become a registered user.  </aside>
 
 </section>
 
@@ -348,6 +368,8 @@ Here, we will review some specific databases and decribe how they get their inte
 <section>
     <h3>WikiPathways Results</h3>
 <img style="width:80%;" src="modules/finding-network-data/WikiPathwaysApp-pathway.png">
+<aside class="notes" data-markdown>
+  Either pathway or network, network layout gone, merge network easy.  </aside>
 
 </section>
 <section>
