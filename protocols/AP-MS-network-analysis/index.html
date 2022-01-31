@@ -74,7 +74,7 @@
     <p>We are going to use existing protein-protein interaction data to enrich the network, using the <a href="https://string-db.org/"  target="_blank">STRING database</a> with the human protein nodes as input.</p>
     
     <ul>
-        <li>In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header once. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.</li>
+        <li>In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header twice. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.</li>
         <li>Select all the relevant entries in the <highlight>Uniprot</highlight> column by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.</li>
         <li>Paste the list of gene symbols into the <highlight>Network Search</highlight> at the top of the <highlight>Control Panel</highlight>. Select <highlight>String Protein</highlight> from the drop-down.</li>
         <li>Click the <highlight>options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.999</b>. Keep the default, <b>0</b>, for <highlight>Maximum additional interactors</highlight>.</li>
@@ -100,7 +100,7 @@
         <li>In the <highlight>Matching Columns</highlight> field, select <highlight>Uniprot</highlight> for the AP-MS network and <highlight>query term</highlight> for the string network.</li>
         <li>In the <highlight>How to merge columns</highlight> section, find the entry for <highlight>display name</highlight> for the string network. Click on the column for the ap-ms network for that same row and select <highlight>name</highlight> from the drop-down.</li>
     </ul>
-    <img class="border" src="merge-interface.png" style="height:450px">
+    <img class="border" src="merge-interface.png" style="height:360px">
 </section>
                 
 <section>
@@ -131,7 +131,7 @@
     <ul>
         <img class="border" src="ap-ms-style.png" style="float:right;height:550px">
         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Options</highlight> menu and select <highlight>Create New Style...</highlight>. Name the style <b>AP-MS</b>.</li>
-        <li>Check the <highlight>Lock node width and height</highlight>.</li>
+        <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
         <li>Set the node <highlight>Size</highlight> to 50.</li>
         <li>Set the default node <highlight>Fill Color</highlight> to light grey.</li>
         <li>Create a passthrough mapping for the node <highlight>Label</highlight> using the <highlight>display name</highlight>.</li>
@@ -150,8 +150,7 @@
     <h1>Enrichment Analysis</h1>
     <p>Now that we have a merged network, we can do enrichment analysis on it, using the STRING enrichment tool.</p>
     <ul>
-        <li>First, designate the merged network as a STRING network by selecting <highlight>Apps &rarr; STRING &rarr; Set as STRING network</highlight>.</li>
-        <li>Next, click <highlight>Apps &rarr; STRING &rarr; Retreive functional enrichment</highlight>. Use the default value (0.05) for <highlight>Enrichment FDR value cutoff</highlight>.</li>
+        <li>Select <highlight>Apps &rarr; STRING &rarr; Retreive functional enrichment</highlight>. Use the default value (0.05) for <highlight>Enrichment FDR value cutoff</highlight>.</li>
         <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul>
     
@@ -164,7 +163,7 @@
     <ul>
         <li>We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
-        <li>To make the visualization clearer, we can also remove the structure images from the nodes by selecting <highlight>Apps &rarr; STRING &rarr; Don't show structure images</highlight>.</li>
+<!--        <li>To make the visualization clearer, we can also remove the structure images from the nodes by selecting <highlight>Apps &rarr; STRING &rarr; Don't show structure images</highlight>.</li>-->
 <!--        <li>Likewise, remove the STRING glass ball effect by selecting <highlight>Apps &rarr; STRING &rarr; Disable STRING glass ball effect</highlight>.</li>-->
 	   <li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
     </ul>
@@ -175,11 +174,11 @@
     <h1>Visualizing Results</h1>
     <p>We can create a visualization based on the <highlight>Jurkat Score</highlight>, and the different interaction types:</p>
     <ul>
-        <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, create a new style named <b>AP-MS Jurkat Score</b>.</li>
+        <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, copy the current style to create a new style named <b>AP-MS Jurkat Score</b>.</li>
+        <li>Remove the STRING enrichment chart by clicking the <highlight>Reset charts</highlight> icon at the top of the <highlight>STRING Enrichment</highlight> tab.</li>
         <li>Create a continuous mapping for the node <highlight>Fill Color</highlight> using the <highlight>JurkatScore</highlight> column. Select a purple gradient from the <highlight>ColorBrewer</highlight> palettes.</li>
         <li>Switch the deafult node <highlight>Fill Color</highlight> to <highlight>yellow</highlight> to highlight the HIV proteins.</li>
-        <li>Create a passthrough mapping for node <highlight>Label</highlight> using the <highlight>display name</highlight> column.</li>
-        <li>In the <highlight>Edge</highlight>, create a continuous mapping for edge <highlight>Width</highlight> using the <highlight>AP-MS Score</highlight> column.</li>
+        <li>In the <highlight>Edge</highlight> tab, create a continuous mapping for edge <highlight>Width</highlight> using the <highlight>AP-MS Score</highlight> column.</li>
         <li>Set the width values to a range from <b>1</b> to <b>5</b>.</li>
         <li>Create a <highlight>Discrete</highlight> mapping for edge <highlight>Stroke Color</highlight> using the <highlight>interaction</highlight> column. Choose a <b>green</b> color for all interactions of type <b>interacts with</b>. This will color all the interactions in the original AP-MS dataset.</li>
     </ul>

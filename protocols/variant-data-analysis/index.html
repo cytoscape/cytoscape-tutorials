@@ -66,7 +66,7 @@
     <li>Open the <highlight>Layout Settings</highlight> by selecting <highlight>Layout &rarr; Settings...</highlight>.</li>
     <li>Under <highlight>Layout Algorithm</highlight>, select <highlight>Prefuse Force Directed</highlight>.</li>
     <li>Set the <highlight>Default Spring Coefficient</highlight> to <b>8E-7</b> and the <highlight>Default Spring Length</highlight> to <b>70</b>.</li>
-    <li>Click <highlight>Apply Layout</highlight></li>
+    <li>Click <highlight>Apply Layout</highlight>.</li>
     </ul>
     
     <div class="fragment">
@@ -119,7 +119,7 @@
     <h1>Generate Subnetworks</h1>
     <p>The <a href="http://apps.cytoscape.org/apps/diffusion" target="_blank">Diffusion</a> app uses the network connectivity in a more subtle way than just first-degree neighbors. We can combine this with the top scoring genes:</p>
     <ul>
-        <li>Again, select the original <b>String breast cancer</b> network.</li>
+        <li>Again, select the original <b>String breast cancer</b> network. Click anywhere on the canvas to undo the current node selection.</li>
         <li>In the <highlight>Filter</highlight> tab, adjust the threshold for the <b>disease score</b> column filter to select nodes with a score of 4.2 and above. This will select a small number of top nodes.</li>
         <li>With the nodes selected, select <highlight>Tools &rarr; Diffuse &rarr; Selected Nodes</highlight>.</li>
         <li>The Diffusion results will open in the <highlight>Results Panel</highlight>. Click <highlight>Create</highlight> to create a subnetwork.</li>
@@ -137,6 +137,7 @@
     <h1>Visualizing Data</h1>
     <p>From the <a href="https://cancergenome.nih.gov/">TCGA</a>, we have access to <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-mut.csv">mutation data</a> and <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/bcr-expr.csv">expression data</a> for breast cancer. We can visualize this data on the network, and also use it for analysis.</p>        
     <ul>
+    <li>Select the second subnetwork, representing nodes with disease score of <b>3.3</b> or higher and their first neighbors.</li>
     <li>Load the <b>mutation data file</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>.</li>
 	<li>For this data, the <highlight>Key Column for Network</highlight> should be set to <b>display name</b> to match the <b>Hugo symbol</b> used in the data.</li>
     <li>Repeat the import process for the <b>expression data file</b>, again mapping through the <b>display name</b>.</li>
@@ -154,6 +155,7 @@
     <p>Let’s create a new style to visualize our imported data.</p>
     <ul>
         <li>In the <highlight>Style</highlight> tab in the <highlight>Control Panel</highlight>, click the <highlight>Options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and select <highlight>Create New Style...</highlight>. Name your new style <b>data style</b>.</li>
+        <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
         <li>Set the default node <highlight>Size</highlight> to <b>60</b>.</li>
         <li>Set the default node <highlight>Fill Color</highlight> to <b>gray</b>.</li>
         <li>Set the default edge <highlight>Width</highlight> to <b>2</b>.</li>
@@ -166,7 +168,7 @@
     <h1>Visualizing Data</h1>
     <p>Now we can add a mapping for mean expression.</p>
     <ul>
-        <li>Create a <highlight>Continuous Mapping</highlight> for node <highlight>Fill Color</highlight> to <b>expr.name</b>, using the default blue-red gradient.</li>    
+        <li>Create a <highlight>Continuous Mapping</highlight> for node <highlight>Fill Color</highlight> to <b>expr.mean</b>, using the default blue-red gradient.</li>    
     </ul>
     <br /> <br />
     <img class="plain" src="string-breast-data.png" style="height:630px">
