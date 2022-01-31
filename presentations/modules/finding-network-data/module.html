@@ -7,8 +7,8 @@
             <img style="width:80%;" src="modules/finding-network-data/interaction-dbs.png"></span>
 
 				<aside class="notes" data-markdown>
-				Where do I find the network? So, the number one question we get is, "which database has THE best network?" Well, there is no such thing.
-Here, we will review some specific databases and decribe how they get their interaction data and how they can be accessed from Cytoscape.
+				The next question is where do I find the network? When you try to find the network you may ask "which database has THE best network?" Well, there is no such thing.
+        There are hundreds of different interaction databases, each has its unique features.
 				</aside>
 </section>
 
@@ -17,7 +17,8 @@ Here, we will review some specific databases and decribe how they get their inte
     and your analysis plan,<br /><br />
     <em class="fragment"><highlight>But know what you are getting.....</highlight></em>
     <aside class="notes" data-markdown>
-    There are hundreds of different interaction databases, each has its unique features.
+      Find the data base most suitable for you.
+      Next, we will review some specific databases and decribe how they get their interaction data and how they can be accessed from Cytoscape.
     </aside>
 </section>
 
@@ -26,7 +27,7 @@ Here, we will review some specific databases and decribe how they get their inte
 
 <img style="width:70%;" src="modules/finding-network-data/ListNetworksPathways.png">
 <aside class="notes" data-markdown>
-We expect users to have a list of genes. Protein and disease names are also acceptable.
+We expect you to have a list of genes. Protein and disease names are also acceptable.
 Differences between network data and pathway data.
 </aside>
 </section>
@@ -45,6 +46,7 @@ Differences between network data and pathway data.
     </ul>
     <aside class="notes" data-markdown>
         Introduce network data first. Network data has broad coverage (95% human gene) and lower resolution (less details).
+        I list some network databse below, and we will go through them one by one.
     </aside>
 
 </section>
@@ -86,11 +88,11 @@ Differences between network data and pathway data.
 			</ul>
 		</div>
     <aside class="notes" data-markdown>
-      stringApp imports functional associations or physical interactions between protein-protein and protein-chemical pairs from STRING, Viruses.STRING, STITCH, DISEASES and from PubMed text mining into Cytoscape. Users provide a list of one or more gene, protein, compound, disease, or PubMed queries, the species, the network type, and a confidence score and stringApp queries the database to return the matching network.
-      STRING: protein query -- enter a list of protein names (e.g. gene symbols or UniProt identifiers/accession numbers) to obtain a STRING network for the proteins
+      stringApp imports functional associations or physical interactions between protein-protein from STRING database. stringApp will query the database to return the matching network.
+      STRING: protein query -- enter a list of protein namesto obtain a STRING network for the proteins
       STRING: PubMed query -- enter a PubMed query and utilize text mining to get a STRING network for the top N proteins associated with the query
       STRING: disease query -- enter a disease name to retrieve a STRING network of the top N proteins associated with the specified disease
-      STITCH: protein/compound query -- enter a list of protein or compound names to obtain a network for them from STITCH    </aside>
+      STITCH: protein/compound query -- enter a list of protein or compound names to obtain chemical-protein interactions    </aside>
 </section>
 
 <section>
@@ -135,7 +137,7 @@ Differences between network data and pathway data.
     <h3>STRING Enrichment</h3>
         <img style="width:70%;" class="plain" src="modules/finding-network-data/STRING-enrichment.png">
         <aside class="notes" data-markdown>
-          In addition, stringApp can retrieve functional enrichment for Gene Ontology terms, KEGG, Reactome and Wiki Pathways, DISEASES, COMPARTMENTS, TISSUES, and protein domains at a user-specified significance threshold and show the results in a new table in the Table Panel. The app provides several different types of charts to show the enriched terms.  </aside>
+          In addition, stringApp can retrieve functional enrichment analysis(a method to identify classes of genes or proteins that are over-represented in a large set of genes or proteins) at a user-specified significance threshold and show the results in a new table in the Table Panel. The app provides several different types of charts to show the enriched terms.  </aside>
 </section>
 <section>
     <h3>NDEx</h3>
@@ -155,7 +157,7 @@ Differences between network data and pathway data.
         </li>
     </ul>
     <aside class="notes" data-markdown>
-      Dropbox or repository for networks. Nice for publish and get DOI links.  </aside>
+      Dropbox or repository for networks. Organisations and individual scientists can deposit. Nice for publish and get DOI links.  </aside>
 </section>
 
 <section>
@@ -169,6 +171,8 @@ Differences between network data and pathway data.
         <h3>NDEx Network</h3>
 
     <img style="width:75%;" src="modules/finding-network-data/CyNDEx-network.png">
+    <aside class="notes" data-markdown>
+      You can make changes on the network and export it to NDEx website.  </aside>
 </section>
 
 <section>
@@ -241,7 +245,7 @@ Differences between network data and pathway data.
       </ul>
     </div>
     <aside class="notes" data-markdown>
-      intAct unique features. Three views in side panels.  </aside>
+      intAct databse foucs on molecular interactions. intAct unique features. Three views in side panels.  </aside>
 </section>
 
 <section>
