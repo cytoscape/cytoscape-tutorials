@@ -1,242 +1,267 @@
+q
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>WikiPathways App</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="../../css/reveal.css">
-		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+    <title>WikiPathways App</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+    <link rel="stylesheet" href="../../css/reveal.css">
+    <link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../../lib/css/zenburn.css">
 
-<!-- ========================================================== -->
-<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
 
-<section id='title'>
-    <h1>WikiPathways App</h1>
-    <p><a href="https://www.wikipathways.org" target="_blank">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the <a href="http://apps.cytoscape.org/apps/wikipathways" target="_blank">App Store</a>.</p>
-     <br />
-    <p>This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.</p>
-    <br />
-<div class="footer" style="bottom: -3em;">
-    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>
+<body>
+    <div class="reveal">
+        <div class="slides">
 
-</section>
+            <!-- ========================================================== -->
+            <!-- THIS IS WHERE YOUR CONTENT BEGINS -->
 
-<section>
-        <h1>Setup</h1>
-        <ul>
-            <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
-            <li>Install the <b>WikiPathways app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
-            <li>Download the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/ExampleData/lung.expr.csv">experimental data</a>.
-		    The data is a lung cancer dataset from <a href="https://www.cancer.gov/types/lung">TCGA</a>, comparing lung cancer biopses versus normal tissue.</li>
-	</ul>
+            <section id='title'>
+                <h1>Enrichment Table App</h1>
+                <p>The <a href="https://www.wikipathways.org" target="_blank">Enrichment Table App</a> provides the
+                    functionality of functional enrichment analysis
+                    for any network loaded into Cytoscape using <a href="https://biit.cs.ut.ee/gprofiler/gost"
+                        target="_blank"> g:Profiler's web service</a>.</p>
+                <br />
+                <p>This tutorial includes a basic workflow for visualizing enrichment data on pathways and networks in
+                    Cytoscape.</p>
+                <br />
+                <div class="footer" style="bottom: -3em;">
+                    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain"
+                            src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a>
+                </div>
 
-         <aside class="notes" data-markdown>
-         Notes go here
-         </aside>
-</section>
+            </section>
 
-<section>
-         <h1>Importing Pathways</h1>
-         <ul>
-             <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>"cell cycle"</b> (with quotes) and click the search icon.</li>
-             <li>A list of results for all available species will open. To see results from a select species, click the <b>Only</b> checkbox and select a species from the drop-down.</li>
-             <li>Select the human <highlight>Cell Cycle</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>
-         </ul>
-         <img src="WPApp-results.png" style="width:55%">
-         <aside class="notes" data-markdown>
-         Notes go here
-         </aside>
-</section>
+            <section>
+                <h1>Setup</h1>
+                <ul>
+                    <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
+                    <li>Install the <b>Enrichment Table app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
+                    <li>Search for <highlight>mouse TF</highlight> in NDEx and and pick top option with title
+                        <highlight>Ravasi et al., CELL (2010) - Mouse TF interactions</highlight>
+                    </li>
+                </ul>
 
-<section>
-    <h1>Importing Pathways</h1>
-         <p>The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:</p>
-         <img src="CellCycle.png" style="width:70%">
+                <aside class="notes" data-markdown>
+                    Notes go here
+                </aside>
+            </section>
 
-         <aside class="notes" data-markdown>
-         Notes go here
-         </aside>
-</section>
+            <section>
+                <h1>Initialise Enrichment Table App</h1>
+                <ul>
+                    <li>Open the <highlight>Ravasi et al., CELL (2010) - Mouse TF interactions</highlight> network.</li>
+                    <li>Select the <highlight>Enrichment Table</highlight> option from table panel</li>
+                    <li>You would be greeted with a screen similar to below</li>
+                </ul>
 
-<section>
-    <h1>Pathway Node Identifiers</h1>
-         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.</p>
-         <img src="CellCycleMapped.png" style="width:50%">
-         <aside class="notes" data-markdown>
-         Notes go here
-         </aside>
-         </section>
+                <img src="EnrichmentTableFirstOpen.jpg" style="width: 60%;margin-top: 2%;">
+                <aside class="notes" data-markdown>
+                    Notes go here
+                </aside>
+            </section>
 
-<section>
-    <h1>Data Import</h1>
-         <p>The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:</p>
-         <ul>
-         <li>Load the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/ExampleData/lung.expr.csv">lung.expr.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
-         <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down.</li>
-         <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <b>Ensembl</b> column.</li>
-         <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
-         </ul>
+            <section>
+                <h1>Organism And Gene ID Prediction</h1>
 
-         <aside class="notes" data-markdown>
-         Notes go here
-         </aside>
-</section>
+                <p>Enrichment process requires two mandatory parameters: </p>
+                <ol>
+                    <li>
+                        <highlight>Organism:</highlight> Organism associated with the query genes
+                    </li>
+                    <li>
+                        <highlight>Gene ID:</highlight> Node table column containing the gene symbols
+                    </li>
+                </ol>
+                <p>Both these parameters are predicted by enrichment table app if enough information is available</p>
 
-<section>
-    <h1>Data Import</h1>
-         <p>The data import interface should now look like this:</p><br />
-         <ul>
-             <div style="width:40%;float:left; margin-right: 40px">
-					<img src="WPDataImport.png">
-				</div>
-         <li>Click <highlight>OK</highlight> to import.</li>
-         <li>Once import is complete, look for the newly imported data columns in the <highlight>Node Table</highlight> to confirm that it worked.</li>
+                <img src="OrganismAndGeneIdPrediction.jpg" style="width:40%">
 
-         </ul>
-         <div style="position:absolute;left:28em;bottom:1em;">
-             <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/" target="_blank">Learn more about Importing Data</a></b></p>
-         </div>
-         <aside class="notes" data-markdown>
-         Notes go here
-         </aside>
-</section>
+                <aside class="notes" data-markdown>
+                    Notes go here
+                </aside>
+            </section>
 
-<section>
-         <h1>Mapping Data to Visual Properties</h1>
-         <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as <b>Node Fill Color</b>.</p>
-         <ul>
-         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Map.</highlight> box for <highlight>Fill Color</highlight>.</li>
-         <li>In the <highlight>Column</highlight> drop-down, select <b>"log2FC"</b>.</li>
-         <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
+            <section>
+                <h1>Running Enrichment Process</h1>
+                <p>Click the <highlight>Perform Gene Enrichment</highlight> button with icon of reload. This you provide
+                    you with the table containing enrichment results. The results are sorted according to the <highlight>p-value</highlight> in a increasing order.</p>
+                <img src="EnrichmentResult.jpg" style="width:100%">
+                <aside class="notes" data-markdown>
+                    Notes go here
+                </aside>
+            </section>
 
-         </ul><br /><br />
-        <!-- to-do: Add legend to pathway -->
-         <img class="plain" src="CellCycleData.png" style="float:left;width:50%">
-            <div style="position:absolute;left:25em;bottom:1em;">
-            <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/index.html" target="_blank">Learn more about Visualizing Data</a></b></p>
-            </div>
+            <section>
+                <h1>Filtering Table Data</h1>
+                <p>There are couple of parameters based on which you can filter the table</p>
+                <ul>
+                    <li>Click the <highlight>Filter Enrichment Table</highlight> button with filter icon to access the
+                        filters</li>
+                    <li>Select <highlight>Gene Ontology Biological Process</highlight> in the categories. Click ok. You
+                        will see a filtered table, along with number of current rows a label above table.
+                    </li>
+                    <li>Open to filter panel again and check remove redundant terms. Click ok to see terms consisting of
+                        both filters applied.</li>
+                </ul>
+                <img src="FilterResults.jpg" style="width:100%;margin-top: 2%;">
+                <aside class="notes" data-markdown>
+                    Notes go here
+                </aside>
+            </section>
 
-         <aside class="notes" data-markdown>
-         Notes go here
-         </aside>
-</section>
+            <section>
+                <h1>Ring Charts</h1>
+                <p>Ring charts provide ability visualise top-5 terms in the network using split-charts. You can change
+                    the number of terms and type of chart in chart setting panel.</p><br />
+                <ul>
+                    <div style="width:60%;float:left; margin-right: 40px">
+                        <img src="RingCharts.jpg">
+                    </div>
+                    <li>Click <highlight>Draw Chart</highlight> to create chart with default setting and split charts
+                        will appear in the network.</li>
+                    <li>To remove the chart, click on <highlight>Reset Charts</highlight> to remove charts</li>
+                    <li>To change charts setting, go to <highlight>Visit the network specific chart settings</highlight>
+                    </li>
+                </ul>
+                <aside class="notes" data-markdown>
+                    Notes go here
+                </aside>
+            </section>
 
-<section>
-    <h1>Importing Pathways as Networks</h1>
-    <p>In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.</p>
-        <ul>
-             <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight> and search for <b>"cell cycle"</b> (with the quotes) and click the search icon.</li>
-             <li>In the list of results, select the <b>human</b> pathway and click <highlight>Import as Network</highlight>.</li>
-	     <li>We can now repeat the data import and style selection to create a visualization like in the previous pathway:</li>
-         </ul>
-         <img class="plain" src="CellCycleNetworkData.png" style="width:50%">
+            <section>
+                <h1>Term Selection</h1>
+                <ul>
+                    <li>To visualize one or more enrichment term, select the rows in the table and the corresponding
+                        nodes will get highlighted.</li>
+                    <li>Similarly, select a group of nodes in the network and only the rows that contains atleast all of
+                        the selected nodes will be present in the table.</li>
 
-</section>
+                </ul><br /><br />
+                <!-- to-do: Add legend to pathway -->
+                <img class="plain" src="TermSelection.jpg" style="width:50%">
 
-<section>
-    <h1>Downstream Analysis Options</h1>
-    <p>Whether you import pathways as networks or as pathways, there are many different downstream analysis options available in Cytoscape:</p>
+                <aside class="notes" data-markdown>
+                    Notes go here
+                </aside>
+            </section>
 
-    <ul>
-        <li>Extending pathways with regulatory information using <a href="https://cytargetlinker.github.io/pages/tutorials/tutorial2" target="_blank">CyTargetLinker</a></li>
+            <section>
+                <h1>Advanced Enrichment Settings</h1>
+                <p>In addition to <highlight>Organism</highlight> and <highlight>Gene ID column</highlight>, there are
+                    other parameters that can be changed to obtain a more precise enrichment results.
+                    The Options are available in the <highlight>Network specific enrichment panel settings</highlight>
+                    section which can be accessed by clicking the gear icon</p>
+                <img class="plain" src="EnrichmentSettings.jpg" style="width:50%">
 
-    </ul>
+            </section>
+
+            <section>
+                <h1>Enrichment Map Generation</h1>
+                <p>We can generate <a href="https://www.baderlab.org/Software/EnrichmentMap">Enrichment Map</a> from the enrichment data
+                    generated by our app. This requires <a href="https://apps.cytoscape.org/apps/enrichmentmap">Enrichment Map</a> to be
+                    installed in Cytoscape.
+                    Once, enrichment map app is present, click enrichment map icon and which will provide a panel to change the file
+                    name and connectivity cutoff, and click ok to generate map.</p>
 
 
-</section>
+            </section>
 
-<section>
-    <h1>Exporting Networks</h1>
-    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
-	<ul>
-        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
-        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
-		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
-	</ul>
-</section>
+            <section>
+                <h1>Exporting Enrichment Table</h1>
+                <p>Enrichment Table App provides functionality to export the data: </p>
+                <ul>
+                    <li>Select the <highlight>floppy disk</highlight> that will open the export panel.
+                    </li>
+                    <li>Select appropriate location and file name and click "OK" to save the table.
+                    </li>
+                </ul>
+                <img class="plain" src="ExportTable.jpg" style="width:60%; margin-top: 2%;">
+            </section>
 
 
-<!-- THIS IS WHERE YOUR CONTENT ENDS -->
-<!-- ========================================================== -->
+            <!-- THIS IS WHERE YOUR CONTENT ENDS -->
+            <!-- ========================================================== -->
 
-			</div>
-		</div>
+        </div>
+    </div>
 
-		<script src="../../lib/js/head.min.js"></script>
-		<script src="../../js/reveal.js"></script>
+    <script src="../../lib/js/head.min.js"></script>
+    <script src="../../js/reveal.js"></script>
 
-<script>
-	Reveal.addEventListener( 'ready', function() {
-	if(!window.navigator.userAgent.includes('CyBrowser')){
-		var divs = document.getElementsByClassName("cybrowser")
-		for (var i=0;i<divs.length;i++){
-			divs[i].style.display = "none";
-		}
-	} else {
-		var divs = document.getElementsByClassName("not-cybrowser")
-		for (var i=0;i<divs.length;i++){
-			divs[i].style.display = "none";
-		}
-	}
-});
-</script>
+    <script>
+        Reveal.addEventListener('ready', function () {
+            if (!window.navigator.userAgent.includes('CyBrowser')) {
+                var divs = document.getElementsByClassName("cybrowser")
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.display = "none";
+                }
+            } else {
+                var divs = document.getElementsByClassName("not-cybrowser")
+                for (var i = 0; i < divs.length; i++) {
+                    divs[i].style.display = "none";
+                }
+            }
+        });
+    </script>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-155159-15', 'auto');
-  ga('send', 'pageview');
+        ga('create', 'UA-155159-15', 'auto');
+        ga('send', 'pageview');
 
-</script>
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
-				controls: true,
-				progress: true,
-				slideNumber: false,
-				touch: true,
-				fragments: true,
-				help: true,
-				showNotes: false,
-				previewLinks: false,
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
-				width: 1200,
-				height: 860,
-				autoSlide: 0,
+    </script>
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
+            controls: true,
+            progress: true,
+            slideNumber: false,
+            touch: true,
+            fragments: true,
+            help: true,
+            showNotes: false,
+            previewLinks: false,
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+            width: 1200,
+            height: 860,
+            autoSlide: 0,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-				{ src: '../../plugin/markdown/marked.js' },
-				{ src: '../../plugin/markdown/markdown.js' },
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                { src: '../../plugin/markdown/marked.js' },
+                { src: '../../plugin/markdown/markdown.js' },
 
-				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
-				{ src: '../../plugin/notes/notes.js', async: true },
-				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
-				]
-				});
-			</script>
-		</body>
-	</html>
+                { src: '../../plugin/zoom-js/zoom.js', async: true, condition: function () { return !!document.body.classList; } },
+                { src: '../../plugin/notes/notes.js', async: true },
+                { src: '../../plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+                { src: '../../plugin/external/external.js', condition: function () { return !!document.querySelector('[data-external]'); } }
+            ]
+        });
+    </script>
+</body>
+
+</html>
