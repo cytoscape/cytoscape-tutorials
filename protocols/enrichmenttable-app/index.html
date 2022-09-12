@@ -1,4 +1,3 @@
-q
 <!doctype html>
 <html>
 
@@ -6,7 +5,7 @@ q
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>WikiPathways App</title>
+    <title>Enrichment Table App</title>
 
     <link rel="stylesheet" href="../../css/reveal.css">
     <link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
@@ -33,7 +32,7 @@ q
 
             <section id='title'>
                 <h1>Enrichment Table App</h1>
-                <p>The <a href="https://www.wikipathways.org" target="_blank">Enrichment Table App</a> provides the
+                <p>The <a href="https://apps.cytoscape.org/apps/enrichmenttable" target="_blank">Enrichment Table App</a> provides the
                     functionality of functional enrichment analysis
                     for any network loaded into Cytoscape using <a href="https://biit.cs.ut.ee/gprofiler/gost"
                         target="_blank"> g:Profiler's web service</a>.</p>
@@ -53,8 +52,9 @@ q
                 <ul>
                     <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
                     <li>Install the <b>Enrichment Table app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
-                    <li>Search for <highlight>mouse TF</highlight> in NDEx and and pick top option with title
-                        <highlight>Ravasi et al., CELL (2010) - Mouse TF interactions</highlight>
+                    <li>Search for <highlight>mouse TF</highlight> pathway in NDEx and and pick top option with title
+                        <highlight>Ravasi et al., CELL (2010) - Mouse TF interactions</highlight> which would be used as an
+                        examples to demonstrate different features of the app.
                     </li>
                 </ul>
 
@@ -120,7 +120,7 @@ q
                     <li>Open to filter panel again and check remove redundant terms. Click ok to see terms consisting of
                         both filters applied.</li>
                 </ul>
-                <img src="FilterResults.jpg" style="width:100%;margin-top: 2%;">
+                <img src="FilterResults.jpg" style="width:60%;margin-top: 2%;">
                 <aside class="notes" data-markdown>
                     Notes go here
                 </aside>
@@ -154,7 +154,6 @@ q
                         the selected nodes will be present in the table.</li>
 
                 </ul><br /><br />
-                <!-- to-do: Add legend to pathway -->
                 <img class="plain" src="TermSelection.jpg" style="width:50%">
 
                 <aside class="notes" data-markdown>
@@ -167,7 +166,8 @@ q
                 <p>In addition to <highlight>Organism</highlight> and <highlight>Gene ID column</highlight>, there are
                     other parameters that can be changed to obtain a more precise enrichment results.
                     The Options are available in the <highlight>Network specific enrichment panel settings</highlight>
-                    section which can be accessed by clicking the gear icon</p>
+                    section which can be accessed by clicking the <img class="plain" src="./Cytoscape_Gears.jpg" style="width: 3%;"/>
+                    icon </p>
                 <img class="plain" src="EnrichmentSettings.jpg" style="width:50%">
 
             </section>
@@ -187,9 +187,9 @@ q
                 <h1>Exporting Enrichment Table</h1>
                 <p>Enrichment Table App provides functionality to export the data: </p>
                 <ul>
-                    <li>Select the <highlight>floppy disk</highlight> that will open the export panel.
+                    <li>Select the <img class="plain" src="./Cytoscape_Save.jpg" style="width: 4%;"/> icon that will open the export panel.
                     </li>
-                    <li>Select appropriate location and file name and click "OK" to save the table.
+                    <li>Select appropriate location and file name and save the table.
                     </li>
                 </ul>
                 <img class="plain" src="ExportTable.jpg" style="width:60%; margin-top: 2%;">
