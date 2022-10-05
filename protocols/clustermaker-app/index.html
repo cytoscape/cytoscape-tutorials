@@ -47,7 +47,8 @@
             <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
             <li>Install the <b>clusterMaker 2 app</b> via <highlight>Apps &rarr; App Manager</highlight> or directly from the <a href="https://apps.cytoscape.org/apps/clustermaker2" target="_blank">App Store</a>.</li>
             <li>Install the <b>stringApp</b> via <highlight>Apps &rarr; App Manager</highlight> or directly from the <a href="http://apps.cytoscape.org/apps/stringApp" target="_blank">App Store</a>.</li>
-            <li>Download the matrix data for the yeast heat shock data set: ....</li>
+            <li>Install the <a href="https://apps.cytoscape.org/apps/largestsubnetwork" target="_blank">Largest Subnetwork App</a> from the Cytoscape App Store, or using the <highlight>Cytoscape App Manager</highlight>.</li>
+            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GPL51filt.txt">matrix data</a> for the yeast heat shock experiment.</li>
 	</ul>
 
          <aside class="notes" data-markdown>
@@ -62,9 +63,10 @@
              <li>Select <b>STRING: protein query</b> in the <highlight>Data source</highlight> menu, and select <b>Saccharomyces cerevisiae</b> from the <b>Species</b> list. </li>
              <li>Select <highlight>All proteins of this species</highlight>.</li>
              <li>Select the option for <highlight>physical subnetwork</highlight> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.50</b>.</li>
-             <li>Click <highlight>Import</highlight> to load. The loading might take some time as this is a large network.</li>             
+             <li>Click <highlight>Import</highlight> to load. The network might take some time to load as it is large.</li> 
+             <li>Finally, lets continue our analysis with only the largest connected subnetwork by clicking <highlight>Select &rarr; Nodes &rarr; Largest subnetwork</highlight>. Next, select <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
          </ul>
-         <img src="ImportDataString.png" style="width:50%">
+         <img src="ImportDataString.png" style="width:45%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -73,8 +75,9 @@
 <section id='import network 2'>
         <h1>Importing the PPI network</h1>
         <p>The network should look like similar to this: </p>
-             <img src="YeastStringNetwork.png" style="width:30%">
+             <img src="YeastStringNetwork.png" style="width:50%">
 </section>
+            
 
 <section id='import data'>
     <h1>Importing the Expression Data</h1>
@@ -108,18 +111,30 @@
 
 <section id='cluster leiden 2'>
     <h1>Clustering the PPI Network</h1>
-         <p>The resulting network should look similar to this. Note that we have disabled the <highlight>Glass ball effect</highlight> and <highlight>STRING style labels</highlight> in the STRING results panel at the right. 
-             <!--<br />A quick exploration of the clustered network confirms that Leiden has done a reasonable job – the first four clusters in the upper left-hand corner are the ribosome, preribosome, large subunit of the preribosome, and the mitochondrial ribosome, respectively>-->
-    </p>
-         <img src="LeidenCluster.png" style="width:50%">
+         <p>The resulting network should look similar to this. Note that we have disabled the <highlight>Glass ball effect</highlight> and <highlight>STRING style labels</highlight> in the STRING results panel at the right.</p>
+         <img src="LeidenCluster.png" style="width:39%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
+                
+<section id='cluster leiden 3'>
+    <h1>Exploring Leiden Clusters</h1>
+    <p>We can explore some of the clusters to confirm that Leiden has done a reasonable job. To do this, we will run functional enrichment analysis on the individual clusters.</p>
+    <ul>
+        <li>Select the first cluster (top left) by click and drag, then select <highlight>Functional enrichment</highlight> in the STRING results panel at the right.</li>
+        <li>Select <b>genome</b> for <highlight>Network to be used as background</highlight> and click <highlight>OK</highlight> to continue.</li>
+        <li>The results will open in the <highlight>STRING Enrichment</highlight> table, sorted by FDR value. In the case of cluster 1, it is clear from the description of enriched terms that the cluster represents the proteins in the ribosome.</li>
+        <li>Repeat the process with the next 3 clusters.</li>
+    <p>You will notice that the top 4 clusters represent the ribosome, preribosome, large subunit of the preribosome, and the mitochondrial ribosome, respectively. Based on this, we can assume that Leiden clustering worked reasonably well.</p>
+    </ul>
+                
+                
+</section>
 
 <section id='cluster hierarchical 1'>
     <h1>Hierarchical Clustering of Expression Data</h1>
-         <p>A classical analysis of an expression data set would involve performing a hierarchical clustering of the data and viewing it using a heatmap with associated dendrogram.</p>
+         <p>A classical analysis of an expression data set would involve performing a hierarchical clustering of the data and viewing it using a heatmap with associated dendrogram. We can do this using clusterMaker2 using the <highlight>Cluster Attributes</highlight> feature.</p>
         <ul>
             <li>Select <highlight>Apps→clusterMaker Cluster Attributes &rarr; Hierarchical cluster</highlight>.</li>
             <li>Select all of the heat shock columns (5 min, 10 min, 15 min, 20 min repeat, 40 min, 60 min, and 80 min).</li>
