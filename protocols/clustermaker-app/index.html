@@ -149,21 +149,36 @@
 <section id='cluster hierarchical 2'>
          <h1>Hierarchical Clustering of Expression Data</h1>
          <p>This will bring up a heat map with the associated dendrogram for the data set. By selecting branches of the dendrogram, we can select groups of genes in the heatmap and simultaneously select the corresponding proteins in the PPI view.</p>
+         <p>By selecting branches of the dendrogram, we can select groups of genes in the heatmap and simultaneously select the corresponding proteins in the PPI view.</p>
          <img src="Treeview.png" style="width:30%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
 
-<section id='coloring'>
+<section id='coloring 1'>
     <h1>Coloring the PPI Network</h1>
-    <p>To help understand the biological significance of these transcriptional changes at the protein level, we would like to find a mapping from our hierarchical clustering onto the proteins in our PPI network. This could be useful, for example, to see if any particular complexes are particularly affected by transcriptional changes. </p>
+    <p>To help understand the biological significance of these transcriptional changes at the protein level, we would like to find a mapping from our hierarchical clustering onto the proteins in our PPI network. This could be useful, for example, to see if any particular complexes are particularly affected by transcriptional changes. There are two ways of doing this:</p>
     <ul>
-        <li>....</li>
-    
+        <li>In TreeView, select <highlight>Map Colors Onto Network...</highlight>.</li>
+        <li>Select all attributes in the <highlight>Attribute List</highlight>, making sure they are in the correct order, and click <highlight>Create HeatStrips</highlight>.</li>
     </ul>
+    <p>This will add bar charts showing the expression fold changes at the various timepoints on the nodes. Unfortunately, this is extremely hard to see when looking at the entire network.</p>
+    <img src="HeatStrips.png" style="width:40%">
+</section>
+                
+<section id='coloring 2'>
+    <h1>Coloring the PPI Network</h1>
+    <p>The second way to color the network is to use the information from the hierarchical clustering to create a new attribute, and then use this for coloring. We will use the ability to select branches of the dendrogram to select the corresponding nodes in the network.</p>
+    <ul>
+        <li>In TreeView, ......</li>
+        <li>...</li>
+    </ul>
+    
+    <img src="ColorFinal.png" style="width:45%">
 </section>
 
+                
 <section id='umap 1'>
     <h1>UMAP analysis of Expression Data</h1>
     <p>We will now look at the same heat shock expression data used for the hierarchical cluster, but this time using the <a href="https://doi.org/10.48550/arXiv.1802.03426" target="_blank">Uniform Manifold Approximation and Projection (UMAP)</a> approach to explore a 2D embedding of this multidimensional data.</p>
