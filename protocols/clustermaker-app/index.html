@@ -122,10 +122,9 @@
     <h1>Exploring Leiden Clusters</h1>
     <p>We can explore some of the clusters to confirm that Leiden has done a reasonable job. To do this, we will run functional enrichment analysis on the individual clusters.</p>
     <ul>
-        <li>Select the first cluster (top left) by click and drag, then select <highlight>Functional enrichment</highlight> in the STRING results panel at the right.</li>
+        <li>Select the first 5 clusters (top left) by click and drag, then select <highlight>Functional enrichment</highlight> in the STRING results panel at the right.</li>
         <li>Select <b>genome</b> for <highlight>Network to be used as background</highlight> and click <highlight>OK</highlight> to continue.</li>
-        <li>The results will open in the <highlight>STRING Enrichment</highlight> table, sorted by FDR value. In the case of cluster 1, it is clear from the description of enriched terms that the cluster represents the proteins in the ribosome.</li>
-        <li>Repeat the process with the next 3 clusters.</li>
+        <li>The results will open in the <highlight>STRING Enrichment</highlight> table, sorted by FDR value.</li>
     <p>You will notice that the top 4 clusters represent the ribosome, preribosome, large subunit of the preribosome, and the mitochondrial ribosome, respectively. Based on this, we can assume that Leiden clustering worked reasonably well.</p>
     </ul>
                 
@@ -136,7 +135,7 @@
     <h1>Hierarchical Clustering of Expression Data</h1>
          <p>A classical analysis of an expression data set would involve performing a hierarchical clustering of the data and viewing it using a heatmap with associated dendrogram. We can do this using clusterMaker2 using the <highlight>Cluster Attributes</highlight> feature.</p>
         <ul>
-            <li>Select <highlight>Apps→clusterMaker Cluster Attributes &rarr; Hierarchical cluster</highlight>.</li>
+            <li>Select <highlight>Apps &rarr; clusterMaker Cluster Attributes &rarr; Hierarchical cluster</highlight>.</li>
             <li>Select all of the heat shock columns (5 min, 10 min, 15 min, 20 min repeat, 40 min, 60 min, and 80 min).</li>
             <li>Select <highlight>Show TreeView when complete</highlight> and click <highlight>OK</highlight>.</li>
         </ul>
@@ -148,9 +147,8 @@
 
 <section id='cluster hierarchical 2'>
          <h1>Hierarchical Clustering of Expression Data</h1>
-         <p>This will bring up a heat map with the associated dendrogram for the data set. By selecting branches of the dendrogram, we can select groups of genes in the heatmap and simultaneously select the corresponding proteins in the PPI view.</p>
-         <p>By selecting branches of the dendrogram, we can select groups of genes in the heatmap and simultaneously select the corresponding proteins in the PPI view.</p>
-         <img src="Treeview.png" style="width:30%">
+         <p>A heat map with the associated dendrogram will open when the clustering is complete.</p>
+         <img src="Treeview.png" style="width:20%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -169,36 +167,57 @@
                 
 <section id='coloring 2'>
     <h1>Coloring the PPI Network</h1>
-    <p>The second way to color the network is to use the information from the hierarchical clustering to create a new attribute, and then use this for coloring. We will use the ability to select branches of the dendrogram to select the corresponding nodes in the network.</p>
+    <p>The second way to color the network is to use the information from the hierarchical clustering to create a new attribute representing the overall change of a gene, and then use this for coloring. We will use the ability to select branches of the dendrogram to select the corresponding nodes in the network.</p>
     <ul>
-        <li>In TreeView, ......</li>
-        <li>...</li>
+        <li>In the <highlight>Node Table</highlight>, click the <highlight>Create New Column...</highlight> button and select <highlight>New Single Column &rarr; Integer</highlight>. Name the new column <b>Colors</b>.</li>
+        <li>In TreeView, start by assessing the whole tree to find the most intensily colored yellow (up-regulated) section.</li>
+        <li>By clicking and dragging in the heat map, select the most intensily colored yellow part.</li>
+        <li>In the <highlight>Node Table</highlight>, enter the number <b>10</b> in the top cell of the <b>Colors</b> column. Next, right-click on the cell and select <highlight>Apply to selected nodes</highlight>.</li>
+        <li>Repeat this process with the rest of the up-regulated section of the tree, adjusting the number entered to reflect the degree of up-regulation, with 10 being the highest.</li>
+        <li>Repeat the same process againwith the down-regulated section of the tree, this time entering numbers from <b>-1</b> to <b>-10</b>.</li>
     </ul>
-    
-    <img src="ColorFinal.png" style="width:45%">
 </section>
 
+<section id='coloring 3'>
+    <h1>Coloring the PPI Network</h1>
+    <p>Now that we have a new column with values reflecting the degree of regulation, we can use this to create a style mapping:</p>
+    <ul>
+    <li>In the <highlight>Style</highlight> panel, remove the existing mapping for <highlight>Node Fill Color</highlight> (from STRING), and add a new continuous mapping for the <highlight>Colors</highlight> column, using the standard <b>Red-Blue</b> palette ColorBrewer palette.</li>
+    </ul>
+    <p>The nodes with data will now be colored based on their overall regulation:</p>
+                
+    <img src="ColorFinal.png" style="width:45%">
+</section>
                 
 <section id='umap 1'>
     <h1>UMAP analysis of Expression Data</h1>
     <p>We will now look at the same heat shock expression data used for the hierarchical cluster, but this time using the <a href="https://doi.org/10.48550/arXiv.1802.03426" target="_blank">Uniform Manifold Approximation and Projection (UMAP)</a> approach to explore a 2D embedding of this multidimensional data.</p>
     <ul>
-        <li>Select all nodes with a color value or a “Non-Zero Count” 1 or greater (you can sort the column or use the Cytoscape Filter tab).</li>
+        <li>Select all nodes with a <highlight>count</highlight> value of 2 or greater using the <highlight>Filter</highlight> interface.</li>
         <li>Select <highlight>Apps &rarr; clusterMaker Dimensionality Reduction &rarr; UMAP (remote)</highlight>.</li>
-        <li>Select all six of the heat shock columns, select <highlight>Only use data from selected nodes</highlight> and set the <highlight>Number of neighbors</highlight> to <b>20</b> and the <highlight>Minimum distance</highlight> to <b>0.5</b>.</li>
+        <li>Select all six of the heat shock columns and set the <highlight>Number of neighbors</highlight> to <b>20</b> and the <highlight>Minimum distance</highlight> to <b>0.5</b>.</li>
         <li>Select <highlight>Show scatter plot with results</highlight> and click <highlight>OK</highlight>.</li>
-        <li>Once the UMAP scatter plot comes up, click on <highlight>Get Colors</highlight> to apply the red-blue coloring from the nodes to the UMAP.</li>
+        
     </ul>
 </section>
 
 <section id='umap 2'>
     <h1>UMAP analysis of Expression Data</h1>
     <p>...</p>
+    <ul>
+    <li>Once the UMAP scatter plot comes up, click on <highlight>Get Colors</highlight> to apply the red-blue coloring from the nodes to the UMAP.</li>
+    <li>Highlight the red group in the middle and run functional enrichment analysis on the selected nodes.</li> 
+    <li>The results indicates significant enrichment for protein folding.</li>
+    </ul>
 </section>
                 
 <section id='fuzzy cluster 1'>
     <h1>Fuzzy Clustering</h1>
-    <p>....</p>
+    <p>.Fuzzy clustering can help us understand the relationships between clusters, and help find instances where proteins are shared between clusters.</p>
+    <ul>
+    
+    
+    </ul>
     
 </section>
                 
