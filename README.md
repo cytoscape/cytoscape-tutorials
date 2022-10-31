@@ -5,7 +5,7 @@ Visit [tutorials.cytoscape.org](https://github.com/cytoscape/cytoscape-tutorials
 This repo contains a collection of training *modules* for Cytoscape that can be used to compose workshop presentations. The repo also includes a clone of the reveal.js code that enables the presentation mode for these modules and workshops.
 
 ## Presentations, Protocols and Modules
-Check out the [current list of training materials](https://cytoscape.github.io/cytoscape-tutorials/contents/).
+Check out the [current list of training materials](https://cytoscape.org/cytoscape-tutorials/contents/).
 
 Building upon the powerful framework of reveal.js, we have developed a few custom features and styles tailored for use in Cytoscape training materials. In addition to the contents below, you can learn more about using reveal.js in general from the [reveal-readme](reveal-readme.md).
 
@@ -31,10 +31,10 @@ Building upon the powerful framework of reveal.js, we have developed a few custo
 
 ## Presenting
 Browse the available training materials already prepared:
-* [presentations](https://cytoscape.github.io/cytoscape-tutorials/contents/#/presentations) -- Specific programs compiled for target audiences; designed for projector presentation to a group; typically composed of custom slides together with general modules (see below).
-* [modules](https://cytoscape.github.io/cytoscape-tutorials/contents/#/modules) -- Concise material focused on specific tasks; intended to be reused in
+* [presentations](https://cytoscape.org/cytoscape-tutorials/contents/#/presentations) -- Specific programs compiled for target audiences; designed for projector presentation to a group; typically composed of custom slides together with general modules (see below).
+* [modules](https://cytoscape.org/cytoscape-tutorials/contents/#/modules) -- Concise material focused on specific tasks; intended to be reused in
  multiple presentations (see above).
-* [protocols](https://cytoscape.github.io/cytoscape-tutorials/contents/#/protocols) -- General tutorials targeting common workflows or protocols; designed for display on individual monitors and interactivity via CyBrowser; typically linked to individually or in a presentation.
+* [protocols](https://cytoscape.org/cytoscape-tutorials/contents/#/protocols) -- General tutorials targeting common workflows or protocols; designed for display on individual monitors and interactivity via CyBrowser; typically linked to individually or in a presentation.
 
 #### Navigating
 Use arrow keys, "space" or the on-screen arrows (lower right) to navigate the slides. Take note of modules that are organized ___vertically___ within a presentation.
@@ -45,20 +45,20 @@ Use arrow keys, "space" or the on-screen arrows (lower right) to navigate the sl
 You can access training materials at any time via a web browser. All content is tested in the latest versions of Firefox and Chrome. Simply navigate to the corresponding url, e.g., 
 
 ```
-https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/index.html
+https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/index.html
 ```
 
 #### Offline
 You can also generate a PDF version of any presentation or protocol and save it as a local file to share or present offline. Note that animated slides do not display as separate slides in PDF form, but rather as single slides in their final form. However, protocols  should be composed in such a way to display properly in PDF. Simply append ```?print-pdf``` to the end of the url for any protocol, e.g.,
 
 ```
-https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/?print-pdf
+https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/?print-pdf
 ```
 Then choose File>Print... and set the orientation to ```landscape``` and Save to PDF. Verify that the page breaks are correct throughout the presentation. For longer presentations, you may need to generate the PDF using an alternative approach, see [Decktape](https://github.com/astefanutti/decktape). Example usage:
 
 ```
 npm install -g decktape
-decktape automatic https://cytoscape.github.io/cytoscape-tutorials/presentations/advanced-automation.html#/ advanced-automation.pdf
+decktape automatic https://cytoscape.org/cytoscape-tutorials/presentations/advanced-automation.html#/ advanced-automation.pdf
 ```
 
 ## Sharing
@@ -69,7 +69,7 @@ In order to adapt or compose your own tutorial, and you do not already have edit
 
 If you have a suggestion to make regarding the content and don't have the time or inclination to do the coding, please [submit your request in the issue tracker](https://github.com/cytoscape/cytoscape-tutorials/issues).
 
-If you are going to edit a tutorial and are not already familiar with Reveal.js, you will want to [start with the reveal.js docs](reveal-readme.md) to learn how to setup your development environment and the basics of building content.  Once you are familiar with reveal, you will want to review the common elements and custom styles available in our repo for Cytoscape tutorials (see Style below). Also refer to [our templates](https://cytoscape.github.io/cytoscape-tutorials/contents/#/templates) with example slides and style usage.
+If you are going to edit a tutorial and are not already familiar with Reveal.js, you will want to [start with the reveal.js docs](reveal-readme.md) to learn how to setup your development environment and the basics of building content.  Once you are familiar with reveal, you will want to review the common elements and custom styles available in our repo for Cytoscape tutorials (see Style below). Also refer to [our templates](https://cytoscape.org/cytoscape-tutorials/contents/#/templates) with example slides and style usage.
 
 In order to preview your local changes, you can simply open the HTML files in your browser, e.g., using the ```open``` command line function. Alternatively, for a live preview that updates in real-time, you can run ```npm start``` from the top directory. For npm functionality, you will need to install node.js (https://nodejs.org) and run ```npm install``` the first time (see [full setup](https://github.com/hakimel/reveal.js/blob/master/README.md#full-setup)).
 
@@ -98,14 +98,14 @@ Each level will have named html files or ```index.html``` files, which are the f
 1. **Composing a presentation from existing modules**  
 Say you are putting together a presentation for class or workshop, but the existing presentations here aren't exactly right. You want a bit of customization, but you don't want to start over from scratch.  Well, with this strategy you can reuse any of the modules here and pull them together in any order you like, while also adding custom slides before, after or between modules (though not *within* a given module). 
 
-   See the [presentation template](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html) and [code](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/template.html) to see how simple it is to reference existing modules, like so ```<section data-external="modules/template-a/module.html"></section>```.
+   See the [presentation template](https://cytoscape.org/cytoscape-tutorials/presentations/template.html) and [code](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/template.html) to see how simple it is to reference existing modules, like so ```<section data-external="modules/template-a/module.html"></section>```.
    
    You can insert as many modules as you'd like and in any order. Furthermore, you can add slides using the ```section``` tag before or after modules in order to customize, e.g., with a title slide. This strategy works for protocols in the same way.
    
 2. **Composing a presentation module**
 Say you want to present a topic in detail, but it is not covered by any of the existing modules here. Well, you can make your own modules that can then be used (and reused) in multiple compositions (see Strategy 1). If possible, try to make the module focused on a single topic. Make more than one module, if necessary. And try to make the slides generic enough so that the module can be reused by other presenters, e.g., avoid content that is particular to only one audience, venue or setting.  
 
-   See a [presentation module template](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html) and [code](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/modules/template-a) to see how to build a module and how sample slides are formatted. Note how the ```moduled.html``` file is simply a set of ```<section>``` tags; while the ```index.html``` is generic wrapper you can copy/paste to make your sections work as a reveal.js presentation. The Style section below will cover most of the aspects of reveal you'll need to know to build a set of slides. 
+   See a [presentation module template](https://cytoscape.org/cytoscape-tutorials/presentations/modules/template-a/index.html) and [code](https://github.com/cytoscape/cytoscape-tutorials/tree/gh-pages/presentations/modules/template-a) to see how to build a module and how sample slides are formatted. Note how the ```moduled.html``` file is simply a set of ```<section>``` tags; while the ```index.html``` is generic wrapper you can copy/paste to make your sections work as a reveal.js presentation. The Style section below will cover most of the aspects of reveal you'll need to know to build a set of slides. 
 
 3. **Composing a protocol**
 In contrast to presentations, protocols are easier to prepare. Since protocols work best as brief, self-guided lessons, they are organized as a single level of subdirectories; one for each protocol. Simply copy one of the existing protocol template directories and rename it. Then you can replace the template ```sections``` with your slide content.
@@ -125,7 +125,7 @@ We have customized heading tags for the Cytoscape tutorial styles:
 
 [![Headers](assets/images/headers.png)](#null)
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/headers)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/modules/template-a/index.html#/headers)***
 
 ### Slide Links
 There are many ways to link to slides *within* your presentation. Here are a few of the most useful ones...
@@ -135,7 +135,7 @@ There are many ways to link to slides *within* your presentation. Here are a few
 <a href="#/my-fav-slide">Link slide by name (e.g., section id="my-fav-slide")</a>
 <a href="#" class="navigate-next">Link to next slide</a>
 ```
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html#/links)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/template.html#/links)***
 
 ### Ribbons
 These are ideal for making interactive Agenda or Outline slides. They have a similar style as h1 headers, but are designed to work together with slide links (or external links) and have the nifty behavior of automatically stacking and coloring themselves when you list more than one.
@@ -152,12 +152,12 @@ These are ideal for making interactive Agenda or Outline slides. They have a sim
 
 *Pro tip: if you indicate ```class="inactive"``` then you can gray-out a ribbon and disable its link. This is useful for mid-presentation review of the agenda, i.e., to remind the audience know what's been covered already and where you are at in the presentation.*
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/template.html#/ribbons)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/template.html#/ribbons)***
 
 ### Highlight
 Use the ```<highlight>``` tag to highlight text with the Cytoscape-orange color.
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/highlight)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/modules/template-a/index.html#/highlight)***
 
 ### Code
 Reveal uses [highlightjs](https://highlightjs.org/) to format code snippets. Use tags around code:
@@ -172,7 +172,7 @@ if (files != null) {
 </pre><c/ode data-trim>
 ```
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-a/index.html#/code)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/modules/template-a/index.html#/code)***
 
 ### Lists
 Typical usage of ```<ul>``` for unordered lists and ```<ol>``` for ordered lists is supported with ```<li>``` tagging each list item.
@@ -192,7 +192,7 @@ You can also float the image to the left (or right) side by appending ```"float:
 ### Citations
 Use the ```<small>``` tag to format citations at the bottom of slides.
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/list-image-cit)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/modules/template-b/index.html#/list-image-cit)***
 
 ### Animation
 The ```fragment``` class can be added to any html elements (e.g., paragraphs, images, list items) to set them up for animation, i.e., step-wise display. If you want to animate more than one element at the same time, simply wrap them in a div and add ```class="fragment"``` to it. You can also specify the type of animation per fragment...
@@ -224,7 +224,7 @@ And for more precise control over the order and combination of animated fragment
 <p class="fragment" data-fragment-index="2">Appears second</p>
  ```
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/frag-list)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/modules/template-b/index.html#/frag-list)***
 
 ### Columns
 The Cytoscape stylesheet includes a custom ```column``` class which can be applied to two consecutive divs to automatically get a two-column layout for your slide content.
@@ -238,14 +238,14 @@ The Cytoscape stylesheet includes a custom ```column``` class which can be appli
 </div>
 ```
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/two-columns)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/modules/template-b/index.html#/two-columns)***
 
 ### Tables
 The default table style includes a distinct header and background shading on alternating rows. Using ```table```, ```th```, ```tr``` and ```td``` as you normally would, results in a styled table like this...
 
 <a href="#null"><img src="assets/images/table.png" width="400px" /></a>
 
-***[example slide](https://cytoscape.github.io/cytoscape-tutorials/presentations/modules/template-b/index.html#/table)***
+***[example slide](https://cytoscape.org/cytoscape-tutorials/presentations/modules/template-b/index.html#/table)***
 
 ### Integration with CyBrowser and CyCommands
 CyBrowser allows for viewing any html page in Cytoscape. Together with [CyCommands](http://apps.cytoscape.org/apps/commandtool), this makes it possible to automate tutorial content with buttons and/or links. For example, if the tutorial describes how to load a network, a button to automatically load the network can be included. 
@@ -257,7 +257,7 @@ To include a button, add a div of class "cybrowser". The example below adds a bu
 ```
 <pre><code data-trim>
 <div class="cybrowser">
-        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
+        <input type="button" class="btn btn-primary" onclick="cybrowser.executeCyCommand('network load url url=https://cytoscape.org/cytoscape-tutorials/protocols/data/galFiltered.sif');" value="Load network"/>
     </div>
 </code></pre>
 ```
