@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>WikiPathways App</title>
+		<title>Functional Enrichment Analysis</title>
 
 		<link rel="stylesheet" href="../../css/reveal.css">
 		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
@@ -50,7 +50,12 @@
 <section id='example_datatables'>
          <h1>Example Data</h1>
          <p>The data pre-processing results in three files:</p>
-         <img class="plain" src="input_files.png" style="width:70%">
+        <ul>
+            <li>The first two lists contain the gene symbols of the significantly up- and down-regulated genes, respectively. This is the input for <b>Enrichr</b>.</li>
+            <li>The third file contains the full dataset, annotated with Ensembl IDs and with the gene rank as the only data column.</li>
+    
+    </ul>
+         <img class="plain" src="input_files.png" style="width:60%">
          <p>We will now continue with the tour of the two tools, <b>Enrichr</b> and <b>WebGestalt</b>.</p>
          <aside class="notes" data-markdown>
          Notes go here
@@ -62,7 +67,8 @@
     <h1>Enrichr</h1>
          <p>The Enrichr website offers an easy-to-use interface for basic over-representation analysis of gene sets.</p>
          <p class="fragment">Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
-         <img class="plain" src="Enrichr.png" style="width:70%">
+        <img class="plain" src="enrichr.png" style="width:70%">
+
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -82,8 +88,7 @@
     <h1>Enrichr: Start Analysis</h1>
          <p>Analysis is started by simply copying the list of genes from the text file, for example the list of significantly up-regulated genes, into the input box on the right of the <highlight>Analyze</highlight> tab and clicking <highlight>Submit</highlight>.</p>
          <p class="fragment">Note that this is the same list of gene symbols that we reviewed earlier.</p>
-         <img class="plain" src="enrichr_start.png" style="width:55%">
-    <img class="plain" src="enrichr_start.png" style="width:55%">
+         <img class="plain" src="enrichr_start.png" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
