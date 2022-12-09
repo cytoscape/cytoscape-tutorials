@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>WikiPathways App</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section id='title'>
+    <h1>Functional Enrichment Analysis</h1>
+    <p>This protocol describes the use of two common functional enrichment tools, <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> and <a href="http://www.webgestalt.org/" target="_blank">WebGestalt</a>. This protocol is designed as a walk-through or tour of these tools as a replacement for a hands-on tutorial.</p>
+</section>
+
+<section id='example_data'>
+        <h1>Example Data</h1>
+        <p>This workflow uses a lung cancer example dataset from <a href="https://www.cancer.gov/types/lung" target="_blank">TCGA</a>, which compares lung cancer biopsies with normal tissue. The data has been processed as follows: To produce the inputs necessary for two tools, the summarized data has been further processed to produce three separate input files:</p>  
+    <ol>
+        <li>Calculate <b>log2 fold change</b> and <b>adjusted pvalue</b> for cancer vs normal per gene from group average expression values.</li>
+        <li>Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; list of 367 genes</li>
+        <li>Filter for significantly down-regulated genes: <b>log2 fold change <= -2 AND adjusted pvalue <= 0.05</b>; list of 516 genes</li>
+        <li>Gene ranking calculated for the full dataset using <b>sign(log2 fold change) * -log10(pvalue)</b>.</li>
+    </ol>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+
+<section id='example_datatables'>
+         <h1>Example Data</h1>
+         <p>The data pre-processing results in three files:</p>
+         <img class="plain" src="input_files.png" style="width:70%">
+         <p>We will now continue with the tour of the two tools, <b>Enrichr</b> and <b>WebGestalt</b>.</p>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+
+<section id='enrichr_intro'>
+    <h1>Enrichr</h1>
+         <p>The Enrichr website offers an easy-to-use interface for basic over-representation analysis of gene sets.</p>
+         <p class="fragment">Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
+         <img class="plain" src="Enrichr.png" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='enrichr_libraries'>
+    <h1>Enrichr: Gene Set Libraries</h1>
+         <p>Enrichr includes over 200 gene set libraries, including Gene Ontology terms, pathways, disease-associated sets, cell type markers etc.</p>
+         <p class="fragment">You can also search for gene sets either by the term name under <highlight>Term search</highlight> or by gene under <highlight>Gene search</highlight>.</p>
+         <img class="plain" src="enrichr_libraries.png" style="width:45%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='enrichr_start'>
+    <h1>Enrichr: Start Analysis</h1>
+         <p>Analysis is started by simply copying the list of genes from the text file, for example the list of significantly up-regulated genes, into the input box on the right of the <highlight>Analyze</highlight> tab and clicking <highlight>Submit</highlight>.</p>
+         <p class="fragment">Note that this is the same list of gene symbols that we reviewed earlier.</p>
+         <img class="plain" src="enrichr_start.png" style="width:55%">
+    <img class="plain" src="enrichr_start.png" style="width:55%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='enrichr_results'>
+    <h1>Enrichr: Results Overview</h1>
+         <p>The results are displayed as a grid for each functional category, the image below shows the results in the <highlight>Pathways</highlight> category.</p>
+         <p class="fragment" data-fragment-index="2">Clicking on one of the squares will show the detailed results for that category:</p>
+         <img class="plain" src="enrichr_results.png" style="width:55%">
+    	<div class="fragment fade-in" data-fragment-index="3"
+	     style="position: absolute; top: 250px; left: 260px; width: 60%" >
+		<img class="plain fragment" data-fragment-index="3"
+		     src="results_wp.png"/>
+	</div>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='enrichr_details'>
+    <h1>Enrichr: Gene Set Results</h1>
+         <p>Looking at the results for a seppecific gene set in detail, the terms are sorted by p-value ranking by default. Clicking on any of the bars representing terms re-sorts the bar graph by the different score.</p>
+         <div
+	     style="position: absolute; top: 215px; left: 160px; width: 80%" >
+		<img class="plain"
+		     src="results_wp_detail.png"/>
+	</div>
+    	<div class="fragment fade-in" data-fragment-index="2"
+	     style="position: absolute; top: 215px; left: 160px; width: 80%" >
+		<img class="plain fragment" data-fragment-index="2"
+		     src="results_wp_sorted.png"/>
+	</div>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='enrichr_save'>
+    <h1>Enrichr: Save Results</h1>
+         <p>To download an image of the bar chart, click either of the <highlight>SVG PNG JPG</highlight> buttons at the top right of the chart. </p>
+         <img class="plain" src="results_wp_save.png" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='enrichr_table'>
+    <h1>Enrichr: Table View</h1>
+         <p>In addition to the default bar chart, results are also available as a table under <highlight>Table</highlight>. The table include the four enrichment scores calculated by Enrichr: <highlight>P-value</highlight>, <highlight>Adjusted p-value</highlight>, <highlight>Odds Ratio</highlight> and <highlight>Combined score</highlight>. More information about these scores can be found in the <a href="https://maayanlab.cloud/Enrichr/help#background&q=4" target="_blank">Enrichr documentation</a>.</p>
+         <p class="fragment" data-fragment-index="2">At the bottom of the table there is a link to <highlight>Export entries to table</highlight> which will download a .txt file with the full results table.</p>
+         <img class="plain" src="results_wp_table.png" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section>
+    <h1>WebGestalt</h1>
+         <p></p>
+         <img src="" style="width:50%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+         </section>
+
+
+
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
