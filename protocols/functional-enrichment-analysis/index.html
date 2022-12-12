@@ -101,7 +101,7 @@
     	<div class="fragment fade-in" data-fragment-index="3"
 	     style="position: absolute; top: 250px; left: 260px; width: 60%" >
 		<img class="plain fragment" data-fragment-index="3"
-		     src="results_wp.png"/>
+		     src="results_wp.png">
 	</div>
          <aside class="notes" data-markdown>
          Notes go here
@@ -114,12 +114,12 @@
          <div
 	     style="position: absolute; top: 215px; left: 160px; width: 80%" >
 		<img class="plain"
-		     src="results_wp_detail.png"/>
+		     src="results_wp_detail.png">
 	</div>
     	<div class="fragment fade-in" data-fragment-index="2"
 	     style="position: absolute; top: 215px; left: 160px; width: 80%" >
 		<img class="plain fragment" data-fragment-index="2"
-		     src="results_wp_sorted.png"/>
+		     src="results_wp_sorted.png">
 	</div>
          <aside class="notes" data-markdown>
          Notes go here
@@ -184,7 +184,7 @@
 
 <section id='webgestalt_results_summary'>
     <h1>WebGestalt: Results Summary</h1>
-         <p>The top of the results page includes a job summary and a link to download the results.</p>
+         <p>The top of the results page includes a job summary and a link to download the full results.</p>
          <img class="plain" src="webgestalt_summary.png" style="width:80%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -192,21 +192,59 @@
 </section>
                 
 <section id='webgestalt_barchart'>
-    <h1>Enrichr: Enrichment Results</h1>
+    <h1>WebGestalt: Enrichment Results</h1>
          <p>Results are displayed as a bar chart by default. Right-clicking on the bar chart lets you download in either <highlight>PNG</highlight> or <highlight>SVG</highlight> format.</p>
          <p class="fragment" data-fragment-index="2">Clicking on the bars updates the pathway-specific display at the bottom of the page.</p>
          <img class="plain" src="webgestalt_barchart.png" style="width:70%">
     	<div class="fragment fade-in" data-fragment-index="3"
 	     style="position: absolute; top: 250px; left: 175px; width: 80%" >
 		<img class="plain fragment" data-fragment-index="3"
-		     src="webgestalt_pathwayspecific.png"/>
+		     src="webgestalt_pathwayspecific.png">
 	</div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
                 
+<section id='webgestalt_enrichmentplot'>
+    <h1>WebGestalt: Enrichment Results</h1>
+         <p>The gene set (pathway in this case) specific results include the scoring statistics calculated for the enrichment, including the enrichment score, a sortable table and the enrichment plot.</p>
+         <p class="fragment" data-fragment-index="2">The enrichment plot is described in detail <a href="https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html" target="_blank">here</a>. Briefly, the plot in the upper half represents the running enrichment score (ES), as the analysis walks down the ranked list of genes. The middle section shows where the members of the gene set appear in the ranked list of genes. The top score in the enrichment map plot is the score reported for the particular gene set.</p>    
+        <div style="position: absolute; left: 150px; top: 250px">
+            <img data-fragment-index="1" src="webgestalt_pathwayspecific.png" class="plain fragment fade-out">
+        </div>
+        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 240px; top: 400px">
+        <img data-fragment-index="2" src="enrichment_score_plot.png" class="plain fragment" width="70%">
+        </div>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
                 
+<section id='webgestalt_pathway'>
+    <h1>WebGestalt: Enrichment Results</h1>
+         <p>For WikiPathways results, the link in the upper left is clickable and will open a pathway view with the overlapping/leading edge genes highlighted.</p>         
+        <img class="plain" src="wp_rbgenes.png" style="width:70%">
+    
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='webgestalt_other'>
+    <h1>WebGestalt: Enrichment Results</h1>
+         <p>In addition to the bar chart, the main results overview can also be visualized as a table or volcano plot by clicking the <highlight>Table</highlight> and <highlight>Volcano</highlight> buttons at the top left.</p>
+        <p class="fragment" data-fragment-index="2">The volcano plot has options for customized downloads available, as well as pan/zoom controls.</p>  
+        <div style="position: absolute; left: 100px; top: 250px">
+        <img data-fragment-index="1" src="webgestalt_table.png" class="plain fragment fade-out">
+        </div>
+        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 60px; top: 250px">
+        <img data-fragment-index="2" src="webgestalt_volcano.png" class="plain fragment">
+        </div>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
                 
                 
                 
