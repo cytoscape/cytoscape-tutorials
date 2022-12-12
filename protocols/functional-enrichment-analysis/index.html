@@ -49,11 +49,10 @@
 
 <section id='example_datatables'>
          <h1>Example Data</h1>
-         <p>The data pre-processing results in three files:</p>
+    <p>The data pre-processing results in <a href="https://github.com/gladstone-institutes/Bioinformatics-Workshops/blob/master/intro-pathway-analysis-visualization/ExampleData.zip?raw=true" target="_blank">three files</a>:</p>
         <ul>
             <li>The first two lists contain the gene symbols of the significantly up- and down-regulated genes, respectively. This is the input for <b>Enrichr</b>.</li>
             <li>The third file contains the full dataset, annotated with Ensembl IDs and with the gene rank as the only data column.</li>
-    
     </ul>
          <img class="plain" src="input_files.png" style="width:60%">
          <p>We will now continue with the tour of the two tools, <b>Enrichr</b> and <b>WebGestalt</b>.</p>
@@ -65,7 +64,7 @@
 
 <section id='enrichr_intro'>
     <h1>Enrichr</h1>
-         <p>The Enrichr website offers an easy-to-use interface for basic over-representation analysis of gene sets.</p>
+         <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic over-representation analysis of gene sets.</p>
          <p class="fragment">Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
         <img class="plain" src="enrichr.png" style="width:70%">
 
@@ -87,7 +86,7 @@
 <section id='enrichr_start'>
     <h1>Enrichr: Start Analysis</h1>
          <p>Analysis is started by simply copying the list of genes from the text file, for example the list of significantly up-regulated genes, into the input box on the right of the <highlight>Analyze</highlight> tab and clicking <highlight>Submit</highlight>.</p>
-         <p class="fragment">Note that this is the same list of gene symbols that we reviewed earlier.</p>
+         <p class="fragment">Note that this corresponds to the example data file containing up-regulated genes.</p>
          <img class="plain" src="enrichr_start.png" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -111,7 +110,7 @@
                 
 <section id='enrichr_details'>
     <h1>Enrichr: Gene Set Results</h1>
-         <p>Looking at the results for a seppecific gene set in detail, the terms are sorted by p-value ranking by default. Clicking on any of the bars representing terms re-sorts the bar graph by the different score.</p>
+         <p>Looking at the results for a specific gene set in detail, the terms are sorted by p-value ranking by default. Clicking on any of the bars representing terms re-sorts the bar graph by the different score.</p>
          <div
 	     style="position: absolute; top: 215px; left: 160px; width: 80%" >
 		<img class="plain"
@@ -145,18 +144,72 @@
          Notes go here
          </aside>
 </section>
-                
-<section>
+
+<section id='webgestalt_Intro'>
     <h1>WebGestalt</h1>
-         <p></p>
-         <img src="" style="width:50%">
+         <p><a href="http://www.webgestalt.org/" target="_blank">WebGestalt</a> offers more advanced analysis options for a smaller set of gene set libraries. Using WebGestalt, it is possible to run either Over-Representation Analysis(ORA), Gene Set Enrichment Analysis (GSEA) or Network Topology-based Analysis (TNA).</p>
+         <img class="plain" src="webgestalt.png" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
-         </section>
+</section>
 
+<section id='webgestalt_datasource'>
+    <h1>WebGestalt: Data source</h1>
+        <p>WebGestalt data source includes Gene Ontology terms, pathways, networks, disease-associated sets, drug terms etc.</p>
+         <img class="plain" src="webgestalt_datasource.png" style="width:30%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
 
+<section id='webgestalt_start1'>
+    <h1>WebGestalt: Start Analysis</h1>
+         <p>To start analysis, the <highlight>Basic parameters</highlight> section needs to be complete in terms of <highlight>Organism of interest</highlight>, <highlight>Method of Interest</highlight> (ORA, GSEA or NTA) and <highlight>Functional Database</highlight>. The functional database chosen can be further specified, for example choosing <highlight>pathway -> Wikipathway </highlight>.</p>
+         <img class="plain" src="webgestalt_basic.png" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='webgestalt_start2'>
+    <h1>WebGestalt: Start Analysis</h1>
+         <p>The input data is defined in the <highlight>Gene List</highlight> section, and the dataset or list of genes can either be pasted into the input field or uploaded as a text file. <highlight>Select Gene ID Type</highlight> should match the identifier type in the input data. The list used here corresponds to the example input file containing the full dataset with associated gene rank.</p>
+         <p class="fragment">Clicking <highlight>Submit</highlight> starts the analysis.</p>
+         <img class="plain" src="webgestalt_inputdata.png" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
 
+<section id='webgestalt_results_summary'>
+    <h1>WebGestalt: Results Summary</h1>
+         <p>The top of the results page includes a job summary and a link to download the results.</p>
+         <img class="plain" src="webgestalt_summary.png" style="width:80%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='webgestalt_barchart'>
+    <h1>Enrichr: Enrichment Results</h1>
+         <p>Results are displayed as a bar chart by default. Right-clicking on the bar chart lets you download in either <highlight>PNG</highlight> or <highlight>SVG</highlight> format.</p>
+         <p class="fragment" data-fragment-index="2">Clicking on the bars updates the pathway-specific display at the bottom of the page.</p>
+         <img class="plain" src="webgestalt_barchart.png" style="width:70%">
+    	<div class="fragment fade-in" data-fragment-index="3"
+	     style="position: absolute; top: 250px; left: 175px; width: 80%" >
+		<img class="plain fragment" data-fragment-index="3"
+		     src="webgestalt_pathwayspecific.png"/>
+	</div>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+                
+                
+                
+                
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
 
