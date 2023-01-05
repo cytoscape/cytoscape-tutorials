@@ -30,7 +30,12 @@
 
 <section id='title'>
     <h1>Functional Enrichment Analysis</h1>
-    <p>This protocol describes the use of two common functional enrichment tools, <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> and <a href="http://www.webgestalt.org/" target="_blank">WebGestalt</a>. This protocol is designed as a walk-through or tour of these tools as a replacement for a hands-on tutorial.</p>
+    <p>This protocol is designed as a walk-through tour of popular functional enrichment analysis tools, as a replacement for a hands-on tutorial. This protocol describes the use of three functional enrichment tools:</p>
+    <ul>
+        <li><a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a></li>
+        <li><a href="http://www.webgestalt.org/" target="_blank">WebGestalt</a></li>
+        <li><a href="https://github.com/gladstone-institutes/Interactive-Enrichment-Analysis" target="_blank">Interactive Enrichment Analysis</a></li>
+    </ul>
 </section>
 
 <section id='example_data'>
@@ -51,11 +56,11 @@
          <h1>Example Data</h1>
     <p>The data pre-processing results in <a href="https://github.com/gladstone-institutes/Bioinformatics-Workshops/blob/master/intro-pathway-analysis/ExampleData.zip?raw=true" target="_blank">three files</a>:</p>
         <ul>
-            <li>The first two lists contain the gene symbols of the significantly up- and down-regulated genes, respectively. This is the input for <b>Enrichr</b>.</li>
-            <li>The third file contains the full dataset, annotated with Ensembl IDs and with the gene rank as the only data column.</li>
+            <li>The first two files are lists containing the gene symbols of the significantly up- and down-regulated genes, respectively. This input can be used for <b>Enrichr</b> and <b>Interactive Enrichment Analysis</b>.</li>
+            <li>The third file contains the full dataset, annotated with Ensembl IDs and with the gene rank as the only data column. This input can be used for <b>WebGestalt</b> and <b>Interactive Enrichment Analysis</b>.</li>
     </ul>
          <img class="plain" src="input_files.png" style="width:60%">
-         <p>We will now continue with the tour of the two tools, <b>Enrichr</b> and <b>WebGestalt</b>.</p>
+         <p>We will now continue with the tour of the tools, starting with <b>Enrichr</b>.</p>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -75,7 +80,7 @@
                 
 <section id='enrichr_libraries'>
     <h1>Enrichr: Gene Set Libraries</h1>
-         <p>Enrichr includes over 200 gene set libraries, including Gene Ontology terms, pathways, disease-associated sets, cell type markers etc.</p>
+         <p>Enrichr includes over <b>200</b> gene set libraries, including Gene Ontology terms, pathways, disease-associated sets, cell type markers etc.</p>
          <p class="fragment">You can also search for gene sets either by the term name under <highlight>Term search</highlight> or by gene under <highlight>Gene search</highlight>.</p>
          <img class="plain" src="enrichr_libraries.png" style="width:45%">
          <aside class="notes" data-markdown>
@@ -87,7 +92,7 @@
     <h1>Enrichr: Start Analysis</h1>
          <p>Analysis is started by simply copying the list of genes from the text file, for example the list of significantly up-regulated genes, into the input box on the right of the <highlight>Analyze</highlight> tab and clicking <highlight>Submit</highlight>.</p>
          <p class="fragment">Note that this corresponds to the example data file containing up-regulated genes.</p>
-         <img class="plain" src="enrichr_start.png" style="width:70%">
+         <img class="plain" src="enrichr_start.png" style="width:60%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -117,7 +122,7 @@
 		     src="results_wp_detail.png">
 	</div>
     	<div class="fragment fade-in" data-fragment-index="2"
-	     style="position: absolute; top: 215px; left: 160px; width: 80%" >
+	     style="position: absolute; top: 220px; left: 160px; width: 82%" >
 		<img class="plain fragment" data-fragment-index="2"
 		     src="results_wp_sorted.png">
 	</div>
@@ -185,7 +190,7 @@
 <section id='webgestalt_results_summary'>
     <h1>WebGestalt: Results Summary</h1>
          <p>The top of the results page includes a job summary and a link to download the full results.</p>
-         <img class="plain" src="webgestalt_summary.png" style="width:80%">
+         <img class="plain" src="webgestalt_summary.png" style="width:90%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -233,7 +238,7 @@
                 
 <section id='webgestalt_other'>
     <h1>WebGestalt: Enrichment Results</h1>
-         <p>In addition to the bar chart, the main results overview can also be visualized as a table or volcano plot by clicking the <highlight>Table</highlight> and <highlight>Volcano</highlight> buttons at the top left.</p>
+        <p>In addition to the bar chart, the main results overview can also be visualized as a table or volcano plot by clicking the <highlight>Table</highlight> and <highlight>Volcano</highlight> buttons at the top left.</p>
         <p class="fragment" data-fragment-index="2">The volcano plot has options for customized downloads available, as well as pan/zoom controls.</p>  
         <div style="position: absolute; left: 100px; top: 250px">
         <img data-fragment-index="1" src="webgestalt_table.png" class="plain fragment fade-out">
@@ -246,6 +251,106 @@
          </aside>
 </section>
                 
+<section id='iea_intro'>
+    <h1>Interactive Enrichment Analysis</h1>
+        <p><a href="https://github.com/gladstone-institutes/Interactive-Enrichment-Analysis" target="_blank">Interactive Enrichment Analysis</a> is a user-friendly interactive tools to perform enrichment analysis for multiple datasets across multiple public databases. This tool can run both Over-Representation Analysis(ORA) and Gene Set Enrichment Analysis (GSEA).</p>
+        <img class="plain" src="interactive_enrichment_analysis.png" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+             
+<section id='iea_database'>
+    <h1>Interactive Enrichment Analysis: Database</h1>
+        <p>A collection of public databases is provided in the drop-down in the <highlight>Database</highlight> section. These are updated monthly and datestamped. It is also possible to construct your own database collection under <highlight>BUILD NEW DATABASE</highlight>, and providing one or more <a href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GMT:_Gene_Matrix_Transposed_file_format_.28.2A.gmt.29" target="_blank">GMT</a> files.</p>
+        <img class="plain" src="iea_database.png" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>    
+                
+<section id='iea_dataset1'>
+    <h1>Interactive Enrichment Analysis: Datasets</h1>
+        <p>Datasets are selected in the <highlight>Datasets</highlight> section; one or more datasets can be selected if they are all the same format. A column named <b>gene</b> is required, and additional columns named <b>rank</b>, <b>p.value</b>, and <b>fold.change</b> are allowed and necessary for GSEA.</p>
+        <img class="plain" src="" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+  
+<section id='iea_dataset2'>
+    <h1>Interactive Enrichment Analysis: Dataset Options</h1>
+        <p>The tool will display a preview of the first few rows of the first chosen dataset along with the required and optional columns that were detected.</p>
+        <p class="fragment" data-fragment-index="2"><highlight>Identifiers</highlight> and <highlight>organism</highlight> should match the data. The analysis parameters can also be adjusted here.</p>  
+        <div style="position: absolute; left: 100px; top: 250px">
+        <img data-fragment-index="1" src="" class="plain fragment fade-out">
+        </div>
+        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 60px; top: 250px">
+        <img data-fragment-index="2" src="" class="plain fragment">
+        </div>
+    
+    
+        <img class="plain" src="" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='iea_start'>
+    <h1>Interactive Enrichment Analysis: Start Analysis</h1>
+        <p>When <highlight>Databases</highlight> and <highlight>Datasets</highlight> are loaded and verified, the side panel will be updated with a <highlight>Run Analyses</highlight> option.</p>
+        <p class="fragment" data-fragment-index="2">The initial set of panels will collapse and a <highlight>Progress</highlight> panel will open along with a progress bar in the lower-right corner. The <highlight>Progress</highlight> panel will report the individual analysis steps, any errors, as well as start and finish times for the run, and the location of the output folder.</p>  
+        <img class="plain" src="" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='iea_viewresults'>
+    <h1>Interactive Enrichment Analysis: View Results</h1>
+        <p>Analysis results can be viewed by clicking <highlight>View Results</highlight>. Results are viewed in another app that allows you to interactively explore results and download individual files.</p>
+        <p class="fragment" data-fragment-index="2">The <highlight>Data</highlight> tab displays the processed input data as a table and volcano plot. The table is paginated and searchable. The volcano plot uses the user-specified <b>fold.change</b> and <b>p.value</b> cutoffs (for ORA). A checkbox at the top of the panel allows you to also view the genes that were excluded from the analysis, e.g., due to failed identifier mapping. Both the table and plot can be downloaded.</p>
+        <img class="plain" src="" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='iea_dataplots'>
+    <h1>Interactive Enrichment Analysis: Data plots</h1>
+        <p>Under construction.....</p>
+        <img class="plain" src="" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='iea_results'>
+    <h1>Interactive Enrichment Analysis: Analysis Results</h1>
+        <p>The <highlight>Results</highlight> tab displays a table of enriched terms and pathways, a plot of top results, and a plot of a selected result from the table. The table is paginated and supports selection, search, filtering and can be downloaded as Excel, CSV or to clipboard. The plots for top results include <b>dot</b> (by Gene Ratio or by Count), <b>emap</b>, <b>concept networks</b>, etc., and can also be downloaded. The plots for individual, selected results include GSEA score, database-specific views and linkouts, and more, and can also be downloaded.</p>
+        <p class="fragment" data-fragment-index="2">....</p>  
+        <div style="position: absolute; left: 100px; top: 250px">
+        <img data-fragment-index="1" src="" class="plain fragment fade-out">
+        </div>
+        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 60px; top: 250px">
+        <img data-fragment-index="2" src="" class="plain fragment">
+        </div>
+    
+    
+        <img class="plain" src="" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+   
+<section id='iea_resultsplots'>
+    <h1>Interactive Enrichment Analysis: Results plots</h1>
+        <p>Under construction.....</p>
+        <img class="plain" src="" style="width:70%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
                 
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
