@@ -325,29 +325,92 @@
          </aside>
 </section>
                 
-<section id='iea_results'>
+<section id='iea_results1'>
     <h1>Interactive Enrichment Analysis: Analysis Results</h1>
-        <p>The <highlight>Results</highlight> tab displays a table of enriched terms and pathways, a plot of top results, and a plot of a selected result from the table. The table is paginated and supports selection, search, filtering and can be downloaded as Excel, CSV or to clipboard. The plots for top results include <b>dot</b> (by Gene Ratio or by Count), <b>emap</b>, <b>concept networks</b>, etc., and can also be downloaded. The plots for individual, selected results include GSEA score, database-specific views and linkouts, and more, and can also be downloaded.</p>
-        <p class="fragment" data-fragment-index="2">....</p>  
-        <div style="position: absolute; left: 100px; top: 250px">
-        <img data-fragment-index="1" src="" class="plain fragment fade-out">
+        <p>The <highlight>Results</highlight> tab displays a table of enriched terms/pathways, a plot of top results, and a plot of a selected result from the table. The table is paginated and supports selection, search and filtering. The plots for top results include <b>dot</b>, <b>emap</b>, <b>concept networks</b>, etc.</p>
+        <p class="fragment" data-fragment-index="2">The plots for individual, selected results include GSEA score, database-specific views and linkouts, etc, and the results table can all be downloaded.</p>  
+        <div style="position: absolute; left: 280px; top: 320px; width:50%">
+        <img data-fragment-index="1" src="shiny_results_res_gsea.png" class="plain fragment fade-out">
         </div>
-        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 60px; top: 250px">
-        <img data-fragment-index="2" src="" class="plain fragment">
+        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 280px; top: 320px;  width:50%">
+        <img data-fragment-index="2" src="shiny_results_res_gsea_download.png" class="plain fragment">
         </div>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='iea_results2'>
+    <h1>Interactive Enrichment Analysis: Analysis Results</h1>
+        <p>Using the side panel, one can navigate between GSEA and ORA methods while viewing the results for a particular database to explore hits in common (and unique) to the different methods.</p>
+<!--        <div style="position: absolute; left: 50px; top: 200px; width:50%">
+        <img src="shiny_results_res_gsea.png" class="plain">
+        </div>
+         <div style="position: absolute; right: 50px; top: 200px; width:50%">
+        <img src="shiny_results_res_gsea.png" class="plain">
+        </div>-->
     
-    
-        <img class="plain" src="" style="width:70%">
+        <img src="shiny_results_res_gsea.png" class="plain" style="float:left; width:45%">
+        <img src="shiny_results_res_gsea.png" class="plain" style="float:right; width:45%">
+<!--TO-DO: update figures to show switch between results from GSEA/ORA-->
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
    
-<section id='iea_resultsplots'>
-    <h1>Interactive Enrichment Analysis: Results plots</h1>
-        <p>Under construction.....</p>
-        <img class="plain" src="" style="width:70%">
+<!--<section id='iea_resultsplots'>
+    <h1>Interactive Enrichment Analysis: Dot plot</h1>
+        <p>A dot plot of results highlight multiple statistics for the most enriched results.</p>
+        <div style="float:right; width:50%">
+            <p>Plot options:</p>
+            <ul>
+                <li><b>Top n results</b>: How many results to include in the plot</li>
+                <li><b>X-axis by</b>: Set the x-axis by Count (number of dataset genes overlapping a given term) or GeneRatio (dataset genes overlapping a given term vs all possible terms)</li>
+                <li><b>Size by</b>: Set the size of dots by Count, GeneRatio, or Percentage (dataset genes overlapping a given term vs all genes in term)</li>
+                <li><b>Wrap labels</b>: Wrap long labels to mulitple lines after a specified number of characters</li>
+                <li><b>Label font size</b>: Font size for all text</li>
+                <li><b>Color by</b>: Set the color of dots by pvalue, p.adjust, or qvalue</li>
+            </ul>
+        </div>
+        <img class="plain" src="shiny_results_res_dot.png" style="float:left; width:40%">
          <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>-->
+                
+<section id='iea_results_dot'>
+    <h1>Interactive Enrichment Analysis: Dot plot</h1>
+        <p>A dot plot of results highlight multiple statistics for the most enriched results. The plot has many options, including how many results to include, x-axis parameter, dot sizing parameter, and label and color options.</p>
+        <p class="fragment" data-fragment-index="2">For example..... (under construction)</p>  
+        <div style="position: absolute; left: 350px; top: 250px; width:40%">
+        <img data-fragment-index="1" src="shiny_results_res_dot.png" class="plain fragment fade-out">
+        </div>
+        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; top: 320px">
+        <img src="shiny_results_res_dot.png" class="plain" style="float:left; width:40%">
+        <img src="shiny_results_res_dot.png" class="plain" style="float:right; width:40%">
+        </div>
+    <!--TO-DO: update figures to show difference in options. Dont need to show interactive options, just the dot plot?-->
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='iea_results_overlap'>
+    <h1>Interactive Enrichment Analysis: Overlapping genes</h1>
+        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 180px; top: 100px">Several plot types displaying results with overlapping genes are available.</p>
+        <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 180px; top: 100px">Heatmap of results highlights overlapping genes among the most enriched results.</p>  
+        <p class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 220px; top: 100px">Enrichment map connects results with overlapping genes.</p>  
+        <p class="fragment fade-in-then-out" data-fragment-index="4" style="position: absolute; left: 200px; top: 100px">Concept network connects results via their overlapping genes.</p>
+        <div data-fragment-index="2" class="fragment fade-in-then-out" style="position: absolute; left: 280px; top: 200px">
+            <img class="plain" src="shiny_results_res_heatmap.png" height="600px">
+        </div>
+        <div data-fragment-index="3" class="fragment fade-in-then-out" style="position: absolute; left: 320px; top: 200px">
+            <img class="plain" src="shiny_results_res_emap.png" height="600px">
+        </div>
+        <div data-fragment-index="4" class="fragment fade-in-then-out" style="position: absolute; left: 320px; top: 200px">
+            <img class="plain" src="shiny_results_res_cnet.png" height="600px">
+        </div>
+     <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
