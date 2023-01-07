@@ -70,8 +70,16 @@
 <section id='enrichr_intro'>
     <h1>Enrichr</h1>
          <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic over-representation analysis of gene sets.</p>
-         <p class="fragment">Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
-        <img class="plain" src="enrichr.png" style="width:70%">
+        <div class="fragment" data-fragment-index="2">
+             <p>Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
+        </div>
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 50px; top: 230px">
+            <img class="plain" src="enrichr.png" style="width:70%">
+        </div>
+    
+        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 50px; top: 230px">
+            <img class="plain" src="enrichr_lib.png" style="width:70%">
+        </div>
 
          <aside class="notes" data-markdown>
          Notes go here
@@ -81,7 +89,7 @@
 <section id='enrichr_libraries'>
     <h1>Enrichr: Gene Set Libraries</h1>
          <p>Enrichr includes over <b>200</b> gene set libraries, including Gene Ontology terms, pathways, disease-associated sets, cell type markers etc.</p>
-         <p class="fragment">You can also search for gene sets either by the term name under <highlight>Term search</highlight> or by gene under <highlight>Gene search</highlight>.</p>
+         <p class="fragment" >You can also search for gene sets either by the term name under <highlight>Term search</highlight> or by gene under <highlight>Gene search</highlight>.</p>
          <img class="plain" src="enrichr_libraries.png" style="width:45%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -101,13 +109,16 @@
 <section id='enrichr_results'>
     <h1>Enrichr: Results Overview</h1>
          <p>The results are displayed as a grid for each functional category, the image below shows the results in the <highlight>Pathways</highlight> category.</p>
+         <div class="fragment fade-in" data-fragment-index="2">
          <p class="fragment" data-fragment-index="2">Clicking on one of the squares will show the detailed results for that category:</p>
-         <img class="plain" src="enrichr_results.png" style="width:55%">
-    	<div class="fragment fade-in" data-fragment-index="3"
-	     style="position: absolute; top: 250px; left: 260px; width: 60%" >
-		<img class="plain fragment" data-fragment-index="3"
-		     src="results_wp.png">
-	</div>
+         </div>
+         
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; top: 250px; left: 60px">
+         <img class="plain" src="enrichr_results.png" style="width:55%"></div>
+    
+        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; top: 250px; left: 60px">
+		      <img class="plain" src="results_wp.png" style="width:60%">
+	    </div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -240,11 +251,11 @@
     <h1>WebGestalt: Enrichment Results</h1>
         <p>In addition to the bar chart, the main results overview can also be visualized as a table or volcano plot by clicking the <highlight>Table</highlight> and <highlight>Volcano</highlight> buttons at the top left.</p>
         <p class="fragment" data-fragment-index="2">The volcano plot has options for customized downloads available, as well as pan/zoom controls.</p>  
-        <div style="position: absolute; left: 100px; top: 250px">
-        <img data-fragment-index="1" src="webgestalt_table.png" class="plain fragment fade-out">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 100px; top: 250px">
+        <img  src="webgestalt_table.png" class="plain">
         </div>
         <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 60px; top: 250px">
-        <img data-fragment-index="2" src="webgestalt_volcano.png" class="plain fragment">
+        <img src="webgestalt_volcano.png" class="plain">
         </div>
          <aside class="notes" data-markdown>
          Notes go here
@@ -286,7 +297,7 @@
         <img data-fragment-index="1" src="" class="plain fragment fade-out">
         </div>
         <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 60px; top: 250px">
-        <img data-fragment-index="2" src="" class="plain fragment">
+        <img data-fragment-index="2" src="" class="plain">
         </div>
     
     
@@ -309,18 +320,29 @@
 <section id='iea_viewresults'>
     <h1>Interactive Enrichment Analysis: View Results</h1>
         <p>Analysis results can be viewed by clicking <highlight>View Results</highlight>. Results are viewed in another app that allows you to interactively explore results and download individual files.</p>
-        <p class="fragment" data-fragment-index="2">The <highlight>Data</highlight> tab displays the processed input data as a table and volcano plot. The table is paginated and searchable. The volcano plot uses the user-specified <b>fold.change</b> and <b>p.value</b> cutoffs (for ORA). A checkbox at the top of the panel allows you to also view the genes that were excluded from the analysis, e.g., due to failed identifier mapping. Both the table and plot can be downloaded.</p>
-        <img class="plain" src="" style="width:70%">
+        <div class="fragment" data-fragment-index="2">
+        <p>The <highlight>Data</highlight> tab displays the processed input data as a table and volcano plot. The table is paginated and searchable.
+        A checkbox at the top allows you to also view the genes that were excluded from the analysis, e.g., due to failed identifier mapping. Both the table and plot are downloadedable.</p>
+    </div>
+        <img class="plain" src="shiny_results_data_ora.png" style="width:60%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
                 
 <section id='iea_dataplots'>
-    <h1>Interactive Enrichment Analysis: Data plots</h1>
-        <p>Under construction.....</p>
-        <img class="plain" src="" style="width:70%">
-         <aside class="notes" data-markdown>
+    <h1>Interactive Enrichment Analysis: Data plots</h1>    
+<!--        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 180px; top: 100px">Several plot types displaying results with overlapping genes are available.</p>-->
+        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">A volcano plot of your input data highlights subsets of genes based on the p.value and fold-change cutoffs indicated during the run. By default, the volcano plot uses the user-specified <b>fold.change</b> and <b>p.value</b> cutoffs (for ORA)</p>  
+        <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">A bar plot of your input data highlights positive and negative fold-change values for a subset of genes.</p>  
+        <div data-fragment-index="1" class="fragment fade-out" style="position: absolute; left: 280px; top: 200px">
+            <img class="plain" src="shiny_results_data_volcano.png" height="600px">
+        </div>
+        <div data-fragment-index="2" class="fragment fade-in-then-out" style="position: absolute; left: 320px; top: 200px">
+            <img class="plain" src="shiny_results_data_bar.png" height="600px">
+        </div>
+    
+    <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
@@ -329,11 +351,11 @@
     <h1>Interactive Enrichment Analysis: Analysis Results</h1>
         <p>The <highlight>Results</highlight> tab displays a table of enriched terms/pathways, a plot of top results, and a plot of a selected result from the table. The table is paginated and supports selection, search and filtering. The plots for top results include <b>dot</b>, <b>emap</b>, <b>concept networks</b>, etc.</p>
         <p class="fragment" data-fragment-index="2">The plots for individual, selected results include GSEA score, database-specific views and linkouts, etc, and the results table can all be downloaded.</p>  
-        <div style="position: absolute; left: 280px; top: 320px; width:50%">
-        <img data-fragment-index="1" src="shiny_results_res_gsea.png" class="plain fragment fade-out">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 280px; top: 320px; width:50%">
+        <img  src="shiny_results_res_gsea.png" class="plain">
         </div>
-        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 280px; top: 320px;  width:50%">
-        <img data-fragment-index="2" src="shiny_results_res_gsea_download.png" class="plain fragment">
+        <div class="fragment fragment fade-in" data-fragment-index="2" style="position: absolute; left: 280px; top: 320px;  width:50%">
+        <img src="shiny_results_res_gsea_download.png" class="plain">
         </div>
          <aside class="notes" data-markdown>
          Notes go here
