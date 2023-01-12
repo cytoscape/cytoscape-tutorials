@@ -40,7 +40,7 @@
 
 <section id='example_data'>
         <h1>Example Data</h1>
-        <p>This workflow uses a lung cancer example dataset from <a href="https://www.cancer.gov/types/lung" target="_blank">TCGA</a>, which compares lung cancer biopsies with normal tissue. The data has been processed as follows: To produce the inputs necessary for two tools, the summarized data has been further processed to produce three separate input files:</p>  
+        <p>This tour uses an example dataset originally from <a href="https://www.cancer.gov/types/lung" target="_blank">TCGA</a>, and a published dataset from <a href="https://europepmc.org/article/MED/21614001" target="_blank">Voineagu et al., 2011</a>. To produce the inputs necessary for these tools, the <b>TCGA</b> summarized data has been further processed to produce three separate input files:</p>  
     <ol>
         <li>Calculate <b>log2 fold change</b> and <b>adjusted pvalue</b> for cancer vs normal per gene from group average expression values.</li>
         <li>Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; list of 367 genes</li>
@@ -54,12 +54,13 @@
 
 <section id='example_datatables'>
          <h1>Example Data</h1>
-    <p>The data pre-processing results in <a href="https://github.com/gladstone-institutes/Bioinformatics-Workshops/blob/master/intro-pathway-analysis/ExampleData.zip?raw=true" target="_blank">three files</a>:</p>
+    <p>The data pre-processing results in <a href="https://github.com/gladstone-institutes/Bioinformatics-Workshops/blob/master/intro-pathway-analysis/ExampleData.zip?raw=true" target="_blank">four files</a>:</p>
         <ul>
-            <li>The first two files are lists containing the gene symbols of the significantly up- and down-regulated genes, respectively. This input can be used for <b>Enrichr</b> and <b>Interactive Enrichment Analysis</b>.</li>
-            <li>The third file contains the full dataset, annotated with Ensembl IDs and with the gene rank as the only data column. This input can be used for <b>WebGestalt</b> and <b>Interactive Enrichment Analysis</b>.</li>
-    </ul>
-         <img class="plain" src="input_files.png" style="width:60%">
+            <li>The first two files are lists containing the gene symbols of the significantly up- and down-regulated genes, respectively. This input can be used for <b>ORA</b> analysis in <highlight>Enrichr</highlight> and <highlight>WebGestalt</highlight>.</li>
+            <li>The third file contains the full dataset, annotated with Ensembl IDs and with the gene rank as the only data column. This input can be used for <b>GSEA</b> analysis in <highlight>WebGestalt</highlight>.</li>
+            <li>The fourth file contains the full dataset, annotated with NCBI gene symbol, and fold change and p value. This input is used for <b>ORA</b> and <b>GSEA</b> analysis in the <highlight>Interactive Enrichment Analysis</highlight> tool.</li>
+       </ul>
+         <img class="plain" src="input_files.png" style="width:65%">
          <p>We will now continue with the tour of the tools, starting with <b>Enrichr</b>.</p>
          <aside class="notes" data-markdown>
          Notes go here
@@ -70,17 +71,13 @@
 <section id='enrichr_intro'>
     <h1>Enrichr</h1>
          <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic over-representation analysis of gene sets.</p>
-        <div class="fragment" data-fragment-index="2">
-             <p>Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
-        </div>
-        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 50px; top: 230px">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 50px; top: 200px">
             <img class="plain" src="enrichr.png" style="width:70%">
         </div>
-    
-        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 50px; top: 230px">
+        <div class="fragment" data-fragment-index="2">
+             <p>Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
             <img class="plain" src="enrichr_lib.png" style="width:70%">
         </div>
-
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -109,16 +106,13 @@
 <section id='enrichr_results'>
     <h1>Enrichr: Results Overview</h1>
          <p>The results are displayed as a grid for each functional category, the image below shows the results in the <highlight>Pathways</highlight> category.</p>
+         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; top: 200px; left: 60px">
+         <img class="plain" src="enrichr_results.png" style="width:55%"></div>
          <div class="fragment fade-in" data-fragment-index="2">
          <p class="fragment" data-fragment-index="2">Clicking on one of the squares will show the detailed results for that category:</p>
-         </div>
-         
-        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; top: 250px; left: 60px">
-         <img class="plain" src="enrichr_results.png" style="width:55%"></div>
-    
-        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; top: 250px; left: 60px">
-		      <img class="plain" src="results_wp.png" style="width:60%">
-	    </div>
+             <img class="plain" src="results_wp.png" style="width:50%">
+         </div>         
+
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -155,7 +149,7 @@
     <h1>Enrichr: Table View</h1>
          <p>In addition to the default bar chart, results are also available as a table under <highlight>Table</highlight>. The table include the four enrichment scores calculated by Enrichr: <highlight>P-value</highlight>, <highlight>Adjusted p-value</highlight>, <highlight>Odds Ratio</highlight> and <highlight>Combined score</highlight>. More information about these scores can be found in the <a href="https://maayanlab.cloud/Enrichr/help#background&q=4" target="_blank">Enrichr documentation</a>.</p>
          <p class="fragment" data-fragment-index="2">At the bottom of the table there is a link to <highlight>Export entries to table</highlight> which will download a .txt file with the full results table.</p>
-         <img class="plain" src="results_wp_table.png" style="width:70%">
+         <img class="plain" src="results_wp_table.png" style="width:68%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -173,7 +167,7 @@
 <section id='webgestalt_datasource'>
     <h1>WebGestalt: Data source</h1>
         <p>WebGestalt data source includes Gene Ontology terms, pathways, networks, disease-associated sets, drug terms etc.</p>
-         <img class="plain" src="webgestalt_datasource.png" style="width:30%">
+         <img class="plain" src="webgestalt_datasource.png" style="width:28%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -191,7 +185,7 @@
 <section id='webgestalt_start2'>
     <h1>WebGestalt: Start Analysis</h1>
          <p>The input data is defined in the <highlight>Gene List</highlight> section, and the dataset or list of genes can either be pasted into the input field or uploaded as a text file. <highlight>Select Gene ID Type</highlight> should match the identifier type in the input data. The list used here corresponds to the example input file containing the full dataset with associated gene rank.</p>
-         <p class="fragment">Clicking <highlight>Submit</highlight> starts the analysis.</p>
+         <p class="fragment">Clicking <highlight>Submit</highlight> at the bottom left starts the analysis.</p>
          <img class="plain" src="webgestalt_inputdata.png" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -366,9 +360,8 @@
         <img  src="iea_results_ora.png" class="plain" style="width:60%">
         </div>
         <div class="fragment fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 300px">
-        <img src="iea_results_ora_download.png" class="plain" style="float:left; width:50%">
-        <img src="iea_results_dot_download.png" class="plain" style="float:right; width:50%">
-<!--        <img src="shiny_results_res_gsea_download.png" class="plain" style="width:45%">-->
+        <img src="iea_results_ora_download.png" class="plain" style="float:left; width:48%">
+        <img src="iea_results_dot_download.png" class="plain" style="float:right; width:48%">
         </div>
          <aside class="notes" data-markdown>
          Notes go here
@@ -377,54 +370,22 @@
                 
 <section id='iea_results2'>
     <h1>Interactive Enrichment Analysis: Analysis Results</h1>
-        <p>Using the side panel, one can navigate between GSEA and ORA methods while viewing the results for a particular database to explore hits in common (and unique) to the different methods.</p>
-<!--        <div style="position: absolute; left: 50px; top: 200px; width:50%">
-        <img src="shiny_results_res_gsea.png" class="plain">
-        </div>
-         <div style="position: absolute; right: 50px; top: 200px; width:50%">
-        <img src="shiny_results_res_gsea.png" class="plain">
-        </div>-->
-    
-        <img src="shiny_results_res_gsea.png" class="plain" style="float:left; width:45%">
-        <img src="shiny_results_res_gsea.png" class="plain" style="float:right; width:45%">
-<!--TO-DO: update figures to show switch between results from GSEA/ORA-->
-         <aside class="notes" data-markdown>
+        <p>Using the left side panel, one can navigate between GSEA and ORA methods while viewing the results for a particular database to explore hits in common (and unique) to the different methods. Here we are comparing the <b>ORA</b> and <b>GSEA</b> results for the WikiPathways database, note the differences in the table and dot plot.</p> 
+        <div style="position: absolute; left:0px; top: 260px">
+        <img src="iea_results_ora_pw.png" class="plain" style="float:left; width:48%">
+        <img src="iea_results_gsea_pw.png" class="plain" style="float:right; width:48%">
+    </div>
+            <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
-   
-<!--<section id='iea_resultsplots'>
-    <h1>Interactive Enrichment Analysis: Dot plot</h1>
-        <p>A dot plot of results highlight multiple statistics for the most enriched results.</p>
-        <div style="float:right; width:50%">
-            <p>Plot options:</p>
-            <ul>
-                <li><b>Top n results</b>: How many results to include in the plot</li>
-                <li><b>X-axis by</b>: Set the x-axis by Count (number of dataset genes overlapping a given term) or GeneRatio (dataset genes overlapping a given term vs all possible terms)</li>
-                <li><b>Size by</b>: Set the size of dots by Count, GeneRatio, or Percentage (dataset genes overlapping a given term vs all genes in term)</li>
-                <li><b>Wrap labels</b>: Wrap long labels to mulitple lines after a specified number of characters</li>
-                <li><b>Label font size</b>: Font size for all text</li>
-                <li><b>Color by</b>: Set the color of dots by pvalue, p.adjust, or qvalue</li>
-            </ul>
-        </div>
-        <img class="plain" src="shiny_results_res_dot.png" style="float:left; width:40%">
-         <aside class="notes" data-markdown>
-         Notes go here
-         </aside>
-</section>-->
                 
 <section id='iea_results_dot'>
     <h1>Interactive Enrichment Analysis: Dot plot</h1>
-        <p>A dot plot of results highlight multiple statistics for the most enriched results. The plot has many options, including how many results to include, x-axis parameter, dot sizing parameter, and label and color options.</p>
-        <p class="fragment" data-fragment-index="2">For example..... (under construction)</p>  
-        <div style="position: absolute; left: 350px; top: 250px; width:40%">
-        <img data-fragment-index="1" src="shiny_results_res_dot.png" class="plain fragment fade-out">
+        <p>A <highlight>dot plot</highlight> of results highlight multiple statistics for the top enriched terms/pathways. By default, the size of dots corresponds to the <b>percentage</b> of dataset genes overlapping a term/pathway versus all genes in the term/pathway, and the color represents <b>adjusted p value</b>. These parameters and other plot view options are customizable in a set of controls under the plot.</p>
+        <div style="position: absolute; left: 350px; top: 250px">
+        <img src="shiny_results_res_dot.png" class="plain" style="width:40%">
         </div>
-        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; top: 320px">
-        <img src="shiny_results_res_dot.png" class="plain" style="float:left; width:40%">
-        <img src="shiny_results_res_dot.png" class="plain" style="float:right; width:40%">
-        </div>
-    <!--TO-DO: update figures to show difference in options. Dont need to show interactive options, just the dot plot?-->
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -432,18 +393,18 @@
                 
 <section id='iea_results_overlap'>
     <h1>Interactive Enrichment Analysis: Overlapping genes</h1>
-        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 180px; top: 100px">Several plot types displaying results with overlapping genes are available.</p>
-        <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 180px; top: 100px">Heatmap of results highlights overlapping genes among the most enriched results.</p>  
-        <p class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 220px; top: 100px">Enrichment map connects results with overlapping genes.</p>  
-        <p class="fragment fade-in-then-out" data-fragment-index="4" style="position: absolute; left: 200px; top: 100px">Concept network connects results via their overlapping genes.</p>
-        <div data-fragment-index="2" class="fragment fade-in-then-out" style="position: absolute; left: 280px; top: 200px">
-            <img class="plain" src="shiny_results_res_heatmap.png" height="600px">
+        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 160px; top: 100px">Several plot types displaying results with overlapping genes are available.</p>
+        <div class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">
+        <p><highlight>Heatmap</highlight> plots the top terms/pathways versus top genes to highlight overlapping genes among the most enriched results. As with all plots, the view options are customizable.</p>  
+            <img class="plain" src="shiny_results_res_heatmap.png" style="width:60%">
         </div>
-        <div data-fragment-index="3" class="fragment fade-in-then-out" style="position: absolute; left: 320px; top: 200px">
-            <img class="plain" src="shiny_results_res_emap.png" height="600px">
+        <div class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 0px; top: 100px">
+        <p><highlight>Enrichment map</highlight> (emap) connects results (terms/pathways) with overlapping genes in a network view. The interactions (edges) in the network represent gene overlap between terms/pathways (nodes), and nodes are sized based on the number of genes in them.</p> 
+            <img class="plain" src="shiny_results_res_emap.png" style="width:40%">
         </div>
-        <div data-fragment-index="4" class="fragment fade-in-then-out" style="position: absolute; left: 320px; top: 200px">
-            <img class="plain" src="shiny_results_res_cnet.png" height="600px">
+        <div class="fragment fade-in-then-out" data-fragment-index="4" style="position: absolute; left: 0px; top: 100px">
+        <p><highlight>Concept network</highlight> (cnet) connects results via their overlapping genes. Terms/pathways are represented by the larger nodes, with interactions for each gene in that term/pathway. Interactions are color-coded by term/pathway. In this way, it is easy to see which genes are relevant to more than one term/pathway.</p>
+             <img class="plain" src="iea_results_cnet.png" style="width:50%">
         </div>
      <aside class="notes" data-markdown>
          Notes go here
