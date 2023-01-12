@@ -273,8 +273,14 @@
              
 <section id='iea_database'>
     <h1>Interactive Enrichment Analysis: Database</h1>
-        <p>A collection of public databases is provided in the drop-down in the <highlight>Database</highlight> section. These are updated monthly and datestamped. It is also possible to construct your own database collection under <highlight>BUILD NEW DATABASE</highlight>, and providing one or more <a href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GMT:_Gene_Matrix_Transposed_file_format_.28.2A.gmt.29" target="_blank">GMT</a> files.</p>
-        <img class="plain" src="iea_database.png" style="width:70%">
+        <p>A set of public database collections is provided in the drop-down in the <highlight>Database</highlight> section. These are updated monthly and datestamped. It is also possible to construct your own database collection under <highlight>BUILD NEW DATABASE</highlight>, and providing one or more <a href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GMT:_Gene_Matrix_Transposed_file_format_.28.2A.gmt.29" target="_blank">GMT</a> files.</p>
+        <p class="fragment" data-fragment-index="2">Once a database collection is selected, the specific databases contained in the collection will be displayed.</p>
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 300px">
+        <img  src="iea_database.png" class="plain" style="width:80%">
+        </div>
+        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 40px; top: 330px">
+        <img src="iea_database_contents.png" class="plain" style="width:60%">
+        </div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -293,14 +299,12 @@
     <h1>Interactive Enrichment Analysis: Dataset Options</h1>
         <p>The tool will display a preview of the first few rows of the first chosen dataset along with the required and optional columns that were detected.</p>
         <p class="fragment" data-fragment-index="2"><highlight>Identifiers</highlight> and <highlight>organism</highlight> should match the data. The analysis parameters can also be adjusted here.</p>  
-        <div style="position: absolute; left: 100px; top: 250px">
-        <img data-fragment-index="1" src="" class="plain fragment fade-out">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 270px">
+        <img src="iea_dataset_options.png" class="plain"style="width:45%">
         </div>
-        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 60px; top: 250px">
-        <img data-fragment-index="2" src="" class="plain">
+        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 0px; top: 270px">
+        <img src="iea_dataset_options_highlight.png" class="plain" style="width:45%">
         </div>
-    
-    
         <img class="plain" src="" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -311,7 +315,12 @@
     <h1>Interactive Enrichment Analysis: Start Analysis</h1>
         <p>When <highlight>Databases</highlight> and <highlight>Datasets</highlight> are loaded and verified, the side panel will be updated with a <highlight>Run Analyses</highlight> option.</p>
         <p class="fragment" data-fragment-index="2">The initial set of panels will collapse and a <highlight>Progress</highlight> panel will open along with a progress bar in the lower-right corner. The <highlight>Progress</highlight> panel will report the individual analysis steps, any errors, as well as start and finish times for the run, and the location of the output folder.</p>  
-        <img class="plain" src="" style="width:70%">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 200px">
+        <img src="iea_startanalysis.png" class="plain"style="width:80%">
+        </div>
+        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 350px">
+        <img src="iea_progress.png" class="plain"style="width:60%">
+        </div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -320,11 +329,14 @@
 <section id='iea_viewresults'>
     <h1>Interactive Enrichment Analysis: View Results</h1>
         <p>Analysis results can be viewed by clicking <highlight>View Results</highlight>. Results are viewed in another app that allows you to interactively explore results and download individual files.</p>
-        <div class="fragment" data-fragment-index="2">
-        <p>The <highlight>Data</highlight> tab displays the processed input data as a table and volcano plot. The table is paginated and searchable.
+        <p class="fragment" data-fragment-index="2">The <highlight>Data</highlight> tab displays the processed input data as a table and volcano plot. The table is paginated and searchable.
         A checkbox at the top allows you to also view the genes that were excluded from the analysis, e.g., due to failed identifier mapping. Both the table and plot are downloadedable.</p>
-    </div>
-        <img class="plain" src="shiny_results_data_ora.png" style="width:60%">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 250px">
+        <img src="iea_progress_viewresults.png" class="plain"style="width:60%">
+        </div>
+        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 320px">
+        <img src="shiny_results_data_ora.png" class="plain" style="width:60%">
+        </div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -335,11 +347,11 @@
 <!--        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 180px; top: 100px">Several plot types displaying results with overlapping genes are available.</p>-->
         <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">A volcano plot of your input data highlights subsets of genes based on the p.value and fold-change cutoffs indicated during the run. By default, the volcano plot uses the user-specified <b>fold.change</b> and <b>p.value</b> cutoffs (for ORA)</p>  
         <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">A bar plot of your input data highlights positive and negative fold-change values for a subset of genes.</p>  
-        <div data-fragment-index="1" class="fragment fade-out" style="position: absolute; left: 280px; top: 200px">
-            <img class="plain" src="shiny_results_data_volcano.png" height="600px">
+        <div data-fragment-index="1" class="fragment fade-out" style="position: absolute; left: 220px; top: 220px">
+            <img class="plain" src="shiny_results_data_volcano.png" >
         </div>
-        <div data-fragment-index="2" class="fragment fade-in-then-out" style="position: absolute; left: 320px; top: 200px">
-            <img class="plain" src="shiny_results_data_bar.png" height="600px">
+        <div data-fragment-index="2" class="fragment fade-in-then-out" style="position: absolute; left: 220px; top: 200px">
+            <img class="plain" src="shiny_results_data_bar.png">
         </div>
     
     <aside class="notes" data-markdown>
@@ -351,11 +363,11 @@
     <h1>Interactive Enrichment Analysis: Analysis Results</h1>
         <p>The <highlight>Results</highlight> tab displays a table of enriched terms/pathways, a plot of top results, and a plot of a selected result from the table. The table is paginated and supports selection, search and filtering. The plots for top results include <b>dot</b>, <b>emap</b>, <b>concept networks</b>, etc.</p>
         <p class="fragment" data-fragment-index="2">The plots for individual, selected results include GSEA score, database-specific views and linkouts, etc, and the results table can all be downloaded.</p>  
-        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 280px; top: 320px; width:50%">
-        <img  src="shiny_results_res_gsea.png" class="plain">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left:0px; top: 230px">
+        <img  src="shiny_results_res_gsea.png" class="plain" style="width:55%">
         </div>
-        <div class="fragment fragment fade-in" data-fragment-index="2" style="position: absolute; left: 280px; top: 320px;  width:50%">
-        <img src="shiny_results_res_gsea_download.png" class="plain">
+        <div class="fragment fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 320px">
+        <img src="shiny_results_res_gsea_download.png" class="plain" style="width:45%">
         </div>
          <aside class="notes" data-markdown>
          Notes go here
