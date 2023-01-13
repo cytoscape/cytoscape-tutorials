@@ -218,10 +218,10 @@
                 
 <section id='webgestalt_enrichmentplot'>
     <h1>WebGestalt: Enrichment Results</h1>
-         <p>The gene set (pathway in this case) specific results include the scoring statistics calculated for the enrichment, including the enrichment score, a sortable table and the enrichment plot.</p>
+         <p>The results specific to a gene set (pathway in this case) include the scoring statistics calculated for the enrichment, including the enrichment score, a sortable table and the enrichment plot.</p>
          <p class="fragment" data-fragment-index="2">The enrichment plot is described in detail <a href="https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html" target="_blank">here</a>. Briefly, the plot in the upper half represents the running enrichment score (ES), as the analysis walks down the ranked list of genes. The middle section shows where the members of the gene set appear in the ranked list of genes. The top score in the enrichment map plot is the score reported for the particular gene set.</p>    
-        <div style="position: absolute; left: 150px; top: 250px">
-            <img data-fragment-index="1" src="webgestalt_pathwayspecific.png" class="plain fragment fade-out">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 50px; top: 250px">
+            <img src="webgestalt_pathwayspecific.png" class="plain">
         </div>
         <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 240px; top: 400px">
         <img data-fragment-index="2" src="enrichment_score_plot.png" class="plain fragment" width="70%">
@@ -245,7 +245,7 @@
     <h1>WebGestalt: Enrichment Results</h1>
         <p>In addition to the bar chart, the main results overview can also be visualized as a table or volcano plot by clicking the <highlight>Table</highlight> and <highlight>Volcano</highlight> buttons at the top left.</p>
         <p class="fragment" data-fragment-index="2">The volcano plot has options for customized downloads available, as well as pan/zoom controls.</p>  
-        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 100px; top: 250px">
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 100px; top: 200px">
         <img  src="webgestalt_table.png" class="plain">
         </div>
         <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 60px; top: 250px">
@@ -324,7 +324,7 @@
     <h1>Interactive Enrichment Analysis: View Results</h1>
         <p>Analysis results can be viewed by clicking <highlight>View Results</highlight>. Results are viewed in another app that allows you to interactively explore results and download individual files.</p>
         <p class="fragment" data-fragment-index="2">The <highlight>Data</highlight> tab displays the processed input data as a table and volcano plot. The table is paginated and searchable.
-        A checkbox at the top allows you to also view the genes that were excluded from the analysis, e.g., due to failed identifier mapping. Both the table and plot are downloadedable.</p>
+        A checkbox at the top allows you to also view the genes that were excluded from the analysis, e.g., due to failed identifier mapping. Both the table and plot are downloadable.</p>
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 250px">
         <img src="iea_progress_viewresults.png" class="plain"style="width:60%">
         </div>
@@ -338,8 +338,8 @@
                 
 <section id='iea_dataplots'>
     <h1>Interactive Enrichment Analysis: Data plots</h1>    
-        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">A volcano plot is a scatterplot that shows statistical significance, <b>p.value</b>, versus magnitude of change, <b>fold.change</b>. Genes are highlighted based on the p.value and fold-change cutoffs selected during setup. Selected genes are labeled, either by top <b>n</b> genes, or by selection by name.</p>  
-        <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">A bar plot of your input data highlights positive and negative fold-change values for a subset of genes, either top <b>n</b> genes or genes selected by name.</p>  
+        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">The input data is visualized in a volcano plot, which plots genes by statistical significance, <b>p.value</b>, versus magnitude of change, <b>fold.change</b>. Genes are highlighted based on the p.value and fold-change cutoffs selected during setup. Selected genes are labeled; select genes either by top <b>n</b> genes, or by selection by name.</p>  
+        <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">A bar plot of your input data is also available (via a drop-down), highlighting positive and negative fold-change values for a subset of genes, either top <b>n</b> genes or genes selected by name.</p>  
         <div data-fragment-index="1" class="fragment fade-out" style="position: absolute; left: 220px; top: 250px">
             <img class="plain" src="shiny_results_data_volcano.png" >
         </div>
@@ -355,7 +355,7 @@
 <section id='iea_results1'>
     <h1>Interactive Enrichment Analysis: Analysis Results</h1>
         <p>The <highlight>Results</highlight> tab displays a table of enriched terms/pathways, a plot of top results, and a plot of a selected result from the table. The table is paginated and supports selection, search and filtering. The plots for top results include <b>dot</b>, <b>heatmap</b>, <b>emap</b>, <b>concept networks</b>, etc.</p>
-        <p class="fragment" data-fragment-index="2">Plots for individual/selected results, and the results table can all be downloaded.</p>  
+        <p class="fragment" data-fragment-index="2">The table and plots can all be downloaded.</p>  
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left:0px; top: 230px">
         <img  src="iea_results_ora.png" class="plain" style="width:60%">
         </div>
@@ -383,8 +383,8 @@
 <section id='iea_results_dot'>
     <h1>Interactive Enrichment Analysis: Dot plot</h1>
         <p>A <highlight>dot plot</highlight> of results highlight multiple statistics for the top enriched terms/pathways. By default, the size of dots corresponds to the <b>percentage</b> of dataset genes overlapping a term/pathway versus all genes in the term/pathway, and the color represents <b>adjusted p value</b>. These parameters and other plot view options are customizable in a set of controls under the plot.</p>
-        <div style="position: absolute; left: 350px; top: 250px">
-        <img src="shiny_results_res_dot.png" class="plain" style="width:40%">
+        <div style="position: absolute; left: 250px; top: 250px">
+        <img src="shiny_results_res_dot.png" class="plain" style="width:75%">
         </div>
          <aside class="notes" data-markdown>
          Notes go here
@@ -393,17 +393,17 @@
                 
 <section id='iea_results_overlap'>
     <h1>Interactive Enrichment Analysis: Overlapping genes</h1>
-        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 160px; top: 100px">Several plot types displaying results with overlapping genes are available.</p>
+        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left:  100px; top: 100px">Several plot types are available for visualizing the gene overlap between results.</p>
         <div class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">
-        <p><highlight>Heatmap</highlight> plots the top terms/pathways versus top genes to highlight overlapping genes among the most enriched results. As with all plots, the view options are customizable.</p>  
+        <p><highlight>Heatmap</highlight> plots the top results (terms/pathways) versus top genes to highlight overlapping genes among the most enriched results. As with all plots, the view options are customizable.</p>  
             <img class="plain" src="shiny_results_res_heatmap.png" style="width:60%">
         </div>
         <div class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 0px; top: 100px">
         <p><highlight>Enrichment map</highlight> (emap) connects results (terms/pathways) with overlapping genes in a network view. The interactions (edges) in the network represent gene overlap between terms/pathways (nodes), and nodes are sized based on the number of genes in them.</p> 
             <img class="plain" src="shiny_results_res_emap.png" style="width:40%">
         </div>
-        <div class="fragment fade-in-then-out" data-fragment-index="4" style="position: absolute; left: 0px; top: 100px">
-        <p><highlight>Concept network</highlight> (cnet) connects results via their overlapping genes. Terms/pathways are represented by the larger nodes, with interactions for each gene in that term/pathway. Interactions are color-coded by term/pathway. In this way, it is easy to see which genes are relevant to more than one term/pathway.</p>
+        <div class="fragment fade-in" data-fragment-index="4" style="position: absolute; left: 0px; top: 100px">
+        <p><highlight>Concept network</highlight> (cnet) connects results via their overlapping genes. Results (terms/pathways) are represented by the larger nodes, and each gene in that term/pathway is connected via an interactions to it. Interactions are color-coded by term/pathway. In this way, it is easy to see which genes are relevant to more than one term/pathway.</p>
              <img class="plain" src="iea_results_cnet.png" style="width:50%">
         </div>
      <aside class="notes" data-markdown>
@@ -411,6 +411,31 @@
          </aside>
 </section>
                 
+<section id='iea_results_gseaplot'>
+    <h1>Interactive Enrichment Analysis: GSEA plot</h1>
+        <p>For each result in the results table, results-specific plots are available based on the database the results is from and the analysis method used. For example, for <b>GSEA</b> analysis, the GSEA Enrichment Score plot is available. As described earlier, the plot in the upper half represents the running enrichment score (ES), as the analysis walks down the ranked list of genes. The middle section shows where the members of the gene set appear in the ranked list of genes. The top score in the enrichment map plot is the score reported for the particular gene set.
+        </p>
+        <img src="iea_ES_plot.png" class="plain" style="width:55%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='iea_results_wpplot'>
+    <h1>Interactive Enrichment Analysis: Pathway visualization</h1>
+        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left:  100px; top: 150px">
+        <p>Some database-specific visualizations are also available, for example <b>WikiPathways</b> visualizations of the data on models from the <a href="https://new.wikipathways.org/" target="_blank">WikiPathways</a> project. Genes that met the criteria for fold change and p value cutoff are highlighted in the pathway (orange for up, blue for down). The <b>WikiPathways</b> button will take you to the pathway model at WikiPathways.</p>
+        <img src="iea_pathway_plot.png" class="plain" style="width:60%">
+        </div>
+        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 150px">
+        <p>Opening the pathway in a new window gives you access to a larger, interactive format of the pathway.</p>   
+            <img src="iea_pathway_plot_large.png" class="plain" style="width:80%">
+        </div>
+        
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
                 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
