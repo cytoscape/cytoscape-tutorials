@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>WikiPathways App</title>
+		<title>clusterMaker App</title>
 
 		<link rel="stylesheet" href="../../css/reveal.css">
 		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
@@ -193,9 +193,9 @@
     <h1>UMAP analysis of Expression Data</h1>
     <p>We will now look at the same heat shock expression data used for the hierarchical cluster, but this time using the <a href="https://doi.org/10.48550/arXiv.1802.03426" target="_blank">Uniform Manifold Approximation and Projection (UMAP)</a> approach to explore a 2D embedding of this multidimensional data.</p>
     <ul>
-        <li>Select all nodes with a <highlight>count</highlight> value of 2 or greater using the <highlight>Filter</highlight> interface.</li>
+        <li>Select all nodes with a <highlight>count</highlight> value of 1 or greater using the <highlight>Filter</highlight> interface.</li>
         <li>Select <highlight>Apps &rarr; clusterMaker Dimensionality Reduction &rarr; UMAP (remote)</highlight>.</li>
-        <li>Select all six of the heat shock columns and set the <highlight>Number of neighbors</highlight> to <b>20</b> and the <highlight>Minimum distance</highlight> to <b>0.5</b>.</li>
+        <li>Select all six of the heat shock columns and set the <highlight>Number of neighbors</highlight> to <b>20</b> and the <highlight>Minimum distance</highlight> to <b>0.5</b>. Check the <highlight>Only use data from selected nodes</highlight> option.</li>
         <li>Select <highlight>Show scatter plot with results</highlight> and click <highlight>OK</highlight>.</li>
         
     </ul>
@@ -203,46 +203,79 @@
 
 <section id='umap 2'>
     <h1>UMAP analysis of Expression Data</h1>
-    <p>...</p>
+    <p>Once the UMAP scatter plot comes up, click on <highlight>Get Colors</highlight> to apply the red-blue coloring from the nodes to the UMAP.</p>
+
+    <img src="umap_scatter.png" style="width:50%">
+</section>
+                
+<section id='umap 3'>
+    <h1>UMAP analysis of Expression Data</h1>
     <ul>
-    <li>Once the UMAP scatter plot comes up, click on <highlight>Get Colors</highlight> to apply the red-blue coloring from the nodes to the UMAP.</li>
-    <li>Highlight the red group in the middle and run functional enrichment analysis on the selected nodes.</li> 
-    <li>The results indicates significant enrichment for protein folding.</li>
+    <li></li>
+    <li>In the scatter plot, highlight the red group in the middle.</li> 
+    <li>In the stringApp interface in the <highlight>Results Panel</highlight>, select <highlight>Functional enrichment</highlight>. Leave the defaults as-is.</li>
+    <li>Filter the results for <b>GO Biological Process</b>. The results indicates significant enrichment for protein folding.</li>
     </ul>
+    <img src="umap_scatter_group.png" style="width:50%">
+                
 </section>
                 
 <section id='fuzzy cluster 1'>
     <h1>Fuzzy Clustering</h1>
-    <p>.Fuzzy clustering can help us understand the relationships between clusters, and help find instances where proteins are shared between clusters.</p>
+    <p>Fuzzy clustering can help us understand the relationships between clusters, and help find instances where proteins are shared between clusters. To apply fuzzy clustering, we must start with the fully connected network, but to facilitate interpretation of the results, we will select the nodes from several clusters that are of interest – for example, clusters with high ranking or that show consistently high over-expression or under-expression, rather than the whole network.</p>
     <ul>
-    
-    
+        <li>Select <highlight>Apps &rarr; clusterMaker Visualizations &rarr; Link selection accross networks</highlight>.</li>
+        <li>Next, go to the clustered network, and using the <highlight>Filters</highlight> interface selecct nodes from clusters 13, 19, 20, 25, 82, 197, 242, 259, and 668. This is best done by creating a column filter for the <b>__leidenCluster</b> column for each cluster, and setting combining them using the <b>OR</b> operator in the <highlight>Match any</highlight> drop-down.</li>
+        <li>The corresponding nodes will now be selected in the original network.</li>
     </ul>
-    
 </section>
                 
 <section id='fuzzy cluster 2'>
     <h1>Fuzzy Clustering</h1>
-    <p>....</p>
+    <ul>
+        <li>In the original network, with the nodes selected, choose <highlight>Apps &rarr; clusterMaker Cluster Network &rarr; Cluster Fuzzifier</highlight></li>
+        <li>Chose <b>stringdb::score</b> as the <highlight>Array Source</highlight>, and <b>1/value</b> as the <highlight>Edge weight conversion</highlight> (to convert it to a distance). Also check <highlight>Cluster only selected nodes</highlight> and <highlight>Create new clustered network</highlight> to see the result.</li>
+        <li>Click <highlight>OK</highlight> to continue.</li>
+    </ul>
+    
+</section>
+                
+<section id='fuzzy cluster 3'>
+    <h1>Fuzzy Clustering</h1>
+    <ul>
+        <li>To show the relationships between clusters, apply a force-directed layout using the score as an edge weight......</li>
+    
+    </ul>
     
 </section>
                 
 <section id='cluster ranking 1'>
     <h1>Cluster Ranking</h1>
-    <p>...</p>
+    <p>The goal of ranking  is to order the clusters based on some criteria (typically node attributes) to determine the most relevant or important clusters.</p>
+    <ul>
+        <li>Go back to the clustered network. Click anywhere in the network view window to remove the selection.</li>
+        <li>Go to <highlight>Apps &rarr; clusterMaker Ranking &rarr; Create rank from multiple nodes and edges (additive sum)</highlight>.</li>
+        <li>Choose the same node attributes (GPL51-01 – GPL51-08) and select <b>Basic</b> normalization, but <b>Only positive values</b> for the <highlight>Two-tailed values normalization</highlight>.</li>
+    </ul>
     
 </section>
                 
 <section id='cluster ranking 2'>
     <h1>Cluster Ranking</h1>
-    <p>...</p>
+    <p>The ranking panel can be opened from <highlight>Apps &rarr; clusterMaker Visualizations &rarr; Show results from ranking clusters</highlight>.</p>
+    <img src="cluster-ranking.png" style="width:29%">
     
 </section>
                 
-<section id='summary'>
-    <h1>Summary</h1>
-    <p>...</p>
-    
+<section>
+    <h1>Cluster Ranking</h1>
+    <p>By calculating a ranking score for each cluster, we can analyze the relevance of the clusters in terms of the research question. In this case, a higher ranking score would imply that the cluster is more associated with yeast heat shock. We can focus on the highest-ranking cluster and try to assess the biological relevance of the genes in it in two ways:</p>
+    <ol>
+        <li><b>Manual lookup</b>: Search the <a href="https://www.uniprot.org/" target="_blank">UniProt</a> database to review function.</li>
+        <li><b>Enrichment analysis</b>: Perform functional enrichment analysis on the cluster using the stringApp.</li>
+    </ol>
+    <p>This process can be repeated for other high-ranking clusters.</p>
+                
 </section>
 
 
