@@ -40,13 +40,24 @@
 
 <section id='example_data'>
         <h1>Example Data</h1>
-        <p>This tour uses an example dataset originally from <a href="https://www.cancer.gov/types/lung" target="_blank">TCGA</a>, and a published dataset from <a href="https://europepmc.org/article/MED/21614001" target="_blank">Voineagu et al., 2011</a>. To produce the inputs necessary for these tools, the <b>TCGA</b> summarized data has been further processed to produce three separate input files:</p>  
+        <p>This tour can be used with a set of example data, including a dataset originally from <a href="https://www.cancer.gov/types/lung" target="_blank">TCGA</a>, and a published dataset from <a href="https://europepmc.org/article/MED/21614001" target="_blank">Voineagu et al., 2011</a>.</p>  
+        <p>For the <b>TCGA</b> data, it was processed as follows:</p>
     <ol>
-        <li>Calculate <b>log2 fold change</b> and <b>adjusted pvalue</b> for cancer vs normal per gene from group average expression values.</li>
-        <li>Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; list of 367 genes</li>
-        <li>Filter for significantly down-regulated genes: <b>log2 fold change <= -2 AND adjusted pvalue <= 0.05</b>; list of 516 genes</li>
-        <li>Gene ranking calculated for the full dataset using <b>sign(log2 fold change) * -log10(pvalue)</b>.</li>
+        <li class="fragment" data-fragment-index="1">Calculate <b>log2 fold change</b> and <b>adjusted pvalue</b> for cancer vs normal per gene from group average expression values.</li>
+        <li class="fragment" data-fragment-index="2">Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 367 up-regulated genes</highlight></li>
+        <li class="fragment" data-fragment-index="4">Filter for significantly down-regulated genes: <b>log2 fold change <= -2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 516 down-regulated genes</highlight></li>
+        <li class="fragment" data-fragment-index="6">Gene ranking calculated for all genes using <b>sign(log2 fold change) * -log10(pvalue)</b>; <highlight>file with gene ID and rank value for all genes</highlight></li>
+        <li class="fragment" data-fragment-index="8">These input files can be used for <b>Enrichr</b> and <b>WebGestalt</b>.</li>
     </ol>
+     <div class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 380px; top: 180px">
+            <img  src="input_files_up.png" style="width:70%">
+     </div>
+     <div class="fragment fade-in-then-out" data-fragment-index="5" style="position: absolute; left: 380px; top: 180px">
+            <img  src="input_files_down.png" style="width:70%">
+     </div>
+     <div class="fragment fade-in-then-out" data-fragment-index="7" style="position: absolute; left: 380px; top: 180px">
+            <img  src="input_files_ranked.png" style="width:70%">
+     </div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -54,21 +65,33 @@
 
 <section id='example_datatables'>
          <h1>Example Data</h1>
-    <p>The data pre-processing results in <a href="https://github.com/gladstone-institutes/Bioinformatics-Workshops/blob/master/intro-pathway-analysis/ExampleData.zip?raw=true" target="_blank">four files</a>:</p>
+    <p>Finally, the <b>Voineagu et al.</b> data was downloaded from <a href="https://www.ebi.ac.uk/gxa/home" target="_blank">Expression Atlas</a> and contains data for all genes measured with the following columns:</p>
         <ul>
-            <li>The first two files are lists containing the gene symbols of the significantly up- and down-regulated genes, respectively. This input can be used for <b>ORA</b> analysis in <highlight>Enrichr</highlight> and <highlight>WebGestalt</highlight>.</li>
-            <li>The third file contains the full dataset, annotated with Ensembl IDs and with the gene rank as the only data column. This input can be used for <b>GSEA</b> analysis in <highlight>WebGestalt</highlight>.</li>
-            <li>The fourth file contains the full dataset, annotated with NCBI gene symbol, and fold change and p value. This input is used for <b>ORA</b> and <b>GSEA</b> analysis in the <highlight>Interactive Enrichment Analysis</highlight> tool.</li>
+            <li>NCBI gene symbol</li>
+            <li>fold change</li>
+            <li>p value</li> 
        </ul>
-         <img class="plain" src="input_files.png" style="width:65%">
-         <p>We will now continue with the tour of the tools, starting with <b>Enrichr</b>.</p>
+    <div class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 50px; top: 120px">
+            <img  src="input_files_csv.png" style="width:60%">
+     </div>
+    <p class="fragment" data-fragment-index="3">This input is used for <b>ORA</b> and <b>GSEA</b> analysis in the <highlight>Interactive Enrichment Analysis</highlight> tool.</p>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
                 
+<section id='navigation 1'>
+<a href="#/enrichr" class="navigate-next"><ribbon>Enrichr</ribbon></a>
+<a href="#/webgestalt"><ribbon>WebGestalt</ribbon></a>
+<a href="#/iea"><ribbon>Interactive Enrichment Analysis</ribbon></a>
+<a href="#/downstream_analysis"><ribbon>Downstream Analysis Options</ribbon></a>
 
-<section id='enrichr_intro'>
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+
+<section id='enrichr'>
     <h1>Enrichr</h1>
          <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic over-representation analysis of gene sets.</p>
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 50px; top: 200px">
@@ -155,7 +178,18 @@
          </aside>
 </section>
 
-<section id='webgestalt_Intro'>
+<section id='navigation 2'>
+<a href="#/enrichr" class="navigate-next"><ribbon>Enrichr</ribbon></a>
+<a href="#/webgestalt"><ribbon>WebGestalt</ribbon></a>
+<a href="#/iea"><ribbon>Interactive Enrichment Analysis</ribbon></a>
+<a href="#/downstream_analysis"><ribbon>Downstream Analysis Options</ribbon></a>
+
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
+                
+<section id='webgestalt'>
     <h1>WebGestalt</h1>
          <p><a href="http://www.webgestalt.org/" target="_blank">WebGestalt</a> offers more advanced analysis options for a smaller set of gene set libraries. Using WebGestalt, it is possible to run either Over-Representation Analysis(ORA), Gene Set Enrichment Analysis (GSEA) or Network Topology-based Analysis (TNA).</p>
          <img class="plain" src="webgestalt.png" style="width:70%">
@@ -255,8 +289,19 @@
          Notes go here
          </aside>
 </section>
+
+<section id='navigation 3'>
+<a href="#/enrichr" class="navigate-next"><ribbon>Enrichr</ribbon></a>
+<a href="#/webgestalt"><ribbon>WebGestalt</ribbon></a>
+<a href="#/iea"><ribbon>Interactive Enrichment Analysis</ribbon></a>
+<a href="#/downstream_analysis"><ribbon>Downstream Analysis Options</ribbon></a>
+
+<aside class="notes" data-markdown>
+Add speaker notes here...
+</aside>
+</section>
                 
-<section id='iea_intro'>
+<section id='iea'>
     <h1>Interactive Enrichment Analysis</h1>
         <p><a href="https://github.com/gladstone-institutes/Interactive-Enrichment-Analysis" target="_blank">Interactive Enrichment Analysis</a> is a user-friendly interactive tools to perform enrichment analysis for multiple datasets across multiple public databases. This tool can run both Over-Representation Analysis(ORA) and Gene Set Enrichment Analysis (GSEA).</p>
         <img class="plain" src="interactive_enrichment_analysis.png" style="width:80%">
@@ -442,8 +487,8 @@
         <p>Once you have completed exploring your data and results in either of these tools, there are several options for continued analysis and exploration:</p>
         <ul>
             <li>Create custom <a href="https://cytoscape.org/cytoscape-tutorials/protocols/wikipathways-app/#/title" target="_blank">pathway visualizations of your data in Cytoscape</a>.</li>
-            <li>Extend pathways with regulatory interactions using <a href="https://cytargetlinker.github.io/pages/tutorials" target="_blank">CyTargetLinker</a>.</li>
             <li>Explore network visualization and analysis in <a href="tutorials.cytoscape.org" target="_blank">Cytoscape</a>.</li>
+            <li>Extend pathways with regulatory interactions using <a href="https://cytargetlinker.github.io/pages/tutorials" target="_blank">CyTargetLinker</a>.</li>
             <li>Create pathway models relevant to your research, or modify existing models, with <a href="https://github.com/gladstone-institutes/Bioinformatics-Workshops/wiki/Introduction-to-Pathway-Modeling" target="_blank">PathVisio and WikiPathways</a>.</li>
     
     </ul>
