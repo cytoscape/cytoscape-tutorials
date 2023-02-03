@@ -44,9 +44,9 @@
         <p>For the <b>TCGA</b> data, it was processed as follows:</p>
     <ol>
         <li class="fragment" data-fragment-index="1">Calculate <b>log2 fold change</b> and <b>adjusted pvalue</b> for cancer vs normal per gene from group average expression values.</li>
-        <li class="fragment" data-fragment-index="2">Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 367 up-regulated genes</highlight></li>
-        <li class="fragment" data-fragment-index="4">Filter for significantly down-regulated genes: <b>log2 fold change <= -2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 516 down-regulated genes</highlight></li>
-        <li class="fragment" data-fragment-index="6">Gene ranking calculated for all genes using <b>sign(log2 fold change) * -log10(pvalue)</b>; <highlight>file with gene ID and rank value for all genes</highlight></li>
+        <li class="fragment" data-fragment-index="2">Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 367 up-regulated genes (NCBI gene symbol)</highlight></li>
+        <li class="fragment" data-fragment-index="4">Filter for significantly down-regulated genes: <b>log2 fold change <= -2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 516 down-regulated genes (NCBI gene symbol)</highlight></li>
+        <li class="fragment" data-fragment-index="6">Gene ranking calculated for all genes using <b>sign(log2 fold change) * -log10(pvalue)</b>; <highlight>file with NCBI gene symbol and rank value for all genes</highlight></li>
         <li class="fragment" data-fragment-index="8">These input files can be used for <b>Enrichr</b> and <b>WebGestalt</b>.</li>
     </ol>
      <div class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 380px; top: 180px">
@@ -65,7 +65,7 @@
 
 <section id='example_datatables'>
          <h1>Example Data</h1>
-    <p>Finally, the <b>Voineagu et al.</b> data was downloaded from <a href="https://www.ebi.ac.uk/gxa/home" target="_blank">Expression Atlas</a> and contains data for all genes measured with the following columns:</p>
+    <p>Finally, the <b>Voineagu et al.</b> data was downloaded from <a href="https://www.ebi.ac.uk/gxa/home" target="_blank">Expression Atlas</a> and contains data for all genes measured with the following comma-separated columns:</p>
         <ul>
             <li>NCBI gene symbol</li>
             <li>fold change</li>
@@ -93,7 +93,7 @@ Add speaker notes here...
 
 <section id='enrichr'>
     <h1>Enrichr</h1>
-         <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic Over-Representation Analysis (ORA) of gene sets.</p>
+         <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic Over-Representation Analysis (ORA) for a large number of gene set libraries.</p>
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 50px; top: 200px">
             <img class="plain" src="enrichr.png" style="width:70%">
         </div>
@@ -118,8 +118,8 @@ Add speaker notes here...
                 
 <section id='enrichr_start'>
     <h1>Enrichr: Start Analysis</h1>
-         <p>Analysis is started by simply copying the list of genes from the text file, for example the list of significantly up-regulated genes, into the input box on the right of the <highlight>Analyze</highlight> tab and clicking <highlight>Submit</highlight>.</p>
-         <p class="fragment">Note that this corresponds to the example data file containing up-regulated genes.</p>
+         <p>Analysis is started by simply copying the list of genes from an input text file into the input box on the right of the <highlight>Analyze</highlight> tab and clicking <highlight>Submit</highlight>.</p>
+         <p class="fragment">Note that this corresponds to the example data file containing <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.up.txt" target="_blank">up-regulated genes</a>.</p>
          <img class="plain" src="enrichr_start.png" style="width:60%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -128,11 +128,11 @@ Add speaker notes here...
                 
 <section id='enrichr_results'>
     <h1>Enrichr: Results Overview</h1>
-         <p>The results are displayed as a grid for each functional category, the image below shows the results in the <highlight>Pathways</highlight> category.</p>
+         <p>The results are displayed as a grid of libraries for each functional category (at the top), the image below shows the results in the <highlight>Pathways</highlight> category.</p>
          <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; top: 200px; left: 60px">
          <img class="plain" src="enrichr_results.png" style="width:55%"></div>
          <div class="fragment fade-in" data-fragment-index="2">
-         <p class="fragment" data-fragment-index="2">Clicking on one of the squares will show the detailed results for that category:</p>
+         <p class="fragment" data-fragment-index="2">Clicking on one of the squares will show the detailed results for that library:</p>
              <img class="plain" src="results_wp.png" style="width:50%">
          </div>         
 
@@ -143,7 +143,7 @@ Add speaker notes here...
                 
 <section id='enrichr_details'>
     <h1>Enrichr: Gene Set Results</h1>
-         <p>Looking at the results for a specific library in detail, the gene sets are sorted by p-value ranking by default. Clicking on any of the bars representing terms re-sorts the bar graph by the different score.</p>
+         <p>Looking at the results for a specific library in detail, the gene sets are sorted by p-value ranking by default. Clicking on any of the bars representing gene sets re-sorts the bar graph by the different score.</p>
          <div
 	     style="position: absolute; top: 215px; left: 160px; width: 80%" >
 		<img class="plain"
@@ -191,7 +191,7 @@ Add speaker notes here...
                 
 <section id='webgestalt'>
     <h1>WebGestalt</h1>
-         <p><a href="http://www.webgestalt.org/" target="_blank">WebGestalt</a> offers more advanced analysis options for a smaller set of gene set libraries. Using WebGestalt, it is possible to run either Over-Representation Analysis (ORA), Gene Set Enrichment Analysis (GSEA) or Network Topology-based Analysis (TNA).</p>
+         <p><a href="http://www.webgestalt.org/" target="_blank">WebGestalt</a> offers more advanced analysis options for a smaller number of gene set libraries. Using WebGestalt, it is possible to run either Over-Representation Analysis (ORA), Gene Set Enrichment Analysis (GSEA) or Network Topology-based Analysis (TNA).</p>
          <img class="plain" src="webgestalt.png" style="width:80%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -200,7 +200,7 @@ Add speaker notes here...
 
 <section id='webgestalt_datasource'>
     <h1>WebGestalt: Data source</h1>
-        <p>WebGestalt data source includes Gene Ontology terms, pathways, networks, disease-associated sets, drug terms etc.</p>
+	<p>WebGestalt data sources are listed under <highlight>Data source</highlight> and includes Gene Ontology terms, pathways, networks, disease-associated sets, drug terms etc.</p>
          <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 200px; top: 200px">
            <img class="plain" src="webgestalt_datasource.png" style="width:35%">
          </div>
@@ -214,7 +214,7 @@ Add speaker notes here...
 
 <section id='webgestalt_start1'>
     <h1>WebGestalt: Start Analysis</h1>
-         <p>To start analysis, the <highlight>Basic parameters</highlight> section needs to be complete in terms of <highlight>Organism of interest</highlight>, <highlight>Method of Interest</highlight> (ORA, GSEA or NTA) and <highlight>Functional Database</highlight>. The functional database chosen can be further specified, for example choosing <highlight>pathway -> Wikipathway </highlight>.</p>
+         <p>To start analysis, the <highlight>Basic parameters</highlight> section should be completed with the correct <highlight>Organism of interest</highlight>, <highlight>Method of Interest</highlight> (ORA, GSEA or NTA) and <highlight>Functional Database</highlight>. Choose a functional database category, for example <b>pathway</b>, and then specify which data source to use, for example <b>Wikipathway</b>.</p>
          <img class="plain" src="webgestalt_basic.png" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -308,7 +308,7 @@ Add speaker notes here...
                 
 <section id='iea'>
     <h1>Interactive Enrichment Analysis</h1>
-        <p><a href="https://github.com/gladstone-institutes/Interactive-Enrichment-Analysis" target="_blank">Interactive Enrichment Analysis</a> is a user-friendly interactive tools to perform enrichment analysis for multiple datasets across multiple public databases. This tool can run both Over-Representation Analysis(ORA) and Gene Set Enrichment Analysis (GSEA).</p>
+        <p><a href="https://github.com/gladstone-institutes/Interactive-Enrichment-Analysis" target="_blank">Interactive Enrichment Analysis</a> is a user-friendly interactive tool to perform enrichment analysis for multiple datasets across multiple public databases. This tool can run both Over-Representation Analysis(ORA) and Gene Set Enrichment Analysis (GSEA).</p>
         <img class="plain" src="interactive_enrichment_analysis.png" style="width:80%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -317,7 +317,7 @@ Add speaker notes here...
              
 <section id='iea_database'>
     <h1>Interactive Enrichment Analysis: Database</h1>
-        <p>A set of public database collections is provided in the drop-down in the <highlight>Database</highlight> section. These are updated monthly and datestamped. It is also possible to construct your own database collection under <highlight>BUILD NEW DATABASE</highlight>, and providing one or more <a href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GMT:_Gene_Matrix_Transposed_file_format_.28.2A.gmt.29" target="_blank">GMT</a> files.</p>
+        <p>A set of public database collections is provided in the drop-down in the <highlight>Database</highlight> section. These are updated monthly and date stamped. It is also possible to construct your own database collection under <highlight>BUILD NEW DATABASE</highlight>, and providing one or more <a href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GMT:_Gene_Matrix_Transposed_file_format_.28.2A.gmt.29" target="_blank">GMT</a> files.</p>
         <p class="fragment" data-fragment-index="2">Once a database collection is selected, the specific databases contained in the collection will be displayed.</p>
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 250px">
         <img  src="iea_database.png" class="plain" style="width:80%">
@@ -332,7 +332,7 @@ Add speaker notes here...
                 
 <section id='iea_dataset1'>
     <h1>Interactive Enrichment Analysis: Datasets</h1>
-        <p>Datasets are selected in the <highlight>Datasets</highlight> section; one or more datasets can be selected if they are all the same format. A column named <b>gene</b> is required, and additional columns named <b>rank</b>, <b>p.value</b>, and <b>fold.change</b> are allowed and necessary for GSEA.</p>
+        <p>Datasets are selected in the <highlight>Datasets</highlight> section; one or more datasets can be selected if they are all of the same format. A column named <b>gene</b> is required, and additional columns named <b>rank</b>, <b>p.value</b>, and <b>fold.change</b> are allowed and necessary for GSEA.</p>
         <img class="plain" src="iea_select_dataset.png" style="width:60%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -342,7 +342,7 @@ Add speaker notes here...
 <section id='iea_dataset2'>
     <h1>Interactive Enrichment Analysis: Dataset Options</h1>
         <p>The tool will display a preview of the first few rows of the first chosen dataset along with the required and optional columns that were detected.</p>
-        <p class="fragment" data-fragment-index="2"><highlight>Identifiers</highlight> and <highlight>organism</highlight> should match the data. The analysis parameters can also be adjusted here.</p>  
+        <p class="fragment" data-fragment-index="2"><highlight>Gene identifier</highlight> and <highlight>organism</highlight> should match the data. The analysis parameters can also be adjusted here.</p>  
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 200px">
         <img src="iea_dataset_options.png" class="plain"style="width:50%">
         </div>
@@ -358,7 +358,7 @@ Add speaker notes here...
 <section id='iea_start'>
     <h1>Interactive Enrichment Analysis: Start Analysis</h1>
         <p>When <highlight>Databases</highlight> and <highlight>Datasets</highlight> are loaded and verified, the side panel will be updated with a <highlight>Run Analyses</highlight> option.</p>
-        <p class="fragment" data-fragment-index="2">The initial set of panels will collapse and a <highlight>Progress</highlight> panel will open along with a progress bar in the lower-right corner. The <highlight>Progress</highlight> panel will report the individual analysis steps, any errors, as well as start and finish times for the run, and the location of the output folder.</p>  
+        <p class="fragment" data-fragment-index="2">Once analysis is started, the initial set of panels will collapse and a <highlight>Progress</highlight> panel will open along with a progress bar in the lower-right corner. The <highlight>Progress</highlight> panel will report the individual analysis steps, any errors, as well as start and finish times for the run, and the location of the output folder.</p>  
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 200px">
         <img src="iea_startanalysis.png" class="plain"style="width:80%">
         </div>
@@ -373,7 +373,7 @@ Add speaker notes here...
 <section id='iea_viewresults'>
     <h1>Interactive Enrichment Analysis: View Results</h1>
         <p>Analysis results can be viewed by clicking <highlight>View Results</highlight>. Results are viewed in another app that allows you to interactively explore results and download individual files.</p>
-        <p class="fragment" data-fragment-index="2">The <highlight>Data</highlight> tab displays the processed input data as a table and volcano plot. The table is paginated and searchable.
+        <p class="fragment" data-fragment-index="2">In the results app, the <highlight>Data</highlight> tab displays the processed input data as a searchable table and volcano plot.
         A checkbox at the top allows you to also view the genes that were excluded from the analysis, e.g., due to failed identifier mapping. Both the table and plot are downloadable.</p>
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 250px">
         <img src="iea_progress_viewresults.png" class="plain"style="width:60%">
@@ -390,7 +390,7 @@ Add speaker notes here...
     <h1>Interactive Enrichment Analysis: Data plots</h1>    
         <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">The input data is visualized in a volcano plot, which plots genes by statistical significance, <b>p.value</b>, versus magnitude of change, <b>fold.change</b>. Genes are highlighted based on the p.value and fold-change cutoffs selected during setup. Selected genes are labeled; select genes either by top <b>n</b> genes, or by selection by name.</p>  
         <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">A bar plot of your input data is also available (via a drop-down), highlighting positive and negative fold-change values for a subset of genes, either top <b>n</b> genes or genes selected by name.</p>  
-        <div data-fragment-index="1" class="fragment fade-out" style="position: absolute; left: 220px; top: 250px">
+        <div data-fragment-index="1" class="fragment fade-out" style="position: absolute; left: 220px; top: 270px">
             <img class="plain" src="shiny_results_data_volcano.png" >
         </div>
         <div data-fragment-index="2" class="fragment fade-in-then-out" style="position: absolute; left: 220px; top: 200px">
@@ -463,7 +463,7 @@ Add speaker notes here...
                 
 <section id='iea_results_gseaplot'>
     <h1>Interactive Enrichment Analysis: GSEA plot</h1>
-        <p>For each result in the results table, results-specific plots are available based on the database the results is from and the analysis method used. For example, for <b>GSEA</b> analysis, the GSEA Enrichment Score plot is available. As described earlier, the plot in the upper half represents the running enrichment score (ES), as the analysis walks down the ranked list of genes. The middle section shows where the members of the gene set appear in the ranked list of genes. The top score in the enrichment map plot is the score reported for the particular gene set.
+        <p>For each result in the results table, results-specific plots are available based on the database the results is from and the analysis method used. For example, for <b>GSEA</b> analysis, the <b>GSEA Enrichment Score</b> plot is available. As described earlier, the plot in the upper half represents the running enrichment score (ES), as the analysis walks down the ranked list of genes. The middle section shows where the members of the gene set appear in the ranked list of genes. The top score in the enrichment map plot is the score reported for the particular gene set.
         </p>
         <img src="iea_ES_plot.png" class="plain" style="width:55%">
          <aside class="notes" data-markdown>
@@ -474,7 +474,7 @@ Add speaker notes here...
 <section id='iea_results_wpplot'>
     <h1>Interactive Enrichment Analysis: Pathway plot</h1>
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left:  100px; top: 100px">
-        <p>Some database-specific visualizations are also available, for example <b>WikiPathways</b> visualizations of the data on models from the <a href="https://new.wikipathways.org/" target="_blank">WikiPathways</a> project. Genes that met the criteria for fold change and p value cutoff are highlighted in the pathway (orange for up, blue for down). The <b>WikiPathways</b> button will take you to the pathway model at WikiPathways.</p>
+        <p>Some database-specific visualizations are also available, for example <b>WikiPathways</b> visualizations of the data on models from the <a href="https://new.wikipathways.org/" target="_blank">WikiPathways</a> database. Genes that met the criteria for fold change and p value cutoff are highlighted in the pathway (orange for up, blue for down). The <b>WikiPathways</b> button will take you to the pathway model at WikiPathways.</p>
         <img src="iea_pathway_plot.png" class="plain" style="width:55%">
         </div>
         <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">
