@@ -258,7 +258,10 @@ Add speaker notes here...
 <section id='webgestalt_enrichmentplot'>
     <h1>WebGestalt: Enrichment Results</h1>
          <p>The results specific to a gene set (pathway in this case) include the scoring statistics calculated for the enrichment, including the enrichment score, a sortable table and the enrichment plot.</p>
-         <p class="fragment" data-fragment-index="2">The enrichment plot is described in detail <a href="https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html" target="_blank">here</a>. Briefly, the plot in the upper half represents the running enrichment score (ES), as the analysis walks down the ranked list of genes. The middle section shows where the members of the gene set appear in the ranked list of genes. The top score in the enrichment map plot is the score reported for the particular gene set.</p>    
+         <p class="fragment" data-fragment-index="2">The enrichment plot is described in detail <a href="https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html" target="_blank">here</a>. Briefly, the plot 
+		 in the upper half represents the running enrichment score (ES), as the analysis walks down the ranked list of genes (bottom section), starting at the most highly ranked gene. When a gene in the pathway is in 
+		 the ranked list, the score goes up, and when it’s not it goes down. The corresponding overlap between the ranked list and the gene set is indicated by a line in the middle section. The top score in the enrichment 
+		 map plot is the score reported for the particular gene set.</p>    
         <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 50px; top: 250px">
             <img src="webgestalt_pathwayspecific.png" class="plain">
         </div>
