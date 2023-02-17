@@ -19,7 +19,7 @@
 			link.type = 'text/css';
 			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script> 
+		</script>
 	</head>
 	<body>
 		<div class="reveal">
@@ -32,47 +32,47 @@
 	<h1>Affinity purification-mass spectrometry network analysis</h1>
 	<p>This protocol describes how to use data from an affinity purification-mass spectrometry experiment to to generate relevant interaction networks, enriching the networks with information from public resources, analyzing the networks and creating effective visualizations.</p>
     <div class="footer" style="bottom: -5em;">
-    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>  
+    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>
 </section>
-                
+
 <section>
     <h1>Background</h1>
     <p>The data used for this protocol represents interactions between human and HIV proteins by <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">Jäger et al</a>. In this quantitative AP-MS experiment, a relatively small number of bait proteins are used to pull down a larger set of prey proteins.</p>
     <p>Note that this tutorial does not describe how to pre-process the raw AP-MS data, the data used here is already scored and filtered.</p>
-                
+
 </section>
 
 <section>
     <h1>Setup</h1>
-    <p>This protocol uses two apps, that can be installed from the <a href="http://apps.cytoscape.org/" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Manager</highlight>: <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> and <a href="http://apps.cytoscape.org/apps/enhancedgraphics" target="_blank">enhancedGraphics</a>.</p>
+    <p>This protocol uses two apps, that can be installed from the <a href="http://apps.cytoscape.org/" target="_blank">Cytoscape App Store</a>, or using the <highlight>Cytoscape App Store</highlight> in Cytoscape: <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> and <a href="http://apps.cytoscape.org/apps/enhancedgraphics" target="_blank">enhancedGraphics</a>.</p>
 </section>
-                
+
 <section>
     <h1>Import Network and Data</h1>
     <ul>
-        
-        <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata.csv">Example data</a>.</li>	
+
+        <li>Load the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight>, and select the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/ap-ms-demodata.csv">Example data</a>.</li>
         <li>In the <highlight>Import Network from Table</highlight> dialog, select the <highlight>Bait</highlight> column as <highlight>Source  Node</highlight> and <highlight>Prey</highlight> column as <highlight>Target Node</highlight>.</li>
         <li>Designate the <highlight>AP-MS Score</highlight> as an <highlight>Edge Attribute</highlight>.</li>
         <li>For all other data values, designate them as <highlight>Target Node Attribute</highlight>, by clicking in the column header and selecting the red spreadsheet icon.</li>
         <li>Click <highlight>OK</highlight> to import the network.</li>
     </ul>
     <p style="font-size: 60%">Note: In cases where a Prey node interacts with more than one Bait node, it will have multiple rows of values for the same attribute (for example HEKScore). During import, the last value imported will overwrite prior values and visualizations using this attribute thus only shows the last value.</p>
-    
+
     <img class="border" src="import-network.png" style="height:340px">
 </section>
-                
+
 <section>
-    <h1>Import Network and Data</h1> 
+    <h1>Import Network and Data</h1>
     <p>The imported network consists of multiple smaller subnetworks, each representing a bait node and its associated prey nodes:</p>
 <img class="plain" src="ap-ms-network.png" style="height:600px">
 
 </section>
-               
+
 <section>
     <h1>Augmenting Network with Existing Protein-protein Interaction Data</h1>
     <p>We are going to use existing protein-protein interaction data to enrich the network, using the <a href="https://string-db.org/"  target="_blank">STRING database</a> with the human protein nodes as input.</p>
-    
+
     <ul>
         <li>In the <highlight>Node Table</highlight>, sort the table for your network by the <highlight>Uniprot</highlight> column by clicking on the header twice. This will sort for the human protein nodes, which are the ones with entries for <highlight>Uniprot</highlight>.</li>
         <li>Select all the relevant entries in the <highlight>Uniprot</highlight> column by selecting the top item, then scroll down and hold down <b>Shift</b> and then selecting the last entry. Click <highlight>Ctrl+C</highlight> to copy.</li>
@@ -80,20 +80,20 @@
         <li>Click the <highlight>options</highlight> icon <img class="plain" src="string-options.png" style="height:30px"> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.999</b>. Keep the default, <b>0</b>, for <highlight>Maximum additional interactors</highlight>.</li>
         <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to search. The resulting network may load automatically or you will see an intermediate dialog to confirm anbiguous query matches (confirm the cutoff and maximum values, then click <b>Import</b>).</li>
     </ul>
-    
+
 </section>
-                
+
 <section>
     <h1>Augmenting network with existing protein-protein interaction data</h1>
     <p>The resulting network contains known interactions between the human proteins, with an evidence score of 0.999 or greater.</p>
     <img class="plain" src="string.png" style="height:600px">
 </section>
-                
+
 <section>
     <h1>Merge Networks</h1>
     <p>To incorprate the new information into our AP-MS network, we need merge the STRING and AP-MS networks. We can use the Uniprot IDs available in both networks as the mathcing attribute.</p>
     <ul>
-    
+
         <li>Go to <highlight>Tools &rarr; Merge &rarr; Networks...</highlight></li>
         <li>In the <highlight>Available Networks</highlight> list, select both networks and click the right arrow to add then to the <highlight>Networks to Merge</highlight> list.</li>
         <li>Expand the <highlight>Advanced Options</highlight> interface.</li>
@@ -102,7 +102,7 @@
     </ul>
     <img class="border" src="merge-interface.png" style="height:360px">
 </section>
-                
+
 <section>
     <h1>Merge Networks</h1>
     <p>When the network first loads, it will have the STRING style applied. However, because the HIV nodes are not from STRING, they will be white and difficult to see. The layout also makes the network hard to interpret.</p>
@@ -111,20 +111,20 @@
                 <img class="plain" src="merged-network.png" style="height:570px"></div>
         <li>Switch the style to <highlight>default</highlight> to make all nodes visible.</li>
         <li>Under <highlight>Layout &rarr; Settings...</highlight>, select the <highlight>Prefuse Force Directed Layout</highlight> and change the settings as follows:
-            <ul> 
+            <ul>
                 <li>Set <highlight>Default Spring Coefficient</highlight> to <b>5E-5</b></li>
                 <li>Set <highlight>Default Spring Length</highlight> to <b>100</b></li>
                 <li>Set <highlight>Default Node Mass</highlight> to <b>3</b>.</li>
            </ul>
         <li>Click <highlight>Apply</highlight> to apply the layout.</li>
     </ul>
-    
-        
-                
+
+
+
 </section>
-            
-             
-                
+
+
+
 <section>
     <h1>Network Visualization</h1>
     <p>The default style is not so informative in this case, so let's change the style of the network a bit.</p>
@@ -136,16 +136,16 @@
         <li>Set the default node <highlight>Fill Color</highlight> to light grey.</li>
         <li>Create a passthrough mapping for the node <highlight>Label</highlight> using the <highlight>display name</highlight>.</li>
     </ul>
-    
+
 </section>
-                
+
 <section>
         <h1>Network Visualization</h1>
     <p>The network should now look like this:</p>
 
-        <img class="plain" src="merged-network-style.png" style="height:600px">        
+        <img class="plain" src="merged-network-style.png" style="height:600px">
 </section>
-                
+
 <section>
     <h1>Enrichment Analysis</h1>
     <p>Now that we have a merged network, we can do enrichment analysis on it, using the STRING enrichment tool.</p>
@@ -153,13 +153,13 @@
         <li>Select <highlight>Apps &rarr; STRING &rarr; Retreive functional enrichment</highlight>. Use the default value (0.05) for <highlight>Enrichment FDR value cutoff</highlight>.</li>
         <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul>
-    
+
 </section>
-                
-                
+
+
 <section>
     <h1>Enrichment Analysis</h1>
-    <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab.</p>    
+    <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab.</p>
     <ul>
         <li>We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
@@ -169,7 +169,7 @@
     </ul>
     <img class="border" src="enrichment.png" style="height:400px">
 </section>
-      
+
 <section>
     <h1>Visualizing Results</h1>
     <p>We can create a visualization based on the <highlight>Jurkat Score</highlight>, and the different interaction types:</p>
@@ -182,30 +182,30 @@
         <li>Set the width values to a range from <b>1</b> to <b>5</b>.</li>
         <li>Create a <highlight>Discrete</highlight> mapping for edge <highlight>Stroke Color</highlight> using the <highlight>interaction</highlight> column. Choose a <b>green</b> color for all interactions of type <b>interacts with</b>. This will color all the interactions in the original AP-MS dataset.</li>
     </ul>
-    
+
 </section>
-                
+
 <section>
     <h1>Visualizing Results</h1>
     <p>We now have a visualization of the network highlighting the <b>ap-ms experimental data</b> (green edges), as well as <b>additional known interactions</b> (grey edges), with node color indicating the <b>Jurkat Score</b> from the data:</p>
-    
+
     <img class="plain" src="network-jurkat.png" style="height:650px">
-                
+
 </section>
-                
+
 <section>
     <h1>Visualizing Results</h1>
     <p>We could create a similar kind of style for the HEK score, but that only allows for viewing each style seperately. Instead, we can create a combined style, using the <a href="http://www.cgl.ucsf.edu/cytoscape/utilities3/enhancedcg.shtml" target="_blank">enhancedGraphics</a> app.</p>
-    <p>For this, we will need a new column defining a new attribute that will be used for mapping to the <highlight>Custom Graphics</highlight> property via the <highlight>enhancedGraphics</highlight> app. This new attribute has to be in the form of mappings recognized by the enhancedGraphics app.</p> 
+    <p>For this, we will need a new column defining a new attribute that will be used for mapping to the <highlight>Custom Graphics</highlight> property via the <highlight>enhancedGraphics</highlight> app. This new attribute has to be in the form of mappings recognized by the enhancedGraphics app.</p>
     <ul>
         <li>In the <highlight>Table Panel</highlight>, click the button for <highlight>Create New Column</highlight>, then select <highlight>New Single Column &rarr; String</highlight> and name it <highlight>CombinedScore</highlight>.</li>
         <li>In the first cell of the <highlight>CombinedScore</highlight> column, enter the mapping below and click enter.</li>
         <p><b>piechart: showlabels="false" range="0,1" arcstart="90" valuelist=".5,.5" colorlist="up:blue,zero:white,down:white;up:purple,zero:white,down:white" attributelist="HEKScore,JurkatScore" labellist="HEKScore,JurkatScore"</b></p>
     <li>Your new entry may disappear to the bottom of the column; just click on the column header once or twice to re-sort. Right-click on the new entry and select <highlight>Apply to entire column</highlight>. This will fill the column with the same mapping.</li>
     </ul>
-                
+
 </section>
-                
+
 <section>
     <h1>Visualizing Results</h1>
     <ul>
@@ -216,15 +216,15 @@
     <img class="plain" src="network-combinedscore.png" style="height:650px"></div><br /><br />
     <p>The network is now showing the <b>Jurkat score</b> (purple gradient on the right-hand side of the nodes) and <b>HEK</b> scores (blue gradient on the left). <b>AP-MS experiment interactions</b> are shown as green lines in which the thickness of the line reflects the <b>average score</b>, and <b>interactions from STRING</b> are shown as gray lines.</p>
 </section>
-                
+
 <section>
     <h1>Visualizing Results</h1>
     <p>Zooming in on the network, specifically the <b>POL</b> and <b>PR</b> HIV nodes, we can see a set of interactions found in the <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3310911/" target="_blank">original paper</a>, which represent binding of POL and PR with the translational initiation complex EIF3.</p>
     <p style="font-size: 60%">Note: Remember that when we imported multiple values for a single node attribute, such as the HEKScore for human Prey nodes interacting with more than one HIV Bait node, the last value imported overwrote prior values and the visualization thus only shows the last value. For <b>EIF3A</b>, which interacts with both <b>PR</b> and <b>POL</b>, only the data relevant to the <b>PR</b> interaction is maintained in the Node Table because our source data was sorted alphabetically by Bait.</p>
-    
-    <img class="plain" src="final-module.png" style="height:440px">      
+
+    <img class="plain" src="final-module.png" style="height:440px">
 </section>
-                
+
 <section>
     <h1>Exporting Networks</h1>
     <p>Cytoscape provides a number of ways to export results and visualizations:</p>
@@ -267,7 +267,7 @@
 		}
 	}
 });
-</script>  
+</script>
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
