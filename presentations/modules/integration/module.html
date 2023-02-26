@@ -1,0 +1,85 @@
+<section>
+  <h1 style="font-size: 150%">Cytoscape as an Integration Platform</h1>
+  <p>Cytoscape is designed to support integration of multiple data types</p>
+  <ul>
+    <li>Tabular data from
+      <ul>
+        <li>Excel</li>
+        <li>tsv, csv, or txt</li>
+        <li>web services</li>
+      </ul>
+    </li>
+    <li>Network data from 
+      <ul>
+        <li>XGMML, SIF, cx, cx2, BioPax, GraphML, Cytoscape JSON, PSI-MI, GML, SBML</li>
+        <li>Excel, tsv, csv, txt, web services</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1 style="font-size: 150%">Cytoscape as an Integration Platform</h1>
+  <p>Cytoscape has no inherent knowledge about biology</p>
+  <ul>
+    <li>Doesn't care about network source</li>
+    <li>Doesn't care about attribute sources</li>
+    <li>Only cares about nodes, edges, networks, tables</li>
+    <li>Table columns can be integer, long integer, floating point, strings, boolean, or lists of any of these</li>
+  </ul>
+</section>
+
+<section>
+  <h1 style="font-size: 150%">Typical Integration Workflow</h1>
+  <ol style="font-size: 80%">
+    <li>Import or create a network
+      <ul>
+        <li>From a web service app: e.g. STRING, IntAct</li>
+        <li>From a file (e.g. AP/MS output)</li>
+        <li>From an analysis (e.g. scNetViz, GeneMANIA</li>
+      </ul>
+    </li>
+    <li>Add additional data as attributes
+      <ul>
+        <li>From Excel or a text file</li>
+      </ul>
+    </li>
+    <li>Analyze the data
+      <ul>
+        <li>Clustering, network analysis, enrichment</li>
+      </ul>
+    </li>
+    <li>Visualize the results
+      <ul>
+        <li>Color, shape, size, heatmaps, etc.</li>
+      </ul>
+    </li>
+    <li>Possibly integrate more data
+      <ul>
+        <li>No <i>a priori</i> limit to the number of columns</li>
+        <li>Make sure column names don't overlap, though</li>
+        <li>Go back to step 3</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h1 style="font-size: 150%">Common Integration Issues</h1>
+  <ul style="font-size: 80%">
+    <li>Incorrect key mapping
+      <ul>
+        <li>When you are importing a table, make sure to correctly choose the column in the existing network and the column in your table to act as matching keys</li>
+        <li>Not all networks have <b>name</b> as the best choice for a matching key</li>
+        <li>In the case of stringApp, for example, <b>display name</b>, or often <b>query term</b> is the best column to choose</li>
+      </ul>
+    </li>
+    <li>Getting the order wrong
+      <ul>
+        <li>Generally, you always want to create your network first</li>
+        <li>Then you can integrate tabular data</li>
+        <li>Some apps create networks based on tabular data (e.g. scNetViz), but that is the exception</li>
+      </ul>
+    </li>
+  </ul>
+</section>
