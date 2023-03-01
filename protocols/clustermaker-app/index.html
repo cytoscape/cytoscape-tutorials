@@ -133,6 +133,17 @@
                 
 </section>
 
+<section>
+	<h1>Simplifying the Network</h1>
+	<p>Now that we've clustered our network, there are a number of nodes that are not part of any cluster (singletons).  By default, these are hidden, but before we do our analysis, we want to remove them.  The easiest way to do that is to simply select all of our clusters, and create a new network with only those nodes:
+	<ul>
+		<li>In the right-hand STRING results panel, select the <b>Singletons</b> button to show all of the singletons</li>
+		<li>Now drag-select all of the nodes that are part of the clusters</li>
+		<li>Create a new network with <b>File&rarr;New Network&rarr;From selected nodes; all edges</b></li>
+	</ul>
+	<p style="text-align:left">NOTE: we could do the same thing by selecting all of the singletons and deleting them, but this allows us to go back to the original clustered network if we desire</p>
+</section>
+
 <section id='cluster hierarchical 1'>
     <h1>Hierarchical Clustering of Expression Data</h1>
          <p>A classical analysis of an expression data set would involve performing a hierarchical clustering of the data and viewing it using a heatmap with associated dendrogram. We can do this using clusterMaker2 using the <highlight>Cluster Attributes</highlight> feature.</p>
@@ -197,7 +208,7 @@
     <h1>UMAP analysis of Expression Data</h1>
     <p>We will now look at the same heat shock expression data used for the hierarchical cluster, but this time using the <a href="https://doi.org/10.48550/arXiv.1802.03426" target="_blank">Uniform Manifold Approximation and Projection (UMAP)</a> approach to explore a 2D embedding of this multidimensional data.</p>
     <ul>
-        <li>Select all nodes with a <highlight>count</highlight> value of 1 or greater using the <highlight>Filter</highlight> interface.</li>
+        <li>Select all nodes with a <highlight>Color</highlight> value not equal to 0 using the <highlight>Filter</highlight> interface.</li>
         <li>Select <highlight>Apps &rarr; clusterMaker Dimensionality Reduction &rarr; UMAP (remote)</highlight>.</li>
         <li>Select all six of the heat shock columns and set the <highlight>Number of neighbors</highlight> to <b>20</b> and the <highlight>Minimum distance</highlight> to <b>0.5</b>. Check the <highlight>Only use data from selected nodes</highlight> option.</li>
         <li>Select <highlight>Show scatter plot with results</highlight> and click <highlight>OK</highlight>.</li>
@@ -215,7 +226,6 @@
 <section id='umap 3'>
     <h1>UMAP analysis of Expression Data</h1>
     <ul>
-    <li></li>
     <li>In the scatter plot, highlight the red group in the middle.</li> 
     <li>In the stringApp interface in the <highlight>Results Panel</highlight>, select <highlight>Functional enrichment</highlight>. Leave the defaults as-is.</li>
     <li>Filter the results for <b>GO Biological Process</b>. The results indicates significant enrichment for protein folding.</li>
