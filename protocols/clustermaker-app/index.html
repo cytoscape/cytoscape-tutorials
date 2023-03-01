@@ -169,8 +169,8 @@
                 
 <section id='coloring 2'>
     <h1>Coloring the PPI Network</h1>
-    <p>The second way to color the network is to use the information from the hierarchical clustering to create a new attribute representing the overall change of a gene, and then use this for coloring. We will use the ability to select branches of the dendrogram to select the corresponding nodes in the network.</p>
-    <ul>
+    <p>The second way to color the network is to use the information from the hierarchical clustering to create a new attribute representing the overall change of a gene, and then use this for coloring. We will use the ability to select branches of the dendrogram to select the corresponding nodes in the network.  Here is how you would go about doing this (but don't do it):</p>
+    <ul style="font-size: 80%">
         <li>In the <highlight>Node Table</highlight>, click the <highlight>Create New Column...</highlight> button and select <highlight>New Single Column &rarr; Integer</highlight>. Name the new column <b>Colors</b>.</li>
         <li>In TreeView, start by assessing the whole tree to find the most intensily colored yellow (up-regulated) section.</li>
         <li>By clicking and dragging in the heat map, select the most intensily colored yellow part.</li>
@@ -178,6 +178,8 @@
         <li>Repeat this process with the rest of the up-regulated section of the tree, adjusting the number entered to reflect the degree of up-regulation, with 10 being the highest.</li>
         <li>Repeat the same process againwith the down-regulated section of the tree, this time entering numbers from <b>-1</b> to <b>-10</b>.</li>
     </ul>
+		<p style="text-align: left">
+		Instead, download the <a href="https://github.com/cytoscape/cytoscape-tutorials/raw/gh-pages/protocols/data/Color_column.csv">Colors data</a> and import it into your network.</p>
 </section>
 
 <section id='coloring 3'>
