@@ -135,7 +135,7 @@
 
 <section>
 	<h1>Simplifying the Network</h1>
-	<p>Now that we've clustered our network, there are a number of nodes that are not part of any cluster (singletons).  By default, these are hidden, but before we do our analysis, we want to remove them.  The easiest way to do that is to simply select all of our clusters, and create a new network with only those nodes:
+	<p style="text-align:left">Now that we've clustered our network, there are a number of nodes that are not part of any cluster (singletons).  By default, these are hidden, but before we do our analysis, we want to remove them.  The easiest way to do that is to simply select all of our clusters, and create a new network with only those nodes:
 	<ul>
 		<li>In the right-hand STRING results panel, select the <b>Singletons</b> button to show all of the singletons</li>
 		<li>Now drag-select all of the nodes that are part of the clusters</li>
@@ -144,12 +144,23 @@
 	<p style="text-align:left">NOTE: we could do the same thing by selecting all of the singletons and deleting them, but this allows us to go back to the original clustered network if we desire</p>
 </section>
 
+<section>
+	<h1>Focus on nodes that have fold change data</h1>
+	<img src="Filter.png" style="float:right; width: 30%">
+	<div style="width: 60%">
+	<p style="text-align:left">Several of the nodes don't have any fold change data, but might be important to understand the biological
+	context of the cluster.  For some of the steps we're going to do below, we only want to look at nodes that show differential expression under heat stress.  We can easily build a filter that selects all nodes where at least one expression value <i>is not</i> 0.
+	</p>
+	</div>
+</section>
+
 <section id='cluster hierarchical 1'>
     <h1>Hierarchical Clustering of Expression Data</h1>
          <p>A classical analysis of an expression data set would involve performing a hierarchical clustering of the data and viewing it using a heatmap with associated dendrogram. We can do this using clusterMaker2 using the <highlight>Cluster Attributes</highlight> feature.</p>
         <ul>
             <li>Select <highlight>Apps &rarr; clusterMaker Cluster Attributes &rarr; Hierarchical cluster</highlight>.</li>
             <li>Select all of the heat shock columns (5 min, 10 min, 15 min, 20 min repeat, 40 min, 60 min, and 80 min).</li>
+						<li>Select <highlight>Only use selected nodes/edges for cluster</highlight>.</li>
             <li>Select <highlight>Show TreeView when complete</highlight> and click <highlight>OK</highlight>.</li>
         </ul>
          
@@ -160,8 +171,10 @@
 
 <section id='cluster hierarchical 2'>
          <h1>Hierarchical Clustering of Expression Data</h1>
-         <p>A heat map with the associated dendrogram will open when the clustering is complete.</p>
-         <img src="Treeview.png" style="width:20%">
+         <img src="Treeview.png" style="width:10%; float: right">
+				 <div style="width: 75%">
+         <p style="text-align: left">A heat map with the associated dendrogram will open when the clustering is complete.</p>
+				 </div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -208,7 +221,7 @@
     <h1>UMAP analysis of Expression Data</h1>
     <p>We will now look at the same heat shock expression data used for the hierarchical cluster, but this time using the <a href="https://doi.org/10.48550/arXiv.1802.03426" target="_blank">Uniform Manifold Approximation and Projection (UMAP)</a> approach to explore a 2D embedding of this multidimensional data.</p>
     <ul>
-        <li>Select all nodes with a <highlight>Color</highlight> value not equal to 0 using the <highlight>Filter</highlight> interface.</li>
+        <li>Select all nodes with a <highlight>Color</highlight> value not equal to 0 using the <highlight>Filter</highlight> interface. (or use your previously constructed filter)</li>
         <li>Select <highlight>Apps &rarr; clusterMaker Dimensionality Reduction &rarr; UMAP (remote)</highlight>.</li>
         <li>Select all six of the heat shock columns and set the <highlight>Number of neighbors</highlight> to <b>20</b> and the <highlight>Minimum distance</highlight> to <b>0.5</b>. Check the <highlight>Only use data from selected nodes</highlight> option.</li>
         <li>Select <highlight>Show scatter plot with results</highlight> and click <highlight>OK</highlight>.</li>
