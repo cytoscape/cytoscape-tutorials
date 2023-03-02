@@ -209,6 +209,31 @@ data (for every gene-set)</li>
 </section>
 
 <section>
+	<h1>Aside -- Adjusted p-value, FDR, q-value (oh my!)</h1>
+	<p style="text-align: left">In my searching of the literature, FDR and q-value are used interchangably, yet
+	R packages <code>p.adjust()</code> and q-value are different.  Consider the following statement from an 
+	<a href="https://paasp.net/the-false-discovery-rate-fdr-an-important-statistical-concept/">article</a>
+	in PAASP (Partnership for Assessment and Accreditation of Scientific Practice):
+	<quote>In 1995, Benjamini and Hochberg introduced the concept of the False Discovery Rate (FDR) 
+	as a way to allow inference when many tests are being conducted. The FDR is the ratio of the number 
+	of false positive results to the number of total positive test results: a p-value of 0.05 implies 
+	that 5% of all tests will result in false positives. An <highlight>FDR-adjusted p-value (also called 
+	q-value)</highlight> of 0.05 indicates that 5% of significant tests will result in false positives. 
+	In other words, an FDR of 5% means that, among all results called significant, only 5% of these are truly null.</quote>
+</section>
+
+<section>
+	<h1>Aside -- Adjusted p-value, FDR, q-value (oh my!)</h1>
+	<p style="text-align: left">I tried to figure out why there is so much confusion between FDR and q-value and why
+	these are often used interchangeably.  I finally found this
+	<a href="https://support.bioconductor.org/p/49864/">BioConductor post</a> that provided some history.</p>
+	<p style="text-align: left">So, FDR could be calculated using Benjamini-Hochberg R <code>p.adjust(p, method="BH")</code>
+	<i>or</i> R's <code>qvalue</code>.  Unfortunately, either one might be reported as "q-value" (although incorrectly) due
+	to incomplete understanding of the history. The original source of this slide set convoluted FDR as calculated by
+	Benjamini-Hochberg and the q-Value as proposed by <a href="http://genomics.princeton.edu/storeylab/papers/directfdr.pdf">John Storey in 2002.</a></p>
+</section>
+
+<section>
   <h1>Multiple test correction</h1>
   <h4>False discovery rate (FDR)</h4>
   <ul>
@@ -216,8 +241,11 @@ data (for every gene-set)</li>
     <li>Compare to <highlight>Bonferroni correction</highlight> which is a bound on <i>the probability that <b>any one</b> of the observed
         enrichments could be due to random chance.</i></li>
     <li>Typically <highlight>FDR</highlight> corrections are calculated using the <highlight>Benjamini-Hochberg</highlight> procedure.</li>
-    <li><highlight>FDR</highlight> threshold is often called the <highlight>q-value</highlight></li>
+		<li><highlight>FDR</highlight> threshold is often <i>incorrectly</i> called the <highlight>q-value</highlight></li>
   </ul>
+	<aside class="notes" data-markdown>
+	Another way to look at the difference is that a p-value of 0.05 implies that 5% of all tests will result in false positives. An FDR adjusted p-value of 0.05 implies that 5% of significant tests will result in false positives. The latter will result in fewer false positives.
+	</aside>
 </section>
 
 <section>
