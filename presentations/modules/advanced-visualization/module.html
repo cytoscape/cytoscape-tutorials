@@ -4,18 +4,18 @@
 </section>
 <section id="top">
 	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
-	<p style="font-size:80%">Typically, we don't have enough time to discuss all of the capabilities of Cytoscape visualizations.  
+	<p style="font-size:80%;text-align:left">Typically, we don't have enough time to discuss all of the capabilities of Cytoscape visualizations.  
 	This module tries to fill in some of the gaps.  Here are the topics we're going to cover:
 	<ul style="font-size:80%">
-		<li><a href="/#more_styles">More about styles</a></li>
-		<li><a href="/#text">Working with text</a></li>
-		<li><a href="/#node_position">Controlling node position</a></li>
-		<li><a href="/#layout_tools">Adjusting the view (Node Position Tools)</a></li>
-		<li><a href="/#layout_tuning">Tuning layouts</a></li>
-		<li><a href="/#annotation">Graphical annotations (marks)</a></li>
-		<li><a href="/#color">Working with palettes</a></li>
-		<li><a href="/#node_graphics">Add graphics to nodes</a></li>
-		<li><a href="/#animation">Animations made easy</a></li>
+		<li><a href="#more_styles">More about styles</a></li>
+		<li><a href="#text">Working with text</a></li>
+		<li><a href="#node_position">Controlling node position</a></li>
+		<li><a href="#layout_tools">Adjusting the view (Node Position Tools)</a></li>
+		<li><a href="#layout_tuning">Tuning layouts</a></li>
+		<li><a href="#annotation">Graphical annotations (marks)</a></li>
+		<li><a href="#color">Working with palettes</a></li>
+		<li><a href="#node_graphics">Add graphics to nodes</a></li>
+		<li><a href="#animation">Animations made easy</a></li>
 	</ul>
 </section>
 
@@ -62,28 +62,52 @@
 	<div style="position:absolute;left:-50px;top:-50px"> <b style="font-size:60%"><a href="#top">Top</a></b> </div>
 </section>
 
+<section id="column_styles">
+	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
+	<p><highlight>1. More about styles</highlight></p>
+  <ul>
+    <li>Column styles:
+      <ul style="font-size: 90%">
+        <li>Column styles control the way data values are shown in the various tables (node, edge, network)</li>
+        <li>Like node and edge styles, column styles can be mapped using column data values</li>
+        <li>In order to use column styles, you need to add each column and then set the style for that column</li>
+      </ul>
+    </li>
+  </ul>
+	<div class="fragment" data-fragment-index="1" style="position:absolute;top:200px;left:10px">
+		<img class="fragment fade-out plain" data-fragment-index="2" src="modules/advanced-visualization/ColumnStyles.png"/>
+	</div>
+</section>
+
 <section id="text">
 	<h1 style="font-size:160%">Advanced Visualization in Cytoscape</h1>
 	<p><highlight>2. Working with fonts</highlight></p>
 	<ul style="font-size:80%">
 		<li>Cytoscape has several label/font properties that are not shown by default</li>
 		<li>The following properties are available:
-			<ul>
+      <ul style="font-size: 80%">
 				<li><b>Label</b>: usually used to set up a passthrough mapping for the label text</li>
+				<li><b>Label Autorotate</b>: (for edges only) rotate the label to be parallel with the edge</li>
 				<li><b>Label Font Face</b>: this is the font face to use -- usually a very long list</li>
 				<li><b>Label Font Size</b>: the font size, can also be a passthrough mapping</li>
 				<li><b>Label Position</b>: where the font should be placed</li>
 				<li><b>Label Transparency</b>: the transparency of the font</li>
 				<li><b>Label Width</b>: the maximum width of the label.  Labels longer than this will be wrapped</li>
-        <li><b>Label Rotation</b>: the angle of the text in degrees.</li>
+        <li><b>Label Rotation</b>: the angle of the text in degrees</li>
+        <li><b>Label Background Color</b>: the color of the text background</li>
+        <li><b>Label Background Shape</b>: the shape of the text background</li>
+        <li><b>Label Background Transparency</b>: the transparency of the text background</li>
 			</ul>
 		</li>
     <li>Label position and rotation can also be done interactively for node labels.</li>
 	</ul>
 	<div class="fragment" data-fragment-index="0" style="position:absolute;top:100px;left:200px">
-		<img class="fragment fade-out plain" data-fragment-index="1" src="modules/advanced-visualization/LabelProperties.png"/>
+		<img class="fragment fade-out plain" data-fragment-index="1" src="modules/advanced-visualization/NodeLabelProperties.png"/>
 	</div>
-	<div class="fragment" data-fragment-index="1" style="position:absolute;top:0px;left:250px">
+	<div class="fragment" data-fragment-index="1" style="position:absolute;top:100px;left:200px">
+		<img class="fragment fade-out plain" data-fragment-index="2" src="modules/advanced-visualization/EdgeLabelProperties.png"/>
+	</div>
+	<div class="fragment" data-fragment-index="2" style="position:absolute;top:0px;left:250px">
 		<img class="plain" src="modules/advanced-visualization/LabelPosition.png" height="850px"/>
 	</div>
 	<aside class="notes" data-markdown>
@@ -102,11 +126,11 @@
 	<p><highlight>
 	3. Controlling node position (depth)
 	</highlight></p>
-	<ul>
-		<li>Nodes with the same Z order are drawn at the same time</li>
+	<ul style="font-size: 80%">
+		<li>Nodes and edges with the same Z order are drawn at the same time</li>
 		<li>This can lead to important information being obscured</li>
 		<li>Z order can be set by the <b>Z Location</b> visual property</li>
-		<li>Nodes with larger Z are drawn closer to the viewer (on top)</li>
+		<li>Nodes or edges with larger Z are drawn closer to the viewer (on top)</li>
 		<li>Setting lots of different <b>Z Location</b> values can slow down graphics performance</li>
 		<li>Best approach is to use a few different <b>Z Location</b> values or to set it manually using a <b>Bypass</b></li>
 	</ul>
