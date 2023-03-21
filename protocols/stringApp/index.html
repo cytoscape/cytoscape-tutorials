@@ -540,9 +540,11 @@ a new network by clicking on the <highlight>New Network from Selection
 <h1 id="36-functional-enrichment-and-enriched-publications">3.6 Functional enrichment and enriched publications</h1>
 
 <p style="text-align: left">Next, we will retrieve functional enrichment for the proteins in our
-network of the largest cluster. First we will have to tell Cytoscape
+network of the largest cluster. 
+<!-- First we will have to tell Cytoscape
 that the new network we created is a STRING network, go to the menu
-<highlight>Apps → STRING → Set as STRING network</highlight>.</p>
+<highlight>Apps → STRING → Set as STRING network</highlight>. -->
+</p>
 
 <p style="text-align: left">After making sure that no nodes are selected in the network, go
 to the menu <highlight>Apps → STRING Enrichment → Retrieve functional
@@ -632,9 +634,9 @@ the nodes have only one attribute <highlight>Size</highlight> instead of two
 attributes <highlight>Height</highlight> and <highlight>Width</highlight>. Click on
 the ◀ button to add a continuous mapping of the <highlight>Size</highlight>
 attribute using the <highlight>disease score</highlight>. Modify the values
-so that by default a node size is 30; the mapping should go from 35
-to 50. To change the default value, you have to click on the default
-<highlight>35.0</highlight> value at the left of the Size attribute. To change
+so that by default a node size is <b>30</b>; the mapping should go from <b>35
+to 50</b>. To change the default value, you have to click on the default
+<b>35.0</b> value at the left of the <highlight>Size</highlight> attribute. To change
 the mapping values, double click on the chart and then to double click
 on the square corresponding to the value you want to modify and set the
 value you want (35 and 50).</p>
@@ -678,9 +680,9 @@ the number of desired host proteins, and select the host species from
 species for which we have interactions with the currently imported virus
 genes, will be shown in the dropdown menu. The <highlight>selectivity of
 interactors</highlight> can also be specified – we recommend a default
-value of 0.5, but you can move the slider towards 0 to decrease the
+value of <b>0.5</b>, but you can move the slider towards 0 to decrease the
 number of network-sepcific interactors or towards 1 to increase it. In
-this example, we will import 10 human proteins, and keep the default
+this example, we will import <b>10</b> human proteins, and keep the default
 selectivity.</p>
 
 <p style="text-align: left">The resulting network will be automatically re-styled such that
@@ -690,8 +692,7 @@ menu.</p>
 
 <p style="text-align: left"><em>Which human protein has the highest interaction score to one of
 the virus proteins? What cellular functions is this protein involved
-in? (Hint: open the results panel under <highlight>Apps → STRING → Show
-results</highlight> panel.)</em></p>
+in? (Hint: check the STRING results panel.)</em></p>
 
 <p style="text-align: left">Additional viruses or hosts can be added to the network by iterating
 on this procedure, but this will only add proteins that interact with the
@@ -709,8 +710,8 @@ the network from the <highlight>Apps → STRING → Query for additional
 nodes</highlight> menu option. In this example, p53 is not one of the
 proteins that was included in the network in the previous step, however
 it is known that the HPV E6 protein mediates ubiquitination of p53. To
-include this protein, choose “Homo sapiens” for the species (you may
-have to scroll up in the list), and enter “tp53” into the text area
+include this protein, choose <b>Homo sapiens</b> for the species (you may
+have to scroll up in the list), and enter <b>tp53</b> into the text area
 box in the dialog, then click <highlight>Import</highlight>.</p>
 
 <p style="text-align: left"><em>Which HPV proteins does p53 interact with?</em></p>
