@@ -50,8 +50,7 @@
 <section id="setup">
 <h1>Setup</h1>
 	<ul>
-	<li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from the Cytoscape App Store website, or using the <highlight>Cytoscape App Store</highlight> in Cytoscape.</li>
-	<li>Install the <a href="https://apps.cytoscape.org/apps/largestsubnetwork" target="_blank">Largest Subnetwork App</a> from the Cytoscape App Store website, or using the <highlight>Cytoscape App Store</highlight> in Cytoscape.</li>
+	<li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from <highlight>Apps → App Store → Show App Store</highlight>.</li>
 	</ul>
 </section>
 
@@ -73,7 +72,6 @@
         <li>Query <highlight>STRING disease</highlight> for a keyword; <b>ovarian cancer</b>.</li>
     </ol>
     <p>The two examples are split into two separate workflows on the following slides.</p><br />
-    <p>If you don't already have the <b>stringApp</b> installed, you can install it from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a> or from Cytoscape via <highlight>Apps &rarr; App Store ...</highlight></p>
 </section>
 
 <section>
@@ -90,7 +88,7 @@
 
 <section id="ex1-up-string-result">
 <h1>STRING Network Up-Regulated Genes</h1>
-    <p>The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.</p>
+    <p>The resulting network contains protein recognized by STRING, corresponsing to the up-regulated genes, and interactions between them with an evidence score of 0.4 or greater.</p>
 <img class="plain" src="string-de-up2.png" style="height:650px">
 </section>
 
@@ -129,15 +127,15 @@
 
 <section id="ex1-up-visualization1">
     <h1>Visualization</h1>
-    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>
+    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Data</a> tutorial.</p>
     <ul>
     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
     <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
     <li>Set the default node fill color to light gray.</li>
     <li>Set the default node size to <b>40</b>.</li>
     <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>
-    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
-    <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
+    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <b>logFC</b>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
+    <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <b>display name</b>.</li>
     <li>Save your new visualization under <highlight>Copy Style...</highlight> in the <highlight>Options</highlight> menu of the <highlight>Style</highlight> interface, and name it <b>de genes up</b>.</li>
 	</ul>
 </section>
@@ -152,7 +150,7 @@
 <h1>STRING Enrichment</h1>
     <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
-    <li>In the STRING tab of the <highlight>Results Panel</highlight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
+    <li>In the STRING tab of the <highlight>Results Panel</highlight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings, and click <highlight>OK</highlight> to continue.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul><br /><br />
 <img class="plain" src="string-enrichment.png">
@@ -162,7 +160,7 @@
     <h1>STRING Enrichment</h1>
     <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Process.</p>
     <ul>
-        <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
+        <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Biological Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
 	<li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
     </ul>
@@ -172,11 +170,11 @@
 
 <section id="ex1-down-string">
     <h1>STRING Protein Query Down-Regulated Genes</h1>
-    <p>The same workflow (network search, data integration, visualizationcan and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
+    <p>The same workflow (network search, data integration, visualization and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
         <ul>
             <li>Query STRING protein with the list of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.xlsx" target="_blank">down-regulated genes</a>.</li>
             <li>Create a subnetwork for the largest connected component, then map <b>Uniprot</b> identifiers to <b>NCBI gene</b> and load the data.</li>
-            <li>Create a visualization as described <a href="#/ex1-up-visualization1">previously</a>. To distinguish between the visualizations of up- and down-regulated results, pick a different node fill color palette, for example ColorBrewer <b>blue shades</b>. Note that you may have to delete the mapping between <b>Node Fill Color</b> and <b>LogFC</b> and then add it again for the range of values to be recognized properly.</li>
+            <li>Create a visualization as described <a href="#/ex1-up-visualization1">previously</a>. To distinguish between the visualizations of up- and down-regulated results, pick a different node fill color palette, for example ColorBrewer <b>blue shades</b>. Note that you may have to delete the mapping between <highlight>Node Fill Color</highlight> and <b>LogFC</b> and then add it again for the range of values to be recognized properly.</li>
             <li>Save your new visualization as <b>de genes down</b>.</li>
         </ul>
 </section>
@@ -191,7 +189,7 @@
     <h1>STRING Enrichment</h1>
         <ul>
             <li>Perform STRING Enrichment analysis on the resulting network. Filter for non-redundant GO Process terms.</li>
-            <li>For this use case, we can try a different enrichment chart. Click the <highlight>Settings</highlight> button in the enrichment resluts panel and change the chart type to <highlight>Pie Chart</highlight> with <highlight>Number of terms to chart</highlight> set to 3.</li>
+            <li>For this use case, we can try a different enrichment chart. Click the <highlight>Settings</highlight> button in the enrichment resluts panel and change the chart type to <highlight>Pie Chart</highlight> with <highlight>Number of terms to chart</highlight> set to <b>3</b>.</li>
             <li>As you see, we now have both the enrichment results pie chart and the node color mapping visible on the nodes. Remove the node color mapping to see just the enrichment results:</li>
         </ul>
  <img class="plain" src="string-enrichment-chart-down2.png" style="height:500px">
@@ -229,7 +227,7 @@
 <section id="ex2-data-integration2">
     <h1>Data Integration</h1>
     <ul>
-        <li>Next, we can load the data. Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>. Then go to <highlight>File &rarr; Import &rarr; Table from File...</highlight> and select the data file.</li>
+        <li>Next, we can load the data. Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv" target="_blank">TCGA-Ovarian-MesenvsImmuno_data.csv</a>. Then go to <highlight>File &rarr; Import &rarr; Table from File...</highlight> and select the data file.</li>
         <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
 	    <li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
         <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
@@ -239,14 +237,14 @@
 
 <section id="ex2-visualization1">
     <h1>Visualization</h1>
-    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>
+    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Data</a> tutorial.</p>
     <ul>
         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
         <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
         <li>Set the default node fill color to light gray.</li>
-        <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>
-        <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>red-blue</b> gradient.</li>
-        <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
+        <li>Set the default <highlight>Border Width</highlight> to <b>2</b>, and make the default <highlight>Border Paint</highlight> dark gray.</li>
+        <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <b>logFC</b>, with the default ColorBrewer <b>red-blue</b> gradient. (You might still see the previous mapping we set up; if so delete the mapping firts and then add a new one.)</li>
+        <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <b>display name</b>.</li>
 	</ul>
 </section>
 
