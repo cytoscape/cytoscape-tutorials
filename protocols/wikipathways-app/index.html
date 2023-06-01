@@ -109,20 +109,12 @@
 <section>
     <h1>Data Import</h1>
          <p>The data import interface should now look like this:</p>
-        <img src="WPDataImport.png" style="width:35%">
+         <img src="WPDataImport.png" style="width:33%">
          <ul>
-<!--             <div style="width:40%;float:left; margin-right: 40px">
-					<img src="WPDataImport.png">
-				</div>-->
          <li>Click <highlight>OK</highlight> to import.</li>
-         <li>Once import is complete, look for the newly imported data columns in the <highlight>Node Table</highlight> to confirm that it worked.</li>
-<!--	     <div style="width:30%;float:right; margin-right: 40px">
-					<img src="WPDataImportSuccess.png">
-				</div>	-->	 
+         <li>Once import is complete, look for the newly imported data columns in the <highlight>Node Table</highlight> to confirm that it worked.</li> 
          </ul>
-         <div class="fragment">
-					<img src="WPDataImportSuccess.png" style="width:60%">
-         </div>	
+         <img src="WPDataImportSuccess.png" style="width:60%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -148,7 +140,7 @@
             <li>In the <highlight>Column</highlight> drop-down, select <b>'non-small cell lung carcinoma' vs 'normal' .pValue</b>.</li>
             <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
             <li>Double-click on the gradient, which defines the node border width over the range of p values.</li>
-            <li>First, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
+            <li>First, we will define the min/max of the range of p values we are interested in, that is p values less than or equal to 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
             <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>5</b> in the <highlight>Node Border Width</highlight> field. Repeat with the handle for the min value. Click <highlight>OK</highlight> to update the mapping.</li>
             <li>Click the <highlight>Def.</highlight> value for <highlight>Node Border Paint</highlight> and select a dark grey color.</li>
         </ul>
@@ -164,11 +156,11 @@
             <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
             <li>Double-click on the gradient.</li>
             <li>Similar to the last step, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
-            <li>Click on the large triangle handle at the right-most end of the gradient. This defines the border color for nodes with <b>P.value</b> > 0.05, meaning not significant, so let's set it to dark grey.</li>
+            <li>Click on the large triangle handle at the right-most end of the gradient. This defines the border color for nodes with p value > 0.05, meaning not significant, so let's set it to dark grey.</li>
             <li>Next, set all the other handles to the same color, preferably a bright color that is not part of the node fill gradient, for example bright pink. We can delete the middle handle since we want the same color for anything under 0.05, simply select it and click <highlight>Delete</highlight>.</li>
          </ul>
          
-    <img src="NodeBorderGradientWP.png" style="width:40%">
+    <img src="NodeBorderGradientWP.png" style="width:38%">
          
 
          <aside class="notes" data-markdown>
@@ -178,7 +170,7 @@
     
 <section>
     <h1>Data Visualization</h1>
-    <p>We now have a data visualization of our data on the pathway, with fold change represented as a gradient node fill color and significance as node border color/width.</p>
+    <p>We now have our example data visualized on the pathway, with fold change represented as a gradient node fill color and significance as node border color/width.</p>
     
     <img class="plain" src="CellCycleDataFinal.png" style="width:70%">
     
@@ -198,7 +190,7 @@
 </section>
 <section>
     <h1>Adding a Legend</h1>
-    <p>Our final visualization now includes a legend. In this case, the three separate legend graphics were resized from the default. This can be done by first clicking <highlight>Toggle Annotation Selection</highlight> <img class="plain" src="ToggleAnnotationSelection.png"> at the bottom of the <highlight>Network View Window.</highlight></p>
+    <p>Our final visualization now includes a legend. In this case, the legend graphic was resized from the default. This can be done by first clicking <highlight>Toggle Annotation Selection</highlight> <img class="plain" src="ToggleAnnotationSelection.png"> at the bottom of the <highlight>Network View Window.</highlight></p>
     <img class="plain" src="CellCycleDataFinalLegend.png" style="width:60%">
 </section>
     
@@ -240,21 +232,24 @@
         <ul>
             <li>Load the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>.</li>
          <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To selected networks only</highlight> and click the <b>Select All</b> button to select all of the networks in the <b>Network List</b>.</li>
-	 <li>For the <highlight>Import Data as:</highlight> option, select the <b>Ensembl</b> column.</li>
-         <li>In the <highlight>Key Column for Network</highlight> drop-down, select the <b>Node Table columns</b>.</li>
+	 <li>For the <highlight>Import Data as:</highlight> option, select <b>Node Table Columns</b> (default).</li>
+         <li>In the <highlight>Key Column for Network</highlight> drop-down, select the <b>Ensembl</b> column.</li>
          <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
         </ul>
-        
-        <div class="fragment">
+        <img src="ImportDataSelectAll.png" style="width:60%">
+
+    </section>
+    
+    <section>
         <p>Each network should now have multiple extra columns corresponding to fold change and p-value for several cancer types:
         </p>
         <img src="WP-DataNodeTable.png" style="width:60%">
-        </div>
+    
     </section>
     
     <section>
          <h1>Data Visualization</h1>
-         <p>To visualize the data on the pathways, we are going to use Cytoscape's built-in function for <b>Custom Graphics</b> to visualize the fold change values for three cancer types: breast carcinoma, pancreatic adenocarcinoma and colorectal carcinoma. For this particular worflow, the visualized data points should be of the same type, for example fold changes.</p>
+         <p>To visualize the data on the pathways, we are going to use Cytoscape's built-in function for <b>Custom Graphics</b> to visualize the fold change values for three cancer types: breast carcinoma, pancreatic adenocarcinoma and colorectal carcinoma. For this particular workflow, the visualized data points should be of the same type, for example fold changes.</p>
          <ul>
          <li>In the Style menu (left-hand side panel), click on the <highlight>Def.</highlight> column of <highlight>Image/Chart 1</highlight>.</li>
         <li>Under <highlight>Charts</highlight> select <highlight>Heatmap</highlight> option (third icon from the left). Select the columns you want to visualize; <b>breast carcinoma vs normal foldChange</b>, <b>pancreatic adenocarcinoma vs normal foldChange</b> and <b>colorectal carcinoma vs normal foldChange</b>. Remove any other columns selected by default.</li>
@@ -273,7 +268,7 @@
     
 <section>
     <h1>Data Visualization</h1>
-    <p>The same visualization will be automatically applied to the remaining pathways once you click on them:</p>
+    <p>To apply the same visualization to the remaining pathways, simply select each one of the pathways in the <highlight>Network Panel</highlight> and the style will be automatically applied:</p>
     <div class="r-stack">
   <img src="Multi4.png" width="450" >
   <img src="Multi1.png" width="450" >
