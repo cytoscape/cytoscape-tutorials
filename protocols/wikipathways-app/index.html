@@ -122,10 +122,10 @@
 
 <section>
          <h1>Data Visualization: Node Fill Color</h1>
-         <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. For this workflow, we will choose data from one of the cancer types, "non-small cell lung carcinoma", and visualize the fold change as <b>Node Fill Color</b>.</p>
+         <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. For this workflow, we will choose data from one of the cancer types, "breast carcinoma", and visualize the fold change as <b>Node Fill Color</b>.</p>
          <ul>
          <li>In the lefthand side panel, select the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>. For the <highlight>Fill Color</highlight> visualization option, select the middle column (<highlight>Map.</highlight> box).</li>
-         <li>In the <highlight>Column</highlight> drop-down, select <b>'non-small cell lung carcinoma' vs 'normal' .foldChange</b>.</li>
+         <li>In the <highlight>Column</highlight> drop-down, select <b>'breast carcinoma' vs 'normal' .foldChange</b>.</li>
          <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
     </ul>
          <img class="plain" src="CellCycleData.png" style="width:60%">
@@ -137,7 +137,7 @@
         <p>We also have a significance measure for the fold change, which we can add to our visualization. For this, we will use both <highlight>Node Border Width</highlight> and <highlight>Node Border Size</highlight> to visualize the p value.</p>
         <ul>
             <li>Click on the <highlight>Map.</highlight> cell for the <highlight>Node Border Width</highlight> property in the <highlight>Style</highlight> panel.</li>
-            <li>In the <highlight>Column</highlight> drop-down, select <b>'non-small cell lung carcinoma' vs 'normal' .pValue</b>.</li>
+            <li>In the <highlight>Column</highlight> drop-down, select <b>'breast carcinoma' vs 'normal' .pValue</b>.</li>
             <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
             <li>Double-click on the gradient, which defines the node border width over the range of p values.</li>
             <li>First, we will define the min/max of the range of p values we are interested in, that is p values less than or equal to 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
@@ -152,7 +152,7 @@
          <h1>Data Visualization: Node Border Color</h1>
          <ul>
             <li>Click on the <highlight>Map.</highlight> cell for <highlight>Node Border Paint</highlight> in the <highlight>Style</highlight> panel.</li>
-            <li>In the <highlight>Column</highlight> drop-down, select <b>'non-small cell lung carcinoma' vs 'normal' .pValue</b>.</li>
+            <li>In the <highlight>Column</highlight> drop-down, select <b>'breast carcinoma' vs 'normal' .pValue</b>.</li>
             <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
             <li>Double-click on the gradient.</li>
             <li>Similar to the last step, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
@@ -213,7 +213,7 @@
         <p>The data we will be using for this workflow (<a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>) is from a study investigating the RNA-seq signatures of platelets from patients with various types of cancer, in an effort to develop a platelet-based diagnostic (<a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(15)00349-9" target="_blank">Best et el., 2015).</a> The data was downloaded from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-68086/Downloads" target=_blank>Expression Atlas</a>.</p>
         <ul> 
         <li>If you are continuing from the previous workflow, make sure the session is saved and then select <highlight>File &rarr; Close Session</highlight> to start from scratch.</li>
-        <li>Using the the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for and open the following <b>human</b> pathways, with the "Import as Pathway" option. <b>Pro-tip</b>: You can search for the WPID instead of the title.
+        <li>Using the the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for and open the following <b>human</b> pathways, with the <highlight>Import as Pathway</highlight> option. <b>Pro-tip</b>: You can search for the WPID instead of the title.
             <ul>
                 <li>WP179: Cell cycle</li>
                 <li>WP2446: Retinoblastoma gene in cancer</li>
@@ -222,10 +222,12 @@
             </ul></li>
         </ul>
     </section>
+    
     <section>
     <p>The 4 pathways will be listed as separate network collections in the <highlight>Network Panel</highlight>:</p>
     <img src="WP-MultiplePathways.png">
 </section>
+    
     <section>
         <h1>Data Import</h1>
         <p>Now that we have our pathways of interest open, we can load the data. Cytoscape allows you to import data either to a specific network, collection of networks, or a set of networks. We will use the latter, to avoid having to load the data multiple times.</p>
@@ -292,25 +294,61 @@
     
 </section>
                 
-<!--<section>
+<section>
     <section>
-        <h1>Workflow 3</h1>
-    
+        <h1>Network Workflow</h1>
+        <p>In this worksflow, we will see how WikiPathways models can be used as networks......</p>
     </section>
-    <section>
+    
+<section>
     <h1>Importing Pathways as Networks</h1>
-    <p>In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.</p>
+    <p>In addition to importing pathway models with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a network.</p>
         <ul>
-	     <li>In the left-hand side menu, move away from the <highlight>Style</highlight> Panel back to the <highlight>Network</highlight> Panel.</li>
-             <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight> and search for <b>"cell cycle"</b> (with the quotes) and click the search icon.</li>
-             <li>In the list of results, select the <b>human</b> pathway and click <highlight>Import as Network</highlight>.</li>
-	     <li>We can now repeat the data import and style selection to create a visualization like in the previous pathway:</li>
+            <li>If you are continuing from the previous workflow, make sure the session is saved and then select <highlight>File &rarr; Close Session</highlight> to start from scratch.</li>
+            <li>Using the the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for "cell cycle" or "WP179" and open the pathway using the <highlight>Import as Network</highlight> option.</li>
          </ul>
-         <img class="plain" src="CellCycleNetworkData2.png" style="width:46%">
+    <p>Note that the pathways now appear with the default Cytoscape layout applied, and nodes have a default round shape. Some graphical aspects of the pathway model are retained, such as node border and node label colors, and edge line type.</p>
+         <img class="plain" src="CellCycleNetwork.png" style="width:46%">
+</section>
+    
+<section>
+        <h1>Data Import</h1>
+        <p>We will load the same data as the previous workflows:</p>
+        <ul>
+            <li>Load the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>.</li>
+	        <li>For the <highlight>Import Data as:</highlight> option, select <b>Node Table Columns</b> (default).</li>
+            <li>In the <highlight>Key Column for Network</highlight> drop-down, select the <b>Ensembl</b> column.</li>
+            <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
+        </ul>
+        <img src="ImportDataSelectAll.png" style="width:40%">
+</section> 
+    
+<section>
+    <h1>Data visualization: Fold change as node fill color</h1>
+    <p>We will start by creating a data visualization using one of the comparisons contained in the data, "glioblastoma vs normal".</p>
+    <ul>
+         <li>In the lefthand side panel, select the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>. For the <highlight>Fill Color</highlight> visualization option, select the middle column (<highlight>Map.</highlight> box).</li>
+         <li>In the <highlight>Column</highlight> drop-down, select <b>'glioblastoma' vs 'normal' .foldChange</b>.</li>
+         <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
+    </ul>
+</section>
 
+<section>
+    <h1>Data visualization: Significance as node size</h1>
+    <p>Because the nodes are now visluazed with a round node shape, we can more readily use node size for visualization purposes, such as to fold change significance.</p>
+    <ul>
+        <li>Click on the <highlight>Map.</highlight> cell for the <highlight>Node Size</highlight> property in the <highlight>Style</highlight> panel.</li>
+        <li>In the <highlight>Column</highlight> drop-down, select <b>'glioblastoma' vs 'normal' .pValue</b>.</li>
+        <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
+        <li>Double-click on the gradient, which defines the node border width over the range of p values.</li>
+        <li>First, we will define the min/max of the range of p values we are interested in, that is p values less than or equal to 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
+        <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>5</b> in the <highlight>Node Border Width</highlight> field. Repeat with the handle for the min value. Click <highlight>OK</highlight> to update the mapping.</li>
+        <li>Click the <highlight>Def.</highlight> value for <highlight>Node Border Paint</highlight> and select a dark grey color.</li>
+    </ul>
+    
 </section>
                 
-</section>-->
+</section>
                 
 <section>
     <h1>Downstream Analysis Options</h1>
