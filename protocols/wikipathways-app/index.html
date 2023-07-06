@@ -124,7 +124,7 @@
          <h1>Data Visualization: Node Fill Color</h1>
          <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. For this workflow, we will choose data from one of the cancer types, "breast carcinoma", and visualize the fold change as <b>Node Fill Color</b>.</p>
          <ul>
-         <li>At the top of the <highlight>Style</highlight> tab (left-hand side panel), click on the <highlight>Options</highlight> button <img src="options.png" style="width:50%"> and choose <highlight>Copy Style...</highlight>. Select an appropriate name, for example "Basic Data Visualization".</li>
+         <li>At the top of the <highlight>Style</highlight> tab (left-hand side panel), click on the <highlight>Options</highlight> button <img src="options.png"> and choose <highlight>Copy Style...</highlight>. Select an appropriate name, for example "Basic Data Visualization".</li>
          <li>Still in the <highlight>Style</highlight> interface, for the <highlight>Fill Color</highlight> visualization option, select the middle column (<highlight>Map.</highlight> box).</li>
          <li>In the <highlight>Column</highlight> drop-down, select <b>'breast carcinoma' vs 'normal' .foldChange</b>.</li>
          <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
@@ -257,7 +257,7 @@
          <ul>
          <li>At the top of the <highlight>Style</highlight> tab (left-hand side panel), click on the <highlight>Options</highlight> button <img src="options.png"> and choose <highlight>Copy Style...</highlight>. Select an appropriate name, for example "Advanced Workflow".</li>
          <li>Still in the <highlight>Style</highlight> interface, click on the <highlight>Def.</highlight> column of <highlight>Image/Chart 1</highlight>.</li>
-        <li>Under <highlight>Charts</highlight> select <highlight>Heatmap</highlight> option (third icon from the left). Select the columns you want to visualize; <b>breast carcinoma vs normal foldChange</b>, <b>pancreatic adenocarcinoma vs normal foldChange</b> and <b>colorectal carcinoma vs normal foldChange</b>. Remove any other columns selected by default.</li>
+        <li>Under <highlight>Charts</highlight> select <highlight>Heatmap</highlight> option (third icon from the left). Select the columns you want to visualize; <b>'breast carcinoma' vs 'normal'.foldChange</b>, <b>'pancreatic adenocarcinoma' vs 'normal'.foldChange</b> and <b>'colorectal carcinoma' vs 'normal'.foldChange</b>. Remove any other columns selected by default.</li>
         <li>Under <highlight>Customize</highlight>, select <highlight>Horizontal Orientation</highlight>.</li>
         <li>Under <highlight>Color Palette</highlight> select <b>HSV Red-Blue</b> (left-most).</li>
         <li>Click the <highlight>Not Available</highlight> icon <img class="plain" src=NotAvailable.png> in the color palette and change its color from dark grey to white.</li>
@@ -296,62 +296,78 @@
     
 </section>
                 
-<!--<section>
-    <section>
-        <h1>Network Workflow</h1>
-        <p>In this worksflow, we will see how WikiPathways models can be used as networks......</p>
-    </section>
+<section>
+
+<section>
+    <h1>Network Workflow</h1>
+    <p>In addition to importing pathway models with the original layout and visual style of the WikiPathways model, the WikiPathways App also allows import of any pathway as a network. In this workflow, we will import one of the pathways as a network, perform data visualization using the <a href="https://apps.cytoscape.org/apps/omicsvisualizer" target="_blank">Omics Visualizer</a> app, and extend the network with drug interactions using the <a href="https://apps.cytoscape.org/apps/cytargetlinker" target="_blank">CyTargetLinker</a> app.</p>
+    <ul>
+        <li>Install the <a href="http://apps.cytoscape.org/apps/omicsvisualizer" target="_blank">Omics Visualizer</a> and <a href="http://apps.cytoscape.org/apps/cytargetlinker" target="_blank">CyTargetLinker</a> apps via <highlight>Apps &rarr; App Store &rarr; Show App Store</highlight>.</li>
+    </ul>  
+</section>
     
 <section>
     <h1>Importing Pathways as Networks</h1>
-    <p>In addition to importing pathway models with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a network.</p>
+    <p>In addition to importing pathway models with the original layout and visual style of the WikiPathways model, the WikiPathways App also allows import of any pathway as a network.</p>
         <ul>
             <li>If you are continuing from the previous workflow, make sure the session is saved and then select <highlight>File &rarr; Close Session</highlight> to start from scratch.</li>
-            <li>Using the the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for "cell cycle" or "WP179" and open the pathway using the <highlight>Import as Network</highlight> option.</li>
+            <li>Using the the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for "cell cycle" or "WP2446" and open the pathway using the <highlight>Import as Network</highlight> option.</li>
          </ul>
     <p>Note that the pathways now appear with the default Cytoscape layout applied, and nodes have a default round shape. Some graphical aspects of the pathway model are retained, such as node border and node label colors, and edge line type.</p>
-         <img class="plain" src="CellCycleNetwork.png" style="width:46%">
+         <img class="plain" src="WP2446-RB.png" style="width:46%">
 </section>
     
 <section>
         <h1>Data Import</h1>
-        <p>We will load the same data as the previous workflows:</p>
+        <p>We will load the same data as the previous workflows, but we will be loading it via the Omics Visualizer app:</p>
         <ul>
-            <li>Load the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>.</li>
-	        <li>For the <highlight>Import Data as:</highlight> option, select <b>Node Table Columns</b> (default).</li>
-            <li>In the <highlight>Key Column for Network</highlight> drop-down, select the <b>Ensembl</b> column.</li>
-            <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
+            <li>Go to <highlight>Apps &rarr; Omics Visualizer &rarr; Import data from file</highlight> and select the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>.</li>
+            <li>A new tab titled <highlight>Omics Visualizer Tables</highlight> will be avaiable in the <highlight>Table Panel </highlight>.</li>
         </ul>
-        <img src="ImportDataSelectAll.png" style="width:40%">
+        <img src="OmicsVisualizerTable.png" style="width:40%">
 </section> 
     
 <section>
-    <h1>Data visualization: Fold change as node fill color</h1>
-    <p>We will start by creating a data visualization using one of the comparisons contained in the data, "glioblastoma vs normal".</p>
+    <h1>Data Import</h1>
+    <p>Next, we need to establish the mapping between the new table and the network.</p>
     <ul>
-        <li>As in the previous workflows, ake a copy of the visual style and name it something appropriate, for example "Network Workflow".</li>
-         <li>Select the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>. For the <highlight>Fill Color</highlight> visualization option, select the middle column (<highlight>Map.</highlight> box).</li>
-         <li>In the <highlight>Column</highlight> drop-down, select <b>'glioblastoma' vs 'normal' .foldChange</b>.</li>
-         <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
+        <li>Go to <highlight>Apps &rarr; Omics Visualizer &rarr; Manage table connections</highlight>.</li>
+        <li>For <highlight>Select Network Collection</highlight>, choose <b>Retinoblastome gene in cancer - Homo sapiens</b>.</li>
+        <li>For <highlight>Select key column from Network</highlight>, choose <b>Ensembl</b>.</li>
+        <li>For <highlight>Select key column from Table</highlight>, choose <b>Gene ID</b>.</li>
     </ul>
+    <img src="OmicsVisualizerConnect.png" style="width:40%">
+</section>
+    
+<section>
+    <h1>Creating Charts</h1>
+    <p>We now have the data mapped and we are ready to create charts. We will visualize the same three data points as in the previous workflow.</p>
+    <ul>
+        <li>Go to <highlight>Apps &rarr; Omics Visualizer &rarr; Create donut visualization</highlight>.</li>
+        <li>Under <highlight>Values</highlight> select the first data point, <b>'breast carcinoma' vs 'normal'.foldChange</b>.</li>
+        <li>Click the plus sign and add <b>'pancreatic adenocarcinoma' vs 'normal'.foldChange</b>, and repeat for <b>'colorectal carcinoma' vs 'normal'.foldChange</b>.</li>
+        <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
+         <li>Leave <highlight>Mapping</highlight> as <b>Continuous</b>, and <highlight>Labels</highlight> as <b>--- NONE ---</b>. Click <highlight>Next></highlight> to proceed.</li>
+        <li>Leave the defaults as-is, except for the <highlight>Ring is</highlight>, which should be set to <b>row</b>. Click <highlight>Draw</highlight> to continue.</li>
+    </ul>
+</section>
+    
+<section>  
+<p>The network should now have a donut chart around each node, representing the three data points.</p>
+    <img src="OmicsVisualizerDonut.png" style="width:40%">
+</section>
+    
+<section>
+    <h1>Add legend</h1>
+    
 </section>
 
 <section>
-    <h1>Data visualization: Significance as node size</h1>
-    <p>Because the nodes are now visluazed with a round node shape, we can more readily use node size for visualization purposes, such as to fold change significance.</p>
-    <ul>
-        <li>Click on the <highlight>Map.</highlight> cell for the <highlight>Node Size</highlight> property in the <highlight>Style</highlight> panel.</li>
-        <li>In the <highlight>Column</highlight> drop-down, select <b>'glioblastoma' vs 'normal' .pValue</b>.</li>
-        <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
-        <li>Double-click on the gradient, which defines the node border width over the range of p values.</li>
-        <li>First, we will define the min/max of the range of p values we are interested in, that is p values less than or equal to 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
-        <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>5</b> in the <highlight>Node Border Width</highlight> field. Repeat with the handle for the min value. Click <highlight>OK</highlight> to update the mapping.</li>
-        <li>Click the <highlight>Def.</highlight> value for <highlight>Node Border Paint</highlight> and select a dark grey color.</li>
-    </ul>
+    <h1>Extend the network</h1>
     
 </section>
                 
-</section>-->
+</section>
                 
 <section>
     <h1>Downstream Analysis Options</h1>
