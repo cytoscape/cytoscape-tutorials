@@ -30,7 +30,7 @@
 
 <section id='title'>
     <h1>WikiPathways App</h1>
-    <p><a href="https://www.wikipathways.org" target="_blank">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identifiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the <a href="http://apps.cytoscape.org/apps/wikipathways" target="_blank">App Store</a>.</p>
+    <p><a href="https://www.wikipathways.org" target="_blank">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the <a href="http://apps.cytoscape.org/apps/wikipathways" target="_blank">App Store</a>.</p>
     <p>This tutorial consists of three workflows:</p>
     <ul>
         <li>Basic workflow describing pathway import and data visualization and creating a legend.</li>
@@ -94,7 +94,7 @@
          <p>The data we will be using for this workflow (<a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>) is from a study investigating the RNA-seq signatures of platelets from patients with various types of cancer, in an effort to develop a platelet-based diagnostic (<a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(15)00349-9" target="_blank">Best et el., 2015).</a> The data was downloaded from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-68086/Downloads" target=_blank>Expression Atlas</a>.</p>
     
          <ul>
-         <li>Load the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>; select the file you want to import in the menu, and click on 'Open'. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
+         <li>Load the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>; select the file you want to import in the menu, and click on <highlight>Open</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
          <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down; if you only have one network opened in Cytoscape, this network is selected automatically.</li>
          <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <b>Ensembl</b> column.</li>
          <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
@@ -135,7 +135,7 @@
     
 <section>
     <h1>Data Visualization: Node Border Width</h1>
-        <p>We also have a significance measure for the fold change, which we can add to our visualization. For this, we will use both <highlight>Node Border Width</highlight> and <highlight>Node Border Color</highlight> to visualize the p value.</p>
+        <p>We also have a significance measure for the fold change, which we can add to our visualization. For this, we will use both <highlight>Node Border Width</highlight> and <highlight>Node Border Size</highlight> to visualize the p value.</p>
         <ul>
             <li>Click on the <highlight>Map.</highlight> cell for the <highlight>Node Border Width</highlight> property in the <highlight>Style</highlight> panel.</li>
             <li>In the <highlight>Column</highlight> drop-down, select <b>'breast carcinoma' vs 'normal' .pValue</b>.</li>
@@ -184,7 +184,7 @@
         <li>In the <highlight>Network Panel</highlight> select the network you want to add a legend to. For this example, let's use the Cell Cycle pathway with the original pathway layout.</li>
         <li>In the <highlight>Control Panel</highlight>, select <highlight>Legend Panel</highlight> either from the drop-down at the top, or by clicking on its tab.</li>
         <li>The <highlight>Legend Panel</highlight> will have some visual properties selected by default. Make sure they are the ones you want to include in the legend. For this example we will unselect all except <b>Node Fill Color</b>.</li>
-        <li>Select a <highlight>Title</highlight> for the legend, for example "Non-small cell lung carcinoma vs normal". For this example, the <highlight>Subtitle</highlight> is left blank.</li>
+        <li>Select a <highlight>Title</highlight> for the legend, for example "Breast carcinoma vs normal". For this example, the <highlight>Subtitle</highlight> is left blank.</li>
         <li>Click <highlight>Refresh Legend</highlight> to add the legend to your network.</li>
     
     </ul>
@@ -313,12 +313,12 @@
     <p>We will import one of the pathways from the previous workflow as a network:</p>
         <ul>
             <li>If you are continuing from the previous workflow, make sure the session is saved and then select <highlight>File &rarr; Close Session</highlight> to start from scratch.</li>
-            <li>Using the the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for "retinoblastoma" or "WP2446" and open the pathway using the <highlight>Import as Network</highlight> option.</li>
+            <li>Using the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for "retinoblastoma" or "WP2446" and open the pathway using the <highlight>Import as Network</highlight> option.</li>
     </ul>
 </section>
 <section>
     <h1>Importing Pathways as Networks</h1>
-    <p>Note that the pathways now appear with the default Cytoscape layout applied, and nodes have a default round shape. Some graphical aspects of the pathway model are retained, such as node border and node label colors, and edge line type.</p>
+    <p>Note that the pathways now appear with the default Cytoscape layout applied, and nodes have a default round shape. Some graphical aspects of the pathway model are retained, such as node border and node label colors, and edge line types.</p>
          <img class="plain" src="WP2446-RB.png" style="width:38%">
 
 </section>
@@ -327,10 +327,10 @@
     <h1>Extend the Network</h1>
     <p>Next, we will use the CyTargetLinker app to extend the network with drug-target interactions.</p>
     <ul>
-        <li>Go to <highlight>Apps &rarr; CyTargetLinker &rarr; Extend network</highlight>.</li>
+        <li>Go to <highlIght>Apps &rarr; CyTargetLinker &rarr; Extend network</highlight>.</li>
         <li>Under <highlight>Select User Network</highlight> choose the network you just imported.</li>
         <li>Under <highlight>Select your network attribute</highlight> choose <b>Ensembl</b>.</li>
-        <li>Click the <highlight>Browse</highlight> button and find the directpry where your link sets are stored. Select the directory (not the individual files).</li>
+        <li>Click the <highlight>Browse</highlight> button and find the directory where your link sets are stored. Select the directory (not the individual files).</li>
         <li>Keep the default setting as <b>BOTH</b> for <highlight>Select direction</highlight>.</li>
         <li>Click <highlight>Ok</highlight> to continue.</li>
     </ul>
@@ -339,7 +339,7 @@
 
 <section>
     <h1>Extend the Network</h1>
-    <p>A set of nodes and interactions will be added to the network, representing drug-target interactions. The style of the network is automatically updated to the CyTargetLinker default style, which uses purple for the drug nodes and blue for the drug-target interaction. The node label is mapped to CTL node label, so our original network nodes will have no label. We can update this so that all nodes have labels:</p>
+    <p>A set of nodes and interactions will be added to the network, representing drugs with interactions to the existing nodes in the network. The style of the network is automatically updated to the CyTargetLinker default style, which uses purple for the drug nodes and blue for the drug-target interaction. The node label is mapped to CTL node label, so our original network nodes will have no label. We can update this so that all nodes have labels:</p>
     <ul>
         <li>In the <highlight>Style</highlight> panel, expand the <highlight>Node Label</highlight> mapping to see the details.</li>
         <li>Click in the <highlight>Column</highlight> field and update the mapping from <b>CTL.Type</b> to <b>name</b>.</li>
@@ -370,14 +370,14 @@
 </section>
     
 <section>
-    <h1>Creating Charts</h1>
-    <p>We now have the data mapped and we are ready to create charts. We will visualize the same three data points as in the previous workflow.</p>
+    <h1>Visualizing Data Using Charts</h1>
+    <p>We now have the data mapped and we are ready to add charts based on the example data. We will visualize the same three data points as in the previous workflow.</p>
     <ul>
         <li>Go to <highlight>Apps &rarr; Omics Visualizer &rarr; Create donut visualization</highlight>.</li>
         <li>Under <highlight>Values</highlight> select the first data point, <b>'breast carcinoma' vs 'normal'.foldChange</b>.</li>
         <li>Click the plus sign and add <b>'pancreatic adenocarcinoma' vs 'normal'.foldChange</b>, and repeat for <b>'colorectal carcinoma' vs 'normal'.foldChange</b>.</li>
         <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
-         <li>Leave <highlight>Mapping</highlight> as <b>Continuous</b>, and <highlight>Labels</highlight> as <b>--- NONE ---</b>. Click <highlight>Next></highlight> to proceed.</li>
+         <li>Leave <highlight>Mapping</highlight> as <b>Continuous</b>, and <highlight>Labels</highlight> as <b>--- NONE ---</b>. Click <highlight>Next ></highlight> to proceed.</li>
         <li>Leave the defaults as-is, except for the <highlight>Ring is</highlight>, which should be set to <b>row</b>. Click <highlight>Draw</highlight> to continue.</li>
     </ul>
 </section>
