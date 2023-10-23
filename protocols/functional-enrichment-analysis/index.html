@@ -41,12 +41,12 @@
 <section id='example_data'>
         <h1>Example Data</h1>
         <p>This tour can be used with a set of example data, including a dataset originally from <a href="https://www.cancer.gov/types/lung" target="_blank">TCGA</a>, and a published dataset from <a href="https://europepmc.org/article/MED/21614001" target="_blank">Voineagu et al., 2011</a>.</p>  
-        <p>For the <b>TCGA</b> data, it was processed as follows:</p>
+        <p>The <b>TCGA</b> data is from a lung cancer study, and compares the expression of transcripts in lung cancer biopses versus normal tissue. The data was processed as follows to get example files:</p>
     <ol>
         <li class="fragment" data-fragment-index="1">Calculate <b>log2 fold change</b> and <b>adjusted pvalue</b> for cancer vs normal per gene from group average expression values.</li>
-        <li class="fragment" data-fragment-index="2">Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 367 up-regulated genes (NCBI gene symbol)</highlight></li>
-        <li class="fragment" data-fragment-index="4">Filter for significantly down-regulated genes: <b>log2 fold change <= -2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 516 down-regulated genes (NCBI gene symbol)</highlight></li>
-        <li class="fragment" data-fragment-index="6">Gene ranking calculated for all genes using <b>sign(log2 fold change) * -log10(pvalue)</b>; <highlight>file with Ensembl gene id and rank value for all genes</highlight></li>
+        <li class="fragment" data-fragment-index="2">Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 367 up-regulated genes (NCBI gene symbol)</highlight>. Download <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.up.txt" target="_blank">here</a>.</li>
+        <li class="fragment" data-fragment-index="4">Filter for significantly down-regulated genes: <b>log2 fold change <= -2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 516 down-regulated genes (NCBI gene symbol)</highlight>. Download Download <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.dn.txt" target="_blank">here</a>.</li>
+        <li class="fragment" data-fragment-index="6">Gene ranking calculated for all genes using <b>sign(log2 fold change) * -log10(pvalue)</b>; <highlight>file with Ensembl gene id and rank value for all genes</highlight>. Download <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.ensembl.gsea.txt" target="_blank">here</a>.</li>
         <li class="fragment" data-fragment-index="8">These input files can be used for <b>Enrichr</b> and <b>WebGestalt</b>.</li>
     </ol>
      <div class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 380px; top: 180px">
@@ -65,12 +65,13 @@
 
 <section id='example_datatables'>
          <h1>Example Data</h1>
-    <p>Finally, the <b>Voineagu et al.</b> data was downloaded from <a href="https://www.ebi.ac.uk/gxa/home" target="_blank">Expression Atlas</a> and contains data for all genes measured with the following comma-separated columns:</p>
+    <p>The <b>Voineagu et al.</b> data compares the transcriptome between autistic and normal brain, and was downloaded from <a href="https://www.ebi.ac.uk/gxa/experiments-content/E-GEOD-30573/resources/ExperimentDownloadSupplier.BulkDifferential/tsv" target="_blank">Expression Atlas</a>. It contains data for all genes measured with the following comma-separated columns:</p>
         <ul>
             <li>NCBI gene symbol</li>
             <li>fold change</li>
             <li>p value</li> 
        </ul>
+    <p>Download the data <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/E-GEOD-30573.csv" target="_blank">here</a></p>
     <div class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 50px; top: 120px">
             <img  src="input_files_csv.png" style="width:60%">
      </div>
