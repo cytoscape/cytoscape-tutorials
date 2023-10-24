@@ -40,14 +40,14 @@
 
 <section id='example_data_tcga'>
         <h1>Example Data - TCGA lung cancer study</h1>
-        <p>This tour can be used with your own data, or with an example dataset. This page describes a dataset from a <a href="https://www.cancer.gov/types/lung" target="_blank">TCGA lung cancer study</a>, and compares the expression of transcripts in lung cancer biopses versus normal tissue. The data was processed as follows to get example files:</p>
+        <p>This tour can be used with your own data, or with an example dataset. This page describes a dataset from a <a href="https://www.cancer.gov/types/lung" target="_blank">TCGA lung cancer study</a>, and compares the expression of transcripts in lung cancer biopses versus normal tissue. The data was processed to produce the example files:</p>
     <ol>
         <li class="fragment" data-fragment-index="1">Calculate <b>log2 fold change</b> and <b>adjusted pvalue</b> for cancer vs normal per gene from group average expression values.</li>
         <li class="fragment" data-fragment-index="2">Filter for significantly up-regulated genes: <b>log2 fold change => 2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 367 up-regulated genes (NCBI gene symbol)</highlight>. <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.up.txt" target="_blank">Download data</a>.</li>
         <li class="fragment" data-fragment-index="4">Filter for significantly down-regulated genes: <b>log2 fold change <= -2 AND adjusted pvalue <= 0.05</b>; <highlight>list of 516 down-regulated genes (NCBI gene symbol)</highlight>. <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.dn.txt" target="_blank">Download data</a>.</li>
         <li class="fragment" data-fragment-index="6">Gene ranking calculated for all genes using <b>sign(log2 fold change) * -log10(pvalue)</b>; <highlight>file with Ensembl gene id and rank value for all genes</highlight>. <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.ensembl.gsea.txt" target="_blank">Download data</a>.</li>
-        <li class="fragment" data-fragment-index="8">These input files can be used for <b>Enrichr</b> and <b>WebGestalt</b>.</li>
     </ol>
+    <p class="fragment" data-fragment-index="8">These input files can be used for <b>ORA</b> and <b>GSEA</b> analysis in <b>Enrichr</b> and <b>WebGestalt</b>.</p>
      <div class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 380px; top: 180px">
             <img  src="input_files_up.png" style="width:70%">
      </div>
@@ -60,6 +60,16 @@
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
+</section>
+                
+<section id='example_data_pinto'>
+    <h1>Example Data - Pinto et al. SARS-CoV-2 study</h1>
+    <p>The <a href="https://www.cell.com/iscience/fulltext/S2589-0042(22)02168-X" target="_blank">Pinto et al</a> study is a multi-OMICs study of SARS-CoV-2 host responses in lung epithelial cells. The data files below were adapted from the supplementary data files provided with the publication, which were already pre-filtered.</p>
+    <ol>
+        <li>Differentially regulated transcripts identified in cells infected with SARS-CoV2; <highlight>list of 2656 genes (NCBI gene symbol)</highlight>. <a href="Pinto_PMID36590899_mmc2_transcript_ncbi.txt">Download data</a>.</li>
+        <li>Differentially expressed proteins identified in cells infected with SARS-CoV2; <highlight>list of 225 proteins</highlight>. <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/Pinto_PMID36590899_mmc3_protein_uni.txt">Download data with Uniprot identifiers</a> / <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/Pinto_PMID36590899_mmc3_protein_ncbi.txt">Download data with NCBI gene symbols</a>.</li>
+    </ol>
+    <p>These input files can be used for <b>ORA</b> analysis in <b>Enrichr</b> and <b>WebGestalt</b>.</p>
 </section>
 
 <section id='example_data_voineagu'>
@@ -78,15 +88,6 @@
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
-</section>
-
-<section id='example_data_pinto'>
-    <h1>Example Data - Pinto et al. SARS-CoV-2 study</h1>
-    <p>The Pinto et al study is a multi-OMICs study of SARS-CoV-2 host responses in lung epithelial cells. The data that is available is:</p>
-    <ol>
-        <li>Differentially regulated transcripts identified in cells infected with SARS-CoV2; <highlight>list of 2656genes (NCBI gene symbol)</highlight>. <a href="Pinto_PMID36590899_mmc2_transcript_ncbi.txt">Download data</a>.</li>
-        <li>Differentially expressed proteins identified in cells infected with SARS-CoV2; <highlight>list of 225 proteins</highlight>. <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/Pinto_PMID36590899_mmc3_protein_uni.txt">Download Uniprot</a> / <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/Pinto_PMID36590899_mmc3_protein_ncbi.txt">Download corresponding NCBI gene symbols</a>.</li>
-    </ol>
 </section>
                 
 <section id='navigation 1'>
@@ -128,7 +129,7 @@ Add speaker notes here...
 <section id='enrichr_start'>
     <h1>Enrichr: Start Analysis</h1>
          <p>Analysis is started by simply copying the list of genes from an input text file into the input box on the right of the <highlight>Analyze</highlight> tab and clicking <highlight>Submit</highlight>.</p>
-         <p class="fragment">Note that this corresponds to the example data file containing <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.up.txt" target="_blank">up-regulated genes</a>.</p>
+         <p class="fragment">Note that this corresponds to the example TCGA example data file containing <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.up.txt" target="_blank">up-regulated genes</a>.</p>
          <img class="plain" src="enrichr_start.png" style="width:60%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -232,7 +233,7 @@ Add speaker notes here...
                 
 <section id='webgestalt_start2'>
     <h1>WebGestalt: Start Analysis</h1>
-         <p>The input data is defined in the <highlight>Gene List</highlight> section, and the dataset or list of genes can either be pasted into the input field or uploaded as a text file. <highlight>Select Gene ID Type</highlight> should match the identifier type in the input data. The list used here corresponds to the example input file containing the full dataset with associated gene rank.</p>
+         <p>The input data is defined in the <highlight>Gene List</highlight> section, and the dataset or list of genes can either be pasted into the input field or uploaded as a text file. <highlight>Select Gene ID Type</highlight> should match the identifier type in the input data. The list used here corresponds to the TCGA example input file containing the full dataset with associated gene rank.</p>
          <p class="fragment">Clicking <highlight>Submit</highlight> at the bottom left starts the analysis.</p>
          <img class="plain" src="webgestalt_inputdata.png" style="width:70%">
          <aside class="notes" data-markdown>
