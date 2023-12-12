@@ -76,80 +76,52 @@
 
 <!-- ========================================================== -->
 
-
-
 <section id='controlpanel'>
-<h1>Control Panel</h1>
+<h1>Legend Panel</h1>
 <p>Next, we will take a look at the Legend Creator interface.</p>
 <ul>
-    <li>Select the <highlight>Legend Creator</highlight> via the <highlight>Legend Panel</highlight> tab of the <highlight>Control Panel</highlight>.</li>
+    <li>Select the <highlight>Legend Panel</highlight> tab of the <highlight>Control Panel</highlight>.</li>
     <li>The app will automatically scan the network to review the style mappings and nodes in the network to determine how to build each legend entry.</li>
-    <li>The scan can also be started manually using the <highlight>Scan network</highlight> button.</li>
-    <li>The legend title and subtitle can be updated from the default values.</li>
+    <li>This scan can also be started manually using the <highlight>Scan network</highlight> button.</li>
 </ul>
+<br /><br />
 
 <div>
-    <img class="shadow" src="LC6.png" style="height:350px"></div>
-<p><b>Note:</b> Legends are generated as annotations, and as such, are not updated dynamically. You must manually remove and recreate the legend if you change your styles. 
-</p>
+    <img src="LC6.png" style="height:350px"></div>
+<p><b>Note:</b> Legends are generated as annotations, and as such, are not updated dynamically. You must manually remove and recreate the legend if you change your styles.</p>
 </section>
 
 <!-- ========================================================== -->
 
-
-
 <section id='controlpanel2'>
-<h1>Control Panel</h1>
+<h1>Legend Panel</h1>
+ 
+<ul>
+    <li>The <highlight>Title</highlight> and <highlight>Subtitle</highlight> can be updated from the default values. It's not possible to control the font, size or alignment in the Legend Creator interface, but we will see how to edit those later.</li>
+    <li>Check the <highlight>Lay out vertically</highlight> option to position the legend along the right margin of the network.</li> 
+    <li>Check the box <highlight>Draw bounding box</highlight> if you want to include a rectangle surrounding all the legend entries.</li>
+    <li>The Legend Panel shows the style mappings identified by the scan and these are checked by default. The name of the relevant node table column and the name of the mapped attribute are displayed. Uncheck any mappings you want to exclude from the legend.</li>
+    <li>Click <highlight>Add Legend</highlight> button on the bottom of the panel to add the selected mappings.</li>
+</ul>
+  <br /><br /> 
 
-<p>
-</p>
-<p> <div style="float:right">
-    <img class="shadow" src="LC6.png" style="height:350px"></div><br /><br />
-    <p>
+<img style="float:right; width:30%" src="LC6.png">
+<p>In this example, the <b>Node Label Font Size</b> and <b>Node Size</b> are both mapped to the node degree, or the number of neighbors a node has (<b>Degree</b> and <b>degree.layout</b> respectively) and the <b>Node Fill Color</b> is mapped to <b>gal1Rexp</b>.</p>      
 
-<p>
-The title and subtitle are just text fields.  The name of the network goes into the default title, but you can enter whatever text you want.  You don’t have control over the font, size or alignment at this point, but I’ll show you how to edit those later.
-
-</p>
-
-<p>
-Moving down the control panel, we see the list of mappings.  They show the name of the column in the node table followed by the name of the attribute to which it is mapped.  In this example, we have color mapped to our variable called gal1Rexp, shape is mapped to a column called <i>isLink</i>, and the size of a node is mapped to the number of neighbors, or its degree.
-
-</p>
-
-<p>
-Check the Vertical Layout option, to position the legend along the right margin of the graph. <br> 
-Check the box Draw Bounding Box if you want to include a rectangle surrounding all the legend entries.
-
-</p>
-
-<p>
-Click <highlight>Add Legend  </highlight>button on the bottom of the panel.
-</p>
-<p>
-</p>
-<p>
-</p>
-<br /></section>
+</section>
 
 <!-- ========================================================== -->
-
-
 
 <section id='firstDraft'>
 <h1>First Draft</h1>
 
-<p>
-As you see, we got four components because we had all four mappings checked.    The first two are called Ramp Functions that show both node size and font size get bigger for nodes of higher degree, i.e., those with more neighbors.  Third, a color gradient entry shows expression level of our protein of interest.</p>
+<p>The network now includes the legend to the right of the network. We included three components because we had all three mappings checked. The first two show both font label size and node size increasing with node degree, i.e., those with more neighbors. Third, a color gradient entry shows expression level of our protein of interest.</p>
  <div style="float:right">
     <img class="shadow" src="LC7.png" style="height:350px"></div><br /><br />
     <p>
 
-<p>
-Depending on the story you are trying to tell with your presentation, many mappings don’t add much information. Sometimes mappings are redundant.  So it will often make sense to only show a small number of the possible items.  But the easiest way to decide is to just make the full legend, look at the result, delete the legend and remake it with fewer boxes checked.
+<p>Depending on the purpose of the visualization you are creating, some mappings may not add much information to the legend and sometimes mappings are redundant. The easiest way to decide which entries are useful is to generate the full legend, look at the result and then make updates and recreate the legend.
 </p>
-
-
 </section>
 
 <!-- ========================================================== -->
@@ -157,43 +129,31 @@ Depending on the story you are trying to tell with your presentation, many mappi
 
 
 <section id='ramps'>
-<h1>Ramp Functions</h1>
+<h1>First Draft</h1>
 
-<p>
-The first two are associated in that they both map measures of the nodes’ degree to the size of both the nodes and its label.  This is a continuous mapping, meaning there is a function that calculates the size of the node and font from a numerical column in the node table.
-</p>
+<p>The first two mappings are similar in that they both map measures of the nodes’ degree to the size of both the nodes and its label, via a <b>continuous mapping</b>.</p>
 
-<p>
-Note:  Although size is a useful attribute to map, showing it in a legend is often not too useful.  Our perception of size is qualitative.  We can tell big from small, but we can’t tell a 50 pixel diameter from 63 pixel diameter if they are not right next to each other and the same shape.  So adding a legend to show the quantitative measure of size tends not to add much to your drawing, and is optional or discouraged in many cases.
-</p>
+<p><b>Note:</b> Although size is a useful attribute to map, showing it in a legend is often not too useful. Our perception of size is qualitative; we can tell big from small, but we can’t tell a 50 pixel diameter from 63 pixel diameter if they are not right next to each other and the same shape. So adding a legend to show the quantitative measure of size is not always necessary.</p>
 
 <img style="float:left;" src="LC8.png">
 <img style="float:right;" src="LC9.png">
 </section>
+                
 <!-- ========================================================== -->
 
-
-
 <section id='gradient'>
-<h1>Color Gradient</h1>
+<h1>First Draft</h1>
 
-<p>
-The next one is a color gradient.  It should match our continuous mapping for the variable <b>gal1RGexp</b> in the Style menu.   This is clearly the most important entry in our legend.  Perceptually, color attributes are the most powerful mapping and should be used for the strongest message you are trying to convey.  The human eye has very good color perception, even if the nodes are separated across the graph or are different shapes and sizes.  
-</p>
+<p>The other mapping is a color gradient. It should match our continuous mapping for the variable <b>gal1RGexp</b> in the <highlight>Style</highlight> panel. This is clearly the most important entry in our legend. Perceptually, color attributes are the most powerful mapping and should be used for the strongest message you are trying to convey.</p>
 
-<p>
-<small> <b>Important Note: </b> Because color is such an important attribute perceptually, it is important to use color with care.  Rather than defining arbitrary colors for minimum and maximum values, it is important to use Palettes of colors that have been curated to make sure they have consistent color saturation across the range.  If you double click on the gradient, an editor will come up, with an button to choose palettes in the top left corner. 
- It is <i><b>highly recommended</b></i> to use defined palettes over arbitrary colors.</p>
-</small>
+<p><b>Note: </b> Because color is such an important attribute perceptually, it is important to use color with care. Rather than defining arbitrary colors for minimum and maximum values, we recommended using pre-defined color palettes that have been designed to make sure they have consistent color saturation across the range. If you double-click on a gradient in the <highlight>Style</highlight> panel to bring up the editor, a button to choose palettes is available in the upper left.</p>
 <img style="float:left;" src="LCA.png">
 <img style="float:right;" src="LCB.png">
 </section>
 
 <!-- ========================================================== -->
 
-
-
-<section id='shape'>
+<!--<section id='shape'>
 <h1>Shape Legend</h1>
 
 <p>
@@ -204,81 +164,55 @@ Another legend entry we could generate is a Shape Legend.  It is a discrete mapp
 <p>
 
 <img style="float:center;" src="LCC.png">
-</section>
+</section>-->
 
 <!-- ========================================================== -->
 
-
-
-
+<!--
 <section id='kiss'>
-<h1>Keep it Simple</h1>
+<h1>First Draft</h1>
 
-<p>
-Not every mapping used will necessitate an entry in the legend, and showing too many entries will distract from the graph. The legend entries to show size, line style, or shape, or color are separate components and can be included or not on an individual basis.
-</p>
-<p> Here is our network with three mappings shown:
-</p>
-<img style="float:left;width:60%" src="LC7.png">
+<p>Here is our network with three mappings shown:</p>
+<img style="width:70%" src="LC7.png">
 </section>
+-->
 
 <!-- ========================================================== -->
-
 
 <section id='layout'>
 <h1>Layout</h1>
 
-<p>
-If you lay out the legend horizontally, it will be placed at the bottom of the graph.  If you lay out the legend vertically, it will be positioned at the right of the graph.  
-</p>
-<p>
-The legend is placed in a default position outside the bounds of the network.  Much of the time you’ll have to move it from where it shows up to where you want it.  This can be tricky, because the Cytoscape editor distinguishes annotations from nodes and treats them differently.  If I try to click on the legend, it will pan the screen, just like clicking on the background.
-</p>
- <div style="float:right">
-    <img class="shadow" src="LCG.png" style="height:350px"></div><br /><br />
-    <p>
-
-<p>
-To move the legend, first go here to enable annotations to be active in the editor.   Then hold down the shift key while dragging to select items and the annotations get selected with nodes.  There is a yellow box around selected annotations.  Now they can be dragged.  
-
-</p>
+<p>If you lay out the legend horizontally, it will be placed at the bottom of the network. If you lay out the legend vertically, it will be positioned at the right of the network. In either case, the legend is placed in a default position outside the bounds of the network. Most of the time you’ll have to move it from where it shows up to where you want it. Cytoscape distinguishes annotations, like the legend, from nodes and treats them differently, which is relevant when selecting and moving them.</p>
+<!-- <div style="float:right">
+    <img class="shadow" src="LCG.png" style="height:350px"></div>-->
+<ul>
+    <li>To move the legend, first click the <highlight>Toggle Annotation Selection</highlight> option in the <highlight>Network View Tools</highlight> under the network (red arrow). Unselect <highlight>Toggle Edge Selection</highlight> and <highlight>Toggle Node Selection</highlight>. You can then select the legend by shift-and-drag. Once selected, you can reposition the legend.</li>
+</ul>
+<img class="shadow" src="LCG.png" style="height:350px">
 </section>
 
 <!-- ========================================================== -->
 
-
-
 <section id='annotation'>
 <h1>Annotation Panel</h1>
 
-<p>
-</p>
  <div style="float:right">
     <img class="shadow" src="LCH.png" style="height:650px"></div><br/>
-<p>
-     To edit more specific aspects of the legend, such as the fonts or sizes, or the color of the background, you’ll want to go to the Annotation control panel.  There, you’ll see every label and tick of the legend in a list view. 
-</p>
-<p>
-     There are several opertations available to edit annotations here:
-</p>
+<p>To edit more specific aspects of the legend, such as the fonts or sizes, or the color of the background, you’ll want to go to the <highlight>Annotation</highlight> control panel.  There, you’ll see every label and tick of the legend in a list view. There are several opertations available to edit annotations here:</p>
 
 <ul>
-	<li > Add or remove items from the foreground or background layers.   </li>
-    <li> Move items up or down, or move them between the layers.  </li>
-    <li> Right-click and select <highlight>Modify Annotation... </highlight>to edit the item.  </li>
+	<li>Add or remove items from the foreground or background layers.</li>
+    <li>Move items up or down, or move them between the layers.</li>
+    <li>Right-click and select <highlight>Modify Annotation... </highlight>to edit the item.</li>
 </ul>
 </section>
 
 <!-- ========================================================== -->
 
-
-
 <section id='summary'>
 <h1>Summary</h1>
 
-<p>
-This app creates legends for the most common attributes applied to nodes in your graph. It is also reasonable to want to make legends around edge attributes, such as line style, color and thickness, but that is not included in this first release. 
-</p>
+<p>The Legend Creator creates legends for the most common attributes applied to nodes in your graph. Adding legends for edge attributes, such as line style, color and thickness, is not supported in the current version, but is a planned feature.</p>
 </section>
 
 <!-- ========================================================== -->
