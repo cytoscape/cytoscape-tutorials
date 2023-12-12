@@ -34,37 +34,29 @@
      
 <!--This is a slide with text in the form of a list, a figure and a citation -->
 <section id='introduction'>
-<h1>Introduction</h1>
-
+<h1>Legend Creator</h1>
+<p>This tutorial describes how to use the Cytoscape Legend Creator to generate a legend illustrating the visual mapping used in your networks.</p>
 <p>If you haven't already, install the <a href="http://apps.cytoscape.org/apps/legendcreator" target="_blank">Legend Creator app</a>.</p>
-
-<p>It can generate a legend that illustrates the visual mapping used in your graphs.</p>
-
-
-<img style="float:center; width:45%" src="LC1.png">
-<p>There is a variety of different features of the Legend Creator, but its primary function is to add a color gradient to quantify the mapping of fill color in a legend.  This is a common function in Cytoscape graphs and hard to recreate accurately if you use downstream programs (e.g., Adobe Illustrator) to annotate graphs for publication.
-</p>
-
+    
+<div class="footer" style="bottom: -4em;">
+    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>
 </section>
 
 <!-- ========================================================== -->
 
 <section id='background'>
 <h1>Background</h1>
-
-<p>First, let's review how <highlight>Styles</highlight> are used in Cytoscape.  In addition to setting <b>Default</b> values, one can also set <b>Mappings</b> to assign values based on data in node or edge table columns. 
+    
+<img style="float:right; width:40%" src="LC1.png">
+<p>The Legend Creator includes a variety of features, for example describing a color gradient used for node fill color. This is a commonly used style mapping, and one that is difficult to recreate accurately in downstream tools.
 </p>
-
-<p>Mappings can be continuous or discrete.  The icon in the center column of the styles shows a double headed arrow for the right side of the icon for continuous mappings, and dots for discrete mappings.
+<p>First, let's review how <highlight>Styles</highlight> are used in Cytoscape. In addition to setting <b>Default</b> values, one can also set <b>Mappings</b> to assign values based on data in node or edge table columns. 
 </p>
+<p>Legend creator can work with continuous and discrete mappings. Continuous mappings are made from numerical values, where the range is determined by looking at the node table, such as expression level.</p>
 
-<img style="float:right;" src="LC2.png">
-
-
-<p>Continuous legends are made from numerical values, where the range is determined by looking at the node table, such as expression level.  We’ll look at those first.
-</p><div style="float:left">
-<small> <p><b>Note: </b> If you use Passthrough Mappings, they will not create a legend entry, and are not discussed here.
-</p><br /></small> 
+<div style="float:left">
+<p><b>Note:</b> <b>Passthrough</b> mappings will not create a legend entry, and are not discussed in this tutorial.
+</p><br />
 </div>
 
 </section>
@@ -74,11 +66,12 @@
 
 <section id='setup'>
 <h1>Setup</h1>
-
-
-<p>
-We need a network with some styles set to demonstrate this app. Let's load the <b>Yeast Perturbation</b> network, provided by Cytoscape as a sample session file. You can find the Sample Sessions in the <highlight>Starter Panel</highlight> when you first launch Cytoscape, or <b>View > Show Starter Panel</b> if it is hidden.
-</p>
+<p>We need a network with some style mappings to demonstrate the features of the Legend Creator. Let's load the <b>Yeast Perturbation</b> network, provided by Cytoscape as a sample session file.</p>
+<ul>
+    <li>Open the Yeast Perturbation sample session from the Sample Sessions sessions in the <highlight>Starter Panel</highlight> when you first launch Cytoscape.</li>
+    <li>You can also access the <highlight>Starter Panel</highlight> via <highlight>View &rarr; Show Starter Panel</highlight>.</li>
+    
+</ul>
 </section>
 
 <!-- ========================================================== -->
@@ -87,26 +80,19 @@ We need a network with some styles set to demonstrate this app. Let's load the <
 
 <section id='controlpanel'>
 <h1>Control Panel</h1>
+<p>Next, we will take a look at the Legend Creator interface.</p>
+<ul>
+    <li>Select the <highlight>Legend Creator</highlight> via the <highlight>Legend Panel</highlight> tab of the <highlight>Control Panel</highlight>.</li>
+    <li>The app will automatically scan the network to review the style mappings and nodes in the network to determine how to build each legend entry.</li>
+    <li>The scan can also be started manually using the <highlight>Scan network</highlight> button.</li>
+    <li>The legend title and subtitle can be updated from the default values.</li>
+</ul>
 
-<p>
-In the Legend tab of the Control Panel, there is a button to scan the network, fields for the legend title and subtitle and then check boxes for the continuous and discrete mappings that are defined in the current style.  </p>
+<div>
+    <img class="shadow" src="LC6.png" style="height:350px"></div>
+<p><b>Note:</b> Legends are generated as annotations, and as such, are not updated dynamically. You must manually remove and recreate the legend if you change your styles. 
 </p>
-<p> <div style="float:right">
-    <img class="shadow" src="LC6.png" style="height:350px"></div><br /><br />
-    <p>
-
-The <highlight>Scan Network </highlight>button will tell the program to traverse the style sheet and all of the nodes in the graph to figure out what legends to add and what values exist in the network so it can decide how to build each legend entry. 
-</p>
-<p>
- This scan happens automatically whenever you load or switch networks, so you only have to push the button manually if you edit the styles.  
- </p>
-<p><small> <b>Note:</b> Legends are generated as annotations, and as such, are not updated dynamically. You must manually remove and recreate the legend if you change your styles.</small> 
-</p>
-
-
-<p>
-</p>
-<br /></section>
+</section>
 
 <!-- ========================================================== -->
 
