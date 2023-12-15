@@ -47,17 +47,16 @@
 <section id='background'>
 <h1>Background</h1>
     
-<img style="float:right; width:40%" src="LC1.png">
+<img style="float:right; width:35%" src="LC1.png">
 <p>The Legend Creator includes a variety of features, for example describing a color gradient used for node fill color. This is a commonly used style mapping, and one that is difficult to recreate accurately in downstream tools.
-</p>
-<p>First, let's review how <highlight>Styles</highlight> are used in Cytoscape. In addition to setting <b>Default</b> values, one can also set <b>Mappings</b> to assign values based on data in node or edge table columns. 
-</p>
-<p>Legend creator can work with continuous and discrete mappings. Continuous mappings are made from numerical values, where the range is determined by looking at the node table, such as expression level.</p>
-
+</p><br /><br />
 <div style="float:left">
-<p><b>Note:</b> <b>Passthrough</b> mappings will not create a legend entry, and are not discussed in this tutorial.
-</p><br />
-</div>
+    <p>First, let's review how <highlight>Styles</highlight> are used in Cytoscape.</p></div>
+<ul>
+    <li>In addition to setting <b>Default</b> style options, one can also set <b>Mappings</b> to define style options based on data in the node or edge table.</li>
+    <li>Legend Creator can work with <b>continuous</b> and <b>discrete</b> mappings. Continuous mappings are created based on numerical values, where the range is determined by looking at the node table, such as expression level.</li>
+    <li><b>Passthrough</b> mappings will not create a legend entry, and are not discussed in this tutorial.</li>
+</ul> 
 
 </section>
 
@@ -65,7 +64,7 @@
 
 
 <section id='setup'>
-<h1>Setup</h1>
+<h1>Getting started</h1>
 <p>We need a network with some style mappings to demonstrate the features of the Legend Creator. Let's load the <b>Yeast Perturbation</b> network, provided by Cytoscape as a sample session file.</p>
 <ul>
     <li>Open the Yeast Perturbation sample session from the Sample Sessions sessions in the <highlight>Starter Panel</highlight> when you first launch Cytoscape.</li>
@@ -115,7 +114,7 @@
 <section id='firstDraft'>
 <h1>First Draft</h1>
 
-<p>The network now includes the legend to the right of the network. We included three components because we had all three mappings checked. The first two show both font label size and node size increasing with node degree, i.e., those with more neighbors. Third, a color gradient entry shows expression level of our protein of interest.</p>
+<p>The network now includes the legend to the right of the network. The legend includes three components, one for each of the mappings we selected. The first two show both font label size and node size increasing with node degree, i.e., those with more neighbors. Third, a color gradient entry shows expression level of our protein of interest.</p>
  <div style="float:right">
     <img class="shadow" src="LC7.png" style="height:350px"></div><br /><br />
     <p>
@@ -133,10 +132,12 @@
 
 <p>The first two mappings are similar in that they both map measures of the nodes’ degree to the size of both the nodes and its label, via a <b>continuous mapping</b>.</p>
 
-<p><b>Note:</b> Although size is a useful attribute to map, showing it in a legend is often not too useful. Our perception of size is qualitative; we can tell big from small, but we can’t tell a 50 pixel diameter from 63 pixel diameter if they are not right next to each other and the same shape. So adding a legend to show the quantitative measure of size is not always necessary.</p>
-
-<img style="float:left;" src="LC8.png">
-<img style="float:right;" src="LC9.png">
+<img src="Style_Legend_combined.png" style="width:70%">
+    
+<p><b>Note:</b> Although size is a useful attribute to map, showing it in a legend is not always useful. Our perception of size is qualitative; we can tell big from small, but we can’t tell a 50 pixel diameter from 63 pixel diameter if they are not right next to each other and the same shape. Adding a legend to show the quantitative measure of size is not always necessary.</p>
+    
+<!--<img style="float:left;" src="LC8.png">
+<img style="float:right;" src="LC9.png">-->
 </section>
                 
 <!-- ========================================================== -->
@@ -146,9 +147,11 @@
 
 <p>The other mapping is a color gradient. It should match our continuous mapping for the variable <b>gal1RGexp</b> in the <highlight>Style</highlight> panel. This is clearly the most important entry in our legend. Perceptually, color attributes are the most powerful mapping and should be used for the strongest message you are trying to convey.</p>
 
+<img src="Style_Legend_combined2.png" style="width:70%">
+    
 <p><b>Note: </b> Because color is such an important attribute perceptually, it is important to use color with care. Rather than defining arbitrary colors for minimum and maximum values, we recommended using pre-defined color palettes that have been designed to make sure they have consistent color saturation across the range. If you double-click on a gradient in the <highlight>Style</highlight> panel to bring up the editor, a button to choose palettes is available in the upper left.</p>
-<img style="float:left;" src="LCA.png">
-<img style="float:right;" src="LCB.png">
+<!--<img style="float:left;" src="LCA.png">
+<img style="float:right;" src="LCB.png">-->
 </section>
 
 <!-- ========================================================== -->
@@ -180,15 +183,12 @@ Another legend entry we could generate is a Shape Legend.  It is a discrete mapp
 <!-- ========================================================== -->
 
 <section id='layout'>
-<h1>Layout</h1>
-
-<p>If you lay out the legend horizontally, it will be placed at the bottom of the network. If you lay out the legend vertically, it will be positioned at the right of the network. In either case, the legend is placed in a default position outside the bounds of the network. Most of the time you’ll have to move it from where it shows up to where you want it. Cytoscape distinguishes annotations, like the legend, from nodes and treats them differently, which is relevant when selecting and moving them.</p>
-<!-- <div style="float:right">
-    <img class="shadow" src="LCG.png" style="height:350px"></div>-->
+<h1>Layout and Placement</h1>
 <ul>
+    <li>The Legend can be layed out <b>vertically</b> or <b>horizontally</b>, and will always be placed outside the bounds of the network.</li>
     <li>To move the legend, first click the <highlight>Toggle Annotation Selection</highlight> option in the <highlight>Network View Tools</highlight> under the network (red arrow). Unselect <highlight>Toggle Edge Selection</highlight> and <highlight>Toggle Node Selection</highlight>. You can then select the legend by shift-and-drag. Once selected, you can reposition the legend.</li>
 </ul>
-<img class="shadow" src="LCG.png" style="height:350px">
+<img class="shadow" src="LCG.png" style="width:50%">
 </section>
 
 <!-- ========================================================== -->
@@ -198,7 +198,7 @@ Another legend entry we could generate is a Shape Legend.  It is a discrete mapp
 
  <div style="float:right">
     <img class="shadow" src="LCH.png" style="height:650px"></div><br/>
-<p>To edit more specific aspects of the legend, such as the fonts or sizes, or the color of the background, you’ll want to go to the <highlight>Annotation</highlight> control panel.  There, you’ll see every label and tick of the legend in a list view. There are several opertations available to edit annotations here:</p>
+<p>To edit more specific aspects of the legend, such as the fonts or sizes, or the color of the background, you will need to use the <highlight>Annotation</highlight> control panel.  There, you’ll see every label and entry of the legend in a list view. There are several operations available to edit annotations here:</p>
 
 <ul>
 	<li>Add or remove items from the foreground or background layers.</li>
