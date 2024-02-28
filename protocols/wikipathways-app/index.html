@@ -31,8 +31,12 @@
 <section id='title'>
     <h1>WikiPathways App</h1>
     <p><a href="https://www.wikipathways.org" target="_blank">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the <a href="http://apps.cytoscape.org/apps/wikipathways" target="_blank">App Store</a>.</p>
-     <br />
-    <p>This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.</p>
+    <p>This tutorial consists of three workflows:</p>
+    <ul>
+        <li>Basic workflow describing pathway import and data visualization and creating a legend.</li>
+        <li>Advanced workflow describing how to visualize multiple data points on a set of pathways of interest.</li>
+         <li>Network visualization workflow describing pathway import, extension and data visualization on network-style pathways.</li> 
+    </ul>
     <br />
 <div class="footer" style="bottom: -3em;">
     <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>
@@ -43,9 +47,7 @@
         <h1>Setup</h1>
         <ul>
             <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
-            <li>Install the <b>WikiPathways app</b> via <highlight>Apps &rarr; App Manager</highlight>.</li>
-            <li>Download the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/ExampleData/lung.expr.csv">experimental data</a>.
-		    The data is a lung cancer dataset from <a href="https://www.cancer.gov/types/lung">TCGA</a>, comparing lung cancer biopses versus normal tissue.</li>
+            <li>Install the <a href="http://apps.cytoscape.org/apps/wikipathways" target="_blank">WikiPathways</a> and <a href="http://apps.cytoscape.org/apps/legendcreator" target="_blank">Legend Creator</a> apps via <highlight>Apps &rarr; App Store &rarr; Show App Store</highlight>.</li>
 	</ul>
 
          <aside class="notes" data-markdown>
@@ -54,11 +56,12 @@
 </section>
 
 <section>
-         <h1>Importing Pathways</h1>
+<section>
+         <h1>Basic Workflow: Importing Pathways</h1>
          <ul>
              <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>"cell cycle"</b> (with quotes) and click the search icon.</li>
-             <li>A list of results for all available species will open. To see results from a select species, click the <b>Only</b> checkbox and select a species from the drop-down.</li>
-             <li>Select the human <highlight>Cell Cycle</highlight> and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>
+             <li>A list of results for all available species will open. To see results from a select species, click the <highlight>Only</highlight> checkbox and select a species from the drop-down (example: Homo sapiens).</li>
+             <li>Select the human <b>Cell Cycle</b> pathway (WP179) and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>
          </ul>
          <img src="WPApp-results.png" style="width:55%">
          <aside class="notes" data-markdown>
@@ -68,7 +71,8 @@
 
 <section>
     <h1>Importing Pathways</h1>
-         <p>The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:</p>
+         <p>The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style.</p>
+	 <p><b>Pro-tip</b>: if the labels are not depicted in the visualization,  click on the diamond shaped button below the visualization to enable showing names. This step is depicted in the figure below in the red square.</p>
          <img src="CellCycle.png" style="width:70%">
 
          <aside class="notes" data-markdown>
@@ -78,7 +82,7 @@
 
 <section>
     <h1>Pathway Node Identifiers</h1>
-         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.</p>
+         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers for genes and proteins and ChEBI for metabolites, adding them to a new column (to the far right of the <highlight>Node Table</highlight>).</p>
          <img src="CellCycleMapped.png" style="width:50%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -87,12 +91,14 @@
 
 <section>
     <h1>Data Import</h1>
-         <p>The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:</p>
+         <p>The data we will be using for this workflow (<a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>) is from a study investigating the RNA-seq signatures of platelets from patients with various types of cancer, in an effort to develop a platelet-based diagnostic (<a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(15)00349-9" target="_blank">Best et el., 2015).</a> The data was downloaded from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-68086/Downloads" target=_blank>Expression Atlas</a>.</p>
+    
          <ul>
-         <li>Load the <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis-visualization/ExampleData/lung.expr.csv">lung.expr.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
-         <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down.</li>
+         <li>Load the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>; select the file you want to import in the menu, and click on <highlight>Open</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
+         <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down; if you only have one network opened in Cytoscape, this network is selected automatically.</li>
          <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <b>Ensembl</b> column.</li>
          <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
+	 <li>The next slide in this presentation shows an example of the data import interface.</li>
          </ul>
 
          <aside class="notes" data-markdown>
@@ -102,56 +108,298 @@
 
 <section>
     <h1>Data Import</h1>
-         <p>The data import interface should now look like this:</p><br />
+         <p>The data import interface should now look like this:</p>
+         <img src="WPDataImport.png" style="width:33%">
          <ul>
-             <div style="width:40%;float:left; margin-right: 40px">
-					<img src="WPDataImport.png">
-				</div>
          <li>Click <highlight>OK</highlight> to import.</li>
-         <li>Once import is complete, look for the newly imported data columns in the <highlight>Node Table</highlight> to confirm that it worked.</li>
-
+         <li>Once import is complete, look for the newly imported data columns in the <highlight>Node Table</highlight> to confirm that it worked.</li> 
          </ul>
-         <div style="position:absolute;left:28em;bottom:1em;">
-             <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/" target="_blank">Learn more about Importing Data</a></b></p>
-         </div>
+         <img src="WPDataImportSuccess.png" style="width:60%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
 
 <section>
-         <h1>Mapping Data to Visual Properties</h1>
-         <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as <b>Node Fill Color</b>.</p>
+         <h1>Data Visualization: Node Fill Color</h1>
+         <p>We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. For this workflow, we will choose data from one of the cancer types, "breast carcinoma", and visualize the fold change as <b>Node Fill Color</b>.</p>
          <ul>
-         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, click the <highlight>Map.</highlight> box for <highlight>Fill Color</highlight>.</li>
-         <li>In the <highlight>Column</highlight> drop-down, select <b>"log2FC"</b>.</li>
+         <li>At the top of the <highlight>Style</highlight> tab (left-hand side panel), click on the <highlight>Options</highlight> button <img class="plain" src="options.png"> and choose <highlight>Copy Style...</highlight>. Select an appropriate name, for example "Basic Data Visualization".</li>
+         <li>Still in the <highlight>Style</highlight> interface, for the <highlight>Fill Color</highlight> visualization option, select the middle column (<highlight>Map.</highlight> box).</li>
+         <li>In the <highlight>Column</highlight> drop-down, select <b>'breast carcinoma' vs 'normal' .foldChange</b>.</li>
          <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>. This will create a default color gradient from blue (negative fold change) to red (positive fold change):</li>
+    </ul>
+         <img class="plain" src="CellCycleData.png" style="width:48%">
 
-         </ul><br /><br />
-        <!-- to-do: Add legend to pathway -->
-         <img class="plain" src="CellCycleData.png" style="float:left;width:50%">
-            <div style="position:absolute;left:25em;bottom:1em;">
-            <p><b><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/index.html" target="_blank">Learn more about Visualizing Data</a></b></p>
-            </div>
+</section>
+    
+<section>
+    <h1>Data Visualization: Node Border Width</h1>
+        <p>We also have a significance measure for the fold change, which we can add to our visualization. For this, we will use both <highlight>Node Border Width</highlight> and <highlight>Node Border Size</highlight> to visualize the p value.</p>
+        <ul>
+            <li>Click on the <highlight>Map.</highlight> cell for the <highlight>Node Border Width</highlight> property in the <highlight>Style</highlight> panel.</li>
+            <li>In the <highlight>Column</highlight> drop-down, select <b>'breast carcinoma' vs 'normal' .pValue</b>.</li>
+            <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
+            <li>Double-click on the gradient, which defines the node border width over the range of p values.</li>
+            <li>First, we will define the min/max of the range of p values we are interested in, that is p values less than or equal to 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
+            <li>Click on the handle for the max value (black triangle on the right-most end of the gradient) and set the value to <b>5</b> in the <highlight>Node Border Width</highlight> field. Repeat with the handle for the min value. Click <highlight>OK</highlight> to update the mapping.</li>
+            <li>Click the <highlight>Def.</highlight> value for <highlight>Node Border Paint</highlight> and select a dark grey color.</li>
+        </ul>
+        <img src="NodeWidthGradientWP.png" style="width:36%">
+    </section>
+    
+    
+<section>
+         <h1>Data Visualization: Node Border Color</h1>
+         <ul>
+            <li>Click on the <highlight>Map.</highlight> cell for <highlight>Node Border Paint</highlight> in the <highlight>Style</highlight> panel.</li>
+            <li>In the <highlight>Column</highlight> drop-down, select <b>'breast carcinoma' vs 'normal' .pValue</b>.</li>
+            <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
+            <li>Double-click on the gradient.</li>
+            <li>Similar to the last step, we will define the min/max of the range of p values we are interested in, that is anything under 0.05. Click on <highlight>Set Min and Max...</highlight> and set the max to <b>0.05</b>. Click <highlight>OK</highlight> to save.</li>
+            <li>Click on the large triangle handle at the right-most end of the gradient. This defines the border color for nodes with p value > 0.05, meaning not significant, so let's set it to dark grey.</li>
+            <li>Next, set all the other handles to the same color, preferably a bright color that is not part of the node fill gradient, for example bright pink. We can delete the middle handle since we want the same color for anything under 0.05, simply select it and click <highlight>Delete</highlight>.</li>
+         </ul>
+         
+    <img src="NodeBorderGradientWP.png" style="width:38%">
+         
 
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
 </section>
+    
+<section>
+    <h1>Data Visualization</h1>
+    <p>We now have our example data visualized on the pathway, with fold change represented as a gradient node fill color and significance as node border color/width.</p>
+    
+    <img class="plain" src="CellCycleDataFinal.png" style="width:70%">
+    
+</section>
+    
+<section>
+    <h1>Adding a Legend</h1>
+    <p>To add a legend to your pathway visualizations, you can use the <b>Legend Creator</b> App.</p>
+    <ul>
+        <li>In the <highlight>Network Panel</highlight> select the network you want to add a legend to. For this example, let's use the Cell Cycle pathway with the original pathway layout.</li>
+        <li>In the <highlight>Control Panel</highlight>, select <highlight>Legend Panel</highlight> either from the drop-down at the top, or by clicking on its tab.</li>
+        <li>The <highlight>Legend Panel</highlight> will have some visual properties selected by default. Make sure they are the ones you want to include in the legend. For this example we will unselect all except <b>Node Fill Color</b>.</li>
+        <li>Select a <highlight>Title</highlight> for the legend, for example "Breast carcinoma vs normal". For this example, the <highlight>Subtitle</highlight> is left blank.</li>
+        <li>Click <highlight>Refresh Legend</highlight> to add the legend to your network.</li>
+    
+    </ul>
+</section>
+<section>
+    <h1>Adding a Legend</h1>
+    <p>Our final visualization now includes a legend. In this case, the legend graphic was resized from the default. This can be done by first clicking <highlight>Toggle Annotation Selection</highlight> <img class="plain" src="ToggleAnnotationSelection.png"> at the bottom of the <highlight>Network View Window.</highlight></p>
+    <img class="plain" src="CellCycleDataFinalLegend.png" style="width:60%">
+</section>
+    
+<section>
+    <h1>Saving and Exporting Data Visualization</h1>
+    <p>Cytoscape provides a number of ways to save results and visualizations:</p>
+	<ul>
+        <li>As a session: <highlight>File &rarr; Save Session</highlight>, <highlight>File &rarr; Save Session As...</highlight></li>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight>, selecting for example <b>pdf</b> or <b>png</b> from the <highlight>Export File Format</highlight> drop-down.</li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight></li>
+	</ul>
+</section>
+    
+</section>
+                
+<section>
+    <section>
+        <h1>Advanced Workflow: Importing Multiple Pathways</h1>
+        <p>This workflow describes how to work with multiple WikiPathways pathways in Cytoscape, and how to visualize more than one data point. This analysis assumes that we already have a list of pathways of interest. This list could come from enrichment analysis, but could also be a list of pathways of interest from prior knowledge. </p>
+        <p>The data we will be using for this workflow (<a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>) is from a study investigating the RNA-seq signatures of platelets from patients with various types of cancer, in an effort to develop a platelet-based diagnostic (<a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(15)00349-9" target="_blank">Best et el., 2015).</a> The data was downloaded from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-68086/Downloads" target=_blank>Expression Atlas</a>.</p>
+        <ul> 
+        <li>If you are continuing from the previous workflow, make sure the session is saved and then select <highlight>File &rarr; Close Session</highlight> to start from scratch.</li>
+        <li>Using the the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for and open the following <b>human</b> pathways, with the <highlight>Import as Pathway</highlight> option. <b>Pro-tip</b>: You can search for the WPID instead of the title.
+            <ul>
+                <li>WP179: Cell cycle</li>
+                <li>WP2446: Retinoblastoma gene in cancer</li>
+                <li>WP4830: GDNF/RET signaling axis</li>
+                <li>WP707: DNA damage response</li>
+            </ul></li>
+        </ul>
+    </section>
+    
+    <section>
+    <p>The 4 pathways will be listed as separate network collections in the <highlight>Network Panel</highlight>:</p>
+    <img src="WP-MultiplePathways.png">
+</section>
+    
+    <section>
+        <h1>Data Import</h1>
+        <p>Now that we have our pathways of interest open, we can load the data. Cytoscape allows you to import data either to a specific network, collection of networks, or a set of networks. We will use the latter, to avoid having to load the data multiple times.</p>
+        <ul>
+            <li>Load the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>.</li>
+         <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To selected networks only</highlight> and click the <b>Select All</b> button to select all of the networks in the <b>Network List</b>.</li>
+	 <li>For the <highlight>Import Data as:</highlight> option, select <b>Node Table Columns</b> (default).</li>
+         <li>In the <highlight>Key Column for Network</highlight> drop-down, select the <b>Ensembl</b> column.</li>
+         <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
+        </ul>
+        <img src="ImportDataSelectAll.png" style="width:36%">
 
+    </section>
+    
+    <section>
+        <h1>Data Import</h1>
+        <p>Each network should now have multiple extra columns corresponding to fold change and p-value for several cancer types:
+        </p>
+        <img src="WP-DataNodeTable.png" style="width:60%">
+    
+    </section>
+    
+    <section>
+         <h1>Data Visualization</h1>
+         <p>To visualize the data on the pathways, we are going to use Cytoscape's built-in function for <b>Custom Graphics</b> to visualize the fold change values for three cancer types: breast carcinoma, pancreatic adenocarcinoma and colorectal carcinoma. For this particular workflow, the visualized data points should be of the same type, for example fold changes.</p>
+         <ul>
+         <li>At the top of the <highlight>Style</highlight> tab (left-hand side panel), click on the <highlight>Options</highlight> button <img class="plain" src="options.png"> and choose <highlight>Copy Style...</highlight>. Select an appropriate name, for example "Advanced Workflow".</li>
+         <li>Still in the <highlight>Style</highlight> interface, click on the <highlight>Def.</highlight> column of <highlight>Image/Chart 1</highlight>.</li>
+        <li>Under <highlight>Charts</highlight> select <highlight>Heatmap</highlight> option (third icon from the left). Select the columns you want to visualize; <b>'breast carcinoma' vs 'normal'.foldChange</b>, <b>'pancreatic adenocarcinoma' vs 'normal'.foldChange</b> and <b>'colorectal carcinoma' vs 'normal'.foldChange</b>. Remove any other columns selected by default.</li>
+        <li>Under <highlight>Customize</highlight>, select <highlight>Horizontal Orientation</highlight>.</li>
+        <li>Under <highlight>Color Palette</highlight> select <b>HSV Red-Blue</b> (left-most).</li>
+        <li>Click the <highlight>Not Available</highlight> icon <img class="plain" src=NotAvailable.png> in the color palette and change its color from dark grey to white.</li>
+        <li>Click <highlight>Apply</highlight>.</li>
+
+         </ul>
+</section>
+<section>
+    <h1>Data Visualization</h1>
+    <p>The three data points are now visualized as vertical stripes, each with a gradient from blue-red for fold change. Note that for this particular graphic (heatmap with horizontal orientation), the data points are displayed in the opposite order from how they were listed in the Custom Graphics interface, so in this case from <b>left to right</b> it is showing <b>pancreatic adenocarcinoma vs normal</b>, <b>colorectal carcinoma vs normal</b> and <b>breast carcinoma vs normal</b>.</p>
+    <img class="plain" src="HeatmapCancerTypes.png" style="width:50%">
+</section>
+    
+<section>
+    <h1>Data Visualization</h1>
+    <p>To apply the same visualization to the remaining pathways, simply select each one of the pathways in the <highlight>Network Panel</highlight> and the style will be automatically applied:</p>
+    <div class="r-stack">
+  <img src="Multi4.png" width="450" >
+  <img src="Multi1.png" width="450" >
+  <img src="Multi2.png" width="450" >
+  <img src="Multi3.png" width="450" >
+  
+</div>
+    
+</section>
+
+<section>
+    <h1>Saving and Exporting Data Visualization</h1>
+    <p>Cytoscape provides a number of ways to save results and visualizations:</p>
+	<ul>
+        <li>As a session: <highlight>File &rarr; Save Session</highlight>, <highlight>File &rarr; Save Session As...</highlight></li>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight>, selecting for example <b>pdf</b> or <b>png</b> from the <highlight>Export File Format</highlight> drop-down.</li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight></li>
+	</ul>
+</section>
+    
+</section>
+                
+<section>
+
+<section>
+    <h1>Network Workflow</h1>
+    <p>In addition to importing pathway models with the original layout and visual style of the WikiPathways model, the WikiPathways App also allows import of any pathway as a network. In this workflow, we will import one of the pathways as a network, perform data visualization using the <a href="https://apps.cytoscape.org/apps/omicsvisualizer" target="_blank">Omics Visualizer</a> app, and extend the network with drug interactions using the <a href="https://apps.cytoscape.org/apps/cytargetlinker" target="_blank">CyTargetLinker</a> app.</p>
+    <ul>
+        <li>Install the <a href="http://apps.cytoscape.org/apps/omicsvisualizer" target="_blank">Omics Visualizer</a> and <a href="http://apps.cytoscape.org/apps/cytargetlinker" target="_blank">CyTargetLinker</a> apps via <highlight>Apps &rarr; App Store &rarr; Show App Store</highlight>.</li>
+        <li>Download <a href="https://cytargetlinker.github.io/pages/linksets" target="_blank">CyTargetLinker Link Sets</a>. For this workflow, we will use <b>DrugBank drug-target interactions</b>.</li>
+        <li>The link set will be downloaded as a compressed file. Unzip it and place it in new folder in your main user directory.</li>
+    </ul>  
+</section>
+    
 <section>
     <h1>Importing Pathways as Networks</h1>
-    <p>In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.</p>
+    <p>We will import one of the pathways from the previous workflow as a network:</p>
         <ul>
-             <li>Again, select <highlight>WikiPathways</highlight> in the drop-down of the <highlight>Network Search Tool</highlight> and search for <b>"cell cycle"</b> (with the quotes) and click the search icon.</li>
-             <li>In the list of results, select the <b>human</b> pathway and click <highlight>Import as Network</highlight>.</li>
-	     <li>We can now repeat the data import and style selection to create a visualization like in the previous pathway:</li>
-         </ul>
-         <img class="plain" src="CellCycleNetworkData.png" style="width:50%">
+            <li>If you are continuing from the previous workflow, make sure the session is saved and then select <highlight>File &rarr; Close Session</highlight> to start from scratch.</li>
+            <li>Using the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for "retinoblastoma" or "WP2446" and open the pathway using the <highlight>Import as Network</highlight> option.</li>
+    </ul>
+</section>
+<section>
+    <h1>Importing Pathways as Networks</h1>
+    <p>Note that the pathways now appear with the default Cytoscape layout applied, and nodes have a default round shape. Some graphical aspects of the pathway model are retained, such as node border and node label colors, and edge line types.</p>
+         <img class="plain" src="WP2446-RB.png" style="width:38%">
 
+</section>
+    
+<section>
+    <h1>Extend the Network</h1>
+    <p>Next, we will use the CyTargetLinker app to extend the network with drug-target interactions.</p>
+    <ul>
+        <li>Go to <highlIght>Apps &rarr; CyTargetLinker &rarr; Extend network</highlight>.</li>
+        <li>Under <highlight>Select User Network</highlight> choose the network you just imported.</li>
+        <li>Under <highlight>Select your network attribute</highlight> choose <b>Ensembl</b>.</li>
+        <li>Click the <highlight>Browse</highlight> button and find the directory where your link sets are stored. Select the directory (not the individual files).</li>
+        <li>Keep the default setting as <b>BOTH</b> for <highlight>Select direction</highlight>.</li>
+        <li>Click <highlight>Ok</highlight> to continue.</li>
+    </ul>
+            <img src="CyTargetLinkerInterface.png" style="width:40%">
 </section>
 
 <section>
+    <h1>Extend the Network</h1>
+    <p>A set of nodes and interactions will be added to the network, representing drugs with interactions to the existing nodes in the network. The style of the network is automatically updated to the CyTargetLinker default style, which uses purple for the drug nodes and blue for the drug-target interaction. The node label is mapped to CTL node label, so our original network nodes will have no label. We can update this so that all nodes have labels:</p>
+    <ul>
+        <li>In the <highlight>Style</highlight> panel, expand the <highlight>Node Label</highlight> mapping to see the details.</li>
+        <li>Click in the <highlight>Column</highlight> field and update the mapping from <b>CTL.Type</b> to <b>name</b>.</li>
+    </ul>
+        <img class="plain" src="CyTargetLinkerNetwork.png" style="width:46%">
+</section>
+    
+<section>
+        <h1>Data Import</h1>
+        <p>Next, we can add a data visualization to the nodes using the the Omics Visualizer app. We will use the same data as in the previous workflows.</p>
+        <ul>
+            <li>Go to <highlight>Apps &rarr; Omics Visualizer &rarr; Import data from file</highlight> and select the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>.</li>
+            <li>A new tab titled <highlight>Omics Visualizer Tables</highlight> will be avaiable in the <highlight>Table Panel </highlight>.</li>
+        </ul><br /><br />
+        <img src="OmicsVisualizerTable.png" style="width:60%">
+</section> 
+    
+<section>
+    <h1>Data Import</h1>
+    <p>Next, we need to establish the mapping between the new table and the network.</p>
+    <ul>
+        <li>Go to <highlight>Apps &rarr; Omics Visualizer &rarr; Manage table connections</highlight>.</li>
+        <li>For <highlight>Select Network Collection</highlight>, choose <b>Retinoblastoma gene in cancer - Homo sapiens</b>.</li>
+        <li>For <highlight>Select key column from Network</highlight>, choose <b>Ensembl</b>.</li>
+        <li>For <highlight>Select key column from Table</highlight>, choose <b>Gene ID</b>.</li>
+    </ul><br /><br />
+    <img src="OmicsVisualizerConnect.png" style="width:60%">
+</section>
+    
+<section>
+    <h1>Visualizing Data Using Charts</h1>
+    <p>We now have the data mapped and we are ready to add charts based on the example data. We will visualize the same three data points as in the previous workflow.</p>
+    <ul>
+        <li>Go to <highlight>Apps &rarr; Omics Visualizer &rarr; Create donut visualization</highlight>.</li>
+        <li>Under <highlight>Values</highlight> select the first data point, <b>'breast carcinoma' vs 'normal'.foldChange</b>.</li>
+        <li>Click the plus sign and add <b>'pancreatic adenocarcinoma' vs 'normal'.foldChange</b>, and repeat for <b>'colorectal carcinoma' vs 'normal'.foldChange</b>.</li>
+        <li>In the <highlight>Mapping Type</highlight> drop-down, select <highlight>Continuous Mapping</highlight>.</li>
+         <li>Leave <highlight>Mapping</highlight> as <b>Continuous</b>, and <highlight>Labels</highlight> as <b>--- NONE ---</b>. Click <highlight>Next ></highlight> to proceed.</li>
+        <li>Leave the defaults as-is, except for the <highlight>Ring is</highlight>, which should be set to <b>row</b>. Click <highlight>Draw</highlight> to continue.</li>
+    </ul>
+</section>
+    
+<section>  
+<p>The network now has a donut chart around each node, representing the three data points:</p>
+    <img class="plain" src="OmicsVisualizerDonut.png" style="width:65%">
+</section>
+    
+<section>
+    <h1>Saving and Exporting Data Visualization</h1>
+    <p>Cytoscape provides a number of ways to save results and visualizations:</p>
+	<ul>
+        <li>As a session: <highlight>File &rarr; Save Session</highlight>, <highlight>File &rarr; Save Session As...</highlight></li>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight>, selecting for example <b>pdf</b> or <b>png</b> from the <highlight>Export File Format</highlight> drop-down.</li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight></li>
+	</ul>
+</section>
+             
+</section>
+                
+<!--<section>
     <h1>Downstream Analysis Options</h1>
     <p>Whether you import pathways as networks or as pathways, there are many different downstream analysis options available in Cytoscape:</p>
 
@@ -161,17 +409,7 @@
     </ul>
 
 
-</section>
-
-<section>
-    <h1>Exporting Networks</h1>
-    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
-	<ul>
-        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
-        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
-		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
-	</ul>
-</section>
+</section>-->
 
 
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->

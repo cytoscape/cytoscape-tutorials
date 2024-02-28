@@ -1,0 +1,191 @@
+<section>
+	<h1>Proteomics</h1>
+</section>
+
+<section>
+  <h1>Why Study Proteins?</h1>
+  <ul>
+    <li>RNA Expression &ne; Protein abundance</li>
+    <li class="fragment">Allows us to study interactions
+      <ul class="fragment">
+        <li>Even at the structural level</li>
+      </ul>
+    </li>
+    <li class="fragment">Allows us to study signaling (PTMs)</li>
+    <li class="fragment" style="margin-top: 15px">However:
+      <ul>
+        <li class="fragment">It's much harder than many transcriptomics techniques</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+	<h1 style="font-size:120%">(Very) Brief Intro to Mass Spectrometry</h1>
+  <p style="text-align:left">Caveats:
+  <ul>
+    <li>I am not an expert</li>
+    <li>This is just some of the basics, there are multiple techniques, different kinds of detecters, different kinds of mass spec machines, etc.</li>
+    <li>The goal is just to provide some idea of how this works to help understand the data</li>
+  </ul>
+  </p>
+</section>
+
+<section>
+	<h1 style="font-size:120%">(Very) Brief Intro to Mass Spectrometry</h1>
+  <div>
+    <img src="modules/proteomics/MassSpec1.png" width="80%">
+  </div>
+</section>
+
+<section>
+	<h1 style="font-size:120%">(Very) Brief Intro to Mass Spectrometry</h1>
+  <div>
+    <img src="modules/proteomics/CO2-spectra.png" width="80%">
+  </div>
+</section>
+
+<section>
+	<h1 style="font-size:120%">(Very) Brief Intro to Mass Spectrometry</h1>
+  <h2 style="font-size:80%">Tandem Mass Spectrometry (MS/MS)</h2>
+  <p style="text-align: left; font-size:80%">When dealing with proteins or lots of peptides, the m/z ratios might be too close to distinguish.  Tandem Mass Spectrometry addresses that by
+  adding an additional fragmentation step</p>
+  <div>
+    <img class="fragment" src="modules/proteomics/MS_MS.png" width="80%">
+  </div>
+</section>
+
+<section>
+	<h1 style="font-size:120%">(Very) Brief Intro to Mass Spectrometry</h1>
+  <div>
+    <img src="modules/proteomics/3typesofproteomics.png" width="80%">
+  </div>
+</section>
+
+<section>
+	<h1 style="font-size:120%">(Very) Brief Intro to Mass Spectrometry</h1>
+  <p style="text-align: left;font-size:80%">How do we get from spectra to peptide?</p>
+  <div>
+    <img src="modules/proteomics/peptide-identification.png" width="80%">
+  </div>
+  <p style="text-align: left;font-size:80%">Possible problem: peptides might not uniquely identify a single protein.</p>
+</section>
+
+<section>
+	<h1 style="font-size:120%">(Very) Brief Intro to Mass Spectrometry</h1>
+  <h2 style="font-size:80%">Protein Groups</h2>
+  <p style="text-align: left;font-size:80%">Protein groups are proteins that share all their peptides with other proteins cannot be unambiguously identified.</p>
+  <ul style="font-size:80%">
+    <li>Will be reported as a semicolon-separated list.</li>
+    <li>Typically, people just choose the first, which <i>could</i> be misleading</li>
+    <li>Ideally, you may want to consider choosing all of them.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Understanding Proteomics Results</h1>
+</section>
+
+<section>
+  <h1 style="font-size:120%">Understanding Proteomics Results</h1>
+  <p>Overview of analytical pipeline</p>
+  <div>
+    <img src="modules/proteomics/pipeline.jpg" >
+  </div>
+  <a style="font-size: large;" href="https://doi.org/10.3389/fmed.2021.747333">https://doi.org/10.3389/fmed.2021.747333</a>
+</section>
+
+<section>
+  <h1 style="font-size:120%">Understanding Proteomics Results</h1>
+  <p>Example dataset after identification and quantitation</p>
+  <div>
+    <img src="modules/proteomics/spreadsheet.png" title="add image here" >
+  </div>
+</section>
+
+<section>
+  <h1 style="font-size:120%">Understanding Proteomics Results</h1>
+  <h2 style="font-size:80%">MaxQuant proteinGroups.txt</h2>
+  <div>
+    <img src="modules/proteomics/ProteinGroups.png" width="80%">
+  </div>
+</section>
+
+<section>
+  <h1 style="font-size:120%">Understanding Proteomics Results</h1>
+  <h2 style="font-size:80%">MaxQuant Columns</h2>
+  <p style="text-align:left; font-size: 80%">The most important columns that every proteinGroups.txt file contains are:
+
+  <ul style="font-size:50%">
+    <li><b>Protein IDs</b>: a semicolon delimited text listing all protein identifiers that match an identified set of peptides. Most of the time this is just a single protein, but sometimes proteins are so similar to each other because of gene duplication that it was not possible to distinguish them.</li>
+
+    <li><b>Majority protein IDs</b>: a semicolon delimited text that lists all proteins from the Protein IDs column which had more than half of their peptides identified.</li>
+
+    <li><b>Identification type [SAMPLENAME]</b>: For each sample there is one column that explains how the peptide peaks where identified. Either they were directly sequenced by the MS2 (“By MS/MS”) or by matching the m/z peak and elution timing across samples (“By matching”).</li>
+
+    <li><b>Intensity [SAMPLENAME]</b>: The combined intensity of the peptides of the protein. Missing or non-identified proteins are simply stored as 0. In a label-free experiment, this is also often called LFQ Intensity [SAMPLENAME].</li>
+
+    <li><b>iBAQ [SAMPLENAME]</b>: iBAQ is short for intensity-based absolute quantification. It is an attempt to make intensity values comparable across proteins. Usually the intensity values are only relative, which means that they are only comparable within one protein. This is because differences in ionization and detection efficiency. It is usually better to just compare the Intensity columns to identify differentially abundant proteins.</li>
+
+    <li><b>Only identified by site</b>: Contains a “+” if the protein was only identified by a modification site.</li>
+
+    <li><b>Reverse</b>: Contains a “+” if the protein matches the reversed part of the decoy database.</li>
+
+    <li><b>Contaminant</b>: Contains a “+” if the protein is a commonly occurring contaminant.</li>
+  </ul>
+
+  <p style="text-align:left; font-size: 80%">The last three columns are commonly used to filter out false positive hits.</p>
+</section>
+
+<section>
+  <h1 style="font-size:120%">Analyzing Proteomics Data</h1>
+  <p>R packages for proteomics analysis</p>
+  <ul>
+    <li><a href="https://bioconductor.org/packages/devel/BiocViews.html#___MassSpectrometry">MS packages at Bioconductor</a></li> 
+    <li><a href="https://bioconductor.org/packages/devel/BiocViews.html#___Proteomics">Proteomics packages at Bioconductor</a></li> 
+    <li><a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-023-05360-7">tidyproteomics</a> - an open-source R package and data object for quantitative proteomics post analysis and visualization</li> 
+    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10010602/">promor</a> - a comprehensive R package for label-free proteomics data analysis and predictive modeling</li> 
+    <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10088014/">prolfqua</a> - a Comprehensive R-Package for Proteomics Differential Expression Analysis</li> 
+  </ul>
+</section>
+
+<section>
+  <h2>Analyzing PTM Data</h1>
+    <p>Peptide identification must account for the masses of potential post-translational modifications (PTMs)</p>
+    <div>
+      <img src="modules/proteomics/ptm-spectra.png" >
+    </div>
+    <ul>
+      <li><a href="https://bioconductor.org/packages/devel/bioc/html/MSstatsPTM.html">MSstatsPTM</a> - Statistical Characterization of Post-translational Modifications</li> 
+    </ul>
+  </section>
+
+<section>
+  <h2>Analyzing AP/MS or BioID Data</h1>
+	<p>AP/MS and BioID results are a list of interactions</p>
+    <div>
+      <img src="modules/proteomics/ap-ms.png" width="70%">
+    </div>
+  <a style="font-size: large;" href="https://doi.org/10.1038/nature10719">https://doi.org/10.1038/nature10719</a>
+</section>
+
+<section>
+  <h1 style="font-size:120%">Proteomics</h1>
+  <p style="text-align:left">Resources for learning more:
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=hvKbAoKkSM8">Georgia Tech Video on Fundamentals of Mass Spectrometry</a></li>
+    <li><a href="https://www.khanacademy.org/science/ap-chemistry-beta/x2eef969c74e0d802:atomic-structure-and-properties/x2eef969c74e0d802:mass-spectrometry-of-elements/v/mass-spectrometry">Kahn Academy Video on Mass Spectrometry</a></li>
+    <li><a href="https://masspec.scripps.edu/learn/ms/">Scripps Center for Metabolimics</a>.  A more thorough discussion of current techniques.</li>
+    <li><a href="https://chem.libretexts.org/Bookshelves/Organic_Chemistry/Supplemental_Modules_(Organic_Chemistry)/Spectroscopy/Mass_Spectrometry">LibreTexts Chemistry Chapter</a>.  Another pretty thorough discussion.</li>
+    <li><a href="https://www.youtube.com/watch?v=wx4F6kGy1Fs">Simple overview of proteomics from Lars Juhl Jensen</a></li>
+    <li><a href="https://www.youtube.com/watch?v=ZgwNWRul98o">More detailed presentation of proteomics from Lennart Martens</a></li>
+    <li><a href="https://www.youtube.com/watch?v=2BDYcoVB45U&t=1s">EMBL-EBI Training presentation on proteomics</a></li>
+  </ul>
+</section>
+
+
+<section>
+	<h1>Questions?</h1>
+</section>
+      
+

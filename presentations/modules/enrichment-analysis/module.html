@@ -1,0 +1,286 @@
+<section>
+  <h1>ART (Avoid Redundant Teaching)</h1>
+  <ul>
+    <li class="fragment">Raise your hand if you are familiar with enrichment analysis.</li>
+    <li class="fragment">Raise your hand if you can tell me the difference between over-representation analysis (simple lists) vs. ranked list analysis.</li>
+    <li class="fragment">Raise your hand if you can explain why it's important to do multiple test correction.</li>
+    <li class="fragment">Raise your hand if you can explain the importance of choosing the right background.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Slide credit</h1>
+  <p style="text-align: left">This is an abstracted and slightly reoganized version of the excellent talk by Veronique Voisin at a Canadian Bioinformatics Workshop in 2020.  The original slides are here: 
+  <a href="https://baderlab.github.io/CBW_Pathways_2020/lectures/Pathways_2020_Module2_ORA_veronique.pdf">https://baderlab.github.io/CBW_Pathways_2020/lectures/</a>
+</section>
+
+<section>
+  <h1>Goal of Enrichment Analysis</h1>
+  <p style="text-align: left">Enrichment (or over-presentation) analysis is a way to summarize items into ontologies (lists of terms) to support
+  interpretation of the data.  Most typically, in a biological context, we think of our items as genes and our lists of terms as pathways or
+  GO terms.</p>
+
+<aside class="notes" data-markdown>
+</aside>
+</section>
+
+<section>
+  <h1>Goal of Enrichment Analysis</h1>
+  <img class="plain" src="modules/enrichment-analysis/ORA.png">
+</section>
+
+<section>
+  <h1>Goal of Enrichment Analysis</h1>
+  <p style="text-align: left">Enrichment analysis calculates the overlap between our list of items (e.g. genes) and terms in an ontology (e.g. pathways).</p>
+  <img class="plain" src="modules/enrichment-analysis/overlap.png" height=600px>
+</section>
+
+<section>
+  <h1>Two Types of Enrichment Analysis</h1>
+  <ul style="font-size: 80%">
+    <li><highlight>Over-Representation Analysis (ORA)</highlight> (e.g. all genes with expression change greater than 2-fold)
+      <ul>
+        <li>Answers the question: <b>Are any terms in our ontology or term list surprisingly enriched (or depleted) in my list of items?</b></li>
+        <li>Statistical test: Fisher's Exact Test (aka Hypergeometric test)</li>
+      </ul>
+    </li>
+    <li><highlight>Ranked item list</highlight> (e.g. by differential expression)
+      <ul>
+        <li>Answers the question: <b>Are any terms in our ontology or term list ranked surprisingly high or low in my ranked list of items?</b></li>
+        <li>Statistical test: GSEA, Wilcoxon rank sum test (and others)</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1>Enrichment of Classes (ORA)</h1>
+  <ul style="font-size: 80%">
+    <li>Given:
+      <ol>
+        <li><span style="color: magenta">Gene list</span>: e.g. RRP6, MRD1, RRP7, RRP43, RRP42 (yeast)</li>
+        <li><span style="color: blue">Gene sets (pathways)</span> or annotations: e.g. The Gene Ontology, transcription factor binding sites in promoter, KEGG pathways, etc.</li>
+      </ol>
+    </li>
+    <li>Question: <b><i>Are any of the <span style="color: blue">gene sets</span> (pathways) <span style="text-decoration: underline">suprisingly</span> enriched in the <span style="color: magenta">gene list</span>?</i></b></li>
+    <li>Details:
+      <ul>
+        <li>Where do the <b>gene lists</b> come from?</li>
+        <li>How to assess "suprisingly" (statistics)</li>
+        <li>How to correct for repeating the tests</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1>Fisher's Exact Test</h1>
+  <img class="plain" src="modules/enrichment-analysis/FishersExact-1.png">
+</section>
+
+<section>
+  <h1>Fisher's Exact Test</h1>
+  <img class="plain" src="modules/enrichment-analysis/FishersExact-2.png">
+</section>
+
+<section>
+  <h1>Fisher's Exact Test</h1>
+  <img class="plain" src="modules/enrichment-analysis/FishersExact-3.png">
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h4>Example of a <highlight>ranked list</highlight> enrichment test</h4>
+  <img class="plain" src="modules/enrichment-analysis/ranked.png">
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h4>Gene Set Enrichment Analysis (GSEA)</h4>
+  <ul>
+    <li>In their original paper, Mootha et al (2003) studied diabetes
+and identified that their gene list was significantly enriched in a
+pathway called “oxidative phosphorylation”.</li>
+    <li>The particularity of this finding was that individual genes in this
+pathway were only down-regulated by a small amount but the
+addition of all these subtle decreases had a great impact on the
+pathway.</li>
+    <li>They validated their finding experimentally.</li>
+  </ul>
+  <p style="font-size: 50%; text-align: left; margin-top: 40px"><a href="http://www.people.vcu.edu/~mreimers/HTDA/Mootha%20-%20GSEA.pdf">http://www.people.vcu.edu/~mreimers/HTDA/Mootha%20-%20GSEA.pdf</a></p>
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h4>GSEA score calculation</h4>
+  <img class="plain" style="width: 80%" src="modules/enrichment-analysis/gsea-1.png">
+  <ol style="font-size: 60%">
+    <li>Maximum (or minimum) ES score is the final <b>ES score</b> for the gene set</li>
+    <li>Can define “leading edge subset” as all those genes ranked as least as
+      high as the enriched set.</li>
+  </ol>
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h4>GSEA running sum</h4>
+  <img class="plain" style="width: 80%" src="modules/enrichment-analysis/gsea-2.png">
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h4>Positive and negative enrichment scores</h4>
+  <img class="plain" src="modules/enrichment-analysis/gsea-3.png">
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h4>Going from ES score &rarr; P-value</h4>
+  <ol style="font-size: 80%">
+    <li>Generate null-hypothesis distribution from randomized
+      data (see permutation settings)</li>
+    <li>Estimate empirical p-value by comparing observed ES
+score to null-hypothesis distribution from randomized
+data (for every gene-set)</li>
+  </ol>
+  <img class="plain" src="modules/enrichment-analysis/gsea-4.png">
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h4>Other enrichment tests for a ranked list</h4>
+  <h5><highlight>Wilcoxon ranksum test<highlight></h5>
+  <ul style="font-size: 80%">
+    <li>A nonparametric analog to the unpaired t test</li>
+    <li>Used to compare central tendency, i.e. the locations of two independent samples selected from two populations</li>
+    <li>Data must be taken from a continuous scale and represent at least ordinal measurement.</li>
+    <li>General approach:
+      <ol>
+        <li>Rank the samples, for tied rank, find the average</li>
+        <li>Sum the ranks for each sample</li>
+        <li>Use the test statistics (<highlight>U</highlight> value) to find the p-value</li>
+        <li>Compare the p-value to the chosen alpha level</li>
+      </ol>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h4>Other enrichment tests for a ranked list</h4>
+  <h5><highlight>Wilcoxon ranksum test<highlight></h5>
+  <p style="font-size: 70%;text-align: left">Consider the following example of a new asthma drug.  Participants are asked to record the number of episodes of shortness of breach over a 1 week period
+  following receipt of the treatment.</p>
+  <img class="plain" src="modules/enrichment-analysis/wilcoxon-table.png">
+</section>
+
+<section>
+  <h1>Enrichment of ranked lists</h1>
+  <h5><highlight>Wilcoxon ranksum test<highlight></h5>
+  <p style="text-align: left; font-size: 80%">The <highlight>U</highlight> statistic is calculated as the smaller of U<sub>1</sub> and U<sub>2</sub> as defined below:</p>
+  <img class="plain" src="modules/enrichment-analysis/u-1.png">
+  <p style="font-size: 60%">where R<sub>1</sub> = sum of the ranks for group 1 and R<sub>2</sub> = sum of the ranks for group 2.</p>
+  <p style="text-align: left; font-size: 80%">For this example,</p>
+  <img class="plain" src="modules/enrichment-analysis/u-2.png">
+  <p style="text-align: left; font-size: 70%">To determine if we can reject the hypothesis that the two populations are equal, we determine the critical value of <highlight>U</highlight>, which
+  in this case is 2.  Therefore, we can not reject the hypothesis that the two populations are equal.</p>
+</section>
+
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>How to win the p-value lottery</h4>
+  <img class="plain" src="modules/enrichment-analysis/lottery.png">
+</section>
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>Simple P-value correction: Bonferroni</h4>
+  <img class="plain" src="modules/enrichment-analysis/bonferroni.png">
+</section>
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>Bonferroni correction caveats</h4>
+  <ul>
+    <li><highlight>Bonferroni correction</highlight> is very stringent and can lead to false negatives,</li>
+    <li>An alternative, less stringent correction is the <highlight>false discovery rate (FDR)</highlight></li>
+  </ul>
+</section>
+
+<!--section>
+	<h1 style="font-size: 85%">Aside: Adjusted p-value, FDR, q-value (oh my!)</h1>
+	<p style="text-align: left; font-size: 80%">In my searching of the literature, FDR and q-value are used interchangably, yet
+	R packages <code>p.adjust()</code> and q-value are different.  Consider the following statement from an 
+	<a href="https://paasp.net/the-false-discovery-rate-fdr-an-important-statistical-concept/">article</a>
+	in PAASP (Partnership for Assessment and Accreditation of Scientific Practice):
+	<blockquote style="font-size: 80%">In 1995, Benjamini and Hochberg introduced the concept of the False Discovery Rate (FDR) 
+	as a way to allow inference when many tests are being conducted. The FDR is the ratio of the number 
+	of false positive results to the number of total positive test results: a p-value of 0.05 implies 
+	that 5% of all tests will result in false positives. An <highlight>FDR-adjusted p-value (also called 
+	q-value)</highlight> of 0.05 indicates that 5% of significant tests will result in false positives. 
+	In other words, an FDR of 5% means that, among all results called significant, only 5% of these are truly null.</blockquote>
+</section>
+
+<section>
+	<h1 style="font-size: 85%">Aside: Adjusted p-value, FDR, q-value (oh my!)</h1>
+	<p style="text-align: left; font-size: 80%">I tried to figure out why there is so much confusion between FDR and q-value and why
+	these are often used interchangeably.  I finally found this
+	<a href="https://support.bioconductor.org/p/49864/">BioConductor post</a> that provided some history.</p>
+	<p style="text-align: left; font-size: 80%">So, FDR could be calculated using Benjamini-Hochberg R <code>p.adjust(p, method="BH")</code>
+	<i>or</i> R's <code>qvalue</code>.  Unfortunately, either one might be reported as "q-value" (although incorrectly) due
+	to incomplete understanding of the history. The original source of this slide set convoluted FDR as calculated by
+	Benjamini-Hochberg and the q-Value as proposed by <a href="http://genomics.princeton.edu/storeylab/papers/directfdr.pdf">John Storey in 2002.</a></p>
+</section-->
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>False discovery rate (FDR)</h4>
+  <ul>
+    <li><highlight>FDR</highlight> is <i>the expected <b>proportion</b> of the observed enrichments due to random chance.</i></li>
+    <li>Compare to <highlight>Bonferroni correction</highlight> which is a bound on <i>the probability that <b>any one</b> of the observed
+        enrichments could be due to random chance.</i></li>
+    <li>Typically <highlight>FDR</highlight> corrections are calculated using the <highlight>Benjamini-Hochberg</highlight> procedure.</li>
+		<li><highlight>FDR</highlight> threshold is often <i>incorrectly</i> called the <highlight>q-value</highlight></li>
+  </ul>
+	<aside class="notes" data-markdown>
+	Another way to look at the difference is that a p-value of 0.05 implies that 5% of all tests will result in false positives. An FDR adjusted p-value of 0.05 implies that 5% of significant tests will result in false positives. The latter will result in fewer false positives.
+	</aside>
+</section>
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>False discovery rate (FDR)</h4>
+  <ol style="font-size: 80%">
+    <li><b>Sort P-values</b> of all tests in increasing order</li>
+    <li style="margin-top:20px"><b>Adjusted P-value</b> is "nominal" P-value times # of tests divided by the rank of the P-value in the sorted list: <b>P-value X [# of tests]/Rank</b></li>
+    <li style="margin-top:20px"><b>Q-value</b> (or FDR) corresponding to a nominal P-value <b>is the smallest adjusted P-value</b> assigned to P-values <b>with the same or larger ranges</b>.</li>
+    <li style="margin-top:20px">Look at which gene-sets have a <b>FDR of 0.05 or less</b> and report them as <b>significantly enriched</b>.</li>
+  </ol>
+</section>
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>Benjamini-Hochberg example</h4>
+  <img class="plain" style="width: 80%" src="modules/enrichment-analysis/benjamini-hochberg.png">
+</section>
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>How to win the p-value lottery, part 2</h4>
+  <img class="plain" style="width: 80%" src="modules/enrichment-analysis/lottery-2.png">
+  <div style="background-color:white;position:absolute;top:710px;left:290px"><p style="font-size:0.62em"><a href="https://www.youtube.com/watch?v=K8LQSvtjcEo">https://www.youtube.com/watch?v=K8LQSvtjcEo</a></p></div>
+
+</section>
+
+<section>
+  <h1>Importance of background</h1>
+  <p style="text-align: left; font-size: 80%">The background represents the items (genes, proteins, etc.) that could have been captured in your experiment.  For example, a proteomics
+  experiment might be tissue-specific, or target only kinases.  In this case, a full-genome background would lead to meaningless results.</p>
+  <img class="plain" src="modules/enrichment-analysis/background.png" height=500px>
+
+</section>
+
+<section>
+  <h1>Questions?</h1>
+</section>

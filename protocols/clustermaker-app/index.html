@@ -1,0 +1,374 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>clusterMaker App</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section id='title'>
+    <h1>clusterMaker App</h1>
+    <p><a href="https://apps.cytoscape.org/apps/clustermaker2" target="_blank">clusterMaker</a> is an app that provides the functionalities needed for clustering, dimensionality reduction and ranking. The clusterMaker app for Cytoscape is available from the <a href="https://apps.cytoscape.org/apps/clustermaker2" target="_blank">App Store</a>.</p>
+     <br />
+    <p>This tutorial will demonstrate how the various algorithms can be used together to explore a data set and how to integrate it with other Cytoscape apps and capabilities.
+    <br />
+    This workflow uses two types of data; protein-protein interaction data from the STRING database, and expression data from a yeast heat shock experiment. We will combine these two data types in Cytoscape.</p>
+    <br />
+<div class="footer" style="bottom: -3em;">
+    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>
+
+</section>
+
+<section id='setup'>
+        <h1>Setup</h1>
+        <ul>
+            <li>Install and launch the latest version of <a href="http://www.cytoscape.org/">Cytoscape</a>.</li>
+            <li>Install the <b>clusterMaker 2 app</b> via <highlight>Apps &rarr; App Store ...</highlight> or directly from the <a href="https://apps.cytoscape.org/apps/clustermaker2" target="_blank">App Store</a>.</li>
+            <li>Install the <b>stringApp</b> via <highlight>Apps &rarr; App Manager</highlight> or directly from the <a href="http://apps.cytoscape.org/apps/stringApp" target="_blank">App Store</a>.</li>
+            <li>Install the <a href="https://apps.cytoscape.org/apps/largestsubnetwork" target="_blank">Largest Subnetwork App</a> from the Cytoscape App Store, or using the <highlight>Cytoscape App Manager</highlight>.</li>
+            <li>Download the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GPL51filt.txt">matrix data</a> for the yeast heat shock experiment.</li>
+	</ul>
+
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+
+<section id='import network 1'>
+         <h1>Importing the PPI network</h1>
+         <ul>
+             <li>Launch Cytoscape, and go to <highlight>Import &rarr; Network from Public Databases...</highlight>.</li>
+             <li>Select <b>STRING: protein query</b> in the <highlight>Data source</highlight> menu, and select <b>Saccharomyces cerevisiae</b> from the <b>Species</b> list. </li>
+             <li>Select <highlight>All proteins of this species</highlight>.</li>
+             <li>Select the option for <highlight>physical subnetwork</highlight> and set the <highlight>Confidence (score) cutoff</highlight> to <b>0.50</b>.</li>
+             <li>Click <highlight>Import</highlight> to load. The network might take some time to load as it is large.</li> 
+             <li>Finally, lets continue our analysis with only the largest connected subnetwork by clicking <highlight>Select &rarr; Nodes &rarr; Largest subnetwork</highlight>. Next, select <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
+         </ul>
+         <img src="ImportDataString.png" style="width:45%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='import network 2'>
+        <h1>Importing the PPI network</h1>
+        <p>The network should look like similar to this: </p>
+             <img src="YeastStringNetwork.png" style="width:50%">
+</section>
+            
+
+<section id='import data'>
+    <h1>Importing the Expression Data</h1>
+    <ul>
+         <li>Select <highlight>File &rarr; Import &rarr; Table from File</highlight> and select the text file with the matrix data.</li>
+				 <li>Set <highlight>Where to Import Table Data:</highlight> to <b>To a Network Collection</b></li>
+         <li>Set <highlight>Import Data as:</highlight> to <b>Node Table Columns</b>.</li>
+         <li>Set the <highlight>Key column for the network</highlight> to <b>display name</b>.</li>
+         <li>In the <highlight>Preview</highlight>, click on the <b>Gene symbol</b> column header and then click the key symbol, to assign this column as the key column for the data.</li>
+         <li>Under <highlight>Advanced Options</highlight>, set the delimiter to <b>Tab</b> and turn off <b>COMMA</b>.</li>
+         <li>Click <highlight>OK</highlight> to import.</li>
+        </ul>
+    <p>Now we have a protein-protein interaction network where each of the proteins are annotated with the 5 minute (GPL51-01), 10 minute (GPL51-02), 15 minute (GPL51-03), 20 minute (repeat) (GPL51-05), 40 minute (GPL51-06), 60 minute (GPL51-07), and 80 minute (GPL51-08) heat shock expression fold changes.</p>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+
+<section id='cluster leiden 1'>
+    <h1>Clustering the PPI Network</h1>
+         <p>Our network is too dense for easy interpretation, so the next step is to break the network up into clusters representing tightly connected groups of proteins such as complexes. We will use <a href="https://www.nature.com/articles/s41598-019-41695-z" target="_blank">Leiden clustering</a> to do this.</p>
+        <ul>
+            <li>Select <highlight>Apps &rarr; clusterMaker Cluster Network &rarr; Leiden Clusterer (remote)</highlight> to bring up the Leiden cluster options.</li>
+            <li>Set the <highlight>Resolution parameter</highlight> to <b>0.5</b> and <highlight>Number of iterations</highlight> to <b>30</b>.</li>
+            <li>In the <highlight>Source for array data</highlight> section, select <b>stringdb::score</b> as the <highlight>Attribute</highlight>. This is the edge confidence score assigned by STRING.</li>
+            <li>Select <highlight>Create new clustered network</highlight> and click <highlight>OK</highlight>.</li>
+    </ul>
+         
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+         </section>
+
+<section id='cluster leiden 2'>
+    <h1>Clustering the PPI Network</h1>
+         <p>The resulting network should look similar to this. Note that we have disabled the <highlight>Glass ball effect</highlight> and <highlight>STRING style labels</highlight> in the STRING results panel at the right.</p>
+         <img src="LeidenCluster.png" style="width:39%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='cluster leiden 3'>
+    <h1>Exploring Leiden Clusters</h1>
+    <p>We can explore some of the clusters to confirm that Leiden has done a reasonable job. To do this, we will run functional enrichment analysis on the individual clusters.</p>
+    <ul>
+        <li>Select the first 5 clusters iteratively (top left) by click and drag, then select <highlight>Functional enrichment</highlight> for each one in the STRING results panel at the right.</li>
+        <li>Select <b>genome</b> for <highlight>Network to be used as background</highlight> and click <highlight>OK</highlight> to continue.</li>
+        <li>The results will open in the <highlight>STRING Enrichment</highlight> table, sorted by FDR value.</li>
+    <p>You will notice that the top 4 clusters represent the ribosome, mitochondrial ribosome, preribosome, and large subunit of the preribosome,  respectively. Based on this, we can assume that Leiden clustering worked reasonably well.</p>
+    </ul>
+                
+                
+</section>
+
+<section>
+	<h1>Simplifying the Network</h1>
+	<p style="text-align:left">Now that we've clustered our network, there are a number of nodes that are not part of any cluster (singletons).  By default, these are hidden, but before we do our analysis, we want to remove them.  The easiest way to do that is to simply select all of our clusters, and create a new network with only those nodes:
+	<ul>
+		<li>In the right-hand STRING results panel, select the <b>Singletons</b> button to show all of the singletons</li>
+		<li>Now drag-select all of the nodes that are part of the clusters</li>
+		<li>Create a new network with <b>File&rarr;New Network&rarr;From selected nodes; all edges</b></li>
+	</ul>
+	<p style="text-align:left">NOTE: we could do the same thing by selecting all of the singletons and deleting them, but this allows us to go back to the original clustered network if we desire</p>
+</section>
+
+<section>
+	<h1>Focus on nodes that have fold change data</h1>
+	<img src="Filter.png" style="float:right; width: 30%">
+	<div style="width: 60%">
+	<p style="text-align:left">Several of the nodes don't have any fold change data, but might be important to understand the biological
+	context of the cluster.  For some of the steps we're going to do below, we only want to look at nodes that show differential expression under heat stress.  We can easily build a filter that selects all nodes where at least one expression value <i>is not</i> 0.
+	</p>
+	</div>
+</section>
+
+<section id='cluster hierarchical 1'>
+    <h1>Hierarchical Clustering of Expression Data</h1>
+         <p>A classical analysis of an expression data set would involve performing a hierarchical clustering of the data and viewing it using a heatmap with associated dendrogram. We can do this using clusterMaker2 using the <highlight>Cluster Attributes</highlight> feature.</p>
+        <ul>
+            <li>Select <highlight>Apps &rarr; clusterMaker Cluster Attributes &rarr; Hierarchical cluster</highlight>.</li>
+            <li>Select all of the heat shock columns (5 min, 10 min, 15 min, 20 min repeat, 40 min, 60 min, and 80 min).</li>
+						<li>Select <highlight>Only use selected nodes/edges for cluster</highlight>.</li>
+            <li>Select <highlight>Show TreeView when complete</highlight> and click <highlight>OK</highlight>.</li>
+        </ul>
+         
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+
+<section id='cluster hierarchical 2'>
+         <h1>Hierarchical Clustering of Expression Data</h1>
+         <img src="Treeview.png" style="width:10%; float: right">
+				 <div style="width: 75%">
+         <p style="text-align: left">A heat map with the associated dendrogram will open when the clustering is complete.</p>
+				 </div>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+
+<section id='coloring 1'>
+    <h1>Coloring the PPI Network</h1>
+    <p>To help understand the biological significance of these transcriptional changes at the protein level, we would like to find a mapping from our hierarchical clustering onto the proteins in our PPI network. This could be useful, for example, to see if any particular complexes are particularly affected by transcriptional changes. There are two ways of doing this:</p>
+    <ul>
+        <li>In TreeView, select <highlight>Map Colors Onto Network...</highlight>.</li>
+        <li>Select all attributes in the <highlight>Attribute List</highlight>, making sure they are in the correct order, and click <highlight>Create HeatStrips</highlight>.</li>
+    </ul>
+    <p>This will add bar charts showing the expression fold changes at the various timepoints on the nodes. Unfortunately, this is extremely hard to see when looking at the entire network.</p>
+    <img src="HeatStrips.png" style="width:40%">
+</section>
+                
+<section id='coloring 2'>
+    <h1>Coloring the PPI Network</h1>
+    <p>The second way to color the network is to use the information from the hierarchical clustering to create a new attribute representing the overall change of a gene, and then use this for coloring. We will use the ability to select branches of the dendrogram to select the corresponding nodes in the network.  Here is how you would go about doing this (but don't do it):</p>
+    <ul style="font-size: 80%">
+        <li>In the <highlight>Node Table</highlight>, click the <highlight>Create New Column...</highlight> button and select <highlight>New Single Column &rarr; Integer</highlight>. Name the new column <b>Colors</b>.</li>
+        <li>In TreeView, start by assessing the whole tree to find the most intensily colored yellow (up-regulated) section.</li>
+        <li>By clicking and dragging in the heat map, select the most intensily colored yellow part.</li>
+        <li>In the <highlight>Node Table</highlight>, enter the number <b>10</b> in the top cell of the <b>Colors</b> column. Next, right-click on the cell and select <highlight>Apply to selected nodes</highlight>.</li>
+        <li>Repeat this process with the rest of the up-regulated section of the tree, adjusting the number entered to reflect the degree of up-regulation, with 10 being the highest.</li>
+        <li>Repeat the same process againwith the down-regulated section of the tree, this time entering numbers from <b>-1</b> to <b>-10</b>.</li>
+    </ul>
+		<p style="text-align: left">
+		Instead, download the <a href="https://github.com/cytoscape/cytoscape-tutorials/raw/gh-pages/protocols/data/Color_column.csv">Colors data</a> and import it into your network.</p>
+</section>
+
+<section id='coloring 3'>
+    <h1>Coloring the PPI Network</h1>
+    <p>Now that we have a new column with values reflecting the degree of regulation, we can use this to create a style mapping:</p>
+    <ul>
+    <li>In the <highlight>Style</highlight> panel, remove the existing mapping for <highlight>Node Fill Color</highlight> (from STRING), and add a new continuous mapping for the <highlight>Colors</highlight> column, using the standard <b>Red-Blue</b> palette ColorBrewer palette.</li>
+    </ul>
+    <p>The nodes with data will now be colored based on their overall regulation:</p>
+                
+    <img src="ColorFinal.png" style="width:45%">
+</section>
+                
+<section id='umap 1'>
+    <h1>UMAP analysis of Expression Data</h1>
+    <p>We will now look at the same heat shock expression data used for the hierarchical cluster, but this time using the <a href="https://doi.org/10.48550/arXiv.1802.03426" target="_blank">Uniform Manifold Approximation and Projection (UMAP)</a> approach to explore a 2D embedding of this multidimensional data.</p>
+    <ul>
+        <li>Select all nodes with a <highlight>Color</highlight> value not equal to 0 using the <highlight>Filter</highlight> interface. (or use your previously constructed filter)</li>
+        <li>Select <highlight>Apps &rarr; clusterMaker Dimensionality Reduction &rarr; UMAP (remote)</highlight>.</li>
+        <li>Select all six of the heat shock columns and set the <highlight>Number of neighbors</highlight> to <b>20</b> and the <highlight>Minimum distance</highlight> to <b>0.5</b>. Check the <highlight>Only use data from selected nodes</highlight> option.</li>
+        <li>Select <highlight>Show scatter plot with results</highlight> and click <highlight>OK</highlight>.</li>
+        
+    </ul>
+</section>
+
+<section id='umap 2'>
+    <h1>UMAP analysis of Expression Data</h1>
+    <p>Once the UMAP scatter plot comes up, click on <highlight>Get Colors</highlight> to apply the red-blue coloring from the nodes to the UMAP.</p>
+
+    <img src="umap_scatter.png" style="width:50%">
+</section>
+                
+<section id='umap 3'>
+    <h1>UMAP analysis of Expression Data</h1>
+    <ul>
+    <li>In the scatter plot, highlight the red group in the middle.</li> 
+    <li>In the stringApp interface in the <highlight>Results Panel</highlight>, select <highlight>Functional enrichment</highlight>. Leave the defaults as-is.</li>
+    <li>Filter the results for <b>GO Biological Process</b>. The results indicates significant enrichment for protein folding.</li>
+    </ul>
+    <img src="umap_scatter_group.png" style="width:50%">
+                
+</section>
+                
+<section id='fuzzy cluster 1'>
+    <h1>Fuzzy Clustering</h1>
+    <p>Fuzzy clustering can help us understand the relationships between clusters, and help find instances where proteins are shared between clusters. To apply fuzzy clustering, we must start with the fully connected network, but to facilitate interpretation of the results, we will select the nodes from several clusters that are of interest – for example, clusters with high ranking or that show consistently high over-expression or under-expression, rather than the whole network.</p>
+    <ul>
+        <li>Select <highlight>Apps &rarr; clusterMaker Visualizations &rarr; Link selection accross networks</highlight>.</li>
+        <li>Next, go to the clustered network. By using click and drag, select all nodes in clusters containing many over-expressed genes. Hold down the <b>Shift</b> key to select more than one cluster.</li>
+        <li>The corresponding nodes will now be selected in the original network.</li>
+    </ul>
+</section>
+                
+<section id='fuzzy cluster 2'>
+    <h1>Fuzzy Clustering</h1>
+    <ul>
+        <li>In the original network, with the nodes selected, choose <highlight>Apps &rarr; clusterMaker Cluster Network &rarr; Cluster Fuzzifier</highlight></li>
+        <li>Chose <b>stringdb::score</b> as the <highlight>Array Source</highlight>, and <b>1/value</b> as the <highlight>Edge weight conversion</highlight> (to convert it to a distance). Also check <highlight>Cluster only selected nodes</highlight> and <highlight>Create new clustered network</highlight> to see the result.</li>
+        <li>Click <highlight>OK</highlight> to continue.</li>
+    </ul>
+    
+</section>
+                
+<section id='fuzzy cluster 3'>
+    <h1>Fuzzy Clustering</h1>
+    <ul>
+        <li>To show the relationships between clusters, apply a force-directed layout using the score as an edge weight......</li>
+    
+    </ul>
+    
+</section>
+                
+<section id='cluster ranking 1'>
+    <h1>Cluster Ranking</h1>
+    <p>The goal of ranking  is to order the clusters based on some criteria (typically node attributes) to determine the most relevant or important clusters.</p>
+    <ul>
+        <li>Go back to the clustered network. Click anywhere in the network view window to remove the selection.</li>
+        <li>Go to <highlight>Apps &rarr; clusterMaker Ranking &rarr; Create rank from multiple nodes and edges (additive sum)</highlight>.</li>
+        <li>Choose the same node attributes (GPL51-01 – GPL51-08) and select <b>Basic</b> normalization, but <b>Only positive values</b> for the <highlight>Two-tailed values normalization</highlight>.</li>
+    </ul>
+    
+</section>
+                
+<section id='cluster ranking 2'>
+    <h1>Cluster Ranking</h1>
+    <p>The ranking panel can be opened from <highlight>Apps &rarr; clusterMaker Visualizations &rarr; Show results from ranking clusters</highlight>.</p>
+    <img src="cluster-ranking.png" style="width:29%">
+    
+</section>
+                
+<section>
+    <h1>Cluster Ranking</h1>
+    <p>By calculating a ranking score for each cluster, we can analyze the relevance of the clusters in terms of the research question. In this case, a higher ranking score would imply that the cluster is more associated with yeast heat shock. We can focus on the highest-ranking cluster and try to assess the biological relevance of the genes in it in two ways:</p>
+    <ol>
+        <li><b>Manual lookup</b>: Search the <a href="https://www.uniprot.org/" target="_blank">UniProt</a> database to review function.</li>
+        <li><b>Enrichment analysis</b>: Perform functional enrichment analysis on the cluster using the stringApp.</li>
+    </ol>
+    <p>This process can be repeated for other high-ranking clusters.</p>
+                
+</section>
+
+
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>

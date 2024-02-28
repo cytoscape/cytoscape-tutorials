@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>PSPG 245B - Network Biology</title>
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/cytoscape-presentation-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides"> 
+				<!-- Customizable title slide -->
+				<section>
+				<h2>PSPG 245B - Network Biology</h2>
+				<h2>Tools and Approaches</h2>
+				<h5>Slides: <br/><span style="font-size: 70%"><a href="https://cytoscape.github.io/cytoscape-tutorials/presentations/UCSF-PSPG-245B-2023.html">https://cytoscape.github.io/cytoscape-tutorials/presentations/UCSF-PSPG-245B-2023.html</a></span></h5>
+				<br />
+				<h5 style="font-size: 60%">John "Scooter" Morris</h5>
+				<br />
+				<h5 style="font-size: 80%">PSPG 245B
+				<br/><span style="font-size: 80%">10 March 2023</span></h5>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- General introduction to the goals of the workshop -->
+				<section>
+				<h1>Goals and Motivations</h1>
+				<highlight>By the end of this workshop you should be able to:</highlight>
+                    <br/><br/>
+				<ul>
+					<li>Understand the major applications of network biology</li>
+          <li>Find relevant networks and pathways </li>
+          <li>Import your data into Cytoscape</li>
+          <li>Master network layouts and data visualization</li>
+          <li>Know where to find relevant Cytoscape apps and tutorials</li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<section>
+					<h1>About the slides</h1>
+					<ul>
+						<li>Slides represent a full-day course on Cytoscape and Network Biology</li>
+						<li>We only have 3 hours, so I'm going to skip a lot of content</li>
+						<li>Slides will not go away after the course, so...</li>
+						<li>Feel free to refer to them later</li>
+					</ul>
+				</section>
+
+				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
+				<section>
+				<a href="#" class="navigate-next"><ribbon>Introductions and Concepts</ribbon></a>
+				<a href="#/guided-tour"><ribbon>Guided Tour of Cytoscape</ribbon></a>
+				<a href="#/network-taxonomy"><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis and Viz</ribbon></a>
+				<a href="#/hands-on" ><ribbon>Hands-on Exercises</ribbon></a>
+				<a href="#/homework" ><ribbon>Homework</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Add introduction slides for all presenters -->
+				<section>
+				<section>
+				<h1>Introductions</h1>
+					<highlight>John "Scooter" Morris, UCSF</highlight><br />
+					<ul>
+						<li>Executive director, Resource for Biocomputing, Visualization, and Informatics</li>
+						<li>Roving Engineer, National Resource for Network Biology</li>
+						<li>Cytoscape team since 2006</li>
+						<li>Author of over a dozen Cytoscape apps</li>
+					</ul> 
+        </section>
+        <!--section>
+				<h1>Introductions</h1>
+          <highlight>Alex Pico, Gladstone Institutes</highlight><br />
+          <ul>
+                  <li>Director, Bioinformatics Core</li>
+                  <li>Executive director, National Resource for Network Biology</li>
+                  <li>Cytoscape team since 2006</li>
+                  <li>Author of a handful of Cytoscape apps and RCy3</li>
+          </ul>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section-->
+
+				<!-- Don't forget to survey who your audience is! -->
+				<!--section>
+				<h1>Introductions</h1>
+				<div style="margin-left:200px;">
+					<img class="plain fragment fade-right" style="float:left; height:350px; margin:80px 0  0 0;" src="assets/introduction-distro.png">
+					<p><highlight>What about you?</highlight></p>
+					<ul  style="display:block;margin-left:260px">
+						<li>Clinicians</li>
+						<li>Bench Biologists</li>
+						<li>Bioinformaticians</li>
+						<li>Computer Scientists</li>
+						<li>Chemists</li>
+						<li>Mathematicians</li>
+						<li>Other</li>
+					</ul>
+				</div>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section-->
+				<!-- Cytoscape experience -->
+				<section>
+				<h1>Introductions</h1>
+				<p><highlight>Prior Cytoscape or network analysis experience?</highlight></p>
+				<ul>
+								<li class="fragment">None -- that's what I'm here for!</li>
+								<li class="fragment">Some network analysis, but <em>what's Cytoscape?</em></li>
+								<li class="fragment">I've played with Cytoscape, but still have a lot to learn.</li>
+								<li class="fragment">I use Cytoscape all the time... <span class="fragment"><em><br/>(hey, I could probably teach this course!)</em></span></li>
+				</ul>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+				</section>
+
+				<!-- Links to modules within the Introduction & Concepts section -->
+				<section id="intro-network-biology" data-external="modules/intro-network-biology2/module.html"></section>
+				<section id="intro-cytoscape" data-external="modules/intro-cytoscape/module.html"></section>
+                
+                <!-- How to launch guided tour -->
+                <!--section id="guided-tour">
+                    <section>
+                    <h1>Tour of Cytoscape</h1>
+                    <img style="width:60%;"  src="modules/intro-cytoscape/launch.png"/>
+                        <br />
+                    <ol>
+	                   <li>Launch the latest version of Cytoscape</li>
+                    </ol>
+                    <aside class="notes" data-markdown>
+                        Add speaker notes here...
+                    </aside>
+                </section>
+                <section>
+                    <h1>Tour of Cytoscape</h1>
+                    <img style="width:30%;"  src="modules/intro-cytoscape/open-cybrowser.png"/>
+                    <img style="width:60%;margin-left: 40px"  src="modules/intro-cytoscape/open-tutorials.png"/>
+                        <br />
+                    <ol start="2">
+	                    <li>Open CyBrowser</li>
+                        <li>Enter URL: tutorials.cytoscape.org</li>
+                    </ol>
+                    <aside class="notes" data-markdown>
+                        Add speaker notes here...
+                    </aside>
+                </section>
+                <section>
+                    <h1>Tour of Cytoscape</h1>
+                    <img style="width:50%;"  src="modules/intro-cytoscape/tutorials.png"/>
+                    <img style="width:49%;"  src="modules/intro-cytoscape/tour-start.png"/>
+                        <br />
+                    <ol start="4">
+	                   <li>Click on <b>Tour of Cytoscape</b></li>
+                        <li>Resize window to your preference</li>
+                    </ol>
+                    <aside class="notes" data-markdown>
+                        Add speaker notes here...
+                    </aside>
+                </section-->
+
+                <section>
+                    <h1>Tour of Cytoscape</h1>
+										<p><highlight>Follow-along walkthrough:</highlight></p>
+										<ol>
+											<li>Loading networks</li>
+											<li>Loading tables</li>
+											<li>Selection and filtering</li>
+											<li>Changing visual attributes</li>
+											<li>Exporting images</li>
+											<li>Saving sessions</li>
+										</ol>
+                </section>
+
+             </section>
+                
+				<!-- Overview update slide -->
+				<section>
+				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive"><ribbon>Guided Tour of Cytoscape</ribbon></a>
+				<a href="#/network-taxonomy"><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis and Viz</ribbon></a>
+				<a href="#/hands-on" ><ribbon>Hands-on Exercises</ribbon></a>
+				<a href="#/homework" ><ribbon>Homework</ribbon></a>
+				<aside class="notes" data-markdown>
+				2:10
+				Add speaker notes here...
+				</aside>
+				</section>
+
+        <section id="network-taxonomy" data-external="modules/network-taxonomy/module.html"></section>
+        <section id="data-sources" data-external="modules/data-sources/module.html"></section>
+        <section id="finding-network-data" data-external="modules/finding-network-data/module.html"></section>
+                    
+				<!-- Overview update slide -->
+				<section>
+				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive"><ribbon>Guided Tour of Cytoscape</ribbon></a>
+				<a class="inactive"><ribbon>Finding Network Data</ribbon></a>
+				<a href="#/network-analysis" ><ribbon>Network Analysis and Viz</ribbon></a>
+				<a href="#/hands-on"><ribbon>Hands-on Exercises</ribbon></a>
+				<a href="#/homework" ><ribbon>Homework</ribbon></a>
+				<aside class="notes" data-markdown>
+				2:50
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Links to modules within the Introduction & Concepts section -->
+				<section id="network-analysis" data-external="modules/network-analysis/module.html"></section>
+        <section id="network-visualization" data-external="modules/network-visualization/module.html"></section>
+				
+				<!-- Overview update slide -->
+				<section>
+				<a class="inactive"><ribbon>Introductions and Concepts</ribbon></a>
+				<a class="inactive"><ribbon>Guided Tour of Cytoscape</ribbon></a>
+				<a class="inactive"><ribbon>Finding Network Data</ribbon></a>
+				<a class="inactive" ><ribbon>Network Analysis and Viz</ribbon></a>
+				<a href="#/hands-on"><ribbon>Hands-on Exercises</ribbon></a>
+				<a href="#/homework" ><ribbon>Homework</ribbon></a>
+				<aside class="notes" data-markdown>
+				3:15
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<section id="hands-on">
+				  <section>
+					<h1>Hands-on Exercises</h1>
+					<ol>
+						<li><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/" target="_blank">Basic Data Visualization</a></li>
+						<li><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/rna-seq-data-analysis/" target="_blank">Analysis of RNA-seq data</a></li>
+						<li><a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/variant-data-analysis/" target="_blank">Cancer Genetics and variant data</a></li>
+					</ol>
+					<p>Other tutorials are available at: <a href="http://tutorials.cytoscape.org" target="_blank">tutorials.cytoscape.org</a></p>
+				  </section>
+				  <section>
+                                        <h1>Hands-on Exercises</h1>
+                                        <br />What have we learned?
+				  </section>
+				</section>
+
+        <section id="homework">
+          <h1>Homework Problem</h1>
+          <p style="text-align: left;font-size: 60%">One of the surprising symptoms in many COVID-19 patients is the unusual increase in the number of blood clots, which can result in
+          potentially fatal events such as pumonary emboli.  
+          <a href="data/mmc3.xlsx">This data file</a> contains the differential expression analysis of the platelet cells
+          from a small cohort of
+          COVID-19 patients vs. normal, non-infected volunteers.  Use Cytoscape to explore this data and provide at least two images that might
+          suggest why there is an increase in clots in COVID-19 patients.  The answer isn't definitive, even in the analysis provided by the original paper,
+          so don't expect a "smoking gun" here.  For simplicity only consider fold changes &gt; 2 and &lt; -2.  You may also want to separately analyze up-regulated
+          and down-regulated proteins, although keep in mind that sometimes the combination can be important.
+          </p>
+        </section>
+
+				<!-- Wrap up with helpful links -->
+				<section>
+				<section>
+				<h1>Thank You!</h1>
+				<highlight>Here are additional resources you may find useful:</highlight>
+				<ul>
+					<li><a href="http://manual.cytoscape.org" target="_blank">manual.cytoscape.org</a></li>
+					<li><a href="http://tutorials.cytoscape.org" target="_blank">tutorials.cytoscape.org</a></li>
+					<li><a href="https://www.youtube.com/channel/UCv6auk9FK4NgXiXiqrDLccw" target="_blank">youtube demo videos</a></li>
+					<li><a href="http://apps.cytoscape.org" target="_blank">apps.cytoscape.org</a></li>                                        
+					<li><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=(cytoscape+AND+network)+AND+(%222022/01/01%22[PUBDATE]+%3A+%223000/01/01%22[PUBDATE])&report=imagesdocsum&dispmax=100" target="_blank">cytoscape publications</a></li>
+					<li><a href="https://cytoscape.org/documentation_users.html" target="_blank">cytoscape help page</a></li>
+					<li><a href="https://cytoscape.org/documentation_developers.html" target="_blank">cytoscape developer page</a></li>
+					<li><a href="http://nrnb.org/training.html" target="_blank">nrnb.org/training.html</a></li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+				4:50
+				Add speaker notes here...
+				</aside>
+				</section>
+				<section>
+                                <h1>Thank You!</h1>  
+				<br /><br /><br />
+				<a href="https://www.surveymonkey.com/r/cytoscape" target="_blank">
+					<h4><font style="color:blue;text-decoration:underline;">surveymonkey.com/r/cytoscape</font></h4></a>
+
+                                <aside class="notes" data-markdown>
+                                Add speaker notes here...
+                                </aside>
+                                </section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: "c",
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../plugin/markdown/marked.js' },
+				{ src: '../plugin/markdown/markdown.js' },
+				{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../plugin/notes/notes.js', async: true },
+				{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>

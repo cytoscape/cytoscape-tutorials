@@ -106,7 +106,7 @@
 
             <section>
                 <h1>Viewing networks</h1>
-                <p>OK, these results are more specific. Let’s use the first hit. (name:brca) and open it network in Cytoscape by double-clicking on it in the list:</p>
+                <p>OK, these results are more specific. Let’s use the first hit. (name:brca) and open it in Cytoscape by double-clicking on it in the list:</p>
 
                 <p style="text-align: center">
                     <img class="plain" src="https://cytoscape.github.io/cytoscape-automation/for-scripters/R/notebooks/data/img/NDEx.png" style="height:650px">
@@ -115,32 +115,23 @@
             <section>
                 <h1>Sending networks to NDEx</h1>
 
-                <p>Now say you have a network in Cytoscape and you want to send it to NDEx for storage, sharing or exchange. First, you need to have an NDEx account. Go to <a href="http://www.ndexbio.org/" target="_blank">http://www.ndexbio.org/</a> to create one if you haven’t already. You will need your username and password coming up soon.</p>
-
-
-                <ul>
-                    <li>But first, let’s get a fresh network into Cytoscape. This could be any network, we’re just using the demo igraph network as an example.</li>
-                    <li>Import the network via <highlight>File &rarr; Import &rarr; Network from File....</highlight></li>
-                    <li>Select your igraph txt file or any other network files from your local</li>
-                    <p style="text-align: center">
-                        <img class="plain" src="import.png" style="height:200px">
-                    </p>
-                    <br>
-                </ul>
+                <p>Now let's say you worked on your network in Cytoscape and want to send it to NDEx for storage, sharing or exchange.</p>
+		    <p>First, you need to have an NDEx account. Go to <a href="https://www.ndexbio.org/" target="_blank">https://www.ndexbio.org/</a> to create an NDEx account if you already haven't one... Please make sure to take note of your username and password because you will need them in the next step.</p>
 
             </section>
 
             <section>
                 <h1>Sending networks to NDEx</h1>
 
-
-
                 <ul>
-                    <li>Right click the <highlight>network &rarr; Export Network to NDEx...</highlight></li>
-										<li> You can aslo click the NDEx logo and choose <highlight>Export to NDEx</highlight> in addition to right-clicking on the network. </li>
-                    <li>Sign in to the NDEx and enter your username and password</li>
-                    <li>Type network information and click <highlight>Export network to NDEx</highlight></li>
-                    <li>Voila! Now anyone can search or browse to find your network and then use it in their research together with the full history and attribution of your contributions to the network.</li>
+                    <li>Right click your network and select <highlight> Export Network to NDEx...</highlight></li>
+			<li> You can aslo click the NDEx logo and choose <highlight>Export to NDEx</highlight> in addition to right-clicking on the network. </li>
+                    <li>In the Export Manager window, sign in to NDEx by entering your username and password.</li>
+                    <li>Then, you can optionally add network attributes by typing in the available text boxes...</li>
+			<li> When done, click the blue <highlight>Export network to NDEx</highlight> button... A confirmation message will let you know when the operation has completed.</li>
+                    <li>Now your network is safely stored in your NDEx account and private to you.</li>
+			<li>You can make your network publicly available and searchable in NDEx by adjusting its visibility setting via the network properties page in the NDEx webapp.</li>
+			
                     <p style="text-align: center">
                         <img class="plain" src="Export.png" style="height:450px">
                         <img class="plain" src="NDEx.png" style="height:450px">

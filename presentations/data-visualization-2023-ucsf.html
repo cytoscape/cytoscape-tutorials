@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Data Visualization with Cytoscape</title>
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/cytoscape-presentation-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides"> 
+				<!-- Customizable title slide -->
+				<section>
+				<h2>Data Visualization <br \><highlight><em>with Cytoscape</em></hightlight></h2>
+                                <h5><span style="font-size: 70%">Slides: <a href="http://tutorials.cytoscape.org">http://tutorials.cytoscape.org</a></span></h5>
+                                <br /><br />
+                                <h5 style="font-size: 60%">John "Scooter" Morris and Alex Pico</h5>
+                                <br />
+                                <h5 style="font-size: 80%">UCSF
+                                <br/><span style="font-size: 80%">09 March 2023</span></h5>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- General introduction to the goals of the workshop -->
+				<section>
+				<h1>Goals and Motivations</h1>
+				<highlight>By the end of this workshop you should be able to:</highlight>
+                    <br/><br/>
+				<ul>
+					<li>Learn some approaches to effective network visualizations</li>
+          <li>Master network layouts and data visualization</li>
+					<li>Learn some of the advanced features of network visualization in Cytoscape</li>
+          <li>Know where to find relevant Cytoscape apps and tutorials</li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>				
+
+				<!-- Define upto 5 Ribbons per slide to compose links to a set of modules -->
+				<section style="font-size: 80%">
+				<a href="#" class="navigate-next"><ribbon>Introductions</ribbon></a>
+				<a href="#/network-visualization"><ribbon>Advanced Visualization and Challenges</ribbon></a>
+				<a href="#/group-viz" ><ribbon>Visualizing Groups in Cytoscape</ribbon></a>
+				<a href="#/custom-graphics" ><ribbon>Hands-on Custom Graphics</ribbon></a>
+                                <a href="#/ten-simple-rules" ><ribbon>10 Simple Rules...</ribbon></a>
+				<a href="#/your-data" ><ribbon>Your Visualization Challenges</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<!-- Add introduction slides for all presenters -->
+				<section>
+				<section>
+				<h1>Introductions</h1>
+					<highlight>John "Scooter" Morris, UCSF</highlight><br />
+					<ul>
+						<li>Executive director, Resource for Biocomputing, Visualization, and Informatics</li>
+						<li>Roving Engineer, National Resource for Network Biology</li>
+						<li>Cytoscape team since 2006</li>
+						<li>Author of over 30 Cytoscape apps</li>
+					</ul> 
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+                           <section>
+                                <h1>Introductions</h1>
+                                        <highlight>Alex Pico, Gladstone Institutes</highlight><br />
+                                        <ul>
+                                                <li>Director, Bioinformatics Core</li>
+                                                <li>Executive director, National Resource for Network Biology</li>
+                                                <li>Cytoscape team since 2006</li>
+                                                <li>Author of over a dozen Cytoscape apps</li>
+                                        </ul>
+                                <aside class="notes" data-markdown>
+                                Add speaker notes here...
+                                </aside>
+                                </section>
+				<!-- Don't forget to survey who your audience is! -->
+				<section>
+				<h1>Introductions</h1>
+				<div style="position:absolute; top: 240px; left:100px;">
+					 <img class="plain fragment fade-out" src="assets/attendee-intro.png">
+                                        <div style="position:absolute; top: 0px">
+                                                <img class="plain fragment" data-fragment-index="1" src="assets/attendee-intro-bio.png">
+                                        </div>
+				</div>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+				<!-- Cytoscape experience -->
+				<section>
+				<h1>Introductions</h1>
+				<p><highlight>What are your network visualization challenges?<highlight></p>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+				</section>
+
+                
+				<!-- Overview update slide -->
+				<section style="font-size: 80%">
+				<a class="inactive"><ribbon>Introductions </ribbon></a>
+        <a class="navigate-next" href="#"><ribbon>Advanced Visualization and Challenges</ribbon></a>
+				<a href="#/group-viz" ><ribbon>Visualizing Groups in Cytoscape</ribbon></a>
+				<a href="#/custom-graphics" ><ribbon>Hands-on Custom Graphics</ribbon></a>
+        <a href="#/ten-simple-rules" ><ribbon>10 Simple Rules...</ribbon></a>
+        <a href="#/your-data" ><ribbon>Your Visualization Challenges</ribbon></a>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<section id="network-visualization" data-external="modules/advanced-visualization/module.html"></section>
+
+				<section style="font-size: 80%">
+				<a class="inactive"><ribbon>Introductions </ribbon></a>
+        <a class="inactive" href="#/network-visualization"><ribbon>Advanced Visualization and Challenges</ribbon></a>
+				<a class="navigate-next" href="#" ><ribbon>Visualizing Groups in Cytoscape</ribbon></a>
+				<a href="#/custom-graphics" ><ribbon>Hands-on Custom Graphics</ribbon></a>
+        <a href="#/ten-simple-rules" ><ribbon>10 Simple Rules...</ribbon></a>
+        <a href="#/your-data" ><ribbon>Your Visualization Challenges</ribbon></a>
+				<aside class="notes" data-markdown>
+				Add speaker notes here...
+				</aside>
+				</section>
+
+        <section id="group-viz" data-external="modules/group-visualization/module.html"></section>
+ 
+				<section style="font-size: 80%">
+				<a href="#" class="inactive"><ribbon>Introductions </ribbon></a>
+				<a class="inactive"><ribbon>Advanced Visualization and Challenges</ribbon></a>
+        <a class="inactive" ><ribbon>Visualizing Groups in Cytoscape</ribbon></a>
+        <a class="navigate-next" href="#"><ribbon>Hands-on Custom Graphics</ribbon></a>
+        <a href="#/ten-simple-rules"><ribbon>10 Simple Rules...</ribbon></a>
+        <a href="#/your-data" ><ribbon>Your Visualization Challenges</ribbon></a>
+				<aside class="notes" data-markdown>
+				2:10
+				Add speaker notes here...
+				</aside>
+				</section>
+				<section id="custom-graphics">
+				  <h1>Hands-on Custom Graphics</h1>
+					<a href="https://cytoscape.org/cytoscape-tutorials/protocols/custom-enhanced-graphics-style/#/" target="_blank">
+						Custom Graphics Protocol</a>
+				</section>
+
+				<section style="font-size: 80%">
+        <a href="#" class="inactive"><ribbon>Introductions </ribbon></a>
+				<a class="inactive"><ribbon>Advanced Visualization and Challenges</ribbon></a>
+        <a class="inactive"><ribbon>Visualizing Groups in Cytoscape</ribbon></a>
+        <a class="inactive"><ribbon>Hands-on Custom Graphics</ribbon></a>
+				<a class="navigate-next" href="#"><ribbon>10 Simple Rules...</ribbon></a>
+        <a href="#/your-data" ><ribbon>Your Visualization Challenges</ribbon></a>
+				</section>
+
+
+				<section id="ten-simple-rules" data-external="modules/ten-simple-rules/module.html"></section>
+ 
+				<section style="font-size: 80%">
+        <a href="#" class="inactive"><ribbon>Introductions </ribbon></a>
+				<a class="inactive"><ribbon>Advanced Visualization and Challenges</ribbon></a>
+        <a class="inactive"><ribbon>Visualizing Groups in Cytoscape</ribbon></a>
+        <a class="inactive"><ribbon>Hands-on Custom Graphics</ribbon></a>
+        <a class="inactive"><ribbon>10 Simple Rules...</ribbon></a>
+        <a class="navigate-next" href="#" ><ribbon>Your Visualization Challenges</ribbon></a>
+
+				<aside class="notes" data-markdown>
+				2:10
+				Add speaker notes here...
+				</aside>
+				</section>
+
+				<section id="your-data">
+					<section>
+						<h1>Visualization Challenges</h1>
+						<p>Use these datasets or your own dataset to try out what you've learned! <p>
+					</section>
+					<section>
+						<h1>Transcriptomics Dataset</h1>
+						<p>Sample data set: <a href="https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/BRCA.exp.547.med.txt" target="_blank">BRCA.exp.547.med.txt</a>: TCGA Breast Cancer expression data</p>
+					</section>
+					<section>
+						<h1>Proteomics Dataset</h1>
+						<p>Sample data set: <a href="https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/JX_90min_prot.txt" target="_blank">JX_90min_prot.txt</a>: Protein prospector output</p>
+					</section>
+				</section>
+
+
+				<!-- Wrap up with helpful links -->
+				<section>
+				<section>
+				<h1>Thank You!</h1>
+				<highlight>Here are additional resources you may find useful:</highlight>
+				<ul>
+					<li><a href="http://manual.cytoscape.org" target="_blank">manual.cytoscape.org</a></li>
+					<li><a href="http://tutorials.cytoscape.org" target="_blank">tutorials.cytoscape.org</a></li>
+					<li><a href="http://apps.cytoscape.org" target="_blank">apps.cytoscape.org</a></li>                                        
+					<li><a href="https://www.ncbi.nlm.nih.gov/pmc/?term=(cytoscape+AND+network)+AND+(%222022/01/01%22[PUBDATE]+%3A+%223000/01/01%22[PUBDATE])&report=imagesdocsum&dispmax=100" target="_blank">cytoscape publications</a></li>
+					<li><a href="https://cytoscape.org/documentation_users.html" target="_blank">cytoscape help page</a></li>
+					<li><a href="https://cytoscape.org/documentation_developers.html" target="_blank">cytoscape developer page</a></li>
+					<li><a href="http://nrnb.org/training.html" target="_blank">nrnb.org/training.html</a></li>
+				</ul>
+
+				<aside class="notes" data-markdown>
+				4:50
+				Add speaker notes here...
+				</aside>
+				</section>
+				<section>
+                                <h1>Thank You!</h1>  
+				<br /><br /><br />
+				<a href="https://www.surveymonkey.com/r/cytoscape" target="_blank">
+					<h4><font style="color:blue;text-decoration:underline;">surveymonkey.com/r/cytoscape</font></h4></a>
+
+                                <aside class="notes" data-markdown>
+                                Add speaker notes here...
+                                </aside>
+                                </section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: "c",
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../plugin/markdown/marked.js' },
+				{ src: '../plugin/markdown/markdown.js' },
+				{ src: '../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../plugin/notes/notes.js', async: true },
+				{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>

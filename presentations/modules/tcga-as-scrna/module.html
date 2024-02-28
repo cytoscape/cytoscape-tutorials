@@ -1,0 +1,315 @@
+<section>
+  <h1>An Invitation</h1>
+  <p style="text-align: left" class="fragment">I was invited to give a talk at the American Association of Cancer Researchers meeting.</p>
+  <p style="text-align: left" class="fragment">Think....40,000 doctors and researchers who are all cancer specialists.</p>
+  <p style="text-align: left" class="fragment">....I am <b>not</b> a cancer specialist.</p>
+  <p style="text-align: left" class="fragment">The good news is that this was at a technology workshop, but still...what could I contribute?</p>
+</section>
+
+<section>
+  <h1>scNetViz</h1>
+  <p style="text-align: left">scNetViz is an app for doing single-cell RNA seq analysis in Cytoscape that we had recently published.</p>
+  <p style="text-align: left" class="fragment">It includes clustering, differential expression analysis, visualizations, and creates protein-protein interaction networks for each cluster.</p>
+  <p style="text-align: left" class="fragment">Could I weave a cancer story around this app?</p>
+</section>
+
+<section>
+  <h1>scNetViz Typical Workflow</h1>
+  <div style="float:left; height: 800px; width: 600px">
+    <ol style="text-align: left; ">
+      <li class="fragment" data-fragment-index="1">Search EBI for data</li>
+      <li class="fragment" data-fragment-index="2">Load an scRNASeq data set</li>
+      <li class="fragment" data-fragment-index="3">Calculate the differential expression</li>
+      <li class="fragment" data-fragment-index="4">Possibly view plots</li>
+      <li class="fragment" data-fragment-index="5">Create networks</li>
+      <li class="fragment" data-fragment-index="6">Do enrichment</li>
+    </ol>
+    <p style="text-align:left; margin-top: 20px" class="fragment">But, what does this have to do with cancer?</p>
+  </div>
+  <img class="plain fragment fade-in-then-out" data-fragment-index="1" style="position:absolute; left: 600px; top: 100px; width: 60%" src="modules/tcga-as-scrna/expression-atlas.png">
+  <img class="plain fragment fade-in-then-out" data-fragment-index="2" style="position:absolute; left: 600px; top: 100px; width: 60%" src="modules/tcga-as-scrna/E-GEOD-111727.png">
+  <img class="plain fragment fade-in-then-out" data-fragment-index="3" style="position:absolute; left: 600px; top: 100px; width: 60%" src="modules/tcga-as-scrna/diff-exp.png">
+  <div class="fragment fade-in-then-out" data-fragment-index="4" style="position:absolute; left: 600px; top: 100px; width: 60%">
+    <img class="plain" src="modules/tcga-as-scrna/tsne.png">
+    <img class="plain" style="margin-left: -500px; margin-top: -400px" src="modules/tcga-as-scrna/volcano.png">
+    <img class="plain" style="margin-left: -1000px; margin-top: -700px;" src="modules/tcga-as-scrna/heatmap.png"-->
+  </div>
+  <img class="plain fragment fade-in-then-out" data-fragment-index="5" style="position:absolute; left: 600px; top: 100px; width: 60%" src="modules/tcga-as-scrna/networks.png">
+  <img class="plain fragment fade-in-then-out" data-fragment-index="6" style="position:absolute; left: 600px; top: 100px; width: 60%" src="modules/tcga-as-scrna/enrichment.png">
+</section>
+
+<section>
+  <h1 style="font-size: 150%">Typical Cytoscape Cancer Workflow<sup>1</sup></h1>
+  <ul style="font-size: 80%">
+    <li>Download data
+      <ul>
+        <li>Expression data, mutation data</li>
+      </ul>
+    </li>
+    <li>Determine gene list
+      <ul>
+        <li>Top differentially expressed genes, most common mutations, etc.</li>
+      </ul>
+    </li>
+    <li>Use gene list to import a protein-protein interaction network into Cytoscape</li>
+    <li class="fragment" data-fragment-index="2" >Import expression data (or mutation data)</li>
+    <li class="fragment" data-fragment-index="4" >Map onto network</li>
+    <li class="fragment" data-fragment-index="6" >Perform enrichment analysis</li>
+  </ul>
+  <img class="plain fragment fade-in-then-out" data-fragment-index="1" style="position:absolute; left: 50px; top: 100px; width: 90%" src="modules/tcga-as-scrna/cancer-string.png">
+  <img class="plain fragment fade-in-then-out" data-fragment-index="3" style="position:absolute; left: 50px; top: 100px; width: 90%" src="modules/tcga-as-scrna/cancer-expression.png">
+  <img class="plain fragment fade-in-then-out" data-fragment-index="5" style="position:absolute; left: 50px; top: 100px; width: 90%" src="modules/tcga-as-scrna/cancer-enrichment.png">
+  <p style="margin-top:100px; margin-left:300px; font-size: 50%"><sup>1</sup>https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/</p>
+</section>
+
+<section>
+  <h1>Alternative Workflow</h1>
+  <ul>
+    <li>Observation -- main steps in cancer transcriptome analysis
+      <ol type="a" style="font-size: 80%">
+        <li>Get data</li>
+        <li>Normalize and batch correct, as needed</li>
+        <li>Classify samples based on gene expression or mutation</li>
+        <li>Analyze by class, perhaps putting new sample in context</li>
+      </ol>
+    </li>
+    <li>Main steps in single-cell RNA seq analysis
+      <ol type="a" style="font-size: 80%">
+        <li>Get data</li>
+        <li>Normalize and batch correct, as needed</li>
+        <li>Classify samples based on gene expression</li>
+        <li>Analyze by class</li>
+      </ol>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1 style="font-size: 120%">Analysis of cancer transcriptomics data using scRNA-seq pipelinep</h1>
+  <ul>
+    <li>Data:
+      <ul>
+        <li>TCGA Breast Cancer data - 1,222 samples</li>
+      </ul>
+    </li>
+    <li>Tools:
+      <ul>
+        <li>Cytoscape 3.9.1</li>
+        <li>scNetViz app</li>
+        <li>stringApp</li>
+        <li>CyPlot</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1>Data munging</h1>
+  <p style="text-align: left">Goal: convert TCGA matrix into scRNA-seq</p>
+  <ol style="font-size: 80%">
+    <li>Download TCGA-BRCA data (1222 samples) from tcgaportal.org</li>
+    <li>Separate PAM50 and tissue type into a tab-separated file with three columns: “Sample”, “PAM50”, and “SampleType”</li>
+    <li>Remove mitochondrial genes</li>
+    <li>Separate FPKM data into three files:
+      <ol style="list-style-type: lower-alpha">
+        <li>a file of gene names (TCGA_BRCA.expression.fpkm.mtx_rows),</li>
+        <li>a file of samples (TCGA_BRCA.expression.fpkm.mtx_cols), and</li>
+        <li>a Matrix Market file with expression values (TCGA_BRCA.expression.fpkm.mtx).</li>
+      </ol>
+    </li>
+    <li>Zip the three files created in step 3 into a single zip archive (TCGA_BRCA.expression.fpkm.zip)</li>
+  </ol>
+</section>
+
+<section>
+  <h1>Data Import</h1>
+  <ol>
+    <li>Launch Cytoscape and install scNetViz (version 1.7.0 or newer)
+      <ol style="list-style-type: lower-alpha; font-size: 80%">
+        <li>This will install several additional apps behind the scenes, including CyPlot and the stringApp</li>
+      </ol>
+    </li>
+    <li>Import our data set
+      <ol style="list-style-type: lower-alpha; font-size: 80%">
+        <li>Apps→scNetViz→Load Experiment→Import from file…</li>
+        <li>Browse to the zip file we made, select it, and click OK</li>
+        <li>That should bring up the scNetViz experiment interface</li>
+      </ol>
+    </li>
+    <li>Import our sample type and PAM50 file
+      <ol style="list-style-type: lower-alpha; font-size: 80%">
+        <li>In the experiment interface, click on Add Category→Import from file…</li>
+        <li>Select the file with the sample information, leave the type as “text” and click on “File needs to be pivoted”</li>
+      </ol>
+    </li>
+  </ol>
+</section>
+
+<!--section>
+  <h1>Analysis</h1>
+  <ol>
+    <li>Create a UMAP (Number of neighbors = 20, Minimum distance = 0.01)</li>
+    <li>Calculate a Leiden cluster of the data (Number of neighbors = 40)</li>
+  </ol>
+  <p style="text-align:left">NOTE: since this is an scRNA-Seq workflow, the tools automatically perform several normalization and filtering steps</p>
+</section -->
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+  <p style="text-align:left">There are a number of ways we can now analyze this data -- here is one:
+  <ol style="font-size: 80%">
+    <li>Perform a UMAP to visualize the data
+      <ol style="list-style-type: lower-alpha">
+        <li>New Cell Plot &rarr; UMAP, set the Number of neighbors = 20, Minimum distance = 0.01</li>
+        <li>We can see the PAM50 values just by selecting the row and clicking on "View UMAP"</li>
+        <li style="visibility: hidden">The PAM50 values are somewhat muddled in the UMAP</li>
+        <li style="visibility: hidden">...but we see s distinct separation between "Primary Tumor" and "Solid Tissue Normal" if we look at SampleType</li>
+      </ol>
+    </li>
+  </ol>
+  </div>
+  <img class="plain fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; left: 40px; top: 120px;width:100%" src="modules/tcga-as-scrna/UMAP-pam50.png">
+</section>
+
+<section data-transition="none">
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+  <p style="text-align:left; color: grey">There are a number of ways we can now analyze this data -- here is one:
+  <ol style="font-size: 80%">
+    <li style="color: grey">Perform a UMAP to visualize the data
+      <ol style="list-style-type: lower-alpha">
+        <li>New Cell Plot &rarr; UMAP, set the Number of neighbors = 20, Minimum distance = 0.01</li>
+        <li>We can see the PAM50 values just by selecting the row and clicking on "View UMAP"</li>
+        <li style="color: black">The PAM50 values are somewhat muddled in the UMAP</li>
+        <li style="color: black">...but we see s distinct separation between "Primary Tumor" and "Solid Tissue Normal" if we look at SampleType</li>
+      </ol>
+    </li>
+  </ol>
+  </div>
+  <img class="plain fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; left: 40px; top: 120px; width: 100%" src="modules/tcga-as-scrna/UMAP-type.png">
+</section>
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+  <ol start="2" style="font-size: 80%; text-align: left; margin-left: -450px">
+    <li>Partition samples using Leiden clustering
+      <ol style="list-style-type: lower-alpha">
+        <li>Add Category &rarr; Leiden clustering...</li>
+        <li>Use Number of neighbors = 40</li>
+      </ol>
+    </li>
+  </ol>
+  </div>
+  <img class="plain fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; left: 40px; top: 120px; width: 100%" src="modules/tcga-as-scrna/UMAP-leiden.png">
+</section>
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+  <ol start="3" style="font-size: 80%; text-align: left; margin-left: -450px">
+    <li>Partition samples using Leiden clustering
+      <ol style="list-style-type: lower-alpha">
+        <li>Add Category &rarr; Leiden clustering...</li>
+        <li>Use Number of neighbors = 40</li>
+      </ol>
+    </li>
+  </ol>
+  </div>
+  <img class="plain fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; left: 40px; top: 120px; width: 100%" src="modules/tcga-as-scrna/UMAP-leiden.png">
+</section>
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+  <ol start="4" style="font-size: 80%; text-align: left; margin-left: -450px">
+    <li>Using our clusters, calculate the differential expression</li>
+  </ol>
+  </div>
+  <img class="plain fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; left: 40px; top: 120px; width: 100%" src="modules/tcga-as-scrna/scnetviz-diffexp.png">
+</section>
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+    <p style="text-align:left">There are a number of plots that allow us to compare across clusters</p>
+  </div>
+  <img class="plain" style="position:absolute; left: 0px; top: 300px; width: 50%" src="modules/tcga-as-scrna/scnetviz-volcano.png">
+  <img class="plain" style="position:absolute; left: 600px; top: 300px; width: 50%" src="modules/tcga-as-scrna/scnetviz-heatmap.png">
+</section>
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+  </div>
+  <img class="plain" style="position:absolute; left: 0px; top: 200px; width: 50%" src="modules/tcga-as-scrna/UMAP-Leiden-2.png">
+  <img class="plain" style="position:absolute; left: 600px; top: 200px; width: 50%" src="modules/tcga-as-scrna/UMAP-Type-2.png">
+</section>
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+  </div>
+  <img class="plain" style="position: absolute; left: 40px; top: 120px; width: 100%" src="modules/tcga-as-scrna/Heatmap-normal.png">
+</section>
+
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px">
+  <ol start="5" style="font-size: 80%; text-align: left">
+    <li>Finally, create the networks
+      <ul>
+        <li>PPI networks represent the interactions between the most overexpressed and underexpressed genes in the cluster</li>
+      </ul>
+    </li>
+  </ol>
+  </div>
+  <img class="plain fragment" style="position: absolute; left: 40px; top: 120px; width: 100%" src="modules/tcga-as-scrna/cluster-4-network.png">
+  <img class="plain fragment" style="position: absolute; left: 600px; top: 140px; width: 50%" src="modules/tcga-as-scrna/tpm-tab.png">
+  <img class="plain fragment" style="position: absolute; left: 600px; top: 140px; width: 50%" src="modules/tcga-as-scrna/diffexp-tab.png">
+</section>
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px"></div>
+  <img class="plain" style="position: absolute; left: 40px; top: 120px; width: 100%" src="modules/tcga-as-scrna/PPI-1.png">
+</section>
+
+<section>
+  <h1>Analysis</h1>
+  <div style="height: 800px"></div>
+  <img class="plain" style="position: absolute; left: 40px; top: 120px; width: 100%" src="modules/tcga-as-scrna/PPI-2.png">
+</section>
+
+<section>
+  <h1>Data Analysis</h1>
+  <div style="height:600px">
+  <p style="text-align:left">Some genes of interest:</p>
+  <ul>
+    <li>HEPACAM - known to be down-regulated in breast cancer</li>
+    <li>FRMD1 - GO Biological Process: “positive regulation of hippo signaling”</li>
+    <li>CIDEC - supposedly upregulated in breast cancer<sup>1</sup> – I’m seeing just the opposite</li>
+  </ul>
+  </div>
+  <p style="font-size: 60%; margin-left: 400px"><sup>1</sup>https://www.proteinatlas.org/ENSG00000187288-CIDEC/pathology</p>
+</section>
+
+<section>
+  <h1>Conclusions</h1>
+  <ul>
+    <li>Single cell analysis is well-suited for stratifying patients and exploring differential expression in cancer</li>
+    <li>The addition of protein-protein interaction data allows us to explore the broader context of expression changes</li>
+    <li>However:
+      <ul>
+        <li>There was no attempt to batch-correct this data, and a quick look at cluster 9 suggests that there may, indeed, be significant batch correction issues</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1>Questions?</h1>
+</section>
+

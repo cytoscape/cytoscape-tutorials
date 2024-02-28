@@ -1,0 +1,136 @@
+<section>
+  <h1>Overview of clustering</h1>
+  <ul>
+    <li>What is clustering?</li>
+    <li>General goal</li>
+    <li>Types of data</li>
+    <li>Clustering algorithms</li>
+    <li>Clustering in Cytoscape</li>
+  </ul>
+<aside class="notes" data-markdown>
+</aside>
+</section>
+
+<section>
+  <h1>What is clustering?</h1>
+  <p style="font-size: 70%;text-align: left"><i>Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense) to each other than to those in other groups (clusters).</i></p>
+  <h4 style="text-align:left">Related terms</h4>
+  <ul style="text-align:left; margin-left: -700px">
+    <li>Unsupervised learning</li>
+    <li>Community detection</li>
+    <li>Automatic classification</li>
+  </ul>
+<aside class="notes" data-markdown>
+Key thing is no training, known labels, or gold standard
+</aside>
+</section>
+
+<section>
+  <h1>General goal</h1>
+  <ul>
+    <li>Group similar objects together</li>
+    <li>Why?
+    <ul>
+      <li class="fragment" data-fragment-index="1">Help us find patterns in the data</li>
+      <li class="fragment" data-fragment-index="2">Simplify the data</li>
+    </ul></li>
+  </ul>
+  <img class="fragment plain" data-fragment-index="1" src="modules/clustering-analysis/Hierarchical.png" style="position: absolute;width: 10%;top:400px; left: 50px">
+  <img class="fragment plain" data-fragment-index="2" src="modules/clustering-analysis/full_network.png" style="position: absolute;width: 35%;top:400px; left: 150px">
+  <img class="fragment plain" data-fragment-index="3" src="modules/clustering-analysis/MCL--clustered.png" style="position: absolute;width: 25%;top:450px; left: 500px">
+  <img class="fragment plain" data-fragment-index="4" src="modules/clustering-analysis/prefoldin-clustered.png" style="position: absolute;width: 30%;top:400px; left: 800px">
+<aside class="notes" data-markdown>
+  * add example (from clusterMaker paper?)
+</aside>
+</section>
+
+<section>
+  <h1>Types of data</h1>
+  <p style="text-align: left">When applying clustering to a Cytoscape network there are two basic approaches:</p>
+  <ol style="font-size: 70%">
+    <li>clustering based on the network topology.  The idea is that nodes that are close
+      to each other should in the same cluster and nodes that are further away should be
+      in different clusters.  Typically, the goal is to maximize some metric that measures
+      inter-cluster distance vs. intra-cluster distance.  MCL and MCODE  are examples
+      of clustering based on network toplogy.</li>
+    <li>clustering based on attributes.  In this instance, the idea is that similarity is
+      not measured based on topology, but on the similarity of the attributes of the nodes
+      or edges.  The best examples of attribute-based clustering are hierarchical and k-means.</li>
+  </ol>
+</section>
+
+<section>
+  <h1>Types of clustering algorithms</h1>
+  <dl style="font-size: 70%">
+    <dt>agglomerative:&nbsp;</dt>
+    <dd>bottom-up approach that pairs the "closest" two items, and merges that with the next closest item, etc.<dd>
+    <dt>centroid-based:&nbsp;</dt>
+    <dd>iteratively calculates the centroid of a set of clusters and then refines them, adding or removing items
+      from clusters to maximize or minimize some metric (e.g. within-cluster variances).  Centroid-based approaches
+      typically require an initial value for the number of clusters.</dd>
+    <dt>modularity-based:&nbsp;</dt>
+    <dd>similar in principle to centroid-based clustering, but the goal is to optimize modularity.</dd>
+    <dt>topology-based:&nbsp;</dt>
+    <dd>a wide variety of algorithms that explicitly use the topology of the graph to cluster it.  This might
+      include flow-based approaches, message passing, density metrics, or matrix measures such as eigenvalues.</dd>
+  </dl>
+
+<aside class="notes" data-markdown>
+  * 
+</aside>
+</section>
+
+<section>
+  <h1>Types of clustering algorithms</h1>
+  <dl style="font-size: 70%">
+    <dt>biclusters:&nbsp;</dt>
+    <dd>simultaneous clustering of rows and columns of a matrix, which yields a subset of rows (or columns) that
+        exhibit similar behavior scross a subset of columns (or rows).  The result is often portrayed as a heat map
+        with distinctive blocks the represent the biclusters.</dd>
+    <dt>fuzzy clusters:&nbsp;</dt>
+    <dd>typical cluster algorithms assign each individual item to a cluster.  In a fuzzy cluster, items can be assigned
+        to multiple clusters, usually depending on some metric of "closeness" to the cluster.</dd>
+    <dt>dimensionality reduction:&nbsp;</dt>
+    <dd>not really a clustering algorithm, but still extremely useful and often used as a visualization aid for grouping
+        values.  Dimensionality reduction techniques attempt to reduce the number of dimensions of a data set and plot
+        them or display them in some way.</dd>
+  </dl>
+<aside class="notes" data-markdown>
+  * include dimensionality reduction as a cluster "type"
+</aside>
+</section>
+
+<section>
+  <h1>Clustering in Cytoscape</h1>
+  <p style="text-align: left;font-size: 70%">There are several Cytoscape apps that perform clustering.  Some are pretty general and
+  some are quite specific for certain types of data. Here are some of the most popular apps:
+  <dl style="font-size: 70%">
+    <dt>MCODE&nbsp;&nbsp;</dt>
+    <dd>Clusters a given network based purely on topology to find densely connected regions.  Does not support
+      any kind of edge weighting</dd>
+    <dt>clusterMaker2&nbsp;&nbsp;</dt>
+    <dd>App that supports attribute clustering, clustering based on topology, cluster ranking, and dimensionality reduction.
+      <i>clusterMaker2</i> currently supports 41 different algorithms</dd>
+    <dt>cytoHubba&nbsp;&nbsp;</dt>
+    <dd>Predicts and explores important nodes and subnetworks in a given network by several topological algorithms.</dd>
+    <dt>TiCoNE&nbsp;&nbsp;</dt>
+    <dd>TiCoNE (Time Course Network Enricher) is a tool for the combined analysis of time series expression data together with biological networks.</dd>
+    <dt>CytoCluster&nbsp;&nbsp;</dt>
+    <dd>a Cytoscape app for analysis and visualization of clusters from network</dd>
+  </dl>
+</section>
+
+<section>
+  <h1>Hands-on</h1>
+  <p style="text-align: left">For the hands-on section, we'll explore <i>clusterMaker2</i>, which is used by several different apps, is scriptable, and
+  provides support for several different types of clustering algorithms, and a choice of algorithms for each type.  Also, I
+  wrote it :-).</p>
+  <a href="https://cytoscape.org/cytoscape-tutorials/protocols/clustermaker-app/#/title">clusterMaker App</a>
+</section>
+
+<section>
+  <h1>Q and A</h1>
+  <p style="text-align:left">What's the best clustering algorithm?</p>
+  <p style="text-align:left; margin-left: 40px" class="fragment">...the one that leads to meaninful hypotheses about your data</p>
+
+

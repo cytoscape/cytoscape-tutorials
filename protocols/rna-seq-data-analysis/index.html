@@ -45,8 +45,7 @@
 <section id="setup">
     <h1>Setup</h1>
 	<ul>
-	<li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from the Cytoscape App Store, or using the <highlight>Cytoscape App Manager</highlight>.</li>
-	<li>Install the <a href="https://apps.cytoscape.org/apps/largestsubnetwork" target="_blank">Largest Subnetwork App</a> from the Cytoscape App Store, or using the <highlight>Cytoscape App Manager</highlight>.</li>
+	<li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from the Cytoscape App Store, or via <highlight>Apps &rarr; App Store &rarr; Show App Store</highlight>.</li>
 	</ul>
 </section>
                 
@@ -55,10 +54,13 @@
     <p>For this tutorial, we will use a dataset comparing transcriptomic differences between autistic and normal brain. The study has been published in <a href="https://europepmc.org/article/MED/21614001">Voineagu et al.</a>, and we will get a summarized dataset with fold change and p-value from the EBI Gene Expression Atlas.</p> 
     
     <ul>
-        <li>Download the data: <a href="https://www.ebi.ac.uk/gxa/experiments-content/E-GEOD-30573/resources/ExperimentDownloadSupplier.RnaSeqDifferential/tsv">Transcriptomic analysis of autistic brain reveals convergent molecular pathology</a>.</li>
-        <li>Open the tsv datafile in Excel. The file contains a summary at the top, and has 4 columns of data: <b>Gene ID</b>, <b>Gene Name</b>, <b>fold change</b> and <b>p-value</b>. </li>
-    </ul><br /><br />
-    <img class="plain" src="excel-data.png" style="height:400px">
+        <li>Download the data: <a href="https://www.ebi.ac.uk/gxa/experiments-content/E-GEOD-30573/resources/ExperimentDownloadSupplier.BulkDifferential/tsv">Transcriptomic analysis of autistic brain reveals convergent molecular pathology</a>.</li>
+        <li>To open the tsv datafile in Excel, first launch Excel and open a blank workbook. Next, go to <highlight>Data &rarr; Get External Data &rarr; Import Text File...</highlight>.</li>
+        <li>In the import wizard, select <b>Delimited</b> and in the next step select <b>Tab</b>.</li>
+        <li>In the third step, you can select the <b>Data Format</b> for every column. The file has 4 columns of data: <b>Gene ID</b>, <b>Gene Name</b>, <b>fold change</b> and <b>p-value</b>. <b>Make sure to change the format for the second column, Gene Name, to Text.</b> You will have to scroll to the right to see the second column. Click <b>Finish</b> to complete the import.</li>
+    </ul>
+    
+<!--    <img class="plain" src="excel-data.png" style="height:300px">-->
 </section>
                 
 <section id="de-genes">
@@ -320,11 +322,21 @@
                 
 <section id="exporting">
     <h1>Exporting Networks</h1>
-    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
+    <p>Cytoscape provides a number of ways to save results and visualizations:</p>
 	<ul>
-        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
-        <li>To NDEx: Click the NDEx button in the toolbar <img class="plain" src="ndex.png"> and select <highlight>Export Network to NDEx</highlight>. Alternatively, select <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
-		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
+					<li>As a session: <highlight>File &rarr; Save Session</highlight>, <highlight>File &rarr; Save Session As...</highlight></li>
+					<li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+					<li>To the web: <highlight>File &rarr; Export &rarr; Network to Web Page...</highlight> (<a href="../saving-results/web_session/index.html" target="_blank">Example</a>)</li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight></li>
+		<li>As a graph format file: <highlight>File &rarr; Export &rarr; Network to File</highlight>. <br/>Formats:
+						<ul>
+										<li>CX JSON / CX2 JSON</li>
+										<li>Cytoscape.js JSON</li>
+										<li>GraphML</li>
+										<li>PSI-MI</li>
+										<li>XGMML</li>
+										<li>SIF</li>
+                        </ul></li>
 	</ul>
 </section>
                 

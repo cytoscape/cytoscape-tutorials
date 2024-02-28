@@ -38,7 +38,7 @@
         <li>Exporting network visualizations</li>
     </ul>
     <div class="footer" style="bottom: -4em;">
-    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div> 
+    <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a></div>
 </section>
 
 <section id="background">
@@ -46,15 +46,14 @@
     <p>Ovarian serous cystadenocarcinoma is a type of epithelial ovarian cancer which accounts for ~90% of all ovarian cancers. The data used in this protocol are from <a href="https://cancergenome.nih.gov/" target="_blank">The Cancer Genome Atlas</a>, in which multiple subtypes of serous cystadenocarcinoma were identified and characterized by mRNA expression.</p> <p>We will focus on the differential gene expression between two subtypes: <br /><b>Mesenchymal</b> and <b>Immunoreactive</b>.</p>
     <p>For convenience, the data has already been analyzed and pre-filtered, using log fold change value and adjusted p-value.</p>
 </section>
-				
+
 <section id="setup">
 <h1>Setup</h1>
 	<ul>
-	<li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from the Cytoscape App Store, or using the <highlight>Cytoscape App Manager</highlight>.</li>
-	<li>Install the <a href="https://apps.cytoscape.org/apps/largestsubnetwork" target="_blank">Largest Subnetwork App</a> from the Cytoscape App Store, or using the <highlight>Cytoscape App Manager</highlight>.</li>
+	<li>Install the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">stringApp</a> from <highlight>Apps → App Store → Show App Store</highlight>.</li>
 	</ul>
-</section>	
-                
+</section>
+
 <section id="intro1">
     <h1>Network Retrieval</h1>
     <p>Many public databases and multiple Cytoscape apps allow you to retrieve a network or pathway relevant to your data. For this workflow, we will use the STRING app. Some other options include:</p>
@@ -64,7 +63,7 @@
     <li><a href="https://genemania.org/" target="_blank">GeneMANIA </a></li>
     </ul>
 </section>
-                
+
 <section id="intro2">
     <h1>Retrieve Networks from STRING</h1>
     <p>To identify a relevant network, we will use the STRING database in two different ways:</p>
@@ -73,9 +72,8 @@
         <li>Query <highlight>STRING disease</highlight> for a keyword; <b>ovarian cancer</b>.</li>
     </ol>
     <p>The two examples are split into two separate workflows on the following slides.</p><br />
-    <p>If you don't already have the <b>stringApp</b> installed, you can install it from the <a href="http://apps.cytoscape.org/apps/stringapp" target="_blank">Cytoscape App Store</a> or from Cytoscape via <highlight>Apps &rarr; App Manager ...</highlight></p>
 </section>
-                
+
 <section>
 <section id="ex1-up-string">
 <h1>Example 1: STRING Protein Query <br />Up-regulated Genes</h1>
@@ -90,10 +88,10 @@
 
 <section id="ex1-up-string-result">
 <h1>STRING Network Up-Regulated Genes</h1>
-    <p>The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.</p>
-<img class="plain" src="string-de-up2.png" style="height:650px"> 
+    <p>The resulting network contains protein recognized by STRING, corresponsing to the up-regulated genes, and interactions between them with an evidence score of 0.4 or greater.</p>
+<img class="plain" src="string-de-up2.png" style="height:650px">
 </section>
-    
+
 <section id="ex1-up-string-sub">
 <h1>STRING Network Up-Regulated Genes</h1>
     <p>The networks consists of one large connected component, several smaller networks, and some unconnected nodes. We will use only the largest connected component for the rest of the tutorial.</p>
@@ -101,9 +99,9 @@
     <li>To select the largest connected component, select <highlight>Select &rarr; Nodes &rarr; Largest subnetwork</highlight>.</li>
     <li>Select <highlight>File &rarr; New Network &rarr; From Selected Nodes, All Edges</highlight>.</li>
     </ul>
-<img class="plain" src="string-de-up2-sub.png" style="height:600px"> 
+<img class="plain" src="string-de-up2-sub.png" style="height:600px">
 </section>
-    
+
 <!--<section id="ex1-up-data-integration1">
     <h1>Data Integration</h1>
     <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Our data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
@@ -113,7 +111,7 @@
         <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all downstream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
     </ul>
 </section>-->
-    
+
 <section id="ex1-up-data-integration2">
     <h1>Data Integration</h1>
     <p>Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization. Our data from TCGA has <b>NCBI Gene</b> identifiers (formerly Entrez), so before importing the data we are going to use the ID Mapper functionality in Cytoscape to map the network to NCBI Gene.</p>
@@ -124,79 +122,79 @@
     <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
 </ul>
     <img class="plain" src="DataImport.png" style="width:42%">
-    
+
 </section>
-    
+
 <section id="ex1-up-visualization1">
     <h1>Visualization</h1>
-    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
+    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Data</a> tutorial.</p>
     <ul>
     <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
     <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
     <li>Set the default node fill color to light gray.</li>
     <li>Set the default node size to <b>40</b>.</li>
-    <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
-    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
-    <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>
+    <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>
+    <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <b>logFC</b>, with the default ColorBrewer <b>yellow-orange-red shades</b> gradient.</li>
+    <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <b>display name</b>.</li>
     <li>Save your new visualization under <highlight>Copy Style...</highlight> in the <highlight>Options</highlight> menu of the <highlight>Style</highlight> interface, and name it <b>de genes up</b>.</li>
 	</ul>
-</section>     
-    
+</section>
+
 <section id="ex1-up-visualization2">
      <h1>Visualization</h1>
         <p>If we reapply the <highlight>Prefuse Force Directed</highlight> layout, the network will now look something like this:</p>
-	    <img class="plain" src="string-de-up-viz-prefuse.png" style="height:650px">   
+	    <img class="plain" src="string-de-up-viz-prefuse.png" style="height:650px">
 </section>
-                
+
 <section id="ex1-up-string-enrich1">
 <h1>STRING Enrichment</h1>
     <p>The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.</p>
     <ul>
-    <li>In the STRING tab of the <highlight>Results Panel</highlight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings.</li>
+    <li>In the STRING tab of the <highlight>Results Panel</highlight>, click the <highlight>Functional Enrichment</highlight> button. Keep the default settings, and click <highlight>OK</highlight> to continue.</li>
     <li>When the enrichment analysis is complete, a new tab titled <highlight>STRING Enrichment</highlight> will open in the <highlight>Table Panel</highlight>.</li>
     </ul><br /><br />
-<img class="plain" src="string-enrichment.png">    
+<img class="plain" src="string-enrichment.png">
 </section>
-                
+
 <section id="ex1-up-string-enrich2">
     <h1>STRING Enrichment</h1>
-    <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Process.</p>    
+    <p>The STRING app includes several options for filtering and displaying the enrichment results. The features are all available at the top of the <highlight>STRING Enrichment</highlight> tab. We are going to filter the table to only show GO Process.</p>
     <ul>
-        <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
+        <li>At the top left of the STRING enrichment tab, click the filter icon <img class="plain" src="FilterIcon.png" style="height:30px">. Select <highlight>GO Biological Process</highlight> and check the <highlight>Remove redundant terms</highlight> check-box. Then click OK.</li>
         <li>Next, we will add a split donut chart to the nodes representing the top terms by clicking on <img class="plain" src="ChartIcon.png" style="height:30px">.</li>
 	<li>Explore custom setting via <img class="plain" src="SettingsIcon.png" style="height:30px"> in the top right of the STRING enrichment tab.</li>
     </ul>
     <br /><br />
-<img class="plain" src="string-enrichment-chart-up.png" style="height:450px">    
+<img class="plain" src="string-enrichment-chart-up.png" style="height:450px">
 </section>
-                                               
+
 <section id="ex1-down-string">
     <h1>STRING Protein Query Down-Regulated Genes</h1>
-    <p>The same workflow (network search, data integration, visualizationcan and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
+    <p>The same workflow (network search, data integration, visualization and enrichment analysis) can be repeated for the set of down-regulated genes.</p>
         <ul>
             <li>Query STRING protein with the list of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.xlsx" target="_blank">down-regulated genes</a>.</li>
             <li>Create a subnetwork for the largest connected component, then map <b>Uniprot</b> identifiers to <b>NCBI gene</b> and load the data.</li>
-            <li>Create a visualization as described <a href="#/ex1-up-visualization1">previously</a>. To distinguish between the visualizations of up- and down-regulated results, pick a different node fill color palette, for example ColorBrewer <b>blue shades</b>. Note that you may have to delete the mapping between <b>Node Fill Color</b> and <b>LogFC</b> and then add it again for the range of values to be recognized properly.</li>
+            <li>Create a visualization as described <a href="#/ex1-up-visualization1">previously</a>. To distinguish between the visualizations of up- and down-regulated results, pick a different node fill color palette, for example ColorBrewer <b>blue shades</b>. Note that you may have to delete the mapping between <highlight>Node Fill Color</highlight> and <b>LogFC</b> and then add it again for the range of values to be recognized properly.</li>
             <li>Save your new visualization as <b>de genes down</b>.</li>
-        </ul>   
+        </ul>
 </section>
-    
+
 <section id="ex1-down-visualization">
      <h1>Visualization</h1>
         <p>Again, we can reapply the <highlight>Prefuse Force Directed</highlight> layout, and the network will now look something like this:</p>
-	    <img class="plain" src="string-de-down2-sub-prefuse.png" style="height:600px">    
+	    <img class="plain" src="string-de-down2-sub-prefuse.png" style="height:600px">
 </section>
-    
+
 <section id="ex1-down-string-enrich">
     <h1>STRING Enrichment</h1>
         <ul>
             <li>Perform STRING Enrichment analysis on the resulting network. Filter for non-redundant GO Process terms.</li>
-            <li>For this use case, we can try a different enrichment chart. Click the <highlight>Settings</highlight> button in the enrichment resluts panel and change the chart type to <highlight>Pie Chart</highlight> with <highlight>Number of terms to chart</highlight> set to 3.</li>
+            <li>For this use case, we can try a different enrichment chart. Click the <highlight>Settings</highlight> button in the enrichment resluts panel and change the chart type to <highlight>Pie Chart</highlight> with <highlight>Number of terms to chart</highlight> set to <b>3</b>.</li>
             <li>As you see, we now have both the enrichment results pie chart and the node color mapping visible on the nodes. Remove the node color mapping to see just the enrichment results:</li>
         </ul>
- <img class="plain" src="string-enrichment-chart-down2.png" style="height:500px">    
+ <img class="plain" src="string-enrichment-chart-down2.png" style="height:500px">
 </section>
-    
+
 </section>
 
 <section>
@@ -209,11 +207,11 @@
     <li>Click enter, or the search icon, to search.</li>
     </ul>
 <p>This will bring in the top 100 ovarian cancer associated genes connected with a confidence score greater than 0.95.</p>
-<img class="plain" src="string-ovarian2.png" style="height:370px">    
-</section>  
-    
+<img class="plain" src="string-ovarian2.png" style="height:370px">
+</section>
 
-                
+
+
 <section id="ex2-data-integration1">
     <h1>Data Integration</h1>
     <p>Next we will import differential gene expression data from our TCGA dataset to create a visualization. Just like the previous example, we will need to do some identifier mapping to match the data to the network.</p>
@@ -225,38 +223,38 @@
         <li><b>IDMapper</b> displays a report of how many identifiers were mapped. Make note of this information as it impacts all down-stream analysis; If the mapping was unsuccessful, downstream analysis will be as well.</li>
     </ul>
 </section>
- 
+
 <section id="ex2-data-integration2">
     <h1>Data Integration</h1>
     <ul>
-        <li>Next, we can load the data. Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv">TCGA-Ovarian-MesenvsImmuno_data.csv</a>. Then go to <highlight>File &rarr; Import &rarr; Table from File...</highlight> and select the data file.</li>
+        <li>Next, we can load the data. Download a local copy of <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv" target="_blank">TCGA-Ovarian-MesenvsImmuno_data.csv</a>. Then go to <highlight>File &rarr; Import &rarr; Table from File...</highlight> and select the data file.</li>
         <li>Load the <b>TCGA-Ovarian-MesenvsImmuno_data.csv</b> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight></li>
 	    <li>Make sure you select the new <b>Entrez Gene</b> column as the <b>Key column for Network</b> to match the correct column with the key column of the data.</li>
         <li>To complete the import, click <highlight>OK</highlight>. Two new columns of data will be added to the <highlight>Node Table</highlight>.</li>
     </ul>
-<img class="plain" src="TableImport.png" style="height:450px">    
-</section>  
-                
+<img class="plain" src="TableImport.png" style="height:450px">
+</section>
+
 <section id="ex2-visualization1">
     <h1>Visualization</h1>
-    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/">Visualizing Data</a> tutorial.</p>   
+    <p>Next, we will create a visualization of the imported data on the network. For more detailed information about how to create visualizations, see the <a href="https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/" target="_blank">Visualizing Data</a> tutorial.</p>
     <ul>
         <li>In the <highlight>Style</highlight> tab of the <highlight>Control Panel</highlight>, switch the style from <b>STRING style v1.5</b> to <b>default</b> in the drop-down at the top.</li>
         <li>Change the default node shape to <b>ellipse</b> and check <b>Lock node width and height</b>.</li>
         <li>Set the default node fill color to light gray.</li>
-        <li>Set the default <highlight>Border Width</highlight> to 2, and make the default <highlight>Border Paint</highlight> dark gray.</li>   
-        <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <highlight>logFC</highlight>, with the default ColorBrewer <b>red-blue</b> gradient.</li>
-        <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <highlight>display name</highlight>.</li>   
+        <li>Set the default <highlight>Border Width</highlight> to <b>2</b>, and make the default <highlight>Border Paint</highlight> dark gray.</li>
+        <li>For node <highlight>Fill Color</highlight>, create a continuous mapping for <b>logFC</b>, with the default ColorBrewer <b>red-blue</b> gradient. (You might still see the previous mapping we set up; if so delete the mapping firts and then add a new one.)</li>
+        <li>Finally, for <highlight>Node Label</highlight>, set a passthrough mapping for <b>display name</b>.</li>
 	</ul>
 </section>
-    
+
 <section id="ex2-visualization2">
     <h1>Visualization</h1>
         <p>Using the <highlight>Prefuse Force Directed</highlight> layout, the network looks something like this:</p>
-	    <img class="plain" src="string-ovarian-styled2-prefuse.png" style="height:650px">       
+	    <img class="plain" src="string-ovarian-styled2-prefuse.png" style="height:650px">
 </section>
-                
-                
+
+
 <section id="ex2-visualization-drivers1">
     <h1>Visualization: Cancer Drivers</h1>
     <p>The TCGA found several genes that were commonly mutated in ovarian cancer, so called "cancer drivers". We can add information about these genes to the network visualization, by changing the visual style of these nodes. Three of the most important drivers are <b>TP53</b>, <b>BRCA1</b> and <b>BRCA2</b>. We will add a thicker, clored border for these genes in the network.</p>
@@ -265,37 +263,47 @@
         <li>In the <highlight>Style</highlight> panel, add a style bypass for node <highlight>Border Width</highlight> (7) and node <highlight>Border Paint</highlight> (bright pink for example). You can create a style bypass by clicking the <highlight>Bypass</highlight> (<b>Byp.</b>) column for each attribute.</li>
     </ul>
 </section>
-    
-            
+
+
 <section id="ex2-visualization-drivers2">
     <h1>Visualization: Cancer Drivers</h1>
 <p>The network will now look something like this:</p>
-<img class="plain" src="string-ovarian-drivers-prefuse.png" style="height:700px">    
+<img class="plain" src="string-ovarian-drivers-prefuse.png" style="height:700px">
 </section>
-                
+
 <section id="ex2-analysis-options">
     <h1>Other Analysis Options</h1>
     <ul>
         <li>Exploring networks: finding paths, hubs and modules (<a href="http://apps.cytoscape.org/apps/clustermaker2">clusterMaker</a>, <a href="http://apps.cytoscape.org/apps/mcode">MCODE</a>, jActiveModules, <a href="http://apps.cytoscape.org/apps/jactivemodules">NetworkAnalyzer</a>)</li>
         <li>Extending networks with Transcription Factors, miRNAs, etc using <a href="http://apps.cytoscape.org/apps/cytargetlinker">CyTargetLinker</a></li>
-    
+
     </ul>
 </section>
 </section>
-                
+
 <section id="exporting">
     <h1>Exporting Networks</h1>
-    <p>Cytoscape provides a number of ways to export results and visualizations:</p>
+    <p>Cytoscape provides a number of ways to save results and visualizations:</p>
 	<ul>
-        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
-        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight>, or <highlight>File &rarr; Export &rarr; Collection to NDEx</highlight></li>
-		<li>As a Cytoscape JSON file: <highlight>File &rarr; Export &rarr; Network to File</highlight> and select <b>Cytoscape.js JSON</b> as the format.</li>
+					<li>As a session: <highlight>File &rarr; Save Session</highlight>, <highlight>File &rarr; Save Session As...</highlight></li>
+					<li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight></li>
+					<li>To the web: <highlight>File &rarr; Export &rarr; Network to Web Page...</highlight> (<a href="../saving-results/web_session/index.html" target="_blank">Example</a>)</li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight></li>
+		<li>As a graph format file: <highlight>File &rarr; Export &rarr; Network to File</highlight>. <br/>Formats:
+						<ul>
+										<li>CX JSON / CX2 JSON</li>
+										<li>Cytoscape.js JSON</li>
+										<li>GraphML</li>
+										<li>PSI-MI</li>
+										<li>XGMML</li>
+										<li>SIF</li>
+                        </ul></li>
 	</ul>
 </section>
-                
+
 <!-- THIS IS WHERE YOUR CONTENT ENDS -->
 <!-- ========================================================== -->
-            
+
             </div>
 		</div>
 
@@ -325,7 +333,7 @@
 		}
 	}
 });
-</script>  
+</script>
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
