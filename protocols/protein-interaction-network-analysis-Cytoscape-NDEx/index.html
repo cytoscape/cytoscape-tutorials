@@ -171,29 +171,48 @@
                     </li>
                 </ul>
 
-                <p style="text-align: center"><img class="plain" src="iquery-apms-query.png" style="height:650px"></p>
+                <p style="text-align: center"><img class="plain" src="ndex_landing.png" style="height:650px"></p>
 
             </section>
 
             <section>
                 <h1>Add Human PPI to the Network</h1>
                 <p>
-                    In the following results screen, select the <highlight>Protein Interactions</highlight> tab to view results from several public sources available in NDEx. We will use the result of querying <highlight>HumanNet - XN</highlight>, pre-filtered to contain only interactions with a LLS score of 3.5 or greater ("LLS" is a score <i>specific to HumanNet</i>).
+                    In the following results screen, select the <highlight>Interactomes</highlight> tab to view a list of reference PPI sources available in NDEx.
+                    In this tutorial, we will use the <highlight>HumanNet v3 - FN</highlight> interactome, but you are welcome to experiment with different sources.
                     <ul>
-                        <li>Select the <highlight>HumanNet - XN</highlight> result.</li>
-                        <li>Click the <highlight>Cytoscape</highlight> icon in the top right portion of the screen to load the result in Cytoscape.
+                        <li>Select the <highlight>HumanNet v3 - FN</highlight> result.</li>
+                        <li>You can change the type of neighborhood query you wish to run using the query selector (red inlay); the default query type is <highlight>Direct</highlight> 
+                            and that is what we will use to add direct interactions with our AP-MS genes.
                         </li>
+                        <li>Click the search icon <img class="plain" src="SearchIcon.png" style="height:30px"> to run your query.</li>
                 </ul>
                     
                 <p style="text-align: center">
-                    <img class="border" src="humannet-query-result.png" style="height:500px">
+                    <img class="border" src="iquery_interactome_humannet.png" style="height:500px">
+                </p>
+            </section>
+            
+            <section>
+                <h1>Add Human PPI to the Network</h1>
+                
+                   <p>The interactome query result is displayed in a new tab within the NDEx webapp as shown below.
+                        Here, you can refine your query by changing the <highlight>query type</highlight> or save the query result
+                        to your NDEx account (must be signed in) for later use. In this example, we will simply import the result in Cytoscape.
+                        <ul>
+                            <li>Click the <highlight>Open in Cytoscape</highlight> button at the bottom right of the page.</li>
+                            <li><b>Note:</b> in order for this to work, you must have Cytoscape <highlight>installed and running</highlight> on your computer.</li>
+                
+                <p style="text-align: center">
+                    <img class="plain" src="humannet_query_result.png" style="height:650px">
                 </p>
             </section>
 
             <section>
                 <h1>Add Human PPI to the Network</h1>
                 
-                    <p>The <highlight>IQuery</highlight> result is automatically imported in <highlight>Cytoscape</highlight> and the resulting network, named <b>Direct query result on network - HumanNet - XN (LLS >=3.5)</b>, contains known interactions between human query (prey) proteins, with a LLS score of 3.5 or greater.</p>
+                    <p>The query result is automatically imported in <highlight>Cytoscape</highlight> and the resulting network,
+                        named <b>Direct query result on network - HumanNet v3 - FN</b>, contains known interactions between human query (prey) proteins and their targets.</p>
                 
                 <p style="text-align: center">
                     <img class="plain" src="humannet_network.png" style="height:650px">
