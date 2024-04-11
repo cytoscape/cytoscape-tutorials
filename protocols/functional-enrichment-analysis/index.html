@@ -411,8 +411,15 @@ Add speaker notes here...
                 
 <section id='iea_dataset1'>
     <h1>Interactive Enrichment Analysis: Datasets</h1>
-        <p>Datasets are selected in the <highlight>Datasets</highlight> section; one or more datasets can be selected if they are all of the same format. A column named <b>gene</b> is required, and additional columns named <b>rank</b>, <b>p.value</b>, and <b>fold.change</b> are allowed and necessary for GSEA.</p>
+        <p>Input datasets are selected in the <highlight>Datasets</highlight> section; one or more datasets can be selected if they are all of the same format. The supported formats for input datasets are:</p>
+            <ul>
+            <li>a simple list of genes (for ORA only)</li>
+            <li>a list of genes with a <b>rank</b> column (for GSEA only)</li>
+            <li>a list of genes with a <b>p.value</b> column (for GSEA and ORA)</li>
+            <li>a list of genes with <b>p.value</b> and <b>fold.change</b> columns (for GSEA and ORA)</li>
+            </ul>
         <img class="plain" src="iea_select_dataset.png" style="width:60%">
+        
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
