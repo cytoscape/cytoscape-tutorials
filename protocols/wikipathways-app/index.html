@@ -60,7 +60,7 @@
 <section>
          <h1>Basic Workflow: Importing Pathways</h1>
          <ul>
-             <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>"cell cycle"</b> (with quotes) and click the search icon.</li>
+             <li>Launch Cytoscape, and in the <highlight>Network Search Tool</highlight> at the top of the <highlight>Network</highlight> tab in the <highlight>Control Panel</highlight>, select <highlight>WikiPathways</highlight> in the drop-down. Type in <b>cell cycle</b> and click the search icon.</li>
              <li>A list of results for all available species will open. To see results from a select species, click the <highlight>Only</highlight> checkbox and select a species from the drop-down (example: Homo sapiens).</li>
              <li>Select the human <b>Cell Cycle</b> pathway (WP179) and click <highlight>Import as Pathway</highlight>, or simply double-click the pathway in the list.</li>
          </ul>
@@ -83,7 +83,7 @@
 
 <section>
     <h1>Pathway Node Identifiers</h1>
-         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers for genes and proteins and ChEBI for metabolites, adding them to a new column (to the far right of the <highlight>Node Table</highlight>).</p>
+         <p>Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the <highlight>XrefId</highlight> column in the <highlight>Node Table</highlight>. During import, the WikiPathways App maps these identifiers automatically to <b>Ensembl</b> identifiers for genes and proteins and <b>ChEBI</b> for metabolites, adding them to a new column (to the far right of the <highlight>Node Table</highlight>).</p>
          <img src="CellCycleMapped.png" style="width:50%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -95,7 +95,7 @@
          <p>The data we will be using for this workflow (<a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>) is from a study investigating the RNA-seq signatures of platelets from patients with various types of cancer, in an effort to develop a platelet-based diagnostic (<a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(15)00349-9" target="_blank">Best et el., 2015).</a> The data was downloaded from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-68086/Downloads" target=_blank>Expression Atlas</a>.</p>
     
          <ul>
-         <li>Load the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file under <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight>; select the file you want to import in the menu, and click on <highlight>Open</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
+         <li>In the <highlight>File</highlight> menu, select <highlight>Import &rarr; Table from File....</highlight> and select the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a> file, and click on <highlight>Open</highlight>. Alternatively, drag and drop the data file directly onto the <highlight>Node Table</highlight>.</li>
          <li>Under <highlight>Where to Import Table Data</highlight>, select <highlight>To a Network Collection</highlight> and select the relevant network collection in the second drop-down; if you only have one network opened in Cytoscape, this network is selected automatically.</li>
          <li>In the <highlight>Key Column for Network</highlight> drop-down, select the new <b>Ensembl</b> column.</li>
          <li>In the <highlight>Preview</highlight> table, note that the <b>Gene ID</b> column is already selected as the key.</li>
@@ -215,12 +215,12 @@
         <p>The data we will be using for this workflow (<a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>) is from a study investigating the RNA-seq signatures of platelets from patients with various types of cancer, in an effort to develop a platelet-based diagnostic (<a href="https://www.cell.com/cancer-cell/fulltext/S1535-6108(15)00349-9" target="_blank">Best et el., 2015).</a> The data was downloaded from <a href="https://www.ebi.ac.uk/gxa/experiments/E-GEOD-68086/Downloads" target=_blank>Expression Atlas</a>.</p>
         <ul> 
         <li>If you are continuing from the previous workflow, make sure the session is saved and then select <highlight>File &rarr; Close Session</highlight> to start from scratch.</li>
-        <li>Using the the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for and open the following <b>human</b> pathways, with the <highlight>Import as Pathway</highlight> option. <b>Pro-tip</b>: You can search for the WPID instead of the title.
+        <li>Using the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for and open the following <b>human</b> pathways, with the <highlight>Import as Pathway</highlight> option. <b>Pro-tip</b>: Search for the WPID instead of the title.
             <ul>
-                <li>WP179: Cell cycle</li>
-                <li>WP2446: Retinoblastoma gene in cancer</li>
-                <li>WP4830: GDNF/RET signaling axis</li>
-                <li>WP707: DNA damage response</li>
+                <li>Cell cycle (WP179)</li>
+                <li>Retinoblastoma gene in cancer (WP2446)</li>
+                <li>GDNF/RET signaling axis (WP4830)</li>
+                <li>DNA damage response (WP707)</li>
             </ul></li>
         </ul>
     </section>
@@ -314,7 +314,7 @@
     <p>We will import one of the pathways from the previous workflow as a network:</p>
         <ul>
             <li>If you are continuing from the previous workflow, make sure the session is saved and then select <highlight>File &rarr; Close Session</highlight> to start from scratch.</li>
-            <li>Using the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for "retinoblastoma" or "WP2446" and open the pathway using the <highlight>Import as Network</highlight> option.</li>
+            <li>Using the <highlight>Network Search Tool</highlight> with <highlight>WikiPathways</highlight> selected, search for <b>retinoblastoma</b> or <b>WP2446</b> and open the pathway using the <highlight>Import as Network</highlight> option.</li>
     </ul>
 </section>
 <section>
@@ -353,7 +353,7 @@
         <p>Next, we can add a data visualization to the nodes using the the Omics Visualizer app. We will use the same data as in the previous workflows.</p>
         <ul>
             <li>Go to <highlight>Apps &rarr; Omics Visualizer &rarr; Import data from file</highlight> and select the <a href="https://cytoscape.org/cytoscape-tutorials/protocols/data/E-GEOD-68086.csv">E-GEOD-68086.csv</a>.</li>
-            <li>A new tab titled <highlight>Omics Visualizer Tables</highlight> will be avaiable in the <highlight>Table Panel </highlight>.</li>
+            <li>A new tab titled <highlight>Omics Visualizer Tables</highlight> will be avaiable in the <highlight>Table Panel</highlight>.</li>
         </ul><br /><br />
         <img src="OmicsVisualizerTable.png" style="width:60%">
 </section> 
