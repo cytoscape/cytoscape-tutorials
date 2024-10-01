@@ -106,7 +106,7 @@
                 
 <section id='example_data_pinto'>
     <h1>Example Data - Pinto et al. SARS-CoV-2 study</h1>
-    <p>The <a href="https://www.cell.com/iscience/fulltext/S2589-0042(22)02168-X" target="_blank">Pinto et al</a> study is a multi-OMICs study of SARS-CoV-2 host responses in lung epithelial cells. The data files below were adapted from the supplementary data files provided with the publication, which were already pre-filtered.</p>
+    <p>The <a href="https://www.cell.com/iscience/fulltext/S2589-0042(22)02168-X" target="_blank">Pinto et al.</a> study is a multi-OMICs study of SARS-CoV-2 host responses in lung epithelial cells. The data files below were adapted from the supplementary data files provided with the publication, which were already pre-filtered.</p>
     <ol>
         <li>Differentially regulated transcripts identified in cells infected with SARS-CoV2; <highlight>list of 2656 genes (NCBI gene symbol)</highlight>. <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/Pinto_PMID36590899_mmc2_transcript_ncbi.txt" target="_blank">Download data</a>.</li>
         <li>Differentially expressed proteins identified in cells infected with SARS-CoV2; <highlight>list of 225 proteins</highlight>. <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/Pinto_PMID36590899_mmc3_protein_uni.txt" target="_blank">Download data with Uniprot identifiers</a> / <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/Pinto_PMID36590899_mmc3_protein_ncbi.txt" target="_blank">Download data with NCBI gene symbols</a>.</li>
@@ -146,7 +146,7 @@
             <li>fold change</li>
             <li>p value</li> 
        </ul>
-    <p><a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/E-GEOD-30573.csv" target="_blank">Download data</a>.</p>
+    <p><a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/E-GEOD-30573.csv" target="_blank">Download data</a></p>
     <!--<div class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 50px; top: 120px">
             <img  src="input_files_csv.png" style="width:60%">
      </div>-->
@@ -170,13 +170,14 @@ Add speaker notes here...
 <section id='enrichr'>
     <h1>Enrichr</h1>
          <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic Over-Representation Analysis (ORA) for a large number of gene set libraries.</p>
-        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 50px; top: 200px">
+     <p class="fragment" >Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
+<!--        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left: 50px; top: 200px">-->
             <img class="plain" src="enrichr.png" style="width:70%">
-        </div>
-        <div class="fragment" data-fragment-index="2">
+<!--        </div>-->
+<!--        <div class="fragment" data-fragment-index="2">
              <p>Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
             <img class="plain" src="enrichr_lib.png" style="width:70%">
-        </div>
+        </div>-->
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -274,7 +275,7 @@ Add speaker notes here...
          </aside>
 </section>
 
-<section id='webgestalt_datasource'>
+<!--<section id='webgestalt_datasource'>
     <h1>WebGestalt: Data source</h1>
 	<p>WebGestalt data sources are listed under <highlight>Data source</highlight> and includes Gene Ontology terms, pathways, networks, disease-associated sets, drug terms etc.</p>
          <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 200px; top: 200px">
@@ -286,7 +287,7 @@ Add speaker notes here...
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
-</section>
+</section>-->
 
 <section id='webgestalt_start1'>
     <h1>WebGestalt: Start Analysis</h1>
@@ -299,7 +300,7 @@ Add speaker notes here...
                 
 <section id='webgestalt_start2'>
     <h1>WebGestalt: Start Analysis</h1>
-         <p>The input data is defined in the <highlight>Gene List</highlight> section, and the dataset or list of genes can either be pasted into the input field or uploaded as a text file. <highlight>Select Gene ID Type</highlight> should match the identifier type in the input data. The list used here corresponds to the TCGA example input file containing the full dataset with associated gene rank.</p>
+         <p>The input data is defined in the <highlight>List</highlight> section, and the dataset or list of genes can either be pasted into the input field or uploaded as a text file. Specify the identifier type under <highlight>ID type for uploaded reference list</highlight>. The <highlight>Analyte Type</highlight> should match the identifier type in the input data. The list used here corresponds to the TCGA example input file containing the full dataset with associated gene rank.</p>
          <p class="fragment">Clicking <highlight>Submit</highlight> at the bottom left starts the analysis.</p>
          <img class="plain" src="webgestalt_inputdata.png" style="width:70%">
          <aside class="notes" data-markdown>
@@ -430,7 +431,7 @@ Add speaker notes here...
     <h1>Interactive Enrichment Analysis: Dataset Options</h1>
         <p>The tool will display a preview of the first few rows of the first chosen dataset along with the required and optional columns that were detected.</p>
         <p class="fragment" data-fragment-index="2"><highlight>Gene identifier</highlight> and <highlight>organism</highlight> should match the data. The analysis parameters can also be adjusted here.</p>  
-        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 200px">
+        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left: 0px; top: 200px">
         <img src="iea_dataset_options.png" class="plain"style="width:50%">
         </div>
         <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 0px; top: 270px">
