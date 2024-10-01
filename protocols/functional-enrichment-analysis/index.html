@@ -171,13 +171,7 @@ Add speaker notes here...
     <h1>Enrichr</h1>
          <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic Over-Representation Analysis (ORA) for a large number of gene set libraries.</p>
      <p class="fragment" >Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
-<!--        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left: 50px; top: 200px">-->
             <img class="plain" src="enrichr.png" style="width:70%">
-<!--        </div>-->
-<!--        <div class="fragment" data-fragment-index="2">
-             <p>Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
-            <img class="plain" src="enrichr_lib.png" style="width:70%">
-        </div>-->
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -206,10 +200,10 @@ Add speaker notes here...
 <section id='enrichr_results'>
     <h1>Enrichr: Results Overview</h1>
          <p>The results are displayed as a grid of libraries for each functional category (at the top), the image below shows the results in the <highlight>Pathways</highlight> category.</p>
-         <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; top: 200px; left: 60px">
+         <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; top: 200px; left: 60px">
          <img class="plain" src="enrichr_results.png" style="width:55%"></div>
-         <div class="fragment fade-in" data-fragment-index="2">
-         <p class="fragment" data-fragment-index="2">Clicking on one of the squares will show the detailed results for that library:</p>
+         <div class="fragment fade-in" data-fragment-index="1">
+         <p>Clicking on one of the squares will show the detailed results for that library:</p>
              <img class="plain" src="results_wp.png" style="width:50%">
          </div>         
 
@@ -221,11 +215,11 @@ Add speaker notes here...
 <section id='enrichr_details'>
     <h1>Enrichr: Gene Set Results</h1>
          <p>Looking at the results for a specific library in detail, the gene sets are sorted by p-value ranking by default. Clicking on any of the bars representing gene sets re-sorts the bar graph by the different score.</p>
-         <div class="fragments current-visible" data-fragment-index="1" style="position: absolute; top: 215px; left: 160px; width: 80%" >
+         <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; top: 215px; left: 160px; width: 80%" >
 		 <img class="plain" src="results_wp_detail.png"></div>
-    	 <div class="fragment fade-in" data-fragment-index="2"
-	     style="position: absolute; top: 220px; left: 160px; width: 81%" >
-		 <img class="plain fragment" data-fragment-index="2" src="results_wp_sorted.png"></div>
+    	 <div class="fragment fade-in" data-fragment-index="1"
+	     style="position: absolute; top: 220px; left: 160px; width: 79%" >
+		 <img class="plain" src="results_wp_sorted.png"></div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -315,13 +309,11 @@ Add speaker notes here...
 <section id='webgestalt_barchart'>
     <h1>WebGestalt: Enrichment Results</h1>
          <p>Results are displayed as a bar chart by default. Right-clicking on the bar chart lets you download in either <highlight>PNG</highlight> or <highlight>SVG</highlight> format.</p>
-         <p class="fragment" data-fragment-index="2">Clicking on the bars updates the pathway-specific display at the bottom of the page.</p>
-         <img class="fragment current-visible" data-fragment-index="2" class="plain" src="webgestalt_barchart.png" style="width:70%">
-    	<div class="fragment fade-in" data-fragment-index="3"
-	     style="position: absolute; top: 250px; left: 175px; width: 80%" >
-		<img class="plain fragment" data-fragment-index="3"
-		     src="webgestalt_pathwayspecific.png">
-	</div>
+         <p class="fragment fade-in" data-fragment-index="1">Clicking on the bars updates the pathway-specific display at the bottom of the page.</p>
+         <div class="fragment fade-out" data-fragment-index="0">
+         <img class="plain" src="webgestalt_barchart.png" style="width:70%"></div>
+    	<div class="fragment fade-in" data-fragment-index="1" style="position: absolute; top: 250px; left: 175px; width: 80%" >
+		<img class="plain" src="webgestalt_pathwayspecific.png"></div>
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -330,15 +322,16 @@ Add speaker notes here...
 <section id='webgestalt_enrichmentplot'>
     <h1>WebGestalt: Enrichment Results</h1>
          <p>The results specific to a gene set (pathway in this case) include the scoring statistics calculated for the enrichment, including the enrichment score, a sortable table and the enrichment plot.</p>
-         <p class="fragment" data-fragment-index="2">The enrichment plot is described in detail <a href="https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html" target="_blank">here</a>. Briefly, the plot 
+         <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; left: 50px; top: 250px">
+            <img src="webgestalt_pathwayspecific.png" class="plain">
+        </div>
+         <p class="fragment fade-in" data-fragment-index="1">The enrichment plot is described in detail <a href="https://www.gsea-msigdb.org/gsea/doc/GSEAUserGuideFrame.html" target="_blank">here</a>. Briefly, the plot 
 		 in the upper half represents the running enrichment score (ES), as the analysis walks down the ranked list of genes (bottom section), starting at the most highly ranked gene. When a gene in the pathway is in 
 		 the ranked list, the score goes up, and when it’s not it goes down. The corresponding overlap between the ranked list and the gene set is indicated by a line in the middle section. The top score in the enrichment 
 		 map plot is the score reported for the particular gene set.</p>    
-        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left: 50px; top: 250px">
-            <img src="webgestalt_pathwayspecific.png" class="plain">
-        </div>
-        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 240px; top: 420px">
-        <img data-fragment-index="2" src="enrichment_score_plot.png" class="plain fragment" width="70%">
+        
+        <div class="fragment fade-in" data-fragment-index="1" style="position: absolute; left: 240px; top: 420px">
+        <img src="enrichment_score_plot.png" class="plain fragment" width="70%">
         </div>
          <aside class="notes" data-markdown>
          Notes go here
@@ -358,11 +351,12 @@ Add speaker notes here...
 <section id='webgestalt_other'>
     <h1>WebGestalt: Enrichment Results</h1>
         <p>In addition to the bar chart, the main results overview can also be visualized as a table or volcano plot by clicking the <highlight>Table</highlight> and <highlight>Volcano</highlight> buttons at the top left.</p>
-        <p class="fragment" data-fragment-index="2">The volcano plot has options for customized downloads available, as well as pan/zoom controls.</p>  
-        <div class="fragment fade-out" data-fragment-index="1" style="position: absolute; top: 200px">
+        <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; top: 200px">
         <img  src="webgestalt_table.png" class="plain">
         </div>
-        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; top: 250px">
+        
+        <p class="fragment fade-in" data-fragment-index="1">The volcano plot has options for customized downloads available, as well as pan/zoom controls.</p> 
+        <div class="fragment fade-in" data-fragment-index="1" style="position: absolute; top: 250px">
         <img src="webgestalt_volcano.png" class="plain" style="width:70%">
         </div>
          <aside class="notes" data-markdown>
@@ -393,11 +387,13 @@ Add speaker notes here...
 <section id='iea_database'>
     <h1>Interactive Enrichment Analysis: Database</h1>
         <p>A set of public database collections is provided in the drop-down in the <highlight>Database</highlight> section. These are updated monthly and date stamped. It is also possible to construct your own database collection under <highlight>BUILD NEW DATABASE</highlight>, and providing one or more <a href="https://software.broadinstitute.org/cancer/software/gsea/wiki/index.php/Data_formats#GMT:_Gene_Matrix_Transposed_file_format_.28.2A.gmt.29" target="_blank">GMT</a> files.</p>
-        <p class="fragment" data-fragment-index="2">Once a database collection is selected, the specific databases contained in the collection will be displayed.</p>
-        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left: 0px; top: 250px">
+        <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; left: 0px; top: 250px">
         <img  src="iea_database.png" class="plain" style="width:80%">
         </div>
-        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 40px; top: 330px">
+    
+        <p class="fragment fade-in" data-fragment-index="1">Once a database collection is selected, the specific databases contained in the collection will be displayed.</p>
+        
+        <div data-fragment-index="1" class="fragment fade-in" style="position: absolute; left: 40px; top: 330px">
         <img src="iea_database_contents.png" class="plain" style="width:60%">
         </div>
          <aside class="notes" data-markdown>
@@ -425,14 +421,13 @@ Add speaker notes here...
 <section id='iea_dataset2'>
     <h1>Interactive Enrichment Analysis: Dataset Options</h1>
         <p>The tool will display a preview of the first few rows of the first chosen dataset along with the required and optional columns that were detected.</p>
-        <p class="fragment" data-fragment-index="2"><highlight>Gene identifier</highlight> and <highlight>organism</highlight> should match the data. The analysis parameters can also be adjusted here.</p>  
-        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left: 0px; top: 200px">
+        <p class="fragment fade-in" data-fragment-index="1"><highlight>Gene identifier</highlight> and <highlight>organism</highlight> should match the data. The analysis parameters can also be adjusted here.</p>  
+        <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; left: 0px; top: 200px">
         <img src="iea_dataset_options.png" class="plain"style="width:50%">
         </div>
-        <div data-fragment-index="2" class="fragment fade-in" style="position: absolute; left: 0px; top: 270px">
+        <div class="fragment fade-in" data-fragment-index="1" style="position: absolute; left: 0px; top: 270px">
         <img src="iea_dataset_options_highlight.png" class="plain" style="width:45%">
         </div>
-        <img class="plain" src="" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
@@ -441,11 +436,11 @@ Add speaker notes here...
 <section id='iea_start'>
     <h1>Interactive Enrichment Analysis: Start Analysis</h1>
         <p>When <highlight>Databases</highlight> and <highlight>Datasets</highlight> are loaded and verified, the side panel will be updated with a <highlight>Run Analyses</highlight> option.</p>
-        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left: 0px; top: 200px">
+        <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; left: 0px; top: 200px">
         <img src="iea_startanalysis.png" class="plain"style="width:80%">
         </div>
-        <p class="fragment" data-fragment-index="2">Once analysis is started, the initial set of panels will collapse and a <highlight>Progress</highlight> panel will open along with a progress bar in the lower-right corner. The <highlight>Progress</highlight> panel will report the individual analysis steps, any errors, as well as start and finish times for the run, and the location of the output folder.</p>  
-        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 350px">
+        <p class="fragment fade-in" data-fragment-index="1">Once analysis is started, the initial set of panels will collapse and a <highlight>Progress</highlight> panel will open along with a progress bar in the lower-right corner. The <highlight>Progress</highlight> panel will report the individual analysis steps, any errors, as well as start and finish times for the run, and the location of the output folder.</p>  
+        <div class="fragment fade-in" data-fragment-index="1" style="position: absolute; left: 0px; top: 350px">
         <img src="iea_progress.png" class="plain"style="width:60%">
         </div>
          <aside class="notes" data-markdown>
@@ -456,12 +451,12 @@ Add speaker notes here...
 <section id='iea_viewresults'>
     <h1>Interactive Enrichment Analysis: View Results</h1>
         <p>Analysis results can be viewed by clicking <highlight>View Results</highlight>. Results are viewed in another app that allows you to interactively explore results and download individual files.</p>
-        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left: 0px; top: 250px">
+        <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; left: 0px; top: 250px">
         <img src="iea_progress_viewresults.png" class="plain"style="width:60%">
         </div>
-        <p class="fragment" data-fragment-index="2">In the results app, the <highlight>Data</highlight> tab displays the processed input data as a searchable table and volcano plot.
+        <p class="fragment" data-fragment-index="1">In the results app, the <highlight>Data</highlight> tab displays the processed input data as a searchable table and volcano plot.
         A checkbox at the top allows you to also view the genes that were excluded from the analysis, e.g., due to failed identifier mapping. Both the table and plot are downloadable.</p>
-        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 320px">
+        <div class="fragment fade-in" data-fragment-index="1" style="position: absolute; left: 0px; top: 320px">
         <img src="iea_results_data_ora.png" class="plain" style="width:70%">
         </div>
          <aside class="notes" data-markdown>
@@ -471,12 +466,12 @@ Add speaker notes here...
                 
 <section id='iea_dataplots'>
     <h1>Interactive Enrichment Analysis: Data plots</h1>    
-        <p class="fragment fade-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">The input data is visualized in a volcano plot, which plots genes by statistical significance, <b>p.value</b>, versus magnitude of change, <b>fold.change</b>. Genes are highlighted based on the p.value and fold-change cutoffs selected during setup. Selected genes are labeled; select genes either by top <b>n</b> genes, or by selection by name.</p>  
-        <div class="fragment current-visible" data-fragment-index="1" class="fragment fade-out" style="position: absolute; left: 220px; top: 270px">
+        <p class="fragment fade-out" data-fragment-index="0" style="position: absolute; left: 0px; top: 100px">The input data is visualized in a volcano plot, which plots genes by statistical significance, <b>p.value</b>, versus magnitude of change, <b>fold.change</b>. Genes are highlighted based on the p.value and fold-change cutoffs selected during setup. Selected genes are labeled; select genes either by top <b>n</b> genes, or by selection by name.</p>  
+        <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; left: 220px; top: 270px">
             <img class="plain" src="shiny_results_data_volcano.png" >
         </div>
-        <p class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">A bar plot of your input data is also available (via a drop-down), highlighting positive and negative fold-change values for a subset of genes, either top <b>n</b> genes or genes selected by name.</p>  
-        <div data-fragment-index="2" class="fragment fade-in-then-out" style="position: absolute; left: 220px; top: 200px">
+        <p class="fragment fade-in" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">A bar plot of your input data is also available (via a drop-down), highlighting positive and negative fold-change values for a subset of genes, either top <b>n</b> genes or genes selected by name.</p>  
+        <div class="fragment fade-in" data-fragment-index="1" style="position: absolute; left: 220px; top: 200px">
             <img class="plain" src="shiny_results_data_bar.png">
         </div>
     
@@ -488,11 +483,11 @@ Add speaker notes here...
 <section id='iea_results1'>
     <h1>Interactive Enrichment Analysis: Analysis Results</h1>
         <p>The <highlight>Results</highlight> tab displays a table of enriched terms/pathways, a plot of top results, and a plot of a selected result from the table. The table is paginated and supports selection, search and filtering. The plots for top results include <b>dot</b>, <b>heatmap</b>, <b>emap</b>, <b>concept networks</b>, etc.</p>
-        <div class="current-visible" data-fragment-index="1" style="position: absolute; left:0px; top: 230px">
+        <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; left:0px; top: 230px">
         <img  src="iea_results_ora.png" class="plain" style="width:60%">
         </div>
-        <p class="fragment" data-fragment-index="2">The table and plots can all be downloaded.</p>  
-        <div class="fragment fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 300px">
+        <p class="fragment fade-in" data-fragment-index="1">The table and plots can all be downloaded.</p>  
+        <div class="fragment fragment fade-in" data-fragment-index="1" style="position: absolute; left: 0px; top: 300px">
         <img src="iea_results_ora_download.png" class="plain" style="float:left; width:48%">
         <img src="iea_results_dot_download.png" class="plain" style="float:right; width:48%">
         </div>
@@ -526,16 +521,16 @@ Add speaker notes here...
                 
 <section id='iea_results_overlap'>
     <h1>Interactive Enrichment Analysis: Overlapping genes</h1>
-        <p class="fragment current-visible" data-fragment-index="1" style="position: absolute; left:  100px; top: 100px">Several plot types are available for visualizing the gene overlap between results.</p>
-        <div class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">
+        <p class="fragment fade-out" data-fragment-index="0" style="position: absolute; left:  100px; top: 100px">Several plot types are available for visualizing the gene overlap between results.</p>
+        <div class="fragment fade-in-then-out" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">
         <p><highlight>Heatmap</highlight> plots the top results (terms/pathways) versus top genes to highlight overlapping genes among the most enriched results. As with all plots, the view options are customizable.</p>  
             <img class="plain" src="shiny_results_res_heatmap.png" style="width:60%">
         </div>
-        <div class="fragment fade-in-then-out" data-fragment-index="3" style="position: absolute; left: 0px; top: 100px">
+        <div class="fragment fade-in-then-out" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">
         <p><highlight>Enrichment map</highlight> (emap) connects results (terms/pathways) with overlapping genes in a network view. The interactions (edges) in the network represent gene overlap between terms/pathways (nodes), and nodes are sized based on the number of genes in them.</p> 
             <img class="plain" src="shiny_results_res_emap.png" style="width:40%">
         </div>
-        <div class="fragment fade-in" data-fragment-index="4" style="position: absolute; left: 0px; top: 100px">
+        <div class="fragment fade-in" data-fragment-index="3" style="position: absolute; left: 0px; top: 100px">
         <p><highlight>Concept network</highlight> (cnet) connects results via their overlapping genes. Results (terms/pathways) are represented by the larger nodes, and each gene in that term/pathway is connected via interactions to it. Interactions are color-coded by term/pathway. In this way, it is easy to see which genes are relevant to more than one term/pathway.</p>
              <img class="plain" src="iea_results_cnet.png" style="width:50%">
         </div>
@@ -556,11 +551,11 @@ Add speaker notes here...
                 
 <section id='iea_results_wpplot'>
     <h1>Interactive Enrichment Analysis: Pathway plot</h1>
-        <div class="fragment current-visible" data-fragment-index="1" style="position: absolute; left:  100px; top: 100px">
+        <div class="fragment fade-out" data-fragment-index="0" style="position: absolute; top: 100px">
         <p>Some database-specific visualizations are also available, for example <b>WikiPathways</b> visualizations of the data on models from the <a href="https://www.wikipathways.org/" target="_blank">WikiPathways</a> database. Genes that met the criteria for fold change and p value cutoff (for ORA), or leading edge genes (for GSEA) are highlighted in the pathway (orange for up, blue for down). The <b>WikiPathways</b> button will take you to the pathway model at WikiPathways.</p>
         <img src="iea_pathway_plot.png" class="plain" style="width:55%">
         </div>
-        <div class="fragment fade-in" data-fragment-index="2" style="position: absolute; left: 0px; top: 100px">
+        <div class="fragment fade-in" data-fragment-index="1" style="position: absolute; left: 0px; top: 100px">
         <p>Opening the pathway in a new window gives you access to a larger, interactive format of the pathway.</p>   
             <img src="iea_pathway_plot_large.png" class="plain" style="width:90%">
         </div>
