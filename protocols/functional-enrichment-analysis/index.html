@@ -159,7 +159,7 @@
 <section id='navigation 1'>
 <a href="#/enrichr" class="navigate-next"><ribbon>Enrichr</ribbon></a>
 <a href="#/webgestalt"><ribbon>WebGestalt</ribbon></a>
-<a href="#/iea"><ribbon>Interactive Enrichment Analysis</ribbon></a>
+<a href="#/iea-launch"><ribbon>Interactive Enrichment Analysis</ribbon></a>
 <a href="#/downstream_analysis"><ribbon>Downstream Analysis Options</ribbon></a>
 
 <aside class="notes" data-markdown>
@@ -247,7 +247,7 @@ Add speaker notes here...
 <section id='navigation 2'>
 <a href="#/enrichr"><ribbon>Enrichr</ribbon></a>
 <a href="#/webgestalt" class="navigate-next"><ribbon>WebGestalt</ribbon></a>
-<a href="#/iea"><ribbon>Interactive Enrichment Analysis</ribbon></a>
+<a href="#/iea-launch"><ribbon>Interactive Enrichment Analysis</ribbon></a>
 <a href="#/downstream_analysis"><ribbon>Downstream Analysis Options</ribbon></a>
 
 <aside class="notes" data-markdown>
@@ -367,7 +367,7 @@ Add speaker notes here...
 <section id='navigation 3'>
 <a href="#/enrichr"><ribbon>Enrichr</ribbon></a>
 <a href="#/webgestalt"><ribbon>WebGestalt</ribbon></a>
-<a href="#/iea" class="navigate-next"><ribbon>Interactive Enrichment Analysis</ribbon></a>
+<a href="#/iea-launch" class="navigate-next"><ribbon>Interactive Enrichment Analysis</ribbon></a>
 <a href="#/downstream_analysis"><ribbon>Downstream Analysis Options</ribbon></a>
 
 <aside class="notes" data-markdown>
@@ -375,9 +375,29 @@ Add speaker notes here...
 </aside>
 </section>
                 
+<section id='iea-launch'>
+    <h1>Interactive Enrichment Analysis</h1>
+        <p><a href="https://github.com/gladstone-institutes/Interactive-Enrichment-Analysis" target="_blank">Interactive Enrichment Analysis</a> is a user-friendly interactive tool to perform enrichment analysis for multiple datasets across multiple public databases. This tool can run both Over-Representation Analysis(ORA) and Gene Set Enrichment Analysis (GSEA). Follow these steps to get started:</p>
+        <ul>
+            <li><a href="https://posit.co/download/rstudio-desktop/">Install the latest versions of R and RStudio</a>. Follow the steps provided on that page and then return here.</li>
+            <li>Open RStudio.</li>
+            <li>Set your working directory, i.e. using <b>setwd()</b> function.</li>
+            <li>Copy/paste these lines into the Console and hit return:</li>
+    
+            <pre><code>if(!require(devtools)) install.packages(c("devtools","httr")); library(devtools); library(httr)
+options(shiny.launch.browser = .rs.invokeShinyWindowExternal)
+source_url("https://raw.github.com/gladstone-institutes/Interactive-Enrichment-Analysis/main/launch_app.R")
+</code></pre>
+        </ul>
+    <p>This will install some basic dependencies, download the project to your working directory (Files tab in RStudio) and launch the tool in your browser.</p>
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
 <section id='iea'>
     <h1>Interactive Enrichment Analysis</h1>
-        <p><a href="https://github.com/gladstone-institutes/Interactive-Enrichment-Analysis" target="_blank">Interactive Enrichment Analysis</a> is a user-friendly interactive tool to perform enrichment analysis for multiple datasets across multiple public databases. This tool can run both Over-Representation Analysis(ORA) and Gene Set Enrichment Analysis (GSEA).</p>
+        <p>The tool will open in your browser:</p>
         <img class="plain" src="interactive_enrichment_analysis.png" style="width:80%">
          <aside class="notes" data-markdown>
          Notes go here
