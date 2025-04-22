@@ -169,8 +169,8 @@ Add speaker notes here...
 
 <section id='enrichr'>
     <h1>Enrichr</h1>
-         <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic Over-Representation Analysis (ORA) for a large number of gene set libraries.</p>
-     <p class="fragment" >Before starting analysis, you can browse the available gene sets under <highlight>Libraries</highlight> in the top menu.</p>
+         <p>The <a href="https://maayanlab.cloud/Enrichr/" target="_blank">Enrichr</a> tool offers an easy-to-use interface for basic Over-Representation Analysis (ORA) for a large number of gene set ("term") libraries. Optionally, can register and login at the top right.</p>
+     <p class="fragment" >Before starting analysis, you can browse the available libraries under <highlight>Libraries</highlight> in the top menu.</p>
             <img class="plain" src="enrichr.png" style="width:70%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -190,7 +190,7 @@ Add speaker notes here...
 <section id='enrichr_start'>
     <h1>Enrichr: Start Analysis</h1>
          <p>Analysis is started by simply copying the list of genes from an input text file into the input box on the right of the <highlight>Analyze</highlight> tab and clicking <highlight>Submit</highlight>.</p>
-         <p class="fragment">Note that this corresponds to the TCGA example data file containing <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.up.txt" target="_blank">up-regulated genes</a>.</p>
+         <p class="fragment">Note that this corresponds to the TCGA example data file containing <a href="https://raw.githubusercontent.com/gladstone-institutes/Bioinformatics-Workshops/master/intro-pathway-analysis/ExampleData/lung.expr.up.txt" target="_blank">up-regulated genes</a>. Optionally, you can give your input list ("sample gene set") a description/name. If you are registered/logged in, your input lists and analysis are saved; having descriptions helps organize them.</p>
          <img class="plain" src="enrichr_start.png" style="width:55%">
          <aside class="notes" data-markdown>
          Notes go here
@@ -239,6 +239,16 @@ Add speaker notes here...
          <p>In addition to the default bar chart, results are also available as a table under <highlight>Table</highlight>. The table include the four enrichment scores calculated by Enrichr: <highlight>P-value</highlight>, <highlight>Adjusted p-value</highlight>, <highlight>Odds Ratio</highlight> and <highlight>Combined score</highlight>. More information about these scores can be found in the <a href="https://maayanlab.cloud/Enrichr/help#background&q=4" target="_blank">Enrichr documentation</a>.</p>
          <p class="fragment" data-fragment-index="2">At the bottom of the table there is a link to <highlight>Export entries to table</highlight> which will download a .txt file with the full results table.</p>
          <img class="plain" src="results_wp_table.png" style="width:68%">
+         <aside class="notes" data-markdown>
+         Notes go here
+         </aside>
+</section>
+                
+<section id='enrichr_share'>
+    <h1>Enrichr: Share Results</h1>
+         <p>Back in the results overview, at the rop right next to the input list description, a share URL is provided. This URL does not require registration/login to work.</p>
+         <img class="plain" src="enrichr_results_share.png" style="width:55%">       
+
          <aside class="notes" data-markdown>
          Notes go here
          </aside>
