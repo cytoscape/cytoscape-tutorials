@@ -1,0 +1,90 @@
+<section>
+<h1>Cytoscape-web</h1>
+<div style="float: left; width: 60%">
+				<img src="modules/cytoscape-web/gal-web-screenshot.png"/>
+				<br/>
+				<a href="https://web.cytoscape.org">https://web.cytoscape.org</a>
+</div>
+<ul>
+	<li>Open source</li>
+	<li>Develed by the Cytoscape Consortium
+	</li>
+	<img src="modules/intro-cytoscape/CytoscapeConsortium.png" width="80%"/>
+</ul>
+<aside class="notes" data-markdown>
+</aside>
+</section>
+
+<!-- All sorts of weirdness to get this to look right -->
+<section data-transition="none">
+<h4>Cytoscape-web</h1>
+<p>Cytoscape-web is a web implementation of the core functionality of Cytoscape desktop, including:
+<ul>
+	<li>Network visualization</li>
+	<li>Import of networks and tables</li>
+	<li>Visual styles</li>
+</ul>
+</section>
+
+<section>
+<h4>Networks and Tables</h4>
+<div style="float: left; width: 50%">
+	<img src="modules/intro-cytoscape/SimpleNetwork.png" width="55%" align="center"/>
+	<p style="text-align: center"><b>Networks</b><br/>
+	<span class="fragment fade-out" data-fragment-index=1">e.g., PPIs or pathways</span></p>
+	<!-- Wierd order is so we can get the fragment right -->
+	<img class="fragment" data-fragment-index="1" src="modules/intro-cytoscape/StyledNetwork.png" style="position:relative; top:-470px;left:0;" width="65%" align="center"/>
+</div>
+<div style="float:right; width: 50%">
+	<img src="modules/intro-cytoscape/SpreadSheet.png" width="100%" align="center"/>
+	<p style="text-align: center"><b>Tables</b><br/>
+	<span class="fragment fade-out" data-fragment-index=1">e.g., data or annotations</span></p>
+</div>
+<div class="fragment" data-fragment-index="1" style="width:100%; position:relative; left:-320px; top:-100px">
+<img class="plain" src="modules/intro-cytoscape/Arrow.png" align="center"/>
+<p style="text-align: center"><b>Visual Styles</b></p>
+</div>
+
+<aside class="notes" data-markdown>
+These are the core concepts of Cytoscape that we will come back to over and over. Cytoscape knows about networks and it knows about tables (like your data).
+And Cytoscape allows you to define Visual Styles to map your data values to visualizations like node color, size and dozens of other properties.
+</aside>
+</section>
+
+<section>
+	<h4>Getting data into Cytoscape-web</h4>
+	<ul>
+		<li>Create network in Cytoscape desktop, R, python or any tools that can generate CX or CX2 files</li>
+		<li>Export newtork as a CX2 file or export network to <a href="https://www.,ndexbio.org">NDEx</a></li>
+		<li>Import into Cytoscape-web (<b>Data&rarr;Import&rarr;Import Network from File...</b>) or read from NDEx (<b>Data&rarr;Open Network(s) from NDEx...</b>)</li>
+	</ul>
+</section>
+
+<section>
+	<h4>Sharing your data - recommended approach</h4>
+	<p>Currently, the main benefit of Cytoscape-web is to share your networks with collaborators</p>
+	<ul>
+		<li>Do your analysis and visualization in Cytoscape desktop</li>
+		<li>Export your network to NDEx</li>
+		<li>Get the URI of your network from NDEx (e.g. 41926c5e-2b23-11f0-a469-005056ae3c32)</li>
+		<li>The cytoscape-web URL will be:<a href="https://web.cytoscape.org/0/networks/41926c5e-2b23-11f0-a469-005056ae3c32"></a>https://web.cytoscape.org/0/networks/41926c5e-2b23-11f0-a469-005056ae3c32</a>
+		<ul>
+			<li>Note the "0" after the web.cytoscap.org -- this indicates that there is no session file yet (one will be created)</li>
+		</ul>
+		</li>
+	</ul>
+</section>
+
+<section>
+	<h4>Limitations</h4>
+	<p>Cytoscape-web is very new, so there are several limitations at this time that will be removed as it's development continues</p>
+	<ul>
+		<li>No analysis tools (e.g. NetworkAnalyzer)</li>
+		<li>There are currently very few apps, so if you want to use the stringApp, ClueGO, clusterMaker2, etc., you should perform your analysis in Cytoscape desktop first</li>
+		<li>The layout algorithms are quite different</li>
+		<li>Layouts cannot be undone</li>
+		<li>Annotations are currently not supported</li>
+		<li>Local CX importer is somewhat fragile</li>
+	</ul>
+</section>
+
