@@ -56,7 +56,7 @@ And Cytoscape allows you to define Visual Styles to map your data values to visu
 	<h4>Getting data into Cytoscape-web</h4>
 	<ul>
 		<li>Create network in Cytoscape desktop, R, python or any tools that can generate CX or CX2 files</li>
-		<li>Export newtork as a CX2 file or export network to <a href="https://www.,ndexbio.org">NDEx</a>(CX)</li>
+		<li>Export network as a CX2 file or export network to <a href="https://www.,ndexbio.org">NDEx</a>(CX)</li>
 		<li>Import CX2 file into Cytoscape-web (<b>Data&rarr;Import&rarr;Import Network from File...</b>) or read from NDEx (<b>Data&rarr;Open Network(s) from NDEx...</b>)</li>
 	</ul>
 </section>
@@ -65,14 +65,26 @@ And Cytoscape allows you to define Visual Styles to map your data values to visu
 	<h4>Sharing your data - recommended approach</h4>
 	<p style="text-align:left">Currently, the main benefit of Cytoscape-web is to share your networks with collaborators</p>
 	<ul>
-		<li>Do your analysis and visualization in Cytoscape desktop</li>
-		<li>Export your network to NDEx</li>
-		<li>Get the URI of your network from NDEx (e.g. 41926c5e-2b23-11f0-a469-005056ae3c32)</li>
-		<li>The cytoscape-web URL will be:<a href="https://web.cytoscape.org/0/networks/41926c5e-2b23-11f0-a469-005056ae3c32">https://web.cytoscape.org/0/networks/41926c5e-2b23-11f0-a469-005056ae3c32</a>
-		<ul>
-			<li>Note the "0" after the web.cytoscap.org -- this indicates that there is no session file yet (one will be created)</li>
-		</ul>
-		</li>
+		<li>Do your analysis and visualization in Cytoscape desktop and either:
+      <ol>
+        <li>Directly push the network to Cytoscape-web:
+          <ul>
+            <li>Install the OpenCytoscapeWeb app</li>
+            <li>Export your network directory to Cytoscape-web (look for the <img src="modules/cytoscape-web/OpenCytoscpeWeb.png" style="height: 1em; vertical-align: moddle;"/> icon</li>
+          </ul>
+        </li>
+        <li>Export your network to NDEx:
+          <ul>
+            <li>Get the URI of your network from NDEx (e.g. 41926c5e-2b23-11f0-a469-005056ae3c32)</li>
+            <li>The cytoscape-web URL will be:<a href="https://web.cytoscape.org/0/networks/41926c5e-2b23-11f0-a469-005056ae3c32">https://web.cytoscape.org/0/networks/41926c5e-2b23-11f0-a469-005056ae3c32</a>
+              <ul>
+                <li>Note the "0" after the web.cytoscap.org -- this indicates that there is no session file yet (one will be created)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </li>
 	</ul>
 </section>
 
