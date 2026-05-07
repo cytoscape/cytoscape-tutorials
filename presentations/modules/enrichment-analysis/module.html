@@ -208,7 +208,39 @@ data (for every gene-set)</li>
   </ul>
 </section>
 
-<!--section>
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>False discovery rate (FDR)</h4>
+  <ul>
+    <li><highlight>FDR</highlight> is <i>the expected <b>proportion</b> of the observed enrichments due to random chance.</i></li>
+    <li>Compare to <highlight>Bonferroni correction</highlight> which is a bound on <i>the probability that <b>any one</b> of the observed
+        enrichments could be due to random chance.</i></li>
+    <li>Typically <highlight>FDR</highlight> corrections are calculated using the <highlight>Benjamini-Hochberg</highlight> procedure.</li>
+		<li><highlight>FDR</highlight> threshold is often <i>incorrectly</i> called the <highlight>q-value</highlight></li>
+  </ul>
+	<aside class="notes" data-markdown>
+	Another way to look at the difference is that a p-value of 0.05 implies that 5% of all tests will result in false positives. An FDR adjusted p-value of 0.05 implies that 5% of significant tests will result in false positives. The latter will result in fewer false positives.
+	</aside>
+</section>
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>False discovery rate (FDR)</h4>
+  <ol style="font-size: 80%">
+    <li><b>Sort P-values</b> of all tests in increasing order</li>
+    <li style="margin-top:20px"><b>Adjusted P-value</b> is "nominal" P-value times # of tests divided by the rank of the P-value in the sorted list: <b>P-value X [# of tests]/Rank</b></li>
+    <li style="margin-top:20px">FDR corresponding to a nominal P-value <b>is the smallest adjusted P-value</b> assigned to P-values <b>with the same or larger ranges</b>.</li>
+    <li style="margin-top:20px">Look at which gene-sets have a <b>FDR of 0.05 or less</b> and report them as <b>significantly enriched</b>.</li>
+  </ol>
+</section>
+
+<section>
+  <h1>Multiple test correction</h1>
+  <h4>Benjamini-Hochberg example</h4>
+  <img class="plain" style="width: 80%" src="modules/enrichment-analysis/benjamini-hochberg.png">
+</section>
+
+<section>
 	<h1 style="font-size: 85%">Aside: Adjusted p-value, FDR, q-value (oh my!)</h1>
 	<p style="text-align: left; font-size: 80%">In my searching of the literature, FDR and q-value are used interchangably, yet
 	R packages <code>p.adjust()</code> and q-value are different.  Consider the following statement from an 
@@ -231,38 +263,6 @@ data (for every gene-set)</li>
 	<i>or</i> R's <code>qvalue</code>.  Unfortunately, either one might be reported as "q-value" (although incorrectly) due
 	to incomplete understanding of the history. The original source of this slide set convoluted FDR as calculated by
 	Benjamini-Hochberg and the q-Value as proposed by <a href="http://genomics.princeton.edu/storeylab/papers/directfdr.pdf">John Storey in 2002.</a></p>
-</section-->
-
-<section>
-  <h1>Multiple test correction</h1>
-  <h4>False discovery rate (FDR)</h4>
-  <ul>
-    <li><highlight>FDR</highlight> is <i>the expected <b>proportion</b> of the observed enrichments due to random chance.</i></li>
-    <li>Compare to <highlight>Bonferroni correction</highlight> which is a bound on <i>the probability that <b>any one</b> of the observed
-        enrichments could be due to random chance.</i></li>
-    <li>Typically <highlight>FDR</highlight> corrections are calculated using the <highlight>Benjamini-Hochberg</highlight> procedure.</li>
-		<li><highlight>FDR</highlight> threshold is often <i>incorrectly</i> called the <highlight>q-value</highlight></li>
-  </ul>
-	<aside class="notes" data-markdown>
-	Another way to look at the difference is that a p-value of 0.05 implies that 5% of all tests will result in false positives. An FDR adjusted p-value of 0.05 implies that 5% of significant tests will result in false positives. The latter will result in fewer false positives.
-	</aside>
-</section>
-
-<section>
-  <h1>Multiple test correction</h1>
-  <h4>False discovery rate (FDR)</h4>
-  <ol style="font-size: 80%">
-    <li><b>Sort P-values</b> of all tests in increasing order</li>
-    <li style="margin-top:20px"><b>Adjusted P-value</b> is "nominal" P-value times # of tests divided by the rank of the P-value in the sorted list: <b>P-value X [# of tests]/Rank</b></li>
-    <li style="margin-top:20px"><b>Q-value</b> (or FDR) corresponding to a nominal P-value <b>is the smallest adjusted P-value</b> assigned to P-values <b>with the same or larger ranges</b>.</li>
-    <li style="margin-top:20px">Look at which gene-sets have a <b>FDR of 0.05 or less</b> and report them as <b>significantly enriched</b>.</li>
-  </ol>
-</section>
-
-<section>
-  <h1>Multiple test correction</h1>
-  <h4>Benjamini-Hochberg example</h4>
-  <img class="plain" style="width: 80%" src="modules/enrichment-analysis/benjamini-hochberg.png">
 </section>
 
 <section>
