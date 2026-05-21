@@ -1,0 +1,101 @@
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Translating biological data into Cytoscape using RCy3 or py4cytoscape</h1>
+                    <div class="slideContent" >
+                        <p>Networks offer us a useful way to represent our biological data.  But how do we seamlessly translate our data from R into Cytoscape?</p>
+
+                        <p style="text-align:center;"><img src="./modules/RCy3_primer/CytoscapeAutomation_3.png" style="width:60%"/></p>
+                    </div>
+                    <aside class="notes">
+                        <p>There are multiple ways to communicate with Cytoscape programmatically.  There are two main complementary portals,<strong>cyRest</strong><a href="#refs">(Ono et al.)</a> and <strong>Commands</strong>, that form the foundation.  cyRest transforms Cytoscape in to a REST (Representational State Transfer) enabled service where it essentially listens for events through a predefined port (by default port 1234).  The cyRest functionality started as an app add in but has now been incorporated into the main release. Commands, on the other hand, offer a mechanism whereby app developers can expose their functionality to other apps or to user through the command interface.  Prior to the implementation of cyRest many of the basic network functions were first available as commands so there is some overlap between the two different methods.  \@ref(fig:cytoscapeRcy3) shows the different ways you can call Cytoscape.</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Set up</h3>
+                    <div class="slideContent" >
+                        <p>In order to control Cytoscape from R/Python you need either:</p>
+
+                        <p><strong>RCy3</strong> - a bioconductor package</p>
+                        <pre><code class="r">
+                            #R
+                            if(!&quot;RCy3&quot; %in% installed.packages()){
+                                install.packages(&quot;BiocManager&quot;)
+                                BiocManager::install(&quot;RCy3&quot;)
+                            }
+                            library(RCy3)
+                        </code></pre>
+                        <p><strong>py4cytoscape</strong> - a pip package</p>
+                        
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                            #Python
+                            pip install requests pandas colorbrewer chardet decorator
+                            pip install py4cytoscape
+                            import py4cytoscape as py4
+                        </code></pre>
+                            
+                    </div>
+                    <aside class="notes">
+                       <p>For Python folks: If you're in a noteboook environment, you'll need a bang (or exclamation mark) preceding "pip".</p>
+                    </aside>
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Set up (part 2: Cytoscape)</h3>
+                    <div class="slideContent" >
+                        <ul>
+                            <li>Download and install the <a href="https://cytoscape.org/download.php" target="_blank">latest version of Cytoscape</a>.
+                            </li>
+                            <li>Then launch Cytoscape and verify communication</li>
+                        </ul>
+                        
+                        <pre><code class="r"> 
+                            RCy3::cytoscapePing()                        
+                        </code></pre>
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                            py4.cytoscape_ping()                       
+                        </code></pre>
+                                    
+                        <pre>[1] "You are connected to Cytoscape!"</pre>
+
+                    </div>
+
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Set up (part 3: apps)</h3>
+                    <div class="slideContent" >
+                        <p>You can install apps in Cytoscape directly from R/Python.</p>
+                        
+                        <pre><code class="r">
+                            installApp("stringApp")                         
+                        </code></pre>
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                            py4.install_app("stringApp")                         
+                        </code></pre>
+
+                       <pre>[1] "App stringApp installed"</pre>
+                    </div>
+
+                </section>
+                <section data-transition="linear" data-transition-speed="default">
+                    <h3>Browse available functions and arguments</h3>
+                    <div class="slideContent" >
+                        <p>Depending on what apps you have installed there is different functionality available.  </p>
+
+                        <p>To see all the functions available open the interactive Swagger docs:</p>
+
+                        <pre><code class="r">
+                            cyrestAPI()  # CyREST API
+                            commandsAPI()  # Commands API
+                        </code></pre>
+
+                        <pre><code class="Python" style="background-color: darkslategray;">
+                            py4.cyrest_api()  # CyREST API
+                            py4.commands_api()  # Commands API
+                        </code></pre>
+
+                    </div>
+                    <aside class="notes">
+                        <p>Open swagger docs for live instances of CyREST API.  The CyREST  API list all the functions available in a base distribution of cytoscape.  The below command will launch the swagger documentation in a web browser.  Functions are clustered into categories.  Expanding individual categories will show all the option available.  Further expanding an individual command will show detailed documentation for the function, input, outputs and allow you to try and run the function.  Running the function will show the url used for the query and all returned responses. </p>
+                        <p>As mentioned above, there are two ways to interact with Cytoscape, through the Cyrest API or commands.  To see the available commands in swagger similar to the Cyrest API.</p>
+                    </aside>
+                </section>
