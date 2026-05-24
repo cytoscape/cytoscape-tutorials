@@ -1,100 +1,189 @@
                 <section data-transition="linear" data-transition-speed="default">
-                    <h1>Integrate Cytoscape with your Web Apps </h1>
-                    <div class="slideContent" >
-                        <p>TODO
-                        <p style="text-align:center;"><img src="./modules/RCy3_primer/CytoscapeAutomation_3.png" style="width:60%"/></p>
-                    </div>
-                    <aside class="notes">
-                        <p>There are multiple ways to communicate with Cytoscape programmatically.  There are two main complementary portals,<strong>cyRest</strong><a href="#refs">(Ono et al.)</a> and <strong>Commands</strong>, that form the foundation.  cyRest transforms Cytoscape in to a REST (Representational State Transfer) enabled service where it essentially listens for events through a predefined port (by default port 1234).  The cyRest functionality started as an app add in but has now been incorporated into the main release. Commands, on the other hand, offer a mechanism whereby app developers can expose their functionality to other apps or to user through the command interface.  Prior to the implementation of cyRest many of the basic network functions were first available as commands so there is some overlap between the two different methods.  \@ref(fig:cytoscapeRcy3) shows the different ways you can call Cytoscape.</p>
-                    </aside>
-                </section>
-
-                <section data-transition="linear" data-transition-speed="default">
-                    <h3>Set up</h3>
-                    <div class="slideContent" >
-                        <p>In order to control Cytoscape from R/Python you need either:</p>
-
-                        <p><strong>RCy3</strong> - a bioconductor package</p>
-                        <pre><code class="r">
-                            #R
-                            if(!&quot;RCy3&quot; %in% installed.packages()){
-                                install.packages(&quot;BiocManager&quot;)
-                                BiocManager::install(&quot;RCy3&quot;)
-                            }
-                            library(RCy3)
-                        </code></pre>
-                        <p><strong>py4cytoscape</strong> - a pip package</p>
-                        
-                        <pre><code class="Python" style="background-color: darkslategray;">
-                            #Python
-                            pip install requests pandas colorbrewer chardet decorator
-                            pip install py4cytoscape
-                            import py4cytoscape as py4
-                        </code></pre>
-                            
-                    </div>
-                    <aside class="notes">
-                       <p>For Python folks: If you're in a noteboook environment, you'll need a bang (or exclamation mark) preceding "pip".</p>
-                    </aside>
-                </section>
-                <section data-transition="linear" data-transition-speed="default">
-                    <h3>Set up (part 2: Cytoscape)</h3>
+                    <h1>Integrate the Web with Cytoscape + NDEx</h1>
                     <div class="slideContent" >
                         <ul>
-                            <li>Download and install the <a href="https://cytoscape.org/download.php" target="_blank">latest version of Cytoscape</a>.
+                            <li>Your applications live in the browser; the network analysis still lives in Cytoscape Desktop.</li>
+                            <li class="fragment">Two pieces of infrastructure enable this integration:
+                                <ul>
+                                    <li><strong>CyREST</strong></li>
+                                    <li><strong>NDEx</strong> </li>
+                                </ul>
                             </li>
-                            <li>Then launch Cytoscape and verify communication</li>
+                            <li class="fragment">Three integration patterns you'll see:
+                                <ol type="a">
+                                    <li>Push a network from a web app into Desktop ("Open in Cytoscape")</li>
+                                    <li>Persist networks in NDEx — then hand the same network to Cytoscape with one call</li>
+                                    <li>Embed an interactive network directly in Cytoscape Web</li>
+                                </ol>
+                            </li>
                         </ul>
-                        
-                        <pre><code class="r"> 
-                            RCy3::cytoscapePing()                        
-                        </code></pre>
-                        <pre><code class="Python" style="background-color: darkslategray;">
-                            py4.cytoscape_ping()                       
-                        </code></pre>
-                                    
-                        <pre>[1] "You are connected to Cytoscape!"</pre>
-
-                    </div>
-
-                </section>
-
-                <section data-transition="linear" data-transition-speed="default">
-                    <h3>Set up (part 3: apps)</h3>
-                    <div class="slideContent" >
-                        <p>You can install apps in Cytoscape directly from R/Python.</p>
-                        
-                        <pre><code class="r">
-                            installApp("stringApp")                         
-                        </code></pre>
-                        <pre><code class="Python" style="background-color: darkslategray;">
-                            py4.install_app("stringApp")                         
-                        </code></pre>
-
-                       <pre>[1] "App stringApp installed"</pre>
-                    </div>
-
-                </section>
-                <section data-transition="linear" data-transition-speed="default">
-                    <h3>Browse available functions and arguments</h3>
-                    <div class="slideContent" >
-                        <p>Depending on what apps you have installed there is different functionality available.  </p>
-
-                        <p>To see all the functions available open the interactive Swagger docs:</p>
-
-                        <pre><code class="r">
-                            cyrestAPI()  # CyREST API
-                            commandsAPI()  # Commands API
-                        </code></pre>
-
-                        <pre><code class="Python" style="background-color: darkslategray;">
-                            py4.cyrest_api()  # CyREST API
-                            py4.commands_api()  # Commands API
-                        </code></pre>
-
                     </div>
                     <aside class="notes">
-                        <p>Open swagger docs for live instances of CyREST API.  The CyREST  API list all the functions available in a base distribution of cytoscape.  The below command will launch the swagger documentation in a web browser.  Functions are clustered into categories.  Expanding individual categories will show all the option available.  Further expanding an individual command will show detailed documentation for the function, input, outputs and allow you to try and run the function.  Running the function will show the url used for the query and all returned responses. </p>
-                        <p>As mentioned above, there are two ways to interact with Cytoscape, through the Cyrest API or commands.  To see the available commands in swagger similar to the Cyrest API.</p>
+                        <p>Many bioinformatics workflows begin in a browser-based tool — a portal, a dashboard, a gene-set analysis interface — and at some point users need to transfer results into Cytoscape for detailed network analysis. Previously this required exporting and re-importing files. With CyREST and the CX2 format, the transfer reduces to an HTTP call. NDEx also plays a role here: beyond serving as a public network repository, it can function as a persistence layer for web applications, since it natively supports CX2 — the same format Cytoscape imports. The js4cytoscape monorepo provides the JavaScript libraries for these interactions.</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>The @js4cytoscape Monorepo</h1>
+                    <div class="slideContent" >
+                        <ul>
+                            <li><strong>Talk to Cytoscape Desktop</strong>
+                                <ul>
+                                    <li><strong>@js4cytoscape/js4cytoscape</strong> — wrapper over CyREST providing cyBadge(), commandsPOST(), cyrestGET()</li>
+                                </ul>
+                            </li>
+                            <li class="fragment"><strong>Talk to NDEx (and use it as your backend)</strong>
+                                <ul>
+                                    <li><strong>@js4cytoscape/ndex-client</strong> — TypeScript client for the NDEx v2/v3 REST API.</li>
+                                </ul>
+                            </li>
+                            <li class="fragment"><strong>Work with CX / CX2 data</strong>
+                                <ul>
+                                    <li><strong>@js4cytoscape/cx2js</strong> — convert legacy CX → cytoscape.js</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        <p>Six packages organized into three functional groups. The first is js4cytoscape itself — the programmatic interface to Cytoscape Desktop. The second is ndex-client, a TypeScript client for the NDEx REST API. Notably, ndex-client serves two roles: it provides standard REST operations (search, upload, download, authentication), and it also includes CyNDExService, which transfers CX2 networks to a locally running Cytoscape instance. This means the same CX2 format used for storage in NDEx is directly importable by Cytoscape, requiring no format conversion. The remaining four packages provide CX2 type definitions and converters for rendering networks in the browser with cytoscape.js. Today's demo uses only js4cytoscape and ndex-client.</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>The "Open in Cytoscape" Pattern (and Where NDEx Fits)</h1>
+                    <div class="slideContent" >
+                        <ul>
+                            <li>The transfer requires three calls to http://127.0.0.1:1234:
+                                <ol type="a">
+                                    <li>cyBadge() — is Cytoscape running? (status badge on the page)</li>
+                                    <li>CyNDExService.postCX2NetworkToCytoscape(cx2, title, collection) — push the network</li>
+                                    <li>commandsPOST("layout hierarchical") etc. — execute Cytoscape commands remotely</li>
+                                </ol>
+                            </li>
+                            <li class="fragment">The CX2 payload can originate from various sources — inline JSON, a query result, or an NDEx network UUID.</li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        <p>The implementation consists of a static HTML file loading two libraries from a CDN. When the user triggers "Open in Cytoscape," the page serializes a CX2 network and POSTs it to Cytoscape's local REST endpoint via CyNDExService. Once received, it becomes the active network in Cytoscape, and subsequent CyREST commands can apply layouts, adjust views, or save sessions. The commandsPOST function supports any command available in Cytoscape's Command Line interface. In this demo the CX2 is defined inline, but in a production application the same payload would typically be retrieved from NDEx via NDExClient. The workflow follows the pattern: detect → fetch (optionally, from NDEx) → push → command.</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Live Demo: Open in Cytoscape</h1>
+                    <div class="slideContent" >
+                        <ul>
+                            <li>Tiny 6-node cell hierarchy (Cell → Nucleus/Mitochondrion → Chromosome/Nucleolus/MT-CO1) shipped as CX2 inline.</li>
+                            <li class="fragment">Two buttons:
+                                <ul>
+                                    <li><strong>Open in Cytoscape</strong> → push the network</li>
+                                    <li><strong>Apply Hierarchical Layout</strong> → layout hierarchical + rotate 180 + view fit content</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">~300 lines of HTML — the inline CX2 can be replaced with an NDExClient.network.getCX2Network(uuid) call to load networks from NDEx instead.</li>
+                            <li class="fragment"><a href="https://github.com/cytoscape/js4cytoscape/blob/develop/docs/demos/open-in-cytoscape/index.html">Demo Source</a></li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        <p>(While the page loads) "Everything you're about to see is one HTML file — no backend, no build. Two script tags pull js4cytoscape and ndex-client from unpkg."</p>
+                        <p>(Pointing at the green badge) "This badge is cyBadge() from js4cytoscape. It just hit Cytoscape's REST endpoint and got back a version. If Cytoscape weren't running it'd say 'not running' in red — that's how a real app decides whether to show a 'download Cytoscape' link instead of the button."</p>
+                        <p>(Showing the CX2 block) "This is the network we're sending — CX2 is the standard exchange format for both Cytoscape and NDEx. In this demo it's inline so there's nothing to install, but the same shape comes out of NDEx — so if your app fetches a network from NDEx with ndex-client, you can pass it straight to the next call without converting anything."</p>
+                        <p>(Clicking 'Open in Cytoscape', then switching to Desktop) "That was a single call — CyNDExService.postCX2NetworkToCytoscape from ndex-client. The network is now Cytoscape's current network, so any follow-up command targets it by default."</p>
+                        <p>(Clicking 'Apply Hierarchical Layout') "Three commandsPOST calls: hierarchical layout, rotate 180 so the root is on top, fit the view. These are the exact strings you'd type in Cytoscape's Command Line — so whatever automation you've already scripted in Desktop you can trigger from the web."</p>
+                        <p>(Closing) "That covers the basic pattern. In a production application, the inline CX2 would be replaced with an NDExClient call, which also provides persistence, sharing, and versioning through NDEx."</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Why Cytoscape Web?</h1>
+                    <div class="slideContent" >
+                        <ul>
+                            <li><strong>Browser-based deployment.</strong> Cytoscape Web runs in the browser, requiring no local installation.</li>
+                            <li class="fragment">This lowers the barrier to access for: classrooms, collaborators, tablet users, and restricted computing environments.</li>
+                            <li class="fragment">the integration bridge changes:
+                                <ul>
+                                    <li>With Desktop, the bridge was <strong>localhost</strong> (CyREST)</li>
+                                    <li>With Web, the bridge is <strong>URLs</strong> — either a network already in NDEx, or any CX2 file the browser can fetch</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">As a result, NDEx (or any HTTP-accessible host) serves as the intermediary between a web application and Cytoscape Web.</li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        <p>The Desktop integration requires a local Cytoscape installation, which can be a barrier for some users — students, reviewers, collaborators on unfamiliar machines, or tablet users. Cytoscape Web eliminates this requirement by running in the browser. The architectural difference: with Desktop, the integration point was a REST endpoint on localhost. In the browser, there is no equivalent local endpoint — one tab cannot push data to another. Instead, the integration mechanism becomes a URL. The network must reside at a location Cytoscape Web can fetch — either an NDEx repository or any HTTP-accessible CX2 file. This makes NDEx particularly central in the Web integration model, as it provides both persistence and a standard retrieval interface.</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Three Ways to Integrate with Cytoscape Web</h1>
+                    <div class="slideContent" >
+                        <ol>
+                            <li><strong>Open any CX2 file from a URL</strong> (simplest, no auth needed)
+                                <ul>
+                                    <li>Host a CX2 file anywhere the browser can reach → link to https://web.cytoscape.org/?import=&lt;encoded-cx2-url&gt;</li>
+                                </ul>
+                            </li>
+                            <li class="fragment"><strong>Open an NDEx network by UUID</strong> (for apps with user accounts)
+                                <ul>
+                                    <li>Your app saves a network to NDEx → redirects to https://web.cytoscape.org/0/networks/&lt;uuid&gt;</li>
+                                </ul>
+                            </li>
+                            <li class="fragment"><strong>Cytoscape Web App API</strong> (live inside Cytoscape Web)
+                                <ul>
+                                    <li>Your code runs as a Cytoscape Web app — custom panels, analyses, UI extensions — with direct access to the network model</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <aside class="notes">
+                        <p>Three patterns, distinguished primarily by the degree of coupling. The first two are external: the web application remains in its own browser tab and passes a network to Cytoscape Web via a URL. The third is internal: application code runs within Cytoscape Web itself. For most web applications, the first two patterns are sufficient, as they maintain separation between the application UI and Cytoscape Web. Use the ?import=URL pattern for public datasets, tutorials, or example networks where no user state is involved. Use the NDEx UUID pattern when users have accounts and require persistence and sharing — NDEx provides these capabilities. The App API is appropriate when the tool needs direct access to the network model — for custom layout algorithms, domain-specific analysis panels, or specialized views. That approach involves tighter coupling and is outside the scope of this tutorial.</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>The Pattern Behind the Demo</h1>
+                    <div class="slideContent" >
+                        <ul>
+                            <li>Both buttons resolve to the same mechanism: <strong>a URL</strong>. The integration reduces to a hyperlink.</li>
+                            <li class="fragment">The difference is where the CX2 lives at the moment the user clicks:
+                                <ul>
+                                    <li><strong>Button 1:</strong> CX2 sits at a public URL → URL contains ?import=... → Cytoscape Web fetches it</li>
+                                    <li><strong>Button 2:</strong> Network sits in NDEx → URL contains the UUID → Cytoscape Web fetches from NDEx</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">The same URL can also carry view state (panels open/closed, selected nodes, active tab) — useful for deep-linking from reports, papers, and email.</li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        <p>The key observation is that the integration mechanism is a URL — no SDK instrumentation or authentication handshake is required. The user follows a link and the network opens in Cytoscape Web. The two patterns differ only in what the URL references. In pattern 1, the network resides at an HTTP-accessible URL, and Cytoscape Web imports it via a query parameter — this requires only a window.open call, no library. In pattern 2, the network is stored in NDEx; the URL carries its UUID and Cytoscape Web retrieves it from NDEx. In a production application, the UUID would be generated by ndex-client when saving the user's network — this demo uses a pre-existing network, but the save code is shown on the page for reference. Additionally, the URL can encode view state parameters for precise deep-linking.</p>
+                    </aside>
+                </section>
+
+                <section data-transition="linear" data-transition-speed="default">
+                    <h1>Live Demo: Open in Cytoscape Web</h1>
+                    <div class="slideContent" >
+                        <ul>
+                            <li>Three files in docs/demos/open-in-cytoscape-web/ of js4cytoscape GitHub repo:
+                                <ul>
+                                    <li>index.html — three patterns, each with the generated URL displayed live</li>
+                                    <li>cell-hierarchy.cx2.json — what pattern #1 imports (same 6-node network)</li>
+                                    <li>README.md — hosting/CORS notes and customization pointers</li>
+                                </ul>
+                            </li>
+                            <li class="fragment">Three things on screen:
+                                <ul>
+                                    <li>Open from URL in Cytoscape Web</li>
+                                    <li>Open via NDEx UUID in Cytoscape Web</li>
+                                    <li>Open with view state</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <aside class="notes">
+                        <p>(Opening the new page) "Same orange buttons, same network for the first one — but no install. Two integration buttons plus an advanced link, and you can see the actual URL underneath each one."</p>
+                        <p>(Clicking 'Open from URL in Cytoscape Web') "Simplest case first. The CX2 file is sitting next to this HTML page — could be S3, GitHub Pages, a gist, whatever. We just tell Cytoscape Web to import it via a query parameter. There is no JavaScript library required for this button — it's literally window.open of a URL. The whole integration is one hyperlink."</p>
+                        <p>(Pointing at the URL preview) "That URL is the integration. Put it in an email, embed it in a paper, drop it in a Jupyter cell — anyone with a browser can open the network."</p>
+                        <p>(Clicking 'Open via NDEx UUID in Cytoscape Web') "Second pattern. A different network, this one already stored in NDEx. Same URL structure, using a UUID instead of an import URL. In a production web application, this UUID would be generated when the backend saves a user's network to NDEx."</p>
+                        <p>(Clicking 'Open with view state') "Same NDEx network, but watch the URL — there are extra query parameters. Cytoscape Web reads them and pre-sets the view: side panels closed, bottom panel open on its third tab, one node selected. This is how you deep-link from a paper or a report straight to the exact view a reader needs."</p>
+                        <p>(Closing the whole tutorial) "To summarize: js4cytoscape and ndex-client support three integration paths — transferring networks to Desktop via localhost, passing a CX2 URL to Cytoscape Web, or passing an NDEx UUID to Cytoscape Web. All three use the same CX2 format. Both demo pages are available at the GitHub link on screen."</p>
                     </aside>
                 </section>
