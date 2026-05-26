@@ -1,0 +1,63 @@
+<!-- Slide 1: Agentic Integration -->
+<section>
+	<h1>Agentic Integration</h1>
+	<p style="font-size: 110%; margin-bottom: 0.6em">A Cytoscape Desktop App enables agentic applications like Claude Desktop/Code, Codex, Copilot to translate prompts into actions on the Cytoscape Desktop</p>
+	<div style="display: flex; align-items: flex-start; width: 100%">
+		<div style="width: 45%; font-size: 85%">
+			<ul>
+				<li><em>&gt; open network in cytoscape desktop</em></li>
+				<li><em>&gt; change layout of network</em></li>
+				<li><em>&gt; analyze network</em></li>
+				<li><em>&gt; change color gradient of nodes from blue to red based on eccentricity</em></li>
+				<li><em>&gt; generate edge colors for discrete values of interaction</em></li>
+			</ul>
+		</div>
+		<div style="width: 55%">
+			<img class="plain" src="modules/agentic-desktop/prezo-mcp.png" style="width: 100%; margin: 0">
+		</div>
+	</div>
+</section>
+
+<!-- Slide 2: Install App -->
+<section>
+	<h1>Install App</h1>
+	<ol>
+		<li>Have Cytoscape Desktop running</li>
+		<li>Go to <a href="https://apps.cytoscape.org/" target="_blank">https://apps.cytoscape.org/</a> in your browser</li>
+		<li>Search for <strong>mcp</strong></li>
+		<li>Choose <strong>Cytoscape MCP Server</strong></li>
+		<li>Click <strong>Install</strong> button</li>
+		<li>See MCP status in bottom tray</li>
+	</ol>
+	<img class="plain" src="modules/agentic-desktop/installed_mcp.png" style="width: 80%; margin-top: 20px">
+</section>
+
+<!-- Slide 3: Configure Agent -->
+<section>
+	<h1>Configure Agent</h1>
+	<p>The app publishes an MCP endpoint inside Cytoscape's existing CyREST HTTP server — AI agents connect to the MCP endpoint on CyREST and invoke MCP tools which drive activity on the Cytoscape desktop display.</p>
+	
+	<p>You can configure any agent that supports MCP with HTTP transport to connect.  <a href="https://github.com/cytoscape/cytoscape-desktop-mcp/blob/main/docs/AgentConfiguration.md" target="_blank">AgentConfiguration.md</a> provides config instructions for Claude Desktop, Claude Code, GitHub Copilot, GitHub Copilot CLI, OpenAI Codex CLI.</p>
+
+	<p>Let's demonstrate connection to <strong>Claude Desktop</strong>.</p>
+	<ol>
+		<li>Go to <strong>Settings &gt; Extensions &gt; Advanced</strong> and enable
+		<strong>Use Built-in Node.js for MCP</strong>. This is required for the extension to function.</li>
+		<li>Utilize a pre-made MCP bundle file which only Claude Desktop supports —
+		Download <a href="https://github.com/cytoscape/cytoscape-desktop-mcp/releases/download/1.0.1/cytoscape-mcp.mcpb" target="_blank">cytoscape-mcp.mcpb</a></li>
+		<li>Drag it onto <strong>Settings &gt; Extensions</strong> screen</li>
+		<li>Go to <strong>Customize &gt; Connectors</strong> — will see Cytoscape listed as MCP server</li>
+	</ol>
+</section>
+
+<!-- Slide 4: Agent Drives the Desktop -->
+<section>
+	<h1>Agent Drives the Desktop</h1>
+	<div style="font-size: 75%">
+	<p>Will now use plain english at Agent prompt to analyze MS-AP experiment data set and generate enriched protein interaction network in Cytoscape.</p>
+	<p>Paste the content from <a href="https://raw.githubusercontent.com/cytoscape/cytoscape-desktop-mcp/refs/heads/main/docs/harness/skills/APMSDemoSkill.md" target="_blank">AP MS Cytoscape Demo Prompts</a> into your Agent prompt.</p>
+	<p>The agent will begin processing and will require you to approve intermittent tool invocations. You can specify automatic approval of tools to speed this up.</p>
+	<p>The final result on desktop will be network visualization highlighting the AP-MS experimental data (green edges), as well as additional known protein interactions via grey edges, and node color indicating the MS Jurkat Score from experiment data.</p>
+	</div>
+	<img class="plain" src="modules/agentic-desktop/Enriched-APMS-Visualization.png" style="width: 80%; margin-top: 10px">
+</section>
