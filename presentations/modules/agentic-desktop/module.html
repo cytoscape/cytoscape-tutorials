@@ -53,11 +53,14 @@
 <!-- Slide 4: Agent Drives the Desktop -->
 <section>
 	<h1>Agent Drives the Desktop</h1>
-	<div style="font-size: 75%">
-	<p>Will now use plain english at Agent prompt to analyze MS-AP experiment data set and generate enriched protein interaction network in Cytoscape.</p>
+	<p>Will now use plain english at Agent prompt to analyze dataset file from an MS-AP experiment and generate enriched protein interaction network in Cytoscape.</p>
 	<p>Paste the content from <a href="https://raw.githubusercontent.com/cytoscape/cytoscape-desktop-mcp/refs/heads/main/docs/harness/skills/APMSDemoSkill.md" target="_blank">AP MS Cytoscape Demo Prompts</a> into your Agent prompt.</p>
-	<p>The agent will begin processing and will require you to approve intermittent tool invocations. You can specify automatic approval of tools to speed this up.</p>
+	<p>The agent will begin processing and will require you to approve intermittent tool invocations. You can specify automatic approval of cytoscape mcp tools in agent to avoid repeated tool approval requests.</p>
+</section>
+
+<!-- Slide 5: Result -->
+<section>
+	<h1>Network Visualization Result</h1>
 	<p>The final result on desktop will be network visualization highlighting the AP-MS experimental data (green edges), as well as additional known protein interactions via grey edges, and node color indicating the MS Jurkat Score from experiment data.</p>
-	</div>
 	<img class="plain" src="modules/agentic-desktop/Enriched-APMS-Visualization.png" style="width: 80%; margin-top: 10px">
 </section>
