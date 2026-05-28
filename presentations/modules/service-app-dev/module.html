@@ -1,0 +1,247 @@
+<section>
+  <h1>Service App Development</h1>
+  <ul>
+    <li>What are Cytoscape Service Apps?</li>
+	<li>Why use Cytoscape Service Apps?</li>
+	<li>How to add a Service App to Cytoscape Web</li>
+	<li>How to create a simple Service App with Python and Flask</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Cytoscape Web Service Apps</h1>
+  <p>REST services that extend Cytoscape Web with external analysis and automation.</p>
+</section>
+
+<section>
+    <h2>What are Cytoscape Service Apps?</h2>
+    <ul>
+      <li>Community-built additions that extend Cytoscape Web functionality.</li>
+      <li>Implemented as REST services registered by URL.</li>
+      <li>Language-flexible: Python, Java, R, Node, Go, or anything that speaks HTTP.</li>
+      <li>Expose metadata so Cytoscape Web can build menus, dialogs, and parameter forms.</li>
+    </ul>
+</section>
+<section>
+<h2>Service Apps vs. Cytoscape Web Apps</h2>
+<table>
+	<thead><tr><th>App type</th><th>Best for</th><th>Tradeoff</th></tr></thead>
+	<tbody>
+	<tr><td>Web App</td><td>Deep UI integration</td><td>Requires TypeScript / web development</td></tr>
+	<tr><td>Service App</td><td>Backend analysis, layouts, conversions, automation</td><td>More limited Cytoscape Web API access</td></tr>
+	</tbody>
+</table>
+</section>
+
+  <section>
+    <h2>Basic Service App Contract</h2>
+    <pre><code class="language-text">GET    /              metadata: name, menu item, params, input definition
+GET    /status        service health
+POST   /              submit task, returns task id
+GET    /&lt;taskID&gt;/status  task progress
+GET    /&lt;taskID&gt;         final task result
+DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
+  </section>
+</section>
+
+<section>
+<h2>Why use Service Apps?</h2>
+<ul>
+	<li>Reuse existing scientific code without rewriting it in the browser.</li>
+	<li>Run heavier jobs outside the Cytoscape Web client.</li>
+	<li>Package analysis as a simple HTTP service.</li>
+	<li>Expose new workflows through the Cytoscape Web Apps menu.</li>
+</ul>
+</section>
+<section>
+<h2>Good Fit Use Cases</h2>
+<ul>
+	<li>Network enrichment services</li>
+	<li>Custom layouts</li>
+	<li>Network or table updates</li>
+	<li>External database lookups</li>
+	<li>Model-based predictions or scoring pipelines</li>
+</ul>
+</section>
+<section>
+    <h2>Design Pattern</h2>
+    <ol>
+      <li>Cytoscape Web sends selected network data and parameters.</li>
+      <li>The service starts a task and returns an id.</li>
+      <li>Cytoscape Web polls task status.</li>
+      <li>The service returns a result action Cytoscape Web can apply.</li>
+    </ol>
+</section>
+
+<section>
+    <h2>How to Add a Service App to Cytoscape Web</h2>
+    <ol>
+      <li>Open Cytoscape Web.</li>
+      <li>Go to <strong>Apps → Manage Apps</strong>.</li>
+      <li>Paste the Service App URL into <strong>External Service URL</strong>.</li>
+      <li>Click <strong>Add</strong>.</li>
+      <li>Launch it from the Apps menu.</li>
+    </ol>
+  </section>
+  <section>
+    <h2>Example Service App URL</h2>
+    <pre><code class="language-text">https://cd.ndexbio.org/cy/cytocontainer/v1/updatetablesexample</code></pre>
+    <p>After registration, the app appears under the Apps menu, for example: <strong>Example Service App → Update tables example</strong>.</p>
+  </section>
+  <section>
+    <h2>Important Workspace Note</h2>
+    <p>Active Apps and Service Apps can be cleared when using <strong>Data → Clear Local Database</strong>.</p>
+    <p>To preserve enabled apps, save a workspace snapshot to NDEx with <strong>Data → Save Workspace As…</strong>.</p>
+
+</section>
+
+
+  <section>
+    <h2>Create a Simple Service App with Python + Flask</h2>
+    <p>Goal: a tiny service that registers in Cytoscape Web, accepts a task, and returns a completed result.</p>
+  </section>
+  <section>
+    <h2>Install</h2>
+    <pre><code class="language-bash">python -m venv .venv
+source .venv/bin/activate
+pip install flask flask-cors</code></pre>
+  </section>
+  <section>
+    <h2>Minimal Flask Skeleton</h2>
+    <pre><code class="language-python">from flask import Flask, request, jsonify
+from flask_cors import CORS
+from uuid import uuid4
+
+app = Flask(__name__)
+CORS(app)
+
+tasks = {}</code></pre>
+  </section>
+  <section>
+    <h2>Metadata Endpoint</h2>
+    <pre><code class="language-python">@app.get("/")
+def metadata():
+    return jsonify({
+        "name": "Hello Service App",
+        "description": "A minimal Cytoscape Web Service App",
+        "author": "Your Name",
+        "version": "1.0.0",
+        "showDescriptionInDialog": True,
+        "cyWebActions": ["updateTables"],
+        "cyWebMenuItem": {
+            "rootMenu": "Apps",
+            "path": ["Example Service App"],
+            "name": "Hello Service App"
+        },
+        "serviceInputDefinition": {
+            "type": "network",
+			"scope": "all"
+        },
+        "parameters": [
+            {
+                "displayName": "Greeting",
+                "type": "string",
+                "defaultValue": "Hello from Flask"
+            }
+        ]
+    })</code></pre>
+  </section>
+  <section>
+    <h2>Health Endpoint</h2>
+    <pre><code class="language-python">@app.get("/status")
+def status():
+    return jsonify({
+        "status": "ok",
+        "version": "1.0.0",
+        "numberOfRunningTasks": 0
+    })</code></pre>
+  </section>
+  <section>
+    <h2>Submit a Task</h2>
+    <pre><code class="language-python">@app.post("/")
+def submit_task():
+    payload = request.get_json(force=True)
+    task_id = str(uuid4())
+
+    greeting = payload.get("parameters", {}).get("Greeting", "Hello")
+
+    tasks[task_id] = {
+        "id": task_id,
+        "status": "complete",
+        "progress": 100,
+        "message": "Task complete",
+        "result": {
+            "data": {
+                "greeting": greeting
+            }
+        }
+    }
+
+    return jsonify({"id": task_id}), 202</code></pre>
+  </section>
+  <section>
+    <h2>Task Status + Result</h2>
+    <pre><code class="language-python">@app.get("/&lt;task_id&gt;/status")
+def task_status(task_id):
+    task = tasks.get(task_id)
+    if task is None:
+        return jsonify({"message": "Task not found"}), 404
+    return jsonify({
+        "status": task["status"],
+        "progress": task["progress"],
+        "message": task["message"],
+        "result": None
+    })
+
+@app.get("/&lt;task_id&gt;")
+def task_result(task_id):
+    task = tasks.get(task_id)
+    if task is None:
+        return jsonify({"message": "Task not found"}), 404
+    return jsonify(task)</code></pre>
+  </section>
+  <section>
+    <h2>Delete / Cancel Task</h2>
+    <pre><code class="language-python">@app.delete("/&lt;task_id&gt;")
+def delete_task(task_id):
+    if task_id not in tasks:
+        return "", 404
+    del tasks[task_id]
+    return "", 204</code></pre>
+  </section>
+  <section>
+    <h2>Run Locally</h2>
+    <pre><code class="language-python">if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)</code></pre>
+    <pre><code class="language-bash">python app.py</code></pre>
+  </section>
+  <section>
+    <h2>Try It</h2>
+    <pre><code class="language-bash">curl http://localhost:5000/status
+curl http://localhost:5000/
+curl -X POST http://localhost:5000/ \
+  -H 'Content-Type: application/json' \
+  -d '{"parameters":{"Greeting":"Hi Cytoscape Web"},"data":{}}'</code></pre>
+  </section>
+</section>
+
+<section>
+  <h2>Developer Checklist</h2>
+  <ul>
+    <li>Implement required endpoints.</li>
+    <li>Return valid metadata from <code>GET /</code>.</li>
+    <li>Support CORS for Cytoscape Web.</li>
+    <li>Use stable task ids.</li>
+    <li>Return progress, status, message, and result consistently.</li>
+    <li>Keep result actions aligned with Cytoscape Web’s expected result schema.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>References</h2>
+  <ul>
+    <li>Cytoscape Web User Manual: Extending Cytoscape Web → Service Apps</li>
+    <li>Cytoscape Web Wiki: Specification for Service App in Cytoscape Web, draft v2</li>
+  </ul>
+</section>
+
