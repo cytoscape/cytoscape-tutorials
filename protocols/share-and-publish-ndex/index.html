@@ -81,20 +81,7 @@
                 Dropbox or repository for networks. Organisations and individual scientists can deposit. Nice for publish and get DOI links.  </aside>
             </section>
 
-            <section>
-                <h3>NDEx Search Results</h3>
 
-                <img style="width:75%;" src="modules/finding-network-data/CyNDEx.png">
-
-            </section>
-
-            <section>
-                    <h3>NDEx Network</h3>
-
-                <img style="width:75%;" src="modules/finding-network-data/CyNDEx-network.png">
-                <aside class="notes" data-markdown>
-                You can make changes on the network and export it to NDEx website.  </aside>
-            </section>
 
             <section>
                 <h1>Setup</h1>
@@ -105,46 +92,8 @@
                     
                 </ul>
             </section>
-
             <section>
-                <h1>Finding networks</h1>
-                <p>We are going to do two separate keyword searches in NDEx.</p>
-                <ul>
-                    <li>To open the NDEx interface, load the network via <highlight>File &rarr; Import &rarr; Network from NDEx....</highlight></li>
-										<li>There is also an alternative way to do this by clicking the NDEx icon in the toolbar.</li>
-                    <li>Type "Breast Cancer" in the search bar</li>
-                    <li>Click Enter to start the search.</li>
-                    <li>The resulting networks will be displayed in the interface.</li>
-                </ul>
-                <p style="text-align:center">
-                    <img class="plain" src="breast_cancer.jpg" style="height:350px">
-            </section>
-
-            <section>
-                <h1>Finding networks</h1>
-                <p>The results we got hit each of the search terms individually, thus including any pathway with “cancer” in the name. That’s perhaps a bit too broad, so lets' try something more specific:</p>
-                <ul>
-                  <li>Load the network via <highlight>File &rarr; Import &rarr; Network from NDEx....</highlight></li>
-                  <li>Type "BRCA" in the search bar</li>
-                  <li>Click Enter to start the search.</li>
-                  <li>The resulting networks will be displayed in the interface.</li>
-
-                </ul>
-                <p style="text-align: center">
-                    <img class="plain" src="brca.jpg" style="height:450px">
-                </p>
-            </section>
-
-            <section>
-                <h1>Viewing networks</h1>
-                <p>OK, these results are more specific. Let’s use the first hit. (name:brca) and open it in Cytoscape by double-clicking on it in the list:</p>
-
-                <p style="text-align: center">
-                    <img class="plain" src="https://cytoscape.github.io/cytoscape-automation/for-scripters/R/notebooks/data/img/NDEx.png" style="height:650px">
-                </p>
-            </section>
-            <section>
-                <h1>Sending networks to NDEx</h1>
+                <h1>Saving networks to NDEx</h1>
 
                 <p>Now let's say you worked on your network in Cytoscape and want to send it to NDEx for storage, sharing or exchange.</p>
 		    <p>First, you need to have an NDEx account. Go to <a href="https://www.ndexbio.org/" target="_blank">https://www.ndexbio.org/</a> to create an NDEx account if you already haven't one... Please make sure to take note of your username and password because you will need them in the next step.</p>
@@ -152,7 +101,7 @@
             </section>
 
             <section>
-                <h1>Sending networks to NDEx</h1>
+                <h1>Saving networks to NDEx</h1>
 
                 <ul>
                     <li>Right click your network and select <highlight> Export Network to NDEx...</highlight></li>
@@ -166,6 +115,70 @@
                     <p style="text-align: center">
                         <img class="plain" src="Export.png" style="height:450px">
                         <img class="plain" src="NDEx.png" style="height:450px">
+
+                    </p>
+                    <br>
+                </ul>
+
+            </section>
+
+           <section>
+                <h1>Saving Cytoscape Web networks to NDEx</h1>
+
+                <ul>
+                    <li>Sign in to your NDEx account using the <highlight> profile button</highlight> at the upper right corner</li>
+                    <li>Click your network and select <highlight> Data</highlight> in the top menu bar</li>
+			<li> Click<highlight>Save Network to NDEx</highlight>  </li>
+                    <p style="text-align: center">
+                        <img class="plain" src="CyWeb-save-to-ndex.png" style="height:570px">
+
+                    </p>
+                    <br>
+                </ul>
+
+            </section>
+
+            <section>
+                <h1>Go to my-account page in NDEx to share networks</h1>
+
+                <ul>
+                    <li>Select your network and click the <highlight> Actions menu</highlight></li>
+                    <li>Click <highlight> Share</highlight> from the popup menu</li>
+                    <p style="text-align: center">
+                        <img class="plain" src="ndex-my-account-page.png" style="height:580px">
+
+                    </p>
+                    <br>
+                </ul>
+
+            </section>
+           
+            <section>
+                <h1>Share Your Network Just Like a Google Doc</h1>
+
+                <ul>
+			<li> Set visibilty: <highlight>PUBLIC, UNLISTED, PRIVATE</highlight>  </li>
+            <li> Grant <highlight>Read</highlight> or <highlight>Edit</highlight> access to specific users, just like sharing a
+  Google Doc</li>
+             <li> Generate a <highlight>shareable link</highlight> &mdash; anyone with the URL can view the network, no NDEx account
+   required</li>
+                    <p style="text-align: center">
+                        <img class="plain" src="share-network.png" style="height:570px">
+
+                    </p>
+                    <br>
+                </ul>
+
+            </section>
+
+            <section>
+                <h1>Requrest a DOI for Your Publication</h1>
+
+                <ul>
+			<li> Click<highlight>Request DOI</highlight> from the action menu </li>
+            <li>Fill out the form and click the blue <highlight>SAVE AND REQUEST DOI</highlight> button</li>
+                    <p style="text-align: center">
+                        <img class="plain" src="request-doi.png" style="height:560px">
 
                     </p>
                     <br>
@@ -209,6 +222,7 @@
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+                center: false,        // ← add this
 				history: true,
 				controls: true,
 				progress: true,
