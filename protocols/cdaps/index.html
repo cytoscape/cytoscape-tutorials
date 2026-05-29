@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Community Detection Application and Service</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section id='title'>
+    <h1>Community Detection Application and Service</h1>
+    <p><a href="https://cdaps.readthedocs.io/" target="_blank">CDAPS</a> performs multiscale community detection and functional enrichment for network analysis in Cytoscape. The app integrates popular community detection algorithms and enrichment tools through a service-oriented architecture.</p>
+    <p>This tutorial consists of two workflows:</p>
+    <ul>
+        <li>Basic workflow describing app installation, running community detection, functional enrichment, and viewing cluster interactions.</li>
+        <li>Tally workflow describing how to count parent-network attributes on a CDAPS hierarchy and use the resulting columns for visualization.</li>
+    </ul>
+    <br />
+    <div class="footer" style="bottom: -3em;">
+        <a href="https://github.com/cytoscape/cytoscape-tutorials/wiki"><img class="plain" src="../../assets/images/cytoscape-tutorials.png" style="height:70px;opacity:0.5"></a>
+        <version>1.12.1</version>
+    </div>
+</section>
+
+<section>
+    <h1>Setup</h1>
+    <ul>
+        <li>Install and launch <a href="https://cytoscape.org/download.html" target="_blank">Cytoscape</a>. CDAPS requires Cytoscape version 3.7 or newer.</li>
+        <li><a href="https://apps.cytoscape.org/apps/cycommunitydetection" target="_blank">Click here</a> to install it directly from the AppStore.</li>
+        <li>CDAPS algorithms and enrichment tools run on a remote server, so this workflow requires an active internet connection.</li>
+    </ul>
+</section>
+
+<section>
+    <h1>Supported Analyses</h1>
+    <p>CDAPS provides community detection and functional enrichment from Cytoscape menus and context menus.</p>
+    <ul>
+        <li>Community detection algorithms include <b>Louvain</b>, <b>Infomap</b>, <b>OSLOM</b>, <b>CliXO</b>, and <b>HiDeF</b>.</li>
+        <li>Functional enrichment tools include <b>g:Profiler</b>, <b>Enrichr</b>, and <b>iQuery</b>.</li>
+        <li>The tutorial below uses Cytoscape's built-in Affinity Purification starter network and the <b>Louvain</b> algorithm.</li>
+    </ul>
+</section>
+
+<section>
+<section>
+    <h1>Basic Workflow: Open a Network</h1>
+    <ul>
+        <li>Start with a new Cytoscape session.</li>
+        <li>In the <highlight>Starter Panel</highlight>, click <highlight>Affinity Purification</highlight> to load the example network.</li>
+        <li>If the Starter Panel is not visible, select <highlight>View &rarr; Show Starter Panel</highlight>.</li>
+        <li>Community Detection requires an open network before the app can generate a hierarchy.</li>
+    </ul>
+    <img class="plain" src="starterpanel.png" style="width:45%">
+</section>
+
+<section>
+    <h1>Run Community Detection</h1>
+    <ul>
+        <li>With the network loaded, select <highlight>Apps &rarr; Community Detection &rarr; Run Community Detection</highlight>.</li>
+        <li>In the dialog, choose <highlight>Louvain</highlight> from the algorithm drop-down.</li>
+        <li>Click <highlight>Run</highlight>.</li>
+    </ul>
+    <img class="plain" src="communitydetectiondialog.png" style="width:45%">
+</section>
+
+<section>
+    <h1>Community Detection Results</h1>
+    <p>CDAPS creates a new hierarchy network using the current default layout.</p>
+    <ul>
+        <li>Each hierarchy node represents a cluster.</li>
+        <li>Cluster members are stored in the <highlight>CD_MemberList</highlight> node column.</li>
+        <li>The hierarchy can be used for downstream enrichment, interaction inspection, and attribute tallying.</li>
+    </ul>
+    <img class="plain" src="resultinghierarchy.png" style="width:45%">
+</section>
+
+<section>
+    <h1>Functional Enrichment</h1>
+    <ul>
+        <li>In the hierarchy network, select one or more cluster nodes.</li>
+        <li>Right-click a selected node and choose <highlight>Apps &rarr; Community Detection &rarr; Run Functional Enrichment</highlight>.</li>
+        <li>In the dialog, select <highlight>gProfiler</highlight> from the algorithm drop-down and click <highlight>Run</highlight>.</li>
+    </ul>
+    <img class="plain" src="term_map_dialog.png" style="width:45%">
+</section>
+
+<section>
+    <h1>Functional Enrichment Results</h1>
+    <p>After enrichment completes, CDAPS names and colors selected hierarchy nodes according to term overlap.</p>
+    <ul>
+        <li>Use the enriched hierarchy to identify biological themes in clusters.</li>
+        <li>Repeat enrichment on different selected hierarchy nodes as needed.</li>
+    </ul>
+    <img class="plain" src="mapped_terms.png" style="width:50%">
+</section>
+
+<section>
+    <h1>View Interactions</h1>
+    <ul>
+        <li>Select a single node in the hierarchy network.</li>
+        <li>Right-click the selected node and choose <highlight>Apps &rarr; Community Detection &rarr; View Interactions for Selected Node</highlight>.</li>
+        <li>CDAPS displays the corresponding cluster members and their interactions in the parent network.</li>
+    </ul>
+    <img class="plain" src="view_interactions.png" style="width:50%">
+</section>
+</section>
+
+<section>
+<section>
+    <h1>Tally Workflow</h1>
+    <p><highlight>Apps &rarr; Community Detection &rarr; Tally Attributes on Hierarchy</highlight> annotates a CDAPS hierarchy with counts derived from columns in the parent network.</p>
+    <ul>
+        <li>Run this workflow after creating a hierarchy with CDAPS.</li>
+        <li>Use it when parent-network node columns encode phenotypes, classes, scores, or other attributes that should be summarized per cluster.</li>
+        <li>The resulting hierarchy columns can be mapped to Cytoscape visual properties or node charts.</li>
+    </ul>
+    <img class="plain" src="resultingtallypiechart.png" style="width:45%">
+</section>
+
+<section>
+    <h1>Prepare Attributes</h1>
+    <ul>
+        <li>Select a hierarchy network created by CDAPS.</li>
+        <li>The hierarchy node <highlight>CD_MemberList</highlight> column identifies the parent-network nodes in each cluster.</li>
+        <li>Tally can use parent-network columns of type <b>Integer</b>, <b>Boolean</b>, or <b>Double</b>.</li>
+        <li>For each selected column, CDAPS counts the cluster members with true or positive values.</li>
+    </ul>
+</section>
+
+<section>
+    <h1>Run Tally Attributes</h1>
+    <ul>
+        <li>Select <highlight>Apps &rarr; Community Detection &rarr; Tally Attributes on Hierarchy</highlight>.</li>
+        <li>In the dialog, select one or more eligible parent-network columns.</li>
+        <li>Click <highlight>OK</highlight> to add tally columns to the hierarchy node table.</li>
+    </ul>
+    <img class="plain" src="runtallyattribsdialog.png" style="width:45%">
+</section>
+
+<section>
+    <h1>Tally Results</h1>
+    <ul>
+        <li>New hierarchy node columns use the selected parent column names with the <highlight>CommunityDetectionTally</highlight> namespace.</li>
+        <li>CDAPS also adds <highlight>CommunityDetectionTally::Unmatched</highlight> to count cluster members that do not match any selected attribute.</li>
+        <li>When tally is rerun, existing columns in the <highlight>CommunityDetectionTally</highlight> namespace are removed before new results are written.</li>
+    </ul>
+    <img class="plain" src="resultingtallycols1.png" style="width:55%">
+</section>
+
+<section>
+    <h1>Tally Notes</h1>
+    <ul>
+        <li>Boolean columns are counted when the member value is <b>true</b>.</li>
+        <li>Integer columns are counted when the member value is positive.</li>
+        <li>Double columns are rounded to the nearest integer before CDAPS checks whether the value is positive.</li>
+        <li>Counts are written to the hierarchy network, leaving the parent network columns unchanged.</li>
+    </ul>
+</section>
+
+<section>
+    <h1>Visualize Tally Results</h1>
+    <p>The tally columns can be used like any other Cytoscape table columns.</p>
+    <ul>
+        <li>Map a tally column to node size, node fill color, or labels to emphasize cluster composition.</li>
+        <li>Use Cytoscape node charts to display multiple tally columns on each hierarchy node.</li>
+        <li>Save the hierarchy and parent network together with <highlight>File &rarr; Save Session</highlight>.</li>
+    </ul>
+    <img class="plain" src="resultingtallypiechart.png" style="width:45%">
+</section>
+</section>
+
+<section>
+    <h1>Saving and Exporting Results</h1>
+    <p>Cytoscape provides a number of ways to save CDAPS results and visualizations:</p>
+    <ul>
+        <li>As a session: <highlight>File &rarr; Save Session</highlight>, <highlight>File &rarr; Save Session As...</highlight></li>
+        <li>As an image: <highlight>File &rarr; Export &rarr; Network to Image...</highlight>, selecting for example <b>pdf</b> or <b>png</b> from the <highlight>Export File Format</highlight> drop-down.</li>
+        <li>To a public repository: <highlight>File &rarr; Export &rarr; Network to NDEx</highlight></li>
+    </ul>
+</section>
+                
+
+                
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+<!-- ========================================================== -->
+
+                
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-155159-15', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+	Reveal.addEventListener( 'ready', function() {
+	if(!window.navigator.userAgent.includes('CyBrowser')){
+		var divs = document.getElementsByClassName("cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	} else {
+		var divs = document.getElementsByClassName("not-cybrowser")
+		for (var i=0;i<divs.length;i++){
+			divs[i].style.display = "none";
+		}
+	}
+});
+</script>  
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+				controls: true,
+				progress: true,
+				slideNumber: false,
+				touch: true,
+				fragments: true,
+				help: true,
+				showNotes: false,
+				previewLinks: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				width: 1200,
+				height: 860,
+				autoSlide: 0,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: '../../plugin/markdown/marked.js' },
+				{ src: '../../plugin/markdown/markdown.js' },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true, condition: function(){ return !!document.body.classList; } },
+				{ src: '../../plugin/notes/notes.js', async: true },
+				{ src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+				]
+				});
+			</script>
+		</body>
+	</html>
