@@ -5,21 +5,19 @@
 	<li>Service Apps vs. Web Apps vs. Desktop Apps</li>
 	<li>How to add a Service App to Cytoscape Web</li>
 	<li>How Service Apps Work</li>
-	<li>How to create a Service App with Python and Flask</li>
+	<li><strong>Hands on:</strong> Creating Service App with Python and Flask</li>
   </ul>
 
 
 </section>
 
 <section>
-    <h2>What are Cytoscape Service Apps?</h2>
+    <h2>What are Service Apps?</h2>
     <ul>
-      <li>Community-built additions that extend Cytoscape Web functionality.</li>
-      <li>Implemented as <strong>REST</strong> services registered by <strong>URL</strong>.</li>
-      <li>Language-flexible: Python, Java, R, Node, Go, or anything that speaks HTTP.</li>
-	  <li>Accessible from Desktop (via App in development).</li>
+      <li>A way for <strong>you</strong> to extend Cytoscape Web functionality.</li>
+      <li>Can be implemented in any language that supports REST services.</li>
+      <li>Can be run by <strong>you</strong> locally or served from a remote server.</li>
     </ul>
-	<p><b>NOTE:</b> Service Apps are still in the experimental stage of development.</p>
 </section>
 
 <section>
@@ -29,7 +27,7 @@
 	<tbody>
 	<tr><td>Desktop App</td><td>Deep UI integration with desktop</td><td>Desktop only, requires Java development</td></tr>
 	<tr><td>Web App</td><td>Deep UI integration</td><td>Web only, requires TypeScript / web development</td></tr>
-	<tr><td>Service App</td><td>Portable (via App in development), language-agnostic
+	<tr><td>Service App</td><td>Portable, language-agnostic
 	</td><td>No/Limited API access, requires hosting</td></tr>
 	</tbody>
 </table>
@@ -64,7 +62,7 @@
 
 <section>
 	<h1>How Service Apps Work</h1>
-	<p>Service Apps are REST services that implement a specific contract and register with Cytoscape Web by URL.</p>
+	<p>Service Apps are REST services that implement a specific contract.</p>
     <div style="width:50%; float: center; margin-left: 25%">
 	<img class="plain" src="./modules/service-app-dev/cyWebServiceAppSpec2.png">
 	</div>
@@ -81,6 +79,7 @@ POST   /              submit task, returns task id
 GET    /&lt;taskID&gt;/status  task progress
 GET    /&lt;taskID&gt;         final task result
 DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
+<p><strong>NOTE:</strong> This looks complicated, but in 2026 you can pretty much vibe a new Service App in a matter of minutes</p>
 </section>
 
 <section>
