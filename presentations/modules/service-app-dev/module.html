@@ -25,9 +25,9 @@
 <table>
 	<thead><tr><th>App type</th><th>Best for</th><th>Tradeoff</th></tr></thead>
 	<tbody>
-	<tr><td>Desktop App</td><td>Deep UI integration with desktop</td><td>Desktop only, requires Java development</td></tr>
+	<tr><td>Desktop App</td><td>Deep UI integration</td><td>Desktop only, requires Java development</td></tr>
 	<tr><td>Web App</td><td>Deep UI integration</td><td>Web only, requires TypeScript / web development</td></tr>
-	<tr><td>Service App</td><td>Portable, language-agnostic
+	<tr><td>Service App</td><td>Language-agnostic
 	</td><td>No/Limited API access, requires hosting</td></tr>
 	</tbody>
 </table>
@@ -53,12 +53,14 @@
 	<p>This App requires a network. You can get some networks by clicking <highlight>Data → Open Sample Networks</highlight>.</p>
 
   </section>
+  <!--
   <section>
     <h2>Important Workspace Note</h2>
     <p>Active Apps and Service Apps can be cleared when using <highlight>Data → Clear Local Database</highlight>.</p>
     <p>To preserve enabled apps, save a workspace snapshot to NDEx with <highlight>Data → Save Workspace As…</highlight>.</p>
 
 </section>
+-->
 
 <section>
 	<h1>How Service Apps Work</h1>
@@ -68,6 +70,12 @@
 	</div>
 								
      <p>Visit <a href="https://github.com/cytoscape/cytoscape-web/wiki#app-developers-guide" target="_blank">Cytoscape Web App Developers Guide</a> for more details.</p>
+</section>
+
+<section>
+	<h1>How Service Apps Work</h1>
+	<p>That looks complicated, but you can vibe a new Service App pretty quickly</p>
+				
 </section>
 <section>
     <h2>Endpoints</h2>
@@ -79,7 +87,6 @@ POST   /              submit task, returns task id
 GET    /&lt;taskID&gt;/status  task progress
 GET    /&lt;taskID&gt;         final task result
 DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
-<p><strong>NOTE:</strong> This looks complicated, but in 2026 you can pretty much vibe a new Service App in a matter of minutes</p>
 </section>
 
 <section>
@@ -218,7 +225,7 @@ pip install flask flask-cors ndex2
 <pre><code class="language-bash">curl -X POST http://localhost:8080/addnodes \
   -H 'Content-Type: application/json' \
   -d '{"parameters":{},"data":[{"CXVersion": "2.0", "hasFragments": false}, {"metaData": [{"elementCount": 1, "name": "attributeDeclarations"}, {"elementCount": 1, "name": "networkAttributes"}, {"elementCount": 2, "name": "nodes"}, {"elementCount": 1, "name": "edges"}]}, {"attributeDeclarations": [{"nodes": {"name": {"d": "string"}, "altname": {"d": "string"}, "represents": {"d": "string"}}, "edges": {"interaction": {"d": "string"}, "weight": {"d": "double"}}, "networkAttributes": {"name": {"d": "string"}}}]}, {"networkAttributes": [{"name": "test network"}]}, {"nodes": [{"id": 0, "x": 10, "y": 0, "v": {"name": "foo", "altname": "alternate name for foo", "represents": "representing foo"}}, {"id": 1, "x": 10, "y": 10, "v": {"name": "bar", "altname": "alternate name for bar", "represents": "representing bar"}}]}, {"edges": [{"id": 0, "s": 0, "t": 1, "v": {"interaction": "interacts", "weight": 0.5}}]}, {"status": [{"error": "", "success": true}]}]}'</code></pre>
-  <p>If <code>curl</code> is not available paste the first two URLs into a browser.</p>
+  <p>If <code>curl</code> is not available, paste the first two URLs into a browser.</p>
 </section>
 
 <section>
