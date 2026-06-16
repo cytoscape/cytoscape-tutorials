@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Open in Cytoscape Web App</title>
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/cytoscape-protocol-1.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT BEGINS -->
+
+<section>
+<h1>Open in Cytoscape Web App</h1>
+<p style="text-align: left">In this exercise, we will use the <a
+href="https://apps.cytoscape.org/apps/opencytoscapeweb" target="_blank">Open in Cytoscape Web</a> app for
+<a href="http://cytoscape.org/" target="_blank">Cytoscape</a> to open a network from
+Cytoscape Desktop directly in <a href="https://web.cytoscape.org" target="_blank">Cytoscape Web</a>,
+a browser-based network visualization tool. The exercise will teach you how to:</p>
+
+<ul>
+  <li>install the Open in Cytoscape Web app</li>
+  <li>verify the app is installed by locating the new toolbar button and menu item</li>
+  <li>open a network in Cytoscape Web using the toolbar button</li>
+  <li>open a network in Cytoscape Web using the right-click context menu</li>
+  <li>understand network size limits and how to work around them</li>
+</ul>
+<div class="footer" style="position: absolute;left: -3em;bottom: -5em; ">
+<img class="plain" src="cytoscape-web-icon.png" style="height:70px;opacity:0.5">
+<version>1.0.0</version>
+</div>
+</section>
+
+
+<section>
+<section>
+<h1>Prerequisites</h1>
+<p style="text-align: left">To follow this exercise, make sure you have
+<a href="https://cytoscape.org/" target="_blank">Cytoscape 3.10 or later</a> installed, along with
+the <b>Open in Cytoscape Web</b> app. You will also need an active internet connection and a default
+web browser configured on your system.</p>
+
+<p style="text-align: left"><b>To install the app:</b></p>
+<ul>
+<li>In Cytoscape, go to <highlight>Apps → App Manager</highlight>.</li>
+<li>In the search field, type <b>'open'</b>.</li>
+<li>Select <b>OpenCytoscapeWeb</b> from the results and click <b>Install</b>.</li>
+</ul>
+<img class="plain" src="appstore.png" style="width:55%; border: 1px solid black; margin-top: 25px;">
+
+</section>
+
+<section>
+<h1>Prerequisites</h1>
+<h2>Verifying Installation</h2>
+<div style="font-size: 60%">
+<p style="text-align: left">The toolbar button and the <b>Open in Cytoscape Web</b> context menu item only appear <b>dynamically when a network is active</b> in Cytoscape Desktop — they will not be visible if no network is loaded.</p>
+<p style="text-align: left"><b>To verify now:</b> if you already have a network open in Cytoscape Desktop, look for the two UI elements shown below — the toolbar button (orange and white icon) in the toolbar, and <b>Open in Cytoscape Web</b> in the right-click context menu of the <highlight>Network</highlight> panel.</p>
+<p style="text-align: left"><b>No network loaded yet?</b> Proceed to Exercise 1 to load a network and you can see these GUI aspects at that point.</p>
+</div>
+<img class="plain" src="toolbar-icon-installed.png" style="width:38%;">
+</section>
+</section>
+
+
+<section>
+<h1>Exercise 1: Opening a Network in Cytoscape Web</h1>
+<p style="text-align: left">In this exercise, we will load a sample network in Cytoscape Desktop
+and open it in <a href="https://web.cytoscape.org" target="_blank">Cytoscape Web</a> using both
+available methods: the toolbar button and the right-click context menu.</p>
+</section>
+
+
+<section>
+<section>
+<h1>Exercise 1</h1>
+<h2>1.1 Open a Network in Cytoscape Desktop</h2>
+<p style="text-align: left">The Open in Cytoscape Web app works with any network loaded in Cytoscape Desktop. To get started, load any network of your choice. If you don't have one handy, try searching NDEx:</p>
+<ol>
+<li>In the <highlight>Network</highlight> panel, click the NDEx search bar at the top.</li>
+<li>Search for <b>yeast</b> and press Enter.</li>
+<li>Select any network from the results and click <b>Import</b> to load it.</li>
+<li>Wait for the network to appear in the <highlight>Network View</highlight>.</li>
+</ol>
+</section>
+
+<section>
+<h1>Exercise 1</h1>
+<h2>1.2 Open via the Toolbar Button</h2>
+<p style="text-align: left">With the network loaded, use the toolbar button to open it in Cytoscape Web.</p>
+<ol>
+<li>Locate the <b>Open in Cytoscape Web</b> toolbar button (orange and white icon) in the Cytoscape toolbar.</li>
+<li>Click the button.</li>
+<li>Your default web browser will open a new window at <a href="https://web.cytoscape.org" target="_blank">web.cytoscape.org</a> with the network loaded automatically from your local CyREST server.</li>
+</ol>
+</section>
+
+<section>
+<h1>Exercise 1</h1>
+<h2>1.2 Network Opens in Cytoscape Web</h2>
+<img class="plain" src="weblaunch.png" style="width:90%;">
+</section>
+
+<section>
+<h1>Exercise 1</h1>
+<h2>1.3 Open via the Context Menu</h2>
+<p style="text-align: left">The same action can also be triggered from the Network panel without using the toolbar.</p>
+<ol>
+<li>In the <highlight>Network</highlight> panel (left sidebar), right-click the name of the loaded network.</li>
+<li>Select <b>Open in Cytoscape Web</b> from the context menu.</li>
+<li>The browser opens as before, with the network loaded in Cytoscape Web.</li>
+</ol>
+
+<!-- TODO: Add screenshot of the right-click context menu with "Open in Cytoscape Web" highlighted -->
+<!-- Placeholder: context-menu.png -->
+</section>
+
+<section>
+<h1>Exercise 1</h1>
+<h2>1.4 Network Size Limits</h2>
+<p style="text-align: left">Before opening a network, the app validates it against size limits to ensure
+Cytoscape Web can render it reliably. The checks run in this order:</p>
+<ol>
+<li><b>Total elements</b> — nodes + edges combined must not exceed <b>26,000</b>.</li>
+<li><b>Edge count</b> — must not exceed <b>20,000</b>.</li>
+<li><b>CX2 file size</b> — the serialized network export must not exceed <b>10 MB</b>.</li>
+</ol>
+<p style="text-align: left">If any check fails, a dialog appears explaining which limit was exceeded
+along with the actual vs. maximum values. The network will not be opened until the issue is resolved.</p>
+</section>
+</section>
+
+
+<!-- ========================================================== -->
+<!-- THIS IS WHERE YOUR CONTENT ENDS -->
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: false,
+    touch: true,
+    fragments: true,
+    help: true,
+    showNotes: false,
+    previewLinks: false,
+    theme: Reveal.getQueryHash().theme,
+    transition: Reveal.getQueryHash().transition || 'slide',
+    dependencies: [
+      { src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: '../../plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: '../../plugin/notes/notes.js', async: true },
+      { src: '../../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: '../../plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } }
+    ]
+  });
+</script>
+	</body>
+</html>

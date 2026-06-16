@@ -1,0 +1,260 @@
+<section>
+  <h1>Service Apps</h1>
+  <ul>
+    <li>What are Cytoscape Service Apps?</li>
+	<li>Service Apps vs. Web Apps vs. Desktop Apps</li>
+	<li>How to add a Service App to Cytoscape Web</li>
+	<li>How Service Apps Work</li>
+	<li><strong>Hands on:</strong> Creating Service App with Python and Flask</li>
+  </ul>
+
+
+</section>
+
+<section>
+    <h2>What are Service Apps?</h2>
+    <ul>
+      <li>A way for <strong>you</strong> to extend Cytoscape Web functionality.</li>
+      <li>Can be implemented in any language that supports REST services.</li>
+      <li>Can be run by <strong>you</strong> locally or served from a remote server.</li>
+    </ul>
+</section>
+
+<section>
+<h2>Service Apps vs. Web vs. Desktop Apps</h2>
+<table>
+	<thead><tr><th>App type</th><th>Best for</th><th>Tradeoff</th></tr></thead>
+	<tbody>
+	<tr><td>Desktop App</td><td>Deep UI integration</td><td>Desktop only, requires Java development</td></tr>
+	<tr><td>Web App</td><td>Deep UI integration</td><td>Web only, requires TypeScript / web development</td></tr>
+	<tr><td>Service App</td><td>Language-agnostic
+	</td><td>No/Limited API access, requires hosting</td></tr>
+	</tbody>
+</table>
+</section>
+
+<section>
+    <h2>How to Add a Service App to Cytoscape Web</h2>
+    <ol>
+      <li>Open Cytoscape Web.</li>
+      <li>Go to <highlight>Apps → Manage Apps...</highlight></li>
+	  <li>Click <highlight>SERVICE APPS</highlight> tab.</li></li>
+      <li>Paste the Service App URL into <strong>External Service URL</strong>.</li>
+      <li>Click <highlight>Add</highlight>.</li>
+      <li>Launch it from the <highlight>Apps menu</highlight>.</li>
+    </ol>
+  </section>
+  <section>
+    <h2>Example Service App URL</h2>
+    <pre><code class="language-bash">https://cd.ndexbio.org/cy/cytocontainer/v1/updatetablesexample</code></pre>
+    <p>After registration, the app appears under the <highlight>Apps</highlight> menu</p>For example:
+	<highlight>Example Service App → Update tables example</highlight>.</p>
+
+	<p>This App requires a network. You can get some networks by clicking <highlight>Data → Open Sample Networks</highlight>.</p>
+
+  </section>
+  <!--
+  <section>
+    <h2>Important Workspace Note</h2>
+    <p>Active Apps and Service Apps can be cleared when using <highlight>Data → Clear Local Database</highlight>.</p>
+    <p>To preserve enabled apps, save a workspace snapshot to NDEx with <highlight>Data → Save Workspace As…</highlight>.</p>
+
+</section>
+-->
+
+<section>
+	<h1>How Service Apps Work</h1>
+	<p>Service Apps are REST services that implement a specific contract.</p>
+    <div style="width:50%; float: center; margin-left: 25%">
+	<img class="plain" src="./modules/service-app-dev/cyWebServiceAppSpec2.png">
+	</div>
+								
+     <p>Visit <a href="https://github.com/cytoscape/cytoscape-web/wiki#app-developers-guide" target="_blank">Cytoscape Web App Developers Guide</a> for more details.</p>
+</section>
+
+<section>
+	<h1>How Service Apps Work</h1>
+	<p>That looks complicated, but you can vibe a new Service App pretty quickly</p>
+				
+</section>
+<section>
+    <h2>Endpoints</h2>
+	<p>Highlevel view of Service App REST endpoints</p>
+
+    <pre><code class="language-http">GET    /              metadata: name, menu item, params, input definition
+GET    /status        service health
+POST   /              submit task, returns task id
+GET    /&lt;taskID&gt;/status  task progress
+GET    /&lt;taskID&gt;         final task result
+DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
+</section>
+
+<section>
+    <h2>Metadata</h2>
+	<p>Provides information about the service. Called by Cytoscape Web when registering the Service App.</p>
+    <pre><code class="language-http">GET    /              metadata: name, menu item, params, input definition</code></pre>
+
+	<b>Response</b>
+	<pre><code class="language-bash">{
+    "serviceInputDefinition": Object (SelectionMethod), # Data wanted
+    "cyWebActions": [string], # Data generated
+    "cyWebMenuItem": Object (RootMenu), # Menu location
+    "name": string, 
+    "description": string,
+    "showDescriptionInDialog": boolean,
+    "author": string,
+    "citation": string,
+    "version": string,
+    "parameters": [ # UI parameters
+      Object (Parameter)
+    ]
+}</code></pre>
+</section>
+
+<section>
+    <h2>Status</h2>
+	<p>Provides information about the health of the service. In future will be called by Cytoscape Web and AppStore to monitor service health.</p>
+    <pre><code class="language-http">GET    /status        service health</code></pre>
+
+	<b>Response Example</b>
+	<pre><code class="language-json">{
+  "status": "ok",
+  "version": "1.0.0",
+  "numberOfRunningTasks": 0
+}</code></pre>
+
+</section>
+
+<section>
+    <h2>Submit task</h2>
+	<p>Submits a task to the service. Called by Cytoscape Web when a user clicks Submit on Service App dialog.</p>
+    <pre><code class="language-http">POST   /              submit task, returns task id</code></pre>
+
+	<b>Request Example</b>
+	<pre><code class="language-json">{
+	"parameters":{"someparam": "somevalue"},
+	"data":[{"CXVersion": "2.0" ... }]
+}</code></pre>
+
+	<b>Response Example</b>
+	<pre><code class="language-json">{"id":"9a363a0b-bdc2-40a7-91ba-19657bdac156"}</code></pre>
+</section>
+
+<section>
+    <h2>Task status</h2>
+	<p>Provides information status of a task excluding the final result. Cytoscape Web polls this endpoint waiting for task completion.</p>
+    <pre><code class="language-http">GET    /&lt;taskID&gt;/status  task progress</code></pre>
+
+	<b>Response Example</b>
+	<pre><code class="language-json">{
+	"id":"9a363a0b-bdc2-40a7-91ba-19657bdac156",
+	"message":null,
+	"progress":100,
+	"startTime":1780005354862,
+	"status":"complete",
+	"wallTime":10
+}</code></pre>
+</section>
+
+<section>
+    <h2>Task final result</h2>
+	<p>Provides task final result. Called by Cytoscape Web after task is complete.</p>
+    <pre><code class="language-http">GET    /&lt;taskID&gt;  task final result</code></pre>
+
+	<b>Response Example</b>
+	<pre><code class="language-json">{
+	"id":"9a363a0b-bdc2-40a7-91ba-19657bdac156",
+	"result": [ {"action": "updateNetwork",
+	             "data": [{"CXVersion": "2.0" ... }]} ],
+	"message":null,
+	"progress":100,
+	"startTime":1780005354862,
+	"status":"complete",
+	"wallTime":10
+}</code></pre>
+</section>
+
+<section>
+    <h2>Delete task</h2>
+	<p>Deletes a task from the service, called by Cytoscape Web after obtaining result.</p>
+    <pre><code class="language-http">DELETE /&lt;taskID&gt;  delete task</code></pre>
+	<b>Successful deletion has no needed response</b>
+</section>
+
+
+  <section>
+	<h1>Hands-on Exercise</h1>
+    <h2>Simple Service App with Python + Flask</h2>
+    <p>Goal: a tiny service that accepts a network, adds a few nodes and returns an updated network.</p>
+  </section>
+
+<section>
+  <h2>Developer Checklist</h2>
+  <ul>
+    <li>Implement required endpoints.</li>
+    <li>Return valid metadata from <code>GET /</code>.</li>
+    <li>Support CORS for Cytoscape Web.</li>
+    <li>Use stable task ids.</li>
+    <li>Return progress, status, message, and result consistently.</li>
+    <li>Keep result actions aligned with Cytoscape Web’s expected result schema.</li>
+  </ul>
+  <p>Visit the <a href="https://github.com/cytoscape/cytoscape-web/wiki/Specification-for-Service-App-in-Cytoscape-Web-(draft-v2)" target="_blank">Specification for Service App in Cytoscape Web</a>.</p>
+</section>
+
+  <section>
+    <h2>Set up</h2>
+
+	<ol>
+	  <li><a href="./modules/service-app-dev/addnodes.py">Click here to download addnodes.py example</a></li>
+
+	  <li>Open a terminal</li> 
+	  <li>Install dependencies:</li>
+		  <pre><code class="language-bash">
+pip install flask flask-cors ndex2
+</code></pre></li>
+	</ol>
+  </section>
+
+  <section>
+    <h2>Run Locally</h2>
+    <pre><code class="language-bash">python addnodes.py</code></pre>
+
+    <b>Try it locally (requires curl)</b>
+    <pre><code class="language-bash">curl http://localhost:8080/addnodes/status</code></pre>
+	<pre><code class="language-bash">curl http://localhost:8080/addnodes</code></pre>
+<pre><code class="language-bash">curl -X POST http://localhost:8080/addnodes \
+  -H 'Content-Type: application/json' \
+  -d '{"parameters":{},"data":[{"CXVersion": "2.0", "hasFragments": false}, {"metaData": [{"elementCount": 1, "name": "attributeDeclarations"}, {"elementCount": 1, "name": "networkAttributes"}, {"elementCount": 2, "name": "nodes"}, {"elementCount": 1, "name": "edges"}]}, {"attributeDeclarations": [{"nodes": {"name": {"d": "string"}, "altname": {"d": "string"}, "represents": {"d": "string"}}, "edges": {"interaction": {"d": "string"}, "weight": {"d": "double"}}, "networkAttributes": {"name": {"d": "string"}}}]}, {"networkAttributes": [{"name": "test network"}]}, {"nodes": [{"id": 0, "x": 10, "y": 0, "v": {"name": "foo", "altname": "alternate name for foo", "represents": "representing foo"}}, {"id": 1, "x": 10, "y": 10, "v": {"name": "bar", "altname": "alternate name for bar", "represents": "representing bar"}}]}, {"edges": [{"id": 0, "s": 0, "t": 1, "v": {"interaction": "interacts", "weight": 0.5}}]}, {"status": [{"error": "", "success": true}]}]}'</code></pre>
+  <p>If <code>curl</code> is not available, paste the first two URLs into a browser.</p>
+</section>
+
+<section>
+    <h2>Try it in Cytoscape Web</h2>
+    <ol>
+      <li>Open Cytoscape Web. <a href="https://web.cytoscape.org" target="_blank">https://web.cytoscape.org</a></li>
+      <li>Go to <highlight>Apps → Manage Apps...</highlight> and click <highlight>SERVICE APPS</highlight> tab.</li></li>
+      <li>Paste <code>http://localhost:8080/addnodes</code> into <strong>External Service URL</strong> text field and click<highlight>Add</highlight>.</li>
+      <li>Get some networks by clicking <highlight>Data → Open Sample Networks</highlight>.</li> 
+	  <li>Launch it by invoking <highlight>Apps → Example Service App → Python-Flask Simple Service-App</highlight>.</li>
+    </ol>
+	<p>After invocation, additional nodes should appear in the network.</p>
+  </section>
+
+<section>
+	<h2>More things to try</h2>
+	<ul>
+		<li>Modify the code to add more nodes or edges.</li>
+		<li>Modify the code to try a different action like: 
+		<ul><code>addNetworks, updateSelection, updateLayouts, openURL</code></li>
+	</ul>
+	<p>Visit the <a href="https://github.com/cytoscape/cytoscape-web/wiki/Specification-for-Service-App-in-Cytoscape-Web-(draft-v2)" target="_blank">Specification for Service App in Cytoscape Web</a>.</p>
+</section>
+
+<section>
+  <h2>References</h2>
+  <ul>
+    <li>Web Manual: <a href="https://web-manual.cytoscape.org" target="_blank">https://web-manual.cytoscape.org</a></li>
+    <li>Service Apps: <p><a href="https://github.com/cytoscape/cytoscape-web/wiki/Specification-for-Service-App-in-Cytoscape-Web-(draft-v2)" target="_blank">https://github.com/cytoscape/cytoscape-web/wiki/Specification-for-Service-App-in-Cytoscape-Web-(draft-v2)</a></li>
+  </ul>
+</section>
+
