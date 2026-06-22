@@ -7,7 +7,13 @@
 	<li>How Service Apps Work</li>
 	<li><strong>Hands on:</strong> Creating Service App with Python and Flask</li>
   </ul>
-
+  <aside class="notes" data-markdown>
+				Here is agenda for this module. We will cover what Service Apps are, 
+        how they compare to Web and Desktop Apps, how to add a 
+        Service App to Cytoscape Web, and how Service Apps work. 
+        Finally, we will do a hands-on exercise creating a Service App with 
+        Python and Flask.
+	</aside>
 
 </section>
 
@@ -18,6 +24,11 @@
       <li>Can be implemented in any language that supports REST services.</li>
       <li>Can be run by <strong>you</strong> locally or served from a remote server.</li>
     </ul>
+    <aside class="notes" data-markdown>
+        What are Service Apps? They are a way for you to extend Cytoscape Web functionality. 
+        They can be implemented in any language that supports REST services, and can be run by 
+        you locally or served from a remote server.  
+    </aside>
 </section>
 
 <section>
@@ -31,18 +42,33 @@
 	</td><td>No/Limited API access, requires hosting</td></tr>
 	</tbody>
 </table>
+<aside class="notes" data-markdown>
+      Here is a comparison of Service Apps, Web Apps, and Desktop Apps.
+      Desktop Apps are best for deep UI integration, 
+      but they are desktop only and require Java development. 
+      Web Apps are also best for deep UI integration, but they are web only and 
+      require TypeScript or web development. Service Apps are 
+      language-agnostic, but they have no or limited API access and 
+      require hosting. 
+</aside>
 </section>
 
 <section>
     <h2>How to Add a Service App to Cytoscape Web</h2>
     <ol>
-      <li>Open Cytoscape Web.</li>
+      <li>Open Cytoscape Web: <a href="https://web.cytoscape.org" target="_blank">https://web.cytoscape.org</a></li>
       <li>Go to <highlight>Apps → Manage Apps...</highlight></li>
 	  <li>Click <highlight>SERVICE APPS</highlight> tab.</li></li>
       <li>Paste the Service App URL into <strong>External Service URL</strong>.</li>
       <li>Click <highlight>Add</highlight>.</li>
       <li>Launch it from the <highlight>Apps menu</highlight>.</li>
     </ol>
+    <aside class="notes" data-markdown>
+        Here is how to add a Service App to Cytoscape Web. First, open Cytoscape Web. 
+        Then go to Apps → Manage Apps... and click the SERVICE APPS tab. 
+        Paste the Service App URL into External Service URL and click Add. 
+        Finally, launch it from the Apps menu.
+    </aside>
   </section>
   <section>
     <h2>Example Service App URL</h2>
@@ -51,7 +77,12 @@
 	<highlight>Example Service App → Update tables example</highlight>.</p>
 
 	<p>This App requires a network. You can get some networks by clicking <highlight>Data → Open Sample Networks</highlight>.</p>
-
+    <aside class="notes" data-markdown>
+        Here is an example Service App URL that can be registerd with Cytoscape Web.
+        After registration, the app appears under the Apps menu, for example: 
+        Example Service App → Update tables example. 
+        This App requires a network. You can get some networks by clicking Data → Open Sample Networks.
+    </aside>
   </section>
   <!--
   <section>
@@ -70,12 +101,20 @@
 	</div>
 								
      <p>Visit <a href="https://github.com/cytoscape/cytoscape-web/wiki#app-developers-guide" target="_blank">Cytoscape Web App Developers Guide</a> for more details.</p>
+  <aside class="notes" data-markdown>
+    Service Apps for Cytoscape Web are REST services that implement a specific contract. This
+    figure shows the contract. Visit Cytoscape Web App Developers Guide for more details.
+  </aside>
 </section>
 
 <section>
 	<h1>How Service Apps Work</h1>
 	<p>That looks complicated, but you can vibe a new Service App pretty quickly</p>
-				
+  <aside class="notes" data-markdown>
+    That looks complicated, but you can vibe a new Service App pretty quickly. 
+    The next slides will go over the high level endpoints and 
+    show you how to implement a simple Service App with Python and Flask.  
+  </aside>
 </section>
 <section>
     <h2>Endpoints</h2>
@@ -87,6 +126,15 @@ POST   /              submit task, returns task id
 GET    /&lt;taskID&gt;/status  task progress
 GET    /&lt;taskID&gt;         final task result
 DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
+  <aside class="notes" data-markdown>
+    Here is a high level view of the Service App REST endpoints. 
+    The first endpoint returns metadata about the service. 
+    The second endpoint returns service health. 
+    The third endpoint submits a task to the service and returns a task id. 
+    The fourth endpoint returns task progress. 
+    The fifth endpoint returns the final task result. 
+    The sixth endpoint cancels or deletes a task.
+  </aside>
 </section>
 
 <section>
