@@ -8,7 +8,7 @@
 	<li><strong>Hands on:</strong> Creating Service App with Python and Flask</li>
   </ul>
   <aside class="notes" data-markdown>
-				Here is agenda for this module. We will cover what Service Apps are, 
+				Here is the agenda for this module. We will cover what Service Apps are, 
         how they compare to Web and Desktop Apps, how to add a 
         Service App to Cytoscape Web, and how Service Apps work. 
         Finally, we will do a hands-on exercise creating a Service App with 
@@ -29,7 +29,8 @@
     <aside class="notes" data-markdown>
         What are Service Apps? They are a way for you to extend Cytoscape Web functionality. 
         They can be implemented in any language that supports REST services, and can be run by 
-        you locally or served from a remote server.  
+        you locally or served from a remote server.  REST stands for Representational State Transfer, which is a convention
+        for building web services that are easy to interact with programmatically.
     </aside>
 </section>
 
@@ -40,8 +41,7 @@
 	<tbody>
 	<tr><td>Desktop App</td><td>Deep UI integration</td><td>Desktop only, requires Java development</td></tr>
 	<tr><td>Web App</td><td>Deep UI integration</td><td>Web only, requires TypeScript / web development</td></tr>
-	<tr><td>Service App</td><td>Language-agnostic
-	</td><td>No/Limited API access, requires hosting</td></tr>
+	<tr><td><strong>Service App</strong></td><td><strong>Language-agnostic</strong></td><td><strong>No/Limited API access, requires hosting</strong></td></tr>
 	</tbody>
 </table>
 <aside class="notes" data-markdown>
@@ -68,20 +68,21 @@
     <aside class="notes" data-markdown>
         Here is how to add a Service App to Cytoscape Web. First, open Cytoscape Web. 
         Then go to Apps → Manage Apps... and click the SERVICE APPS tab. 
-        Paste the Service App URL into External Service URL and click Add. 
+        Paste the Service App URL into External Service URL and click Add.
         Finally, launch it from the Apps menu.
     </aside>
   </section>
   <section>
     <h2>Example Service App URL</h2>
     <pre><code class="language-bash">https://cd.ndexbio.org/cy/cytocontainer/v1/updatetablesexample</code></pre>
-    <p>After registration, the app appears under the <highlight>Apps</highlight> menu</p>For example:
+    <p>After registration, the app appears under the <highlight>Apps</highlight> menu</p>
 	<highlight>Example Service App → Update tables example</highlight>.</p>
 
 	<p>This App requires a network. You can get some networks by clicking <highlight>Data → Open Sample Networks</highlight>.</p>
     <aside class="notes" data-markdown>
-        Here is an example Service App URL that can be registerd with Cytoscape Web.
-        After registration, the app appears under the Apps menu, for example: 
+        Here is an example Service App URL that can be registered with Cytoscape Web.
+        This App adds a new column to the node or edge table of the currently selected network.
+        After adding, the app appears under the Apps menu, for example: 
         Example Service App → Update tables example. 
         This App requires a network. You can get some networks by clicking Data → Open Sample Networks.
     </aside>
@@ -104,8 +105,10 @@
 								
      <p>Visit <a href="https://github.com/cytoscape/cytoscape-web/wiki#app-developers-guide" target="_blank">Cytoscape Web App Developers Guide</a> for more details.</p>
   <aside class="notes" data-markdown>
-    Service Apps for Cytoscape Web are REST services that implement a specific contract. This
-    figure shows the contract. Visit Cytoscape Web App Developers Guide for more details.
+    Service Apps for Cytoscape Web are REST services that implement a specific contract. 
+    Each Service App must implement a set of endpoints that Cytoscape Web can call to provide information about the 
+    App, submit tasks, check status, and retrieve results.
+    This figure shows that contract. Please visit Cytoscape Web App Developers Guide for more details.
   </aside>
 </section>
 
@@ -160,11 +163,17 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
       Object (Parameter)
     ]
 }</code></pre>
+ <aside class="notes" data-markdown>
+    The metadata endpoint provides information about the Service App. 
+    It is called by Cytoscape Web when registering the Service App. 
+    The response includes what data the Service App needs, what data it generates,
+    where should the Service App appear in the menu, and what parameters should be displayed to the user.
+  </aside>
 </section>
 
 <section>
     <h2>Status</h2>
-	<p>Provides information about the health of the service. In future will be called by Cytoscape Web and AppStore to monitor service health.</p>
+	<p>Provides information about the health of the Service App. In future will be called by Cytoscape Web and AppStore to monitor service health.</p>
     <pre><code class="language-http">GET    /status        service health</code></pre>
 
 	<b>Response Example</b>
@@ -173,12 +182,15 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
   "version": "1.0.0",
   "numberOfRunningTasks": 0
 }</code></pre>
-
+ <aside class="notes" data-markdown>
+    The status endpoint provides information about the health of the Service App. 
+    It is called by Cytoscape Web and in the future by the AppStore to monitor service health. 
+  </aside>
 </section>
 
 <section>
     <h2>Submit task</h2>
-	<p>Submits a task to the service. Called by Cytoscape Web when a user clicks Submit on Service App dialog.</p>
+	<p>Submits a task to the Service App. Called by Cytoscape Web when a user clicks Submit on Service App dialog.</p>
     <pre><code class="language-http">POST   /              submit task, returns task id</code></pre>
 
 	<b>Request Example</b>
@@ -189,6 +201,10 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
 
 	<b>Response Example</b>
 	<pre><code class="language-json">{"id":"9a363a0b-bdc2-40a7-91ba-19657bdac156"}</code></pre>
+  <aside class="notes" data-markdown>
+    The submit task endpoint allows Cytoscape Web to submit a task to the Service App. 
+    It returns a unique task ID that can be used to query the status and final result of the task.
+  </aside>
 </section>
 
 <section>
@@ -201,10 +217,16 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
 	"id":"9a363a0b-bdc2-40a7-91ba-19657bdac156",
 	"message":null,
 	"progress":100,
-	"startTime":1780005354862,
-	"status":"complete",
-	"wallTime":10
+	"status":"complete"
 }</code></pre>
+<aside class="notes" data-markdown>
+    The task status endpoint provides information about the progress of a task. 
+    It is called by Cytoscape Web to monitor the status of a submitted task. The
+    message field can be used to provide additional information about the task status to
+    the user. The progress field contains a value between 0 - 100 indicating how much of 
+    the task has been completed. 
+    The status field can be submitted, processing, complete, failed. 
+  </aside>
 </section>
 
 <section>
@@ -219,10 +241,13 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
 	             "data": [{"CXVersion": "2.0" ... }]} ],
 	"message":null,
 	"progress":100,
-	"startTime":1780005354862,
-	"status":"complete",
-	"wallTime":10
+	"status":"complete"
 }</code></pre>
+<aside class="notes" data-markdown>
+    The task final result endpoint provides the final result of a completed task. 
+    It is called by Cytoscape Web after a task is complete. 
+    The result field contains the final output of the task.
+  </aside>
 </section>
 
 <section>
@@ -230,6 +255,11 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
 	<p>Deletes a task from the service, called by Cytoscape Web after obtaining result.</p>
     <pre><code class="language-http">DELETE /&lt;taskID&gt;  delete task</code></pre>
 	<b>Successful deletion has no needed response</b>
+  <aside class="notes" data-markdown>
+    The task deletion endpoint removes a task from the service. 
+    It is called by Cytoscape Web after obtaining the result of a task. 
+    No response body is required for a successful deletion.
+  </aside>
 </section>
 
 
@@ -237,6 +267,11 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
 	<h1>Hands-on Exercise</h1>
     <h2>Simple Service App with Python + Flask</h2>
     <p>Goal: a tiny service that accepts a network, adds a few nodes and returns an updated network.</p>
+    <aside class="notes" data-markdown>
+      In this hands-on exercise, we will create a simple Service App using Python 
+      and Flask. The goal is to implement a tiny service that accepts a network, 
+      adds a few nodes, and returns an updated network.
+   </aside>
   </section>
 
 <section>
@@ -250,6 +285,13 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
     <li>Keep result actions aligned with Cytoscape Web’s expected result schema.</li>
   </ul>
   <p>Visit the <a href="https://github.com/cytoscape/cytoscape-web/wiki/Specification-for-Service-App-in-Cytoscape-Web-(draft-v2)" target="_blank">Specification for Service App in Cytoscape Web</a>.</p>
+  <aside class="notes" data-markdown>
+    Here is a developer checklist for creating a Service App. 
+    Implement the required endpoints, return valid metadata from GET /, 
+    support CORS for Cytoscape Web, use stable task ids, return progress, status, message, and result consistently, 
+    and keep result actions aligned with Cytoscape Web’s expected result schema. 
+    Please visit the Specification for Service App in Cytoscape Web for more details.
+  </aside>
 </section>
 
   <section>
@@ -264,6 +306,19 @@ DELETE /&lt;taskID&gt;         cancel/delete task</code></pre>
 pip install flask flask-cors ndex2
 </code></pre></li>
 	</ol>
+  <pre>
+    <code class="language-bash"># It is a good idea to create a virtual environment
+  
+conda create -n addnodes python=3.12 -y
+conda activate addnodes
+    </code>
+  </pre>
+  <aside class="notes" data-markdown>
+    To set up the environment for the hands-on exercise, first download the addnodes.py example. 
+    Then open a terminal and install the required dependencies using pip. 
+    It is recommended to create a virtual environment for this exercise. 
+    You can use conda to create a new environment named addnodes with Python 3.12 and activate it.
+  </aside>
   </section>
 
   <section>
@@ -277,6 +332,12 @@ pip install flask flask-cors ndex2
   -H 'Content-Type: application/json' \
   -d '{"parameters":{},"data":[{"CXVersion": "2.0", "hasFragments": false}, {"metaData": [{"elementCount": 1, "name": "attributeDeclarations"}, {"elementCount": 1, "name": "networkAttributes"}, {"elementCount": 2, "name": "nodes"}, {"elementCount": 1, "name": "edges"}]}, {"attributeDeclarations": [{"nodes": {"name": {"d": "string"}, "altname": {"d": "string"}, "represents": {"d": "string"}}, "edges": {"interaction": {"d": "string"}, "weight": {"d": "double"}}, "networkAttributes": {"name": {"d": "string"}}}]}, {"networkAttributes": [{"name": "test network"}]}, {"nodes": [{"id": 0, "x": 10, "y": 0, "v": {"name": "foo", "altname": "alternate name for foo", "represents": "representing foo"}}, {"id": 1, "x": 10, "y": 10, "v": {"name": "bar", "altname": "alternate name for bar", "represents": "representing bar"}}]}, {"edges": [{"id": 0, "s": 0, "t": 1, "v": {"interaction": "interacts", "weight": 0.5}}]}, {"status": [{"error": "", "success": true}]}]}'</code></pre>
   <p>If <code>curl</code> is not available, paste the first two URLs into a browser.</p>
+  <aside class="notes" data-markdown>
+    To run the Service App locally, execute the command `python addnodes.py` in the terminal. 
+    You can test the service using curl commands to check the status and submit a task. 
+    If curl is not available, you can paste the first two URLs into a browser to check 
+    the status and submit a task.
+  </aside>
 </section>
 
 <section>
@@ -289,6 +350,14 @@ pip install flask flask-cors ndex2
 	  <li>Launch it by invoking <highlight>Apps → Example Service App → Python-Flask Simple Service-App</highlight>.</li>
     </ol>
 	<p>After invocation, additional nodes should appear in the network.</p>
+  <aside class="notes" data-markdown>
+    To try the Service App in Cytoscape Web, first open Cytoscape Web. 
+    Then go to Apps → Manage Apps... and click the SERVICE APPS tab. 
+    Paste http://localhost:8080/addnodes into External Service URL and click Add. 
+    Get some networks by clicking Data → Open Sample Networks. 
+    Finally, launch the Service App by invoking Apps → Example Service App → Python-Flask Simple Service-App. 
+    After invocation, additional nodes should appear in the network.
+  </aside>
   </section>
 
 <section>
@@ -299,6 +368,11 @@ pip install flask flask-cors ndex2
 		<ul><code>addNetworks, updateSelection, updateLayouts, openURL</code></li>
 	</ul>
 	<p>Visit the <a href="https://github.com/cytoscape/cytoscape-web/wiki/Specification-for-Service-App-in-Cytoscape-Web-(draft-v2)" target="_blank">Specification for Service App in Cytoscape Web</a>.</p>
+  <aside class="notes" data-markdown>
+    Here are some more things to try. You can modify the code to add more nodes or edges, 
+    or try a different action like addNetworks, updateSelection, updateLayouts, or openURL. 
+    Please visit the Specification for Service App in Cytoscape Web for more details.
+  </aside>
 </section>
 
 <section>
