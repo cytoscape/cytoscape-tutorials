@@ -167,7 +167,7 @@ def get_task_status(task_id):
             'progress': 100,
             'wallTime': 0,
             'startTime': 0,
-        }), 400
+        }), 404
 
     return jsonify(task_status(task_id, task))
 
@@ -184,7 +184,7 @@ def get_task_result(task_id):
             'wallTime': 0,
             'startTime': 0,
             'result': [],
-        }), 400
+        }), 404
 
     result = task_status(task_id, task)
     result['result'] = task['result']
@@ -194,7 +194,7 @@ def get_task_result(task_id):
 @app.delete(BASE_PATH + '/<task_id>')
 def delete_task(task_id):
     if task_id not in tasks:
-        return jsonify({'message': 'Task not found'}), 400
+        return jsonify({'message': 'Task not found'}), 404
 
     del tasks[task_id]
     return '', 204
