@@ -11,7 +11,18 @@
         <div style="position: absolute; top: 0px; left: 50px" class="fragment fade-in" data-fragment-index="2">
                 <img src="modules/intro-automation/CytoscapeAutomation_3.png"/>
         </div>
-                             </section>
+    <aside class="notes" data-markdown>
+      At the start Cytoscape offered commands that could run operations in Cytoscape through the command interface. 
+      Cytoscape App developers could also expose commands for their apps to enable users to run their app functionality through the
+      same command interface. 
+      
+      Later on Cytoscape added a REST API known as cyREST to allow external programs to control 
+      Cytoscape. cyREST runs a web server inside Cytoscape on port 1234 and allows external programs to send commands to Cytoscape through HTTP requests.
+      
+      Rcy3 and py4cytoscape are R and Python packages that allow users to run commands in Cytoscape through the cyREST API.
+  </aside>
+    </section>
+    
 <section>
 <h1>When to Automate</h1>
 <highlight>Why run a script when I could just use Cytoscape directly?</highlight><br/><br/>
